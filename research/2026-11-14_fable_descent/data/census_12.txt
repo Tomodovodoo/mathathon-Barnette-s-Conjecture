@@ -1,0 +1,30 @@
+T V=12 rooted_with_pair=120 factors=122 pairs=376 tree_pairs=372 components=120 max_free_dist=1 skipped=0
+K V=12 khist 0:372 1:4
+S V=12 pot=k nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=k+c nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=vq nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=wq nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,c) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(c,k) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(c,wq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,wq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,vq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(c,vq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+psi,+om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+psi,-om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=3 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-psi,+om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-psi,-om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=4 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+om,+psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+om,-psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-om,+psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=3 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-om,-psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=4 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,+om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=1 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,-om) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=3 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,c,wq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,wq+wd) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=wq+wd nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(c,k,wq) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,c,+psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0
+S V=12 pot=(k,c,-psi) nontarget=4 trap1=0(inst 0) trap2=0(inst 0) sinks=0(inst 0) maxrho=1 maxmono=1 maxstrictlen=2 rhohist 1:4 2:0 3:0 4:0 5:0 6:0 7:0

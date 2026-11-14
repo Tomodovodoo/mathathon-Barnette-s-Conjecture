@@ -14,7 +14,8 @@
 #undef main
 
 static mt19937_64 rng(1);
-struct LNode { int k; vector<string> nb; vector<char> ty; };
+struct LNode { int k; vector<string> nb; vector<char> ty; vector<int> dv; };
+static bool wantSigned = false;
 static unordered_map<string, LNode> cache;
 
 static const LNode& expand(const string& key) {
@@ -22,8 +23,8 @@ static const LNode& expand(const string& key) {
     if (it != cache.end()) return it->second;
     LNode nd; vector<Cyc> dc, qc; dcycles(key, dc); qcycles(key, qc);
     nd.k = qc.size();
-    for (auto &c : dc) { string k2 = key; for (int i : c.fs) { int ri = k2[i] / 3, si = k2[i] % 3; k2[i] = si * 3 + ri; } nd.nb.push_back(k2); nd.ty.push_back(0); }
-    for (auto &c : qc) { string k2 = key; for (int i : c.fs) { int ri = k2[i] / 3, si = k2[i] % 3, ui = 3 - ri - si; k2[i] = ui * 3 + si; } nd.nb.push_back(k2); nd.ty.push_back(1); }
+    for (auto &c : dc) { string k2 = key; for (int i : c.fs) { int ri = k2[i] / 3, si = k2[i] % 3; k2[i] = si * 3 + ri; } nd.nb.push_back(k2); nd.ty.push_back(0); int se = 0, W = 0; if (wantSigned) W = I.enclosed(c.vs, se); nd.dv.push_back(-W * se); }
+    for (auto &c : qc) { string k2 = key; for (int i : c.fs) { int ri = k2[i] / 3, si = k2[i] % 3, ui = 3 - ri - si; k2[i] = ui * 3 + si; } nd.nb.push_back(k2); nd.ty.push_back(1); int se = 0, W = 0; if (wantSigned) W = I.enclosed(c.vs, se); nd.dv.push_back(-W * se); }
     return cache.emplace(key, std::move(nd)).first->second;
 }
 static int kOf(const string& key) { vector<Cyc> qc; qcycles(key, qc); return qc.size(); }
@@ -99,6 +100,31 @@ static int monotone(const string& start, ll& visited) {
     visited = d.size(); return -2;
 }
 
+
+// radii for the eight plateau-free potentials (k, e1*X, e2*Y), X,Y in {psi, om}.
+// index: 0..3 psi first with (e1,e2) = (+,+),(+,-),(-,+),(-,-); 4..7 om first, same signs.
+static int pcap = 4;
+static void signedRadii(const string& start, int out[8]) {
+    int k0 = expand(start).k; for (int j = 0; j < 8; j++) out[j] = -1; int found = 0;
+    struct E { int d; ll ps, om; };
+    unordered_map<string, E> d; deque<string> q; d[start] = {0, 0, 0}; q.push_back(start);
+    while (!q.empty() && found < 8) {
+        string a = q.front(); q.pop_front(); E ea = d[a];
+        if (ea.d >= pcap) break;
+        LNode nd = expand(a);
+        for (size_t j = 0; j < nd.nb.size(); j++) { const string& b = nd.nb[j]; if (d.count(b)) continue;
+            E eb = {ea.d + 1, ea.ps + (nd.ty[j] == 1 ? nd.dv[j] : 0), ea.om + (nd.ty[j] == 0 ? nd.dv[j] : 0)};
+            d[b] = eb; q.push_back(b); int kb = kOf(b);
+            for (int z = 0; z < 8; z++) if (out[z] < 0) {
+                int e1 = (z & 2) ? -1 : 1, e2 = (z & 1) ? -1 : 1; ll X = z < 4 ? eb.ps : eb.om, Y = z < 4 ? eb.om : eb.ps;
+                array<ll,3> pb = {kb, e1 * X, e2 * Y}, pa = {k0, 0, 0};
+                if (pb < pa) { out[z] = eb.d; found++; }
+            }
+            if ((ll)d.size() > ncap) return;
+        }
+    }
+}
+
 int main(int argc, char** argv) {
     int R = 2; ll steps = 2000; int gap = 5; double bias = 0.5; ll seed = 1; bool doC3 = true;
     for (int i = 1; i < argc; i++) {
@@ -106,11 +132,11 @@ int main(int argc, char** argv) {
         if (a == "-R") R = atoi(argv[++i]); else if (a == "-steps") steps = atoll(argv[++i]);
         else if (a == "-gap") gap = atoi(argv[++i]); else if (a == "-bias") bias = atof(argv[++i]);
         else if (a == "-seed") seed = atoll(argv[++i]); else if (a == "-dcap") dcap = atoi(argv[++i]);
-        else if (a == "-ncap") ncap = atoll(argv[++i]); else if (a == "-noc3") doC3 = false;
+        else if (a == "-ncap") ncap = atoll(argv[++i]); else if (a == "-noc3") doC3 = false; else if (a == "-signed") wantSigned = true; else if (a == "-pcap") pcap = atoi(argv[++i]);
     }
     rng.seed(seed);
     ll inst = 0, samples = 0, sinks = 0, c3fail = 0, c3cap = 0, rhocap = 0; ll rhoHist[12] = {0}; int maxRho = 0, maxMono = 0, maxLen = 0, maxK = 0, maxLenK = 0; ll maxVisited = 0;
-    ll lenSum = 0, lenCnt = 0; int wit = 0;
+    ll lenSum = 0, lenCnt = 0; int wit = 0; ll sgHist[8][8] = {{0}}; int swit = 0;
     string line; curGraph = -1;
     while (getline(cin, line)) {
         if (line.empty()) continue;
@@ -148,6 +174,9 @@ int main(int argc, char** argv) {
                     if (m == -2) { c3fail++; printf("W C3FAIL V=%d graph=%d t0=%d,%d,%d k=%d closed_set=%lld | %s | pair", V, curGraph, faces[I.t0][0], faces[I.t0][1], faces[I.t0][2], k0, vis2, curLine.c_str()); for (int i = 0; i < I.n; i++) printf(" %d>%d", I.fc[i][cur[i]/3], I.fc[i][cur[i]%3]); printf("\n"); }
                     else if (m == -1) c3cap++; else maxMono = max(maxMono, m);
                 }
+                if (wantSigned) { int rr[8]; signedRadii(cur, rr);
+                    for (int z = 0; z < 8; z++) { int v = rr[z] < 0 ? 7 : min(rr[z], 6); sgHist[z][v]++;
+                        if ((rr[z] < 0 || rr[z] >= 3) && swit < 12) { swit++; printf("W SIGNEDRHO V=%d graph=%d t0=%d,%d,%d k=%d pot=%d rho=%d | %s | pair", V, curGraph, faces[I.t0][0], faces[I.t0][1], faces[I.t0][2], k0, z, rr[z], curLine.c_str()); for (int i = 0; i < I.n; i++) printf(" %d>%d", I.fc[i][cur[i]/3], I.fc[i][cur[i]%3]); printf("\n"); } } }
                 // nearest-improvement descent length
                 { string a = cur; int len = 0; bool ok = true;
                   while (true) { int ka = expand(a).k; if (ka == 0) break; string t2; int r2 = nearestLower(a, t2); if (r2 < 0) { ok = false; break; } len += r2; a = t2; }
@@ -159,5 +188,13 @@ int main(int argc, char** argv) {
            V, inst, samples, maxK, sinks, rhocap, maxRho, c3fail, c3cap, maxMono, maxVisited, maxLen, maxLenK, lenCnt ? (double)lenSum / lenCnt : 0.0);
     for (int j = 1; j < 12; j++) if (rhoHist[j]) printf(" %d:%lld", j, rhoHist[j]);
     printf("\n");
+    if (wantSigned) {
+        const char* nm[8] = {"(k,+psi,+om)","(k,+psi,-om)","(k,-psi,+om)","(k,-psi,-om)","(k,+om,+psi)","(k,+om,-psi)","(k,-om,+psi)","(k,-om,-psi)"};
+        for (int z = 0; z < 8; z++) {
+            printf("SIGNED V=%d pot=%s rhohist", V, nm[z]);
+            for (int j = 1; j < 8; j++) if (sgHist[z][j]) printf(" %s%d:%lld", j == 7 ? ">cap/" : "", j, sgHist[z][j]);
+            printf("\n");
+        }
+    }
     return 0;
 }
