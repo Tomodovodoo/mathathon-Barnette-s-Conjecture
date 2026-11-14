@@ -23,7 +23,7 @@ Output lines of `descent.exe`: `T` totals, `K` histogram of `k`, `S` one line pe
 
 ## Validation
 
-- `for v in 6 8 9 10 11 12 13 14 15 16; do $P -ba $v | ./descent.exe | grep "^T"; done` gives 5,088 rooted instances with a pair, 24,744 pairs and 24,090 tree pairs in total, the refereed numbers. The counts of rooted instances with a pair at `V = 17..22` (8,042; 27,972; 82,819; 287,110; 944,804; 3,301,113) agree with `research/2026-11-14_opus_conjectures` and sum with the smaller orders to the referee's 4,656,948.
+- `for v in 6 8 9 10 11 12 13 14 15 16; do $P -ba $v | ./descent.exe | grep "^T"; done` gives 5,088 rooted instances with a pair, 24,744 pairs and 24,090 tree pairs in total, the refereed numbers. The counts of rooted instances with a pair at `V = 17..22` (8,042; 27,972; 82,819; 287,110; 944,804; 3,301,113) agree with `research/2026-11-14_opus_conjectures` and sum with the smaller orders to the referee's 4,656,948. The eight parts at `V = 23` sum to 11,395,661, the count in the same folder.
 - The engine exits with an error if a component of an exchange graph has no tree pair, if a move leads outside the enumerated set of pairs, or if a height is path dependent. None of these happened in any run.
 - `python verify_witness.py ../data/witnesses.txt > ../data/witnesses_verified.json` recomputes the `k`-witnesses with the reference lab.
 

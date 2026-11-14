@@ -256,7 +256,7 @@ static void witness(const char* kind, int p, int id, int extra) {
 }
 
 static bool quiet = false; static int potMask = -1;
-static bool sinkStats = false; static map<array<int,5>, ll> sinkHist;   // (k, c, D-cycles meeting Q-cycles, D-cycles in all, escape mask)
+static bool sinkStats = false; static map<array<int,5>, ll> sinkHist;   // (k, c, D-cycles meeting Q-cycles, longest Q-cycle, escape mask)
 
 static void analyse() {
     int N = nodes.size();
@@ -304,7 +304,8 @@ static void analyse() {
         int mask = 0;   // 1: Q then D lowers k; 2: D then D lowers k; 4: needs three moves or more
         for (auto &m : nodes[a].mv) for (auto &m2 : nodes[m.to].mv) if (nodes[m2.to].k < k0) mask |= (m.type == 1 ? 1 : 2);
         if (!mask) mask = 4;
-        sinkHist[{k0, nodes[a].c, meet, (int)dc.size(), mask}]++;
+        int qlen = 0; for (auto &c : qc) qlen = max(qlen, (int)c.fs.size());
+        sinkHist[{k0, nodes[a].c, meet, qlen, mask}]++;
     }
     vector<Phi> ph(N);
     for (int p = 0; p < NPOT; p++) {
@@ -403,6 +404,6 @@ int main(int argc, char** argv) {
         for (int j = 1; j < 8; j++) printf(" %d:%lld", j, S.rhoHist[j]);
         printf("\n");
     }
-    if (sinkStats) for (auto &e : sinkHist) printf("H V=%d k=%d c=%d dcycles_meeting_Q=%d escape=%s%s%s count=%lld\n", V, e.first[0], e.first[1], e.first[2], (e.first[4] & 1) ? "QD " : "", (e.first[4] & 2) ? "DD " : "", (e.first[4] & 4) ? "none<=2" : "", e.second);
+    if (sinkStats) for (auto &e : sinkHist) printf("H V=%d k=%d c=%d dcycles_meeting_Q=%d longest_qcycle=%d escape=%s%s%s count=%lld\n", V, e.first[0], e.first[1], e.first[2], e.first[3], (e.first[4] & 1) ? "QD " : "", (e.first[4] & 2) ? "DD " : "", (e.first[4] & 4) ? "none<=2" : "", e.second);
     return 0;
 }

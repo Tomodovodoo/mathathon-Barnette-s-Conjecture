@@ -10,6 +10,19 @@
   "k": 1,
   "c": 1,
   "rho_lab": 2,
+  "shortest_exit_words": [
+   "QD"
+  ],
+  "q_cycle_lengths": [
+   3
+  ],
+  "q_cycle_is_white_face": [
+   true
+  ],
+  "d_cycle_lengths": [
+   13
+  ],
+  "d_cycles_meeting_q": 1,
   "ok": true,
   "c3_from_here": true,
   "c3_pairs_visited": 4
@@ -25,6 +38,20 @@
   "k": 1,
   "c": 2,
   "rho_lab": 3,
+  "shortest_exit_words": [
+   "DQD"
+  ],
+  "q_cycle_lengths": [
+   3
+  ],
+  "q_cycle_is_white_face": [
+   true
+  ],
+  "d_cycle_lengths": [
+   7,
+   11
+  ],
+  "d_cycles_meeting_q": 2,
   "rho_claimed": 3,
   "ok": true,
   "c3_from_here": true,
@@ -41,6 +68,22 @@
   "k": 1,
   "c": 3,
   "rho_lab": 4,
+  "shortest_exit_words": [
+   "DQDD",
+   "QDQD"
+  ],
+  "q_cycle_lengths": [
+   3
+  ],
+  "q_cycle_is_white_face": [
+   true
+  ],
+  "d_cycle_lengths": [
+   7,
+   15,
+   35
+  ],
+  "d_cycles_meeting_q": 1,
   "rho_claimed": 4,
   "ok": true,
   "c3_from_here": true,
@@ -57,6 +100,23 @@
   "k": 1,
   "c": 5,
   "rho_lab": 3,
+  "shortest_exit_words": [
+   "DQD"
+  ],
+  "q_cycle_lengths": [
+   3
+  ],
+  "q_cycle_is_white_face": [
+   true
+  ],
+  "d_cycle_lengths": [
+   3,
+   3,
+   5,
+   5,
+   21
+  ],
+  "d_cycles_meeting_q": 3,
   "rho_claimed": 3,
   "ok": true,
   "c3_from_here": true,

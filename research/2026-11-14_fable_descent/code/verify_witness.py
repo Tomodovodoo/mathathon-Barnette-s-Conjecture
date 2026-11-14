@@ -59,15 +59,40 @@ def check(line):
     out = dict(kind=kind, V=len(g), t0=sorted(t0), k=k0, c=len(b.dcycles(*p)))
     # nearest smaller k
     dist = {p: 0}; q = deque([p]); rho = None
-    while q and rho is None:
+    types = {p: {''}}          # move-type words (D or Q) of the shortest paths from p
+    exits = set()
+    while q:
         a = q.popleft()
+        if rho is not None and dist[a] >= rho:
+            break
         for nb in b.neighbors(a):
+            ty = 'Q' if nb[1] == a[1] else 'D'
             if nb not in dist:
-                dist[nb] = dist[a] + 1
+                dist[nb] = dist[a] + 1; types[nb] = set()
                 if kk(nb) < k0:
-                    rho = dist[nb]; break
-                q.append(nb)
+                    if rho is None:
+                        rho = dist[nb]
+                else:
+                    q.append(nb)
+            if dist[nb] == dist[a] + 1:
+                types[nb] |= {w + ty for w in types[a]}
+                if kk(nb) < k0 and dist[nb] == rho:
+                    exits |= {w + ty for w in types[a]}
     out['rho_lab'] = rho
+    out['shortest_exit_words'] = sorted(exits)
+    cyc = b.qcycles(p[1])
+    out['q_cycle_lengths'] = sorted(len(c) for c in cyc)
+    white_sets = {frozenset(b.faces[y]) for y in b.white}
+    qv = []
+    for c in cyc:                      # vertex set of the Q-cycle supplied by the faces c
+        vs = set()
+        for t in c:
+            i = b.A.index(t)
+            vs |= set(b.faces[t]) - {p[1][i]}
+        qv.append(frozenset(vs))
+    out['q_cycle_is_white_face'] = [v in white_sets for v in qv]
+    out['d_cycle_lengths'] = sorted(len(c) for c in b.dcycles(*p))
+    out['d_cycles_meeting_q'] = sum(1 for c in b.dcycles(*p) if any(set(c) & set(z) for z in cyc))
     claimed = int(kv.get('rho', kv.get('extra', 0)))
     if kind == 'SINK':
         out['ok'] = k0 >= 1 and rho is not None and rho >= 2

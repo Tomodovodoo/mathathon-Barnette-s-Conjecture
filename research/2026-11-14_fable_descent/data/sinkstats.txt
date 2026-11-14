@@ -1,19 +1,22 @@
-H V=16 k=1 c=1 dcycles_meeting_Q=1 escape=QD  count=2
-H V=17 k=1 c=2 dcycles_meeting_Q=1 escape=QD DD  count=8
-H V=18 k=1 c=1 dcycles_meeting_Q=1 escape=QD  count=192
-H V=18 k=1 c=3 dcycles_meeting_Q=1 escape=QD DD  count=4
-H V=19 k=1 c=2 dcycles_meeting_Q=1 escape=QD  count=115
-H V=19 k=1 c=2 dcycles_meeting_Q=1 escape=QD DD  count=249
-H V=19 k=1 c=2 dcycles_meeting_Q=2 escape=QD DD  count=2
-H V=20 k=1 c=1 dcycles_meeting_Q=1 escape=QD  count=2186
-H V=20 k=1 c=3 dcycles_meeting_Q=1 escape=QD  count=2
-H V=20 k=1 c=3 dcycles_meeting_Q=1 escape=QD DD  count=525
-H V=20 k=1 c=3 dcycles_meeting_Q=2 escape=QD DD  count=4
-H V=21 k=1 c=2 dcycles_meeting_Q=1 escape=QD  count=5918
-H V=21 k=1 c=2 dcycles_meeting_Q=1 escape=QD DD  count=5702
-H V=21 k=1 c=2 dcycles_meeting_Q=2 escape=QD  count=40
-H V=21 k=1 c=2 dcycles_meeting_Q=2 escape=QD DD  count=121
-H V=21 k=1 c=2 dcycles_meeting_Q=2 escape=none<=2 count=6
-H V=21 k=1 c=4 dcycles_meeting_Q=1 escape=QD DD  count=275
-H V=21 k=1 c=4 dcycles_meeting_Q=2 escape=QD DD  count=12
-H V=21 k=1 c=4 dcycles_meeting_Q=3 escape=QD DD  count=1
+H V=16 k=1 c=1 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=2
+H V=17 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=8
+H V=18 k=1 c=1 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=192
+H V=18 k=1 c=3 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=4
+H V=19 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=115
+H V=19 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=249
+H V=19 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=5 escape=QD DD  count=2
+H V=20 k=1 c=1 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=2186
+H V=20 k=1 c=3 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=2
+H V=20 k=1 c=3 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=525
+H V=20 k=1 c=3 dcycles_meeting_Q=2 longest_qcycle=5 escape=QD DD  count=4
+H V=21 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD  count=5918
+H V=21 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=5701
+H V=21 k=1 c=2 dcycles_meeting_Q=1 longest_qcycle=5 escape=QD DD  count=1
+H V=21 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=3 escape=QD  count=17
+H V=21 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=3 escape=none<=2 count=6
+H V=21 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=5 escape=QD  count=23
+H V=21 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=5 escape=QD DD  count=114
+H V=21 k=1 c=2 dcycles_meeting_Q=2 longest_qcycle=7 escape=QD DD  count=7
+H V=21 k=1 c=4 dcycles_meeting_Q=1 longest_qcycle=3 escape=QD DD  count=275
+H V=21 k=1 c=4 dcycles_meeting_Q=2 longest_qcycle=3 escape=QD DD  count=12
+H V=21 k=1 c=4 dcycles_meeting_Q=3 longest_qcycle=5 escape=QD DD  count=1

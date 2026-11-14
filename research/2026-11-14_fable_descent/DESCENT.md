@@ -3,7 +3,7 @@
 Fable 5.2, 2026-11-14. Notation is the shared one. Proofs are in `PROOFS.md`, the complexity statement in `COMPLEXITY.md`, commands in `code/README.md` and `data/README.md`.
 
 **Summary.**
-1. C3 in its original form survives everything I could throw at it. From every one of the 49,325,864 ordered pairs of all 4,656,948 rooted instances with `V <= 22`, and from every one of the 9,970,784 pairs of 230 random triangulations with `V = 26` to `80` at every root, a tree pair is reached by exchange moves that never increase `k`, the number of cycles of `Q_s`.
+1. C3 in its original form survives everything I could throw at it. From every one of the 193,623,384 ordered pairs of all 16,052,609 rooted instances with `V <= 23`, and from every one of the 9,970,784 pairs of 230 random triangulations with `V = 26` to `80` at every root, a tree pair is reached by exchange moves that never increase `k`, the number of cycles of `Q_s`.
 2. Every sharper variant is false. Strict descent in `k` fails at `V = 16` (least), lookahead two at `V = 21` (least), lookahead three at `V = 40`. Every potential that involves the number of cycles of `D` traps a pair at `V = 16`. The plateau-free potentials built from the heights fail at `V = 16` or `18`. Tie-breaking the plateau moves by a height, or by the size of the Q-cycles, fails at `V = 18` or `40`.
 3. Two exact facts organise the moves. A D-swap along `C` destroys exactly the Q-cycles that meet `C`. There are three heights `w_r + w_s + w_u = const`, a D-swap moves height between `r` and `s`, a Q-reversal between `r` and `u`, always by the number of white faces inside the cycle.
 4. Small traps are uniform. Every strict local minimum of `k` up to `V = 21` has `k = 1`, and in 98.8% of them the Q-cycle lies on a single D-cycle. When two moves suffice there, one way out is to reverse the Q-cycle first, which changes the 2-factor, and then swap. At `V = 40` all three regularities have exceptions.
@@ -35,18 +35,18 @@ For a potential `Phi` and a move set I ask three questions, in increasing streng
 
 Move sets: single exchange moves, and macro moves, where a macro move of length at most two is any pair at distance at most two with `Phi` not larger. The variant "reverse a cycle of `D`, then make a forced repair" is a macro move of length two, so it is covered. Where macro moves of length two fail, it fails. The data say the useful compound move has the other order, a Q-reversal followed by a D-swap (Section 4).
 
-The engine `code/descent.cpp` enumerates all 2-factors of a rooted instance, all their orientations, builds `E`, and answers the three questions for 28 potentials by breadth-first search on the digraph of allowed moves. It reproduces the refereed totals exactly (5,088 rooted instances, 24,744 pairs, 24,090 tree pairs for `V <= 16`, and 4,656,948 rooted instances with a pair for `V <= 22`). An independent check of the main witnesses with the reference lab is in `data/witnesses_verified.json`.
+The engine `code/descent.cpp` enumerates all 2-factors of a rooted instance, all their orientations, builds `E`, and answers the three questions for 28 potentials by breadth-first search on the digraph of allowed moves. It reproduces the refereed totals exactly (5,088 rooted instances, 24,744 pairs, 24,090 tree pairs for `V <= 16`, 4,656,948 rooted instances with a pair for `V <= 22`, and 11,395,661 at `V = 23`). An independent check of the main witnesses with the reference lab is in `data/witnesses_verified.json`.
 
 ## 3. Verdicts
 
-`COMPUTED` throughout. "Census" means all rooted instances with `V <= 22`, all pairs (`data/census_*.txt`, `data/census_tables.md`). "Random exact" means all pairs of random triangulations at every root (`data/exhaustive_random_*.txt`). "Sampled" means random walks on larger instances (`data/walk_*.txt`). A least order is claimed only where the census decides it.
+`COMPUTED` throughout. "Census" means all rooted instances with `V <= 22`, all pairs, all 28 potentials (`data/census_*.txt`, `data/census_tables.md`). For `k` alone the census goes one order further, to `V = 23` (144,297,520 more pairs, `data/census_23_part*.txt`). "Random exact" means all pairs of random triangulations at every root (`data/exhaustive_random_*.txt`). "Sampled" means random walks on larger instances (`data/walk_*.txt`). A least order is claimed only where the census decides it.
 
 | Variant | Verdict | Smallest trap or range |
 | --- | --- | --- |
-| `k`, weak descent, single moves (C3) | `CONJECTURE`, no counterexample | holds on the census (49,325,864 pairs), on all 9,970,784 pairs of the random exact instances (`V = 26..80`), and from 27,660 sampled strict local minima on instances with `V = 40..200` |
+| `k`, weak descent, single moves (C3) | `CONJECTURE`, no counterexample | holds for all 193,623,384 pairs with `V <= 23`, on all 9,970,784 pairs of the random exact instances (`V = 26..80`), and from 27,660 sampled strict local minima on instances with `V = 40..200` |
 | `k`, strict descent | `REFUTED` | `V = 16`, least. One rooted instance, 2 pairs |
-| `k`, lookahead 2 | `REFUTED` | `V = 21`, least. 6 pairs. None at `V = 22` |
-| `k`, lookahead 3 | `REFUTED` | `V = 40` (random exact, 1 pair among 335,704), not known to be least. 17 and 16 pairs in the two `V = 50` batches, 188 at `V = 60`. Sampled at `V = 80, 100, 150, 200` |
+| `k`, lookahead 2 | `REFUTED` | `V = 21`, least. 6 pairs at `V = 21`, none at `V = 22`, 203 at `V = 23` |
+| `k`, lookahead 3 | `REFUTED` | `V = 40` (random exact, 1 pair among 335,704). The least order is between 24 and 40, since no pair with `V <= 23` has radius 4. 17 and 16 pairs in the two `V = 50` batches, 188 at `V = 60`. Sampled at `V = 80, 100, 150, 200` |
 | `k`, lookahead 4 | open | radius 5 not seen |
 | `vq`, `wq`, `(k, vq)`, `(k, wq)`, weak descent | `REFUTED` | hold on the census. Trapped pairs at `V = 40` (random exact). At `V = 50` also with macro moves of length two |
 | `(k, om)` either sign, weak descent (D-swaps on a plateau may only move `w_s` one way) | `REFUTED` | holds on the census. Trapped pairs at `V = 40` (random exact), also with macro moves of length two |
@@ -95,6 +95,17 @@ The graph-theory folder calls a strict local minimum a weak trap. It found the f
 - These regularities weaken with size. On 40 random triangulations with 40 vertices (`data/sinkstats_random40.txt`, 11,778 strict local minima) 65 have `k = 2`, 15% have a Q-cycle that meets two or three D-cycles, and 143 have only the exit "D then D".
 - The six pairs with no exit of length two (all at `V = 21`, plantri graph 47751, root `(0, 1, 2)`, `c = 2`) have a Q-cycle that meets both D-cycles. The radius-4 pairs found by sampling at `V = 60` to `200` also have `k = 1`.
 
+Four witnesses, recomputed with the reference lab (`data/witnesses_verified.json`). The word lists the moves of every shortest exit, D for a D-swap and Q for a Q-reversal.
+
+| V | k | lengths of the D-cycles | D-cycles meeting the Q-cycle | Q-cycle | escape radius | shortest exits |
+| --- | --- | --- | --- | --- | --- | --- |
+| 16 | 1 | 13 | 1 | white face | 2 | QD |
+| 21 | 1 | 7, 11 | 2 | white face | 3 | DQD |
+| 40 | 1 | 3, 3, 5, 5, 21 | 3 | white face | 3 | DQD |
+| 60 | 1 | 7, 15, 35 | 1 | white face | 4 | DQDD, QDQD |
+
+The Q-cycle is a triangle in all four, and in 15,212 of the 15,364 strict local minima with `V <= 21` (145 have length 5 and 7 have length 7). By Corollary 2.2 of the conjectures folder a white triangle in `Q_s` is a directed facial hexagon of the alpha-orientation. In the four witnesses the triangle is a white face (checked with the lab). So the typical trap is the smallest possible obstruction, the three sides of one white face, and what makes it deep is that each swap that removes it creates another cycle.
+
 So the picture asked for in the brief is nearly right, with one correction. A small trap is a single Q-cycle sitting on a single D-cycle. What blocks the swap is not nesting but the twin cycle: `f` and `f'` of Lemma A each have a cycle through `V(C)`.
 
 ### 4.3 When does a D-swap destroy a Q-cycle without creating one
@@ -136,7 +147,7 @@ Three families named in the brief are vacuous for descent, each for a provable r
 
 | Quantity | Range | Value |
 | --- | --- | --- |
-| Largest distance in `E` from a pair to a tree pair | census | 0 for `V <= 11`, 1 for `V = 12..15`, 2 for `V = 16..19`, 3 for `V = 20..22` |
+| Largest distance in `E` from a pair to a tree pair | census | 0 for `V <= 11`, 1 for `V = 12..15`, 2 for `V = 16..19`, 3 for `V = 20..23` |
 | | random exact | up to 5 (`V = 50`, `60`) |
 | Largest length of a shortest non-increasing path to a tree pair | census | 3 |
 | | random exact | up to 5 (`V = 50`, `60`) |
@@ -192,8 +203,8 @@ Nothing here is an upper bound. No bound on the length of a non-increasing path 
 | Proposition D (white-face gluing gives products) | `PROVED-HERE` |
 | Proposition E (potentials monotone in `c` are trapped at `V = 16`) | `COMPUTED`, with the parity of `c` from the trees paper |
 | Proposition F (bounded escape radius gives a polynomial algorithm) | `PROVED-HERE` |
-| C3 | `CONJECTURE`. Test: find a closed plateau. `COMPUTED` none for `V <= 22` |
-| Escape radius of `k` is unbounded | `HUNCH`. Observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 40` |
+| C3 | `CONJECTURE`. Test: find a closed plateau. `COMPUTED` none for `V <= 23` |
+| Escape radius of `k` is unbounded | `HUNCH`. Observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 40`. The first three orders are exact, the fourth lies between 24 and 40 |
 | Every strict local minimum of `k` has `k = 1` | `COMPUTED` true for `V <= 21`, `REFUTED` at `V = 40` (65 of 11,778 strict local minima of 40 random triangulations have `k = 2`) |
 | C3 restricted to D-swaps monotone in `w_s` | `REFUTED`, `V = 40` |
 | Strict descent in any of the twelve plateau-free height potentials | `REFUTED`, `V = 16` or `18` |
