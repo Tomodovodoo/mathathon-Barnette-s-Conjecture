@@ -1,7 +1,8 @@
-"""Compute and draw the figures of sign-free.tex. Writes fig-*.tex (TikZ bodies) and figdata.json.
+"""Compute and draw the figures of sign-free.tex. Writes fig-*.tex (TikZ bodies).
 
-Usage: python make_figs.py      (from this folder; needs plantri.exe for the 16-vertex figure)
-Every object drawn is computed here and asserted again, from figdata.json alone, by check.py.
+Usage: python make_figs.py      (from this folder)
+Reads running.json and layout-running.json (the 13-vertex example of the paper) and bad16.json.
+In the code a "spoke" (i, v) is the arc of H^+ from the point p_t of the black face t = black[i] to its corner v.
 """
 import json
 import math
@@ -306,9 +307,9 @@ DATA['digraph'] = {'u': {str(I.A[i]): u[i] for i in range(I.n)}, 'sigma': DATA['
                    'all_arcs': sorted([v, u[i]] for i, f in enumerate(I.A) for v in f if v != u[i])}
 
 
-# Figure 3: one exchange, with the cycle Gamma in the spoke graph
+# Figure 3: one exchange, with the cycle L in H^+
 def gamma(inst, sig, x):
-    """Vertices of the cycle of F_sigma + (sigma(x), x), from x to the centre of sigma(x) in F_sigma."""
+    """Vertices of the cycle of H_sigma + x sigma(x), from x to the point of sigma(x) in H_sigma."""
     rem = {(sig[y], y) for y in inst.X}
     nb = {}
     for s in inst.spokes:
@@ -376,7 +377,7 @@ DATA['exchange'] = {'sigma': DATA['rainbow']['a'], 'x': x_ex, 'old_face': I.A[si
 
 # Figure 4: one orbit of the involution iota_t
 seq = [(s_good, None, None)] + [(w[0], w[1], w[2]) for w in walk] + [(s_img, None, None)]
-tags = ['$s$', '$S_1$', '$S_2$', "$s'=\\iota_t(s)$"]
+tags = ['$s$', '$P_1$', '$P_2$', "$s'=\\iota_t(s)$"]
 panels = []
 moved = set()
 for (sig, tt, a), tag in zip(seq, tags):
@@ -402,9 +403,8 @@ write('fig-orbit.tex', [p.tex(tag) for p, tag in panels])
 DATA['orbit'] = {'t': I.A[T_ORBIT], 's': DATA['rainbow']['b'], 'image': {str(x): I.A[s_img[x]] for x in I.X},
                  'walk': [{'sigma': {str(x): I.A[w[0][x]] for x in I.X}, 'face': I.A[w[1]], 'arrival': w[2]} for w in walk]}
 
-# ---------------------------------------------------------------- Figure 5: the 16-vertex cover without a good state
-rot = sf.plantri(16)[27]
-fs = sf.faces_of(rot)
+# ---------------------------------------------------------------- Figure 5: the 16-vertex 2-factor without a good state
+fs = [tuple(f) for f in json.load(open('bad16.json'))['faces']]
 J = sf.Inst(fs, fs.index((0, 1, 2)))
 factors = J.two_factors()
 bad = [u for u in factors if not any(J.good_state(s) for s in J.states_in(u))]
@@ -530,7 +530,7 @@ def q_cycle(inst, s, r):
 
 panels = []
 qc = []
-# (a) the cover: one edge r(t)s(t) in every face, and both states
+# (a) the 2-factor: one edge r(t)s(t) in every face, and both states
 p = Panel(J, P16, W16A, wedge=0.42, vr=1.0)
 p.inside = True
 for i, f in enumerate(J.A):
@@ -552,19 +552,18 @@ for (s, r), tag in (((st[0], st[1]), '(b)'), ((st[1], st[0]), '(c)')):
         p.arrow(a, b, 'bf Qdir,line width=1.5pt' if (a, b) in on else 'bf Qdir,line width=.7pt,opacity=.75')
     panels.append(p.tex(tag))
 write('fig-badcover.tex', panels)
-DATA['badcover'] = {'plantri_index': 27, 'V': 16, 'outer_face': [0, 1, 2], 'faces': fs, 'u': {str(J.A[i]): ub[i] for i in range(J.n)},
+DATA['badcover'] = {'V': 16, 'outer_face': [0, 1, 2], 'faces': fs, 'u': {str(J.A[i]): ub[i] for i in range(J.n)},
                     'states': [{str(J.A[i]): s[i] for i in range(J.n)} for s in st], 'q_cycles': qc,
-                    'covers_in_this_rooting': len(factors), 'good_states_in_this_rooting': n_good_total,
-                    'rainbow_trees_inside_the_cover': n_rb_in, 'coordinates': {str(v): [round(z, 3) for z in P16[v]] for v in P16}}
+                    'two_factors': len(factors), 'good_states': n_good_total,
+                    'rainbow_trees_inside': n_rb_in, 'coordinates': {str(v): [round(z, 3) for z in P16[v]] for v in P16}}
 DATA['running'] = {'faces': d['faces'], 't0': d['t0'], 'rainbow_trees': len(I.rainbow_trees()), 'two_factors': len(I.two_factors())}
-# the two layouts, with the scale of the smallest panel that uses each, for the separation checks of check.py
+# the two layouts, with the scale of the smallest panel that uses each
 xr = max(p[0] for p in PR.values()) - min(p[0] for p in PR.values())
 DATA['layouts'] = {'running': {'figures': [1, 2, 3, 4], 'coordinates': {str(v): list(PR[v]) for v in PR}, 'pt_per_unit': round(TEXTWIDTH_PT * 0.238 / (xr + 1.0), 3)},
                    'badcover': {'figures': [5], 'coordinates': DATA['badcover']['coordinates'], 'pt_per_unit': round(U16, 3)}}
 DATA['label_clearance_pt'] = CLEARANCE
 print('label clearances in pt', CLEARANCE)
 assert min(CLEARANCE.values()) >= 0.5, 'a label touches a drawn object'
-json.dump(DATA, open('figdata.json', 'w'), indent=1)
-print('exchange at', x_ex, 'gamma', DATA['exchange']['gamma'])
-print('bad cover: covers', len(factors), 'good states', n_good_total, 'rainbow inside', n_rb_in, 'q cycles', qc)
+print('exchange at', x_ex, 'cycle', DATA['exchange']['gamma'])
+print('16 vertices: 2-factors', len(factors), 'good states', n_good_total, 'rainbow inside', n_rb_in, 'q cycles', qc)
 print('orbit moved', sorted(moved))

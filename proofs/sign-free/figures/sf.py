@@ -1,40 +1,11 @@
-"""Core objects of the sign-free note. Written for this note; imports nothing from the project.
+"""Objects of the note sign-free.tex.
 
-T: Eulerian triangulation given by a plantri rotation system. A rooting picks the outer black face t0.
-A = black faces other than t0 (index 0..n-1), X = non-root vertices, H = spoke graph, W = white-face graph.
+An Eulerian triangulation T is given by its list of faces; the outer black face is t0.
+A = black faces other than t0 (index 0..n-1), X = vertices other than the roots,
+H^+ = the arcs from a point in each black face to its corners (called spokes in the code), W = its plane dual.
 A map sigma: X -> A is stored as a dict x -> index in A.
 """
 import itertools
-import os
-import subprocess
-
-HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
-PLANTRI = os.path.join(REPO, 'workings', 'barnette_lab', 'vendor', 'plantri.exe')
-
-
-def plantri(V):
-    """All Eulerian triangulations of the sphere with V vertices, as rotation systems (plantri -b -a)."""
-    out = subprocess.run([PLANTRI, '-b', '-a', str(V)], capture_output=True, text=True).stdout
-    res = []
-    for line in out.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        _, adj = line.split(' ')
-        res.append([[ord(c) - 97 for c in a] for a in adj.split(',')])
-    return res
-
-
-def faces_of(rot):
-    fs = set()
-    for v, nb in enumerate(rot):
-        d = len(nb)
-        for i, u in enumerate(nb):
-            fs.add(tuple(sorted((u, v, nb[(i + 1) % d]))))
-    fs = sorted(fs)
-    assert len(fs) == 2 * len(rot) - 4, 'not a simple triangulation'
-    return fs
 
 
 class Inst:
@@ -73,7 +44,7 @@ class Inst:
         for a, b in self.edges:
             self.adj[a].add(b)
             self.adj[b].add(a)
-        # spokes (i, v), i in 0..n ; centre of black[i] is vertex V + i of H
+        # spokes (i, v), i in 0..n ; the point of black[i] is vertex V + i of H^+
         self.spokes = [(i, v) for i, f in enumerate(self.black) for v in f]
         self.NH = self.V + self.n + 1
         # white-face graph: edge e(t, v) joins the white faces across the two sides of t at v
@@ -91,7 +62,7 @@ class Inst:
 
     # ---- trees -------------------------------------------------------------
     def h_tree(self, removed):
-        """Is H minus the spokes in `removed` a spanning tree of H?"""
+        """Is H^+ minus the spokes in `removed` a spanning tree of H^+?"""
         p = list(range(self.NH))
 
         def find(a):
@@ -111,7 +82,7 @@ class Inst:
         return k == self.NH - 1
 
     def w_tree(self, spokes):
-        """Do the edges e(t, v), (t, v) in spokes, form a spanning tree of W?"""
+        """Do the duals of the given spokes form a spanning tree of W?"""
         p = list(range(self.n + 1))
 
         def find(a):
@@ -166,7 +137,7 @@ class Inst:
         return a[0]
 
     def parent(self, sig):
-        """Parent of each non-root x in F_sigma rooted at the centre of t0 (an index into black)."""
+        """Parent of each non-root x in H_sigma rooted at the point of t0 (an index into black)."""
         rem = {(sig[x], x) for x in self.X}
         nb = {v: [] for v in range(self.NH)}
         for s in self.spokes:
@@ -361,14 +332,6 @@ class Inst:
             state = nxt
             walk.append(state)
         raise RuntimeError('walk did not stop')
-
-
-def rootings(V):
-    """Every (plantri index, outer face, instance) with V vertices: each face in turn is t0."""
-    for idx, rot in enumerate(plantri(V)):
-        fs = faces_of(rot)
-        for k in range(len(fs)):
-            yield idx, fs[k], Inst(fs, k)
 
 
 def key(inst, sig):
