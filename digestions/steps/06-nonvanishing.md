@@ -141,6 +141,7 @@ If the count cannot be avoided, maybe a canonical choice can replace it. Each ca
 | some cover with $m$ cycles contains a good pair; every cover does | 16 | the example above |
 | good states split into cubes of dimension $m$ | 13: the running example has 6 good states and $m = 2$ | same, referee |
 | the sign of a good state is the parity of its weight | 8 | same |
+| the top or bottom of the lattice of states (Propp's rotations around white faces) is good | 10 (12 for "top or bottom") | `research/2026-11-14_opus_route-graph-theory/ROUTES.md` O1, computed, not refereed |
 | the top or bottom of Felsner's lattice of pairs | 18 (no minimality claim) | `research/2026-11-14_sol_referee-conjectures/`, two implementations |
 | an extreme or join-irreducible element of that lattice | 33, with separating triangles; separator-free case untested | same |
 | a good pair within bounded lattice distance of an extreme | 24 needs distance two; a glued family needs unbounded distance | same |
