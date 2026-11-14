@@ -1,10 +1,12 @@
-"""Pairs of states: the cycles they draw, the two reversals, sign and weight.
+"""Pairs of states: their cycles, the two reversals, sign and weight
+(Section 3 of the paper).
 
 A pair (r, s) consists of two states with r(t) != s(t) for every t in A; s is
-the second state, and u(t) is the third corner of t.  A pair draws
+the second state, and u(t) is the third corner of t.  A pair gives
   D(r, s):  the edges r(t) -> s(t), a set of disjoint directed cycles through
             all of X;
-  Q_s:      the edges r(t) -> u(t), with one edge leaving every vertex of X.
+  Q_s:      directed by r, with the edges r(t) -> u(t), one leaving every
+            vertex of X.
 A cycle is returned as the list of the faces t in A that supply its edges.
 """
 from .states import states
@@ -47,7 +49,8 @@ def D_cycles(T, r, s):
 
 
 def Q_cycles(T, r, s):
-    """The cycles of Q_s, directed by r.  There are none exactly when s is good."""
+    """The cycles of Q_s, directed by r.  There are none exactly when s is
+    good (Lemma 3.1)."""
     return _cycles(T, {r[t]: (T.third(t, r[t], s[t]), t) for t in T.A})
 
 
@@ -60,7 +63,8 @@ def reverse_D(T, r, s, C):
 
 
 def reverse_Q(T, r, s, K):
-    """Reverse the cycle K of Q_s: replace r(t) by u(t) on its faces."""
+    """Reverse the cycle K of Q_s: replace r by r^K, that is, r(t) by u(t) on
+    the faces of K."""
     r = dict(r)
     for t in K:
         r[t] = T.third(t, r[t], s[t])
@@ -68,14 +72,15 @@ def reverse_Q(T, r, s, K):
 
 
 def delta(T, v, w):
-    """delta(v, w) = 1 if the black face of the edge vw is on the left of v -> w, else -1."""
+    """delta_t(v, w) for the black face t at the edge vw: 1 if t is on the
+    left of v -> w, else -1."""
     return 1 if T.left[v, w] in T.black else -1
 
 
 def sign(T, r, s):
-    """The sign eps(r, s): the product of delta(r(t), s(t)) over t in A.
+    """The sign eps(r, s): the product of delta_t(r(t), s(t)) over t in A.
 
-    Both reversals change it.
+    Both reversals change it (Lemma 3.2).
     """
     result = 1
     for t in T.A:
@@ -84,12 +89,13 @@ def sign(T, r, s):
 
 
 def corner_weights(T):
-    """kappa(t, v), the sum over the white faces y of kappa_y(t, v).
+    """The local weights omega(t, v), as a dict {(t, v): omega(t, v)}.
 
-    For every white face y fix the path of faces from y to t0 in a breadth-first
-    tree of the faces.  When the path passes through a face t in A it turns
-    around one corner v of t, and kappa_y(t, v) is 1 if v is on its left and
-    -1 if v is on its right.
+    The arc gamma_y of a white face y follows the path of faces from y to t0
+    in a breadth-first tree of G.  When it passes through a face t in A it
+    turns around one corner v of t and crosses only the arc from p_t to v:
+    from left to right if v is on the left of gamma_y, which counts 1, and
+    from right to left otherwise, which counts -1.
     """
     if hasattr(T, '_kappa'):
         return T._kappa
@@ -118,21 +124,23 @@ def corner_weights(T):
 
 
 def weight(T, s):
-    """The weight omega(s): the sum of kappa(t, s(t)) over t in A.
+    """The weight omega(s): the sum of omega(t, s(t)) over t in A.
 
     Reversing a clockwise cycle C of D(r, s) raises the weight of the second
-    state by L(C) >= 1, the number of white faces inside C.
+    state by a(C) >= 1, the number of white faces inside C (Lemma 3.4).
     """
     kappa = corner_weights(T)
     return sum(kappa[t, s[t]] for t in T.A)
 
 
 def signed_sum(T, m=None):
-    """The sum of eps(r, s) * omega(s)^m over all pairs (r, s).
+    """The sum of eps(r, s) * omega(s)^m over all pairs (r, s), which is the
+    value of (z d/dz)^m Z(z) at z = 1.
 
-    By default m is the smallest number of cycles of D(r, s) over all pairs.
-    The pairs whose second state is not good cancel, and for this m the sum
-    is not zero.  Returns (sum, m); the sum is 0 if there is no pair.
+    By default m is the least number of cycles of a 2-factor of H.  The pairs
+    whose second state is not good cancel (Lemma 3.3), and for this m the sum
+    is m! times the value of Z(z)/(z - 1)^m at z = 1, which is not zero
+    (Proposition 3.5).  Returns (sum, m); the sum is 0 if there is no pair.
     """
     terms = [(sign(T, r, s), weight(T, s), len(D_cycles(T, r, s))) for r, s in pairs(T)]
     if m is None:

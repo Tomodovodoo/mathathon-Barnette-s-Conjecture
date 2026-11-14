@@ -1,0 +1,6 @@
+{"name":"2-factor-without-good-state-16",
+"about":"The 2-factor of H that leaves out the corners \"unused\" has a single cycle, of length 13, and neither of its two pairs has a good second state. H has three 2-factors and T has 12 good states. T also has pairs from which no reversal of a cycle of D(r,s) or of Q_s lowers the number of cycles of Q_s.",
+"V":16,"edges":[[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[1,2],[1,8],[1,9],[1,10],[1,11],[2,3],[2,11],[2,12],[2,13],[3,4],[3,13],[4,5],[4,13],[5,6],[5,13],[5,14],[5,15],[6,7],[6,15],[7,8],[7,9],[7,14],[7,15],[8,9],[9,10],[9,12],[9,14],[10,11],[10,12],[11,12],[12,13],[12,14],[13,14],[14,15]],
+"t0":[0,1,2],
+"black_faces":[[0,3,4],[0,5,6],[0,7,8],[1,8,9],[1,10,11],[2,11,12],[2,13,3],[4,13,5],[5,14,15],[6,15,7],[7,14,9],[9,12,10],[12,14,13]],
+"unused":[0,0,0,1,1,2,2,13,5,7,9,12,14]}

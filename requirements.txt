@@ -1,7 +1,6 @@
-# workings/barnette needs networkx (and pytest for its tests).
-# The figure scripts in paper/figures also need numpy, scipy and PyMuPDF.
+# workings/barnette imports networkx, and pytest for its tests.
+# paper/figures/figures.py imports networkx, numpy and PyMuPDF (as fitz).
 networkx==3.6.1
-pytest==9.2.0
 numpy==2.4.3
-scipy==1.17.1
 PyMuPDF==1.27.2.3
+pytest==9.2.0

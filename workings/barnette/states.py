@@ -1,4 +1,5 @@
-"""States, good states, and the Hamiltonian cycle of a good state.
+"""States, good states, and the Hamiltonian cycle of a good state
+(Section 2 of the paper, Proposition 2.3).
 
 A state s chooses a corner s(t) in X of every black face t in A, using every
 vertex of X once.  It is stored as a dict {t: s(t)}.
@@ -42,7 +43,8 @@ class _RootedForest:
 
 
 def is_good(T, s):
-    """Whether Q_s is a forest in which each component contains one root.
+    """Whether s is good: Q_s is a forest whose three components each contain
+    one root.
 
     Q_s has n edges on n + 3 vertices, so this holds exactly when Q_s stays
     acyclic after the three roots are identified.
@@ -111,18 +113,21 @@ def incidence_matrix(T):
     """The n x n matrix with entry 1 where the face t in A has the corner x in X.
 
     States are the nonzero terms of its determinant; they all have the same
-    sign, so the number of states is the absolute value of the determinant.
+    sign, by the disk identity (Lemma 2.2), so the number of states is the
+    absolute value of the determinant.
     """
     return [[int(x in T.faces[t]) for x in T.X] for t in T.A]
 
 
 def selection(T, s):
-    """The selection P_s of a good state s: one side of every face of T.
+    """The edge set M^* of a good state s (Proposition 2.3): one side of
+    every face of T, without cycles.
 
-    P_s contains e0 and, in every t in A, a side at the corner s(t).  The
-    faces of T, joined across the edges that are neither in Q_s nor sides of
-    t0 other than e0, form a tree Y_s; P_s is its unique perfect matching,
-    found by matching a leaf to its neighbour and removing both.
+    M^* contains e0 and, in every t in A, a side with end s(t).  The faces of
+    T, joined across the edges that are not in the spanning tree S_s (Q_s and
+    the two sides of t0 other than e0), form the spanning tree Y of G; M is
+    its perfect matching, found by matching a leaf to its neighbour and
+    removing both.
     """
     if not is_good(T, s):
         raise ValueError('the state is not good')
@@ -150,16 +155,19 @@ def selection(T, s):
 
 
 def is_selection(T, P):
-    """Whether P contains exactly one side of every face of T."""
+    """Whether P contains exactly one side of every face of T, that is,
+    whether P = M^* for a perfect matching M of G."""
     return all(sum(edge(v, w) in P for v, w in T.sides(t)) == 1 for t in T.faces)
 
 
 def cycle_of_selection(T, P):
-    """The Hamiltonian cycle of G that crosses exactly the edges of T not in P.
+    """The Hamiltonian cycle G - M for P = M^*: it crosses exactly the edges
+    of T not in P.
 
-    P must be an acyclic selection.  Every face of T then has two sides not in
-    P, and following them from face to face visits every face once.  The cycle
-    is returned as a list of faces of T, that is, of vertices of G.
+    P must be acyclic and contain one side of every face.  Every face of T
+    then has two sides not in P, and following them from face to face visits
+    every face once.  The cycle is returned as a list of faces of T, that is,
+    of vertices of G.
     """
     start = T.t0
     cycle, previous = [start], None

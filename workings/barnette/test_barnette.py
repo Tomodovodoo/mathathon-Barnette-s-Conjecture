@@ -38,7 +38,7 @@ def determinant(M):
 @pytest.mark.parametrize('G', GRAPHS, ids=len)
 def test_cycle_avoiding_every_edge(G):
     for v, w in G.edges():
-        for e in ((v, w), (w, v)):                # the root face is the first end of e
+        for e in ((v, w), (w, v)):                # t0 is the first end of e
             assert is_hamiltonian_cycle(G, hamiltonian_cycle(G, e), avoid=e)
 
 

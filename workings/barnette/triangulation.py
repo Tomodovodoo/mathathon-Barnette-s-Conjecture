@@ -1,4 +1,5 @@
-"""The plane graph G, its validation, and the dual coloured triangulation T.
+"""The plane graph G, its validation, and the dual Eulerian triangulation T
+(Section 2 of the paper, Lemma 2.1).
 
 G is a cubic, bipartite, 3-connected planar graph.  Its dual T is a simple
 triangulation of the sphere with all degrees even, so the faces of T can be
@@ -14,7 +15,7 @@ def edge(u, v):
 
 
 class Triangulation:
-    """A coloured triangulation T with a root face t0 and a side e0 of t0.
+    """An Eulerian triangulation T with a black face t0 and a side e0 of t0.
 
     `faces` maps a label to a triple of vertices.  All triples are listed with
     the same orientation, called counterclockwise: every directed edge lies in
@@ -98,7 +99,8 @@ class Triangulation:
     def from_graph(cls, T, t0, e0):
         """Build from a 3-connected planar triangulation given as a graph.
 
-        t0 is the vertex set of the root face; faces are numbered 0, 1, ...
+        t0 lists the three roots, the corners of the face t0; faces are
+        numbered 0, 1, ...
         """
         triples = _faces(embedding(T))
         if any(len(f) != 3 for f in triples):
@@ -157,11 +159,11 @@ def validate(G, rotation=None):
 
 
 def dual_triangulation(G, e, rotation=None):
-    """The dual triangulation of G, rooted for the edge e = vw of G.
+    """The dual triangulation of G, with t0 and e0 chosen for the edge e = vw.
 
     The vertices of T are the faces of G, numbered 0, 1, ...; the face of T
     dual to a vertex x of G is labelled x and has the three faces of G at x as
-    corners.  The root face t0 is v, and e0 is the edge of T that crosses e.
+    corners.  The face t0 is v, and e0 is the edge of T dual to e.
     """
     v, w = e
     if not G.has_edge(v, w):

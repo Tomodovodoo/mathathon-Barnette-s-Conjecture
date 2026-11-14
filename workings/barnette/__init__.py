@@ -1,7 +1,8 @@
-"""The 2026 proof of Barnette's conjecture, as code to read next to the paper.
+"""The proof of Barnette's conjecture, as code to read next to the paper
+(paper/barnette.pdf), in its notation.
 
 Every cubic, bipartite, 3-connected planar graph G has a Hamiltonian cycle
-avoiding any given edge e:  hamiltonian_cycle(G, e)  returns one.
+avoiding any given edge e (Theorem 1.1):  hamiltonian_cycle(G, e)  returns one.
 """
 from .triangulation import Triangulation, dual_triangulation, validate, edge
 from .states import (states, is_good, opposite_sides, incidence_matrix, selection,

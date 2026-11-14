@@ -1,4 +1,5 @@
-"""Examples: a few Barnette graphs and three rooted triangulations."""
+"""Examples: a few cubic, bipartite, 3-connected planar graphs, and three
+triangulations with a face t0 and a side e0."""
 import json
 from itertools import permutations
 from pathlib import Path
@@ -57,20 +58,21 @@ def two_cubes():
 
 
 def running_example():
-    """The running example of the paper: a triangulation with 13 vertices and
-    22 faces, rooted at the face {0, 4, 5} with e0 = {0, 4}.  It has 12
-    states, 8 pairs and 6 good states."""
+    """The example of Figure 3 of the paper: a triangulation with 13 vertices
+    and 22 faces, with roots 0, 4, 5 and e0 = {0, 4}.  It has 12 states, two
+    2-factors of H with two cycles each, hence 8 pairs, and 6 good states."""
     data = json.loads((Path(__file__).parent / 'running.json').read_text())
     return Triangulation(dict(enumerate(data['faces'])), data['t0'], data['e0'])
 
 
 def eight_vertex_example():
-    """The dual of the hexagonal prism rooted at the face {0, 3, 4}.
+    """The dual of the hexagonal prism with roots 0, 3, 4 and e0 = {0, 3};
+    the example of proofs/algorithm/algorithm.md.
 
     Its black faces are 0 = {0,1,2}, 1 = {1,4,5}, 2 = {1,6,7}, 3 = {2,7,3},
-    4 = {3,6,5} and the root.  It has three states; the one choosing the
-    corners 2, 5, 1, 7, 6 is not good, although it is the only state that
-    extends the choice 2, 5 in the first two faces.
+    4 = {3,6,5} and t0.  It has three states; the one choosing the corners
+    2, 5, 1, 7, 6 is not good, and it is the only state with the corner 1 in
+    the face 2.
     """
     faces = [(0, 1, 2), (1, 4, 5), (1, 6, 7), (2, 7, 3), (3, 6, 5), (0, 3, 4),
              (0, 4, 1), (0, 2, 3), (1, 7, 2), (1, 5, 6), (3, 5, 4), (3, 7, 6)]
@@ -78,9 +80,10 @@ def eight_vertex_example():
 
 
 def trap():
-    """A triangulation with 16 vertices, rooted at the face {0, 1, 2}.  It has
-    pairs whose second state is not good and from which no single reversal
-    lowers the number of cycles of Q_s."""
+    """A triangulation with 16 vertices, with roots 0, 1, 2 and e0 = {0, 1}.
+    It has pairs whose second state is not good and from which no single
+    reversal lowers the number of cycles of Q_s, and a 2-factor of H with one
+    cycle neither of whose pairs has a good second state."""
     rows = {0: (1, 2, 3, 4, 5, 6, 7, 8), 1: (8, 9, 10, 11, 2), 2: (11, 12, 13, 3),
             3: (13, 4), 4: (13, 5), 5: (13, 14, 15, 6), 6: (15, 7), 7: (15, 14, 9, 8),
             8: (9,), 9: (14, 12, 10), 10: (12, 11), 11: (12,), 12: (14, 13), 13: (14,),
