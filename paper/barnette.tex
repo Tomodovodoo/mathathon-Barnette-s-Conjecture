@@ -52,24 +52,19 @@ Then $G$ has a Hamiltonian cycle that does not contain $e$.
 This paper is an exposition of that proof.
 Two further accounts exist, by Li~\cite{Li} and in an anonymous manuscript~\cite{Constructive}; we have borrowed from both, and Section~\ref{sec:remarks} says how the four versions are related.
 
-\subsection*{Why the proof works}
-
-\emph{Why the dual.}
+\subsection*{The idea of the proof}
 Since $G$ is cubic, the complement of a perfect matching $M$ is a spanning subgraph with all degrees two, and it is a Hamiltonian cycle as soon as it is connected.
-Connectedness is the difficulty, and the dual turns it into the absence of cycles.
-In the dual $T$ of $G$, a triangulation of the sphere, $M$ becomes a set $M^*$ of edges with exactly one side of every face, and $G-M$ is connected if $M^*$ contains no cycle.
-A set of edges without cycles is a forest, and a forest can be described locally, by directing every edge towards a root.
-The bipartition of $G$ colours the faces of $T$ black and white.
+Connectedness is the difficulty, and the first step trades it for the absence of cycles.
+In the dual $T$ of $G$, a triangulation of the sphere whose faces are coloured black and white by the bipartition of $G$, the matching becomes a set $M^*$ of edges with exactly one side of every face, and $G-M$ is connected if $M^*$ contains no cycle.
+The gain is that a forest, unlike a connected graph, can be described locally, by directing every edge towards a root.
 Let $e_0$ be the edge of $T$ dual to $e$, and $t_0$ the black face at $e_0$.
+Directed towards the corners of $t_0$, the forest $M^*-e_0$ singles out one corner in every black face other than $t_0$, the tail of its side in $M^*$, and it singles out every vertex off $t_0$ exactly once; the colouring of the faces is what makes these faces and these vertices equal in number.
 
-\emph{Why states.}
-Directed towards the corners of $t_0$, the forest $M^*-e_0$ singles out one corner $s(t)$ in every black face $t\neq t_0$, the tail of its side in $M^*$, and it singles out every vertex off $t_0$ once.
-Such a choice of corners is called a \emph{state}.
-A state can exist only because $T$ has as many black faces other than $t_0$ as vertices off $t_0$, and this is how bipartiteness enters.
-A state is a perfect matching of a planar bipartite graph $H$, which joins these faces to their corners, and it is \emph{good} if the sides opposite the chosen corners, together with the two sides of $t_0$ other than $e_0$, form a spanning tree of $T$.
-A good state gives back $M$ and the Hamiltonian cycle (Figure~\ref{fig:overview}).
-So the Hamiltonian cycles we want are encoded as perfect matchings of $H$ that satisfy a tree condition, and the problem is to find one.
-A \emph{pair} consists of two states that differ in every face, and the proof consists of three implications,
+The proof starts from such a choice of corners and works back.
+A \emph{state} $s$ chooses a corner $s(t)$ in every black face $t\neq t_0$, bijectively onto the vertices off $t_0$; it is a perfect matching of the planar bipartite graph $H$ that joins these faces to their corners.
+A state is \emph{good} if the sides opposite the chosen corners, together with the two sides of $t_0$ other than $e_0$, form a spanning tree of $T$, and a good state gives back $M$ and the Hamiltonian cycle (Figure~\ref{fig:overview}).
+So the cycles we are looking for have become perfect matchings of $H$ with a tree condition, and the theorem comes down to the existence of a good state.
+With a \emph{pair} defined as two states that differ in every face, the proof consists of three implications,
 \begin{equation}\label{eq:chain}
 \text{no separating triangle}
 \ \overset{\text{\ref{prop:pair}}}{\Longrightarrow}\
@@ -81,35 +76,28 @@ A \emph{pair} consists of two states that differ in every face, and the proof co
 \end{equation}
 each a proposition below, and an induction that removes the separating triangles of $T$.
 
-\emph{Why a second state.}
-No direct construction of a good state is known, so the proof counts.
-The classical test for a tree is a determinant: the sides opposite the corners chosen by $s$ form a forest of the required kind if and only if their incidence matrix, without the rows of the roots, has determinant $\pm1$ and not $0$.
-The terms in the expansion of this determinant are the states $r$ that differ from $s$ in every face, each with a sign $\eps(r,s)=\pm1$.
-This is what the second state is for: in a sum $\sum\eps(r,s)f(s)$ over pairs, the terms with $s$ not good cancel.
-Below, the cancellation is an involution: $r$ directs the sides opposite the corners chosen by $s$, a cycle among them is then a directed cycle, and reversing it changes $r$ and the sign but not $s$.
+Nobody knows how to construct a good state, so good states are counted, and they can be counted because a determinant detects a tree.
+The sides opposite the corners chosen by $s$ form a forest of the required kind if and only if their incidence matrix, without the rows of the roots, has determinant $\pm1$ and not $0$.
+Expanding this determinant gives one term for every state $r$ that differs from $s$ in every face, with a sign $\eps(r,s)=\pm1$.
+This is where the second state comes from: in any sum $\sum\eps(r,s)f(s)$ over pairs, the terms with $s$ not good cancel.
+In Section~\ref{sec:pairs} the cancellation is seen directly, as $r$ turns every cycle among the sides opposite the corners chosen by $s$ into a directed cycle, and reversing it changes $r$ and the sign but not $s$.
 
-\emph{Why a weight.}
-For $f=1$ the sum is zero, because pairs have a second symmetry.
-The edges of $T$ from $r(t)$ to $s(t)$ form disjoint directed cycles through all vertices off $t_0$, and reversing one of them exchanges $r$ and $s$ along it and changes the sign again.
-So $f$ must tell the two directions of a cycle apart.
-In the plane there is a quantity that does, the height function of a perfect matching: an integer weight $\omega(s)$ that changes, when a cycle $C$ is reversed, by the number $a(C)$ of white faces inside $C$.
+The sum with $f=1$ is zero, however, since pairs have a second symmetry.
+The edges of $T$ from $r(t)$ to $s(t)$ form disjoint directed cycles through all vertices off $t_0$, and reversing one of them exchanges $r$ and $s$ along it and changes the sign once more.
+What is needed is an $f$ that tells the two directions of a cycle apart, and the plane provides one, the height function of a perfect matching: an integer weight $\omega(s)$ that changes, when a cycle $C$ is reversed, by the number $a(C)$ of white faces inside $C$.
 The $2^c$ pairs with the same $c$ cycles then contribute $\pm z^{\omega_0}\prod_C\bigl(1-z^{a(C)}\bigr)$ to $Z(z)=\sum\eps(r,s)z^{\omega(s)}$.
-
-\emph{Why the sum is not zero.}
-Every factor $1-z^{a(C)}$ vanishes to first order at $z=1$, so the contribution of the pairs with the same $c$ cycles vanishes to order exactly $c$.
-The term of lowest order therefore comes from the pairs with the fewest cycles.
-Their contributions have the same sign, because the sign depends only on the number of cycles, and their coefficients are products of the numbers $a(C)$, which are positive.
+Every factor vanishes to first order at $z=1$, so such a contribution vanishes there to order exactly $c$, and the term of lowest order comes from the pairs with the fewest cycles.
+Their contributions do not cancel, because the sign depends only on the number of cycles and the coefficients are products of the positive numbers $a(C)$.
 Hence $Z\neq0$, although $Z(1)=0$, and a good state exists.
 
-\emph{The count behind it.}
-Every step above uses the \emph{disk identity} (Lemma~\ref{lem:disk}): a cycle of $T$ whose edges all contain the corner chosen in their black face has odd length and exactly one more white face than black faces inside it.
-It is Euler's formula for the disc inside the cycle, where the state matches the black faces with vertices.
+One count carries all of this, the \emph{disk identity} (Lemma~\ref{lem:disk}): a cycle of $T$ whose edges all contain the corner chosen in their black face has odd length and exactly one more white face than black faces inside it.
+It is Euler's formula for the disc inside the cycle, in which the state matches the black faces with vertices.
 It makes the cycles of both symmetries odd, so that reversing them changes the sign; it makes $a(C)$ positive; and it shows that the matching obtained from a good state has an acyclic dual.
 
-\emph{Why an edge is prescribed.}
+Two points remain.
 A pair exists when $T$ has no separating triangle; this is a flow argument resting on a planar edge count.
-A separating triangle of $T$ is a $3$-edge cut of $G$, across which Hamiltonian cycles of the two smaller graphs can be glued if they use the same two edges of the cut.
-Prescribing an edge to avoid makes them do so, and this is why Theorem~\ref{thm:main} is proved in this form.
+A separating triangle of $T$ is a $3$-edge cut of $G$, across which Hamiltonian cycles of the two smaller graphs can be glued if they use the same two edges of the cut, and prescribing an edge to avoid makes them do so.
+This is the reason for the form of Theorem~\ref{thm:main}.
 
 \begin{figure}[t]
 \centering
