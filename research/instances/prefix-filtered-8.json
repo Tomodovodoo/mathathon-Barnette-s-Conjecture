@@ -1,5 +1,5 @@
 {"name":"prefix-filtered-8",
-"about":"The triangulation of prefix-8 with another face t0; the example of proofs/algorithm/algorithm.md. \"extension\" is the only state that is not good. It is the only state with the corners \"prefix\" in the first two faces, and the only state with the corner 1 in the third face; the side opposite that corner alone closes no cycle.",
+"about":"The triangulation of prefix-8 with another face t0; the example of proofs/algorithm/algorithm.md. \"extension\" is the only state that is not good, and the only state with the corner 1 in the third face. That choice passes both tests of the search: the opposite side 67 closes no cycle, and H+ without the edge chosen is connected. \"extension\" is also the only state with the corners \"prefix\" in the first two faces. These pass the test of the manuscript, as H+ without the two edges is connected, but not that of the note: the opposite sides 01 and 14 join the roots 0 and 4.",
 "V":8,"edges":[[0,1],[0,2],[0,3],[0,4],[1,2],[1,4],[1,5],[1,6],[1,7],[2,3],[2,7],[3,4],[3,5],[3,6],[3,7],[4,5],[5,6],[6,7]],
 "t0":[0,3,4],
 "black_faces":[[0,1,2],[1,4,5],[1,6,7],[2,7,3],[3,6,5]],
