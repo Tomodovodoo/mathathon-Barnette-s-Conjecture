@@ -1,26 +1,24 @@
 {
-  "timestamp": "2026-11-14T13:03:01+00:00",
-  "head": "25d5bcd",
-  "run_folders": 62,
-  "reports": 56,
+  "timestamp": "2026-11-14T13:23:40+00:00",
+  "head": "e97b061",
+  "run_folders": 66,
+  "reports": 62,
   "models": {
-    "GPT-6 Astra": 16,
-    "Fable 5.2": 16,
-    "Opus 5.5": 15,
-    "GPT-6.1 Sol": 15
+    "GPT-6 Astra": 17,
+    "Fable 5.2": 17,
+    "Opus 5.5": 16,
+    "GPT-6.1 Sol": 16
   },
   "runs_without_report": [
+    "2026-11-14_astra_lean-check",
+    "2026-11-14_fable_atlas-final",
     "2026-11-14_fable_descent",
-    "2026-11-14_fable_referee-involutions-v2",
-    "2026-11-14_fable_synthesis-audit",
-    "2026-11-14_opus_consistency-edits",
-    "2026-11-14_opus_lean-devices",
-    "2026-11-14_sol_atlas-audit"
+    "2026-11-14_sol_referee-main-v2"
   ],
-  "routes": 226,
+  "routes": 227,
   "route_status": {
     "LIT": 46,
-    "PROVED-HERE": 57,
+    "PROVED-HERE": 58,
     "REFUTED": 67,
     "HUNCH": 25,
     "CONJECTURE": 19,
@@ -36,13 +34,13 @@
     "Graph-theoretic / structural": {
       "Proved": 21,
       "Computed": 3,
-      "Open": 9,
+      "Open": 7,
       "Refuted": 9
     },
     "Constructive / algorithmic": {
-      "Proved": 8,
+      "Proved": 9,
       "Computed": 1,
-      "Open": 3,
+      "Open": 4,
       "Refuted": 3
     },
     "Algebraic / determinantal": {
@@ -72,7 +70,7 @@
     "Inductive": {
       "Proved": 5,
       "Computed": 0,
-      "Open": 3,
+      "Open": 4,
       "Refuted": 16
     },
     "Lattice-theoretic": {
@@ -99,7 +97,7 @@
   },
   "current_product_pages_total": 85,
   "step_files": 11,
-  "step_words_total": 26827,
-  "synthesis_words": 4163,
+  "step_words_total": 27984,
+  "synthesis_words": 5210,
   "index_rows": 46
 }

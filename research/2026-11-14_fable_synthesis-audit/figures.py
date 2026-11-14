@@ -75,14 +75,14 @@ box(8.4, YS, xs[3] + W - 8.4, HS, "OpenAI's Lean proof",
 # row 2: proofs written here
 Y = 3.45
 rowlabel(Y + H / 2, "WRITTEN HERE")
-box(xs[0], Y, W, H, "Main paper", f"version 2, {MAIN} pages\ndual triangulation",
-    note=f"v1 ({V1} pp.) refereed by Sol.\nv2 not refereed again.")
+box(xs[0], Y, W, H, "Main paper", f"version 2, about 20 pages\ndual triangulation",
+    note=f"v1 ({V1} pp.) refereed by Sol.\nv2 referee run in progress.")
 box(xs[1], Y, W, H, "Involution companion", f"{INV} pages\nLi's argument, general m",
-    note="Refereed by Opus.\nNew lemma under review.")
+    note="Refereed by Opus,\nthen by Fable.")
 box(xs[2], Y, W, H, "Primal companion", f"{PRI} pages\nthe proof inside G",
     note="Refereed by Fable.\nFinal review by Opus.")
-box(xs[3], Y, W, H, "Blueprint", "34 statements beside Lean:\n4 exact, 25 translated, 5 none",
-    note="By Opus.\nNot reviewed.")
+box(xs[3], Y, W, H, "Blueprint, Lean devices", "34 statements beside Lean:\n4 exact, 25 translated,\n5 none. Later: 8, 24, 2.",
+    note="By Opus. Kernel-checked.\nMatches not reviewed.")
 for i in (0, 1):
     arrow((cx[i], YS), (cx[i], Y + H))
 arrow((cx[2] - 0.45, YS), (cx[2] - 0.45, Y + H))      # sources -> primal
@@ -101,7 +101,7 @@ box(xs[3], Y3, W, H3, "Lab, figures, library", "reference code, figure toolkit,\
 
 ax.text(0.75, 0.6, f"Behind all of it: {data['run_folders']} research and referee runs by four AI models. "
                     "No human has checked any of it.\n"
-                    "The Lean build certifies OpenAI's formal route. It does not certify the texts written here.",
+                    "The Lean kernel checks Lean statements. It does not check the texts written here.",
         size=10)
 fig.savefig(OUT / "products.pdf", bbox_inches="tight")
 plt.close(fig)

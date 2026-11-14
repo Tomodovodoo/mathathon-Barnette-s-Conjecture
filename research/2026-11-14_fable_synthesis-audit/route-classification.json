@@ -1374,7 +1374,7 @@
   {
     "id": "U.G",
     "label": "ML1: preserve a pair in some merge",
-    "kind": "Graph-theoretic / structural",
+    "kind": "Inductive",
     "status": "CONJECTURE",
     "outcome": "Open"
   },
@@ -1423,9 +1423,9 @@
   {
     "id": "U.packing",
     "label": "two white trees in every pair support",
-    "kind": "Graph-theoretic / structural",
-    "status": "CONJECTURE",
-    "outcome": "Open"
+    "kind": "Constructive / algorithmic",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
   },
   {
     "id": "N.zeros-dead",
@@ -1580,5 +1580,12 @@
     "kind": "Lattice-theoretic",
     "status": "REFUTED",
     "outcome": "Refuted"
+  },
+  {
+    "id": "U.packing-P2",
+    "label": "P2: two face-rainbow trees in every pair support",
+    "kind": "Constructive / algorithmic",
+    "status": "CONJECTURE",
+    "outcome": "Open"
   }
 ]

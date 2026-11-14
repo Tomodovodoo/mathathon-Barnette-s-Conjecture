@@ -1,26 +1,24 @@
 {
-  "timestamp": "2026-11-14T13:03:01+00:00",
-  "head": "25d5bcd",
-  "run_folders": 62,
-  "reports": 56,
+  "timestamp": "2026-11-14T13:23:40+00:00",
+  "head": "e97b061",
+  "run_folders": 66,
+  "reports": 62,
   "models": {
-    "GPT-6 Astra": 16,
-    "Fable 5.2": 16,
-    "Opus 5.5": 15,
-    "GPT-6.1 Sol": 15
+    "GPT-6 Astra": 17,
+    "Fable 5.2": 17,
+    "Opus 5.5": 16,
+    "GPT-6.1 Sol": 16
   },
   "runs_without_report": [
+    "2026-11-14_astra_lean-check",
+    "2026-11-14_fable_atlas-final",
     "2026-11-14_fable_descent",
-    "2026-11-14_fable_referee-involutions-v2",
-    "2026-11-14_fable_synthesis-audit",
-    "2026-11-14_opus_consistency-edits",
-    "2026-11-14_opus_lean-devices",
-    "2026-11-14_sol_atlas-audit"
+    "2026-11-14_sol_referee-main-v2"
   ],
-  "routes": 226,
+  "routes": 227,
   "route_status": {
     "LIT": 46,
-    "PROVED-HERE": 57,
+    "PROVED-HERE": 58,
     "REFUTED": 67,
     "HUNCH": 25,
     "CONJECTURE": 19,
@@ -36,13 +34,13 @@
     "Graph-theoretic / structural": {
       "Proved": 21,
       "Computed": 3,
-      "Open": 9,
+      "Open": 7,
       "Refuted": 9
     },
     "Constructive / algorithmic": {
-      "Proved": 8,
+      "Proved": 9,
       "Computed": 1,
-      "Open": 3,
+      "Open": 4,
       "Refuted": 3
     },
     "Algebraic / determinantal": {
@@ -72,7 +70,7 @@
     "Inductive": {
       "Proved": 5,
       "Computed": 0,
-      "Open": 3,
+      "Open": 4,
       "Refuted": 16
     },
     "Lattice-theoretic": {
@@ -99,8 +97,8 @@
   },
   "current_product_pages_total": 85,
   "step_files": 11,
-  "step_words_total": 26827,
-  "synthesis_words": 4163,
+  "step_words_total": 27984,
+  "synthesis_words": 5210,
   "index_rows": 46,
   "report_inventory": [
     {
@@ -140,8 +138,8 @@
     },
     {
       "path": "research/2026-11-14_astra_main-revision/REPORT.md",
-      "sha256": "9033b9249490b89c",
-      "bytes": 6555
+      "sha256": "ce6b6c8f4cf1161b",
+      "bytes": 6818
     },
     {
       "path": "research/2026-11-14_astra_manuscript-A/REPORT.md",
@@ -224,6 +222,11 @@
       "bytes": 6467
     },
     {
+      "path": "research/2026-11-14_fable_referee-involutions-v2/REPORT.md",
+      "sha256": "528b68e70e14987a",
+      "bytes": 4708
+    },
+    {
       "path": "research/2026-11-14_fable_referee-primal/REPORT.md",
       "sha256": "cf4c1b4ed8e84c38",
       "bytes": 7291
@@ -249,14 +252,29 @@
       "bytes": 8074
     },
     {
+      "path": "research/2026-11-14_fable_synthesis-audit/REPORT.md",
+      "sha256": "bebc4bf5d35a8c92",
+      "bytes": 8519
+    },
+    {
       "path": "research/2026-11-14_opus_blueprint/REPORT.md",
       "sha256": "554761c4dfb68d08",
       "bytes": 8503
     },
     {
+      "path": "research/2026-11-14_opus_coldread-main-v2/REPORT.md",
+      "sha256": "740f352174387738",
+      "bytes": 4023
+    },
+    {
       "path": "research/2026-11-14_opus_conjectures/REPORT.md",
       "sha256": "e8200a2553de8f42",
       "bytes": 9290
+    },
+    {
+      "path": "research/2026-11-14_opus_consistency-edits/REPORT.md",
+      "sha256": "78f43b5f8ea43cd9",
+      "bytes": 7037
     },
     {
       "path": "research/2026-11-14_opus_cross-audit/REPORT.md",
@@ -267,6 +285,11 @@
       "path": "research/2026-11-14_opus_history-literature/REPORT.md",
       "sha256": "fd628f86b7a6404f",
       "bytes": 10648
+    },
+    {
+      "path": "research/2026-11-14_opus_lean-devices/REPORT.md",
+      "sha256": "9c61aa7b3ee71ea3",
+      "bytes": 10889
     },
     {
       "path": "research/2026-11-14_opus_lean-formalisation/REPORT.md",
@@ -312,6 +335,11 @@
       "path": "research/2026-11-14_opus_two-tree-packing/REPORT.md",
       "sha256": "cf19fd2ca2f0ba85",
       "bytes": 8308
+    },
+    {
+      "path": "research/2026-11-14_sol_atlas-audit/REPORT.md",
+      "sha256": "de429c7508350f85",
+      "bytes": 8908
     },
     {
       "path": "research/2026-11-14_sol_counting-families/REPORT.md",
