@@ -1,13 +1,13 @@
 V=6: 8 rootings done, 0s
 V=7: 0 rootings done, 0s
 V=8: 12 rootings done, 0s
-V=9: 14 rootings done, 2s
-V=10: 32 rootings done, 58s
-V=11: 36 rootings done, 61s
-V=12: 160 rootings done, 89s
+V=9: 14 rootings done, 1s
+V=10: 32 rootings done, 37s
+V=11: 36 rootings done, 39s
+V=12: 160 rootings done, 65s
 {
  "command": "python verify.py 6 12 ../data/verify_6_12.json",
- "seconds": 88.6,
+ "seconds": 65.1,
  "totals": {
   "rootings": 262,
   "maps tested for duality": 440000,
@@ -19,8 +19,9 @@ V=12: 160 rootings done, 89s
   "sets J violating (1)": 68,
   "2-factors": 210,
   "rootings with one 2-factor": 206,
+  "2-factors containing a face-rainbow tree": 210,
   "2-factors split into two rainbow trees": 210,
-  "(tree, point) exchanges": 74432,
+  "(tree, point) exchanges": 651072,
   "walk states": 325536,
   "evaluations of iota": 5052,
   "longest evict walk": 10,
@@ -44,8 +45,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 0,
    "2-factors": 8,
    "rootings with one 2-factor": 8,
+   "2-factors containing a face-rainbow tree": 8,
    "2-factors split into two rainbow trees": 8,
-   "(tree, point) exchanges": 64,
+   "(tree, point) exchanges": 192,
    "walk states": 96,
    "evaluations of iota": 48,
    "rootings where Step X holds": 8,
@@ -63,6 +65,7 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 0,
    "2-factors": 0,
    "rootings with one 2-factor": 0,
+   "2-factors containing a face-rainbow tree": 0,
    "2-factors split into two rainbow trees": 0,
    "(tree, point) exchanges": 0,
    "walk states": 0,
@@ -82,8 +85,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 0,
    "2-factors": 12,
    "rootings with one 2-factor": 12,
+   "2-factors containing a face-rainbow tree": 12,
    "2-factors split into two rainbow trees": 12,
-   "(tree, point) exchanges": 384,
+   "(tree, point) exchanges": 1920,
    "walk states": 960,
    "evaluations of iota": 120,
    "rootings where Step X holds": 12,
@@ -102,8 +106,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 6,
    "2-factors": 8,
    "rootings with one 2-factor": 8,
+   "2-factors containing a face-rainbow tree": 8,
    "2-factors split into two rainbow trees": 8,
-   "(tree, point) exchanges": 512,
+   "(tree, point) exchanges": 3072,
    "walk states": 1536,
    "evaluations of iota": 192,
    "rootings where Step X holds": 8,
@@ -124,8 +129,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 0,
    "2-factors": 32,
    "rootings with one 2-factor": 32,
+   "2-factors containing a face-rainbow tree": 32,
    "2-factors split into two rainbow trees": 32,
-   "(tree, point) exchanges": 4096,
+   "(tree, point) exchanges": 28672,
    "walk states": 14336,
    "evaluations of iota": 448,
    "rootings where Step X holds": 32,
@@ -146,8 +152,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 8,
    "2-factors": 28,
    "rootings with one 2-factor": 28,
+   "2-factors containing a face-rainbow tree": 28,
    "2-factors split into two rainbow trees": 28,
-   "(tree, point) exchanges": 7168,
+   "(tree, point) exchanges": 57344,
    "walk states": 28672,
    "evaluations of iota": 896,
    "rootings where Step X holds": 28,
@@ -168,8 +175,9 @@ V=12: 160 rootings done, 89s
    "sets J violating (1)": 54,
    "2-factors": 122,
    "rootings with one 2-factor": 118,
+   "2-factors containing a face-rainbow tree": 122,
    "2-factors split into two rainbow trees": 122,
-   "(tree, point) exchanges": 62208,
+   "(tree, point) exchanges": 559872,
    "walk states": 279936,
    "evaluations of iota": 3348,
    "rootings where Step X holds": 120,

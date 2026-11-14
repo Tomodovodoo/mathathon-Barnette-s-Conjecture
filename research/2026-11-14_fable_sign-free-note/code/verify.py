@@ -201,6 +201,10 @@ def check_instance(inst, rng, all_u):
                 ngood += onearc
         assert nrb == per_factor[fk]
         assert both                                                      # Theorem (two rainbow trees per cover)
+        # Corollary: a tree meeting the face condition inside the cover (one of the two used corners per face)
+        assert any(inst.h_tree({(i, ch[i]) for i in range(n)})
+                   for ch in itertools.product(*[[v for v in A[i] if v != u[i]] for i in range(n)]))
+        bump('2-factors containing a face-rainbow tree')
         bump('2-factors split into two rainbow trees')
         # (c): G_u has a directed cycle iff another 2-factor exists
         out = {x: [u[i] for i in used[x]] for x in X}
@@ -239,7 +243,7 @@ def check_instance(inst, rng, all_u):
             s2[x] = al[0]
             row.append(sf.key(inst, s2))
         mv[k] = row
-        bump('(tree, point) exchanges')
+        bump('(tree, point) exchanges', n)
     for k in keys:
         ld = inst.load(trees[k])
         for j, x in enumerate(X):
