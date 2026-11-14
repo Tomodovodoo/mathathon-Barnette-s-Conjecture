@@ -2,6 +2,10 @@
 
 Start with [INDEX.md](INDEX.md). [barnette.bib](barnette.bib) is the canonical bibliography, including sources held only by citation.
 
+The [14 November citation audit](../research/2026-11-14_astra_citation-audit/CITATION-AUDIT.md) records the four current manuscripts and the requested digestions. The canonical file has 96 entries. `paper/main/refs.bib` is an exact 17-entry subset for that manuscript, rather than a separate bibliography to maintain. The [rights ledger](../research/2026-11-14_astra_citation-audit/PDF-RIGHTS.md) covers all 50 PDFs retained in the two literature research folders. No research PDF was deleted or moved.
+
+Inline bibliography aliases are retained for compatibility. In the involution note, `OAI` means `OpenAI2026`, `Li` means `Li2026`, and `trees` means `Anonymous2026`. In the sign-free note, `SchrijverCourse` names the same work as `Schrijver2017`, and `SchrijverHandbook` names the same work as `SchrijverUndated`. `Expo` is the project's exposition, not an external publication. The primal note cites sources in prose. [UNUSED-KEYS.md](../research/2026-11-14_astra_citation-audit/UNUSED-KEYS.md) flags keys with no explicit TeX citation without assuming they are absent from prose.
+
 - `history/` holds licensed copies of partial results.
 - `equivalents/` holds reformulations. GSW uses arXiv v3 to preserve the cited theorem numbers.
 - `machinery/` holds licensed sources for tools used or investigated.

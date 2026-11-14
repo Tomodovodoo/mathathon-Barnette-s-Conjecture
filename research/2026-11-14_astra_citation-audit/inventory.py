@@ -20,7 +20,7 @@ if __name__=='__main__':
    t=m[0]
    if p.name=='atlas.tex':
     if 'Sources and computation' not in s[:m.start()] or '&' not in t:continue
-   if re.search(r'OpenAI|\bLi\b|Stein|Alt,|Hertel|Feder|Kelmans|Tutte|Goodey|Holton|Brinkmann|Schnieders|Kardo|Thomason|Juh|K.lm|Rado|Nash.Williams|Edmonds|Schrijver|Kenyon|Ford|constructive|trees paper|\]\(|research/|\\path\{',t):
+   if re.search(r'OpenAI|\bLi\b|LIT|Stein|Alt,|Hertel|Feder|Kelmans|Tutte|Goodey|Holton|Brinkmann|Schnieders|Kardo|Thomason|Juh|K.lm|Rado|Nash.Williams|Edmonds|Schrijver|Kenyon|Ford|constructive|trees paper|\]\(|research/|\\path\{',t):
     records.append(dict(file=p.relative_to(R).as_posix(),line=s[:m.start()].count('\n')+1,kind='prose',context=t))
  (O/'inventory.json').write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding='utf-8')
  pdfs=list((R/'papers').rglob('*.pdf'))

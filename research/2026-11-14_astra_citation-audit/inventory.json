@@ -681,6 +681,303 @@
     "context": "\\begin{thebibliography}{9}\n\\bibitem{OAI} OpenAI, \\emph{Paired states and Hamiltonian cycles in cubic\nbipartite planar graphs}, September 2026, local source\n\\texttt{papers/OpenAI-Barnette.pdf}, Lemmas 4.1, 5.2 and Proposition 5.1.\n\\bibitem{Li} Zhentao Li, \\emph{A note on the proof of Barnette's conjecture},\narXiv:2610.30490v1, 21 October 2026, Definitions 13--23, Claims 25--26,\nLemmas 34--35 and Appendix B.\n\\bibitem{trees} \\emph{A constructive proof}, local project source\n\\texttt{papers/barnette\\_trees.pdf}, Section 5.1, Theorem 5.3.\n\\end{thebibliography}\n\\end{document}"
   },
   {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 46,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "We use the notation of the exposition \\cite{Expo}.\n$\\T$ is a simple triangulation of the sphere whose faces are coloured black and white so that every edge has one face of each colour.\nOne black face $t_0$ is drawn as the outer face, its corners are the \\emph{roots}, $A$ is the set of the other black faces, $X$ the set of vertices that are not roots, and $|A|=|X|=n$.\nA \\emph{state} is a bijection $s\\colon A\\to X$ with $s(t)$ a corner of $t$, that is, a perfect matching of the incidence graph $\\cB$ on $A\\cup X$.\n$Q_s$ is the set of the $n$ sides opposite the corners $s(t)$, and $s$ is \\emph{good} if $Q_s$ is a forest with exactly one root in each component.\nA good state yields a Hamiltonian cycle of the cubic graph dual to $\\T$ \\cite[Proposition~3.9]{Expo}.\nA \\emph{pair} is two states $(r,s)$ with $r(t)\\ne s(t)$ for all $t$; then $u(t)$ denotes the third corner of $t$.\nThe union of the two matchings of a pair is a spanning subgraph of $\\cB$ with all degrees two, which we call a \\emph{$2$-factor}.\nA $2$-factor with $c$ cycles splits into two states in $2^{c-1}$ ways, and the $2^c$ ordered pairs obtained from it form one \\emph{cover} in the sense of \\cite{Expo}; we use the two words for the same object."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 51,
+    "kind": "cite",
+    "citation": "\\cite[Proposition~3.9]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "We use the notation of the exposition \\cite{Expo}.\n$\\T$ is a simple triangulation of the sphere whose faces are coloured black and white so that every edge has one face of each colour.\nOne black face $t_0$ is drawn as the outer face, its corners are the \\emph{roots}, $A$ is the set of the other black faces, $X$ the set of vertices that are not roots, and $|A|=|X|=n$.\nA \\emph{state} is a bijection $s\\colon A\\to X$ with $s(t)$ a corner of $t$, that is, a perfect matching of the incidence graph $\\cB$ on $A\\cup X$.\n$Q_s$ is the set of the $n$ sides opposite the corners $s(t)$, and $s$ is \\emph{good} if $Q_s$ is a forest with exactly one root in each component.\nA good state yields a Hamiltonian cycle of the cubic graph dual to $\\T$ \\cite[Proposition~3.9]{Expo}.\nA \\emph{pair} is two states $(r,s)$ with $r(t)\\ne s(t)$ for all $t$; then $u(t)$ denotes the third corner of $t$.\nThe union of the two matchings of a pair is a spanning subgraph of $\\cB$ with all degrees two, which we call a \\emph{$2$-factor}.\nA $2$-factor with $c$ cycles splits into two states in $2^{c-1}$ ways, and the $2^c$ ordered pairs obtained from it form one \\emph{cover} in the sense of \\cite{Expo}; we use the two words for the same object."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 54,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "We use the notation of the exposition \\cite{Expo}.\n$\\T$ is a simple triangulation of the sphere whose faces are coloured black and white so that every edge has one face of each colour.\nOne black face $t_0$ is drawn as the outer face, its corners are the \\emph{roots}, $A$ is the set of the other black faces, $X$ the set of vertices that are not roots, and $|A|=|X|=n$.\nA \\emph{state} is a bijection $s\\colon A\\to X$ with $s(t)$ a corner of $t$, that is, a perfect matching of the incidence graph $\\cB$ on $A\\cup X$.\n$Q_s$ is the set of the $n$ sides opposite the corners $s(t)$, and $s$ is \\emph{good} if $Q_s$ is a forest with exactly one root in each component.\nA good state yields a Hamiltonian cycle of the cubic graph dual to $\\T$ \\cite[Proposition~3.9]{Expo}.\nA \\emph{pair} is two states $(r,s)$ with $r(t)\\ne s(t)$ for all $t$; then $u(t)$ denotes the third corner of $t$.\nThe union of the two matchings of a pair is a spanning subgraph of $\\cB$ with all degrees two, which we call a \\emph{$2$-factor}.\nA $2$-factor with $c$ cycles splits into two states in $2^{c-1}$ ways, and the $2^c$ ordered pairs obtained from it form one \\emph{cover} in the sense of \\cite{Expo}; we use the two words for the same object."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 56,
+    "kind": "cite",
+    "citation": "\\cite[Proposition~4.8]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "The key lemma is \\cite[Proposition~4.8]{Expo}, due to OpenAI \\cite{OpenAI2026}."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 56,
+    "kind": "cite",
+    "citation": "\\cite{OpenAI2026}",
+    "keys": [
+      "OpenAI2026"
+    ],
+    "context": "The key lemma is \\cite[Proposition~4.8]{Expo}, due to OpenAI \\cite{OpenAI2026}."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 62,
+    "kind": "cite",
+    "citation": "\\cite{OpenAI2026,Li2026,Anonymous2026,Expo}",
+    "keys": [
+      "OpenAI2026",
+      "Li2026",
+      "Anonymous2026",
+      "Expo"
+    ],
+    "context": "Every known proof gives each pair a sign, shows that the pairs whose second state is not good cancel, and shows by a second evaluation that the signed sum is not zero \\cite{OpenAI2026,Li2026,Anonymous2026,Expo}.\nThe proof finds no good state.\nIt shows that the set of good states is not empty because a sum over it does not vanish.\nTwo things would be gained from a proof without signs.\nThe first is an algorithm: no polynomial-time construction of a Hamiltonian cycle in these graphs is known, and a direct argument might provide one.\nThe second is a reason.\nThe cancellation does not say why a good state exists, in the way Hall's theorem says why a matching exists."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 72,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "This note records how far one gets with no sign.\nSections~\\ref{sec:R} to~\\ref{sec:packing} contain complete proofs.\nThe existence of a pair, which \\cite{Expo} takes from a flow, is equivalent to the existence of a \\emph{rainbow tree}, a spanning tree on the white faces that meets one of the two conditions defining a good state (Theorems~\\ref{thm:R} and~\\ref{thm:S}).\nThe good states are paired off by $n$ involutions, so their number is even (Theorem~\\ref{thm:even}).\nInside every cover, each of the two conditions can be met alone (Theorems~\\ref{thm:twotrees} and~\\ref{thm:edmonds}).\nSection~\\ref{sec:wall} shows where this stops.\nOne cover of a triangulation with $16$ vertices contains no good state, so every argument that stays inside a cover fails.\nWhat is missing is Conjecture~\\ref{conj:X}: from a rainbow tree, exchanges that never raise a certain excess reach a good state.\nIt holds for every instance with at most $17$ vertices.\nSection~\\ref{sec:gives} says what a proof of it would give."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 102,
+    "kind": "cite",
+    "citation": "\\cite[Lemma~2.5]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "\\begin{proof}\nLet $w$ be a white face with corners $v_1,v_2,v_3$, and let $t_i$ be the black face across the side $v_iv_{i+1}$.\nThe closed curve $v_1,c(t_1),v_2,c(t_2),v_3,c(t_3)$ in $H$ bounds $w$ together with three thirds of black faces.\nThis region contains no vertex and no spoke, so it is a face of $H$.\nDifferent white faces give different faces, and by Euler's formula $H$ has $(3n+3)-(2n+4)+2=n+1$ faces, so these are all.\nThe spoke $(t,v)$ lies between the two thirds of $t$ at $v$, which belong to the faces around the white faces across the two sides of $t$ at $v$.\nThe second sentence is the duality between spanning trees of a connected plane graph and of its dual \\cite[Lemma~2.5]{Expo}.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 136,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "\\begin{figure}[H]\n\\centering\n\\input{figures/fig-rainbow.tex}\n\\caption{Two rainbow trees on the example of \\cite{Expo}, with $13$ vertices and roots $0,4,5$. Black faces are shaded and the grey collar is the outer face $t_0$. A solid wedge in the face $\\sigma(x)$ at $x$ marks each removed spoke, and the dash-dotted edges $e(\\sigma(x),x)$ form a spanning tree on the $11$ white faces, drawn as small circles. (a) Excess $2$: the dark face $\\{1,2,9\\}$ has load $2$ and the face $\\{0,2,3\\}$ with the dashed outline has load $0$. (b) Excess $0$, a good state. The example has $1792$ rainbow trees, six of them good states.}\n\\label{fig:rainbow}\n\\end{figure}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 144,
+    "kind": "cite",
+    "citation": "\\cite{Rado1942}",
+    "keys": [
+      "Rado1942"
+    ],
+    "context": "A \\emph{separating triangle} is a $3$-cycle of $\\T$ with vertices on both sides.\nIt has \\emph{black inner boundary} if the three faces along its sides, on the side away from $t_0$, are black.\nWe use Rado's theorem in the following form \\cite{Rado1942}, \\cite[Exercise~10.26]{SchrijverCourse}: subsets $X_1,\\dots,X_m$ of the ground set of a matroid have an independent transversal if and only if the union of any $j$ of them has rank at least $j$."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 144,
+    "kind": "cite",
+    "citation": "\\cite[Exercise~10.26]{SchrijverCourse}",
+    "keys": [
+      "SchrijverCourse"
+    ],
+    "context": "A \\emph{separating triangle} is a $3$-cycle of $\\T$ with vertices on both sides.\nIt has \\emph{black inner boundary} if the three faces along its sides, on the side away from $t_0$, are black.\nWe use Rado's theorem in the following form \\cite{Rado1942}, \\cite[Exercise~10.26]{SchrijverCourse}: subsets $X_1,\\dots,X_m$ of the ground set of a matroid have an independent transversal if and only if the union of any $j$ of them has rank at least $j$."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 206,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "For a $2$-factor $F$ of $\\cB$, let $u(t)$ be the corner of $t\\in A$ that is not joined to $t$ in $F$.\nWhen $F$ is the union of a pair this is the third corner $u(t)$ of \\cite{Expo}.\nLet $G_u$ be the digraph on $V(\\T)$ with an arc $v\\to u(t)$ for each of the two corners $v$ of $t$ joined to $t$ in $F$, for every $t\\in A$.\nIts arcs run along the two sides of $t$ at $u(t)$.\nEvery vertex of $X$ has outdegree two, one arc through each of its two faces in $F$, and the roots have outdegree zero (Figure~\\ref{fig:digraph})."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 260,
+    "kind": "cite",
+    "citation": "\\cite[Lemma~4.2]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "For a pair $(r,s)$ and $\\sigma=s^{-1}$ the arcs of Theorem~\\ref{thm:S}(2) are $r(t)\\to u(t)$.\nThis is the orientation of $Q_s$ in \\cite[Lemma~4.2]{Expo}, and the statement that $s$ is good exactly when $Q_s$ has no cycle is the case of excess $0$."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 275,
+    "kind": "cite",
+    "citation": "\\cite[Theorem~1.2]{Anonymous2026}",
+    "keys": [
+      "Anonymous2026"
+    ],
+    "context": "The equivalence of the first and the third statement is \\cite[Theorem~1.2]{Anonymous2026}.\nThe exposition proves one direction, for triangulations without separating triangles, by a flow \\cite[Proposition~5.2]{Expo}.\nThere the max-flow min-cut theorem reduces the existence of a pair to the inequality $e(U)-b(U)\\le2|U|-4$ for all sets $U$ of vertices that contain the roots, and Euler's formula proves it component by component.\nHere Rado's theorem reduces it to \\eqref{eq:rado}, which concerns only complements of connected sets and follows from the exact identity \\eqref{eq:euler}.\nBoth arguments use planarity through one Euler count, and both are constructive.\nThe route through Rado gives more than a pair.\nOne half of the cover it produces is a rainbow tree, a selection whose arcs in $G_u$ have no directed cycle.\nThis already has the acyclicity that a good state needs and lacks only the face condition."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 276,
+    "kind": "cite",
+    "citation": "\\cite[Proposition~5.2]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "The equivalence of the first and the third statement is \\cite[Theorem~1.2]{Anonymous2026}.\nThe exposition proves one direction, for triangulations without separating triangles, by a flow \\cite[Proposition~5.2]{Expo}.\nThere the max-flow min-cut theorem reduces the existence of a pair to the inequality $e(U)-b(U)\\le2|U|-4$ for all sets $U$ of vertices that contain the roots, and Euler's formula proves it component by component.\nHere Rado's theorem reduces it to \\eqref{eq:rado}, which concerns only complements of connected sets and follows from the exact identity \\eqref{eq:euler}.\nBoth arguments use planarity through one Euler count, and both are constructive.\nThe route through Rado gives more than a pair.\nOne half of the cover it produces is a rainbow tree, a selection whose arcs in $G_u$ have no directed cycle.\nThis already has the acyclicity that a good state needs and lacks only the face condition."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 430,
+    "kind": "cite",
+    "citation": "\\cite{NashWilliams1964}",
+    "keys": [
+      "NashWilliams1964"
+    ],
+    "context": "We use two theorems on packing.\nNash-Williams \\cite{NashWilliams1964}, \\cite[Exercise~10.29]{SchrijverCourse}: the edges of a multigraph without loops can be partitioned into $k$ forests if and only if every nonempty set $Z$ of vertices spans at most $k(|Z|-1)$ edges.\nEdmonds \\cite{Edmonds1973}, \\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: in a digraph with a vertex $\\varrho$, the largest number of pairwise arc-disjoint spanning trees directed towards $\\varrho$ equals the smallest number of arcs leaving a nonempty set of vertices that does not contain $\\varrho$.\nThe source states this for trees directed away from $\\varrho$; reverse all arcs."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 430,
+    "kind": "cite",
+    "citation": "\\cite[Exercise~10.29]{SchrijverCourse}",
+    "keys": [
+      "SchrijverCourse"
+    ],
+    "context": "We use two theorems on packing.\nNash-Williams \\cite{NashWilliams1964}, \\cite[Exercise~10.29]{SchrijverCourse}: the edges of a multigraph without loops can be partitioned into $k$ forests if and only if every nonempty set $Z$ of vertices spans at most $k(|Z|-1)$ edges.\nEdmonds \\cite{Edmonds1973}, \\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: in a digraph with a vertex $\\varrho$, the largest number of pairwise arc-disjoint spanning trees directed towards $\\varrho$ equals the smallest number of arcs leaving a nonempty set of vertices that does not contain $\\varrho$.\nThe source states this for trees directed away from $\\varrho$; reverse all arcs."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 431,
+    "kind": "cite",
+    "citation": "\\cite{Edmonds1973}",
+    "keys": [
+      "Edmonds1973"
+    ],
+    "context": "We use two theorems on packing.\nNash-Williams \\cite{NashWilliams1964}, \\cite[Exercise~10.29]{SchrijverCourse}: the edges of a multigraph without loops can be partitioned into $k$ forests if and only if every nonempty set $Z$ of vertices spans at most $k(|Z|-1)$ edges.\nEdmonds \\cite{Edmonds1973}, \\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: in a digraph with a vertex $\\varrho$, the largest number of pairwise arc-disjoint spanning trees directed towards $\\varrho$ equals the smallest number of arcs leaving a nonempty set of vertices that does not contain $\\varrho$.\nThe source states this for trees directed away from $\\varrho$; reverse all arcs."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 431,
+    "kind": "cite",
+    "citation": "\\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}",
+    "keys": [
+      "SchrijverHandbook"
+    ],
+    "context": "We use two theorems on packing.\nNash-Williams \\cite{NashWilliams1964}, \\cite[Exercise~10.29]{SchrijverCourse}: the edges of a multigraph without loops can be partitioned into $k$ forests if and only if every nonempty set $Z$ of vertices spans at most $k(|Z|-1)$ edges.\nEdmonds \\cite{Edmonds1973}, \\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: in a digraph with a vertex $\\varrho$, the largest number of pairwise arc-disjoint spanning trees directed towards $\\varrho$ equals the smallest number of arcs leaving a nonempty set of vertices that does not contain $\\varrho$.\nThe source states this for trees directed away from $\\varrho$; reverse all arcs."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 599,
+    "kind": "cite",
+    "citation": "\\cite{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "Suppose Conjecture~\\ref{conj:X} were proved.\nTheorem~\\ref{thm:R} supplies a rainbow tree whenever no separating triangle has black inner boundary, the conjecture carries it to a good state, and Theorem~\\ref{thm:S}(1) hands over the partner.\nThat is Theorem~\\ref{thm:key} with no signed count, no weight and no sum over covers.\nPlanarity would enter through the identity \\eqref{eq:euler} and through whatever the proof of the conjecture uses.\nBarnette's conjecture would follow by the remaining steps of \\cite{Expo}, which use no cancellation: the passage from a good state to a Hamiltonian cycle and the gluing along separating triangles.\nTheorem~\\ref{thm:even} would then give a second good state."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 611,
+    "kind": "cite",
+    "citation": "\\cite[Lemma~3.8]{Expo}",
+    "keys": [
+      "Expo"
+    ],
+    "context": "Nothing in Section~\\ref{sec:packing} brings the conjecture closer in a direct way, for the reason given after Proposition~\\ref{prop:bad}.\nThe place to look is the exchange that leaves the cover.\nA rainbow tree is an acyclic choice of arcs in $G_u$, its excess counts the faces with both arcs or no arc chosen, and correcting a face along a cycle of the cover works until the new arc closes a directed cycle.\nThat is the same event as a cycle of $Q_s$ in the signed proof, where the disk identity \\cite[Lemma~3.8]{Expo} controls it.\nThe disk identity is not used anywhere in this note, and we expect that a proof of Conjecture~\\ref{conj:X} has to use it."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 33,
+    "kind": "prose",
+    "context": "\\begin{document}\n\\begin{abstract}\nThe proof of Barnette's conjecture rests on one lemma: a triangulation that has a pair of disjoint states has a good state, and the only known proofs get it from a signed count.\nWe collect what can be proved about this lemma with no sign at all.\nA pair exists exactly when a certain spanning tree on the white faces exists, by Rado's theorem and one Euler count; each such tree lies in exactly one cover; the number of good states is even, by explicit involutions; and inside every cover each of the two conditions that define a good state can be met alone, by the theorems of Nash-Williams and Edmonds.\nBoth conditions cannot always be met inside one cover, as a triangulation with $16$ vertices shows, so a proof without signs has to move between covers.\nWe state the conjecture that would finish such a proof, with the range in which it has been checked and the natural stronger forms that fail.\n\\end{abstract}\n\\maketitle\n\\raggedbottom"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 56,
+    "kind": "prose",
+    "context": "The key lemma is \\cite[Proposition~4.8]{Expo}, due to OpenAI \\cite{OpenAI2026}."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 62,
+    "kind": "prose",
+    "context": "Every known proof gives each pair a sign, shows that the pairs whose second state is not good cancel, and shows by a second evaluation that the signed sum is not zero \\cite{OpenAI2026,Li2026,Anonymous2026,Expo}.\nThe proof finds no good state.\nIt shows that the set of good states is not empty because a sum over it does not vanish.\nTwo things would be gained from a proof without signs.\nThe first is an algorithm: no polynomial-time construction of a Hamiltonian cycle in these graphs is known, and a direct argument might provide one.\nThe second is a reason.\nThe cancellation does not say why a good state exists, in the way Hall's theorem says why a matching exists."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 142,
+    "kind": "prose",
+    "context": "A \\emph{separating triangle} is a $3$-cycle of $\\T$ with vertices on both sides.\nIt has \\emph{black inner boundary} if the three faces along its sides, on the side away from $t_0$, are black.\nWe use Rado's theorem in the following form \\cite{Rado1942}, \\cite[Exercise~10.26]{SchrijverCourse}: subsets $X_1,\\dots,X_m$ of the ground set of a matroid have an independent transversal if and only if the union of any $j$ of them has rank at least $j$."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 150,
+    "kind": "prose",
+    "context": "\\begin{proof}\nFor $x\\in X$ let $C_x=\\{e(t,x):t\\ni x\\}$.\nThese sets are disjoint, and $C_x$ is a closed walk through the white faces at $x$.\nBy Lemma~\\ref{lem:dual} a rainbow tree is an independent transversal of $(C_x)_{x\\in X}$ in the cycle matroid of $W$, whose rank is $n$.\nTwo walks $C_x$ and $C_y$ share a white face exactly when $xy$ is an edge of $\\T$.\nSo for $J\\subseteq X$ the union of the $C_x$, $x\\in J$, has one component for each component of the induced graph $\\T[J]$, and different components use disjoint sets of white faces.\nIts rank is $w(J)-\\operatorname{comp}(\\T[J])$, where $w(J)$ is the number of white faces with a corner in $J$.\nBoth $w$ and $|\\cdot|$ add over the components of $\\T[J]$, so by Rado's theorem a rainbow tree exists if and only if\n\\begin{equation}\\label{eq:rado}\nw(J)\\ \\ge\\ |J|+1\\qquad\\text{for every nonempty } J\\subseteq X \\text{ with } \\T[J] \\text{ connected.}\n\\end{equation}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 193,
+    "kind": "prose",
+    "context": "Conversely let $\\Delta$ be a separating triangle with black inner boundary, and let $J$ be the set of the $I\\ge1$ vertices inside it.\nLet $B$ and $W'$ count the black and white faces inside $\\Delta$.\nEuler's formula and the count of sides for the disk give $B+W'=2I+1$, and the signed count of sides gives $3(B-W')=3$.\nSo $W'=I$.\nEvery white face with a corner in $J$ lies inside $\\Delta$, so $w(J)\\le|J|$ and the union of the $C_x$, $x\\in J$, has rank less than $|J|$.\nBy Rado's theorem there is no rainbow tree.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 201,
+    "kind": "prose",
+    "context": "Rado's theorem is a case of matroid intersection, so a rainbow tree can be found in polynomial time when one exists."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 275,
+    "kind": "prose",
+    "context": "The equivalence of the first and the third statement is \\cite[Theorem~1.2]{Anonymous2026}.\nThe exposition proves one direction, for triangulations without separating triangles, by a flow \\cite[Proposition~5.2]{Expo}.\nThere the max-flow min-cut theorem reduces the existence of a pair to the inequality $e(U)-b(U)\\le2|U|-4$ for all sets $U$ of vertices that contain the roots, and Euler's formula proves it component by component.\nHere Rado's theorem reduces it to \\eqref{eq:rado}, which concerns only complements of connected sets and follows from the exact identity \\eqref{eq:euler}.\nBoth arguments use planarity through one Euler count, and both are constructive.\nThe route through Rado gives more than a pair.\nOne half of the cover it produces is a rainbow tree, a selection whose arcs in $G_u$ have no directed cycle.\nThis already has the acyclicity that a good state needs and lacks only the face condition."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 429,
+    "kind": "prose",
+    "context": "We use two theorems on packing.\nNash-Williams \\cite{NashWilliams1964}, \\cite[Exercise~10.29]{SchrijverCourse}: the edges of a multigraph without loops can be partitioned into $k$ forests if and only if every nonempty set $Z$ of vertices spans at most $k(|Z|-1)$ edges.\nEdmonds \\cite{Edmonds1973}, \\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: in a digraph with a vertex $\\varrho$, the largest number of pairwise arc-disjoint spanning trees directed towards $\\varrho$ equals the smallest number of arcs leaving a nonempty set of vertices that does not contain $\\varrho$.\nThe source states this for trees directed away from $\\varrho$; reverse all arcs."
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 443,
+    "kind": "prose",
+    "context": "\\begin{proof}\nLet $M_u$ be the multigraph obtained from $H$ by doubling the three spokes of $t_0$ and the spokes $(t,u(t))$, $t\\in A$.\nIt has $6+2n+2n=2(|V(H)|-1)$ edges.\nLet $Z$ be a set of vertices of $H$, let $U=Z\\cap V(\\T)$, and let $\\mu_t$ be the number of edges of $M_u$ from the centre of $t$ to $U$.\nIf $U$ is empty, $Z$ spans no edge.\nOtherwise $Z$ spans at most $2(|Z|-1)$ edges for every choice of centres in $Z$ exactly when\n\\begin{equation}\\label{eq:nw}\n\\sum_{t\\ \\mathrm{black}}\\max(0,\\mu_t-2)\\ \\le\\ 2|U|-2 .\n\\end{equation}\nFor $t_0$ the term is $2\\max(0,\\rho(U)-1)$.\nFor $t\\in A$ we have $\\mu_t=4$ if $j_t=3$, $\\mu_t=3$ if $j_t=2$ and $u(t)\\in U$, and $\\mu_t\\le2$ otherwise, so the term is at most $\\max(0,j_t-1)$.\nBy \\eqref{eq:shortfall}, in which $t_0$ accounts for $\\max(0,\\rho(U)-1)$, the left side of \\eqref{eq:nw} is at most $e(U)-b(U)+\\max(0,\\rho(U)-1)$, and Lemma~\\ref{lem:density} gives \\eqref{eq:nw}.\nBy the theorem of Nash-Williams, $M_u$ is the union of two forests.\nBy the count of edges both are spanning trees, and each contains one copy of every doubled spoke.\nSo the complement in $H$ of each of them is the part of the single spokes that lies in the other, and by Lemma~\\ref{lem:dual} these two parts are spanning trees of $W$.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 473,
+    "kind": "prose",
+    "context": "\\begin{proof}\nIdentify the three roots to one vertex $\\varrho$.\nThe resulting multigraph $\\T/R$ has $n+1$ vertices, and the $2n$ sides give no loops, because an edge between two roots is a side of $t_0$.\nA face $t\\in A$ with $j_t$ corners in a set has at most $\\max(0,j_t-1)$ of its two sides inside it.\nLet $S$ be a nonempty set of vertices of $\\T/R$.\nIf $\\varrho\\notin S$, then by \\eqref{eq:shortfall} and Lemma~\\ref{lem:density} the sides inside $S$ number at most $e(S)-b(S)\\le2|S|-2$.\nIf $\\varrho\\in S$, let $U$ consist of $S\\setminus\\{\\varrho\\}$ and the three roots, so $|U|=|S|+2$; the sides inside number at most $e(U)-b(U)-2\\le2|U|-6=2|S|-2$.\nBy the theorem of Nash-Williams the sides form two forests of $\\T/R$, with $2n$ edges, hence two spanning trees.\nA spanning tree of $\\T/R$ is a spanning forest of $\\T$ with one root in each of its three components.\nIn a pair, the side of $t$ opposite $r(t)$ joins $s(t)$ and $u(t)$, and the side opposite $s(t)$ joins $r(t)$ and $u(t)$.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 490,
+    "kind": "prose",
+    "context": "\\begin{proof}\nMerge the roots of $G_u$ into one vertex $\\varrho$.\nBy Lemma~\\ref{lem:orient}, a splitting $F=\\sigma\\cup\\sigma'$ into two rainbow trees is a partition of the arcs into two spanning trees directed towards $\\varrho$.\nBy the theorem of Edmonds these exist if at least two arcs leave every nonempty $Y\\subseteq X$.\nEvery vertex of $Y$ has outdegree two, so this says that at most $2|Y|-2$ arcs have both ends in $Y$.\nA face $t$ has such arcs only if $u(t)\\in Y$, and then at most $j_t-1$ of them.\nBy \\eqref{eq:shortfall} and Lemma~\\ref{lem:density} with $\\rho(Y)=0$ their number is at most $e(Y)-b(Y)\\le2|Y|-2$.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 504,
+    "kind": "prose",
+    "context": "\\begin{proof}\nThe first is Theorem~\\ref{thm:edmonds}.\nFor the second, the $2n$ edges of $F$ in $W$ are two forests by Theorem~\\ref{thm:twotrees}, so every subset $Y$ of them has rank at least $|Y|/2$.\nThe $n$ sets $\\{e(t,v):v\\ne u(t)\\}$ are disjoint and have two elements each, so the union of any $j$ of them has rank at least $j$.\nRado's theorem gives an independent transversal, which is a spanning tree with the face condition.\n\\end{proof}"
+  },
+  {
+    "file": "proofs/sign-free/sign-free.tex",
+    "line": 624,
+    "kind": "prose",
+    "context": "\\begin{thebibliography}{9}\n\\bibitem{Anonymous2026} \\emph{A constructive proof of Barnette's conjecture}, unsigned manuscript, dated 18 October 2026.\n\\bibitem{Edmonds1973} J. Edmonds, \\emph{Edge-disjoint branchings}, in: Combinatorial Algorithms (R. Rustin, ed.), Academic Press, New York, 1973, pp.~91--96.\n\\bibitem{Expo} \\emph{The proof of Barnette's conjecture: an exposition}, manuscript, 14 November 2026, in the same repository as this note (\\texttt{paper/main/barnette.pdf}).\n\\bibitem{Li2026} Z. Li, \\emph{A note on the proof of Barnette's conjecture}, arXiv:2610.30490v1, 2026.\n\\bibitem{NashWilliams1964} C. St.\\,J. A. Nash-Williams, \\emph{Decomposition of finite graphs into forests}, J. London Math. Soc. \\textbf{39} (1964), 12.\n\\bibitem{OpenAI2026} OpenAI, \\emph{Paired states and Hamiltonian cycles in cubic bipartite planar graphs}, preprint, 24 September 2026.\n\\bibitem{Rado1942} R. Rado, \\emph{A theorem on independence relations}, Quart. J. Math. Oxford Ser. \\textbf{13} (1942), 83--89.\n\\bibitem{SchrijverCourse} A. Schrijver, \\emph{A course in combinatorial optimization}, lecture notes, CWI, Amsterdam, version of 23 March 2017.\n\\bibitem{SchrijverHandbook} A. Schrijver, \\emph{Polyhedral combinatorics}, in: Handbook of Combinatorics (R. L. Graham, M. Gr\\\"otschel, L. Lov\\'asz, eds.), Elsevier, Amsterdam, 1995, Chapter~30, pp.~1649--1704.\n\\end{thebibliography}"
+  },
+  {
     "file": "digestions/steps/00-overview.md",
     "line": 3,
     "kind": "prose",
@@ -697,6 +994,12 @@
     "line": 9,
     "kind": "prose",
     "context": "The theorem has a Lean proof. The [independent rebuild](../../research/2026-11-14_astra_lean-check/REPORT.md) confirms the formal theorem and the replacement real-sign route, but several translations from the paper remain unformalised. AI referees have checked the written arguments; no human check is recorded. `LIT` here records a supplied preprint, not journal review. New finite checks are marked `COMPUTED`; open claims are `CONJECTURE`."
+  },
+  {
+    "file": "digestions/steps/00-overview.md",
+    "line": 24,
+    "kind": "prose",
+    "context": "These statements are `LIT` in the supplied preprints and proved in the project paper at the locations below. The disk identity has two distinct exact-count uses. Its value three enters the sign formula and the nonvanishing calculation; recovery also compares that value with the face excess one to exclude a selected cycle. Oddness alone does not justify the paper's recovery argument. The pair certifies both cancellation and the one-root-per-component conclusion. A forest without a partner need not be good."
   },
   {
     "file": "digestions/steps/00-overview.md",
@@ -1282,6 +1585,12 @@
   },
   {
     "file": "digestions/steps/09-what-is-still-open.md",
+    "line": 3,
+    "kind": "prose",
+    "context": "`LIT`. The supplied preprints prove existence of a Hamiltonian cycle. The questions here concern a simpler proof, an efficient construction, or the number of good states. None has a recorded human check. `PROVED-HERE` means a written project proof; `COMPUTED` means a finite check with the range stated; `CONJECTURE` means a claim still to test; `REFUTED` retains a failed claim and its lesson. An independent AI referee changes review status, not a conjecture into a theorem. The route map calls written proofs T2, independently validated exhaustive computations T3, author-only computations T4, conjectures T5 and hunches T6."
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
     "line": 5,
     "kind": "prose",
     "context": "Use the [glossary](GLOSSARY.md) for states, pairs, covers and the rainbow constructions. Sizes below are dual order $V=|V(T)|$, unless explicitly called primal order $N=2V-4$. A feasible root admits a pair. A cover is the unoriented $D(r,s)$; $m$ is its minimum possible number of cycles. By contrast, $q(s)$ counts cycles of $Q_s$. A good state has one root in each component of its forest $Q_s$, equivalently $S_s=Q_s\\cup\\{ao,bo\\}$ is a spanning tree. Census files call its count `TM`. Without a partner, an acyclic $Q_s$ alone does not suffice."
@@ -1482,7 +1791,7 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 3,
     "kind": "prose",
-    "context": "Snapshot of 14 November 2026. GPT-6 Astra wrote this document. Fable 5.2 then checked every claim against its source and edited it ([ledger](../research/2026-11-14_fable_synthesis-audit/FACT-CHECK.md), [change log](../research/2026-11-14_fable_synthesis-audit/CHANGELOG.md)). Opus 5.5 later updated the Lean paragraphs after the independent Lean check and folded in the runs that reported after Fable's last pass ([report](../research/2026-11-14_opus_lean-integration/REPORT.md)). No human has checked this document or any proof it describes."
+    "context": "Snapshot of 14 November 2026. GPT-6 Astra wrote this document. Fable 5.2 then checked every claim against its source and edited it ([ledger](../research/2026-11-14_fable_synthesis-audit/FACT-CHECK.md), [change log](../research/2026-11-14_fable_synthesis-audit/CHANGELOG.md)). Opus 5.5 later updated the Lean paragraphs after the independent Lean check and folded in the runs that reported after Fable's last pass ([report](../research/2026-11-14_opus_lean-integration/REPORT.md)). A final Opus pass brought it into line with the last referee reports ([fact table](../research/2026-11-14_opus_reconcile/FACTS.md)). No human has checked this document or any proof it describes."
   },
   {
     "file": "digestions/SYNTHESIS.md",
@@ -1572,7 +1881,7 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 63,
     "kind": "prose",
-    "context": "**Families.** The prism over a $2j$-gon has $2j+2$ Hamiltonian cycles, so no exponential lower bound in the number of vertices holds for the whole class. A graph with $b$ irreducible pieces has at least $2^b$ cycles avoiding any given edge and at least $3\\cdot2^b$ in all. The cube has six, so six is sharp. Sol proved these. Their referee was a second Sol run, so no different model has checked them. [Families referee, F1 and F5](../research/2026-11-14_sol_referee-covers/REFEREE-families.md)"
+    "context": "**Families.** The prism over a $2j$-gon has $2j+2$ Hamiltonian cycles, so no exponential lower bound in the number of vertices holds for the whole class. A graph with $b$ irreducible pieces has at least $2^b$ cycles avoiding any given edge and at least $3\\cdot2^b$ in all. The cube has six, so six is sharp. Sol proved these. The first referee was a second Sol run. Fable, a different model, then replayed every number it could reach and found the proofs correct. [Families referee, F1 and F5](../research/2026-11-14_sol_referee-covers/REFEREE-families.md), [different-model referee](../research/2026-11-14_fable_referee-families/INTEGRATION.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
@@ -1620,7 +1929,7 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 89,
     "kind": "prose",
-    "context": "| Kind | What worked | What failed, and what remains |\n|---|---|---|\n| Combinatorial | Heights, reversal and finite differences give the refereed proof. | Choosing the highest or lowest state, or turning all cycles of a smallest cover one way, fails at 12 once reflections are counted. A 13-vertex instance has six good states and $m=2$, so good states do not split into cubes of four. [Referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md) |\n| Graph-theoretic | The exact pair criterion and the three-matroid description are refereed. Two-tree packing has a proof nobody has reviewed. | A two-matroid relaxation fails on the hexagonal prism, 8 vertices: four of its six solutions are not states. The linear program has a half-integral vertex at 13, a witness. A cover with no good state occurs at 16. [Determinants](../research/2026-11-14_fable_referee-determinants/REPORT.md), [structure](../research/2026-11-14_sol_referee-structure/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |\n| Constructive | The lab enumerates, runs marked walks and recovers cycles. | No polynomial bound. Strict descent fails first at 16 for pairs and at 8 for rainbow trees. The surplus walk cycles at 38, a witness. A search over plateaus has not failed yet. [Lab](../workings/barnette_lab/README.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |\n| Algebraic | Two equivalent determinants and the linear weights are refereed. | The plain determinant fails on the hexagonal prism, and doubled edges fail at 9. No sign change on incidences removes the cancellation, by a 13-vertex witness. The number of good states can vanish modulo 2, 3, 4, 5, 7 and 11, witnesses at 6, 13, 9, 14, 16 and 26. The algebra report is not reviewed. [Referee](../research/2026-11-14_fable_referee-determinants/REPORT.md), [algebra](../research/2026-11-14_sol_route-algebra/REPORT.md) |\n| Topological | Signed angles give a Gauss-Bonnet reading of the disk identity, and a dual rank formula counts the cycles a selection leaves. Opus derived both and Fable refereed them. They are intuition, not a second proof. | The plain Euler characteristic loses the grading. The referee's own new results, that a rainbow tree exists and lies in a unique cover, were then refereed by Opus and hold. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |\n| Probabilistic | Explicit families show that good states can be exponentially rare. | Positive weights on all spanning trees cannot match the target degrees, already on the cube, primal order 8. That excludes full-support measures only. Real roots and roots on the unit circle both fail at 12. Opus checked the degree obstruction, and otherwise only a second run of the author's model reviewed this. [Probability](../research/2026-11-14_sol_route-probabilistic/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |\n| Categorical | Cutting along a cycle and recording a boundary pattern composes: 3 patterns on triangles, 6 on quadrilaterals, given the theorem. | On 5-cycles the patterns depend on the piece, witness at 9. Homology and Belyi maps gave vocabulary only. Not reviewed. [Report](../research/2026-11-14_fable_route-categorical/REPORT.md) |\n| Inductive | Splitting of states, a lift criterion and a rotation are refereed. A one-sided induction step has a written proof. | The converse of the lift criterion fails at 11. \"Some good state lifts\" fails at 18. Selecting inward fails at 11, 13 and 14. Repair by the partner fails at 16, by one cycle at 17, by any reorientation of a fixed cover at 18. Lemmas G and X are open. [Referee](../research/2026-11-14_fable_induction-completion/REPORT.md), [later lemmas](../research/2026-11-14_astra_induction-lemmas/REPORT.md) |\n| Lattice | Covers form a distributive lattice, and both cancellations have a reading on it. | Both extremes fail first at 18. \"An extreme or an irreducible element\" fails at a 33-vertex witness, which has a separating triangle. Without separating triangles that question is open. Levels with a fixed number of cycles can be disconnected, witnesses at 18. [Referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [covers](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md) |\n| Non-planar | The Pfaffian corollary follows from the theorem through Gorsky, Steiner and Wiederrecht. | On the Heawood graph, 14 primal vertices, the cancellation survives but the count is zero. A direct proof is open. Not reviewed. [Report](../research/2026-11-14_astra_route-pfaffian/REPORT.md) |"
+    "context": "| Kind | What worked | What failed, and what remains |\n|---|---|---|\n| Combinatorial | Heights, reversal and finite differences give the refereed proof. | Choosing the highest or lowest state, or turning all cycles of a smallest cover one way, fails at 12 once reflections are counted. A 13-vertex instance has six good states and $m=2$, so good states do not split into cubes of four. [Referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md) |\n| Graph-theoretic | The exact pair criterion and the three-matroid description are refereed. Two-tree packing is proved and refereed by a fresh instance of its author's model. | A two-matroid relaxation fails on the hexagonal prism, 8 vertices: four of its six solutions are not states. The linear program has a half-integral vertex at 13, a witness. A cover with no good state occurs at 16. [Determinants](../research/2026-11-14_fable_referee-determinants/REPORT.md), [structure](../research/2026-11-14_sol_referee-structure/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md), [packing referee](../research/2026-11-14_opus_referee-rainbow/REFEREE-packing.md) |\n| Constructive | The lab enumerates, runs marked walks and recovers cycles. | No polynomial bound. Strict descent fails first at 16 for pairs and at 8 for rainbow trees. A lookahead of two moves fails first at 21, of three at a 40-vertex witness. The surplus walk cycles at 38, a witness. A search over plateaus has not failed yet. [Lab](../workings/barnette_lab/README.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |\n| Algebraic | Two equivalent determinants and the linear weights are refereed. | The plain determinant fails on the hexagonal prism, and doubled edges fail at 9. No change of sign on the variables of the polynomial makes all its coefficients one sign, by a 13-vertex witness. That is narrower than it sounds: with signs on the incidences of both states the equations are solvable on all 5,088 rooted instances with a pair up to 16 vertices, though nobody has proved that this always works. The number of good states can vanish modulo 2, 3, 4, 5, 7 and 11, witnesses at 6, 13, 9, 14, 16 and 26; the case 11 was not replayed. Fable refereed the algebra report. [Referee](../research/2026-11-14_fable_referee-determinants/REPORT.md), [algebra](../research/2026-11-14_sol_route-algebra/REPORT.md), [algebra referee](../research/2026-11-14_fable_referee-families/REFEREE-algebra.md) |\n| Topological | Signed angles give a Gauss-Bonnet reading of the disk identity, and a dual rank formula counts the cycles a selection leaves. Opus derived both and Fable refereed them. They are intuition, not a second proof. | The plain Euler characteristic loses the grading. The referee's own new results were then refereed by Opus and hold: a rainbow tree exists exactly when a pair does, it lies in a unique cover, and the number of good states is even without signs. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |\n| Probabilistic | Explicit families show that good states can be exponentially rare. | The target degree vector lies on a face of the degree polytope, so only spanning-tree laws supported on that face can have it as their mean. That excludes full-support measures only. Real zeros fail at 9 and zeros on the unit circle at 12. A second run of the author's model reviewed this, then Fable, a different model, who agrees with every replayed number. [Probability](../research/2026-11-14_sol_route-probabilistic/REPORT.md), [probability referee](../research/2026-11-14_fable_referee-families/REFEREE-probabilistic.md) |\n| Categorical | Cutting along a cycle and recording a boundary pattern composes: 3 patterns on triangles, 6 on quadrilaterals, given the theorem. | On 5-cycles the patterns depend on the piece, witness at 9. Homology and Belyi maps gave vocabulary only. Not reviewed. [Report](../research/2026-11-14_fable_route-categorical/REPORT.md) |\n| Inductive | Splitting of states, a lift criterion and a rotation are refereed. A one-sided induction step has a written proof. | The converse of the lift criterion fails at 11. \"Some good state lifts\" fails at 18. Selecting inward fails at 11, 13 and 14. Repair by the partner fails at 16, by one cycle at 17, by any reorientation of a fixed cover at 18. Lemmas G and X are open. [Referee](../research/2026-11-14_fable_induction-completion/REPORT.md), [later lemmas](../research/2026-11-14_astra_induction-lemmas/REPORT.md) |\n| Lattice | Covers form a distributive lattice, and both cancellations have a reading on it. | Both extremes fail first at 18. \"An extreme or an irreducible element\" fails at a 33-vertex witness, which has a separating triangle. Without separating triangles that question is open. Levels with a fixed number of cycles can be disconnected, witnesses at 18. [Referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [covers](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md) |\n| Non-planar | The Pfaffian corollary follows from the theorem through Gorsky, Steiner and Wiederrecht. | On the Heawood graph, 14 primal vertices, the cancellation survives but the count is zero. A direct proof is open. Not reviewed. [Report](../research/2026-11-14_astra_route-pfaffian/REPORT.md) |"
   },
   {
     "file": "digestions/SYNTHESIS.md",
@@ -1638,7 +1947,7 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 110,
     "kind": "prose",
-    "context": "Each half of the target is easy inside any cover. Opus's packing report proves that every cover contains a spanning tree of the white faces that meets the degree condition at the black faces, and another that meets it at the vertices. It even splits a cover into two trees of the second kind. A good state needs both conditions in one tree. These proofs are not reviewed. [Packing report](../research/2026-11-14_opus_two-tree-packing/REPORT.md)"
+    "context": "Each half of the target is easy inside any cover. Opus's packing report proves that every cover contains a spanning tree of the white faces that meets the degree condition at the black faces, and another that meets it at the vertices. It even splits a cover into two trees of the second kind. A good state needs both conditions in one tree. A fresh instance of the same model refereed these proofs with its own code. [Packing report](../research/2026-11-14_opus_two-tree-packing/REPORT.md), [referee](../research/2026-11-14_opus_referee-rainbow/REFEREE-packing.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
@@ -1662,7 +1971,7 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 120,
     "kind": "prose",
-    "context": "3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 193,623,384 pairs through 23 vertices and on 230 random triangulations up to 80. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Astra's referee has reproduced the census through 16 and is still running. The rainbow study is not reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)"
+    "context": "3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 193,623,384 pairs through 23 vertices and on 230 random triangulations up to 80. Astra's referee reproduced it with its own code on all 3,373,400 pairs through 20 vertices and on a 40-graph batch at 40. Every sharper rule fails: strict descent first at 16, a lookahead of two moves first at 21, a lookahead of three at a 40-vertex witness, and each of 27 named alternative potentials. Rainbow descent says the same for exchanges on rainbow trees. Fable checked it for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Opus repeated it through 12 and finished seven more triangulations at 18, which leaves 51 unfinished. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [descent referee](../research/2026-11-14_astra_referee-descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md), [rainbow referee](../research/2026-11-14_opus_referee-rainbow/REPORT.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
@@ -1704,47 +2013,47 @@
     "file": "digestions/SYNTHESIS.md",
     "line": 164,
     "kind": "prose",
-    "context": "| Work | Written by | Checked by | Not covered |\n|---|---|---|---|\n| OpenAI's Lean proof | OpenAI | Lean kernel, built locally by Opus and again from a fresh clone by Astra | Our texts |\n| Main paper, version 1 | Opus, merging drafts by Astra and Opus | Sol: follows, eight corrections. Fable: cold read, 40 edits | |\n| Main paper, version 2 | Astra, then 17 finishing edits by Opus | Sol, on the final text: follows, eight small corrections. Opus: cold read, no mathematical problem | |\n| Primal companion | Astra | Fable: follows, one gap closed. Opus: final review, accept | |\n| Involution companion | Sol | Opus: follows, 15 edits. Fable, on the revision: follows, new lemma correct after a fix | |\n| Blueprint | Opus, statuses from Astra's Lean audit | Nobody | The 27 matches after translation or in weaker form |\n| Lean devices | Opus | Lean kernel. Astra: fresh rebuild, axioms, dependency walk, all 29 statements against the paper | The heights, Lemma 4.5 in full, the drawing |\n| Weight-free proof, counts | Fable | Astra | |\n| Pair criterion, gluing, recovery | Opus, Astra | Sol | |\n| Determinants, linear weights | Sol, Astra | Fable | Parts of the lab |\n| Topology | Opus | Fable. Opus refereed Fable's rainbow results: correct | Step X |\n| Lattice conjectures | Opus | Sol | Sol's 33-vertex refutation |\n| Induction | Opus | Fable | Fable's and Astra's later lemmas |\n| Descent study | Fable | Astra, at a checkpoint: census through 16 reproduced | The larger checks |\n| Cycle covers | Astra | Sol | The census from 17 to 24 vertices |\n| Families, probability | Sol | A second Sol run. Fable: every replayed number agrees, one count needs its gluing rule stated | |\n| Packing, algebra, category, Pfaffian | Opus, Sol, Fable, Astra | Nobody | |\n| Step digestions | Fable | Astra, then Opus twice: names, then a final audit with recomputed examples | |\n| Atlas | Sol, rebuilt and finished by Fable | Sol: 78 computed checks pass, wording errors on several pages. Fable applied the corrections | The two new pages |\n| This synthesis | Astra | Fable | |"
+    "context": "| Work | Written by | Checked by | Not covered |\n|---|---|---|---|\n| OpenAI's Lean proof | OpenAI | Lean kernel, built locally by Opus and again from a fresh clone by Astra | Our texts |\n| Main paper, version 1 | Opus, merging drafts by Astra and Opus | Sol: follows, eight corrections. Fable: cold read, 40 edits | |\n| Main paper, version 2 | Astra, then 17 finishing edits by Opus | Sol, on the final text: follows, eight small corrections. Opus: cold read, no mathematical problem | |\n| Primal companion | Astra | Fable: follows, one gap closed. Opus: final review, accept | |\n| Involution companion | Sol | Opus: follows, 15 edits. Fable, on the revision: follows, new lemma correct after a fix | |\n| Blueprint | Opus, statuses from Astra's Lean audit | Nobody | The 27 matches after translation or in weaker form |\n| Lean devices | Opus | Lean kernel. Astra: fresh rebuild, axioms, dependency walk, all 29 statements against the paper | The heights, Lemma 4.5 in full, the drawing |\n| Weight-free proof, counts | Fable | Astra | |\n| Pair criterion, gluing, recovery | Opus, Astra | Sol | |\n| Determinants, linear weights | Sol, Astra | Fable | Parts of the lab |\n| Topology | Opus | Fable. Opus refereed Fable's rainbow results: correct | Step X beyond its finite checks |\n| Lattice conjectures | Opus | Sol | Sol's 33-vertex refutation |\n| Induction | Opus | Fable. Astra, a fresh instance, checked Fable's lemmas and Astra's own partial G with new code | Lemmas G and X |\n| Descent study | Fable | Astra: census through 20 and a batch at 40 reproduced, 27 named potentials refuted, PPADS argument supported | The census from 21 to 23 vertices |\n| Cycle covers | Astra | Sol | The census from 17 to 24 vertices |\n| Families, probability, algebra | Sol | A second Sol run, on families and probability. Fable, a different model, on all three: every replayed number agrees, one count needs its gluing rule stated | Tube recurrences for every length, the mod 11 witness, sampling numbers |\n| Packing | Opus | Opus, a fresh instance, with its own code | P2 |\n| Category, Pfaffian | Fable, Astra | Nobody | |\n| Step digestions | Fable | Astra, then Opus twice: names, then a final audit with recomputed examples | |\n| Atlas | Sol, rebuilt and finished by Fable | Sol: 78 computed checks pass, wording errors on several pages. Fable applied the corrections | The two new pages |\n| This synthesis | Astra | Fable | |"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 189,
+    "line": 190,
     "kind": "prose",
     "context": "**Real sign against Lean's phase.** The primal referee warned that the two differ by a factor depending on the number of cycles. The reviser disagreed. Opus adjudicated for the reviser. The ratio is the constant $i^n$, or $i^{-n}$ if the corner order is reversed. The referee's formula was right and simplifies to that constant. Opus proved it, checked 24,856 pairs with its own code, and later proved it in Lean. Astra rebuilt that Lean proof and checked the identity again on 174,763 sign words. [Adjudication](../research/2026-11-14_opus_cross-audit/ADJUDICATION.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 191,
+    "line": 192,
     "kind": "prose",
     "context": "**279 against 213 marked objects.** Two runs counted Li's marked objects on the running example and disagreed. Opus reproduced both. They use the same input and two drawings that swap the positions of roots 4 and 5. The count depends on the drawing: 69 drawings give 35 values from 103 to 363. The signed sum, $-9$, and the number of surviving objects, nine, never change. The same referee found one wrong sign in a side formula, for odd $m$, and the revision corrects it. [Discrepancy note](../research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md), [second referee](../research/2026-11-14_fable_referee-involutions-v2/REPORT.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 193,
+    "line": 194,
     "kind": "prose",
     "context": "**First failures.** A search that identifies mirror images cannot report first sizes for claims that depend on orientation. Counting reflections moved two counterexamples down to 12 vertices. Several saved \"lattice extremes\" were only greedy end points, and the true extremes fail together first at 18. [Combinatorics referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md), [structure referee](../research/2026-11-14_sol_referee-structure/REPORT.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 197,
+    "line": 198,
     "kind": "prose",
     "context": "<!-- inventory-start -->\nThe inventory was taken at 2026-11-14 14:18 UTC by [count.py](../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_opus_lean-integration/synthesis-audit/counts.json). It counts folders and files. It reruns no census."
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 202,
+    "line": 203,
     "kind": "prose",
     "context": "| PDF | Pages |\n|---|---:|\n| [Main paper, version 2, at the time of the count](../paper/main/barnette.pdf) | 20 |\n| [Main paper, version 1](../paper/main/history/barnette-v1.pdf) | 18 |\n| [Primal companion](../proofs/primal/primal.pdf) | 15 |\n| [Involution companion](../proofs/involutions/involutions.pdf) | 18 |\n| [Atlas](atlas/atlas.pdf) | 34 |"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 213,
+    "line": 214,
     "kind": "prose",
     "context": "The censuses cover different populations and must not be added up. The numbers are quoted from the reports, not rerun. [Ledger of computations](../research/2026-11-14_astra_synthesis/EVIDENCE.md)"
   },
   {
     "file": "digestions/SYNTHESIS.md",
-    "line": 234,
+    "line": 235,
     "kind": "prose",
     "context": "1. **The author line.** The main paper has an empty `\\author{}` and a comment that marks it for you.\n2. **Third-party PDFs.** Two research folders hold 53 PDFs of other people's papers, about 50 MB: [machinery literature](../research/2026-11-14_sol_machinery-literature/pdf/) and [history literature](../research/2026-11-14_opus_history-literature/pdf/). The repository is private, but nobody established the right to redistribute them. The [cleanup proposal](../research/2026-11-14_opus_cross-audit/CLEANUP-PROPOSAL.md), items C3 to C5, suggests moving the few the proof uses into the library and replacing the rest by links. Decide before the repository is shared.\n3. **The Lean build directory.** `E:\\lbb`, about 7.7 GB, lies outside the repository. Astra's fresh clone `E:\\lb2` is already deleted. Delete `E:\\lbb` when no more Lean work is planned. The [Lean README](../proofs/lean/README.md) says how to rebuild it.\n4. **Drafts A and B.** `paper/draft-A/` and `paper/draft-B/` are superseded by the main paper and kept as records. Leave them, or move them under a history folder."
   },
@@ -1753,6 +2062,12 @@
     "line": 5,
     "kind": "prose",
     "context": "Status tags. `LIT` means stated and proved in one of the three 2026 papers (unrefereed preprints: O is the OpenAI paper, L is Li's note, T is the trees paper) or in older published work. `PROVED-HERE` means a full proof sits in an agent folder of this project. None of those has been checked by a human, and I say which ones an AI referee has passed. `COMPUTED` gives the range. `CONJECTURE`, `HUNCH` and `REFUTED` mean what they say."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 11,
+    "kind": "prose",
+    "context": "A Barnette graph `G` is cubic, bipartite, planar and 3-connected. The claim is that `G` has a Hamiltonian cycle. The proof gives more. For any edge of `G` there is a Hamiltonian cycle that avoids it [`LIT`, O Corollary 7.1]."
   },
   {
     "file": "digestions/route-map/HOW-IT-WORKS.md",
@@ -1768,15 +2083,69 @@
   },
   {
     "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 31,
+    "kind": "prose",
+    "context": "A state can exist at all because of a count. Euler's formula gives `T` equally many black and white faces, say `k`, and `k + 2` vertices. Remove `t0` and its three corners and both `A` and `X` have `n = k - 1` elements [`LIT`, O (2.1)]. This is the first and most basic use of bipartiteness."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 35,
+    "kind": "prose",
+    "context": "- the duals of the deleted spokes form a spanning tree on the white faces, because the complement of a spanning tree in the plane is a spanning tree of the dual [`LIT`, O Lemma 2.1];\n- root that white tree at the white face across `e0`, and let each tree edge select the side of its black face that borders the end farther from the root. Together with `e0` this is one side of every face, the set `P` [`LIT`, O Section 6.1];\n- the complement of `P` in `G` is 2-regular, and one shows it is a single cycle (Section 6 below)."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 47,
+    "kind": "prose",
+    "context": "\"Exactly one root per component\" is awkward to check directly, and here the second state comes in. Suppose `r` is another state with `r(t) ≠ s(t)` for every `t`. Call `(r, s)` a **pair**. Then `r(t)` is one end of the `Q_s`-edge of `t`. Direct that edge out of `r(t)`. Because `r` is a bijection, every non-root vertex has exactly one outgoing edge of `Q_s` and the roots have none. In a graph like that, a component with no cycle has exactly one vertex without an outgoing edge, so it contains exactly one root. So for a pair, \"`Q_s` is a forest\" already gives the good state [`LIT`, O Lemma 6.1]."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
     "line": 49,
     "kind": "prose",
     "context": "The partner `r` is a certificate. It orients `Q_s`, and the orientation does the counting. Without it the statement is false. On the hexagonal prism all three states have `Q_s` a forest and only two are good states [`COMPUTED`, limits, and my own check in `research/2026-11-14_fable_labyrinth-map/spotcheck.py`; `REFUTED` as route R.x1]."
   },
   {
     "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 51,
+    "kind": "prose",
+    "context": "The same picture shows what goes wrong when `Q_s` is not a forest. A component with a cycle has no root, its cycle is a directed cycle, and reversing that cycle gives a different partner `r'` of the same `s`. If `Q_s` has `q(s)` such components, `s` has exactly `2^q(s)` partners. So a good state is a state with exactly one partner [`LIT`, T Proposition 2.1 and Theorem 1.2; `COMPUTED` on 140358 states]."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 65,
+    "kind": "prose",
+    "context": "**The disk identity.** The sign is only useful if both moves flip it. Reversing a cycle of `D` of length `h` changes `h` of the factors `δ`, so the sign is multiplied by `(-1)^h`. The same happens for a cycle of `Q_s`. So everything rests on one fact. These cycles have odd length. That is a consequence of the disk-counting lemma [`LIT`, O Lemma 4.1]:"
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 73,
+    "kind": "prose",
+    "context": "**First evaluation, with `s` fixed.** Take any function `F(s)` and form the sum of `sign(r, s) · F(s)` over all pairs. Fix `s`. If `Q_s` has a cycle, choose one by a rule that looks at `s` only, and reverse it. This pairs up the partners of `s`, keeps `F(s)`, and flips the sign. Those terms cancel. What is left is the sum over good states, each with its unique partner. In particular, if the total is not zero, a good state exists [`LIT`, O Lemma 5.2]. In linear algebra this is the remark that the incidence matrix of a graph with a cycle is singular (route K.1)."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 75,
+    "kind": "prose",
+    "context": "**Second evaluation, with `D` fixed.** Group the pairs by their cover, the cycles of `D` with orientations forgotten. A cover with `c` cycles carries `2^c` pairs, one for each choice of orientations, and reversing one cycle flips the sign. So with `F` constant every group sums to zero, and the unweighted count is `0 = 0`. It says only that good states come in equal numbers of both signs [`LIT`, T Theorem 5.2]. This rules out this unweighted signed sum, including its reduction modulo any prime; it does not rule out every possible modular invariant (route N.x2) and why the number of good states is always even."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 89,
+    "kind": "prose",
+    "context": "1. `L+(C) > L-(C)` for every cycle. One can choose the numbers `a` so that `L+(C) - L-(C)` is the number of white faces inside `C`. Route a unit of flow from every white face to the outer face and let `a` record the crossings [`LIT`, O Lemma 5.3; `PROVED-HERE` as a height function, route-combinatorics, AI-refereed]. By the disk identity that number is `B + 1`, at least 1.\n2. All groups with the same number of cycles have the same sign. This is where the exact value in the disk identity is used. A counterclockwise cycle of length `h` contributes `(-1)^((h+3)/2)`. Multiplying over a cover gives `(-1)^((n-c)/2)`, so the group sign depends on `n` and `c`, although individual cycle signs depend on length."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
     "line": 96,
     "kind": "prose",
     "context": "The other proofs of this step are the same computation in other clothes. O uses `e^{x a}` and a Taylor coefficient. Li counts sets of `m` distinct marked ray crossings and cancels them with a second involution. T uses an integer polynomial on each component of the exchange graph and also turns the two involutions into a walk that finds a good pair. Route N.H tests against a product of `m` heights of white faces and needs no weights at all. All of them take the lowest order at which something survives, and that order is `m`. It is unbounded even without separating triangles, by the independently AI-refereed construction in `research/2026-11-14_astra_cycle-covers/PROOFS.md`. On 3j+2 dual vertices it has one cover, m=j-1 and 2^(j-1) good states. The primal meaning is components(G-S)-1 for the admissible deletion S. The finite separator-free census reaches m=6 at V=23. First-order arguments cannot cover this family."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "line": 102,
+    "kind": "prose",
+    "context": "**The first pair.** Section 5 needs one pair to start from. Two disjoint perfect matchings in the incidence graph exist exactly when a Hall-type condition holds, and a planar Euler count verifies it when `T` has no separating triangle [`LIT`, O Proposition 3.1 by max-flow; L Lemma 9 by Ore's theorem]. The exact statement is sharper. A separating triangle has exactly one side whose faces along the triangle are black [`PROVED-HERE`, dependency-graph, unreviewed]. Call it the black side. A pair exists if and only if `t0` lies on the black side of every separating triangle [`LIT`, T Theorem 1.2; `COMPUTED` at all 7868 roots up to 16 vertices; a proof from one Euler identity is `PROVED-HERE` in route-graph-theory, independently AI-refereed by the structure referee]. This is the only place where separating triangles matter."
   },
   {
     "file": "digestions/route-map/HOW-IT-WORKS.md",
