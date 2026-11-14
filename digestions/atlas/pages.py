@@ -24,7 +24,8 @@ INTRO = (r'Readings of one proof, each drawn on a computed example. The proof is
 SOURCES_INTRO = ('Each row lists the papers, the project reports and the computation behind one page. '
                  'Paths are relative to the repository root. The build script draws every figure from objects it computes and asserts, '
                  'and it writes the certificates to computed.json next to the atlas. '
-                 'Where a row says a report is unrefereed, no second model has checked it. No human mathematician has read any page of this atlas.')
+                 'Where a row says a report is unrefereed, no second model has checked it. A check by a second model is not peer review. '
+                 'An independent model audited this atlas page by page, and its corrections are applied. No human mathematician has read any page of it.')
 
 G1, G2, G3, G4, G5, G6 = 'main chain', 'linear algebra', 'order', 'trees', 'cutting', 'scope'
 
@@ -63,7 +64,7 @@ page('sum', 'exponential sum', 'Eight terms, grouped twice', G1, r'''
 Give every state $s$ an exponent, its volume from page 7, and every pair $(r,s)$ a sign read off the cycles of $D$.
 The eight pairs of the running example give eight terms $\pm e^{vx}$.
 Group them by $s$. The two pairs that share a cyclic $Q_s$ cancel, so only good states survive.
-Group the same terms by the cycle cover $D$. Each group factors into one bracket per cycle, no bracket is zero,
+Group the same terms by the cover, the set of cycles of $D$ with their directions forgotten. Each group factors into one bracket per cycle, no bracket vanishes identically,
 and by the disk identity the groups with the fewest cycles agree in sign at lowest order.
 So the sum is not zero and a good state exists. The argument does not say which state.''',
      r'''OpenAI paper, Section 5. All eight terms and both factorisations are computed here.''',
@@ -81,14 +82,17 @@ This version has integer coefficients and no analysis. The geometric input is un
      [RS + 'fable_referee-determinants/SIGNIFICANCE.md, Section 2', BT + ' (signed integer polynomial)', HERE + ' (lib.py: Fpoly)'])
 
 page('involutions', 'involutions', 'Cancellation as a pairing of objects', G1, r'''
-Li's note replaces the sum by two pairings. The first keeps $s$ fixed. If $Q_s$ has a cycle, move $r$ to the third corner on every face of that cycle, as in (a) and (b).
-The result is a pair with the opposite sign and the same weight, so the two cancel.
-With $q$ cycles in $Q_s$ the $2^q$ partners of $s$ pair off in the same way. A good state has one partner and survives.
-The second pairing must show that the survivors do not cancel each other.
-Reversing a cycle of $D$ flips the sign, as in (c) and (d), but it also changes the weight, so Li adds marks to make this a true pairing.''',
-     r'''Li's note, Definitions 13 to 23. The first pairing is computed here on all eight pairs. The marks are not drawn, and their code was checked on the cube only.''',
+Li's note replaces the sum by two pairings. If $Q_s$ has a cycle, move $r$ to the third corner on each of its faces, as in (a) and (b).
+The new pair has the same $s$, the opposite sign and the same weight, so the two cancel.
+The second pairing shows that the surviving good states do not cancel.
+Reversing a cycle of $D$ flips the sign but changes the weight, so Li adds marks.
+A mark sits where a fixed ray from a white face crosses a spoke of $s$. Crossings along a ray pair off, and (c) and (d) move one mark to its partner.''',
+     r'''Li's note, Definitions 13 to 23. Two models checked this project's full write-up of both pairings on 1,206 examples up to 14 vertices.
+     The panels are computed here. A complete marked object is not drawn. Not read by a human.''',
      ['sum', 'rowdep', 'lattice'],
-     [LI + ', Definitions 13 to 23, Appendix B', 'workings/barnette_lab/barnette_lab/li.py', RS + 'fable_referee-topology/REFEREE.md, part d (Morse reading)', HERE])
+     [LI + ', Definitions 13 to 23, Appendix B', 'proofs/involutions/INVOLUTIONS.md (both pairings in full)', RS + 'opus_referee-involutions/REPORT.md',
+      RS + 'fable_referee-involutions-v2/REPORT.md', RS + 'sol_atlas-audit/code/proposed.py (ray panel proposed there; recomputed here)',
+      RS + 'fable_referee-topology/REFEREE.md, part d (Morse reading)', HERE + ' (figs_chain.py: crossing parity asserted on all 176 pair, cycle, white-face triples)'])
 
 page('heights', 'heights', 'The exponent is a volume', G1, r'''
 The exponent has a picture. Fix the lowest state and compare any other state with it.

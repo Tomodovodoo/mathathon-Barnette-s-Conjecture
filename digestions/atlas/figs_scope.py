@@ -704,7 +704,7 @@ def open_fig():
             ('an extreme or irreducible cover has one', 33, False), ('every maximal chain of covers has one', 33, False),
             ('at least half of all covers have one', 33, False), ('the evict walk never repeats', 38, False)]
     assert all((tw is None or tw <= on) and (sa is None or sa > on) for _, tw, on, sa in bars)
-    w = 8.6
+    w = 7.6
     X = lambda v: w * (math.log(v) - math.log(8)) / (math.log(150) - math.log(8))
     L = []
     y = 0
@@ -722,7 +722,7 @@ def open_fig():
             L.append(rf'\fill[black!80] (0,{y - .11}) rectangle ({X(tw):.3f},{y + .11});')
         lab = f'{on}' if tw in (None, on) else f'{tw}, {on}'
         L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1pt,anchor=south west] at ({X(on) + .04:.3f},{y + .08}) {{${lab}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=6.1cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
     y -= .72
     L.append(rf'\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,{y}) {{refuted, counterexample known at}};')
     for name, v, smallest in dead:
@@ -731,9 +731,9 @@ def open_fig():
         if smallest:
             L.append(rf'\draw[line width=.8pt] ({X(v):.3f},{y}) circle[radius=.19];')
         L.append(rf'\node[font=\footnotesize,inner sep=1pt,anchor=west] at ({X(v) + .25:.3f},{y}) {{${v}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=6.1cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
     y -= .75
-    x0 = -6.2
+    x0 = -5.8
     L.append(rf'\fill[black!80] ({x0},{y - .11}) rectangle ({x0 + .8},{y + .11});\node[right,font=\footnotesize] at ({x0 + .8},{y}) {{every case, two programs}};')
     L.append(rf'\draw[line width=.7pt,fill=white] ({x0 + 4.5},{y - .11}) rectangle ({x0 + 5.3},{y + .11});\node[right,font=\footnotesize] at ({x0 + 5.3},{y}) {{every case, one program}};')
     L.append(rf'\draw[line width=1.5pt,dash pattern=on 3pt off 2pt] ({x0 + 9.0},{y}) -- ({x0 + 9.8},{y}) node[right,font=\footnotesize] {{random samples}};')
@@ -764,7 +764,7 @@ def open_fig():
             r'The 12-vertex counterexample on page ' + pg('canonical') + r' fails through a face of this kind.\end{minipage}\end{tabular}')
     CERT['open'] = dict(open_statements=[dict(statement=a_, every_case_two_programs=b_, every_case_one_program=c_, sampled_to=d_) for a_, b_, c_, d_ in bars],
                         refuted=[dict(statement=a_, counterexample_at=b_, known_smallest=c_) for a_, b_, c_ in dead], quoted_not_recomputed=True, mechanism_face=y_)
-    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]{\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Logarithmic scale.}\\[4mm]'
+    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]\begin{minipage}{14cm}\centering\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Logarithmic scale.\end{minipage}\\[4mm]'
             + side + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------

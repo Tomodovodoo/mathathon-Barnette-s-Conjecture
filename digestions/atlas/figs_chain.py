@@ -288,7 +288,7 @@ def sum_fig():
              r'\multicolumn{2}{c}{\footnotesize $s$ is good: nothing to cancel with}\\[1mm]')
     body = (rf'\begin{{tabular}}{{{cols}}}' + hd('Grouped by the second state $s$ (solid wedges), with its opposite edges $Q_s$ dashed')
             + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + r'\\[6mm]'
-            + hd('Grouped by the cover, the cycles of $D$ without direction (arrows run from the corner of $r$ to the corner of $s$)')
+            + hd('Grouped by the cover $D$ (arrows from the corner of $r$ to the corner of $s$)')
             + ' & '.join(bottom[:4]) + r'\\[.5mm]' + note(notes[0]) + ' & '.join(bottom[4:]) + r'\\[.5mm]' + note(notes[1]).replace(r'\\[2.2mm]', '')
             + r'\end{tabular}')
     return body
