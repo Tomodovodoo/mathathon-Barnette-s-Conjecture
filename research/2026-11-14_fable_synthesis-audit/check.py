@@ -46,15 +46,13 @@ expect = [
     f"(../paper/main/history/barnette-v1.pdf) | {pg['paper/main/history/barnette-v1.pdf']} |",
     f"(../proofs/primal/primal.pdf) | {pg['proofs/primal/primal.pdf']} |",
     f"(../proofs/involutions/involutions.pdf) | {pg['proofs/involutions/involutions.pdf']} |",
-    "about 28,000 words",
+    f"about {round(counts['step_words_total'], -3):,} words",
     f"(atlas/atlas.pdf) | {pg['digestions/atlas/atlas.pdf']} |",
     counts["timestamp"][:16].replace("T", " ") + " UTC",
 ]
 for e in expect:
     if e not in block:
         problems.append(f"inventory block does not say: {e}")
-if not (abs(counts["step_words_total"] - 28000) < 500):
-    problems.append("step word total is no longer about 28,000")
 
 # numbers repeated outside the block
 R, X = counts["routes"], st["REFUTED"]

@@ -91,7 +91,7 @@ Sizes checked against the report that owns each counterexample.
 | C049 | Reverse lifting fails at 11; no lifting good state at 18; inward selection fails at 11, 13, 14; repairs fail at 16, 17, 18. | sol_referee-structure REPORT; fable_induction-completion REPORT item 3; astra_induction-lemmas REPORT | correct |
 | C050 | Both extremes fail first at 18; extremes-or-irreducibles at 33, a witness; levels disconnect at 18. | sol_referee-conjectures REPORT; sol_referee-covers REFEREE-covers C5 | correct. Added: the 33-vertex witness has a separating triangle, and the question without them is open (same report). "Pairs form a lattice" corrected to "covers". |
 | C051 | Pfaffian corollary through GSW; Heawood count zero with cancellation surviving; unrefereed. | astra_route-pfaffian REPORT | correct |
-| C052, C053 | The route chart, 226 records. | routes.py, recounted | corrected: 227 records now. Chart regenerated with a totals row. |
+| C052, C053 | The route chart, 226 records. | routes.py, recounted | corrected: the map grew to 227 and then, after the final map run (sol_map-final REPORT), to 244 records with 77 refutations. `inventory.py` writes the current number, and the chart is regenerated with a totals row. |
 
 ## Section 6, why the signed count
 
@@ -109,7 +109,7 @@ Sizes checked against the report that owns each counterexample.
 | C057 | Contraction inequality on 1,202,792 contractions through 18. | same (344,872 + 857,920, sum) | correct |
 | C057 | Later report proves G without chordless 5-cycles; the strict inequality is sufficient, not proved necessary. | astra_induction-lemmas REPORT | correct. X restated in the sufficient direction only. |
 | C058 | 4,656,948 instances through 22, independently reproduced; separator-free census to 24 not independently replayed; one-cover and two-cover cases refereed. | sol_referee-conjectures REPORT; sol_referee-covers REFEREE-covers C3, C4 | correct. Added: who computed and who reproduced. |
-| C059 | Pair descent and rainbow descent differ; rainbow descent through 17 and samples to 120. | fable_referee-topology REPORT; sol_referee-structure REPORT | correct. Added from the descent study (fable_descent REPORT, delivered while I worked): pair descent on all 49,325,864 pairs through 22 vertices; strict descent fails first at 16, lookahead two first at 21; 27 of 28 potentials fail. The pair total equals the pair count of Sol's census (sol_referee-conjectures REPORT). The study is not reviewed. |
+| C059 | Pair descent and rainbow descent differ; rainbow descent through 17 and samples to 120. | fable_referee-topology REPORT (updated at 14:33 local: also 1,485 of 1,543 triangulations at 18); sol_referee-structure REPORT | correct. Added from the descent study (fable_descent REPORT, delivered while I worked): pair descent on all 49,325,864 pairs through 22 vertices; strict descent fails first at 16, lookahead two first at 21; 27 of 28 potentials fail. The pair total equals the pair count of Sol's census (sol_referee-conjectures REPORT). The study is not reviewed. |
 | C060 | Testing a direction choice is easy, search is not; rarity defeats sampling. | sol_referee-conjectures REPORT (GAP); sol_referee-covers INTEGRATION (width-four tube) | correct |
 | C061 | Direct non-planar proof; Heawood; six trisum signatures. | astra_route-pfaffian REPORT | correct |
 | C062 | Formalise the exposition's route; start with sign and path flow. | opus_blueprint REPORT, next steps; opus_lean-devices REPORT, "still open" | corrected: the sign and the counting step are now done. What remains is the heights bridge (T2) and the two statements that need a Jordan curve theorem (T6). |
@@ -150,7 +150,7 @@ Sizes checked against the report that owns each counterexample.
 | C068 | The Laurent correction is applied in version 2. | main, Remark 4.10; astra_main-revision CHANGES.md, E1 | correct |
 | C069 | No separate review for induction lemmas, packing, algebra, category, Pfaffian, path-mark lemma, rainbow results. | the seven reports | corrected for the path-mark lemma; the rest correct |
 | C069 | "The late families referee accepts prisms, chains, tube recurrences and rarity." | sol_referee-covers REPORT | softened: same-model referee |
-| C069 | "The atlas and this synthesis have no second-model review." | fable_atlas-review REPORT; sol_atlas-audit REPORT | corrected: the atlas was built by Sol and rebuilt by Fable. Sol's audit passed 78 computed checks and found wording errors on several pages, with edits proposed and not applied at my last scan. This synthesis now has this check. |
+| C069 | "The atlas and this synthesis have no second-model review." | fable_atlas-review REPORT; sol_atlas-audit REPORT | corrected: the atlas was built by Sol and rebuilt by Fable. Sol's audit passed 78 computed checks and found wording errors on several pages. Fable's final atlas run applied the corrections (fable_atlas-final REPORT). This synthesis now has this check. |
 | C070 | Florek correction; the prism-chain control. | sol_referee-covers REPORT | correct. Florek kept in the ledger only; both cut from the text for length. |
 | C071 | Reading recommendation. | | moved to page one |
 | none | The review table. | every referee report named in it; author and referee model read from the folder names | added |
@@ -160,10 +160,10 @@ Sizes checked against the report that owns each counterexample.
 | Block | Claim | Source checked | Verdict |
 |---|---|---|---|
 | C073 | 59 run folders, 55 reports; Astra 16, Fable 15, Opus 14, Sol 14. | my count.py | corrected to the state at my last count: see count-output.txt |
-| C073 | 226 records: 46, 57, 12, 19, 25, 67. | routes.py, recounted | corrected: 227, with 58 proofs written here |
+| C073 | 226 records: 46, 57, 12, 19, 25, 67. | routes.py, recounted | corrected to the final count in count-output.txt (244 at my last run) |
 | C074 to C079 | Page counts 19, 15, 17, 1, 1, 31. | PDFs opened by count.py | corrected: the involution note has 18 pages. Version 1 of the main paper (18) added. |
 | C080 | "These six PDFs total 84 pages." | | removed: a sum of unlike documents |
-| C080 | 26,413 word tokens in the step files. | recounted | corrected: about 28,000 after the terminology edits |
+| C080 | 26,413 word tokens in the step files. | recounted | corrected: `inventory.py` writes the current count, rounded to a thousand |
 | C081 | Rainbow total 69,458,112. | fable_referee-topology REPORT (74,432 + 1,327,360 + 4,030,720 + 29,366,528 + 34,659,072, sum) | correct |
 | C082 | 4,656,948 through 22; 23,824,742 through 24; populations must not be added. | sol_referee-conjectures REPORT; sol_referee-covers REFEREE-covers C4 | correct. Now a table with who computed each. |
 | C083 | Late scan: no report yet from main-revision, descent, involution referee, Lean devices. | folder listing at my last scan | corrected: main-revision, the second involution referee, the consistency edits, the atlas audit, the Lean devices run and the cold read of version 2 have reported and are folded in. `inventory.py` writes the list of open folders into the text. |

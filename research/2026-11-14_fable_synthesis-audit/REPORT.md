@@ -5,7 +5,7 @@ Fable 5.2, 14 November 2026. Folder `research/2026-11-14_fable_synthesis-audit/`
 1. Every mathematical number in the first version of the synthesis agrees with its source. I found no wrong counterexample size, no wrong census figure and no "refuted" that its counterexample does not support.
 2. Of 105 ledger rows, 20 are corrected or softened. About half of those were only out of date when I read them. The others were wrong or wider than their source. The ones that matter: the referee of the main paper had read version 1, not version 2; two "referee" reports are by the same model as the author; a parity condition was credited to the wrong paper; the blueprint's numbers (4, 25, 5 of 34) were missing.
 3. The document is rewritten in the main paper's names, with a first page that answers five questions, a table of who wrote and who checked each piece of work, and a housekeeping section for the owner.
-4. Nine late runs are folded in: version 2 of the paper, its cold read and its referee, the second involution referee, the consistency edits, the atlas audit, the Lean devices run and the descent study. Two runs were still open at my last scan.
+4. Eleven late runs are folded in: version 2 of the paper, its cold read and its referee, the second involution referee, the consistency edits, the atlas audit and the final atlas run, the Lean devices run, the descent study and the final map run. Three runs were still open at my last scan.
 5. Both figures are regenerated from a recount (`count.py`, `figures.py`). `inventory.py` writes the snapshot numbers into the text and `check.py` verifies them.
 
 ## What I set out to do
@@ -27,7 +27,7 @@ All claims below are about the repository, not new mathematics. Mathematical sta
 - The exact pair criterion is stated in the constructive manuscript; the project's contribution is a proof and its review.
 - "Four false states" on the hexagonal prism: four of six solutions of the relaxation are not states at all.
 - "Pairs form a lattice": covers do.
-- Out of date by the time I read it: the path-mark lemma has a referee, the atlas has an audit, the involution note has 18 pages, the route map has 227 records.
+- Out of date by the time I read it: the path-mark lemma has a referee, the atlas has an audit, the involution note has 18 pages, the route map has grown (227 records, then 244).
 - The blueprint's headline numbers were absent, as were the caveats that Kelmans's papers were never opened and that the 33-vertex lattice witness has a separating triangle.
 
 **Counts** (`COMPUTED`, `count.py`, output in count-output.txt and counts.json; command in the script header). The final numbers are in section 11 of the synthesis and are checked against counts.json by `check.py` (output in check-output.txt).
@@ -58,9 +58,9 @@ All claims below are about the repository, not new mathematics. Mathematical sta
 
 ## Leads for others
 
-- `digestions/atlas/`: the atlas audit (`sol_atlas-audit`) found that page 10 states an implication that is false as written (an acyclic $Q_s$ is not enough without a partner). Its edits were not applied when I finished.
+- I waited twenty minutes for `astra_lean-check`, the independent check of the Lean devices. It had not reported. Its verdict belongs in section 4 and in the review table of the synthesis.
 - `proofs/blueprint/BLUEPRINT.md` was extracted from version 1 of the paper. The final version 2 keeps every statement number (I recomputed them from both sources after the last edits). The Lean devices run changes the status column, so the blueprint needs a rerun.
-- `research/INDEX.md` lists 46 rows for 66 folders, and several rows still say "running".
+- A late commit says it completed `research/INDEX.md`. I did not recheck it.
 - `research/2026-11-14_opus_cross-audit/CLEANUP-PROPOSAL.md` measured the two literature PDF folders at 41.6 MB and 11.4 MB. They are now 38.8 MB and 11.3 MB, 28 and 25 tracked files.
 
 ## Files

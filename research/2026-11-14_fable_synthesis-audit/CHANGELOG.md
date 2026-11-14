@@ -91,3 +91,6 @@ Editor: Fable 5.2, 14 November 2026. Base: commit `0d2c5cc` (GPT-6 Astra). The r
 - Section 11's inventory and its list of open runs are written by `inventory.py` from counts.json, because the numbers changed several times while I worked.
 - The referee of version 2 (sol_referee-main-v2 REPORT): page one, the product table, the review table, the products figure. The recommended referee report is now the version 2 one.
 - The descent study (fable_descent REPORT): open problem 3, the constructive row of section 5, a row in the census table and in the review table.
+- The final atlas run (fable_atlas-final REPORT): the atlas rows of sections 2 and 10 now say the audit's corrections are applied.
+- The final map run (sol_map-final REPORT): 244 route records, 77 refutations, written into the text and both figures by the scripts.
+- The updated topology report: rainbow descent also covers 1,485 of the 1,543 triangulations with 18 vertices.

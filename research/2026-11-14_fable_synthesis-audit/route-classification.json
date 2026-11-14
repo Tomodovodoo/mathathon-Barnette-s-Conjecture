@@ -1080,7 +1080,7 @@
   {
     "id": "N.11",
     "label": "non-increasing exchange path to a good pair",
-    "kind": "Combinatorial",
+    "kind": "Probabilistic",
     "status": "CONJECTURE",
     "outcome": "Open"
   },
@@ -1150,7 +1150,7 @@
   {
     "id": "U.7h",
     "label": "local search from a point-rainbow tree",
-    "kind": "Constructive / algorithmic",
+    "kind": "Algebraic / determinantal",
     "status": "CONJECTURE",
     "outcome": "Open"
   },
@@ -1304,7 +1304,7 @@
   {
     "id": "G2.main",
     "label": "merged dual exposition",
-    "kind": "Algebraic / determinantal",
+    "kind": "Constructive / algorithmic",
     "status": "PROVED-HERE",
     "outcome": "Proved"
   },
@@ -1374,7 +1374,7 @@
   {
     "id": "U.G",
     "label": "ML1: preserve a pair in some merge",
-    "kind": "Inductive",
+    "kind": "Graph-theoretic / structural",
     "status": "CONJECTURE",
     "outcome": "Open"
   },
@@ -1395,7 +1395,7 @@
   {
     "id": "U.rainbow",
     "label": "Rado-Euler rainbow tree and unique factor",
-    "kind": "Constructive / algorithmic",
+    "kind": "Graph-theoretic / structural",
     "status": "PROVED-HERE",
     "outcome": "Proved"
   },
@@ -1409,7 +1409,7 @@
   {
     "id": "U.mean-dead",
     "label": "positive full-spoke UST mean fitting",
-    "kind": "Combinatorial",
+    "kind": "Probabilistic",
     "status": "REFUTED",
     "outcome": "Refuted"
   },
@@ -1587,5 +1587,124 @@
     "kind": "Constructive / algorithmic",
     "status": "CONJECTURE",
     "outcome": "Open"
+  },
+  {
+    "id": "U.evict",
+    "label": "resident eviction pairs good states",
+    "kind": "Combinatorial",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "U.rainbow-strict",
+    "label": "strict black-excess descent",
+    "kind": "Constructive / algorithmic",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.rainbow-pot",
+    "label": "four rainbow distance potentials",
+    "kind": "Combinatorial",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.G-partial",
+    "label": "short-cycle obstruction and partial G",
+    "kind": "Inductive",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "U.G-inward",
+    "label": "innermost bad-disk selection",
+    "kind": "Inductive",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.G-five",
+    "label": "innermost bad five-cycle selection",
+    "kind": "Inductive",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.X-cover",
+    "label": "fixed-cover exceptional repair",
+    "kind": "Inductive",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.pack-one-side",
+    "label": "each rainbow constraint separately",
+    "kind": "Combinatorial",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "U.pack-support",
+    "label": "round within a fixed pair support",
+    "kind": "Combinatorial",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "N.descent-structure",
+    "label": "cycle destruction, three heights, product gluing",
+    "kind": "Graph-theoretic / structural",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "N.lookahead",
+    "label": "bounded-lookahead q descent",
+    "kind": "Constructive / algorithmic",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "N.height-ties",
+    "label": "height and cover-count tie-breaks",
+    "kind": "Constructive / algorithmic",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "N.PPADS",
+    "label": "conditional sink-search complexity",
+    "kind": "Algebraic / determinantal",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "G2.devices",
+    "label": "real-sign and finite-difference Lean replacement",
+    "kind": "Algebraic / determinantal",
+    "status": "COMPUTED",
+    "outcome": "Computed"
+  },
+  {
+    "id": "U.rainbow-local",
+    "label": "unique exchange and disk-surplus identity",
+    "kind": "Combinatorial",
+    "status": "PROVED-HERE",
+    "outcome": "Proved"
+  },
+  {
+    "id": "U.rainbow-mean",
+    "label": "uniform rainbow mean load one",
+    "kind": "Probabilistic",
+    "status": "REFUTED",
+    "outcome": "Refuted"
+  },
+  {
+    "id": "U.evict-transitive",
+    "label": "resident involutions act transitively",
+    "kind": "Constructive / algorithmic",
+    "status": "REFUTED",
+    "outcome": "Refuted"
   }
 ]

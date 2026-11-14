@@ -12,7 +12,7 @@ Fix a black triangle $t_0$ at $e_0$ and call its corners roots. A state chooses 
 
 Nobody knows how to point to a good state, so the proof counts. A pair is two states that differ in every triangle. Each pair gets a sign, and a weight that depends only on its second state. If the opposite sides of the second state contain a cycle, reversing that cycle changes the first state, keeps the weight and flips the sign, so all such pairs cancel. The same sum, grouped by the cycles along which the two states differ, is a repeated difference. Its first surviving term is a product of positive numbers, the counts of white triangles inside those cycles. So the sum is nonzero, and a good state exists as soon as one pair exists. A flow argument gives a pair when $T$ has no separating triangle. Otherwise the induction cuts along a separating triangle, and the prescribed side makes the two halves agree.
 
-**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 19-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 227 attempted routes, 67 of them recorded as refuted.
+**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 19-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 244 attempted routes, 77 of them recorded as refuted.
 
 **What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author. All of these checks are by AI models. No human has checked any of it.
 
@@ -34,8 +34,8 @@ Nobody knows how to point to a good state, so the proof counts. A pair is two st
 | [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean. Not reviewed. |
 | [Lean devices](../proofs/lean/README.md) | 866 lines of Lean that prove the paper's sign lemma, cancellation, finite difference and nonvanishing step on top of OpenAI's proof. Checked by the Lean kernel. The reading against the paper is not reviewed. |
 | [Step digestions](steps/00-overview.md) | Eleven files with longer proofs, worked examples and failed alternatives for each step. Audited once. |
-| [Route map](route-map/ROUTE-MAP.md) | 227 route records sorted by the step they address. Start with [how it works](route-map/HOW-IT-WORKS.md). |
-| [Atlas](atlas/atlas.pdf) | 31 pages of computed pictures of 28 routes. Readings of one proof, not 28 proofs. An audit found wording errors on several pages and proposed edits. |
+| [Route map](route-map/ROUTE-MAP.md) | 244 route records sorted by the step they address. Start with [how it works](route-map/HOW-IT-WORKS.md). |
+| [Atlas](atlas/atlas.pdf) | 31 pages of computed pictures of 28 routes. Readings of one proof, not 28 proofs. Audited, and rebuilt with the audit's corrections. |
 | [Labyrinth](../labyrinth/README.md) | Claims, dependencies, evidence and open frontiers as structured data. |
 | [Reference lab](../workings/barnette_lab/README.md) | Code that enumerates states and pairs, evaluates the count and recovers cycles. |
 | [Library](../papers/INDEX.md) | 87 sources with access status, and a bibliography. |
@@ -119,7 +119,7 @@ A 16-vertex cover contains no good state. No reorientation of its cycles helps. 
 
 2. **Prove at least $2^m$ good states.** It holds on all 4,656,948 rooted instances with a pair through 22 vertices, computed by Opus and reproduced by Sol with separate code. Astra's census without separating triangles reports no failure on 23,824,742 rooted faces through 24 vertices, and Sol replayed it through 16. The cases of one cover and of two covers are proved and refereed. Explicit families attain equality for every $m$, and $m$ is unbounded even without separating triangles. The next step is the two-cover calculation for more covers. An induction on levels with a fixed number of cycles cannot work, because such levels can be disconnected. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 
-3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 49,325,864 pairs through 22 vertices. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices and in samples to 120. Neither study is reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
+3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 49,325,864 pairs through 22 vertices. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Neither study is reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
 
 4. **Find a polynomial-time construction.** Testing one orientation of a cover is linear. Finding a good one among all covers has no polynomial bound. Sampling states at random cannot work in general, because good states can be exponentially rare even without separating triangles. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [families](../research/2026-11-14_sol_counting-families/REPORT.md)
 
@@ -183,7 +183,7 @@ The merge followed these, and a cold reader still found the opening overloaded, 
 | Families, probability | Sol | A second Sol run. Opus checked one probability result | A different model, for the rest |
 | Packing, algebra, category, Pfaffian | Opus, Sol, Fable, Astra | Nobody | |
 | Step digestions | Fable | Astra, then Opus for names | |
-| Atlas | Sol, rebuilt by Fable | Sol: 78 computed checks pass, wording errors on several pages | The proposed edits are not applied |
+| Atlas | Sol, rebuilt by Fable | Sol: 78 computed checks pass, wording errors on several pages. Fable applied the corrections | The rebuilt pages |
 | This synthesis | Astra | Fable | |
 
 Two disputes were settled by a model that was not a party, and referees corrected two sets of first-failure claims.
@@ -197,9 +197,9 @@ Two disputes were settled by a model that was not a party, and referees correcte
 ## 11. Numbers and snapshot
 
 <!-- inventory-start -->
-The inventory was taken at 2026-11-14 13:27 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
+The inventory was taken at 2026-11-14 13:48 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
 
-There are 67 run folders and 64 of them hold a final report. By folder name, 17 are GPT-6 Astra, 18 Fable 5.2, 16 Opus 5.5 and 16 GPT-6.1 Sol. The route map has 227 records: 46 arguments from the sources, 58 proofs written here, 12 computations, 19 conjectures, 25 hunches and 67 refutations. Those are recorded statuses, not review verdicts.
+There are 69 run folders and 66 of them hold a final report. By folder name, 17 are GPT-6 Astra, 19 Fable 5.2, 16 Opus 5.5 and 17 GPT-6.1 Sol. The route map has 244 records: 46 arguments from the sources, 64 proofs written here, 13 computations, 19 conjectures, 25 hunches and 77 refutations. Those are recorded statuses, not review verdicts.
 
 | PDF | Pages |
 |---|---:|
@@ -209,7 +209,7 @@ There are 67 run folders and 64 of them hold a final report. By folder name, 17 
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 |
 | [Atlas](atlas/atlas.pdf) | 31 |
 
-The eleven step files hold about 28,000 words, counting headings and link text.
+The eleven step files hold about 32,000 words, counting headings and link text.
 <!-- inventory-end -->
 
 The censuses cover different populations and must not be added up. The numbers are quoted from the reports, not rerun. [Ledger of computations](../research/2026-11-14_astra_synthesis/EVIDENCE.md)
@@ -226,7 +226,7 @@ The censuses cover different populations and must not be added up. The numbers a
 | Main paper's identities | to 12 vertices | 262 rooted faces of 15 triangulations | Sol |
 
 <!-- late-start -->
-**Runs still open at this snapshot.** Three folders hold no final report: `astra_lean-check`, `fable_atlas-final`, `fable_final-polish`. Nothing from them is counted as a result above.
+**Runs still open at this snapshot.** Three folders hold no final report: `astra_lean-check`, `fable_atlas-finish`, `fable_final-polish`. Nothing from them is counted as a result above.
 <!-- late-end -->
 
 ## Housekeeping for the owner
