@@ -1,12 +1,20 @@
 Rc files read (in order):
   NONE
 Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
-No existing .aux file, so I'll make a simple one, and require run of *latex.
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
-Category 'other':
-  Rerun of 'pdflatex' forced or previously required:
-    Reason or flag: 'Initial setup'
+Changed files or newly in use/created:
+  figures/fig-badcover.tex
+  figures/fig-digraph.tex
+  figures/fig-exchange.tex
+  figures/fig-orbit.tex
+  figures/fig-rainbow.tex
+Category 'changed_user':
+  figures/fig-badcover.tex
+  figures/fig-digraph.tex
+  figures/fig-exchange.tex
+  figures/fig-orbit.tex
+  figures/fig-rainbow.tex
 
 ------------
 Run number 1 of rule 'pdflatex'
@@ -235,417 +243,22 @@ x.def) (sign-free.aux)
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-bas
 e.sty
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
-))
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 46.
-
+)) (sign-free.out) (sign-free.out)
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg)
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg)
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 51.
-
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 54.
-
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 56.
-
-
-LaTeX Warning: Citation `OpenAI2026' on page 1 undefined on input line 56.
-
-
-LaTeX Warning: Citation `OpenAI2026' on page 1 undefined on input line 62.
-
-
-LaTeX Warning: Citation `Li2026' on page 1 undefined on input line 62.
-
-
-LaTeX Warning: Citation `Anonymous2026' on page 1 undefined on input line 62.
-
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 62.
-
-
-LaTeX Warning: Reference `sec:R' on page 1 undefined on input line 71.
-
-
-LaTeX Warning: Reference `sec:packing' on page 1 undefined on input line 71.
-
-
-LaTeX Warning: Citation `Expo' on page 1 undefined on input line 72.
-
-
-LaTeX Warning: Reference `thm:R' on page 1 undefined on input line 72.
-
-
-LaTeX Warning: Reference `thm:S' on page 1 undefined on input line 72.
-
-
-LaTeX Warning: Reference `thm:even' on page 1 undefined on input line 73.
-
-
-LaTeX Warning: Reference `thm:twotrees' on page 1 undefined on input line 74.
-
-
-LaTeX Warning: Reference `thm:edmonds' on page 1 undefined on input line 74.
-
-
-LaTeX Warning: Reference `sec:wall' on page 1 undefined on input line 75.
-
-
-LaTeX Warning: Reference `conj:X' on page 1 undefined on input line 77.
-
-
-LaTeX Warning: Reference `sec:gives' on page 1 undefined on input line 79.
-
-
-LaTeX Warning: Reference `sec:computed' on page 1 undefined on input line 81.
-
 [1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Tom/
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Tom/AppDat
 a/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Tom/AppData/Loca
 l/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Tom/AppData/Local/
-Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-
-LaTeX Warning: Citation `Expo' on page 2 undefined on input line 102.
-
-
-LaTeX Warning: Reference `lem:dual' on page 2 undefined on input line 126.
-
-
-LaTeX Warning: Reference `lem:good' on page 2 undefined on input line 126.
-
-
-LaTeX Warning: Reference `fig:rainbow' on page 2 undefined on input line 130.
-
-
-LaTeX Warning: Reference `lem:good' on page 2 undefined on input line 131.
-
-(figures/fig-rainbow.tex
+Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] (figures/fig-rainbow.tex
 pdfTeX warning (font expansion): font should be expanded before its first use
-)
-
-LaTeX Warning: Citation `Expo' on page 2 undefined on input line 136.
-
-
-LaTeX Warning: Citation `Rado1942' on page 2 undefined on input line 144.
-
-
-LaTeX Warning: Citation `SchrijverCourse' on page 2 undefined on input line 144
-.
-
-[2{C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}
-]
-
-LaTeX Warning: Reference `lem:dual' on page 3 undefined on input line 153.
-
-
-LaTeX Warning: Reference `eq:euler' on page 3 undefined on input line 184.
-
-
-LaTeX Warning: Reference `eq:rado' on page 3 undefined on input line 191.
-
-
-LaTeX Warning: Citation `Expo' on page 3 undefined on input line 206.
-
-
-LaTeX Warning: Reference `fig:digraph' on page 3 undefined on input line 209.
-
-[3]
-
-LaTeX Warning: Reference `lem:orient' on page 4 undefined on input line 240.
-
-
-LaTeX Warning: Reference `lem:orient' on page 4 undefined on input line 242.
-
-(figures/fig-digraph.tex)
-
-LaTeX Warning: Reference `fig:rainbow' on page 4 undefined on input line 255.
-
-
-LaTeX Warning: Reference `thm:S' on page 4 undefined on input line 259.
-
-
-LaTeX Warning: Citation `Expo' on page 4 undefined on input line 260.
-
-[4]
-
-LaTeX Warning: Reference `thm:S' on page 5 undefined on input line 267.
-
-
-LaTeX Warning: Reference `thm:R' on page 5 undefined on input line 268.
-
-
-LaTeX Warning: Reference `thm:R' on page 5 undefined on input line 270.
-
-
-LaTeX Warning: Citation `Anonymous2026' on page 5 undefined on input line 275.
-
-
-LaTeX Warning: Citation `Expo' on page 5 undefined on input line 276.
-
-
-LaTeX Warning: Reference `eq:rado' on page 5 undefined on input line 278.
-
-
-LaTeX Warning: Reference `eq:euler' on page 5 undefined on input line 278.
-
-
-LaTeX Warning: Reference `fig:exchange' on page 5 undefined on input line 298.
-
-(figures/fig-exchange.tex)
-
-LaTeX Warning: Reference `fig:rainbow' on page 5 undefined on input line 308.
-
-[5]
-
-LaTeX Warning: Reference `lem:exchange' on page 6 undefined on input line 327.
-
-
-LaTeX Warning: Reference `lem:good' on page 6 undefined on input line 342.
-
-
-LaTeX Warning: Reference `lem:reverse' on page 6 undefined on input line 346.
-
-
-LaTeX Warning: Reference `lem:reverse' on page 6 undefined on input line 355.
-
-
-LaTeX Warning: Reference `fig:orbit' on page 6 undefined on input line 364.
-
-
-LaTeX Warning: Reference `lem:exchange' on page 6 undefined on input line 365.
-
-
-LaTeX Warning: Reference `thm:key' on page 6 undefined on input line 367.
-
-(figures/fig-orbit.tex)
-
-LaTeX Warning: Reference `fig:rainbow' on page 6 undefined on input line 372.
-
-[6]
-
-LaTeX Warning: Reference `thm:R' on page 7 undefined on input line 401.
-
-
-LaTeX Warning: Reference `lem:identity' on page 7 undefined on input line 414.
-
-
-LaTeX Warning: Reference `lem:identity' on page 7 undefined on input line 419.
-
-[7]
-
-LaTeX Warning: Citation `NashWilliams1964' on page 8 undefined on input line 43
-2.
-
-
-LaTeX Warning: Citation `SchrijverCourse' on page 8 undefined on input line 432
-.
-
-
-LaTeX Warning: Citation `Edmonds1973' on page 8 undefined on input line 433.
-
-
-LaTeX Warning: Citation `SchrijverHandbook' on page 8 undefined on input line 4
-33.
-
-
-LaTeX Warning: Reference `eq:shortfall' on page 8 undefined on input line 456.
-
-
-LaTeX Warning: Reference `eq:nw' on page 8 undefined on input line 456.
-
-
-LaTeX Warning: Reference `lem:density' on page 8 undefined on input line 456.
-
-
-LaTeX Warning: Reference `eq:nw' on page 8 undefined on input line 456.
-
-
-LaTeX Warning: Reference `lem:dual' on page 8 undefined on input line 459.
-
-
-LaTeX Warning: Reference `lem:identity' on page 8 undefined on input line 465.
-
-
-LaTeX Warning: Reference `eq:nw' on page 8 undefined on input line 465.
-
-
-LaTeX Warning: Reference `eq:nw' on page 8 undefined on input line 465.
-
-
-LaTeX Warning: Reference `eq:shortfall' on page 8 undefined on input line 480.
-
-
-LaTeX Warning: Reference `lem:density' on page 8 undefined on input line 480.
-
-
-LaTeX Warning: Reference `lem:orient' on page 8 undefined on input line 494.
-
-
-LaTeX Warning: Reference `eq:shortfall' on page 8 undefined on input line 499.
-
-
-LaTeX Warning: Reference `lem:density' on page 8 undefined on input line 499.
-
-[8]
-
-LaTeX Warning: Reference `thm:edmonds' on page 9 undefined on input line 508.
-
-
-LaTeX Warning: Reference `thm:twotrees' on page 9 undefined on input line 509.
-
-
-LaTeX Warning: Reference `cor:alone' on page 9 undefined on input line 518.
-
-
-LaTeX Warning: Reference `fig:bad' on page 9 undefined on input line 522.
-
+) [2{C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.en
+c}] [3] (figures/fig-digraph.tex) [4] (figures/fig-exchange.tex) [5]
+(figures/fig-orbit.tex) [6] [7] [8]
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd)
-(figures/fig-badcover.tex)
-
-LaTeX Warning: Reference `prop:bad' on page 9 undefined on input line 536.
-
-
-LaTeX Warning: Reference `thm:twotrees' on page 9 undefined on input line 536.
-
-
-LaTeX Warning: Reference `thm:edmonds' on page 9 undefined on input line 536.
-
-
-LaTeX Warning: Reference `thm:key' on page 9 undefined on input line 540.
-
-
-LaTeX Warning: Reference `thm:twotrees' on page 9 undefined on input line 541.
-
-
-LaTeX Warning: Reference `thm:edmonds' on page 9 undefined on input line 541.
-
-
-LaTeX Warning: Reference `lem:exchange' on page 9 undefined on input line 544.
-
-
-LaTeX Warning: Reference `thm:R' on page 9 undefined on input line 553.
-
-
-LaTeX Warning: Reference `lem:good' on page 9 undefined on input line 553.
-
-
-LaTeX Warning: Reference `thm:key' on page 9 undefined on input line 553.
-
-
-LaTeX Warning: Reference `thm:S' on page 9 undefined on input line 556.
-
-[9]
-
-LaTeX Warning: Reference `conj:X' on page 10 undefined on input line 562.
-
-
-LaTeX Warning: Reference `sec:even' on page 10 undefined on input line 564.
-
-
-LaTeX Warning: Reference `thm:even' on page 10 undefined on input line 567.
-
-
-LaTeX Warning: Reference `thm:key' on page 10 undefined on input line 575.
-
-
-LaTeX Warning: Reference `conj:X' on page 10 undefined on input line 598.
-
-
-LaTeX Warning: Reference `thm:R' on page 10 undefined on input line 599.
-
-
-LaTeX Warning: Reference `thm:S' on page 10 undefined on input line 599.
-
-
-LaTeX Warning: Reference `thm:key' on page 10 undefined on input line 600.
-
-
-LaTeX Warning: Reference `eq:euler' on page 10 undefined on input line 601.
-
-
-LaTeX Warning: Citation `Expo' on page 10 undefined on input line 602.
-
-
-LaTeX Warning: Reference `thm:even' on page 10 undefined on input line 603.
-
-
-LaTeX Warning: Reference `sec:packing' on page 10 undefined on input line 611.
-
-
-LaTeX Warning: Reference `prop:bad' on page 10 undefined on input line 611.
-
-
-LaTeX Warning: Citation `Expo' on page 10 undefined on input line 614.
-
-
-LaTeX Warning: Reference `conj:X' on page 10 undefined on input line 615.
-
-
-LaTeX Warning: Reference `sec:trees' on page 10 undefined on input line 619.
-
-
-LaTeX Warning: Reference `sec:packing' on page 10 undefined on input line 619.
-
-
-LaTeX Warning: Reference `lem:dual' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `lem:good' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `eq:euler' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `thm:S' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `lem:exchange' on page 10 undefined on input line 621.
-
-
-
-LaTeX Warning: Reference `lem:reverse' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `thm:even' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `lem:density' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `thm:twotrees' on page 10 undefined on input line 621.
-
-
-
-LaTeX Warning: Reference `thm:edmonds' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `cor:alone' on page 10 undefined on input line 621.
-
-
-LaTeX Warning: Reference `conj:X' on page 10 undefined on input line 622.
-
-
-LaTeX Warning: Reference `prop:bad' on page 10 undefined on input line 624.
-
-
-LaTeX Warning: Reference `sec:wall' on page 10 undefined on input line 625.
-
-
-LaTeX Warning: Reference `prop:bad' on page 10 undefined on input line 625.
-
-[10] [11] (sign-free.aux)
-
-LaTeX Warning: There were undefined references.
-
+(figures/fig-badcover.tex) [9] [10] [11] (sign-free.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `sign-free.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
 
  )
 (see the transcript file for additional information)<C:/Users/Tom/AppData/Local
@@ -669,20 +282,18 @@ sy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7
 fb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msam10.pfb>
-Output written on sign-free.pdf (11 pages, 463861 bytes).
+Output written on sign-free.pdf (11 pages, 496954 bytes).
 Transcript written on sign-free.log.
 pdflatex: major issue: So far, you have not checked for MiKTeX updates.
 Latexmk: Getting log file 'sign-free.log'
 Latexmk: Examining 'sign-free.fls'
 Latexmk: Examining 'sign-free.log'
 Latexmk: References changed.
-Latexmk: References changed.
 Latexmk: Log file says output to 'sign-free.pdf'
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
 Changed files or newly in use/created:
   sign-free.aux
-  sign-free.out
 
 ------------
 Run number 2 of rule 'pdflatex'
@@ -946,7 +557,7 @@ sy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7
 fb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msam10.pfb>
-Output written on sign-free.pdf (11 pages, 490628 bytes).
+Output written on sign-free.pdf (11 pages, 496954 bytes).
 Transcript written on sign-free.log.
 pdflatex: major issue: So far, you have not checked for MiKTeX updates.
 Latexmk: Getting log file 'sign-free.log'

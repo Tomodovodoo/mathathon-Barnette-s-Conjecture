@@ -75,12 +75,18 @@ class Panel:
             ang = math.atan2(P[v][1] - my, P[v][0] - mx)
         else:
             # the widest angular gap between incident edges
-            angs = sorted(math.atan2(P[w][1] - P[v][1], P[w][0] - P[v][0]) for w in nb)
-            best = max(range(len(angs)), key=lambda i: (angs[(i + 1) % len(angs)] - angs[i]) % (2 * math.pi))
-            gap = (angs[(best + 1) % len(angs)] - angs[best]) % (2 * math.pi)
-            ang = angs[best] + gap / 2
+            cands = []
+            for f in I.white:
+                if v in f:
+                    a, b = [w for w in f if w != v]
+                    a1 = math.atan2(P[a][1] - P[v][1], P[a][0] - P[v][0])
+                    a2 = math.atan2(P[b][1] - P[v][1], P[b][0] - P[v][0])
+                    dl = (a2 - a1 + math.pi) % (2 * math.pi) - math.pi
+                    reach = min(math.dist(P[a], P[v]), math.dist(P[b], P[v]))
+                    cands.append((abs(dl) * min(reach, 3.0), a1 + dl / 2))
+            ang = max(cands)[1]
         q = (P[v][0] + dist * math.cos(ang), P[v][1] + dist * math.sin(ang))
-        self.add('\\node at %s {%s};' % (c(q), text if text is not None else '$%d$' % v), 'lab')
+        self.add('\\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt,rounded corners=1pt] at %s {%s};' % (c(q), text if text is not None else '$%d$' % v), 'lab')
 
     def ring(self, v, style='draw=black,line width=.8pt', rad=3.4):
         self.add('\\draw[%s] %s circle[radius=%.1fpt];' % (style, c(self.P[v]), rad), 'top')
@@ -111,12 +117,14 @@ class Panel:
         if tag:
             ys = [p[1] for p in self.P.values()]
             xs = [p[0] for p in self.P.values()]
-            body.append('\\node[anchor=north] at (%.3f,%.3f) {%s};' % ((min(xs) + max(xs)) / 2, min(ys) - 0.55, tag))
+            body.append('\\node[anchor=north] at (%.3f,%.3f) {%s};' % ((min(xs) + max(xs)) / 2, min(ys) - 0.95, tag))
         body.append('\\end{tikzpicture}')
         return '\n'.join(body)
 
 
 def write(name, panels, sep='\\hfill'):
+    if len(panels) == 2:
+        sep = chr(92) + 'hspace{0.04' + chr(92) + 'textwidth}'
     with open(name, 'w') as f:
         f.write(('%\n' + sep + '%\n').join(panels) + '%\n')
 
@@ -175,7 +183,7 @@ DATA['rainbow'] = {'a': {str(x): I.A[sig_a[x]] for x in I.X}, 'b': {str(x): I.A[
 par, u, arcs = in_forest(I, sig_a)
 assert any(all(u[i] == g[i] for i in range(I.n)) for g in I.two_factors())
 panels = []
-p = Panel(I, PR, 0.47)
+p = Panel(I, PR, 0.42)
 for i, f in enumerate(I.A):
     for v in f:
         if v != u[i]:
@@ -183,7 +191,7 @@ for i, f in enumerate(I.A):
 for v in range(I.V):
     p.label(v)
 panels.append(p.tex('(a)'))
-p = Panel(I, PR, 0.47)
+p = Panel(I, PR, 0.42)
 for i, f in enumerate(I.A):
     for v in f:
         if v != u[i]:
@@ -239,7 +247,7 @@ def hpos(P, inst, v):
 
 panels = []
 for sig, tag in ((sig_a, '(a)'), (sig_b, '(b)')):
-    p = Panel(I, PR, 0.47)
+    p = Panel(I, PR, 0.42)
     rem = {(sig[y], y) for y in I.X}
     cyc_edges = {frozenset((g_ex[i], g_ex[i + 1])) for i in range(len(g_ex) - 1)} | {frozenset((g_ex[0], g_ex[-1]))}
     for (i, v) in I.spokes:
@@ -311,7 +319,7 @@ for bits in range(1 << J.n):
         assert J.excess(sg) > 0
 
 
-def tutte(inst, rounds=40):
+def tutte(inst, rounds=120):
     V = inst.V
     r = sorted(inst.R)
     P = {r[0]: (-4.33, -2.5), r[1]: (4.33, -2.5), r[2]: (0.0, 5.0)}
@@ -331,7 +339,7 @@ def tutte(inst, rounds=40):
         L = {e: math.dist(P[e[0]], P[e[1]]) for e in inst.edges}
         mean = sum(L.values()) / len(L)
         for e in inst.edges:
-            w[e] *= (L[e] / mean) ** 0.5
+            w[e] *= (L[e] / mean) ** 0.7
     return P
 
 
