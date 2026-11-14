@@ -2,7 +2,7 @@
 
 A collaborative workspace for studying Barnette's Conjecture, collecting the information needed to understand it, and developing a constructive, explanatory proof.
 
-The repository aims to hold detailed digestions of the conjecture and related results, a focused library of relevant literature, and current proof attempts and workings in their own folders. Digestions should explain the ideas, assumptions, and dependencies of each argument so contributors can follow and build on the work.
+The repository holds detailed digestions of the conjecture and related results, a focused library of relevant literature, and current proof attempts and workings in their own folders. Digestions explain the ideas, assumptions, and dependencies of each argument so contributors can follow and build on the work.
 
 ## Goal
 
@@ -10,18 +10,30 @@ The goal is to create a constructive and explanatory proof of OpenAI's October 6
 
 Keep established results, proposed arguments, and unresolved gaps clearly distinguished as the proof develops.
 
-## Repository layout
+## Start here
 
-Use the following folders as material is added:
+| If you want | Read |
+| --- | --- |
+| What the overnight campaign of 14 November 2026 found, with review status | [`digestions/SYNTHESIS.md`](digestions/SYNTHESIS.md) |
+| The exposition itself | [`paper/main/barnette.pdf`](paper/main/barnette.pdf) |
+| How the proof works, in plain words | [`digestions/route-map/HOW-IT-WORKS.md`](digestions/route-map/HOW-IT-WORKS.md), then [`digestions/steps/00-overview.md`](digestions/steps/00-overview.md) |
+| Every proof route as a picture | [`digestions/atlas/atlas.pdf`](digestions/atlas/atlas.pdf) |
+| What is still open | [`digestions/steps/09-what-is-still-open.md`](digestions/steps/09-what-is-still-open.md) |
+
+Nothing produced in that campaign has been read by a human. "Refereed" in these documents means a second AI model checked the work with its own reasoning and its own code. `SYNTHESIS.md` says which documents a human should check first.
+
+## Repository layout
 
 | Folder | Contents |
 | --- | --- |
-| `papers/` | Important related literature and source references. |
-| `digestions/` | Detailed explanations of the conjecture, literature, and proof techniques. |
-| `workings/` | Ongoing investigations, calculations, examples, and exploratory arguments. |
-| `proofs/` | Current proof attempts and supporting lemmas, with their status recorded. |
-| `paper/` | The collaborative manuscript and updates to the paper. |
-| `skills/` | Useful skills for writing and auditing the paper. |
+| `papers/` | Source literature. The three papers on the 2026 proof, a curated library, `INDEX.md` (what each source is used for and how it was verified) and `barnette.bib`. |
+| `paper/` | The manuscript. `main/` is the current exposition, with earlier versions under `main/history/`. `figures/` is the shared figure toolkit. `draft-A/` and `draft-B/` are the two independent drafts the exposition was merged from, kept as records. |
+| `proofs/` | Proof routes with their status. `primal/` proves the theorem in the cubic graph itself. `involutions/` is the bijective proof. `blueprint/` maps the exposition statement by statement against the Lean proof. `lean/` holds Lean files for the exposition's own devices. |
+| `digestions/` | Explanations. `SYNTHESIS.md`, `steps/` (one document per step of the proof, plus a glossary), `route-map/` (every route found or refuted), `atlas/` (illustrated routes). |
+| `workings/` | Shared computations. `barnette_lab/` is the reference implementation of every object in the proof. |
+| `labyrinth/` | The research map: knowledge graph, events, state of the art, dashboard. |
+| `research/` | One folder per agent run, with its report, code and data. `INDEX.md` lists them. `BRIEF.md` is the protocol agents follow. |
+| `skills/` | Skills for writing and auditing the paper. |
 
 ## Contributing
 

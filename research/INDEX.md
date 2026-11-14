@@ -30,7 +30,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_conjectures/` | Opus 5.5 | Lattice-extreme, 2^cmin and descent conjectures | done, under review | Lattice-extreme conjecture FALSE (V=18). Irreducible-element variant survives to V=24. 2^cmin holds to V=22. Directed-cycle criterion for tree pairs. |
 | `opus_review-draft-A/` | Opus 5.5 | Cold-reader review of draft A | done | Proof follows; four sentences missing; 9 of 22 style rules pass; 25 edits. |
 | `astra_primal-proof/` | GPT-6 Astra | Proof entirely in G, `proofs/primal/` | done, refereed | 13 lemmas, no dual. Revised in `astra_primal-revision/`. |
-| `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | running | |
+| `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | done | All eight claims stand. Step R proved. Step X open (true to V=17). Evict walk cycles at V=38. |
 | `sol_counting-families/` | GPT-6.1 Sol | Exact counts on infinite families | done | Prism formulas, nanotube recurrences, exponentially rare tree matchings without separators, 2^cmin tight on prism-sums. |
 | `astra_older-approaches/` | GPT-6 Astra | Earlier methods re-read through the new proof | done | Feder-Subi parity link refuted. Through-an-edge follows from avoidance. `NOVELTY.md`. |
 | `fable_review-draft-B/` | Fable 5.2 | Cold-reader review of draft B, merge plan | done | One unchecked hypothesis (connectivity for Euler), fixed by a five-line lemma. 13 of 22 rules pass. `COMPARISON.md`. |
@@ -42,11 +42,33 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `astra_literature-consolidation/` | GPT-6 Astra | `papers/INDEX.md`, `papers/barnette.bib` | done | 87 sources indexed; no theorem-number mismatch. |
 | `astra_primal-revision/` | GPT-6 Astra | Primal note with referee fixes and figures | done | 15 pages, 8 figures, dictionary; three observations proved. |
 | `sol_route-atlas/` | GPT-6.1 Sol | `digestions/atlas/`, first pass | done | 28 pages, too schematic. |
-| `opus_manuscript-merge/` | Opus 5.5 | Merged manuscript in `paper/main/` | running | |
-| `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | running | |
-| `fable_induction-completion/` | Fable 5.2 | Referee and completion of the contraction induction | running | |
-| `fable_atlas-review/` | Fable 5.2 | Atlas second pass | running | |
-| `sol_referee-conjectures/` | GPT-6.1 Sol | Referee of the conjecture report; lattice reading of the signed sum | running | |
-| `astra_cycle-covers/` | GPT-6 Astra | What cycle covers and c_min are | running | |
-| `opus_two-tree-packing/` | Opus 5.5 | Two-tree packing conjecture | running | |
-| `sol_li-completion/` | GPT-6.1 Sol | Complete bijective proof in `proofs/involutions/` | running | |
+| `opus_manuscript-merge/` | Opus 5.5 | Merged manuscript in `paper/main/` | done | Version 1, 18 pages, dual language. |
+| `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | done | All eight claims stand. Step R proved. Step X open (true to V=17). Evict walk cycles at V=38. |
+| `fable_induction-completion/` | Fable 5.2 | Referee and completion of the contraction induction | done | Shape sound; two lemmas missing. "Some good state lifts" refuted at V=18. |
+| `fable_atlas-review/` | Fable 5.2 | Atlas second pass | done | Computed figure on every page. |
+| `sol_referee-conjectures/` | GPT-6.1 Sol | Referee of the conjecture report | done | Extremes-or-irreducibles false at V=33. Signed sum is not a lattice rank polynomial. |
+| `astra_cycle-covers/` | GPT-6 Astra | What cycle covers and the minimum m are | done, refereed | m unbounded without separating triangles; cycle count as components of G minus S, less one. |
+| `opus_two-tree-packing/` | Opus 5.5 | Two-tree packing conjecture | done | True by Nash-Williams, but blind to pairs. Both degree conditions together can fail in one support (V=16). |
+| `sol_li-completion/` | GPT-6.1 Sol | Bijective proof in `proofs/involutions/` | done, refereed | Two involutions for general m. |
+| `sol_referee-main/` | GPT-6.1 Sol | Mathematical referee of paper version 1 | done | FOLLOWS; eight corrections. |
+| `fable_coldread-main/` | Fable 5.2 | Cold reader of paper version 1 | done | Body good, opening weak; 40 edits. |
+| `astra_main-revision/` | GPT-6 Astra | Paper version 2 | done | 19 pages; both reviews applied. |
+| `sol_referee-main-v2/` | GPT-6.1 Sol | Regression referee of version 2 | done | FOLLOWS; eight small corrections applied. |
+| `opus_coldread-main-v2/` | Opus 5.5 | Fresh reader and finishing editor of version 2 | done | 17 edits; main idea given room. |
+| `fable_final-polish/` | Fable 5.2 | Last figure fixes; naming in companion notes | running | |
+| `astra_induction-lemmas/` | GPT-6 Astra | The two missing lemmas of the induction | done | Both still open. G proved without chordless 5-cycles. |
+| `opus_referee-involutions/` | Opus 5.5 | Referee of the bijective note | done | FOLLOWS; object count depends on the drawing, signed sum does not. |
+| `sol_involutions-revision/` | GPT-6.1 Sol | Bijective note revised, drawing-free version added | done | |
+| `fable_referee-involutions-v2/` | Fable 5.2 | Check of the drawing-free section | done | FOLLOWS on both routes. |
+| `opus_cross-audit/` | Opus 5.5 | Primal adjudication, consistency table, hygiene | done | Sign over Lean phase is the constant i^n. Primal note accepted. |
+| `opus_consistency-edits/` | Opus 5.5 | Naming convention applied to digestions, map, atlas text | done | good state, good pair, cover, m. |
+| `sol_referee-covers/` | GPT-6.1 Sol | Referee of cycle-cover, probabilistic and family reports | done | Main proofs pass, with qualified ranges. |
+| `opus_blueprint/` | Opus 5.5 | `proofs/blueprint/` against Lean | done | Of 34 route statements: 4 exact, 25 after translation, 5 without counterpart. |
+| `opus_lean-devices/` | Opus 5.5 | `proofs/lean/`: sign and finite-difference route in Lean | done, check pending | 866 lines; main theorem rebuilt without phase or polynomial, by its author's account. |
+| `astra_lean-check/` | GPT-6 Astra | Independent rebuild and statement check of `proofs/lean/` | running | |
+| `fable_descent/` | Fable 5.2 | Monotone descent and complexity | see its report | |
+| `sol_map-update/`, `sol_map-final/` | GPT-6.1 Sol | Route map and labyrinth updates | done | 244 routes, 77 refutations. |
+| `astra_synthesis/` | GPT-6 Astra | `digestions/SYNTHESIS.md` | done | |
+| `fable_synthesis-audit/` | Fable 5.2 | Fact-check of the synthesis | see its report | |
+| `sol_atlas-audit/` | GPT-6.1 Sol | Second-model review of the atlas | done | 78 checks pass; seven figures proposed. |
+| `fable_atlas-final/`, `fable_atlas-finish/` | Fable 5.2 | Atlas integration and finishing | finishing | |
