@@ -1,0 +1,4 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B labyrinth/seed.py
+[('c', 14), ('e', 1), ('f', 9), ('h', 25), ('k', 21), ('m', 20), ('p', 64), ('q', 12), ('src', 62), ('th', 46), ('wp', 16), ('x', 76)]
+366 nodes, 69 backfilled events, 76 live events kept, 26 state-of-the-art rows

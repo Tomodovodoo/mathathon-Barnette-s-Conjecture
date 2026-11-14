@@ -1,0 +1,80 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B workings/barnette_lab/run_tests.py full
+test_coverage_separates_vacuous_runs (test_campaign.CampaignTests.test_coverage_separates_vacuous_runs) ... ok
+test_hexagonal_prism_all_relaxation_bases (test_campaign.CampaignTests.test_hexagonal_prism_all_relaxation_bases) ... ok
+test_recovery_left_inverse_all_cube_prescriptions (test_campaign.CampaignTests.test_recovery_left_inverse_all_cube_prescriptions) ... ok
+test_require_never_uses_optimizable_assert (test_campaign.CampaignTests.test_require_never_uses_optimizable_assert) ... ok
+test_sampler_exact_and_seeded_chi_square (test_campaign.CampaignTests.test_sampler_exact_and_seeded_chi_square) ... ok
+test_all_cube_incidence_forests_dual_connected (test_proof.ProofTests.test_all_cube_incidence_forests_dual_connected) ... ok
+test_checker_rejects_bad_certificates (test_proof.ProofTests.test_checker_rejects_bad_certificates) ... ok
+test_cube_all_outgoing_choices (test_proof.ProofTests.test_cube_all_outgoing_choices) ... ok
+test_cyclic_cancellation_fixture (test_proof.ProofTests.test_cyclic_cancellation_fixture) ... ok
+test_every_input_edge_named_graphs (test_proof.ProofTests.test_every_input_edge_named_graphs) ... ok
+test_marked_restart_fixture (test_proof.ProofTests.test_marked_restart_fixture) ... ok
+test_named_graphs (test_proof.ProofTests.test_named_graphs) ... ok
+test_sampling_stays_a_state (test_proof.ProofTests.test_sampling_stays_a_state) ... ok
+test_separator_both_boundary_colors (test_proof.ProofTests.test_separator_both_boundary_colors) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 4.759s
+
+OK
+completed order 6: 8 rooted runs
+completed order 7: 8 rooted runs
+completed order 8: 20 rooted runs
+completed order 9: 34 rooted runs
+completed order 10: 66 rooted runs
+completed order 11: 102 rooted runs
+completed order 12: 262 rooted runs
+completed order 13: 438 rooted runs
+completed order 14: 1206 rooted runs
+running {'Li': {'objects': 213, 'first_fixed': 141, 'second_fixed': 9, 'orientation': -1}, 'F': 9, 'vertices': 13, 'states': 12, 'pairs': 8, 'good': 6, 'm': 2, 'name': 'running'}
+minimal_cover_no_good_16 {'Li': {'objects': 152, 'first_fixed': 98, 'second_fixed': 6, 'orientation': -1}, 'F': 6, 'vertices': 16, 'states': 26, 'pairs': 18, 'good': 12, 'm': 1, 'name': 'minimal_cover_no_good_16'}
+lattice_18 {'Li': {'objects': 300, 'first_fixed': 180, 'second_fixed': 14, 'orientation': -1}, 'F': 14, 'vertices': 18, 'states': 54, 'pairs': 20, 'good': 12, 'm': 1, 'name': 'lattice_18'}
+| check | instances | objects | vacuous count |
+| --- | ---: | ---: | ---: |
+| Euler induced regions | 1209 | 160963 | 0 |
+| Lean phase ratio | 883 | 3326 | 326 |
+| Li independent objects and maps | 211 | 27355 | 54 |
+| Li independent signed convention | 211 | 27355 | 54 |
+| Q cancellation partnered states | 23 | 28 | 1186 |
+| Q reversal objects | 23 | 56 | 1186 |
+| bound 3.3 regions | 1209 | 136279 | 0 |
+| bound 3.4 connected subsets | 671 | 18815 | 538 |
+| cover components | 883 | 3326 | 326 |
+| cycle white-face weight | 883 | 6950 | 326 |
+| directed good-pair criterion | 883 | 3326 | 326 |
+| even good states | 1209 | 13016 | 0 |
+| exchange adjacency | 883 | 7006 | 326 |
+| exchange walks | 883 | 3468 | 326 |
+| good unique partner | 883 | 3270 | 326 |
+| height cycle increments | 883 | 79660 | 326 |
+| heights path independence | 1209 | 150368 | 0 |
+| independent good states | 208 | 620 | 54 |
+| independent pairs | 208 | 624 | 54 |
+| independent signs | 208 | 624 | 54 |
+| independent states | 262 | 1706 | 0 |
+| lowest finite difference | 883 | 941 | 326 |
+| marked constructors | 883 | 3326 | 326 |
+| marked nonfixed moves | 7 | 136 | 1202 |
+| ordered mult mark involutions | 883 | 34846 | 326 |
+| ordered token involutions | 883 | 38768 | 326 |
+| pair criterion | 1209 | 1209 | 0 |
+| pair local sign and closed formula | 883 | 3326 | 326 |
+| property black inner separator | 326 | 326 | 0 |
+| property has pair | 883 | 883 | 0 |
+| property m=1 | 562 | 562 | 0 |
+| property m=2 | 163 | 163 | 0 |
+| property m=3 | 158 | 158 | 0 |
+| property minimal cover without good pair | 2 | 3 | 0 |
+| property white inner separator | 374 | 374 | 0 |
+| recovery image | 331 | 788 | 878 |
+| recovery injectivity | 883 | 9810 | 326 |
+| sampler exact probability | 2 | 5 | 0 |
+| sampler seeded chi square | 2 | 3600 | 0 |
+| saved running referees | 1 | 2 | 0 |
+| saved small census referees | 2 | 132 | 0 |
+| signed height moments across paths | 883 | 4490 | 326 |
+| state disk W=B+1 | 1209 | 27090 | 0 |
+| two matroid common bases | 1 | 6 | 0 |
+PASS full: 1209 rooted runs; 220.58 seconds

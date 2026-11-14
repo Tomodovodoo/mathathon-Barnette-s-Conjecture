@@ -1,0 +1,17 @@
+{
+  "checks": [
+    {
+      "file": "digestions/route-map/ROUTE-MAP.head.md",
+      "line": 5,
+      "target": "../steps/GLOSSARY.md#synonyms",
+      "anchor_found": true
+    },
+    {
+      "file": "digestions/route-map/ROUTE-MAP.md",
+      "line": 5,
+      "target": "../steps/GLOSSARY.md#synonyms",
+      "anchor_found": true
+    }
+  ],
+  "unresolved": []
+}

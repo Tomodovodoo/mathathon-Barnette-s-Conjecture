@@ -17,7 +17,7 @@ absolute=[];personal=[]
 for f,t in texts.items():
  for i,line in enumerate(t.splitlines(),1):
   if re.search(r'\b[A-Z]:[\\/]',line):absolute.append({'file':f,'line':i})
-  if re.search(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|[A-Z]:[\\/]Users[\\/][^\\/\s]+|/home/[^/\s]+',line):personal.append({'file':f,'line':i,'kind':'email or user directory'})
+  if re.search(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|[A-Z]:[\\/]Users[\\/][^\\/\s]+|/home/[^/\s]+|\b'+re.escape(__import__('os').environ.get('USERNAME','Tom'))+r'\b',line,re.I):personal.append({'file':f,'line':i,'kind':'email, local username or user directory'})
 residue=[]
 for f,t in texts.items():
  if f in ['paper/main/barnette.tex','proofs/primal/primal.tex','proofs/involutions/involutions.tex'] or (f.startswith('proofs/sign-free/') and f.endswith('.tex')) or (f.startswith('digestions/atlas/') and Path(f).name in ['pages.py','pages_more.py']):
@@ -36,7 +36,8 @@ for f,t in texts.items():
   for i,line in enumerate(t.splitlines(),1):
    if line.strip().startswith('```'):fence=not fence;continue
    if not fence:
-    for target in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',line):
+    prose=re.sub(r'\$[^$]*\$','',line)
+    for target in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',prose):
      target=target.strip('<>').split(' "')[0]
      if not re.match(r'[a-z]+:|#',target,re.I) and not resolve(f,target):links.append({'file':f,'line':i,'target':target})
    for target in re.findall(r'`([^`\n]+)`',line):
@@ -46,13 +47,14 @@ for f,t in texts.items():
   for i,line in enumerate(t.splitlines(),1):
    line=re.split(r'(?<!\\)%',line)[0]
    for cmd,target in re.findall(r'\\(includegraphics|input|include|bibliography)(?:\[[^\]]*\])?\{([^}]+)\}',line):
-    if '\\' in target:continue
+    if '\\' in target or '#' in target:continue
     for item in target.split(','):
      ext=('.pdf','.png','.jpg','.eps') if cmd=='includegraphics' else ('.bib',) if cmd=='bibliography' else ('.tex',)
      # Shared TeX input paths and atlas TEXINPUTS documented by the generators.
      bases=[root/Path(f).parent,root/'paper/figures',root/'digestions/atlas',root/'digestions/atlas/toolkit']
+     if f.startswith('proofs/involutions/figures/'): bases.append(root/'proofs/involutions')
      found=any((b/item).is_file() or any(Path(str(b/item)+e).is_file() for e in ext) for b in bases)
      if not found:tex.append({'file':f,'line':i,'command':cmd,'target':item})
-data={'tracked_files':len(files),'tracked_bytes':sum((root/f).stat().st_size for f in files),'large':large,'duplicates':[v for v in hashes.values() if len(v)>1],'build_pattern_files':artifacts,'absolute_paths':absolute,'personal_locations':personal,'research_without_report':[p for p in folders if f'research/{p}/REPORT.md' not in tracked],'research_missing_index':[p for p in folders if p not in index],'broken_markdown_links':links,'unresolved_code_paths':paths,'unresolved_tex_targets':tex,'internal_residue':residue,'upstream_candidates':[f for f in files if re.search(r'(^|/)(vendor|upstream|node_modules|\.git)/|plantri\.c$',f)]}
+data={'tracked_files':len(files),'tracked_bytes':sum((root/f).stat().st_size for f in files),'large':large,'duplicates':[v for v in hashes.values() if len(v)>1],'build_pattern_files':artifacts,'absolute_paths':absolute,'personal_locations':personal,'research_without_report':[p for p in folders if f'research/{p}/REPORT.md' not in tracked],'research_missing_index':[p for p in folders if p not in index and p.removeprefix('2026-11-14_') not in index],'broken_markdown_links':links,'unresolved_code_paths':paths,'unresolved_tex_targets':tex,'internal_residue':residue,'upstream_candidates':[f for f in files if re.search(r'(^|/)(vendor|upstream|node_modules|\.git)/|plantri\.c$',f)]}
 (out/'scan.json').write_text(json.dumps(data,indent=2),encoding='utf8')
 for k,v in data.items(): print(k,len(v) if isinstance(v,list) else v)

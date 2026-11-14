@@ -35,6 +35,8 @@ if phase=='code':
     for s in ['count','evidence','audit','snapshot']:
         py('synthesis-'+s,f'research/2026-11-14_astra_synthesis/{s}.py')
 if phase=='figures':
+    # Force the atlas builder to compile every figure rather than reuse tracked PDFs.
+    for p in (root/'digestions/atlas/figs').glob('*.pdf'): p.unlink()
     for name,path,args in [('figure-build','paper/figures/build.py',[]),('figure-geometry','paper/figures/geometry_check.py',[]),('figure-crosscheck','paper/figures/crosscheck_lab.py',[]),('primal-figures','proofs/primal/figures/check.py',['--build']),('atlas-build','digestions/atlas/build.py',[]),('atlas-verify','digestions/atlas/verify.py',[]),('involution-check','research/2026-11-14_sol_involutions-revision/code/check.py',['14']),('involution-referee','research/2026-11-14_sol_involutions-revision/code/referee_rerun.py',[]),('involution-drawings','research/2026-11-14_sol_involutions-revision/code/drawings.py',[]),('involution-figures','research/2026-11-14_sol_involutions-revision/code/figures.py',[]),('involution-second','research/2026-11-14_fable_referee-involutions-v2/code/figure2.py',[])]:
         py(name,path,*args)
 if phase=='documents':
@@ -65,3 +67,19 @@ if phase=='compare':
             if any(float(v)>2 for v in sizes) or re.search(r'undefined|Missing character|not found|LaTeX Error|Font Warning|Font shape',line,re.I):
                 warnings.append({'file':p.relative_to(root).as_posix(),'line':i,'text':line})
     (out/'tex-warnings.json').write_text(json.dumps(warnings,indent=2),encoding='utf8')
+if phase=='blueprint':
+    upstream='research/2026-11-14_opus_blueprint/upstream/openai-math'
+    run('blueprint-clone',['git','clone','--filter=blob:none','--no-checkout','https://github.com/openai/math.git',upstream])
+    run('blueprint-sparse',['git','-C',upstream,'sparse-checkout','set','lean/OAI/Combinatorics/Hamiltonian','lean/ComparatorChallenges'])
+    run('blueprint-checkout',['git','-C',upstream,'checkout','4eaee87548250b2682affda7d05d947c05554bae'])
+    s='research/2026-11-14_opus_lean-integration/scripts'; d='research/2026-11-14_opus_lean-integration/data'
+    run('blueprint-upstream-sigs',[sys.executable,'-I',s+'/lean_sigs.py',upstream+'/lean/OAI/Combinatorics/Hamiltonian',d+'/lean-sigs-upstream.json'])
+    run('blueprint-device-sigs',[sys.executable,'-I',s+'/lean_sigs.py','proofs/lean/Devices',d+'/lean-sigs-devices.json'])
+    for name in ['extract_tex','build_blueprint','status_table']:
+        run('blueprint-'+name,[sys.executable,'-I',s+'/'+name+'.py'])
+if phase=='supplement':
+    py('figure-hunch','research/2026-11-14_sol_figures-polish/check_hunch.py')
+    py('figure-proofs','research/2026-11-14_sol_figures-polish/proofs.py')
+    py('primal-cancellation15','research/2026-11-14_astra_primal-revision/check_cancellation.py','15')
+    py('primal-cancellation16','research/2026-11-14_astra_primal-revision/check_cancellation.py','16')
+    py('primal-inspect','research/2026-11-14_astra_primal-revision/inspect_figures.py')
