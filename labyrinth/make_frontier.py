@@ -13,16 +13,17 @@ over all rooted triangulations. They are
   A  research/2026-11-14_fable_route-combinatorics/data/rows_v16.json
      (own generator from the octahedron, own state code, v <= 16), and
   B  research/2026-11-14_sol_route-algebra/counts.json
-     (plantri 4.5 triangulations, workings/barnette_lab state code, v <= 14).
+     (plantri 4.5 triangulations, workings/barnette_lab state code; it reached v <= 16 when this was run).
 
 Classification of the admissible values 0 .. floor(3^(n/2)) at each size:
   realized         a rooted triangulation with that many tree matchings is in the data
   impossible       odd values (the two signs of tree matchings are equally frequent:
-                   trees paper Theorem 5.2), and for v <= 14 every value that the two
-                   agreeing enumerations do not realise
-  gap-conditional  v = 15, 16: values not realised in enumeration A, which has no
-                   independent replay at these sizes (hypothesis: A is complete and correct)
-  unknown          everything else (v >= 17: only parity and three families are known)
+                   trees paper Theorem 5.2), and, at every size where A and B agree, every
+                   value that they do not realise
+  gap-conditional  a size where B is missing: values not realised in enumeration A
+                   (hypothesis: A is complete and correct). Not used once B reached 16.
+  unknown          everything else (v >= 17: only parity, obstructed roots and one family are known;
+                   odd values are listed up to 401 only)
 
 Command:  python -X utf8 -B labyrinth/make_frontier.py
 Output :  labyrinth/frontier.json, labyrinth/scatter.json, labyrinth/frontier_crosscheck.json
@@ -90,11 +91,24 @@ for v in sorted(A_multi):
     status = "impossible" if validated else "gap-conditional"
     why = ("not realised; enumerations A and B agree at this size" if validated else
            "not realised in enumeration A (no independent replay at this size)")
-    row["intervals"].append({"v0": 0, "v1": hi, "status": status, "why": why})
-    # odd values are impossible at every size: list them one by one so they outrank the above
-    for t in range(1, hi + 1, 2):
-        row["intervals"].append({"v0": t, "v1": t, "status": "impossible",
-                                 "why": "odd: the signs of tree matchings are balanced (trees paper Thm 5.2)"})
+    # complement of the realised values, as maximal runs (a realised value is never also claimed impossible)
+    rs = set(realized)
+    t = 0
+    while t <= hi:
+        if t in rs:
+            t += 1
+            continue
+        u = t
+        while u + 1 <= hi and (u + 1) not in rs:
+            u += 1
+        if validated:
+            row["intervals"].append({"v0": t, "v1": u, "status": "impossible", "why": why + " (odd values are also excluded by the sign balance, trees paper Thm 5.2)"})
+        else:
+            row["intervals"].append({"v0": t, "v1": u, "status": status, "why": why})
+            for o in range(t + (1 - t % 2), u + 1, 2):
+                row["intervals"].append({"v0": o, "v1": o, "status": "impossible",
+                                         "why": "odd: the signs of tree matchings are balanced (trees paper Thm 5.2)"})
+        t = u + 1
     row["note"] = f"{sum(A_multi[v].values())} rooted triangulations in A" + (
         f", {cross[v]['B_rooted']} in B, multisets agree" if validated else ", B does not reach this size")
     sizes.append(row)
@@ -113,7 +127,7 @@ for v in (17, 18, 23, 28, 33):
         row["realized"].append([2 ** q, f"q = {q} hexagonal-prism duals glued into white faces: "
                                         f"3^{q} states, 2^{q} tree matchings (astra_limits, rarity family)"])
     # odd values impossible: one interval per odd value is too many here, so use bins of width 1 up to a cap
-    cap = min(hi, 2001)
+    cap = min(hi, 401)
     for t in range(1, cap + 1, 2):
         row["intervals"].append({"v0": t, "v1": t, "status": "impossible",
                                  "why": "odd: balanced signs (trees paper Thm 5.2)"})

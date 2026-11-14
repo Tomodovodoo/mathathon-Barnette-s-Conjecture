@@ -101,7 +101,7 @@ NW, NH = 2.25, 0.52  # waypoint box
 
 def gap(step, detail):
     if not detail:
-        return 1.05
+        return 1.3
     return max(1.25, len(BY_STEP[step]) * RH + 1.0)
 
 
@@ -137,7 +137,7 @@ def draw(detail, stem):
     nw, nh = (NW, NH) if detail else (1.95, 0.5)
     xmin, xmax = (-5.75, xR + 5.75) if detail else (-3.1, xR + 3.1)
     ymax = 1.75 if detail else 1.15
-    ymin = pos["IT"][1] - (1.55 if detail else 2.0)
+    ymin = pos["IT"][1] - (1.55 if detail else 2.85)
     fig = plt.figure(figsize=(xmax - xmin, ymax - ymin))
     ax = fig.add_axes([0, 0, 1, 1])
     ax.set_xlim(xmin, xmax)
@@ -325,7 +325,7 @@ def draw(detail, stem):
         yu = (ys + yf) / 2 + n * RH / 2 + 1.2
         rows("U", xc + 0.45, yu)
     else:
-        step_tag("U", xc - 0.3, (ys + yf) / 2 - 1.9, ha="right")
+        step_tag("U", xc - 0.4, ym + 0.1, ha="right")
     # ---- goal edge T -> 2T
     xt, yt = pos["T"]
     x2, y2 = pos["2T"]
@@ -341,7 +341,7 @@ def draw(detail, stem):
         n = len(BY_STEP["TG"])
         rows("TG", 3.2, yt + 0.62 + n * RH)
     else:
-        step_tag("TG", midx + 0.4, midy + 0.62, ha="center")
+        step_tag("TG", midx - 0.5, midy + 0.75, ha="center")
     # ---- JC -> 2T -> GL
     xj, yj = pos["JC"]
     xg, yg = pos["GL"]
@@ -350,7 +350,7 @@ def draw(detail, stem):
     if detail:
         rows("J2", x2 + nw / 2 - 3.6, y2 - hh - 0.5, width=3.6)
     else:
-        step_tag("J2", x2 - 0.1, y2 - 0.62, ha="center")
+        step_tag("J2", x2 + 0.2, y2 + 0.62, ha="center")
 
     # ---- nodes on top
     node("G")
@@ -386,7 +386,7 @@ def draw(detail, stem):
     if detail:
         lx, ly = 3.2, yn + 1.75
     else:
-        lx, ly = xmin + 0.4, pos["IT"][1] - 0.2
+        lx, ly = xmin + 0.4, pos["IT"][1] - 0.8
     items = [("LIT", "published (2026 papers: unrefereed preprints)"), ("PROVED-HERE", "proved in this project, unrefereed"),
              ("COMPUTED", "computed check"), ("CONJECTURE", "conjecture with a stated test"), ("HUNCH", "hunch"),
              ("REFUTED", "refuted (kept, with its lesson)"), ("PARTIAL", "published, partial (stops short)")]

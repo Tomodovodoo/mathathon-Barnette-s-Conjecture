@@ -142,7 +142,7 @@
    "title": "Find two disjoint states",
    "verdict": "free",
    "must": "The incidence graph B must contain two edge-disjoint perfect matchings. This is where a separating triangle can obstruct, and the only place the papers use 'no separating triangle'.",
-   "freedom": "Three published arguments (flow with a density bound; Ore deficiency with a minimal set; exact criterion). They prove different amounts."
+   "freedom": "Four published arguments (flow with a density bound; Ore deficiency with a minimal set; the exact criterion; Hall on a gadget in the Lean proof). They prove different amounts."
   },
   {
    "id": "B",
@@ -188,7 +188,7 @@
    "title": "Show the total is not zero",
    "verdict": "free",
    "must": "Weights that depend on s only and separate the two orientations of every D-cycle. Then group by D and find a term that cannot cancel.",
-   "freedom": "The widest step: four published arguments, two more proved here, and a long list of refuted shortcuts. Every route that works still minimises over the number of cycles."
+   "freedom": "The widest step: five published arguments, two more proved here, and a long list of refuted shortcuts. Every route that works still minimises over the number of cycles."
   },
   {
    "id": "D",
@@ -233,7 +233,7 @@
    "title": "Tree-cotree duality",
    "verdict": "rigid",
    "must": "The complement of a spanning tree of a plane graph is a spanning tree of the dual.",
-   "freedom": "Rigid."
+   "freedom": "Rigid as a statement. The Lean proof skips the node: it selects P inside G and never builds the white tree."
   },
   {
    "id": "E2",
@@ -255,7 +255,7 @@
    "title": "Show P leaves one cycle",
    "verdict": "free",
    "must": "P has one edge in every face of T, so E(G) - P is 2-regular. It must be connected.",
-   "freedom": "Two published arguments. O and T count against the disk identity (a third use) and get the induced trees. Li uses an innermost cycle and needs neither the disk identity nor the partner."
+   "freedom": "Two published arguments. O, T and the Lean proof count against the disk identity (a third use). Li uses an innermost cycle and needs neither the disk identity nor the partner."
   },
   {
    "id": "J2",

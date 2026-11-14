@@ -1,0 +1,307 @@
+{
+ "about": "Best known result for each tracked question on 2026-11-14. Edited only through labyrinth/seed.py.",
+ "groups": [
+  "The theorem and its proofs",
+  "Structure of tree matchings",
+  "Formulas and algorithms",
+  "Verification"
+ ],
+ "entries": [
+  {
+   "id": "main",
+   "group": "The theorem and its proofs",
+   "cls": "Barnette's conjecture",
+   "result": "Every cubic bipartite 3-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge.",
+   "status": "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; three reverse-Lamport audits FOLLOW (AI, unreviewed)",
+   "kind": "proved",
+   "refs": [
+    "th.G2.1",
+    "c.G2.c",
+    "p.G2.4"
+   ],
+   "lit": [
+    "OpenAI 2026",
+    "Li 2026",
+    "trees paper 2026"
+   ],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2022-01-01",
+     "was": "verified by computer up to 90 vertices (Brinkmann-Goedgebeur-McKay)"
+    },
+    {
+     "date": "2025-01-01",
+     "was": "proved for faces of size at most 8 (Schnieders)"
+    }
+   ]
+  },
+  {
+   "id": "prop51",
+   "group": "The theorem and its proofs",
+   "cls": "Shortest rigorous proof of Proposition 5.1 (a pair implies a forest pair)",
+   "result": "Two candidates of about one page: heights as test functions with no weights (comb, rewritten by its referee), and one integer polynomial F with linear weights 1 + xa, real signs and parity only (dim, refd). The Lean proof uses the second form.",
+   "status": "proved here (1 independent AI referee each; human check pending)",
+   "kind": "proved",
+   "refs": [
+    "p.N.H",
+    "p.N.lin",
+    "th.N.Lean"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-10-06",
+     "was": "Taylor coefficient of an exponential sum with circulation weights (OpenAI)"
+    },
+    {
+     "date": "2026-10-18",
+     "was": "integer polynomial per exchange component; marked walk (trees paper)"
+    },
+    {
+     "date": "2026-10-21",
+     "was": "two sign-reversing involutions on marked objects (Li)"
+    }
+   ]
+  },
+  {
+   "id": "pair",
+   "group": "The theorem and its proofs",
+   "cls": "Exact hypothesis for the first pair",
+   "result": "A pair exists iff no separating triangle has black inner boundary, iff t0 is on the black side of every separating triangle. One exact Euler identity proves both directions.",
+   "status": "LIT (trees paper Thm 1.2); short proof proved here (gt, under review); computed on all 7868 roots up to 16 vertices",
+   "kind": "proved",
+   "refs": [
+    "th.A.T",
+    "p.A.GT",
+    "c.A.c"
+   ],
+   "lit": [
+    "trees paper 2026"
+   ],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-10-06",
+     "was": "sufficient: no separating triangle (OpenAI Prop. 3.1)"
+    }
+   ]
+  },
+  {
+   "id": "disk",
+   "group": "The theorem and its proofs",
+   "cls": "What the disk identity is used for",
+   "result": "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
+   "status": "proved here (refd, unreviewed)",
+   "kind": "proved",
+   "refs": [
+    "p.C.5",
+    "p.B.0"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "four uses of the full identity (dependency-graph audit)"
+    }
+   ]
+  },
+  {
+   "id": "structural",
+   "group": "The theorem and its proofs",
+   "cls": "Existence proof with no signed count",
+   "result": "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
+   "status": "open; 34 dead ends recorded",
+   "kind": "partial",
+   "refs": [
+    "q.structural",
+    "x.U.x5",
+    "x.N.x14"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "tm-lower",
+   "group": "Structure of tree matchings",
+   "cls": "Lower bound on the number of tree matchings of a rooted triangulation with a pair",
+   "result": "At least 2 cmin, and always even. Conjecture: at least 2^cmin (5088 cases, equality in 4609).",
+   "status": "2 cmin proved here (1 AI referee; human check pending); 2^cmin conjecture",
+   "kind": "proved",
+   "refs": [
+    "p.D.2",
+    "k.D.3",
+    "e.census16"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-10-18",
+     "was": "at least 2: both signs occur in every exchange component (trees paper Thm 5.2)"
+    }
+   ]
+  },
+  {
+   "id": "rarity",
+   "group": "Structure of tree matchings",
+   "cls": "Fraction of states that are tree matchings",
+   "result": "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings.",
+   "status": "proved here (lim, under review); computed for q <= 6",
+   "kind": "proved",
+   "refs": [
+    "p.D.5",
+    "f.rarity"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "canonical",
+   "group": "Structure of tree matchings",
+   "cls": "Canonical forest pair",
+   "result": "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, each lattice extreme alone: all refuted. 'Lattice minimum or maximum' has no joint failure in 180 random instances.",
+   "status": "conjecture",
+   "kind": "conjecture",
+   "refs": [
+    "k.D.7",
+    "x.N.x4",
+    "x.N.x5",
+    "x.N.x6"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "which-hc",
+   "group": "Structure of tree matchings",
+   "cls": "Which Hamiltonian cycles arise from tree matchings",
+   "result": "Exactly the cycles avoiding e0* whose state has a partner. Recovery is injective, not onto (prism: 2 of 4). 3 #TM <= #HC(G).",
+   "status": "proved here (comb: 1 AI referee; lim, gt: under review)",
+   "kind": "proved",
+   "refs": [
+    "p.U.5",
+    "p.F.3",
+    "x.A.x1"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "det",
+   "group": "Formulas and algorithms",
+   "cls": "Determinant formula for Z",
+   "result": "Z = i^(-n) [prod y_t] det(sum_t y_t M_t) with rank-two real blocks; 2^n determinant evaluations. Found independently by four agents; the versions coincide by a gauge through the 3-colouring. No formula without coefficient extraction.",
+   "status": "proved here (1 independent AI referee; human check pending)",
+   "kind": "proved",
+   "refs": [
+    "p.N.lin",
+    "h.N.1",
+    "x.N.x9",
+    "h.N.4"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-10-18",
+     "was": "the number of states is |det K_B| (trees paper Lemma 6.1)"
+    }
+   ]
+  },
+  {
+   "id": "algorithm",
+   "group": "Formulas and algorithms",
+   "cls": "Polynomial-time construction of the cycle",
+   "result": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard.",
+   "status": "LIT bounds (trees paper); NP-hardness proved here modulo a cited theorem (gt, under review)",
+   "kind": "partial",
+   "refs": [
+    "th.N.T2",
+    "p.ST.4",
+    "x.U.x5",
+    "h.D.8"
+   ],
+   "lit": [
+    "trees paper 2026"
+   ],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "frontier",
+   "group": "Verification",
+   "cls": "Verified range of the counts",
+   "result": "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and tree matchings agree between two independent implementations (7868 roots); a third recount by a referee agrees.",
+   "status": "exhaustive (T3; no referee of the comparison itself)",
+   "kind": "exhaustive",
+   "refs": [
+    "e.census16"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "77 rooted runs, 55 triangulations up to 14 vertices (route-constructive)"
+    }
+   ]
+  },
+  {
+   "id": "formal",
+   "group": "Verification",
+   "cls": "Formal verification",
+   "result": "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
+   "status": "computed (lean-formalisation; report pending)",
+   "kind": "computed",
+   "refs": [
+    "c.G2.c",
+    "th.G2.2"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": [
+    {
+     "date": "2026-10-10",
+     "was": "third-party report of a kernel replay (cert-machine), not reproduced here"
+    }
+   ]
+  },
+  {
+   "id": "review",
+   "group": "Verification",
+   "cls": "Review state of the proofs written in this project",
+   "result": "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, the referees' own additions. Human-checked: none.",
+   "status": "partial",
+   "kind": "partial",
+   "refs": [
+    "q.human"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "hypotheses",
+   "group": "Verification",
+   "cls": "Which hypotheses are needed",
+   "result": "Each one, with a witness: K4 (bipartite), theta of cubes on 26 vertices (3-connected), triangular bipyramid radial graph (cubic), 3 x 3 torus (sphere).",
+   "status": "proved here and computed (lim, under review)",
+   "kind": "proved",
+   "refs": [
+    "x.S0.x1",
+    "x.S0.x2",
+    "x.S0.x3"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  }
+ ]
+}

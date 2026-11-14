@@ -130,8 +130,8 @@ STEPS = [
     dict(id="A", frm=["S"], to="P", title="Find two disjoint states", verdict="free",
          must="The incidence graph B must contain two edge-disjoint perfect matchings. This is where a separating "
               "triangle can obstruct, and the only place the papers use 'no separating triangle'.",
-         freedom="Three published arguments (flow with a density bound; Ore deficiency with a minimal set; exact criterion). "
-                 "They prove different amounts."),
+         freedom="Four published arguments (flow with a density bound; Ore deficiency with a minimal set; the exact criterion; "
+                 "Hall on a gadget in the Lean proof). They prove different amounts."),
     dict(id="B", frm=["T", "S"], to="DI", title="Prove the disk identity", verdict="forced",
          must="Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.",
          freedom="One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). "
@@ -147,7 +147,7 @@ STEPS = [
     dict(id="N", frm=["M"], to="N", title="Show the total is not zero", verdict="free",
          must="Weights that depend on s only and separate the two orientations of every D-cycle. "
               "Then group by D and find a term that cannot cancel.",
-         freedom="The widest step: four published arguments, two more proved here, and a long list of refuted shortcuts. "
+         freedom="The widest step: five published arguments, two more proved here, and a long list of refuted shortcuts. "
                  "Every route that works still minimises over the number of cycles."),
     dict(id="D", frm=["K", "N"], to="FP", title="Compare the two evaluations", verdict="forced",
          must="The same sum is supported on forest pairs (by K) and is not zero (by N). So a forest pair exists.",
@@ -163,13 +163,13 @@ STEPS = [
          freedom="Same count in all three papers. A forest without a partner is not enough."),
     dict(id="E", frm=["IT"], to="WT", title="Tree-cotree duality", verdict="rigid",
          must="The complement of a spanning tree of a plane graph is a spanning tree of the dual.",
-         freedom="Rigid."),
+         freedom="Rigid as a statement. The Lean proof skips the node: it selects P inside G and never builds the white tree."),
     dict(id="E2", frm=["WT"], to="SE", title="Root at y0 and select", verdict="rigid",
          must="Orient the white tree towards y0; the edge above each white face selects one side of a black face.",
          freedom="Rigid. The three papers select the same set P."),
     dict(id="F", frm=["SE"], to="JC", title="Show P leaves one cycle", verdict="free",
          must="P has one edge in every face of T, so E(G) - P is 2-regular. It must be connected.",
-         freedom="Two published arguments. O and T count against the disk identity (a third use) and get the induced trees. "
+         freedom="Two published arguments. O, T and the Lean proof count against the disk identity (a third use). "
                  "Li uses an innermost cycle and needs neither the disk identity nor the partner."),
     dict(id="J2", frm=["JC"], to="2T", title="Sides of the curve", verdict="forced",
          must="The two sides of the Jordan curve are the two induced trees, and e0 lies in one of them.",
