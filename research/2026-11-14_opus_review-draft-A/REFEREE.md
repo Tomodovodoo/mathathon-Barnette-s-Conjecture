@@ -76,7 +76,7 @@ J = #cw − #ccw by N6; c ≡ n (mod 2) since cycle lengths are odd; so (n + J)/
 
 ### N8. Q_s-reversal cancellation. Discharged; one clause missing.
 
-K is chosen from s alone and is directed under every partner (outdegree ≤ 1). Replacing r(t) by u(t) on K's faces gives a fixed-point-free involution on partners of s. The local identity δ(u,s) − δ(r,s) = 2δ(r,u) is correct. "Lemma 6 on K therefore gives J(r′,s) − J(r,s) = ±2": the lemma is applied to the state r with chosen edges r(t) → u(t) on K's faces (any choice elsewhere). The text does not say which state and which edges; a reader who has just seen Lemma 6 used on D may misapply it. Discharged; clarify (E12).
+K is chosen from s alone and is directed under every partner (outdegree ≤ 1). Replacing r(t) by u(t) on K's faces gives a fixed-point-free involution on partners of s. The local identity δ(u,s) − δ(r,s) = 2δ(r,u) is correct. "Lemma 6 on K therefore gives J(r′,s) − J(r,s) = ±2": the lemma is applied to the state r with chosen edges r(t) → u(t) on K's faces (any choice elsewhere). The text does not say which state and which edges; a reader who has just seen Lemma 6 used on D may misapply it. Discharged; clarify (E10, which also states the Lemma 6 call).
 
 ### N9. Height increment (10). Discharged.
 
