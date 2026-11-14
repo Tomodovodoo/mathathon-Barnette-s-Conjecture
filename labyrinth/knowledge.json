@@ -7028,8 +7028,8 @@
   },
   {
    "id": "x.N.x15",
-   "title": "a global sign gauge on incidences",
-   "statement": "Flip signs of incidence variables so that all good states get the same coefficient sign. The refutation concerns signs on the variables of F, hence one state only. Signs on both states incidences are not refuted: finite gauge equations remain solvable on the tested census. This does not establish a general positive formula.",
+   "title": "a sign gauge on the variables of F",
+   "statement": "Flip the signs of the incidence variables of F so that all good states get the same coefficient sign. Refuted for signs on the variables of F only. With signs on the incidences of both states the gauge equations are solvable on all 5,088 paired roots up to V=16 (different-model referee); there is no proof that this always works, and it gives no positive formula.",
    "where": [
     "research/2026-11-14_sol_route-algebra/PROOF.md 2; research/2026-11-14_sol_route-algebra/REPORT.md; research/2026-11-14_fable_referee-families/REPORT.md"
    ],
@@ -7057,9 +7057,9 @@
   {
    "id": "k.N.11",
    "title": "non-increasing exchange path to a good pair",
-   "statement": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.",
+   "statement": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. The independent referee verifies all 3,373,400 pairs at all roots through V=20 and all 335,704 pairs of a 40-graph V=40 batch. The author census beyond V=20 is not independently replayed.",
    "where": [
-    "research/2026-11-14_fable_descent/REPORT.md; research/2026-11-14_fable_descent/data/census_summary.json; research/2026-11-14_fable_descent/data/census_23_part0of8.txt; research/2026-11-14_astra_referee-descent/REPORT.md; research/2026-11-14_astra_referee-descent/code/c3_6_19.json; research/2026-11-14_astra_referee-descent/code/summary40_0_40.json"
+    "research/2026-11-14_fable_descent/REPORT.md; research/2026-11-14_fable_descent/data/census_summary.json; research/2026-11-14_fable_descent/data/census_23_part0of8.txt; research/2026-11-14_astra_referee-descent/REPORT.md; research/2026-11-14_astra_referee-descent/INTEGRATION.md; research/2026-11-14_astra_referee-descent/code/c3_6_19.json; research/2026-11-14_astra_referee-descent/code/c3_20_20.json; research/2026-11-14_astra_referee-descent/code/summary40_0_40.json"
    ],
    "tags": [
     "step N"
@@ -7853,7 +7853,7 @@
   {
    "id": "p.D.families",
    "title": "exact even-prism counts",
-   "statement": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1. Full proof supplied, independent review pending. Different-model review checks finite tube sequences and matrix certificates, but not the all-length transfer code. Prism-chain Hamiltonian counts require an explicit gluing rule; they are not invariant under identification.",
+   "statement": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1 (checked by a different model for j=2..12). The prism-chain Hamiltonian count depends on the gluing rule: 8*3^(q-1) if every piece is glued pole on pole, 8 then 20*3^(q-2) for the mixed rule of the source. Do not quote either as a formula without its rule.",
    "where": [
     "research/2026-11-14_sol_counting-families/FAMILIES.md Section 1; research/2026-11-14_fable_referee-families/REPORT.md; research/2026-11-14_fable_referee-families/INTEGRATION.md"
    ],
@@ -7868,10 +7868,10 @@
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-covers"
+     "research/2026-11-14_sol_referee-covers",
+     "research/2026-11-14_fable_referee-families"
     ],
-    "date": "2026-11-14",
-    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+    "verdict": "First referee (covers) is the author's model, GPT-6.1 Sol. The different-model referee (Fable 5.2) confirms the finite sequences and certificate arithmetic only: width four S to L=20, M and P to L=14, H to L=10; width six S and M to L=12, P to L=9, H to L=6. The all-L tube recurrences rest on the author's transfer argument."
    },
    "links": [
     {
@@ -8680,7 +8680,7 @@
   {
    "id": "k.U.packing",
    "title": "two white trees in every pair support",
-   "statement": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+   "statement": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. Refereed by a fresh instance of the author's model with its own code. It holds without states and cannot prove exact joint rounding.",
    "where": [
     "research/2026-11-14_opus_two-tree-packing/PROOFS.md Thm 2.1; research/2026-11-14_opus_two-tree-packing/REPORT.md; research/2026-11-14_opus_referee-rainbow/REFEREE-packing.md"
    ],
@@ -8730,7 +8730,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "Family product factorizations do not establish a universal zero-location argument.",
-   "note": "Smallest known counterexample: Off-circle factor (z-1)(z^2+3) at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2). Real-rooted z already fails at V=10; no gauge-independent minimum claim for linear weights.",
+   "note": "Smallest known counterexample: Over all roots the first nonreal zeros occur at V=9, where the signed polynomial can be (z-1)^2(z+1)(z^2+1) (different-model referee). The off-circle factor (z-1)(z^2+3) occurs at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2); no gauge-independent minimum claim for linear weights.",
    "links": [
     {
      "to": "m.step.N",
@@ -8841,7 +8841,7 @@
   {
    "id": "p.D.tubes",
    "title": "separator-free exponential rarity",
-   "statement": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths. Additional different-model referee confirms finite sequences and certificate arithmetic but explicitly leaves the all-length transfer code unchecked. The earlier all-length referee and this finite replay have different scopes.",
+   "statement": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths. Additional different-model referee confirms finite sequences and certificate arithmetic but explicitly leaves the all-length transfer code unchecked. The earlier all-length referee and this finite replay have different scopes. The earlier all-length referee (covers) is the same model as the author, so the all-L recurrences have no different-model check.",
    "where": [
     "research/2026-11-14_sol_counting-families/FAMILIES.md; research/2026-11-14_sol_referee-covers/INTEGRATION.md; research/2026-11-14_sol_referee-covers/REFEREE-families.md; research/2026-11-14_fable_referee-families/REPORT.md"
    ],
@@ -8856,10 +8856,10 @@
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-covers"
+     "research/2026-11-14_sol_referee-covers",
+     "research/2026-11-14_fable_referee-families"
     ],
-    "date": "2026-11-14",
-    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+    "verdict": "First referee (covers) is the author's model, GPT-6.1 Sol. The different-model referee (Fable 5.2) confirms the finite sequences and certificate arithmetic only: width four S to L=20, M and P to L=14, H to L=10; width six S and M to L=12, P to L=9, H to L=6. The all-L tube recurrences rest on the author's transfer argument."
    },
    "links": [
     {
@@ -9725,7 +9725,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "C3 allows arbitrarily long plateau exploration; fixed radii one, two and three fail.",
-   "note": "Smallest known counterexample: Strict q-descent fails first at V=16. Lookahead two fails at V=21, with minimality from author census. Lookahead three fails at recovered V=40 graph 3, root {10,16,11}; saved V=60 also has escape radius four. The original selected V=40 line has radius three. Lookahead four remains open.",
+   "note": "Smallest known counterexample: Strict q-descent fails first at V=16. Lookahead two fails first at V=21: the independent census through V=20 finds no escape radius above two. Lookahead three fails at recovered V=40 graph 3, root {10,16,11}, which needs four exchanges; the saved V=60 pair also has escape radius four. V=40 is not claimed least. Lookahead four remains open.",
    "links": [
     {
      "to": "m.step.N",

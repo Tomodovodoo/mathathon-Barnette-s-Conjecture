@@ -2088,11 +2088,11 @@
   {
    "id": "N.x15",
    "step": "N",
-   "label": "a global sign gauge on incidences",
+   "label": "a sign gauge on the variables of F",
    "status": "REFUTED",
    "src": "alg",
    "where": "alg/PROOF.md 2; alg/REPORT.md; rf/REPORT.md",
-   "text": "Flip signs of incidence variables so that all good states get the same coefficient sign. The refutation concerns signs on the variables of F, hence one state only. Signs on both states incidences are not refuted: finite gauge equations remain solvable on the tested census. This does not establish a general positive formula.",
+   "text": "Flip the signs of the incidence variables of F so that all good states get the same coefficient sign. Refuted for signs on the variables of F only. With signs on the incidences of both states the gauge equations are solvable on all 5,088 paired roots up to V=16 (different-model referee); there is no proof that this always works, and it gives no positive formula.",
    "lesson": "A GF(2) inconsistency certificate: six tree states in which every incidence appears an even number of times, three with negative sign.",
    "cex": "A 13-vertex instance with six good states.",
    "role": "route"
@@ -2103,15 +2103,15 @@
    "label": "non-increasing exchange path to a good pair",
    "status": "CONJECTURE",
    "src": "gt",
-   "where": "des/REPORT.md; des/data/census_summary.json; des/data/census_23_part0of8.txt; rd/REPORT.md; rd/code/c3_6_19.json; rd/code/summary40_0_40.json",
-   "text": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.",
+   "where": "des/REPORT.md; des/data/census_summary.json; des/data/census_23_part0of8.txt; rd/REPORT.md; rd/INTEGRATION.md; rd/code/c3_6_19.json; rd/code/c3_20_20.json; rd/code/summary40_0_40.json",
+   "text": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. The independent referee verifies all 3,373,400 pairs at all roots through V=20 and all 335,704 pairs of a 40-graph V=40 batch. The author census beyond V=20 is not independently replayed.",
    "test": "Prove no closed positive-q plateau, beginning at q=1. Do not infer C3 from the full exchange-component theorem.",
    "review": {
     "state": "refereed",
     "by": [
      "research/2026-11-14_astra_referee-descent"
     ],
-    "verdict": "Finite C3 checks independently replayed through V=19 and on the named V=40 batch. C3 remains a conjecture; author V=23 and larger samples retain their own scope."
+    "verdict": "Finite C3 checks independently replayed through V=20 and on the named V=40 batch. C3 remains a conjecture."
    },
    "role": "route"
   },
@@ -2422,15 +2422,15 @@
    "status": "PROVED-HERE",
    "src": "families",
    "where": "families/FAMILIES.md Section 1; rf/REPORT.md; rf/INTEGRATION.md",
-   "text": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1. Full proof supplied, independent review pending. Different-model review checks finite tube sequences and matrix certificates, but not the all-length transfer code. Prism-chain Hamiltonian counts require an explicit gluing rule; they are not invariant under identification.",
+   "text": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1 (checked by a different model for j=2..12). The prism-chain Hamiltonian count depends on the gluing rule: 8*3^(q-1) if every piece is glued pole on pole, 8 then 20*3^(q-2) for the mixed rule of the source. Do not quote either as a formula without its rule.",
    "partial": true,
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-covers"
+     "research/2026-11-14_sol_referee-covers",
+     "research/2026-11-14_fable_referee-families"
     ],
-    "date": "2026-11-14",
-    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+    "verdict": "First referee (covers) is the author's model, GPT-6.1 Sol. The different-model referee (Fable 5.2) confirms the finite sequences and certificate arithmetic only: width four S to L=20, M and P to L=14, H to L=10; width six S and M to L=12, P to L=9, H to L=6. The all-L tube recurrences rest on the author's transfer argument."
    },
    "role": "partial"
   },
@@ -2777,7 +2777,7 @@
    "status": "PROVED-HERE",
    "src": "pack",
    "where": "research/2026-11-14_opus_two-tree-packing/PROOFS.md Thm 2.1; research/2026-11-14_opus_two-tree-packing/REPORT.md; rr/REFEREE-packing.md",
-   "text": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+   "text": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. Refereed by a fresh instance of the author's model with its own code. It holds without states and cannot prove exact joint rounding.",
    "test": "Check Nash-Williams rank inequalities by the disk count; consume the dedicated packing report when available.",
    "review": {
     "state": "refereed",
@@ -2796,7 +2796,7 @@
    "src": "prob",
    "where": "prob/PROOFS.md; cr/code/polynomials.json; cr/INTEGRATION.md",
    "text": "Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.",
-   "cex": "Off-circle factor (z-1)(z^2+3) at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2). Real-rooted z already fails at V=10; no gauge-independent minimum claim for linear weights.",
+   "cex": "Over all roots the first nonreal zeros occur at V=9, where the signed polynomial can be (z-1)^2(z+1)(z^2+1) (different-model referee). The off-circle factor (z-1)(z^2+3) occurs at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2); no gauge-independent minimum claim for linear weights.",
    "lesson": "Family product factorizations do not establish a universal zero-location argument.",
    "role": "route"
   },
@@ -2839,14 +2839,14 @@
    "status": "PROVED-HERE",
    "src": "families",
    "where": "families/FAMILIES.md; cr/INTEGRATION.md; cr/REFEREE-families.md; rf/REPORT.md",
-   "text": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths. Additional different-model referee confirms finite sequences and certificate arithmetic but explicitly leaves the all-length transfer code unchecked. The earlier all-length referee and this finite replay have different scopes.",
+   "text": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths. Additional different-model referee confirms finite sequences and certificate arithmetic but explicitly leaves the all-length transfer code unchecked. The earlier all-length referee and this finite replay have different scopes. The earlier all-length referee (covers) is the same model as the author, so the all-L recurrences have no different-model check.",
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-covers"
+     "research/2026-11-14_sol_referee-covers",
+     "research/2026-11-14_fable_referee-families"
     ],
-    "date": "2026-11-14",
-    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+    "verdict": "First referee (covers) is the author's model, GPT-6.1 Sol. The different-model referee (Fable 5.2) confirms the finite sequences and certificate arithmetic only: width four S to L=20, M and P to L=14, H to L=10; width six S and M to L=12, P to L=9, H to L=6. The all-L tube recurrences rest on the author's transfer argument."
    },
    "role": "route"
   },
@@ -3220,7 +3220,7 @@
    "src": "des",
    "where": "des/DESCENT.md; des/data/witnesses.txt; des/data/witnesses_verified.json; des/data/census_tables.md; rd/REPORT.md; rd/code/recovered40_0_40.json",
    "text": "For a fixed lookahead L, every non-good pair has a lower-q pair within L exchanges. L=1,2,3 are refuted; L=4 and unbounded escape radius remain open.",
-   "cex": "Strict q-descent fails first at V=16. Lookahead two fails at V=21, with minimality from author census. Lookahead three fails at recovered V=40 graph 3, root {10,16,11}; saved V=60 also has escape radius four. The original selected V=40 line has radius three. Lookahead four remains open.",
+   "cex": "Strict q-descent fails first at V=16. Lookahead two fails first at V=21: the independent census through V=20 finds no escape radius above two. Lookahead three fails at recovered V=40 graph 3, root {10,16,11}, which needs four exchanges; the saved V=60 pair also has escape radius four. V=40 is not claimed least. Lookahead four remains open.",
    "lesson": "C3 allows arbitrarily long plateau exploration; fixed radii one, two and three fail.",
    "role": "route"
   },

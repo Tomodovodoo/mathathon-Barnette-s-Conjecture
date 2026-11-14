@@ -170,7 +170,7 @@ digraph routemap {
   "S" -> "FP" [label="U.x7 positivity of the norm or of the Laplacian terms", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="refd,alg"];
   "S" -> "FP" [label="U.x8 tree count as an unrooted invariant", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="alg"];
   "M" -> "N" [label="N.x14 strict q-descent", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="gt"];
-  "M" -> "N" [label="N.x15 a global sign gauge on incidences", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="alg"];
+  "M" -> "N" [label="N.x15 a sign gauge on the variables of F", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="alg"];
   "M" -> "N" [label="N.11 non-increasing exchange path to a good pair", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="gt"];
   "M" -> "N" [label="N.12 Li's marked objects are the e_m coefficient", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="refd"];
   "P" -> "M" [label="C.5 exact disk count in the final paper", color="#1f5fbf", status="PROVED-HERE", role="fact", src="refd"];

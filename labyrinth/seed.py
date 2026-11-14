@@ -493,12 +493,12 @@ for entry in S['entries']:
     if entry['id']=='new-presentations':
         entry['result']='Three complete written routes. Main version 2 and both involution routes FOLLOWS; primal route ACCEPT.'
         entry['status']='Independent AI referees and completed main-v2 cold read; human check pending.'
-    if entry['id']=='rarity': entry['status']='T2 independently AI-refereed all-length transfer at the specified lateral root; no human check.'
+    if entry['id']=='rarity': entry['status']='T2 author proof by transfer matrices for all L; the first referee is the same model as the author; a different model (Fable 5.2) confirms width four to L=14 and width six to L=6 to 12, not all L. No human check.'
     if entry['id']=='formal':
         entry.update(result=by_route['G2.devices']['text'],status='COMPUTED; independently rebuilt and statement-checked; retain the four qualifications in the review.',refs=['c.G2.c','c.G2.devices'])
     if entry['id']=='algorithm':
         entry['result']+=' Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.'
-        entry['status']='Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked.'
+        entry['status']='Supplied preprint time bounds; new PPADS proof T2, conditional on Theorem 5.3, supported by the descent referee; the PPADS closure citation was checked only in its abstract.'
     if entry['id']=='cancellation': entry['result']=by_route['N.11']['text']
     for key,rid in [('induction','U.ML2'),('rainbow','U.7h'),('packing','U.packing'),('covers','D.covers'),('census24','D.cover-census')]:
         if entry['id']==key:
@@ -510,6 +510,7 @@ for key,cls,rid in [('packing-P2','Face-side rainbow packing P2','U.packing-P2')
 for entry in S['entries']:
     if entry['id']=='canonical': entry['result']=by_route['D.7']['text']+' '+by_route['D.ext2']['text']
     if entry['id']=='rainbow-R': entry['status']='PROVED-HERE; independently AI-refereed with corrections; no human check.'
+    if entry['id']=='rainbow-R': entry['result']+=' Resident eviction gives n fixed-point-free involutions on good states, so their number is even without signs; the same review accepts it.'
 prior_path=LAB/'sota.json'
 prior=json.loads(prior_path.read_text(encoding='utf8')) if prior_path.exists() else {'entries':[]}
 prior_by_id={r['id']:r for r in prior['entries']}

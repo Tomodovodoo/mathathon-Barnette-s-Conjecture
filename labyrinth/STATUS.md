@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T14:24:27Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T14:33:28Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -40,7 +40,7 @@ Generated 2026-11-14T14:24:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **remove a leaf of the white tree** [`k.F.4`, open] Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a good state, and the cycle of the larger graph is a local detour.
 - **a cut-free root** [`k.G.3`, open] Count how often some root (black face on the black side of all separating triangles, or the same with colours swapped) exists.
 - **ordered pairs of edges (global H+-)** [`k.G2.5`, open] Some Hamiltonian cycle contains x and avoids y for any two edges. Not implied by the theorem.
-- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.
+- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. The independent referee verifies all 3,373,400 pairs at all roots through V=20 and all 335,704 pairs of a 40-graph V=40 batch. The author census beyond V=20 is not independently replayed.
 - **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with m distinct marks are the elementary symmetric reading of the linear-weight coefficient.
 - **local search from a point-rainbow tree** [`k.U.7h`, open] Step X asks that every point-rainbow tree reach a good state without increasing black-face excess, using both plateau move types. Author checks all roots through V=17 and 1,485 of 1,543 graphs at V=18. Independent referee checks through V=12 and completes seven more V=18 graphs, all 224 roots and 7,999,488 enumerated multi-cover rainbow trees. Fifty-one graphs remain incomplete, with some roots of one tested. This is finite evidence; Step X is open.
 - **every Hamiltonian cycle from a two-root good state** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
@@ -127,7 +127,7 @@ Generated 2026-11-14T14:24:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **positivity of the norm or of the Laplacian terms** [`x.U.x7`, refuted] CT F(w)F(1/w) and the constrained Laplacian coefficient are sums of nonnegative terms, so they are positive.
 - **tree count as an unrooted invariant** [`x.U.x8`, refuted] The number of good states equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.
 - **strict q-descent** [`x.N.x14`, refuted] Every non-good pair has an immediately q-decreasing D-swap or Q-reversal.
-- **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all good states get the same coefficient sign. The refutation concerns signs on the variables of F, hence one state only. Signs on both states incidences are not refuted: finite gauge equations remain solvable on the tested census. This does not establish a general positive formula.
+- **a sign gauge on the variables of F** [`x.N.x15`, refuted] Flip the signs of the incidence variables of F so that all good states get the same coefficient sign. Refuted for signs on the variables of F only. With signs on the incidences of both states the gauge equations are solvable on all 5,088 paired roots up to V=16 (different-model referee); there is no proof that this always works, and it gives no positive formula.
 - **extremes of Felsner's lattice of pairs** [`k.D.7`, refuted] C2 is false. Both extremes of Felsner's pair lattice can carry no good pair; the independent witness has V=18. This is distinct from Propp's state clock lattice, where an extreme can lack a partner at V=10.
 - **the partner of a good state is a good state** [`x.D.x1`, refuted] Swapping r and s would then be a free involution on good states and explain why their number is even.
 - **a uniform boundary condition for longer cuts** [`x.G.x2`, refuted] Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.

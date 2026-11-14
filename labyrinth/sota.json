@@ -197,7 +197,7 @@
    "group": "Structure of good states",
    "cls": "Fraction of states that are good states",
    "result": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
-   "status": "T2 independently AI-refereed all-length transfer at the specified lateral root; no human check.",
+   "status": "T2 author proof by transfer matrices for all L; the first referee is the same model as the author; a different model (Fable 5.2) confirms width four to L=14 and width six to L=6 to 12, not all L. No human check.",
    "kind": "proved",
    "refs": [
     "p.D.5",
@@ -225,6 +225,11 @@
      "date": "2026-11-14",
      "was": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
      "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed."
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
+     "status": "T2 independently AI-refereed all-length transfer at the specified lateral root; no human check."
     }
    ]
   },
@@ -308,7 +313,7 @@
    "group": "Formulas and algorithms",
    "cls": "Polynomial-time construction of the cycle",
    "result": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard. Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.",
-   "status": "Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked.",
+   "status": "Supplied preprint time bounds; new PPADS proof T2, conditional on Theorem 5.3, supported by the descent referee; the PPADS closure citation was checked only in its abstract.",
    "kind": "partial",
    "refs": [
     "th.N.T2",
@@ -325,6 +330,11 @@
      "date": "2026-11-14",
      "was": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard.",
      "status": "LIT bounds (trees paper); NP-hardness proved here modulo a cited theorem (gt, under review)"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard. Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.",
+     "status": "Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked."
     }
    ]
   },
@@ -530,7 +540,7 @@
    "id": "packing",
    "group": "Structure of good states",
    "cls": "Two-tree packing",
-   "result": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+   "result": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. Refereed by a fresh instance of the author's model with its own code. It holds without states and cannot prove exact joint rounding.",
    "status": "PROVED-HERE; refereed; human check pending",
    "kind": "partial",
    "refs": [
@@ -553,6 +563,11 @@
      "date": "2026-11-14",
      "was": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
      "status": "PROVED-HERE; unreviewed; human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+     "status": "PROVED-HERE; refereed; human check pending"
     }
    ]
   },
@@ -638,7 +653,7 @@
    "id": "pair-descent",
    "group": "Structure of good states",
    "cls": "Monotone pair descent C3",
-   "result": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.",
+   "result": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. The independent referee verifies all 3,373,400 pairs at all roots through V=20 and all 335,704 pairs of a 40-graph V=40 batch. The author census beyond V=20 is not independently replayed.",
    "status": "CONJECTURE; refereed; human check pending",
    "kind": "conjecture",
    "refs": [
@@ -656,6 +671,11 @@
      "date": "2026-11-14",
      "was": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 193,623,384 pairs through V=23 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent descent referee checkpoint reproduces C3 through V=16; larger-range checks and proof verdicts remain in progress.",
      "status": "CONJECTURE; under-review; human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.",
+     "status": "CONJECTURE; refereed; human check pending"
     }
    ]
   },
@@ -663,7 +683,7 @@
    "id": "rainbow-R",
    "group": "Structure of good states",
    "cls": "Unsigned rainbow existence",
-   "result": "Step R gives a point-rainbow tree iff no black-inner separating triangle exists, by Rado and Euler. Theorem S gives unique-factor completion. Independent rainbow referee accepts these proofs with corrections in its completed REPORT.md.",
+   "result": "Step R gives a point-rainbow tree iff no black-inner separating triangle exists, by Rado and Euler. Theorem S gives unique-factor completion. Independent rainbow referee accepts these proofs with corrections in its completed REPORT.md. Resident eviction gives n fixed-point-free involutions on good states, so their number is even without signs; the same review accepts it.",
    "status": "PROVED-HERE; independently AI-refereed with corrections; no human check.",
    "kind": "partial",
    "refs": [
@@ -676,6 +696,11 @@
      "date": "2026-11-14",
      "was": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
      "status": "PROVED-HERE; unreviewed; human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Step R gives a point-rainbow tree iff no black-inner separating triangle exists, by Rado and Euler. Theorem S gives unique-factor completion. Independent rainbow referee accepts these proofs with corrections in its completed REPORT.md.",
+     "status": "PROVED-HERE; independently AI-refereed with corrections; no human check."
     }
    ]
   },
