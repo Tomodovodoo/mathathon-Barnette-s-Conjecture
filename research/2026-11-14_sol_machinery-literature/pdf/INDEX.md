@@ -1,7 +1,11 @@
 # Downloaded source PDFs
 
-Retrieved 2026-11-14 with `python research/2026-11-14_sol_machinery-literature/fetch_sources.py`. Only public arXiv, publisher or author-hosted copies. See `../downloads.json` for checksums and failures. Text extraction is for reading, not a substitute for checking formulas.
+Retrieved 2026-11-14 using `python research/2026-11-14_sol_machinery-literature/fetch_sources.py`. Public arXiv, publisher, conference or author-hosted copies. Checksums and failed attempts appear in `../downloads.json`. Text dumps are in `../source-text/`.
 
+- [bms-constellations](bms-constellations.pdf). Source <https://fpsac-archive.github.io/FPSAC99/ARTICLES/10Melou.pdf>. downloaded and text extracted.
+- FAILED bonichon-realizers. Source <https://www-igm.univ-mlv.fr/~fpsac/FPSAC02/ARTICLES/Bonichon.pdf>. <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www-igm.univ-mlv.fr'. (_ssl.c:1081)>.
+- [kuperberg-cokernels](kuperberg-cokernels.pdf). Source <https://arxiv.org/pdf/math/0108150>. downloaded and text extracted.
+- [alon-tarsi](alon-tarsi.pdf). Source <https://kostochk.web.illinois.edu/math581/Alon-Tarsi92.pdf>. downloaded and text extracted.
 - [bernardi-kalman-postnikov](bernardi-kalman-postnikov.pdf). Source <https://arxiv.org/pdf/2004.00683>. downloaded and text extracted.
 - [bernardi-orientations](bernardi-orientations.pdf). Source <https://arxiv.org/pdf/math/0612003>. downloaded and text extracted.
 - [penrose-embedded](penrose-embedded.pdf). Source <https://arxiv.org/pdf/1106.5279>. downloaded and text extracted.
@@ -25,3 +29,5 @@ Retrieved 2026-11-14 with `python research/2026-11-14_sol_machinery-literature/f
 - [alon-nullstellensatz](alon-nullstellensatz.pdf). Source <https://www.tau.ac.il/~nogaa/PDFS/null2.pdf>. downloaded and text extracted.
 - [jung-induced-forests](jung-induced-forests.pdf). Source <https://arxiv.org/pdf/2608.17350>. downloaded and text extracted.
 - [makarov-induced-forests](makarov-induced-forests.pdf). Source <https://arxiv.org/pdf/2608.13964>. downloaded and text extracted.
+
+`openai-page6.png` is a local formula-verification rendering of the supplied original, produced by the command in `../SOURCES.md`.

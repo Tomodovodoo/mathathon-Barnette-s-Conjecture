@@ -1,5 +1,31 @@
 [
   {
+    "key": "bms-constellations",
+    "url": "https://fpsac-archive.github.io/FPSAC99/ARTICLES/10Melou.pdf",
+    "bytes": 8995733,
+    "sha256": "7ab083f8d9f4c70a1bdc56f9397750321c621f0013a3e35b178e109d54e4b883",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "bonichon-realizers",
+    "url": "https://www-igm.univ-mlv.fr/~fpsac/FPSAC02/ARTICLES/Bonichon.pdf",
+    "status": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www-igm.univ-mlv.fr'. (_ssl.c:1081)>"
+  },
+  {
+    "key": "kuperberg-cokernels",
+    "url": "https://arxiv.org/pdf/math/0108150",
+    "bytes": 198084,
+    "sha256": "4e7b7174b79a610cc85321827fa616e9aa2384c04c09fd50fe2ec8d35349e5ab",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "alon-tarsi",
+    "url": "https://kostochk.web.illinois.edu/math581/Alon-Tarsi92.pdf",
+    "bytes": 589134,
+    "sha256": "d3658c902ee7053d5d4e19ccdfae269fc54911fa03c27945ce3ad51a31fdc146",
+    "status": "downloaded and text extracted"
+  },
+  {
     "key": "bernardi-kalman-postnikov",
     "url": "https://arxiv.org/pdf/2004.00683",
     "bytes": 1075978,

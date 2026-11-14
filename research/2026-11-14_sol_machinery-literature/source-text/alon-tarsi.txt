@@ -1,0 +1,456 @@
+                                                                 COMBINATORICA12 (2) (1992) 125-134
+AkaddmialKiad6 - Springer-Verlag
+
+
+               COLORINGS          AND     ORIENTATIONS                OF GRAPHS
+
+
+                                  N. ALON* and M. T A R S I
+
+                                      Received June YH, 1989
+                                      Revised August 29, 1989
+
+
+     Bounds for the chromatic number and for some related parameters of a graph are obtained by
+applying algebraic techniques. In particular, the following result is proved: If G is a directed graph
+with maximum outdegree d, and if the number of Eulerian subgraphs of G with an even number
+of edges differs from the number of Eulerian subgraphs with an odd number of edges then for any
+assignment of a set S(v) of d + 1 colors for each vertex v of G there is a legal vertex-coloring of G
+assigning to each vertex v a color from S(v).
+
+
+
+                                        1. I n t r o d u c t i o n
+
+     A subdigraph H of a directed g r a p h D is called Eulerian if the indegree dH(V )
+of every vertex v of H in H is equal to its outdegree d+H(v). Note t h a t we do not
+assume t h a t H is connected. H is even if it has an even ]iumber of edges, otherwise,
+it is odd. Let E E ( D ) and EO(D) denote the numbers of even and odd Eulerian
+subgraphs of D, respectively. (For convenience we agree t h a t the e m p t y subgraph is
+an even Eulerian subgraph.) Our main result is the following:
+T h e o r e m 1.1. Let D = (V, E) be a digraph. For each v E V, let S(v) be a set o f
+d+(v) + 1 distinct integers, where ~D(V) is the outdegree of v. If B E ( D ) ~ EO(D)
+then there is a legal vertex-coloring c : V -~ Z such that c(v) ~ S(v) for all v E V.
+Corollary 1.2. Let G be an undirected graph. If G has an orientation D satisfying
+E E ( D ) ~ EO(D) in which the m a x / m u m outdegree is d, then G is (d + 1)-colorable.
+In particular, if the m a x i m u m outdegree is d and D contains no odd directed (simple)
+cycle then G is (d + 1)-colorable.
+      Since a complete g r a p h G on d + 1 vertices has such an orientation (i.e., the
+acyclic orientation), the upper b o u n d d + 1 is sharp. In case the orientation D is
+acyclic, the conclusion of the theorem and t h a t of the corollary can be easily proved
+by induction. T h e general case seems Inuch more complicated and our only proof for
+it is algebraic.
+      A n y u p p e r b o u n d to the chromatic n u m b e r of a g r a p h supplies a lower b o u n d
+to its independence number. T h e resulting estimates are stated in the following two
+corollaries.
+    * Research supported in part by a United States-Israel BSF Grant and by a Bergmann Memorial
+Grant.
+    AMS Subject Classification codes (1991): 05 C 15, 05 C 20
+126                                    N. ALON, M. TARSI
+
+
+Corollary 1.3. Let G be an undirected graph on n vertices. If G has an orientation
+D satisfying E E ( D ) # EO(D) in which the max/mum outdegree is d, then G has an
+independent set of size at least n/(d + 1). In particular, if the max/mum outdegree
+is d and D contains no odd directed (simple) cycle then G has an independent set of
+size at least n / ( d + 1).
+     Note that the estimate n / ( d + 1) is sharp, as shown by any union of vertex-
+disjoint complete graphs on d + 1 vertices each. As is the case in Corollary 1.2 the
+assertion of the last corollary can be easily proved by induction in the special case
+when D is acyclic. However, we do not have a non-algebraic proof for the general
+case.
+
+Corollary 1.4. Let G be an undirected graph on a set V = {Vl,... ,v~} of n vertices,
+and suppose it has an orientation D satisfying E E( D ) # EO( D ). Let dl >_d 2 . . . >_d~n
+be the ordered sequence of outdegrees of the n vertices of D. Then, for every k,
+n > k > O, G has an independent set of size at least r(n - k)/(dk+l + 1)1.
+     Theorem 1.1 actually deals with the notion of choosability of graphs, introduced
+and studied in [9] and [15]. Let G = (V, E) be an undirected graph and let f : V --*
+Z + be a function which assigns to each vertex v 9 V a positive integer f(v). We say
+that G is f-choosable if for every choice of sets S(v) of integers, where IS(v)l =/(v)
+for all v E V there is a legal coloring c : V --* Z such that c(v) E S(v) for all v E V. In
+particular, if G is f-choosable for the constant function f given by f ( v ) = k for each
+v 9 V we say that G is k-choosable. Theorem 1.1 is clearly a statement concerning
+the choosability of graphs.
+     Our paper is organized as follows:
+     In Section 2 we present the proofs of Theorem 1.1 and its three Corollaries.
+This Theorem is applied in Section 3 to obtain results concerning the choosabil.ity of
+graphs. The final Section 4 contains some concluding remarks and open problems.
+
+
+                           2. The P r o o f of the Main Result
+
+    Our method resembles the one we applied in [3]. (See also [1] for a similar
+approach.) We start with the following simple lemma.
+Lemmn 2.1. Let P = P ( x l , x 2 , . . . , xn) be a polynomial in n variab/es over the ring
+of integers 7/.. Suppose that for 1 < i < n the degree of P as a polynomial in xi is at
+most di and let Si C Z be a set of di + 1 distinct integers. If P ( x l , x 2 , . . . , x n ) = 0
+for all n-tuples (Xl,... ,xn) E S1 x $2 x ... x Sn then P - O.
+Proof. We apply induction on n. For n = 1 the lemma is simply the assertion
+that a nonzero polynomial of degree dl in one-variable can have at most dl distinct
+zeros. Assuming the lemma holds for n - 1 we prove it for n, (n > 2). Given a
+polynomial P = P ( X l , . . . , xn) and sets Si-satisfying the hypotheses of the lemma,
+                                                        dn
+let us write P as a polynomial in xn, i.e., P = ~ P i ( x l , . . . ,xn-1)x~, where each
+                                                       i=0
+Pi is a polynomial with xj-degree bounded by dj. For each fixed (n - 1)-tuple
+( X l , . . . , x n - 1 ) 6 $1 x $2 x ... x Sn-1, the polynomial in xn obtained from P
+by substituting the values of X l , . . . , xn-1 vanishes for all xn 9 Sn and is thus
+                               COLORINGS AND ORIENTATIONS OF GRAPHS                                        127
+
+identically 0. Therefore Pi(xl, . . . ,Xn-1) = 0 for all (Xl,... ,xn-1) E S1 x . . . x Sn-1
+and hence, by the induction hypothesis, Pi =- 0 for all i, implying that P _= 0. This
+completes the induction and the proof of the lemma.                                        I
+     The graph polynomial fG(Xl, x 2 , . . . , Xn) of an undirected graph G = (V, E) on
+a set V = {Vl,..., vn} of n vertices is defined by fG(Xl, x 2 , . . . , Xn) = 1]{(xi - x j ) :
+i < j, {vi,vj} E E}. This polynomial is studied by Li and Li in [12], following a
+previous related work by Graham, Li and Li ([11]). An analogous polynomial for
+certain linear matroids is considered in [3]9 It is not too difficult to see that the
+coefficients of the monomials that appear in the standard representation of fG as
+a linear combination of monomials can be expressed in terms of the orientations of
+G. For each oriented edge e = (vi, vj) of G, define its weight w(e) by w(e) = xi if
+i < j and w(e) = - x i if i > j. The weight w(D) of an orientation D of G is defined
+to be the product l-I w(e), where e ranges over all oriented edges e of D. Clearly
+fG = ~ w(D), where D ranges over all orientations of G. This is simply because
+each term in the expansion of the product fG = I]{(xi - x j ) : i < j, {vi,vj} E E}
+corresponds to a choice of the orientation of the edge {vi, vj} for each edge {vi, vj} of
+G. Let us call an oriented edge (vi, vj) of G decreasing if i > j. An orientation D of
+G is called even if it has an even number of decreasing edges; otherwise, it is called
+odd. For non-negative dl, d 2 , . . . , dn, let D E ( d l , . . . , din) and D O ( d l , . . . , dn) denote,
+respectively, the sets of all even and odd orientations of G in which the outdegree of
+the vertex vi is di, for 1 < i < n. By the last paragraph, the following lemma holds.
+Lemma 2.2. In the above notation
+                                                                                            n
+        fG(Xl,. .,Xn)
+                  9        =      E          (]DE(dl, ..,dn)l
+                                                      9          -   iDO(dl,. .,dn)i) y I d,
+                                                                                9                x i   9     I
+
+                               dl,...,dn>O                                                 i=l
+
+
+     Consider, now, a fixed sequence d l , . . . , ~ of nonnegative integers and let D 1
+be a fixed orientation in D E ( d l , . . . , d n ) U DO(dl,...,dn). For any orientation
+D2 E D E ( d l , . . . , d n ) U D O ( d l , . . . , d n ) let D 1 ~ D2 denote the set of all oriented
+edges of D1 whose orientation in D2 is in the opposite direction. Since the outdegree
+of every vertex in D1 is equal to its outdegree in D2, it follows that D1 @ D2 is an
+Eulerian subgraph of D1. Moreover, D1 ~ D2 is even as an Eulerian subgraph iff
+either both D 1 and D 2 are even or both are odd. The mapping D2 --* D1 9 D2
+is clearly a bijection between D E ( d l , . . . , d n ) U D O ( d l , . . . , dn) and the set of all
+Eulerian subgraphs of D1. In case D1 is even, it maps even orientations to even
+(Eulerian) subgraphs and odd orientations to odd subgraphs. Otherwise, it maps
+even orientations t o odd subgraphs and odd orientations to even subgraphs. In any
+case,
+
+              IiDE(dl,..., dn)] - ]DO(dl,..., dn)] I = ]BE(D1) - EO(D1)]
+where EE(D1) and EO(D1) denote, as in Section 1, the numbers of even and odd
+Eulerian subgraphs of D1, respectively. Combining this with Lemma 2.2 we obtain
+the following.
+Corollary 2.3. Let D be an orientation of an undirected graph G = (IF,E) on a set
+V = {Vl,... ,Vn} o f n vertices. For 1 < i < n, let di = ~D(Vi) be the outdegree of
+128                                         N. ALON, M. TARSI
+
+
+                                                                    n xidi in the
+vi in D. Then the absolute value of the coefficient of the monomial 1-I
+                                                                                            i=1
+standard representation of f G = f G( xl, . . . , xn) as a linear combination of monomials
+is lEE(D) - EO(D)[. In particular, f l E E ( D ) ~ EO(D) then this coefficient is not
+zero.   _=~-                                                                             I
+
+Proof of Theorem 1.1. Let D = (V, E) be a digraph on the set of vertices V =
+{Vl,...,vn} and let d i = d~)(vi) be the outdegree of vi. Suppose that E E ( D )
+EO(D). For 1 < i < n, let Si C Z be a set of d i + 1 distinct integers. We must show
+that there is a legal vertex-coloring c : V -* Z such that c(vi) 9 S i for all 1 < i < n.
+Suppose this is false and there is no such coloring. Let G be the underlying undirected
+graph of D and let f a = f a ( x l , ... , xn) be its polynomial. The assumption that the
+required coloring does not exist is equivalent to the statement:
+(2.1)      f G ( X l , . . . , Xn) = 0 for every n-tuple ( X l , . . . , Xn) 9 S1 x $2 x . . . x Sn.
+For each i, 1 < i < n, let Qi(xi) be the polynomial
+                                                                       d~
+                                                           _di+l
+                           Qi(xi) = H (xi - s ) = x i              - Z qij~.
+                                    sES~                             j=0
+Observe that
+                                                                di
+(2.2)                                                  _d~+l
+                     If xi E Si then Qi(xi) = O, i.e., x i   = Z qij~.
+                                                               j=o
+bet ]G be the polynomial obtained from fG by writing ]G as a linear combination
+of monomials and replacing, repeatedly, each occurrence of x//i, (1 < i < n), where
+fi > di, by a linear combination of smaller powers of xi, using the relations (2.2).
+The resulting polynomial ]G is clearly of degree at most di in xi for each 1 < i < n.
+Moreover, f G ( X l , . . . , x n ) = f G ( X l , . . . , x n ) for all ( X l , . . . , x n ) E S1 x ... x Sn,
+since the relations (2.2) hold for these values of X l , . . . ,xn. Therefore, by (2.1),
+f G ( X l , . . . , x n ) = 0 for _every n-tuple ( x l , . . . , x n ) 9 S1 x ... x Sn and hence, by
+Lemma 2.1 ]G = O. However, by Corollary 2.3, the coefficient of 1-I      n xidi in fG is
+                                                                        i=l
+nonzero, since, by assumption, E E ( D ) ~ EO(D). Since the degree of each xi in this
+monomial is di, the relations (2.2) will not effect it. Moreover, as the polynomial fG
+is homogeneous and each application of the relations (2.1) strictly reduces degree,
+                                                                                  n di
+the process of replacing fG by ]G will not create any new scalar multiples of 11 xi 9
+                                                                                                    i=l
+                               di
+Thus, the coefficient of f i x i in ]G is equal to its coefficient in fG and is not 0.
+                               i----1
+This contradicts the fact that fG = 0. Therefore, our assumption was false and there
+is a legal coloring c : V --* Z satisfying c(vi) E Si for all 1 < i < n, as needed. I
+Proof of Corollary 1.2. Let D = (V, E) be an orientation of a graph G such that
+E E ( D ) ~ EO(D), in which the maximum outdegree is d. By Theorem 1.1, with
+S(v) --- ( 1 , . . . , d § 1} for all v 9 V, G is (d q- 1)-colorable, as needed.
+                         COLORINGS AND ORIENTATIONS OF GRAPHS                              129
+
+    In case D contains no odd directed simple cycle, it cannot contain odd Eulerian
+subgraphs at all. This is because every Eulerian subgraph H is a union of edge-
+disjoint directed simple cycles, and if H is odd then at least one of these ~ycles must
+be odd. Thus, in this case EO(D) = 0 and as always EE(D) > 1 (because the empty
+subgraph is an even Eulerian subgraph) EO(D) ~ EE(D). It thus follows from the
+previous paragraph that G is (d + 1)-colorable, in this case too.                     |
+Proof of Corollary 1.3. This is an immediate consequence of Corollary 1.2, since in
+any legal (d + 1)-coloring of a graph on n vertices the largest color class contains at
+least In/(d + 1)] vertices,                                                           i
+
+Proof of Corollary 1.4. Renumber the vertices so that d~)(vi) = di. By Theorem 1.1
+there is a legal coloring c : V --* Z of G such that 1 _< c(vi) <_di + 1 for all 1 < i < n.
+For each k, 0 _< k < n, the colors ofvk+l,...,Vn all lie in { 1 , 2 , . . . , d k + 1 + 1} and
+hence the largest color class has size at least [(n - k)/(dk+l + 1)1.                        |
+Remark 2.4. The assertion of Theorem 1.1 (and hence that of Corollaries 1.2, 1.3
+and 1.4) is trivial in the special case that D is acyclic. This is because in this special
+case there is a vertex v with 0-indegree. By induction we can obtain a coloring of the
+desired type of D - v and this coloring can be trivially extended to the needed coloring
+of D. This argument also supplies a polynomial time algorithm for finding the desired
+coloring. The general case seems more difficult. Note that already the case of no odd
+directed cycle is certainly more general than the acyclic one as it implies, e.g., that
+an even cycle is 2-colorable and 2-choosable (by orienting it cyclically), although it
+has no acyclic orientation with maximum outdegree less than 2.
+    As observed by J. A. Bondy, R. Boppana and A. Siegel [4] Theorem 1.1 (and
+hence also Corollary 1.2 and Corollary 1.3) for the special case that D has no odd
+directed cycle follows easily from Richardson's Theorem (cf., e.g., [5]). Richardson's
+Theorem states that any digraph with no odd directed cycles has a kernel, i.e., an
+independent set such that every vertex outside it has an edge to a neighbor in it:
+Thus we can fix some color x in the union of the sets S(v), apply Richardson's
+Theorem to the induced subgraph of D on the set of all vertices v that contain x in
+their lists S(v), color the vertices in the kernel by x (which will not be used again),
+and apply induction. Note that Richardson's proof is algorithmic. This argument
+does not seem to imply the general statement of Theorem 1.1 and its corollaries.
+Remark 2.5. An alternative proof of Corollary 1.2 can be deduced from a result of
+Kleitman and Lov~sz (cf. [12]). They proved that if the chromatic number of a graph
+G = (V, E) is at least k, then fG lies in the ideal generated by the polynomials fH,
+where H is a complete graph on some subset of cardinality k of V. Notice that if
+K C V is the set of vertices of such an H then fH = 1-I{(xp-- Xq) : vp, Vq E K, p < q}.
+However, this product is exactly the Vandermonde's determinant det(x~)peK,O<i< k
+and each term in the expansion of this determinant contains a variable of degree k - 1.
+Therefore, if G is not d + 1 colorable, every monomial with a non-zero coefficient in
+fG has a variable of degree at least d + 1. But under the assumptions of Corollary 1.2,
+                                                n
+Corollary 2.3 implies that the monomial l'I xd appears with a non-zero coefficient
+                                              i=1
+in fG, and this monomial has no variable of degree d + 1 or more. Therefore, G is
+(d + 1)-colorable, as needed. A similar derivation of Corollary 1.3 from the main
+130                                   N. ALON, M. TARSI
+
+
+result of Li and Li [12], that characterizes the ideal generated by the polynomials fG
+where G ranges over all graphs on n vertices with independence number at most k
+can be also given.
+     It is worth noting that Gessel [10] describes a combinatorial proof for the ex-
+pression of the Vandermonde's determinant as a product, by associating every term
+in the expansion of the product with a turnament, i.e., with an orientation of a com-
+plete graph. Lemma 2.2 is a simple modification of Gessel's arguments to general
+graphs.
+RemArk 2.{}. Our method can be easily applied to prove the following Nullstellensatz-
+type result, which is similar to Theorem 1.1. Since the proof is similar to that of
+Theorem 1.1 we omit it.
+Proposition 2.7. Let G = (V, E ) be a graph, and let f a = fG(Xl, ... , Xn) be its
+polynomial. For every integer k the following statements are equivalent:
+      (i) G is not k-colorable.
+     (ii) There is a set S of k distinct (complex) numbers such that f a ( X l , . . . , xn) =
+          0 for every X l , . . . , xn E S.
+    (iii) For every set S o f k distinct (complex) numbers fG(Xl,. . . , Xn) = 0 for every
+          X l , . . . , X n E S.
+    (iv) There/s a set S of k distinct (complex) numbers such that the polynomial
+          f a belongs to the ideal generated by the n polynomials Q i ( x i ) = rI (xi - s),
+                                                                                sES
+          (1 < i < n).
+     (v) For every set S ofk distinct (complex) numbers the polynomial fG belongs to
+          the ideal generated by the n polynomials Qi(xi) = I] (xi - s), (1 < i < n).
+                                                                      sEs
+    (vi) The polynomial fG, considered as a polynomial in the ring of polynomials in
+          the n + k variables Xl, 9.., xn, Zl, . . . , zk over the complex numbers, belongs
+          to theidealgenerated b y t h e n polynomialsQi = [I ( x i - z j ) , (1 < i < n).
+                                                                  l<_j<<_k
+   (vii) For every set S of k not necessarily distinct (complex) numbers the poly-
+          nomial fG belongs to the ideal generated by the n polynomials Qi(xi) =
+          II (xi - s), (1 < i < n).
+         sES
+
+
+                                3. k-Choosable Graphs
+
+      For a graph G = (V,E), define L(G) = max(IE(H)I/IV(H)I), where H =
+( V ( H ) , E ( H ) ) ranges over all subgraphs of G. Thus L(G) is simply a half of the
+maximum value of the average degree of a subgraph of G. The following simple
+lemma appears in [2] (and, probably, in other places as well). The proof we present
+here follows [14].
+Lemma 3.1. A graph G = (V, E) has an orientation D in which every outdegree is
+at most d ff and only ff L(G) < d.
+Proof. If there is such an orientation D, then, for any subgraph H of G
+                           [E(H)[ =     E    d~I(v) <- dig(H)[
+                                      ~eVCH)
+                         COLORINGS AND ORIENTATIONS OF GRAPHS                        131
+
+
+and hence IE(H)I/]V(H)] < d. Thu~ L(G) < d. Conversely, suppose L(G) < d. Let
+F be the bipartite graph on the classes of vertices A and B, where A = E and B
+is a union o f d disjoint copies V1, V2,... ,Vd of V. Each member e = {u,v} of E is
+joined by edges in F to the d copies of u and to the d copies of v in B. We claim
+that F contains a matching of size IAI = IEI. Indeed, if E' _C E is a set of edges of a
+subgraph H of G whose vertices are all endpoints of members of E', then in F, E'
+has d]V(H)I neighbours. By the definition of L(G) : IE'I/IV(H)J <_ L(G) < d and
+hence dIV(H)l >_ ]E' I. Therefore, by Hall's theorem, the desired matching exists.
+We can now orient each edge of G from the vertex to which it is matched. This gives
+an orientation D of G with maximum outdegree _< d and completes the proof of the
+lemma.
+     Recall that a graph G = (V, E) is k-choosable if for any assignment of sets
+S(v) C Z of cardinaiity k for each vertex v E V there is a proper coloring c : V ~ Z
+of G satisfying c(v) E S(v) for each v E V.
+Theorem $.2. Every bipartite graph G is ([L(G)] + 1)-choosable.
+Proof. Put d = [L(G)]. By Lemma 3.1 there is an orientation D of G in which the
+maximum outdegree is at most d. Since D contains no odd directed cycles (and in
+fact no odd cycles at all), E E ( D ) # EO(D) and the result follows from Theorem 1.1.|
+RemArk 3.3. The assumption that G is bipartite is essential, since if G = Kn is
+the complete graph on n vertices then L(G) = ( n - 1)/2 and clearly K n is not k-
+choosable for k < n. Moreover, Theorem 3.2 is sharp in the sense that for every k
+there is a bipartite graph G satisfying L(G) <_ k, which is not k- choosable. Indeed,
+let G be the complete bipartite graph on the classes of vertices A a n d B where
+       k k and ]B] = k. Clearly L(G) <_ k, since if H is the induced subgraph of
+IAI = A'
+G on      U S ' , where A' _C A and B' C S then [E(H)I = ~ dH(a ) < klA' I <
+                                                                         aEAI
+kIV(H)]. In order to show that G is not k-choosable, put B = { b l , . . . , b k } and
+define S(bi) = {k(i - 1) + 1, k(i - 1) + 2 , . . . , ki}. Enumerate the vertices of A so
+t h a t A = { a i l , i 2.....ik : l <- ij < k}. Now define
+                S(ail,i2,...,ik) = {il, k + i2, 2k + i 3 , . . . , (k - 1)k + ik}.
+Clearly, there is no legal coloring of G in which c(v) E S(v) for each v E A U B.
+Indeed, assuming c is such a coloring, there are 1 < i l , . . . , i k < k such that
+c(bj) = (j - 1)k + ij for i < j _< k. But then there is no value in S(ail,i2,...,ik)
+which is distinct from the colors of all its neighbours and hence c is not a legal
+coloring.
+     An immediate corollary of Theorem 3.2 is the following result, which solves one
+of the open problems raised in [9].
+Corollary 3.4. Every bipartite planar graph G is 3-choosable.
+Proof. L(G) < 2, since any bipartite (simple) planar graph on r vertices contains at
+most 2r - 4 edge.                                                                  |
+     Corollary 3.4 is also sharp, since K2,4 is bipartite and planar, and is not 2-
+choosable, by the discussion in Remark 3.3.
+     It is interesting to note that in general L(G) may be much larger than the degree
+of choosability of G. For example, if k > 1 and G is the complete bipartite graph Kn,n
+132                                  N. ~LON, M. TARSI
+
+
+on the classes of vertices A and B, where IAI --- IBI = n = 2 k-1 then L(G) = 2 k-2
+and still G is k-choosable. To see this suppose we are given a set S(v) C Z of
+cardinality k for each v E A U B. Put S = UveV S(v) and let S = SA U SB be
+a random partition of S into two disjoint classes obtained by .assigning each s E S
+independently either to S A or to S B with,equal probability. Let us call a vertex
+a 9 A bad if S(a) n S A = 0. Similarly, a vertex b 9 B is called bad if S(b) N S B = 0.
+Since the probability that a fixed vertex is bad is precisely 2 -k, the expected number
+of bad vertices is 1. However, since for some partitions (e.g., SA = S, SB = 0) there
+are 2k-1 > 1 bad vertices there is at least one partition (SA, SB) with no bad
+vertices. We can now choose, for each a 9 A, c(a) 9 S(a) N S A and for each b 9 B,
+c(b) 9 S(b) N SB and obtain a legal coloring satisfying c(v) 9 S(v) for each vertex v.
+Hence G is k-choosable, as claimed.
+     One of the most fascinating problems concerning choosability is a conjecture of
+Jeff Dinitz (cf. [8]), which asserts that the line graph of Km,m is m-choosable. A
+more appealing formulation of this conjecture is the following: Given an arbitrary
+m by m array of m-sets, it is always possible to choose one element from each set,
+keeping the chosen elements distinct in every row and distinct in every column. This
+conjecture is, of course, trivial for m _< 2, and, as mentioned in [7], it has been verified
+by a surprisingly hard case by case analysis for m = 3. Applying our Theorem 1.1
+we can reduce the conjecture to a certain problem. For each m by m Latin square
+L (on the symbols 1, 2 , . . . , m) we can define a weight w(L) E {+1} as the product
+of the signs of the 2m permutations appearing in the rows and columns of L and
+show that if ~ w(L) ~ O, where L ranges over all m x m Latin squares then Dinitz
+Conjecture holds for m. Unfortunately, for every odd m, the above sum is always
+0, and hence this method cannot yield a proof of the conjecture for odd m. We do
+believe, however, that the sum is nonzero for every even m, but at the moment we
+are unable to prove it. Still, it is trivial to check that the sum is nonzero for m = 4,
+and with a computer we also checked that it is nonzero for m = 6. Therefore, the
+conjecture is true for m = 4 and m = 6; both cases are probably too difficult to be
+checked directly by a case by case analysis. We omit the details, and hope to return
+to this subject in the future.
+
+
+                  4. Concluding Remarks and Open Problems
+
+ 1) Corollary 1.2 generalizes the well known result that if every induced subgraph
+    of a graph G has a vertex of degree at most d then G is (d + 1)-colorable (cf.,
+    e.g., [6]), which is equivalent to the special case of the Coronary in which the
+    orientation D is acyclic.
+ 2) There are several known results that reveal the connection between the chromatic
+    number of a graph G and its orientations. ,For example, it is known that the
+    chromatic number of G is equal to the minimum, over all orientation D of G of
+    the maximum length of a simple directed path in D. This minimum is always
+    obtained by an acyclic orientation, but may be obtained by other orientations too
+    (cf., e.g., [6]). It is also known (see [13]) that the number of acyclic orientations
+    of a graph G is equal to the absolute value of its chromatic polynomial evaluated
+    at - 1 . Theorem 1.1 and Corollary 1.2 form another example of a result that
+    connects chromatic numbers and orientations.
+                       COLORINGS AND ORIENTATIONS OF GRAPHS                         133
+
+3) There are simple examples of directed graphs D = (V(D), E(D)) that contain
+   odd directed cycles and still satisfy EE(D) ~ EO(D). (Two directed odd
+   cycles sharing an edge is one such example.) Therefore, the condition that D
+   has no odd directed cycles (which implies that EE(D) ~ EO(D)) is a strictly
+   stronger condition than the one EE(D) ~ EO(D) and hence the first part of,
+   e.g., Corollary 1.2, is stronger than its last part. The advantage of the simpler
+   condition that there is no odd directed cycle is that it can be easily checked in
+   polynomial time; one way to do so is to observe that there is no directed odd
+   cycle iff no odd power A k of the adjacency matrix of D (k ~ IV(D)I) has a
+   positive entry in its diagonal.
+4) It would be interesting to find a non-algebraic proof of Theorem 1.1 and its
+   Corollaries.
+
+Acknowledgement. We would like to thank J. A. Bondy, R. Boppana and A. Siegel
+for helpful comments.
+
+                                     References
+
+ [1] N. ALON, S. FRIEDLAND,and G. KALAI: Regular subgraphs of almost regular graphs,
+         J. Combinatorial Theory, Ser. B 37 (1984), 79-91.
+ [2] N. ALON, C. MCDIAaMID, and B. REED: Star Arboricity, to appear.
+ [3] N. ALON, and M. TAaSI: A nowhere zero point in linear mappings, Combmatorica 9
+         (1989), 393-395.
+ [4] J. A. BONDY, R. BOPPANA, and A. SIEGEL: Private communication.
+ [5] C. BERGE: Graphs and Hypergraphs, Dunod, Paris, 1970.
+ [6] B. BOLLOBAS:Extremal Graph Theory, Academic Press, New, York, 1978.
+ [7] A. CHETWYND, and R. H~,GGKVIST: A note on list colorings, J. Graph Theory 13
+         (1989), 87-95.
+ [8] P. EaD(SS: Some old and new problems in various branches of combinatorics, Congres-
+         sus Numemntium 23 (1979), 19-37.
+ [9] P. ERDSS, A. RUBIN, and H. TAYLOa: Choosability in graphs, Congressus Numeran-
+         tium 26 (1979), 125-157.
+[10] I. GESSEL: Tournaments and Vandermonde's determinant, J. Graph Theory 3 (1979),
+         305-307.
+[11] R. L. GRAHAM, S.-Y. R. LI, and W.-C. W. LI: On the structure of t-desigas, SIAM
+         J. Alg. Disc. Meth. 1 (1980), 8-14.
+[12] S.-Y. R. LI, and W.-C. W. LI: Independence numbers of graphs and generators of
+         ideals, Combinatorica 1 (1981), 55-61.
+[13] R. P. STANLEY: Acyclic orientations of graphs, Discrete Math. 5 (1973), 171-178.
+[14] M. TARSI: On the decomposition of a graph into stars, Discrete Math. 36 (1981),
+         299-304.
+134                 N. ALON, M. TARSI : COLORINGSAND ORIENTATIONSOF GRAPHS
+
+[15] V. G. VIZING: Coloring the vertices of a graph in prescribed colors (in Russian), Diskret.
+         Analiz. 29, Metody Discret. Anal. v. Teorii Kodov i Shem 101 (1976), 3-10.
+
+N. Alon                                       M. Tarsi
+Department of Pure Mathematics                 Department of Computer Science
+School of Mathematical Sciences                School of Mathematical Sciences
+Raymond and Beverly Sackler                    Raymond and Beverly Sadder
+Faculty of Exact Sciences                      Faculty of Exact Sciences
+Tel Aviv University                            Tel Aviv University
+Tel Aviv, Israel                               Tel Aviv, Israel
+n o g a ~ a t h , tau. ar il                  tarsiQmath, tau. ar il
+

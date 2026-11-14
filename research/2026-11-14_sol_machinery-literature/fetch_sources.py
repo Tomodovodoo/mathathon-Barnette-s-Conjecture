@@ -2,6 +2,10 @@ from pathlib import Path
 import urllib.request, subprocess, json, hashlib
 P=Path(__file__).resolve().parent
 sources={
+'bms-constellations':'https://fpsac-archive.github.io/FPSAC99/ARTICLES/10Melou.pdf',
+'bonichon-realizers':'https://www-igm.univ-mlv.fr/~fpsac/FPSAC02/ARTICLES/Bonichon.pdf',
+'kuperberg-cokernels':'https://arxiv.org/pdf/math/0108150',
+'alon-tarsi':'https://kostochk.web.illinois.edu/math581/Alon-Tarsi92.pdf',
 'bernardi-kalman-postnikov':'https://arxiv.org/pdf/2004.00683',
 'bernardi-orientations':'https://arxiv.org/pdf/math/0612003',
 'penrose-embedded':'https://arxiv.org/pdf/1106.5279',
@@ -42,4 +46,4 @@ for key,url in sources.items():
  except Exception as e:
   log.append({'key':key,'url':url,'status':str(e)});print(key,str(e),flush=True)
 (P/'downloads.json').write_text(json.dumps(log,indent=2),encoding='utf-8')
-(P/'pdf'/'INDEX.md').write_text('# Downloaded source PDFs\n\nRetrieved 2026-11-14 with `python research/2026-11-14_sol_machinery-literature/fetch_sources.py`. Only public arXiv, publisher or author-hosted copies. See `../downloads.json` for checksums and failures. Text extraction is for reading, not a substitute for checking formulas.\n\n'+'\n'.join(f"- [{v['key']}]({v['key']}.pdf). Source <{v['url']}>. {v['status']}." for v in log),encoding='utf-8')
+(P/'pdf'/'INDEX.md').write_text('# Downloaded source PDFs\n\nRetrieved 2026-11-14 with `python research/2026-11-14_sol_machinery-literature/fetch_sources.py`. Only public arXiv, publisher or author-hosted copies. See `../downloads.json` for checksums and failures. Text extraction is for reading, not a substitute for checking formulas.\n\n'+'\n'.join((f"- [{v['key']}]({v['key']}.pdf). Source <{v['url']}>. {v['status']}." if v['status']=='downloaded and text extracted' else f"- FAILED {v['key']}. Source <{v['url']}>. {v['status']}.") for v in log),encoding='utf-8')

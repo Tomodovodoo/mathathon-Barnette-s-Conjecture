@@ -1,0 +1,12 @@
+{
+  "required_files": "pass",
+  "bibliography_records": 47,
+  "pdf_count": 26,
+  "checksums": "pass",
+  "local_pdf_links": "pass",
+  "ranked_routes": 18,
+  "numbered_reformulations": 11,
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "sympy": "1.14.0",
+  "command": "python research/2026-11-14_sol_machinery-literature/validate_sources.py"
+}
