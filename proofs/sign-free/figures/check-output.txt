@@ -1,1 +1,1 @@
-all 61 figure checks passed
+all 76 figure checks passed

@@ -120,4 +120,55 @@ for bits in range(1 << J.n):
         cnt += 1
         assert J.excess(sg) > 0
 ok(cnt == 6144 == B['rainbow_trees_inside_the_cover'], '6144 rainbow trees inside, none of excess 0')
+
+# the layouts: distinct, separated vertices in every figure; distances are in points at the smallest panel drawn
+import math
+
+
+def seg_dist(p, a, b):
+    vx, vy = b[0] - a[0], b[1] - a[1]
+    t = max(0.0, min(1.0, ((p[0] - a[0]) * vx + (p[1] - a[1]) * vy) / (vx * vx + vy * vy)))
+    return math.hypot(p[0] - a[0] - t * vx, p[1] - a[1] - t * vy)
+
+
+def orient(a, b, c):
+    return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0])
+
+
+def crossing_pairs(P, E):
+    E = sorted(E)
+    return [(e, f) for i, e in enumerate(E) for f in E[i + 1:] if len(set(e + f)) == 4
+            and orient(P[e[0]], P[e[1]], P[f[0]]) * orient(P[e[0]], P[e[1]], P[f[1]]) <= 0
+            and orient(P[f[0]], P[f[1]], P[e[0]]) * orient(P[f[0]], P[f[1]], P[e[1]]) <= 0]
+
+
+def vertex_edge(P, E):
+    return min(seg_dist(P[v], P[a], P[b]) for v in P for a, b in E if v not in (a, b))
+
+
+LAY = D['layouts']
+ok(sorted(k for L in LAY.values() for k in L['figures']) == [1, 2, 3, 4, 5], 'every figure has a layout')
+for name, inst in (('running', I), ('badcover', J)):
+    P = {int(v): tuple(p) for v, p in LAY[name]['coordinates'].items()}
+    u = LAY[name]['pt_per_unit']
+    ok(sorted(P) == list(range(inst.V)) and len(set(P.values())) == inst.V, name + ': vertex positions are distinct')
+    ok(min(math.dist(P[a], P[b]) for a in P for b in P if a < b) * u >= 12, name + ': vertices at least 12pt apart')
+    sides = {tuple(sorted((a, b))) for a in inst.R for b in inst.R if a < b}
+    inner = [e for e in inst.edges if e not in sides]
+    ok(not crossing_pairs(P, inner), name + ': no two edges cross, the sides of t0 apart')
+    ok(vertex_edge(P, inner) * u >= 4, name + ': no vertex within 4pt of an edge it is not on, the sides of t0 apart')
+    tri = [f for f in inst.faces if set(f) != inst.R]
+    if name == 'badcover':
+        ok(LAY[name]['coordinates'] == B['coordinates'], 'Figure 5 is drawn at these coordinates')
+        ok(not crossing_pairs(P, inst.edges) and vertex_edge(P, inst.edges) * u >= 4, 'Figure 5 is a planar straight-line drawing')
+        r = sorted(inst.R)
+        ok(all(orient(P[r[0]], P[r[1]], P[v]) > 0 and orient(P[r[1]], P[r[2]], P[v]) > 0 and orient(P[r[2]], P[r[0]], P[v]) > 0 for v in inst.X),
+           'Figure 5: every other vertex lies inside the triangle of the roots')
+        ok(min(abs(orient(P[a], P[b], P[c])) for a, b, c in tri) * u * u / 2 >= 30, 'Figure 5: every face has area at least 30 square points')
+    else:
+        # the layout of the paper's example folds the three faces next to t0 outwards: the sides of t0 are drawn
+        # as chords, each crossing inner edges. This is recorded here so that a change of layout is noticed.
+        cr = crossing_pairs(P, inst.edges)
+        ok(len(cr) == 10 and all(e in sides or f in sides for e, f in cr), 'running layout: exactly ten crossings, each with a side of t0')
+ok(len(D['label_clearance_pt']) == 5 and min(D['label_clearance_pt'].values()) >= 0.5, 'every label box clears every drawn object by 0.5pt')
 print('all', n_checks, 'figure checks passed')
