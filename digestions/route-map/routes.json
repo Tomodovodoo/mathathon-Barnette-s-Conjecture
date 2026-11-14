@@ -2143,6 +2143,16 @@
    "lesson": "The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s.",
    "cex": "6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).",
    "role": "route"
+  },
+  {
+   "id": "U.c",
+   "step": "U",
+   "label": "cycle-to-state map replayed; not injective off tree matchings",
+   "status": "COMPUTED",
+   "src": "map",
+   "where": "map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)",
+   "text": "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.",
+   "role": "route"
   }
  ]
 }

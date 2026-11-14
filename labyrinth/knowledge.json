@@ -6840,6 +6840,39 @@
    ]
   },
   {
+   "id": "c.U.c",
+   "title": "cycle-to-state map replayed; not injective off tree matchings",
+   "statement": "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.",
+   "where": [
+    "research/2026-11-14_fable_labyrinth-map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "evidence",
+   "tier": "T4",
+   "status": "computed",
+   "evidence": [
+    "research/2026-11-14_fable_labyrinth-map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)"
+   ],
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.map",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "tests"
+    }
+   ]
+  },
+  {
    "id": "e.census16",
    "kind": "exhaustive",
    "tier": "T3",

@@ -850,6 +850,11 @@ _upd("N.c", src="con,comb,dim,refd,lean", where="+; lean/REPORT.md item 5 (71224
 _upd("G2.c", where="lean/REPORT.md item 1; lean/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)")
 _upd("B.5", text="+ The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.")
 
+route("U.c", "U", "cycle-to-state map replayed; not injective off tree matchings", "COMPUTED", "map",
+      "map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)",
+      "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same "
+      "unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.")
+
 STEP_NOTES = {
     "E": "The Lean proof skips this node: it selects P inside G without building the white tree.",
     "S0": "The Lean proof replaces the sphere embedding by an algebraic dual obtained from grid minors.",

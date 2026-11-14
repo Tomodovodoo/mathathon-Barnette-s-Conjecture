@@ -1,6 +1,6 @@
 # How the proof of Barnette's conjecture works
 
-A plain account for a graduate student, written from the route map (`ROUTE-MAP.md`, `route-map.pdf`). Labels such as N.H or A.T are routes on that map.
+A plain account for a graduate student, written from the route map (`ROUTE-MAP.md`, `route-map.pdf`). Labels such as N.H or A.T are routes on that map. About six printed pages.
 
 Status tags. `LIT` means stated and proved in one of the three 2026 papers (unrefereed preprints: O is the OpenAI paper, L is Li's note, T is the trees paper) or in older published work. `PROVED-HERE` means a full proof sits in an agent folder of this project. None of those has been checked by a human, and I say which ones an AI referee has passed. `COMPUTED` gives the range. `CONJECTURE`, `HUNCH` and `REFUTED` mean what they say.
 
@@ -14,7 +14,7 @@ A Hamiltonian cycle of `G` is a closed curve on the sphere that passes through e
 
 For 57 years people tried to cross that one edge of the map directly. Face-size bounds reached 8, computers reached 90 vertices, and several equivalent forms were found [`LIT`]. None of it produced a way to make the two trees exist. The obstacle is that 3-connectivity is a global property, and the conjecture is false without it from face size 10 on [`LIT`, Schnieders 2025]. A local reduction cannot see it.
 
-The 2026 proof does not cross that edge. It goes down through eleven other waypoints and comes back up. The rest of this note explains why each waypoint is there.
+The 2026 proof does not cross that edge. It goes down through a dozen other waypoints and comes back up. The rest of this note explains why each waypoint is there.
 
 ## 2. Read the answer backwards
 
@@ -24,7 +24,7 @@ Fix a black face `t0` of `T` and one of its edges `e0`. Suppose a Hamiltonian cy
 
 Remove `e0` from `P`. The tree containing it splits, and now there are three trees, one for each corner of `t0`. Call those corners the roots. Direct every tree towards its root. Each bounded black face `t` contains exactly one selected edge, and that edge has a tail. Call the tail `s(t)`.
 
-The map `s` sends the bounded black faces `A` to the non-root vertices `X`, with `s(t)` a corner of `t`, and it is a bijection because every non-root vertex has exactly one outgoing edge. Such a bijection is called a **state**. So every Hamiltonian cycle that avoids `e0*` is recorded by a state [`PROVED-HERE`, route-combinatorics Proposition 7, AI-refereed; also limits and route-graph-theory, under review].
+The map `s` sends the bounded black faces `A` to the non-root vertices `X`, with `s(t)` a corner of `t`, and it is a bijection because every non-root vertex has exactly one outgoing edge. Such a bijection is called a **state**. So every Hamiltonian cycle that avoids `e0*` determines a state [`PROVED-HERE`, route-combinatorics Proposition 7, AI-refereed; also limits and route-graph-theory, under review; replayed on three bipyramids by `spotcheck.py`].
 
 A state can exist at all because of a count. Euler's formula gives `T` equally many black and white faces, say `k`, and `k + 2` vertices. Remove `t0` and its three corners and both `A` and `X` have `n = k - 1` elements [`LIT`, O (2.1)]. This is the first and most basic use of bipartiteness.
 
@@ -36,7 +36,7 @@ Now run the construction forwards. Draw a new vertex in the middle of every blac
 
 So the whole problem becomes this. **Find a state whose complement in the spoke graph is a tree.** Everything classical is on the right-hand side of the map. Everything new is about finding that state.
 
-One warning before going on. Not every Hamiltonian cycle that avoids `e0*` comes from a tree matching. On the hexagonal prism four cycles avoid a given edge and only two come from tree matchings [`COMPUTED`, limits; `REFUTED` as route A.x1]. The proof finds a special kind of cycle.
+One warning before going on. Not every Hamiltonian cycle that avoids `e0*` comes from a tree matching. On the hexagonal prism four cycles avoid a given edge and only two come from tree matchings [`COMPUTED`, limits; `REFUTED` as route A.x1]. The other two give one and the same state, which has no partner [`COMPUTED`, `spotcheck.py`]. A state fixes the tail of the selected edge in each black face, and that determines the edge only when `H - s` is a tree. The proof finds a special kind of cycle.
 
 ## 3. Why a second state appears
 
@@ -44,11 +44,11 @@ How do you test whether `H - s` is a tree? At each bounded black face `t` the tw
 
 "Exactly one root per component" is awkward to check directly, and here the second state comes in. Suppose `r` is another state with `r(t) ≠ s(t)` for every `t`. Call `(r, s)` a **pair**. Then `r(t)` is one end of the `Q_s`-edge of `t`. Direct that edge out of `r(t)`. Because `r` is a bijection, every non-root vertex has exactly one outgoing edge of `Q_s` and the roots have none. In a graph like that, a component with no cycle has exactly one vertex without an outgoing edge, so it contains exactly one root. So for a pair, "`Q_s` is a forest" already gives the tree matching [`LIT`, O Lemma 6.1].
 
-The partner `r` is a certificate. It orients `Q_s`, and the orientation does the counting. Without it the statement is false: on the hexagonal prism all three states have `Q_s` a forest and only two are tree matchings [`COMPUTED`, limits; `REFUTED` as route R.x1].
+The partner `r` is a certificate. It orients `Q_s`, and the orientation does the counting. Without it the statement is false: on the hexagonal prism all three states have `Q_s` a forest and only two are tree matchings [`COMPUTED`, limits, and my own check in `research/2026-11-14_fable_labyrinth-map/spotcheck.py`; `REFUTED` as route R.x1].
 
 The same picture shows what goes wrong when `Q_s` is not a forest. A component with a cycle has no root, its cycle is a directed cycle, and reversing that cycle gives a different partner `r'` of the same `s`. If `Q_s` has `k` such components, `s` has exactly `2^k` partners. So a tree matching is a state with exactly one partner [`LIT`, T Proposition 2.1 and Theorem 1.2; `COMPUTED` on 140358 states].
 
-A pair `(r, s)` also defines a second object. Join `r(t)` to `s(t)` inside each black face. Since both states are bijections, these `n` directed edges form disjoint directed cycles through the non-root vertices. Call this cycle cover `D(r, s)`. Reversing one cycle of `D` exchanges `r` and `s` along it and gives another pair.
+A pair `(r, s)` also defines a second object. In each black face take the side from `r(t)` to `s(t)`, directed that way. Since both states are bijections, these `n` directed edges form disjoint directed cycles through the non-root vertices. Call this cycle cover `D(r, s)`. Reversing one cycle of `D` exchanges `r` and `s` along it and gives another pair.
 
 So the pairs carry two kinds of moves: reverse a cycle of `Q_s` (this changes `r` and keeps `s`), or reverse a cycle of `D` (this changes both). We want a pair on which the first move is impossible.
 
@@ -129,4 +129,4 @@ I would not call the problem understood yet, for four reasons the map makes visi
 - **No fast algorithm.** The proof gives exponential search. Tree matchings can be exponentially rare among states, `2^q` among `3^q` in an explicit family [`PROVED-HERE`, limits, under review], so sampling states does not help.
 - **How many.** Every rooted triangulation with a pair up to 16 vertices has at least `2^cmin` tree matchings, with equality in 4609 of 5088 cases [`COMPUTED`; `CONJECTURE` D.3]. Only `2·cmin` is proved [`PROVED-HERE`, AI-refereed]. Something organises the tree matchings that the signed sum does not see.
 
-The smallest case shows the whole mechanism. For the cube, `T` is the octahedron. Three black faces meet `t0` in one corner each, and the three non-root vertices form the opposite white face. There are two states and they are disjoint, so there are two pairs. `D` is the triangle around the opposite white face in its two directions, and the disk holds one white face and no black face. Both `Q_s` are three edges, each joining a root to a non-root, so both states are tree matchings. Their signs are opposite. With no weights the sum is zero. With the weight "one white face inside" the two terms differ at first order, and the sum is not zero [`COMPUTED`, several agents].
+The smallest case shows the whole mechanism. For the cube, `T` is the octahedron. Three black faces meet `t0` in one corner each, and the three non-root vertices form the opposite white face. There are two states and they are disjoint, so there are two pairs. `D` is the triangle around the opposite white face in its two directions, and the disk holds one white face and no black face. Both `Q_s` are three edges, each joining a root to a non-root, so both states are tree matchings. Their signs are opposite. With no weights the sum is zero. With the weight "one white face inside" the two terms differ at first order, and the sum is not zero [`COMPUTED`, several agents; the counts and signs also by `spotcheck.py`].

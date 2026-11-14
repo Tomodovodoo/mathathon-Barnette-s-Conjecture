@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T11:05:50Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T11:09:34Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -131,9 +131,8 @@ Generated 2026-11-14T11:05:50Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
 - **sharp primal hypothesis; gluing at black-inner cuts** [`p.G.5`]
 
-## Recent events (50 total)
+## Recent events (51 total)
 
-- 2026-11-14T10:33 · proposed · Conjecture: at least 2^cmin tree matchings (true for all 5088 cases up to 16 vertices)
 - 2026-11-14T10:33 · computed · Brute force over 140358 states: tree matching iff exactly one partner
 - 2026-11-14T10:36 · refuted · Hypotheses dropped one at a time: bipartite, 3-connected, sphere, bijective state, positive circulation, partner (limits)
 - 2026-11-14T10:36 · proved · Rarity family: 3^q states and 2^q tree matchings; recovery is injective with a known image (limits, unreviewed)
@@ -157,4 +156,5 @@ Generated 2026-11-14T11:05:50Z by `labyrinth/lab.py build`. Do not edit by hand.
 - 2026-11-14T11:00 · proved · Topology: the disk identity as the theorem of turning tangents; cancellation as a Morse matching; last step as Alexander duality; tree matchings and sutured Floer homology (route-topology, unreviewed)
 - 2026-11-14T11:00 · refuted · The partner of a tree matching need not be a tree matching (6 of 442)
 - 2026-11-14T11:00 · proposed · Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)
-- 2026-11-14T11:15 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 167 routes
+- 2026-11-14T11:05 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 168 routes
+- 2026-11-14T11:08 · computed · Own spot check on bipyramids: counts, signs, odd D-cycles confirmed; the cycle-to-state map is not injective off the tree matchings (prism: 4 avoiding cycles, 3 states)

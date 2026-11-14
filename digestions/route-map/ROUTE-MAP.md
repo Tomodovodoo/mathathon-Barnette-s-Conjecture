@@ -8,7 +8,7 @@ Summary.
 2. The chain is forced at the disk identity, the sign, the cancellation with `s` fixed, the comparison, tree-cotree duality and the gluing. It is free at three steps: the first pair (A), the nonvanishing (N) and the last step from the selected edges to one cycle (F).
 3. The direct edge from the triangulation to two induced trees, which is where every attack before 2026 worked, has no complete route.
 4. The bypass from states to a tree matching with no signed count has nine exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
-5. This file lists 167 routes: 46 published, 38 proved in this project (none human-checked), 8 computed, 15 conjectures, 25 hunches and 35 refuted, each refuted one with its lesson and smallest known counterexample.
+5. This file lists 168 routes: 46 published, 38 proved in this project (none human-checked), 9 computed, 15 conjectures, 25 hunches and 35 refuted, each refuted one with its lesson and smallest known counterexample.
 
 ## The picture
 
@@ -42,7 +42,7 @@ Status. The three 2026 papers are unrefereed preprints. `LIT` on a 2026 statemen
 
 ## Counts
 
-16 waypoints, 17 steps, 167 routes: 46 `LIT`, 38 `PROVED-HERE`, 8 `COMPUTED`, 15 `CONJECTURE`, 25 `HUNCH`, 35 `REFUTED`.
+16 waypoints, 17 steps, 168 routes: 46 `LIT`, 38 `PROVED-HERE`, 9 `COMPUTED`, 15 `CONJECTURE`, 25 `HUNCH`, 35 `REFUTED`.
 
 | Step | From | To | Verdict | Published arguments | `LIT` | `PROVED-HERE` | `COMPUTED` | `CONJECTURE` | `HUNCH` | `REFUTED` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Status. The three 2026 papers are unrefereed preprints. `LIT` on a 2026 statemen
 | K Cancel with s fixed | M | K | forced | 1 | 1 | 4 | 1 | 0 | 0 | 1 |
 | N Show the total is not zero | M | N | free | 5 | 5 | 3 | 1 | 3 | 9 | 15 |
 | D Compare the two evaluations | K, N | FP | forced | 1 | 1 | 3 | 0 | 3 | 1 | 1 |
-| U Unsigned routes (bypass) | S | FP | open | 0 | 0 | 7 | 0 | 3 | 3 | 8 |
+| U Unsigned routes (bypass) | S | FP | open | 0 | 0 | 7 | 1 | 3 | 3 | 8 |
 | R One root per component | FP | IT | forced | 2 | 2 | 0 | 1 | 0 | 0 | 1 |
 | E Tree-cotree duality | IT | WT | rigid | 2 | 2 | 0 | 0 | 0 | 1 | 0 |
 | E2 Root at y0 and select | WT | SE | rigid | 1 | 1 | 1 | 0 | 0 | 0 | 0 |
@@ -355,6 +355,7 @@ Freedom. Many exact reformulations are proved. None has an existence argument. E
 | U.5 | tree matchings = partnered Hamiltonian cycles (reformulation) | `PROVED-HERE`, partly AI-refereed | comb/PROOF.md Prop. 7; lim/HYPOTHESES.md; gt/PROOFS.md Thm 7.2 (explicit left inverse; image = partitions with acyclic white parent map) | Tree matchings are in bijection with the Hamiltonian cycles avoiding e0* whose state has a partner. So 3 #TM <= #HC(G). |
 | U.6 | rooted functional orientations; two-sided hypertrees (reformulation) | `PROVED-HERE`, unreviewed | mach/REFORMULATIONS.md 5, 7 | Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation. |
 | U.7 | sutured Floer support; point-rainbow white trees (reformulation) | `PROVED-HERE`, unreviewed | topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices | A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree. |
+| U.c | cycle-to-state map replayed; not injective off tree matchings | `COMPUTED` | map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0) | Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states. |
 | U.5h | order-theoretic position in the state lattice | `CONJECTURE` | topo/PREDICTIONS.md P6; mach/REFORMULATIONS.md 9 | Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found. |
 | U.6h | describe partnered Hamiltonian cycles in G alone | `CONJECTURE` | comb/REPORT.md, open question 3 | There is a description, without states, of the Hamiltonian cycles of G avoiding e0* whose state has a partner. |
 | U.7h | local search from a point-rainbow tree | `CONJECTURE` | topo/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices | Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma. |

@@ -354,7 +354,7 @@ ev("2026-11-14T11:00:00Z", "refuted", "The partner of a tree matching need not b
 ev("2026-11-14T11:00:00Z", "proposed", "Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)", ["k.U.7h"])
 ev("2026-11-14T10:55:00Z", "answered", "Dependency-graph conjecture A2 answered: not every avoiding Hamiltonian cycle comes from a tree matching (prism: 4 against 2); the image is characterised", ["x.A.x1", "p.U.5"])
 ev("2026-11-14T10:48:00Z", "computed", "Cross-check for this map: the two independent enumerations agree on all 7868 rooted triangulations up to 16 vertices", ["e.census16"], ["labyrinth/frontier_crosscheck.json"])
-ev("2026-11-14T11:15:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
+ev("2026-11-14T11:05:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
 E.sort(key=lambda e: e["ts"])
 old = []
 pth = LAB / "events.jsonl"

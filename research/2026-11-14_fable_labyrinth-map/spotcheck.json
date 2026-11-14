@@ -1,0 +1,265 @@
+[
+ {
+  "rim": 4,
+  "vertices_of_T": 6,
+  "n": 3,
+  "states": 2,
+  "pairs": 2,
+  "tree_matchings": 2,
+  "partner_counts": [
+   1,
+   1
+  ],
+  "signed_sum_over_pairs": 0,
+  "tree_matching_signs": [
+   -1,
+   1
+  ],
+  "states_with_Q_forest": 2,
+  "forest_states_that_are_not_tree_matchings": 0,
+  "components_of_Q_for_one_such_state": null,
+  "checks": {
+   "tm_iff_one_partner": true,
+   "partners_power_of_two": true,
+   "pair_forest_iff_tm": true,
+   "d_cycles_odd": true,
+   "delta_sum_pm3": true,
+   "d_reversal_flips_sign": true
+  }
+ },
+ {
+  "rim": 6,
+  "vertices_of_T": 8,
+  "n": 5,
+  "states": 3,
+  "pairs": 2,
+  "tree_matchings": 2,
+  "partner_counts": [
+   0,
+   1,
+   1
+  ],
+  "signed_sum_over_pairs": 0,
+  "tree_matching_signs": [
+   -1,
+   1
+  ],
+  "states_with_Q_forest": 3,
+  "forest_states_that_are_not_tree_matchings": 1,
+  "components_of_Q_for_one_such_state": [
+   [
+    "0",
+    "1",
+    "S"
+   ],
+   [
+    "2",
+    "5",
+    "N"
+   ],
+   [
+    "3",
+    "4"
+   ]
+  ],
+  "checks": {
+   "tm_iff_one_partner": true,
+   "partners_power_of_two": true,
+   "pair_forest_iff_tm": true,
+   "d_cycles_odd": true,
+   "delta_sum_pm3": true,
+   "d_reversal_flips_sign": true
+  }
+ },
+ {
+  "rim": 8,
+  "vertices_of_T": 10,
+  "n": 7,
+  "states": 4,
+  "pairs": 2,
+  "tree_matchings": 2,
+  "partner_counts": [
+   0,
+   0,
+   1,
+   1
+  ],
+  "signed_sum_over_pairs": 0,
+  "tree_matching_signs": [
+   -1,
+   1
+  ],
+  "states_with_Q_forest": 4,
+  "forest_states_that_are_not_tree_matchings": 2,
+  "components_of_Q_for_one_such_state": [
+   [
+    "0",
+    "1",
+    "6",
+    "S"
+   ],
+   [
+    "2",
+    "5",
+    "7",
+    "N"
+   ],
+   [
+    "3",
+    "4"
+   ]
+  ],
+  "checks": {
+   "tm_iff_one_partner": true,
+   "partners_power_of_two": true,
+   "pair_forest_iff_tm": true,
+   "d_cycles_odd": true,
+   "delta_sum_pm3": true,
+   "d_reversal_flips_sign": true
+  }
+ },
+ {
+  "rim": 10,
+  "vertices_of_T": 12,
+  "n": 9,
+  "states": 5,
+  "pairs": 2,
+  "tree_matchings": 2,
+  "partner_counts": [
+   0,
+   0,
+   0,
+   1,
+   1
+  ],
+  "signed_sum_over_pairs": 0,
+  "tree_matching_signs": [
+   -1,
+   1
+  ],
+  "states_with_Q_forest": 5,
+  "forest_states_that_are_not_tree_matchings": 3,
+  "components_of_Q_for_one_such_state": [
+   [
+    "0",
+    "1",
+    "6",
+    "8",
+    "S"
+   ],
+   [
+    "2",
+    "5",
+    "7",
+    "9",
+    "N"
+   ],
+   [
+    "3",
+    "4"
+   ]
+  ],
+  "checks": {
+   "tm_iff_one_partner": true,
+   "partners_power_of_two": true,
+   "pair_forest_iff_tm": true,
+   "d_cycles_odd": true,
+   "delta_sum_pm3": true,
+   "d_reversal_flips_sign": true
+  }
+ },
+ {
+  "cycles_to_states": [
+   {
+    "rim": 4,
+    "hamiltonian_cycles_of_G": 6,
+    "per_edge_of_t0": [
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     },
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     },
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     }
+    ]
+   },
+   {
+    "rim": 6,
+    "hamiltonian_cycles_of_G": 8,
+    "per_edge_of_t0": [
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     },
+     {
+      "avoiding_cycles": 4,
+      "give_a_state": 4,
+      "tree_matchings": 2,
+      "no_partner": 2,
+      "other": 0,
+      "distinct_states": 3
+     },
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     }
+    ]
+   },
+   {
+    "rim": 8,
+    "hamiltonian_cycles_of_G": 10,
+    "per_edge_of_t0": [
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     },
+     {
+      "avoiding_cycles": 6,
+      "give_a_state": 6,
+      "tree_matchings": 2,
+      "no_partner": 4,
+      "other": 0,
+      "distinct_states": 4
+     },
+     {
+      "avoiding_cycles": 2,
+      "give_a_state": 2,
+      "tree_matchings": 2,
+      "no_partner": 0,
+      "other": 0,
+      "distinct_states": 2
+     }
+    ]
+   }
+  ]
+ }
+]
