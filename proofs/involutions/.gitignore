@@ -1,4 +1,7 @@
 *.aux
-*.out
 *.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
 build-output.txt

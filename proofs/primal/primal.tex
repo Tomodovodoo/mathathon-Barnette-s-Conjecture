@@ -14,6 +14,8 @@
 
 Status: PROVED-HERE, a complete informal reconstruction, corrected after the independent Fable referee report; human review pending. The theorem is LIT, OpenAI, Theorem 1.1 and Corollary 7.1. The proof follows the checked Lean development at commit \nolinkurl{4eaee87548250b2682affda7d05d947c05554bae}, with two explicit departures: Li's primal deficit proof supplies the first pair, and real local signs replace Lean's complex phases. STATUS.md distinguishes restatements from these departures. Numerical checks are evidence about the implementation, not a proof of the theorem.
 
+This note gives the proof of the project's main paper (\nolinkurl{paper/main/barnette.pdf}) in the cubic graph $G$ itself, lemma by lemma, with a dictionary at the end; two steps differ, since Li's deficit argument gives the first pair (Lemma 4) and flow potentials with a polynomial (Lemmas 6 and 8) replace the heights.
+
 \section*{1. The target and the objects}
 
 \textbf{Theorem T.} Every finite simple cubic bipartite 3-edge-connected plane graph $G$ has, for every edge $e_0$, a perfect matching $P$ containing $e_0$ such that $G-P$ is connected. Consequently every cubic bipartite 3-vertex-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge.
@@ -209,7 +211,7 @@ Set
 Z(z)=\sum_{(r,s)\text{ pair}}\varepsilon(r,s)L_s(z)\in\mathbb Z[z].           \tag{6.1}
 \end{equation*}
 
-The construction uses a finite integer polynomial. With the same weights it is a constant multiple of Lean's phase polynomial, so the two are one sum written in two normalizations. Write $t=\sum_b\delta(r(b),\allowbreak s(b))$. The selected edges of a pair split into state circuits, each with delta-sum $\pm3$ by Lemma 5 (see the proof of Lemma 8), so $3\mid t$. A product of $n$ signs with sum $t$ equals $i^{n-t}$, and Lean's phase of the pair is $i^{t/3}$ when its corner order agrees with ours. The ratio is $i^{n-4t/3}=i^n$, which depends on the rooted graph but not on the pair. If Lean's corner order runs the other way, the ratio is $i^{-n}$. STATUS.md records the adjudication of an earlier claim that the ratio depends on the number of circuits.
+The construction uses a finite integer polynomial. With the same weights it is a constant multiple of Lean's phase polynomial, so the two are one sum written in two normalizations. Write $t=\sum_b\delta(r(b),\allowbreak s(b))$. The marked edges of a pair split into state circuits, each with delta-sum $\pm3$ by Lemma 5 (see the proof of Lemma 8), so $3\mid t$. A product of $n$ signs with sum $t$ equals $i^{n-t}$, and Lean's phase of the pair is $i^{t/3}$ when its corner order agrees with ours. The ratio is $i^{n-4t/3}=i^n$, which depends on the rooted graph but not on the pair. If Lean's corner order runs the other way, the ratio is $i^{-n}$. STATUS.md records the adjudication of an earlier claim that the ratio depends on the number of circuits.
 
 \textbf{Lemma 7, cancellation.} PROVED-HERE. For any fixed $s$ for which $Q_s$ contains a face circuit,
 
@@ -221,9 +223,9 @@ Proof. If there are no partners the sum is empty. Otherwise fix a circuit of $Q_
 
 \textbf{Lemma 8, nonvanishing.} PROVED-HERE. If there is at least one pair, $Z\ne0$. Hence there is a pair whose $Q_s$ has no face circuit.
 
-Proof. A pair selects at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is selected at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
+Proof. A pair marks at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Its edges are marked; selected is kept for the matching $P$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is marked at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
 
-Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one selected edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,\allowbreak f_{\rm head})z$ along the two orientations. The group's sum is therefore
+Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one marked edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,\allowbreak f_{\rm head})z$ along the two orientations. The group's sum is therefore
 
 \begin{equation*}
 (-1)^{(n-c(D))/2}\prod_{C\subset D}(L_C^+-L_C^-).                 \tag{6.3}
@@ -326,28 +328,28 @@ Proof. A partner orients each edge of $Q_s$ with one outgoing edge at each nonro
 Proof. The forward direction is Lemma 12. Conversely suppose the complement $C$ is connected. The face links in $P$ have no circuit, since such a circuit would be a cut disjoint from $C$. They form a forest with two components, since $|P|=n+1$ and there are $n+3$ faces. Let $e_0$ be the matching edge at the root; it joins two root faces. Each of the other two root edges has its ends in different components of this forest. Otherwise the path between its faces in $P$, together with that edge, would be a face circuit and hence a cut met by the cycle $C$ exactly once, impossible since every cycle meets every cut evenly. The third root face therefore lies in the other component from the two ends of $e_0$. Removing $e_0$ leaves three trees, one per root. Orient these toward their roots and assign to each $b\in A$ the tail face of its matching edge. This gives a bijection onto $X$ and a face incident with the matching edge, hence the required state. Every compatible state must give this same orientation, proving uniqueness.
 
 COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in research/2026-11-14\_sol\_referee-structure/INTEGRATION.md, Sections 5 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner.
-
-The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The illustrated running example below instead uses the current 13-face example, whose primal graph has 22 vertices.
 \clearpage\section*{Primal-dual dictionary}
 \begingroup\footnotesize\setlength{\tabcolsep}{3pt}\renewcommand{\arraystretch}{1.35}
 \noindent\begin{tabularx}{\textwidth}{@{}*{6}{>{\raggedright\arraybackslash}X}@{}}\toprule
-Object in G & Object in T & OpenAI & Li & Constructive paper & Lean declaration\\\midrule
+Object in G & Main paper, in T & OpenAI & Li & Constructive paper & Lean declaration\\\midrule
 Black / white vertex & Black / white triangle & Black / white face & B / W & Black / white face & \nolinkurl{ColoredDual}\\
 Face; edge as face link & Vertex; edge & Vertex; edge & Face-vertex; dual edge & Vertex; edge & Duality\\
 Root vertex b0, its three faces & Outer black triangle t0, its corners & t0, R & b0 and its face neighbours & Outer centre, roots & State root\\
-Incidences A to X & Black triangles to nonroot corners & State & Perfect matching of H & Perfect matching of B & \nolinkurl{TriangleSystem.State}\\
-Two disjoint states & Two disjoint corner choices & Pair (r,s) & Ordered 2-factor (M1,M2) & Matching pair & \nolinkurl{TriangleSystem.Pair}\\
-Edge not on s(b), as face link & Side opposite s(t) & Q\_s & Cycle-breaking test & Opposite-edge graph & oppositeGraph\\
-Directed selected face links & Directed edges r(t) to s(t) & D(r,s) & Cycles of M1 union M2 & D-cycles & StateCycle\\
+Incidences A to X & State: a corner in each black triangle & State & Perfect matching of H & Perfect matching of B & \nolinkurl{TriangleSystem.State}\\
+Two disjoint states & Pair (r,s), different in every triangle & Pair (r,s) & Ordered 2-factor (M1,M2) & Matching pair & \nolinkurl{TriangleSystem.Pair}\\
+Edge not on s(b), as face link & Opposite side, in Q\_s & Q\_s & Cycle-breaking test & Opposite-edge graph & oppositeGraph\\
+Directed marked face links; undirected D & D(r,s); its cover & D(r,s); group & Cycles of M1 union M2 & D-cycles & StateCycle\\
 Bond; root-free shore & Cycle; disk away from t0 & Disk identity & Claim 25 & Disk identity & \nolinkurl{circuit_cut; state_disk_count}\\
 White vertices on cut side & White triangles inside disk & Positive circulation & White-vertex marks & Positive cycle slope & \nolinkurl{whiteCharge_cut_integral}\\
-Forest Q\_s with a partner & One root per Q component & Forest pair & Cycle-breaking 2-factor & Tree matching; unique mate & \nolinkurl{forest_pair_of_disk_circulation}\\
-Compatible perfect matching P & Selected primal-dual edge set & One selected edge per face & Matching P & Recovery, Section 7 & \nolinkurl{selected_forest}\\
-Hamiltonian cycle G-P & Boundary of two induced trees & Tree partition & Connected complement & Two induced trees & \nolinkurl{connected_complement_matching}\\
+Forest Q\_s with a partner & Good state; good pair & Forest pair & Cycle-breaking 2-factor & Tree matching; unique mate & \nolinkurl{forest_pair_of_disk_circulation}\\
+Compatible perfect matching P & Selection P, one side of every face & One selected edge per face & Matching P & Recovery, Section 7 & \nolinkurl{selected_forest}\\
+Hamiltonian cycle G-P & Acyclic selection; two induced trees & Tree partition & Connected complement & Two induced trees & \nolinkurl{connected_complement_matching}\\
 Nontrivial three-edge cut; cap & Separating triangle; capped piece & Gluing & Appendix C & Recursive gluing & \nolinkurl{cap_duality; cap_glue_connected}\\
 \bottomrule\end{tabularx}\par\endgroup
 \medskip
 LIT for the source terminology; PROVED-HERE for the identifications. Sources: OpenAI, Sections 2--7; Li, Definitions 5--6, Lemmas 7--8, Claim 25 and Appendix C; the constructive paper, Sections 1, 4, 5 and 7. Lean namespaces and exact citation scopes are in STATUS.md. With aligned signs and weights, the real-sign polynomial is i to the power n times Lean's phase polynomial. The recovery tree here lies in G, whereas the sources also use a tree on white faces.
+
+The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The figures on the following pages instead use the current 13-face example, whose primal graph has 22 vertices.
 \clearpage
 \begin{center}\begin{minipage}{\textwidth}\centering
 \input{figures/01-graph-body.tex}

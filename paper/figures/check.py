@@ -201,6 +201,82 @@ def running():
     two_b = nx.Graph([(('t', t), ('v', v)) for t, v in zip(m.A, r)] + [(('t', t), ('v', v)) for t, v in zip(m.A, s)])
     assert all(B.has_edge(*e) for e in two_b.edges()) and all(d == 2 for _, d in two_b.degree())
     out['B_edges'] = B.number_of_edges()
+
+    # The flow network of Section 5, and the flow that the displayed pair gives.
+    n = len(m.X)
+    N = nx.DiGraph()
+    for v in m.X:
+        N.add_edge('source', ('v', v), capacity=2)
+    for t in m.A:
+        N.add_edge(('t', t), 'sink', capacity=2)
+    for a_, b_ in B.edges():
+        tt, vv = (a_, b_) if a_[0] == 't' else (b_, a_)
+        N.add_edge(vv, tt, capacity=1)
+    used = {(('v', v), ('t', t)) for t, v in zip(m.A, r)} | {(('v', v), ('t', t)) for t, v in zip(m.A, s)}
+    flow = {e: (2 if 'source' in e or 'sink' in e else int(e in used)) for e in N.edges()}
+    assert all(0 <= flow[e] <= N.edges[e]['capacity'] for e in N.edges())
+    for x in N:
+        if x not in ('source', 'sink'):
+            assert sum(flow[e] for e in N.in_edges(x)) == sum(flow[e] for e in N.out_edges(x)) == 2
+    value = sum(flow[e] for e in N.out_edges('source'))
+    assert value == 2 * n == 20 == nx.maximum_flow_value(N, 'source', 'sink')
+    noflow = sorted((v[1], t[1]) for v, t in N.edges() if v != 'source' and t != 'sink' and flow[v, t] == 0)
+    assert len(noflow) == B.number_of_edges() - 2 * n
+    # The cut with source side {source} + S for the tight S = {2}: its capacity is the value of the flow.
+    S = set(out['tight_cut']['S'])
+    side = {'source'} | {('v', v) for v in S}
+    cut = sum(N.edges[e]['capacity'] for e in N.edges() if e[0] in side and e[1] not in side)
+    assert cut == 2 * (n - len(S)) + sum(len(set(m.F[t]) & S) for t in m.A) == value
+    tight_faces = sorted(t for t in m.A if set(m.F[t]) & S)
+    assert len(tight_faces) == 2 and all((('v', v), ('t', t)) in used for v in S for t in tight_faces)
+
+    # Rows of the figure. The used incidences form one even cycle of B for each cycle of D.
+    # Folding a cycle (down on the even rows, back on the odd ones) puts its vertices and its
+    # faces on consecutive rows so that every used incidence joins equal or neighbouring rows.
+    tf = {(a_, b_): t for t, a_, b_ in zip(m.A, r, s)}
+    tf.update({(b_, a_): t for (a_, b_), t in list(tf.items())})     # a cycle may be read either way round
+
+    def fold(cyc):
+        h = len(cyc)
+        faces = [tf[a_, b_] for a_, b_ in zip(cyc, cyc[1:] + cyc[:1])]      # faces[i] between cyc[i] and cyc[i+1]
+        half = (h + 1) // 2
+        xrow = {cyc[i]: (2 * i if i < half else 2 * (h - i) - 1) for i in range(h)}
+        trow = {}
+        for i, t in enumerate(faces):
+            a_, b_ = xrow[cyc[i]], xrow[cyc[(i + 1) % h]]
+            trow[t] = (a_ + b_) // 2 if abs(a_ - b_) == 2 else max(a_, b_) if a_ + b_ > 1 else 0
+        assert sorted(xrow.values()) == sorted(trow.values()) == list(range(h))
+        return xrow, trow
+
+    best = None
+    cycles = [k['cycle'] for k in out['D_cycles']]
+    variants = []
+    for c in cycles:
+        variants.append([fold(list(c2[i:] + c2[:i])) for c2 in (c, c[::-1]) for i in range(len(c))])
+    import itertools as it2
+    for order in it2.permutations(range(len(cycles))):
+        for pick in it2.product(*[range(len(variants[j])) for j in order]):
+            xrow, trow, base = {}, {}, 0
+            for j, p in zip(order, pick):
+                xr, tr = variants[j][p]
+                xrow.update({v: base + q for v, q in xr.items()})
+                trow.update({t: base + q for t, q in tr.items()})
+                base += len(xr) + 1                      # one empty row between two cycles
+            cost = (sum(abs(xrow[v] - trow[t]) for v, t in noflow), sum((xrow[v] - trow[t]) ** 2 for v, t in noflow), order, pick)
+            if best is None or cost < best[0]:
+                best = (cost, xrow, trow)
+    cost, xrow, trow = best
+    span = [abs(xrow[v[1]] - trow[t[1]]) for v, t in used]
+    assert max(span) == 1 and span.count(0) == 2 * len(cycles)
+
+    def crosses(e, f):
+        return (xrow[e[0]] - xrow[f[0]]) * (trow[e[1]] - trow[f[1]]) < 0
+    ue = sorted((v[1], t[1]) for v, t in used)
+    crossings = sum(crosses(e, f) for e, f in it.combinations(ue, 2))
+    assert crossings == sum(len(c) - 1 for c in cycles) == 8     # the least possible for these cycles on two columns
+    out['flow'] = dict(value=value, cut=cut, S=sorted(S), tight_faces=tight_faces, xrow=xrow, trow=trow,
+                       noflow=noflow, crossings=crossings, noflow_span=cost[0],
+                       first=[(v, t) for t, v in zip(m.A, r)], second=[(v, t) for t, v in zip(m.A, s)])
     return out
 
 
@@ -317,6 +393,7 @@ CHECKS = [
     'P is a forest with two components; both classes induce trees; complementary dual is one Hamiltonian cycle',
     'a 2-factor of G with exactly two components exists',
     'cut inequality (3.1) for every subset S of X; r + s is a degree-two subgraph of the incidence graph',
+    'flow network: the pair gives a feasible integral flow of value 2|X| = 20 = max flow = capacity of the cut at S = {2}; in the folded row order every used incidence joins equal or neighbouring rows, with 8 crossings',
     'octahedron: dual of the cube, 2 states, 2 pairs, recovery succeeds',
     'gluing example: one separating triangle, partitions of the two pieces agree on the cap and glue to two induced trees',
 ]

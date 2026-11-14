@@ -23,7 +23,7 @@ The categories requested in the brief are not exclusive. (i) means a primal rest
 | Lemma 13, caps and gluing | (i), (ii), (iii) PROVED-HERE and LIT | Li, Appendix C and Claim 36. `cap_threeConnected`, ThreeCuts.lean:230; `cap_simple`, :352; `cap_cubic`, :360; `cap_coloring`, :381; `cap_glue_matching`, Gluing.lean:94; `cap_glue_connected`, :167. `cap_duality`, CappedDuality.lean:148, supplies the cap duality replaced here by map contraction. Proof keeps 3-edge-connectivity throughout. | 278 three-edge cuts checked, including 8 nontrivial ones; 16 caps and 172 compatible pairs of cap Hamiltonian cycles checked. |
 | Theorem T | (i), (ii), (iii) PROVED-HERE and LIT | `Duality.connected_complement_matching`, Gluing.lean:294, interpreted on the face incidence relation; `main`, Main.lean:47 for the final conjecture. OpenAI, Theorem 1.1 and Corollary 7.1; Li, Theorem 3. | Independent enumeration of all perfect matchings confirms edge avoidance for every input graph and every edge, including graphs where some rooted incidence pair spaces are empty. |
 
-## Exact finite range
+## Exact finite range (first version's checker and worked example)
 
 This section describes the first version's checker and its 20-vertex worked example (data in EXAMPLES.md). The PDF's running example is the 22-vertex graph of paper/figures/running.json.
 

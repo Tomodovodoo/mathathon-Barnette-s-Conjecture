@@ -23,6 +23,7 @@
   "P is a forest with two components; both classes induce trees; complementary dual is one Hamiltonian cycle",
   "a 2-factor of G with exactly two components exists",
   "cut inequality (3.1) for every subset S of X; r + s is a degree-two subgraph of the incidence graph",
+  "flow network: the pair gives a feasible integral flow of value 2|X| = 20 = max flow = capacity of the cut at S = {2}; in the folded row order every used incidence joins equal or neighbouring rows, with 8 crossings",
   "octahedron: dual of the cube, 2 states, 2 pairs, recovery succeeds",
   "gluing example: one separating triangle, partitions of the two pieces agree on the cap and glue to two induced trees"
  ]

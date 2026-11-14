@@ -1,4 +1,4 @@
-# Forest pairs by two involutions
+# Good pairs by two involutions
 
 Read involutions.pdf for the complete note, its drawing-free version, four computed figures and the complete 279-object ray listing. INVOLUTIONS.md is the companion proof; STATUS.md records provenance.
 
@@ -15,4 +15,4 @@ python research/2026-11-14_sol_involutions-revision/code/figures.py
 
 Build from proofs/involutions/ with `latexmk -pdf -interaction=nonstopmode -halt-on-error involutions.tex`. figures/second.tex is written by research/2026-11-14_fable_referee-involutions-v2/code/figure2.py. Render from there with `pdftoppm -scale-to 1300 -png involutions.pdf ../../research/2026-11-14_sol_involutions-revision/page`. Python uses NetworkX, SymPy, and Pillow; plantri.exe is the existing census generator. The figure script reads the original figure sources from commit 55e60f9 and only writes the owned paths. The common figure style is imported read-only.
 
-The note uses amsart, A4 paper and one-inch margins. No float occurs within a statement or proof. The coefficient comparison is separate from the forest-pair proof.
+The note uses amsart, A4 paper and one-inch margins. No float occurs within a statement or proof. The coefficient comparison is separate from the good-pair proof.

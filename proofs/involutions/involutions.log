@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 14:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -822,10 +822,10 @@ Package rerunfilecheck Info: File `involutions.out' has not changed.
 (rerunfilecheck)             Checksum: B0FA2E6D890B377A548B8BF7486572C4;2222.
  ) 
 Here is how much of TeX's memory you used:
- 22479 strings out of 467870
- 422952 string characters out of 5419323
- 871158 words of memory out of 5000000
- 50769 multiletter control sequences out of 15000+600000
+ 22480 strings out of 467870
+ 422961 string characters out of 5419323
+ 872203 words of memory out of 5000000
+ 50770 multiletter control sequences out of 15000+600000
  638250 words of font info for 81 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  99i,9n,118p,886b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -853,9 +853,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Tom/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Tom/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Tom/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on involutions.pdf (18 pages, 376277 bytes).
+Output written on involutions.pdf (18 pages, 378877 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
+ 298 PDF objects out of 1000 (max. 8388607)
  51 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

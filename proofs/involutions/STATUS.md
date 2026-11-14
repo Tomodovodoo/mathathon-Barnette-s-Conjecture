@@ -4,7 +4,7 @@ Theorem numbers refer to involutions.tex. PROVED-HERE means a complete written a
 
 | Claim | Status | Origin and exact source | What is supplied here |
 | --- | --- | --- | --- |
-| Theorem 1, forest pair from pair existence | LIT; PROVED-HERE | OpenAI Proposition 5.1; Li Lemma 7 after pair existence | Pure finite signed-set proof |
+| Theorem 1, good pair (earlier name: forest pair) from pair existence | LIT; PROVED-HERE | OpenAI Proposition 5.1; Li Lemma 7 after pair existence | Pure finite signed-set proof |
 | Lemma 2, disk identity | LIT; PROVED-HERE | OpenAI Lemma 4.1; Li Claim 25 in incidence language | Three disk counts, root exclusion, parity, white-face existence |
 | Definition 3, signed marked set | LIT definition; PROVED-HERE convention | Li Definitions 13, 14, 18, 21 and Appendix B | Unordered, distinct crossings; repeated white points allowed; exact orientation dictionary |
 | Lemma 4, first involution | LIT; PROVED-HERE | OpenAI Lemma 5.2; Li Definitions 22 and Lemmas 17, 34 | Invariant cycle choice, bijectivity, sign change, fixed set |
@@ -17,7 +17,7 @@ Theorem numbers refer to involutions.tex. PROVED-HERE means a complete written a
 | Family paths | COMPUTED | extras.py, families.json | Tubes p=4,6, L=0,1,2; stacks p=4,6, q=2,3; subdivided octahedron; specified root only; up to 20 vertices of T |
 | Current running example | COMPUTED | running.json copied from current project input | 279 objects and every image listed; minimum count 2; nine second-fixed objects |
 
-Accepted background: Euler's formula for a disk and sphere; Jordan curve crossing parity and entry/exit alternation; existence of a straight-line drawing of a simple plane graph. None assumes the forest-pair conclusion. The note proves the cycle/sign identities it uses. The existence of an initial pair is an explicit hypothesis, not an audited consequence of Ore's criterion.
+Accepted background: Euler's formula for a disk and sphere; Jordan curve crossing parity and entry/exit alternation; existence of a straight-line drawing of a simple plane graph. None assumes the good-pair conclusion. The note proves the cycle/sign identities it uses. The existence of an initial pair is an explicit hypothesis, not an audited consequence of Ore's criterion.
 
 The original census drawings have maximum path length two. The referee census reaches four, the 69 running-example drawings reach six, and the two drawing-free tree censuses each reach four. These are finite measurements, not universal bounds. The constructor searches for a minimum cover; the constructive paper avoids that search with a different token model and restarts. The note does not prove or claim that the two walks are conjugate.
 

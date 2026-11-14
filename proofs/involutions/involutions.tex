@@ -8,14 +8,14 @@
 \newtheorem{definition}[theorem]{Definition}
 \newcommand{\Int}{\operatorname{Int}}
 \newcommand{\sgn}{\operatorname{sgn}}
-\title{Two involutions for the forest-pair lemma}
+\title{Two involutions for the good-pair lemma}
 \author{Research note, 14 November 2026}
 \begin{document}
 \begin{abstract}
 We write out the intended multi-mark proof in Appendix B of Zhentao Li's note.
 The proof uses finite signed sets and two explicit involutions. It uses no
 generating function, limiting argument, or complex number. A finite alternating
-path constructs a forest pair. The coefficient comparison at the end is a
+path constructs a good pair. The coefficient comparison at the end is a
 separate verification, not a premise of the proof.
 \end{abstract}
 \maketitle
@@ -31,9 +31,20 @@ A state is a bijection $s:A\to X$ selecting a corner of each face.
 A pair $p=(r,s)$ is an ordered pair of states with $r(t)\ne s(t)$ everywhere.
 Let $Q_s$ have the side opposite $s(t)$ in every $t\in A$ and all vertices of $T$.
 
-\begin{theorem}[Forest-pair lemma]\label{main}
+\begin{theorem}[Good-pair lemma]\label{main}
 If a pair exists, a pair exists for which $Q_s$ is a forest.
 \end{theorem}
+
+We call a pair $(r,s)$ for which $Q_s$ is a forest a \emph{good pair}.
+Earlier versions of this note said forest pair.
+Its second state is a good state in the sense of the main paper, by Lemma~4.2 there.
+
+This note accompanies the project's main paper, \emph{The proof of
+Barnette's conjecture: an exposition}, in the same repository.
+Through that Lemma~4.2, Theorem~\ref{main} is its Proposition~4.8. The proof
+here is Li's intended proof written out in full, and in the form of
+Section~\ref{paths} it is a term-by-term unpacking of the main paper's
+Lemmas~4.5 to~4.7 for one particular height.
 
 This is OpenAI Proposition 5.1. It is the cancellation part of Li's Key
 Lemma 7. Li's preliminary existence of a pair requires additional graph
@@ -93,14 +104,16 @@ In particular $W\ge1$.
 
 Direct the side in $t$ from $r(t)$ to $s(t)$. These sides form a directed
 cycle cover $D_p$ of $X$. There are no repeated undirected edges, since each
-edge has exactly one black face. The cycles are simple, have odd length,
+edge has exactly one black face. As in the main paper, the undirected edge
+set of $D_p$ is the \emph{cover} of $p$. The cycles are simple, have odd length,
 and enclose a white face by Lemma~\ref{disk}. Define
 \[
  J(p)=\tfrac13\sum_{t\in A}\delta(r(t),s(t)).
 \]
 It is the number of clockwise cycles minus the number of counterclockwise
 cycles. If $c(p)$ counts cycles then $J(p)\equiv c(p)\equiv n\pmod2$.
-Let $m=\min_p c(p)$. Thus $m\ge1$.
+Let $m=\min_p c(p)$. Thus $m\ge1$. This is the $m$ of the main paper, and a
+cover with $m$ cycles is a minimum cover.
 
 Replace every directed side $r(t)\to s(t)$ by the two-spoke route
 $r(t)\to t\to s(t)$. Its cycles have the same orientation and enclose the
@@ -372,9 +385,13 @@ chosen paths, even though they require no drawing. The
 minimum $m$, the enclosed-face counts, $F$, the common fixed sign and the
 signed sum depend only on the rooted oriented triangulation. The identities
 of fixed marked objects depend on the paths; their number does not.
+Let $H(s)$ be the signed number of tokens of $s$, a token counting $+1$
+when $\kappa_w(i)=-1$ and $-1$ when $\kappa_w(i)=1$; Section~\ref{compare}
+defines the same quantity for rays.
 For this version $H(s)=-\sum_w\eta_s(w)=-\omega(s)$ exactly, with the
-main paper's turn heights for the same paths and the same orientation of the sphere. For rays the same cycle-reversal increments
-hold; an additive constant may differ between unoriented-cover classes.
+main paper's turn heights for the same paths and the same orientation of the sphere.
+So $H$ has the opposite sign to the main paper's weight $\omega$. For rays the same cycle-reversal increments
+hold; an additive constant may differ between covers.
 This is a term-by-term bijective unpacking of the height proof for this
 particular height. The first involution is its cancellation lemma on
 marked objects. The second proves its height and finite-difference
@@ -396,7 +413,7 @@ the pair. Otherwise apply $\iota_2$, then $\iota_1$, and continue, stopping
 before a fixed move.
 
 \begin{lemma}\label{walk}
-This procedure terminates at a forest pair without repeating an object.
+This procedure terminates at a good pair without repeating an object.
 \end{lemma}
 \begin{proof}
 Put an undirected edge of label $i$ between distinct objects exchanged by
@@ -462,7 +479,7 @@ incident faces leaves $N/2-1$ vertices on each incidence side. This supplies
 the required balance condition. Our theorem assumes a pair and does not
 use that criterion.
 
-\section{Relations and computational checks}
+\section{Relations and computational checks}\label{compare}
 All statements in the preceding proof are PROVED-HERE, with their source
 attributions detailed in \texttt{STATUS.md}. The disk identity and first
 cancellation are LIT in OpenAI Lemmas 4.1 and 5.2. The two geometric maps
@@ -484,6 +501,7 @@ white face.
 
 For comparison only, put $H(s)$ equal to the sum, over all white rays,
 of the signed crossings with the selected spokes, left-to-right positive.
+This $H$ has the opposite sign to the weight $\omega$ of the main paper.
 Let $\varepsilon(p)=(-1)^{(n+J(p))/2}$.
 The signed moment of order $j<m$ is zero: expand into ordered lists of
 $j$ crossings and reverse an unmarked cycle. At order $m$, lists with a

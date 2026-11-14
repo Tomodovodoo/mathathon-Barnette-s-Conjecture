@@ -1,6 +1,6 @@
-# Two involutions for the forest-pair lemma
+# Two involutions for the good-pair lemma
 
-PROVED-HERE. If a pair of disjoint states exists in a simple face-bicoloured sphere triangulation, a pair exists whose opposite-edge graph is a forest. The complete standalone proof is in involutions.tex and involutions.pdf. It assumes pair existence, so it does not need a separating-triangle hypothesis.
+PROVED-HERE. If a pair of disjoint states exists in a simple face-bicoloured sphere triangulation, a pair exists whose opposite-edge graph is a forest. Such a pair is a good pair (a forest pair in earlier versions), and its second state is a good state of the main paper, paper/main/barnette.pdf. The theorem is that paper's Proposition 4.8, and the proof is Li's intended proof written out in full, a term-by-term unpacking of its Lemmas 4.5 to 4.7 for one particular height. The complete standalone proof is in involutions.tex and involutions.pdf. It assumes pair existence, so it does not need a separating-triangle hypothesis.
 
 ## Objects and the two maps
 
@@ -8,13 +8,13 @@ Let m be the minimum cycle count of a pair. A marked object consists of a pair a
 
 The first map fixes objects with a forest opposite-edge graph. Otherwise it reverses the first opposite-edge cycle, choosing that cycle from the second state alone. This preserves all marks. The disk identity changes J by two, so it reverses sign.
 
-The second map first reverses the first unmarked cycle of the underlying unoriented cover. If all cycles are marked, minimality forces exactly one mark per cycle. First select an exterior white-face mark, or else a nonfirst interior crossing, using a fixed orientation-independent cycle order. Pair successive ray crossings, leaving only the first crossing of an interior ray unpaired. Move the mark to its partner and reverse its cycle exactly when the partner is currently a first-state spoke. All other marks lie on other cycles. The same cycle qualifies on the return move; this proves involutivity. Geometric pairing reverses crossing direction, and cycle reversal reverses it again while flipping floor(J/2). Thus the sign reverses in either case.
+The second map first reverses the first unmarked cycle of the cover. If all cycles are marked, minimality forces exactly one mark per cycle. First select an exterior white-face mark, or else a nonfirst interior crossing, using a fixed orientation-independent cycle order. Pair successive ray crossings, leaving only the first crossing of an interior ray unpaired. Move the mark to its partner and reverse its cycle exactly when the partner is currently a first-state spoke. All other marks lie on other cycles. The same cycle qualifies on the return move; this proves involutivity. Geometric pairing reverses crossing direction, and cycle reversal reverses it again while flipping floor(J/2). Thus the sign reverses in either case.
 
 Second-fixed objects are minimum covers with one interior white-face point per cycle, marked at the first crossing, with the unique orientation making that crossing a second-state spoke. Their number is the sum over minimum covers of the product of enclosed white-face counts. It is positive, and all fixed objects have sign (-1)^floor(m/2). The two signed counts force a first-fixed object.
 
 ## Explicit construction
 
-Choose any second-fixed object by enumerating minimum covers. Alternate first and second moves, stopping before a fixed move. The finite two-coloured degree-two graph of the two involutions is a path from this endpoint. A second-fixed terminal endpoint would have the opposite sign after an odd number of moves, impossible. Hence it ends at a forest pair. This is the Garsia-Milne finite path argument. It is an exhaustive constructor, with no claim that finding a minimum cover is efficient.
+Choose any second-fixed object by enumerating minimum covers. Alternate first and second moves, stopping before a fixed move. The finite two-coloured degree-two graph of the two involutions is a path from this endpoint. A second-fixed terminal endpoint would have the opposite sign after an odd number of moves, impossible. Hence it ends at a good pair. This is the Garsia-Milne finite path argument. It is an exhaustive constructor, with no claim that finding a minimum cover is efficient.
 
 ## Verification
 
@@ -60,7 +60,7 @@ Summing the disk identity changes J by plus or minus two. Thus floor(J/2) change
 
 Fix a total order on unoriented cycles. Within each family compared by the maps, supplying-face sets are disjoint, so their lexicographic order suffices. The same order is used in both directions. For each cycle C and white point w, order ray crossings from w. An exterior point has an even number of crossings, paired 1 with 2, 3 with 4, and so on. An interior point has an odd number, with crossing 1 unpaired and pairs 2 with 3, 4 with 5, and so on. Paired crossings have opposite traversal directions by Jordan entry/exit alternation.
 
-First reverse the first unmarked cycle if one exists, leaving all tokens fixed. The unoriented cover and its unmarked cycles stay unchanged. The same reversal therefore applies twice, and no token can become invalid. Its sign changes because J changes by two and no marked direction changes.
+First reverse the first unmarked cycle if one exists, leaving all tokens fixed. The cover and its unmarked cycles stay unchanged. The same reversal therefore applies twice, and no token can become invalid. Its sign changes because J changes by two and no marked direction changes.
 
 Otherwise all cycles carry a token. Since there are m tokens and every cover has at least m cycles, there are exactly m cycles and exactly one token on each. Choose the first cycle whose token's white point is exterior. If none exists, choose the first cycle whose crossing is not first. If neither exists, fix the object.
 
@@ -72,11 +72,11 @@ Without cycle reversal, J stays fixed and the moved token changes direction. Wit
 
 ### Fixed points and counting
 
-The preceding priority rules fix exactly the objects with m cycles, one token on each, an interior white point for each token, and the first crossing on each ray. For every minimum unoriented cover choose one enclosed white face on each cycle. Such a face exists by the disk identity. Orient each cycle independently so that its selected first crossing is a second-state spoke. Exactly one of the two orientations does this. Tokens on different cycles remain distinct even if their white faces are equal. Conversely each fixed object uniquely recovers those choices. Therefore the number F of second-fixed objects is the sum over minimum covers of the product of enclosed-white-face counts, and F is positive.
+The preceding priority rules fix exactly the objects with m cycles, one token on each, an interior white point for each token, and the first crossing on each ray. For every minimum cover choose one enclosed white face on each cycle. Such a face exists by the disk identity. Orient each cycle independently so that its selected first crossing is a second-state spoke. Exactly one of the two orientations does this. Tokens on different cycles remain distinct even if their white faces are equal. Conversely each fixed object uniquely recovers those choices. Therefore the number F of second-fixed objects is the sum over minimum covers of the product of enclosed-white-face counts, and F is positive.
 
 If q cycles are counterclockwise, their first exits go right to left, while clockwise first exits go left to right. The marked direction sum is q and J=m-2q. The sign exponent is floor((m-2q)/2)+q=floor(m/2), independent of the fixed object.
 
-Every nonfixed two-element orbit cancels one positive and one negative object. The second map leaves imbalance (-1)^floor(m/2) times F, which is nonzero. The first map therefore cannot be fixed-point free. Its fixed object supplies a forest pair.
+Every nonfixed two-element orbit cancels one positive and one negative object. The second map leaves imbalance (-1)^floor(m/2) times F, which is nonzero. The first map therefore cannot be fixed-point free. Its fixed object supplies a good pair.
 
 In Li's incidence graph the second-matching complement contains subdivided opposite sides with root endpoints removed. Its cycles are exactly the cycles of the opposite-edge graph, because a partnered opposite-edge cycle cannot contain a root by the distinct-tail argument. The forest conclusion is therefore exactly Li's cycle-breaking conclusion.
 
@@ -97,7 +97,7 @@ For a cycle, list those steps turning around either its r-corner or its s-corner
 
 COMPUTED twice. A second referee's code, research/2026-11-14_fable_referee-involutions-v2/code/, written from the text alone, reproduces the counts below in the same encoding and repeats the checks with a depth-first tree, a random spanning tree and independent random simple paths that form no tree. The reviser's run is research/2026-11-14_sol_involutions-revision/code/check.py 14. All 1206 roots, 880 paired roots, and all objects for two BFS trees were checked. Increasing and decreasing face-ID tie breaks give 17832 and 18362 objects, respectively, each with 4658 second-fixed objects and maximum path length four. The count of objects, first-fixed count and walks depend on the tree; m, F and the signed sum do not.
 
-PROVED-HERE. This is a term-by-term bijective unpacking of the main paper's height argument for one height. The first involution lifts its cancellation lemma to marked objects; the second proves the height and finite-difference lemmas together. For face-path tokens H=-omega exactly, for the same paths and the same orientation of the sphere. The note's layout of the running example is the mirror image of the main paper's drawing, so its turn signs are the negatives of those in the main paper's height figure. For ray tokens H has the opposite cycle-reversal increment, with a possible constant on each unoriented-cover class. The corrected comparison is
+PROVED-HERE. This is a term-by-term bijective unpacking of the main paper's height argument for one height. The first involution lifts its cancellation lemma to marked objects; the second proves the height and finite-difference lemmas together. For face-path tokens H=-omega exactly, for the same paths and the same orientation of the sphere, so H has the opposite sign to the main paper's weight omega. The note's layout of the running example is the mirror image of the main paper's drawing, so its turn signs are the negatives of those in the main paper's height figure. For ray tokens H has the opposite cycle-reversal increment, with a possible constant on each cover. The corrected comparison is
 
 $$\frac{1}{m!}\sum_p\varepsilon(p)H(s)^m=(-1)^{(n+m)/2}F.$$
 

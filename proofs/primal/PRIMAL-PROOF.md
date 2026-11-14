@@ -2,6 +2,8 @@
 
 Status: PROVED-HERE, a complete informal reconstruction, corrected after the independent Fable referee report; human review pending. The theorem is LIT, OpenAI, Theorem 1.1 and Corollary 7.1. The proof follows the checked Lean development at commit `4eaee87548250b2682affda7d05d947c05554bae`, with two explicit departures: Li's primal deficit proof supplies the first pair, and real local signs replace Lean's complex phases. STATUS.md distinguishes restatements from these departures. Numerical checks are evidence about the implementation, not a proof of the theorem.
 
+This note gives the proof of the project's main paper (paper/main/barnette.pdf) in the cubic graph $G$ itself, lemma by lemma, with a dictionary at the end; two steps differ, since Li's deficit argument gives the first pair (Lemma 4) and flow potentials with a polynomial (Lemmas 6 and 8) replace the heights.
+
 ## 1. The target and the objects
 
 **Theorem T.** Every finite simple cubic bipartite 3-edge-connected plane graph $G$ has, for every edge $e_0$, a perfect matching $P$ containing $e_0$ such that $G-P$ is connected. Consequently every cubic bipartite 3-vertex-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge.
@@ -197,7 +199,7 @@ $$
 Z(z)=\sum_{(r,s)\text{ pair}}\varepsilon(r,s)L_s(z)\in\mathbb Z[z].           \tag{6.1}
 $$
 
-The construction uses a finite integer polynomial. With the same weights it is a constant multiple of Lean's phase polynomial, so the two are one sum written in two normalizations. Write $t=\sum_b\delta(r(b),s(b))$. The selected edges of a pair split into state circuits, each with delta-sum $\pm3$ by Lemma 5 (see the proof of Lemma 8), so $3\mid t$. A product of $n$ signs with sum $t$ equals $i^{n-t}$, and Lean's phase of the pair is $i^{t/3}$ when its corner order agrees with ours. The ratio is $i^{n-4t/3}=i^n$, which depends on the rooted graph but not on the pair. If Lean's corner order runs the other way, the ratio is $i^{-n}$. STATUS.md records the adjudication of an earlier claim that the ratio depends on the number of circuits.
+The construction uses a finite integer polynomial. With the same weights it is a constant multiple of Lean's phase polynomial, so the two are one sum written in two normalizations. Write $t=\sum_b\delta(r(b),s(b))$. The marked edges of a pair split into state circuits, each with delta-sum $\pm3$ by Lemma 5 (see the proof of Lemma 8), so $3\mid t$. A product of $n$ signs with sum $t$ equals $i^{n-t}$, and Lean's phase of the pair is $i^{t/3}$ when its corner order agrees with ours. The ratio is $i^{n-4t/3}=i^n$, which depends on the rooted graph but not on the pair. If Lean's corner order runs the other way, the ratio is $i^{-n}$. STATUS.md records the adjudication of an earlier claim that the ratio depends on the number of circuits.
 
 **Lemma 7, cancellation.** PROVED-HERE. For any fixed $s$ for which $Q_s$ contains a face circuit,
 
@@ -209,9 +211,9 @@ Proof. If there are no partners the sum is empty. Otherwise fix a circuit of $Q_
 
 **Lemma 8, nonvanishing.** PROVED-HERE. If there is at least one pair, $Z\ne0$. Hence there is a pair whose $Q_s$ has no face circuit.
 
-Proof. A pair selects at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is selected at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
+Proof. A pair marks at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Its edges are marked; selected is kept for the matching $P$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is marked at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
 
-Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one selected edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,f_{\rm head})z$ along the two orientations. The group's sum is therefore
+Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one marked edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,f_{\rm head})z$ along the two orientations. The group's sum is therefore
 
 $$
 (-1)^{(n-c(D))/2}\prod_{C\subset D}(L_C^+-L_C^-).                 \tag{6.3}

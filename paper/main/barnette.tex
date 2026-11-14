@@ -121,7 +121,7 @@ The numbers quoted for the example come from exhaustive enumeration.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{\FIG 03-dual.pdf}
+\includegraphics[width=0.69\textwidth]{\FIG 03-dual.pdf}
 \caption{The example triangulation $\T$, its $13$ vertices labelled, with $G$ in grey: each vertex of $G$ sits in a face of $\T$ and each edge of $G$ crosses one edge of $\T$. Black faces are shaded. The outer face $t_0=\{0,4,5\}$ is black too, as the grey collar shows; the vertex of $G$ inside it is drawn below the disk. Its corners $0,4,5$ are hollow, and the prescribed side $e_0=\{0,4\}$ is the bottom arc. There are $11$ black faces, $11$ white faces and $33$ edges.}
 \label{fig:dual}
 \end{figure}
@@ -300,10 +300,13 @@ Put $S_s=Q_s\cup\{ao,bo\}$, the set of edges that every such selection excludes;
 In the example, $t_0=\{0,4,5\}$, $e_0=\{0,4\}$, $o=5$ and $n=10$.
 Two of its states, which we call $\alpha$ and $\beta$, are
 \[
-\begin{array}{c|cccccccccc}
-t & 0{\cdot}1{\cdot}6 & 0{\cdot}2{\cdot}3 & 1{\cdot}7{\cdot}8 & 1{\cdot}2{\cdot}9 & 3{\cdot}4{\cdot}9 & 4{\cdot}10{\cdot}11 & 5{\cdot}6{\cdot}11 & 6{\cdot}7{\cdot}12 & 8{\cdot}11{\cdot}12 & 8{\cdot}9{\cdot}10\\\hline
+\begin{array}{@{}c@{\qquad}cccccccccc@{}}
+\toprule
+t & 0{\cdot}1{\cdot}6 & 0{\cdot}2{\cdot}3 & 1{\cdot}7{\cdot}8 & 1{\cdot}2{\cdot}9 & 3{\cdot}4{\cdot}9 & 4{\cdot}10{\cdot}11 & 5{\cdot}6{\cdot}11 & 6{\cdot}7{\cdot}12 & 8{\cdot}11{\cdot}12 & 8{\cdot}9{\cdot}10\\
+\midrule
 \alpha(t) & 1 & 3 & 7 & 2 & 9 & 11 & 6 & 12 & 8 & 10\\
-\beta(t) & 6 & 2 & 8 & 1 & 3 & 10 & 11 & 7 & 12 & 9
+\beta(t) & 6 & 2 & 8 & 1 & 3 & 10 & 11 & 7 & 12 & 9\\
+\bottomrule
 \end{array}
 \]
 where a face is named by its corners.
@@ -520,8 +523,8 @@ For a pair we write $u(t)$ for the third corner of $t$.
 \node at (1.25,0.62) {$t$}; \node[text=bfS,anchor=north] at (1.2,-0.02) {$D(r,s)$}; \node[text=bfR,anchor=east] at (0.5,1.05) {$Q_s$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}{0.56\textwidth}
-\caption{A pair in a black triangle. Outlined wedges mark the first state $r(t)$; solid wedges mark the second, $s(t)$. The solid arrow belongs to $D(r,s)$, defined below. The dashed arrow orients $Q_s$ from $r(t)$ to the third corner $u(t)$, as in Lemma~\ref{lem:partner}.}
+\begin{minipage}{0.56\textwidth}\hyphenpenalty=10000
+\caption{A pair in a black triangle. The outlined wedge marks the first state $r(t)$ and the solid wedge the second, $s(t)$. The solid arrow belongs to $D(r,s)$, defined below. The dashed arrow orients $Q_s$ from $r(t)$ to the third corner $u(t)$, as in Lemma~\ref{lem:partner}.}
 \label{fig:localpair}
 \end{minipage}
 \end{figure}
@@ -912,8 +915,8 @@ With Euler's formula $p-q+f=2$ this gives $q-f_\bullet\le 2p-4$.
 Figure~\ref{fig:flow} shows the network and a tight cut in the example.
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.74\textwidth]{\FIG 06-flow.pdf}
-\caption{The flow network for the example. Each vertex of $X$ receives at most $2$ from the source, each incidence (thin) carries at most $1$, and each black triangle of $A$ sends at most $2$ to the sink. An integral flow of value $2|X|=20$ uses two incidences at every vertex and every triangle, the double and the solid ones, which alternate along cycles and split into the states $\beta$ and $\alpha$. Here \eqref{eq:hall} holds with equality for $S=\{2\}$, a vertex in only two black triangles.}
+\includegraphics[width=0.69\textwidth]{\FIG 06-flow.pdf}
+\caption{The flow network for the example. Each vertex of $X$ receives at most $2$ from the source, each incidence carries at most $1$, and each black triangle of $A$ sends at most $2$ to the sink. The integral flow shown has value $2|X|=20$. It fills every edge at the source and at the sink and uses two incidences at every vertex and every triangle, one of the state $\beta$ (double lines, the outlined wedges of Figure~\ref{fig:pair}) and one of $\alpha$ (solid lines, the solid wedges). The two states alternate along a cycle of $14$ incidences and a cycle of $6$, one for each cycle of Figure~\ref{fig:pair}. Thin lines are the incidences without flow. Here \eqref{eq:hall} holds with equality for the ringed set $S=\{2\}$, a vertex in only two black triangles.}
 \label{fig:flow}
 \end{figure}
 
@@ -1015,21 +1018,33 @@ Tutte's $46$-vertex graph \cite{Tutte1946} is cubic, planar and $3$-connected bu
 
 \emph{Planar.} On an orientable surface of genus $g$ the same counting gives $|V|=k+2-2g$, so $|X|=|A|-2g$ and there are no states when $g>0$. The smallest non-Hamiltonian cubic bipartite $3$-connected graph is the $50$-vertex graph of Georges and Kelmans \cite{georges1989,Brinkmann2022}.
 
-\emph{Cubic.} Cubicity makes the faces of $\T$ triangles, so that a corner has one opposite side, and it gives the complement of a selection degree two. The incidence graph of the vertices and faces of the triangular bipyramid has classes of sizes $5$ and $6$, so it has $11$ vertices and no Hamiltonian cycle.
-It is planar by drawing each face centre joined to its three corners.
-Here is also a check of $3$-connectivity.
-The bipyramid has equatorial vertices $p_1,p_2,p_3$, apices $u,v$, and faces $up_1p_2,up_2p_3,up_3p_1,vp_1p_2,vp_2p_3,vp_3p_1$.
-Deleting at most two of its five vertices leaves a connected graph, as is seen directly from the equatorial triangle and the two apices.
-If at most one face centre is deleted from the incidence graph, every surviving bipyramid edge is still represented by a two-edge path through one of its incident face centres, and every remaining face centre has a surviving corner.
-If two face centres are deleted, no original vertex is deleted, and at most one bipyramid edge loses both its incident face centres, since two faces share at most one side.
-The bipyramid stays connected after deleting one edge, and the surviving face centres all attach to it.
-Thus the incidence graph stays connected after any two vertex deletions.
+\emph{Cubic.} Cubicity makes the faces of $\T$ triangles, so that a corner has one opposite side, and it gives the complement of a selection degree two.
+The incidence graph of the vertices and faces of the triangular bipyramid has classes of sizes $5$ and $6$, so it has $11$ vertices and no Hamiltonian cycle.
+It is planar, drawn with each face centre joined to its three corners, and it is $3$-connected.
+To check this, let the bipyramid have equatorial vertices $p_1,p_2,p_3$ and apices $u,v$, so that its faces are the six triangles $up_ip_j$ and $vp_ip_j$, and delete two vertices of the incidence graph.
+\begin{itemize}
+\item \emph{At most one of them is a face centre.}
+The bipyramid stays connected when at most two of its five vertices are deleted, as one sees from the equatorial triangle and the two apices.
+Each surviving edge of the bipyramid lies on two faces and keeps the centre of at least one, so its ends are still joined by a path of two edges.
+Each surviving face centre has a surviving corner.
+\item \emph{Both are face centres.}
+Then all five vertices of the bipyramid survive.
+Two faces share at most one side, so at most one edge of the bipyramid loses both of its face centres, and the bipyramid minus one edge is connected.
+Each surviving face centre is joined to it.
+\end{itemize}
+In both cases the incidence graph stays connected.
 
-\emph{3-connected.} It is used once, to make $\T$ simple (Lemma~\ref{lem:dual}). Simplicity is used in the density bound, where a face of $H$ of length two would break $\bal(\Psi)\le d_{\Psi}-4$, and in the pieces of Section~\ref{sec:glue}. Take two new vertices and three copies of the cube with one edge removed, and join the two ends of the removed edge in each copy to the two new vertices, one to each, respecting the bipartition. The result is cubic, bipartite and planar with $26$ vertices.
-To check $2$-connectivity, each cube with an edge removed is $2$-connected and joins the two new vertices by a path.
-Deleting a new vertex leaves the three copies connected through the other new vertex.
-Deleting a vertex of a copy leaves that copy connected to at least one new vertex, while the other two copies still connect the new vertices.
-Deleting both new vertices leaves three components, so the graph is $2$-connected but has no Hamiltonian cycle. Deciding Hamiltonicity is NP-complete for $2$-connected cubic bipartite planar graphs \cite{Akiyama1980}.
+\emph{3-connected.} It is used once, to make $\T$ simple (Lemma~\ref{lem:dual}). Simplicity is used in the density bound, where a face of $H$ of length two would break $\bal(\Psi)\le d_{\Psi}-4$, and in the pieces of Section~\ref{sec:glue}.
+Take two new vertices and three copies of the cube with one edge removed, and join the two ends of the removed edge in each copy to the two new vertices, one to each, respecting the bipartition.
+The result is cubic, bipartite and planar with $26$ vertices.
+Deleting both new vertices leaves three components, so it has no Hamiltonian cycle: a cycle falls into at most two paths when two of its vertices are deleted.
+It is $2$-connected all the same.
+Each cube with an edge removed is $2$-connected and joins the two new vertices by a path, so deleting one vertex leaves a connected graph:
+\begin{itemize}
+\item after deleting a new vertex, the three copies are joined through the other new vertex;
+\item after deleting a vertex of a copy, the rest of that copy is connected and joined to at least one new vertex, and the other two copies still join the two new vertices.
+\end{itemize}
+Deciding Hamiltonicity is NP-complete for $2$-connected cubic bipartite planar graphs \cite{Akiyama1980}.
 
 \emph{No separating triangle.} Proposition~\ref{prop:pair} uses it once, and it is not necessary: by \cite[Theorem~1.2]{Anonymous2026}, a pair exists exactly when no separating triangle has black faces along all three of its sides on the side away from $t_0$. Two octahedra glued along a face ($9$ vertices) give the smallest examples, with a pair for one choice of $t_0$ and none for another of the same colour; an exhaustive check over every face rooting of every Eulerian sphere triangulation with at most $12$ vertices confirms this minimality.
 
@@ -1059,7 +1074,16 @@ The Pfaffian consequence uses a universal equivalence: it passes from the planar
 
 OpenAI's accompanying Lean formalisation gives a machine-checked proof of Barnette's conjecture \cite{OpenAI2026b}.
 It uses a different route through algebraic duality and does not formally verify every statement or proof in this exposition, including the two-induced-trees statement of Proposition~\ref{prop:target}(2).
-Two companion notes give a primal formulation and an account using two sign-reversing involutions.
+The sign and finite-difference route of Section~\ref{sec:pairs} has also been checked in Lean on top of that development.
+The check covers the local sign with both reversals and the formula of Lemma~\ref{lem:sign}, the cancellation of Lemma~\ref{lem:cancel} for a second state whose opposite sides contain a cycle, the addition of the steps $L(C)$ in Lemma~\ref{lem:height} for any weight that is a sum of local terms, Lemma~\ref{lem:difference}, and the step of Proposition~\ref{prop:good} from a pair to a pair whose second state has acyclic opposite sides.
+With these in place of the complex phase and the polynomial of OpenAI's nonvanishing argument, their main theorem compiles unchanged.
+The heights are represented there by a flow: the weight is the one that OpenAI's development builds from a flow, and the heights along paths of faces of Section~\ref{sec:pairs} are not formalised.
+The Lean files accompany this paper in the same repository, in the folder \texttt{proofs/lean}.
+
+Two unpublished notes accompany this paper in the same repository.
+\emph{Barnette's conjecture in the cubic graph} (\texttt{proofs/primal/primal.pdf}) gives the proof in the cubic graph $G$ itself, lemma by lemma and without the dual triangulation, with a dictionary between the two languages.
+\emph{Two involutions for the good-pair lemma} (\texttt{proofs/involutions/involutions.pdf}) gives the bijective proof by two involutions.
+It writes out in full the argument that Li \cite{Li2026} intended for Proposition~\ref{prop:good}, with marked crossings in place of the power $\omega^m$, and it is a term-by-term unpacking of Lemmas~\ref{lem:cancel}, \ref{lem:height} and~\ref{lem:difference} for one particular height.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}

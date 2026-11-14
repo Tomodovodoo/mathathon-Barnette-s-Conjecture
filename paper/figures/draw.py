@@ -18,6 +18,12 @@ RING = 0.28          # the centre of t0 and the edges reaching it live at radius
 LBL = {1: (.50,-.17), 2: (-.38,.4), 3: (-.5,.12), 6: (-.4,.4), 7: (-.50,.12), 8: (.50,.20), 9: (-.42,.48), 10: (-.12,.55), 11: (.38,.4), 12: (.37,.32)}   # labels in white sectors, clear of the state wedges and G vertices
 
 
+PT = 0.03515         # cm per TeX point
+LABEL_CLEAR = 1.0    # pt of white wanted between a vertex label and every drawn object
+LABEL_MIN = 0.5      # pt; write() fails if any label ends up closer than this
+LABEL_LOG = {}       # figure -> placed labels per panel, written to label-placement.json
+
+
 def pt(p):
     return f'({p[0]:.3f},{p[1]:.3f})'
 
@@ -35,6 +41,104 @@ class Panel:
         self.ext = R + (COLLAR if collar else 0) + pad
         self.cen = {i: self.centre(i) for i in range(len(m.F))}
         self.box = [-self.ext, -self.ext, self.ext, self.ext]
+        self.obs = []        # drawn objects as sample disks (x, y, radius), layout units
+        self.placed = []     # vertex labels placed by vertices(): (v, offset, clearance in pt, moved)
+        self.shaded = False
+
+    # obstacles: what a vertex label must stay clear of -------------------------
+    def u(self, points):
+        """TeX points to layout units."""
+        return points * PT / self.unit
+
+    def ob_disc(self, p, r_pt):
+        self.obs.append((float(p[0]), float(p[1]), self.u(r_pt)))
+        return self
+
+    def ob_seg(self, p, q, w_pt):
+        p, q = np.asarray(p, float), np.asarray(q, float)
+        for t in np.linspace(0, 1, max(2, int(np.hypot(*(q - p)) / 0.04) + 2)):
+            self.ob_disc(p + t * (q - p), w_pt / 2)
+        return self
+
+    def ob_edge(self, a, b, w_pt):
+        """The edge ab of T, drawn with line width w_pt."""
+        if not self.outer(a, b):
+            return self.ob_seg(self.xy[a], self.xy[b], w_pt)
+        t1, t2 = math.radians(ang(self.xy[a])), math.radians(ang(self.xy[b]))
+        d = (t2 - t1 + math.pi) % (2 * math.pi) - math.pi
+        for t in np.linspace(0, 1, int(abs(d) * self.R / 0.04) + 2):
+            self.ob_disc(self.R * np.array([math.cos(t1 + t * d), math.sin(t1 + t * d)]), w_pt / 2)
+        return self
+
+    def ob_curve(self, pieces, w_pt):
+        for a, b, c, d in pieces:
+            for t in np.linspace(0, 1, 30):
+                self.ob_disc((1-t)**3*a + 3*(1-t)**2*t*b + 3*(1-t)*t*t*c + t**3*d, w_pt / 2)
+        return self
+
+    def grey(self, p):
+        """Is the point p on a shaded region (a black face or the collar)?"""
+        if not self.shaded:
+            return False
+        rad = float(np.hypot(*p))
+        if rad >= self.R:
+            return self.collar and rad <= self.R + COLLAR
+        for i in self.m.black:
+            if i == self.m.t0:
+                continue
+            f = self.m.F[i]
+            inside = True
+            for a, b in zip(f, f[1:] + f[:1]):
+                if self.outer(a, b):
+                    continue
+                e, o = self.xy[b] - self.xy[a], self.xy[a]
+                if (e[0] * (p[1] - o[1]) - e[1] * (p[0] - o[0])) * (e[0] * (self.cen[i][1] - o[1]) - e[1] * (self.cen[i][0] - o[0])) <= 0:
+                    inside = False
+                    break
+            if inside:
+                return True
+        return False
+
+    def label_clear(self, c, hw, hh):
+        """Clearance in layout units of the box with centre c and half sizes hw, hh from all obstacles."""
+        o = np.array(self.obs)
+        dx = np.maximum(np.abs(o[:, 0] - c[0]) - hw, 0)
+        dy = np.maximum(np.abs(o[:, 1] - c[1]) - hh, 0)
+        return float(np.min(np.hypot(dx, dy) - o[:, 2]))
+
+    def place_label(self, v, default):
+        """Offset of the label of vertex v: the default if it is clear, else the best free spot.
+
+        The label box (8pt digits with the halo) should keep LABEL_CLEAR points from every
+        registered object, lie on white, and stay as near the vertex as that allows.
+        """
+        hw, hh = self.u(2.125 * len(str(v)) + 0.9), self.u(2.6 + 0.9)
+        want, o = self.u(LABEL_CLEAR), self.xy[v]
+        default = np.array(default, float)
+
+        def look(off):
+            c = o + off
+            g = any(self.grey(c + np.array(q)) for q in [(0, 0), (hw, hh), (-hw, hh), (hw, -hh), (-hw, -hh)])
+            return self.label_clear(c, hw, hh), g
+        cl, g = look(default)
+        off, moved = default, False
+        if cl < want or g:
+            moved, cands = True, []
+            for dcm in np.arange(0.20, 0.72, 0.02):
+                for th in np.arange(0, 360, 5):
+                    q = dcm / self.unit * np.array([math.cos(math.radians(th)), math.sin(math.radians(th))])
+                    c2, g2 = look(q)
+                    drift = float(np.hypot(*(q - default))) * self.unit
+                    val = min(c2, want) - 4 * max(0, self.u(LABEL_MIN + .05) - c2) - (self.u(0.55) if g2 else 0) - self.u(0.4) * dcm / 0.2 - self.u(0.05) * drift
+                    cands.append((val, c2, tuple(q)))
+            val, cl, q = max(cands)
+            off = np.array(q)
+        c = o + off
+        for x in np.linspace(-hw, hw, 5):          # later labels keep clear of this one
+            for y in np.linspace(-hh, hh, 4):
+                self.ob_disc(c + np.array([x, y]), 0)
+        self.placed.append((v, [round(float(z), 3) for z in off], round(cl / self.u(1), 2), moved))
+        return off
 
     # geometry ---------------------------------------------------------------
     def arcmid(self, a, b):
@@ -150,6 +254,9 @@ class Panel:
 
     def base(self, shade=True, tint=None):
         m, R = self.m, self.R
+        self.shaded = shade
+        for a, b in m.E:
+            self.ob_edge(a, b, .4)
         if self.collar and shade:
             self.add(rf'\fill[bfblack,even odd rule] (0,0) circle[radius={R + COLLAR}] (0,0) circle[radius={R}];')
         for i in m.black:
@@ -164,6 +271,9 @@ class Panel:
         return self
 
     def vertices(self, classes=None, labels=False, skip=(), label_only=None):
+        """Vertex marks and, with labels, their numbers. Call it after every other layer,
+        because the labels are placed against the objects registered so far."""
+        todo = []
         for v in self.m.V:
             p = pt(self.xy[v])
             if v in skip:
@@ -172,18 +282,30 @@ class Panel:
                 k = 0 if v in classes[0] else 1
                 if k == 0:
                     self.add(rf'\fill {p} circle[radius=2.6pt];')
+                    self.ob_disc(self.xy[v], 2.6)
                 else:
                     self.add(rf'\draw[fill=white,line width=.8pt] ($ {p}+(-2.3pt,-2.3pt) $) rectangle ($ {p}+(2.3pt,2.3pt) $);')
+                    self.ob_disc(self.xy[v], 3.6)
             elif v in self.roots:
                 self.add(rf'\draw[bf root] {p} circle[radius=2.3pt];')
+                self.ob_disc(self.xy[v], 2.65)
             else:
                 self.add(rf'\fill[bf vertex] {p} circle[radius=1.4pt];')
+                self.ob_disc(self.xy[v], 1.4)
             if labels and (label_only is None or v in label_only):
-                d = self.xy[v] / max(np.hypot(*self.xy[v]), 1e-9)
-                off = d * (0.62 if v in self.roots else 0.5)
-                if isinstance(labels, dict) and v in labels:
-                    off = np.array(labels[v])
-                self.add(rf'\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at {pt(self.xy[v] + off)} {{${v}$}};')
+                todo.append(v)
+        for v in todo:
+            d = self.xy[v] / max(np.hypot(*self.xy[v]), 1e-9)
+            off = d * (0.62 if v in self.roots else 0.5)
+            if isinstance(labels, dict) and v in labels:
+                off = np.array(labels[v])
+            if v in self.roots and self.collar and self.shaded:
+                # a root label goes outside the collar, so that its halo does not cut into it
+                off = d * (COLLAR + abs(d[0]) * self.u(2.125 * len(str(v)) + 0.9) + abs(d[1]) * self.u(2.6 + 0.9) + self.u(LABEL_CLEAR + 1))
+                self.placed.append((v, [round(float(z), 3) for z in off], None, False))
+            else:
+                off = self.place_label(v, off)
+            self.add(rf'\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at {pt(self.xy[v] + off)} {{${v}$}};')
         return self
 
     def wedge(self, t, v, style):
@@ -196,6 +318,9 @@ class Panel:
         alt = abs((p - o)[0] * (q - o)[1] - (p - o)[1] * (q - o)[0]) / np.hypot(*(q - p))
         rho = min(0.4 * min(np.hypot(*(p - o)), np.hypot(*(q - o))), 0.7 * alt, 0.85 * math.sqrt(60 / sweep))
         rho = max(rho, 0.42)
+        for rr in np.arange(rho, 0.02, -0.05):
+            for th in np.linspace(a1, a1 + sweep, int(sweep / 360 * 2 * math.pi * rr / 0.04) + 2):
+                self.ob_disc(o + rr * np.array([math.cos(math.radians(th)), math.sin(math.radians(th))]), 1.0)
         self.add(rf'\begin{{scope}}\clip {self.face_path(t)};\path[{style}] {pt(o)} -- ++({a1:.2f}:{rho:.3f}) arc[start angle={a1:.2f},end angle={a1 + sweep:.2f},radius={rho:.3f}] -- cycle;\end{{scope}}')
         return self
 
@@ -208,16 +333,21 @@ class Panel:
     def arrows(self, arcs, style='bf D'):
         for a, b in arcs:
             self.add(rf'\draw[{style}] {pt(self.xy[a])} -- {pt(self.xy[b])};')
+            self.ob_seg(self.xy[a], self.xy[b], 1.7 if '1.7pt' in style else 1.1)
+            e = self.xy[a] - self.xy[b]
+            self.ob_disc(self.xy[b] + self.u(4.5) * e / np.hypot(*e), 3.0)      # the arrowhead
         return self
 
     def lines(self, edges, style):
         for a, b in edges:
             self.add(rf'\draw[{style}] {self.edge_path(a, b)};')
+            self.ob_edge(a, b, 1.6 if style in ('bf P', 'bf kept') else 1.1)
         return self
 
     def graphG(self, style='bf G', edges=None, dots=True):
         for g in (edges if edges is not None else self.m.G.edges()):
             self.add(rf'\draw[{style}] {self.dual_path(und(*g))};')
+            self.ob_curve(self.dual_curves(und(*g)), 1.3 if style == 'bf cycle' else .3)
         if dots:
             self.dotsG()
         return self
@@ -226,6 +356,7 @@ class Panel:
         for i in self.m.G:
             fill = 'black' if i in self.m.black else 'white'
             self.add(rf'\draw[line width=.5pt,fill={fill}] {pt(self.cen[i])} circle[radius={radius}pt];')
+            self.ob_disc(self.cen[i], radius + .25)
         return self
 
     def spokes(self, deleted=None, style='bf spoke', kept='bf kept', outer=False, centres=True):
@@ -239,6 +370,7 @@ class Panel:
                 if st is None:
                     continue
                 self.add(rf'\draw[{st}] {pt(self.cen[t])} -- {pt(self.xy[v])};')
+                self.ob_seg(self.cen[t], self.xy[v], 1.1)
         if outer and kept:
             rr = self.R + RING
             for v in m.roots:
@@ -255,21 +387,31 @@ class Panel:
         m = self.m
         for t, x in zip(m.A, s):
             self.add(r'\draw[bf wtree] ' + self.curve_tex(self.white_curves(rec,t,x)) + ';')
+            self.ob_curve(self.white_curves(rec,t,x), 1.1)
         for w in m.white:
             self.add(rf'\draw[draw=bfW,fill=white,line width=.8pt] {pt(self.cen[w])} circle[radius=2pt];')
+            self.ob_disc(self.cen[w], 2.4)
         y = self.cen[rec['y0']]
+        self.ob_disc(y, 4.0)
         self.add(rf'\draw[draw=bfW,line width=.8pt] {pt(y)} circle[radius=3.6pt];')
         return self
 
-    def label(self, p, text, opts=''):
+    def label(self, p, text, opts='', clear=4.0):
+        """A free label at p. Vertex labels keep `clear` points away from p (None: not registered)."""
         self.add(rf'\node[{opts}] at {pt(p)} {{{text}}};')
+        if clear is not None:
+            self.ob_disc(p, clear)
         return self
 
     def tex(self):
+        Panel.done.append(self.placed)
         x0, y0, x1, y1 = self.box
         head = [rf'\begin{{tikzpicture}}[bf,x={self.unit}cm,y={self.unit}cm]',
                 rf'\path[use as bounding box] ({x0:.2f},{y0:.2f}) rectangle ({x1:.2f},{y1:.2f});']
         return '\n'.join(head + self.out + [r'\end{tikzpicture}'])
+
+
+Panel.done = []
 
 
 def row(panels, labels, sep='2mm'):
@@ -285,6 +427,8 @@ FIGS = []
 
 def fig(name, body, caption, note):
     FIGS.append((name, body, caption, note))
+    LABEL_LOG[name] = [pl for pl in Panel.done if pl]     # the panels drawn since the previous figure
+    Panel.done = []
 
 
 # ---------------------------------------------------------------------------
@@ -351,7 +495,7 @@ def make():
         'G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 13')
 
     # 03 the dual triangulation ----------------------------------------------------
-    a = P(unit=.78).base().graphG(dots=False).dotsG(radius=1.1).vertices(labels=LBL).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
+    a = P(unit=.9).base().graphG(dots=False).dotsG(radius=1.1).vertices(labels=LBL).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
     fig('03-dual', a,
         r'The dual triangulation $T$ of the running example, with $G$ in grey. Each vertex of $G$ sits in a face of $T$ and each edge of $G$ crosses one edge of $T$. '
         r'Shaded faces are black. The outer face $t_0$ is black as well, which the grey collar shows, and the vertex of $G$ inside it is drawn below. '
@@ -406,46 +550,58 @@ def make():
         r'A state is a perfect matching of this graph. The solid spokes are $s$ from (a). The double spokes are a second state $r$ that differs from $s$ at every triangle. Together they have degree two at every square and every dot.',
         's and r = the displayed pair (check.running)')
 
-    # 06 the flow network for Proposition 3.1 -------------------------------------------
-    order_x, order_t = [], []
-    tf = {(a_, b_): t for t, a_, b_ in zip(m.A, r, s)}
-    for k in run['D_cycles']:
-        c = k['cycle']
-        for a_, b_ in zip(c, c[1:] + c[:1]):
-            order_x.append(a_)
-            order_t.append(tf[a_, b_])
-    n = len(order_x)
-    yx = {v: (n - 1 - i) * 0.62 for i, v in enumerate(order_x)}
-    yt = {t: (n - 1 - i) * 0.62 - 0.31 for i, t in enumerate(order_t)}
-    L = [r'\begin{tikzpicture}[bf,x=1cm,y=1cm]']
-    ys, xs0, xx, xa, xt = (n - 1) * 0.31 - 0.15, 0.0, 2.6, 6.0, 9.0
-    L.append(rf'\fill[black!8] ({xs0-.12},{ys-.18}) -- ({xx-.2},{yx[2]-.25}) -- ({xx+.18},{yx[2]-.25}) -- ({xx+.18},{yx[2]+.25}) -- ({xx-.2},{yx[2]+.25}) -- ({xs0-.12},{ys+.18}) -- cycle;')
-    for v in order_x:
-        L.append(rf'\draw[draw=black!55,line width=.9pt] ({xs0},{ys}) -- ({xx},{yx[v]:.2f});')
-    for t in order_t:
-        L.append(rf'\draw[draw=black!55,line width=.9pt] ({xt},{ys}) -- ({xa},{yt[t]:.2f});')
-    for t in m.A:
-        for v in m.F[t]:
-            if v in X:
-                L.append(rf'\draw[bf spoke] ({xx},{yx[v]:.2f}) -- ({xa},{yt[t]:.2f});')
-    for t, v, w in zip(m.A, r, s):
-        L.append(rf'\draw[draw=bfR,line width=1.3pt,double=white,double distance=.7pt] ({xx},{yx[v]:.2f}) -- ({xa},{yt[t]:.2f});')
-        L.append(rf'\draw[draw=bfS,line width=1.5pt] ({xx},{yx[w]:.2f}) -- ({xa},{yt[t]:.2f});')
-    for v in order_x:
-        L.append(rf'\fill ({xx},{yx[v]:.2f}) circle[radius=1.5pt]; \node[anchor=east,fill=white,inner sep=2pt] at ({xx},{yx[v]:.2f}) {{${v}$}};')
-    for t in order_t:
-        L.append(rf'\fill ({xa},{yt[t]:.2f}) ++(-2pt,-2pt) rectangle ++(4pt,4pt); \node[anchor=east,fill=white,inner sep=2pt,xshift=-4pt] at ({xa},{yt[t]:.2f}) {{$\{{{",".join(map(str, sorted(m.F[t])))}\}}$}};')
-    L += [rf'\draw[fill=white,line width=.6pt] ({xs0},{ys}) circle[radius=3pt]; \draw[fill=white,line width=.6pt] ({xt},{ys}) circle[radius=3pt];',
-          rf'\node[anchor=east,inner sep=5pt] at ({xs0},{ys}) {{source}}; \node[anchor=west,inner sep=5pt] at ({xt},{ys}) {{sink}};',
-          rf'\node[fill=white] at ({(xs0+xx)/2},{(ys+yx[order_x[0]])/2}) {{$2$}}; \node[fill=white] at ({(xx+xa)/2},{(yx[order_x[0]]+yt[order_t[0]])/2}) {{$1$}}; \node[fill=white] at ({(xa+xt)/2},{(ys+yt[order_t[0]])/2}) {{$2$}};',
-          rf'\node at ({xx},{-0.95}) {{vertices $X$}}; \node at ({xa + .35},{-0.95}) {{black triangles $A$}};',
-          r'\end{tikzpicture}']
+    # 06 the flow network of Section 5 --------------------------------------------------
+    # Four columns: source, X, A, sink. Rows, flow and tight set come from check.running()['flow'].
+    fl = run['flow']
+    xrow, trow = fl['xrow'], fl['trow']
+    PITCH, XS, XX, XA, XT = 0.60, 0.0, 2.7, 6.9, 9.8
+    rows = max(xrow.values())
+    yrow = lambda q: (rows - q) * PITCH
+    ymid = rows * PITCH / 2
+    fname = lambda t: r'{\cdot}'.join(map(str, sorted(m.F[t])))
+    L = [r'\begin{tikzpicture}[bf,x=1cm,y=1cm,',
+         r'  xn/.style={circle,draw=black,line width=.5pt,fill=white,minimum size=13.5pt,inner sep=0pt},',
+         r'  tn/.style={rectangle,rounded corners=1.2pt,draw=black!62,line width=.4pt,fill=bfblack,minimum height=12.5pt,minimum width=33pt,inner sep=1.5pt},',
+         r'  term/.style={circle,draw=black,line width=.6pt,fill=white,minimum size=7pt,inner sep=0pt},',
+         r'  fcap/.style={draw=black!45,line width=.5pt},',
+         r'  fnone/.style={draw=black!28,line width=.35pt},',
+         r'  fbeta/.style={draw=bfR,line width=1.3pt,double=white,double distance=.7pt},',
+         r'  falpha/.style={draw=bfS,line width=1.5pt}]']
+    L.append(rf'\node[term] (so) at ({XS},{ymid:.3f}) {{}}; \node[term] (si) at ({XT},{ymid:.3f}) {{}};')
+    for v, q in xrow.items():
+        L.append(rf'\node[xn] (x{v}) at ({XX},{yrow(q):.3f}) {{${v}$}};')
+    for t, q in trow.items():
+        L.append(rf'\node[tn] (t{t}) at ({XA},{yrow(q):.3f}) {{${fname(t)}$}};')
+    for v in fl['S']:                                  # the tight set, ringed
+        L.append(rf'\node[circle,draw=black,line width=1.1pt,minimum size=18.5pt,inner sep=0pt] (S{v}) at (x{v}) {{}};')
+    for v in xrow:
+        L.append(rf'\draw[fcap] (so) -- (x{v});')
+    for t in trow:
+        L.append(rf'\draw[fcap] (t{t}.east) -- (si);')
+    for v, t in fl['noflow']:
+        L.append(rf'\draw[fnone] (x{v}) -- (t{t});')
+    for v, t in fl['first']:
+        L.append(rf'\draw[fbeta] (x{v}) -- (t{t});')
+    for v, t in fl['second']:
+        L.append(rf'\draw[falpha] (x{v}) -- (t{t});')
+    top = yrow(0) + 0.52
+    L.append(rf'\node[anchor=base] at ({XS},{top}) {{source}}; \node[anchor=base] at ({XX},{top}) {{vertices $X$}}; '
+             rf'\node[anchor=base] at ({XA},{top}) {{black triangles $A$}}; \node[anchor=base] at ({XT},{top}) {{sink}};')
+    bot = -0.66
+    L.append(rf'\node[anchor=base] at ({(XS+XX)/2},{bot}) {{capacity $2$}}; \node[anchor=base] at ({(XX+XA)/2},{bot}) {{capacity $1$}}; '
+             rf'\node[anchor=base] at ({(XA+XT)/2},{bot}) {{capacity $2$}};')
+    for v in fl['S']:
+        L.append(rf'\node[anchor=east] at ($(S{v}.west)+(-.42,.30)$) {{$S=\{{{v}\}}$}};')
+    ky = bot - 0.5
+    L.append(rf'\draw[fbeta] (0.15,{ky}) -- ++(.8,0) node[anchor=west,xshift=3pt] {{flow $1$, state $\beta$}};')
+    L.append(rf'\draw[falpha] (3.55,{ky}) -- ++(.8,0) node[anchor=west,xshift=3pt] {{flow $1$, state $\alpha$}};')
+    L.append(rf'\draw[fnone] (6.95,{ky}) -- ++(.8,0) node[anchor=west,xshift=3pt] {{no flow}};')
+    L.append(r'\end{tikzpicture}')
     fig('06-flow', '\n'.join(L),
-        r'Why a pair exists. Send flow from the source through the vertices and the black triangles of Figure 5(b) to the sink. '
-        r'A source or sink edge carries at most $2$ and an incidence carries at most $1$. An integral flow of value $2|X|=20$ uses two incidences at every vertex and at every triangle. '
-        r'These are the double and the solid edges, and they alternate along cycles, so they split into two disjoint states $r$ and $s$. '
-        r'Such a flow exists if every set $S$ of vertices satisfies $\sum_t \min(2,|V(t)\cap S|)\ge 2|S|$. Here equality holds for $S=\{2\}$, a vertex in only two black triangles.',
-        'incidence graph of running.json; cut inequality (3.1) checked for all 1024 subsets S')
+        r'The flow network of the running example in four columns. Every edge from the source and every edge to the sink has capacity $2$ and carries $2$; an incidence has capacity $1$. '
+        r'The incidences that carry flow are the first state $\beta$ (double) and the second state $\alpha$ (solid); the thin ones carry none. '
+        r'The ringed set $S=\{2\}$ is tight.',
+        'check.running()["flow"]: explicit flow, max flow, tight cut and the folded row order, all asserted')
 
     # 07 one pair panel; retain the checked data and encoding.
     b = P(unit=.70).base().state(r, 'bf r').state(s).arrows(m.D(r, s), 'bf D,-{Stealth[length=6pt,width=4.8pt]}').vertices(labels=LBL).tex()
@@ -468,9 +624,10 @@ def make():
         if np.dot(pd.cen[m.black_face(a_, b_)] - mid, nrm) > 0:
             nrm = -nrm
         pd.label(mid + 0.42 * nrm, r'$\ell$', 'text=bfS,fill=white,inner sep=.8pt')
-    pd.vertices(labels=LBL)
     for v in k['interior']:
         pd.add(rf'\draw[line width=.7pt] {pt(xy[v])} circle[radius=3.4pt];')
+        pd.ob_disc(xy[v], 3.75)
+    pd.vertices(labels=LBL)
     side = (r'\begin{tabular}{@{}l@{}}'
             rf'$h={k["h"]}$ arrows on the cycle\\[1mm]'
             rf'$I={k["I"]}$ vertices inside (ringed)\\[1mm]'
@@ -632,7 +789,7 @@ def make():
     '03-dual': r'Pass from $G$ to $T=G^*$. Grey edges join face centres across their corresponding edges of $T$. Shaded faces are black, including the outer face $t_0$ shown by the collar. The hollow roots are $0,4,5$; the $10$ bounded black faces match the $10$ nonroot vertices.',
     '04-local': r'Read the two choices inside one black triangle $t$. The outlined corner is $r(t)$, the solid corner is $s(t)$, and the third is $u(t)$. The solid arrow is $D$, while the dashed opposite side is $Q_s$. In (b), replacing the edge by two spokes gives weight $a(t,s(t))-a(t,r(t))$ and excludes $u(t)$ from the tinted subdisk.',
     '05-state': r'A state is a perfect matching between the bounded black triangles $A$ and the nonroot vertices $X$. In (a), each solid choice belongs to its shaded triangle. In (b), the same choices are solid incidence edges; the double edges give the disjoint state $r$. Together $r+s$ has degree two at every square and dot.',
-    '06-flow': r'The incidence flow supplies a pair. Source and sink edges have capacity $2$; incidence edges have capacity $1$. The displayed integral flow has value $2|X|=20$. Its used incidences have degree two at every vertex and triangle, so alternating along cycles splits them into states $r,s$. The cut inequality is tight at $S=\{2\}$.',
+    '06-flow': r'The incidence flow supplies a pair. Capacities are $2$ at the source and the sink and $1$ on an incidence. The displayed integral flow has value $2|X|=20$ and uses two incidences at every vertex and every triangle, one of the state $\beta$ (double) and one of $\alpha$ (solid). The thin incidences carry no flow. The cut inequality is tight at the ringed set $S=\{2\}$.',
     '08-disk': r'Count the tinted disk of the long $D$-cycle. It contains $B=5$ black faces, $W=6$ white faces and $I=3$ ringed vertices. Each outlined choice lies at an interior vertex or at the tail of a marked boundary arrow, giving $B=I+\ell$. Combine this with the two face counts to get $2\ell-h=-3$.',
     '09-Q': r'The opposite sides distinguish failure from success. (a) The state $\alpha$ gives a cycle of $Q_\alpha$ around the white triangle $1,8,9$. (b) The state $\beta$ gives a forest with one root per component. Recovery uses the pair $(\alpha,\beta)$.',
     '10-cancellation': r'Keep $\alpha$ fixed and reverse the heavy dashed cycle of $Q_\alpha$. Only the outlined choices move, from $\beta$ to $\tilde\beta$; the solid choices stay. Three local signs flip, so $\varepsilon$ changes sign and the two pairs cancel in any sum weighted by a function of the second state.',
@@ -711,9 +868,11 @@ Separating triangles are handled by cutting and gluing with a prescribed edge, a
             # A straight segment between successive gates stays in their common face.
         pts.append(pts[-1] * (R + COLLAR * 0.85) / np.hypot(*pts[-1]))
         p.add(r'\draw[bf wtree,-{Stealth[length=4.5pt,width=4pt]}] ' + ' -- '.join(pt(q) for q in pts) + ';')
+        for q1, q2 in zip(pts, pts[1:]):
+            p.ob_seg(q1, q2, 1.1)
         for t, (v, sg) in turns.items():
             q = xy[v] + 0.5 * (p.cen[t] - xy[v])
-            p.label(q, rf'${"+" if sg > 0 else "-"}$', 'fill=white,draw=bfW,circle,inner sep=.3pt,line width=.5pt,minimum size=9pt')
+            p.label(q, rf'${"+" if sg > 0 else "-"}$', 'fill=white,draw=bfW,circle,inner sep=.3pt,line width=.5pt,minimum size=9pt', clear=5.2)
         p.label(p.cen[y] + np.array([0.05, -0.05]), r'$y$', 'fill=white,inner sep=.8pt')
         return p.vertices(labels=LBL).tex()
     arcs_cw = [(b_, a_) for a_, b_ in on]
@@ -766,6 +925,11 @@ def write():
             g.append(r'\clearpage')
     g.append(r'\end{document}')
     (HERE / 'gallery.tex').write_text('\n'.join(g) + '\n', encoding='utf-8')
+    low = [(n, pl) for n, panels in LABEL_LOG.items() for panel in panels for pl in panel if pl[2] is not None and pl[2] < LABEL_MIN]
+    (HERE / 'label-placement.json').write_text(json.dumps(dict(
+        note='vertex labels per figure and panel: [vertex, offset in layout units, clearance in pt from every registered object (null: root label outside the collar), moved from its default]',
+        want_pt=LABEL_CLEAR, min_pt=LABEL_MIN, figures=LABEL_LOG), indent=1), encoding='utf-8')
+    assert not low, f'vertex labels closer than {LABEL_MIN}pt to a drawn object: {low}'
     (HERE / 'captions.json').write_text(json.dumps({n: dict(caption=c, drawn_from=note) for n, _, c, note in FIGS}, indent=1), encoding='utf-8')
     print('wrote', len(FIGS), 'figures')
 
