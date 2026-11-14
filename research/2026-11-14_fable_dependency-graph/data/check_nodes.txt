@@ -23,6 +23,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == double wheel rim 6
@@ -50,6 +51,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == double wheel rim 8
@@ -77,6 +79,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == double wheel rim 10
@@ -104,6 +107,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == double wheel rim 12
@@ -131,6 +135,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == barycentric K4 (dual truncated octahedron)
@@ -158,6 +163,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      2 of 2
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 4)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == DW6 + octahedron in a white face (white inner)
@@ -185,6 +191,7 @@
    max_cycles                             2
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == DW6 + octahedron in a black face, t0 outside (black inner)
@@ -227,6 +234,7 @@
    max_cycles                             2
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == DW8 + octahedron in a white face
@@ -254,6 +262,7 @@
    max_cycles                             2
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == DW8 + two white octahedra
@@ -281,6 +290,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {3: (0, 8)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == barycentric octahedron
@@ -308,6 +318,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      11 of 11
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 22)}
+   twisted_incidence_det_N_s              True
 == octahedron, each face split in four, t0=0
    n                                      15
    euler                                  True
@@ -333,6 +344,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      0 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == octahedron, each face split in four, t0=1
@@ -360,6 +372,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      0 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == octahedron, each face split in four, t0=2
@@ -387,6 +400,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      0 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == DW6, each face split in four
@@ -414,6 +428,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      0 of 3
    pairs_by_cycle_count_(cyclic,tree)     {1: (16, 0), 3: (40, 56)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=1 steps=3 t0=0
    n                                      9
    euler                                  True
@@ -439,6 +454,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=1 steps=3 t0=3
@@ -466,6 +482,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (1, 1), 3: (1, 7)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=2 steps=4 t0=0
@@ -493,6 +510,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=2 steps=4 t0=3
@@ -520,6 +538,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=3 steps=5 t0=0
@@ -547,6 +566,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=3 steps=5 t0=3
@@ -574,6 +594,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=4 steps=6 t0=0
@@ -601,6 +622,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=4 steps=6 t0=3
@@ -628,6 +650,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
    multilinear_det_identity               True
    cancellation_leaves_tree_pairs         True
 == random vertex splits seed=5 steps=7 t0=0
@@ -655,6 +678,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=5 steps=7 t0=3
    n                                      17
    euler                                  True
@@ -680,6 +704,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=6 steps=8 t0=0
    n                                      19
    euler                                  True
@@ -705,6 +730,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=6 steps=8 t0=3
    n                                      19
    euler                                  True
@@ -730,6 +756,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=7 steps=8 t0=0
    n                                      19
    euler                                  True
@@ -755,6 +782,7 @@
    max_cycles                             3
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (1, 1), 3: (1, 7)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=7 steps=8 t0=3
    n                                      19
    euler                                  True
@@ -780,6 +808,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=8 steps=9 t0=0
    n                                      21
    euler                                  True
@@ -805,6 +834,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=8 steps=9 t0=3
    n                                      21
    euler                                  True
@@ -830,6 +860,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=9 steps=9 t0=0
    n                                      21
    euler                                  True
@@ -855,6 +886,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=9 steps=9 t0=3
    n                                      21
    euler                                  True
@@ -880,6 +912,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=10 steps=10 t0=0
    n                                      23
    euler                                  True
@@ -905,6 +938,7 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True
 == random vertex splits seed=10 steps=10 t0=3
    n                                      23
    euler                                  True
@@ -930,3 +964,4 @@
    max_cycles                             1
    components_with_tree_pair_at_cmin      1 of 1
    pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   twisted_incidence_det_N_s              True

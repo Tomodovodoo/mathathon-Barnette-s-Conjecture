@@ -609,6 +609,24 @@ def analyse(name, faces, col, t0, state_cap=200000, pair_cap=60000, det_n=15):
     for J, c, tr in info:
         hist.setdefault(c, [0, 0])[tr] += 1
     rep["pairs_by_cycle_count_(cyclic,tree)"] = dict(sorted((c, tuple(v)) for c, v in hist.items()))
+    # skeleton.md C1: twisted incidence determinant of Q_s
+    zeta = cmath.exp(1j * cmath.pi / 6)
+    by_s = {}
+    for k0, (r, st) in enumerate(pairs):
+        by_s.setdefault(key(st), []).append(k0)
+    c1_ok = True
+    for ks, members in by_s.items():
+        st = pairs[members[0]][1]
+        N = np.zeros((n, n), dtype=complex)
+        for jt, t in enumerate(T.A):
+            for v in T.faces[t]:
+                if v not in T.R and v != st[t]:
+                    N[T.X.index(v), jt] = zeta ** T.delta(v, st[t])
+        kappa = T.perm_sign(pairs[members[0]][0])
+        want = kappa * sum((1j) ** info[k][0] for k in members)
+        c1_ok &= abs(np.linalg.det(N) - want) < 1e-6
+        c1_ok &= (abs(want) < 1e-9) == (not is_tree(st))
+    rep["twisted_incidence_det_N_s"] = c1_ok
     if n <= det_n:                           # skeleton.md lead L1
         a = {(t, v): random.uniform(0.5, 1.5) for t in T.A for v in T.faces[t]}
         w = [(1j) ** info[k][0] * np.prod([a[(t, pairs[k][1][t])] for t in T.A])
