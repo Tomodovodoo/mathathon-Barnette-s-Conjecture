@@ -1,4 +1,4 @@
 links checked: 109
 words (prose, link targets removed): 5411
 sections: 12
-PROBLEM sentence out of date, expected: '15 pages. The whole proof'
+no problem found

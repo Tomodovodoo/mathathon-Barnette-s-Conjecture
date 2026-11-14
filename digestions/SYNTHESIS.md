@@ -29,7 +29,7 @@ Nobody knows how to point to a good state, so the proof counts. A pair is two st
 | Product | What it is, and its review status |
 |---|---|
 | [Main paper](../paper/main/barnette.pdf) | Version 2, 20 pages: target, corner choices, disk identity, signed count, first pair, gluing. Refereed in both versions. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is kept. |
-| [Primal companion](../proofs/primal/primal.pdf) | 16 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
+| [Primal companion](../proofs/primal/primal.pdf) | 15 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 pages. Li's argument for general $m$, written out as two sign-reversing involutions. Refereed twice. |
 | [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean, with a status for each. Rebuilt on version 2 with the Lean audit's verdicts. The judgements are one model's reading. |
 | [Lean devices](../proofs/lean/README.md) | 866 lines of Lean on top of OpenAI's proof: the paper's sign, the cancellation in the case the proof uses, the finite difference and the nonvanishing step, with Lean's flow weights in place of heights. Rebuilt and audited by Astra. |
