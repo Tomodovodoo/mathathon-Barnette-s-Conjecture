@@ -1,5 +1,7 @@
 # 04. The disk identity
 
+Where this step lives elsewhere. Paper: Lemma 3.7 (outdegree), the paragraph "The inside of a cycle" and Lemma 3.8 of [`barnette.pdf`](../../paper/main/barnette.pdf), with Figure 6. Primal note: Lemma 5, the cut-side identity, in [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "Bond; root-free shore" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md); Lean `state_disk_count`). Blueprint nodes `lem:outdegree`, `txt:inside`, `lem:disk` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md); the identity has a Lean counterpart on the cubic graph, the translation from disks to bonds is informal. Atlas: page 3, [the disk identity, three ways](../atlas/pages/03-disk.pdf).
+
 ## What we want at this point and why
 
 Steps 05 and 06 attach a sign to every pair of states and need to know how that sign changes when a cycle is reversed. Step 07 needs to know that a certain edge set has no cycle. All three rest on one counting fact about cycles whose edges leave the corners chosen by a state. This step proves that fact, shows which part of it each later step uses, and shows what goes wrong without the bijection.
@@ -16,7 +18,7 @@ For adjacent vertices $v, w$ let $\delta(v,w) = +1$ if the black face on the edg
 
 Let $r$ be a state. A chosen edge system for $r$ picks, in every $t \in A$, one of the two sides of $t$ at $r(t)$ and directs it away from $r(t)$.
 
-**Lemma** (disk identity; OpenAI Lemma 4.1, Li Claim 25, trees paper Lemma 4.1). Let $C$ be a simple directed cycle in a chosen edge system for a state $r$. Let $h$ be its length. Then $C$ contains no root and encloses no root. In the disk bounded by $C$ let $B$ and $W$ be the numbers of black and white faces and $\ell$ the number of edges of $C$ whose black face is inside. Then
+**Lemma** (disk identity; paper Lemma 3.8, OpenAI Lemma 4.1, Li Claim 25, trees paper Lemma 4.1). Let $C$ be a simple directed cycle in a chosen edge system for a state $r$. Let $h$ be its length. Then $C$ contains no root and encloses no root. In the disk bounded by $C$ let $B$ and $W$ be the numbers of black and white faces and $\ell$ the number of edges of $C$ whose black face is inside. Then
 
 $$W = B + 1, \qquad h - 2\ell = 3.$$
 
@@ -26,7 +28,9 @@ Consequently
 - $h$ is odd,
 - the disk contains at least one white face.
 
-The first form, with $\pm 3$, is how the OpenAI paper states it. The second form, $W = B+1$, is from `research/2026-11-14_fable_route-combinatorics/PROOF.md` and was confirmed by its referee. The two are equivalent by the count below.
+The first form, with $\pm 3$, is how the OpenAI paper states it. The second form, $W = B+1$, came out of this project (`research/2026-11-14_fable_route-combinatorics/PROOF.md`) and is now the paper's statement, refereed with it. The two are equivalent by the count below.
+
+Why is a cycle of chosen edges automatically directed? Every vertex has at most one outgoing chosen edge, so a cycle with $h$ edges has $h$ distinct tails on its $h$ vertices, and each vertex is the tail of one of its edges (paper Lemma 3.7). The same count says more: a connected piece with $\nu$ vertices, $\gamma$ of them without an outgoing edge, has $\nu - \gamma$ edges, so it is a tree with one sink or has exactly one cycle. Steps 03 and 07 use this.
 
 ## Proof, with each assumption named
 
@@ -48,7 +52,7 @@ Put $E = 3B + h - \ell$ into Count 3. The $h$ cancels and $I + \ell - 2B + W = 1
 
 *Signs.* Going counterclockwise the disk is on the left, so an edge of $C$ has $\delta = +1$ exactly when its black face is inside. The sum is $\ell - (h - \ell) = -3$. Clockwise it is $+3$. And $h = 2\ell + 3$ is odd. $\square$
 
-One point that the papers pass over quickly. The proof uses that the inside of $C$ is a disk whose faces and vertices can be counted by Euler's formula. In the Lean formalisation this costs about 500 lines (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, item 4 of its summary). On paper it is the Jordan curve theorem for a simple cycle in a plane graph.
+One point that the source papers pass over quickly. Count 3 is Euler's formula for the plane graph $R_C$ made of $C$ and everything of $T$ inside it, and Euler's formula needs $R_C$ to be connected. The paper says why it is. By the Jordan curve theorem the outside of $C$ is one face of $R_C$, bounded by $C$. Every other face of $R_C$ lies in a face of $T$ inside $C$, and every face of $T$ inside $C$ is a face of $R_C$, bounded by its triangle. So all faces of $R_C$ are bounded by cycles, and the connectivity lemma of step 02 (paper Lemma 2.2) makes $R_C$ connected. In the Lean formalisation the corresponding work costs about 500 lines (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, item 4 of its summary).
 
 The bounded disk always means the side away from the outer face. Reversing a traversal changes its delta-sum, but does not change B, W, I or the number of black-inside boundary edges.
 
@@ -56,7 +60,7 @@ The bounded disk always means the side away from the outer face. Reversing a tra
 
 **Octahedron.** For the pair $r = (5,3,4)$, $s = (3,4,5)$ the edges $r(t) \to s(t)$ are $5 \to 3$, $3 \to 4$, $4 \to 5$. They form the cycle $3 \to 4 \to 5 \to 3$ around the white face $(3,4,5)$, counterclockwise. Here $h = 3$, $\ell = 0$, $B = 0$, $W = 1$, $I = 0$. Each step has its black face on the right, so the $\delta$-sum is $-3$.
 
-**Running example.** One pair gives two cycles, drawn in the figures below. The long one is $2 \to 3 \to 9 \to 10 \to 11 \to 6 \to 1 \to 2$, counterclockwise.
+**Running example.** Take the pair $(\beta, \alpha)$ of the paper (Example 3.3: $\beta$ is the good state, $\alpha$ the state whose $Q$ has a cycle). Its edges $\beta(t) \to \alpha(t)$ form two cycles. The long one is $6 \to 1 \to 2 \to 3 \to 9 \to 10 \to 11 \to 6$, counterclockwise, and its arrows leave corners chosen by $\beta$.
 
 | Quantity | Value | Check |
 | --- | --- | --- |
@@ -68,23 +72,23 @@ The bounded disk always means the side away from the outer face. Reversing a tra
 | $E$ | 20 | $3B + h - \ell = 15 + 5$ and $3W + \ell = 18 + 2$ |
 | Euler | | $(3 + 7) - 20 + (5 + 6) = 1$ |
 
-The other cycle of that pair is the triangle $8 \to 12 \to 7$ with $B = 0$, $W = 1$. A second pair has the 7-cycle $7, 12, 8, 10, 11, 6, 1$ with $\ell = 2$, $I = 0$, $B = 2$, $W = 3$. The script asserts the identity on every cycle of every pair in every example of these digestions.
+The other cycle of that pair is the triangle $8 \to 7 \to 12 \to 8$, clockwise, with $h = 3$, $\ell = 0$, $B = 0$, $W = 1$ and $\delta$-sum $+3$. (An earlier version of this page wrote it as $8 \to 12 \to 7$, which is the counterclockwise orientation of another pair.) The pair $(\tilde\beta, \alpha)$ of step 05 has the counterclockwise 7-cycle $1 \to 7 \to 12 \to 8 \to 10 \to 11 \to 6 \to 1$ with $\ell = 2$, $I = 0$, $B = 2$, $W = 3$, and the triangle $9 \to 2 \to 3$. All these numbers were recomputed for this audit by `research/2026-11-14_opus_digestions-audit-2/code/recompute.py`, which asserts the identity and the sign convention on all 18 directed cycles of $D$ and $Q$ in the example.
 
-![Counting the disk of the long cycle](../../paper/figures/renders/08-disk.png)
+![Counting the disk of the long cycle (paper Figure 6)](../../paper/figures/renders/08-disk.png)
 
 ## What "odd" buys and what "three" buys
 
-The lemma is used in five places. Three of them need only that $h$ is odd, one needs the exact value, and one needs a white face inside.
+The lemma is used in five places in the paper. Two need only that $h$ is odd, two need the exact value, and one needs a white face inside.
 
 | Where | What is needed |
 | --- | --- |
-| Step 05, reversing a cycle of $Q_s$ flips the sign of a pair | $h$ odd |
-| Step 05, all states have the same permutation sign | $h$ odd |
-| Step 07, the selected edges contain no cycle | $h$ odd, or equally $W = B + 1$ |
-| Step 06, all groups with the fewest cycles contribute with the same sign | the exact value, $-3$ for counterclockwise and $+3$ for clockwise |
-| Step 06, the weights separate the two orientations of a cycle | $W \ge 1$ |
+| Step 05, both reversals flip the sign of a pair (paper Lemma 4.4, first half) | $h$ odd |
+| Step 05, all states have the same permutation sign (side remark) | $h$ odd |
+| Step 05 and 06, the sign of a pair is $(-1)^{(n+c)/2}(-1)^{c^+}$ (paper Lemma 4.4, second half), so all covers with the fewest cycles contribute with one sign | the exact value, $-3$ counterclockwise and $+3$ clockwise |
+| Step 07, the selection has no cycle (paper Proposition 3.9) | $W - B = 1$, against the $W - B = 3$ that a selected cycle would force. OpenAI's version needs only parity |
+| Step 06, reversing a cycle raises the weight (paper Lemma 4.6) | $W \ge 1$ |
 
-This split is section 4 of `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md`. It was written by the referee of the determinant reports and has had no second reader. I rechecked the first row in step 05 and the last two in step 06. An exposition can state the parity corollary first and keep the exact value for the one place that needs it.
+An earlier version of this table, taken from `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md`, said the exact value was needed once. In the paper it is used twice, and the recovery step uses the white-face count, though a parity argument would also do there.
 
 ## Three readings of the same fact
 
@@ -119,6 +123,7 @@ A state has $d = 0$. The example has $d = -1$. The example is `research/2026-11-
 
 ## Other routes to the lemma
 
+- **In the cubic graph.** The project's primal note states it as a cut-side identity: the cycle $C$ is a bond of $G$, and the shore away from the root has one more white vertex than black (Lemma 5 of `proofs/primal/`). Accepted by a second model.
 - **On spokes.** Li proves the same statement for cycles in the spoke graph, where all inner faces are hexagons. His "$M_1$ matches all vertices inside to each other" is Count 1. Published. The translation is note 3.2 of `fable_dependency-graph/correspondence.md`.
 - **In the cubic graph.** The Lean proof replaces the disk by a set of vertices of $G$ cut off by the cycle and proves four counts there. Formalised.
 - **Peeling or cancelling cells.** One could remove a boundary vertex together with its matched face and show that $2\ell - h$ does not change, or read Count 1 as a pairing of cells in the sense of discrete Morse theory. Both are hunches in `fable_dependency-graph/skeleton.md`, edges B2 and B3. Nobody tried them.

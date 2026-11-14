@@ -1,5 +1,7 @@
 # 05. Cancellation: the signed count of pairs
 
+Where this step lives elsewhere. Paper: Section 4 up to "Heights" of [`barnette.pdf`](../../paper/main/barnette.pdf): Lemma 4.3 (two reversals), Lemma 4.4 (the sign), Table 1, Lemma 4.5 (cancellation), Figures 8 and 9. Primal note: Lemma 7 of [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "Directed selected face links" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md)). Blueprint nodes `txt:D`, `lem:reversals`, `txt:delta`, `lem:sign`, `lem:cancel` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md). Lemma 4.3 has an exact Lean counterpart. Lemma 4.4, the real sign, had none in OpenAI's development; the project's own Lean file compiles it (`proofs/lean/`, compiled by its author, independent check pending). Atlas: page 4, [eight terms, grouped twice](../atlas/pages/04-sum.pdf); page 6, [cancellation as a pairing](../atlas/pages/06-involutions.pdf); page 10, [a dependent set of rows](../atlas/pages/10-rowdep.pdf).
+
 ## What we want at this point and why
 
 We want a state $s$ with a partner whose opposite-edge graph $Q_s$ has no cycle. We cannot point at one. So we count. We give every pair $(r,s)$ a sign and a weight that depends on $s$ only, and add everything up. This step shows that all pairs whose $Q_s$ has a cycle drop out of the sum, whatever the weights are. Step 06 shows that the sum is not zero. Together they leave at least one pair whose $Q_s$ is a forest.
@@ -24,7 +26,11 @@ Let $(r,s)$ be a pair and $u(t)$ the third corner of $t$.
 
 $$\varepsilon(r,s) \;=\; \prod_{t \in A} \delta\bigl(r(t), s(t)\bigr) \;\in\; \{+1, -1\}.$$
 
-By step 04 a counterclockwise cycle of length $h$ has $(h+3)/2$ factors $-1$ and a clockwise one has $(h-3)/2$. With $J = \#\text{clockwise} - \#\text{counterclockwise}$ this gives $\varepsilon = (-1)^{(n + J)/2}$, the sign used in the trees paper. The OpenAI paper uses the complex number $i^{J}$ and Li uses $(-1)^{\lfloor -J/2 \rfloor}$. All three agree up to a constant factor that depends only on $n$ (`research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.1). The product form is from `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md` section 2.
+By step 04 a counterclockwise cycle of length $h$ has $(h+3)/2$ factors $-1$ and a clockwise one has $(h-3)/2$. The lengths are odd and add up to $n$, so the number $c$ of cycles has the parity of $n$, and with $c^+$ counterclockwise cycles (paper Lemma 4.4)
+
+$$\varepsilon(r,s) = (-1)^{(n+c)/2}\,(-1)^{c^+} = (-1)^{(n+J)/2}, \qquad J = \#\text{clockwise} - \#\text{counterclockwise}.$$
+
+The product of local signs is now the standard form. The paper uses it, the trees paper uses the same real sign written through $J$, and the project's Lean file compiles it. The OpenAI paper uses the complex phase $i^{J}$, with $J = \tfrac13\sum_t \delta(r(t),s(t))$, and $i^J = i^{-n}\varepsilon$: the two differ by a constant that depends only on $n$. This was the "phase dispute" of the project and the cross-audit settled it (`research/2026-11-14_opus_cross-audit/ADJUDICATION.md`). Li uses $(-1)^{\lfloor -J/2 \rfloor}$, which agrees up to a constant by `research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.1 (not refereed).
 
 **The signed sum.** Take any function $F$ on states. Put
 
@@ -34,7 +40,7 @@ The papers choose $F(s) = e^{x\omega(s)}$ or $z^{\omega(s)}$ for a weight $\omeg
 
 ## Statement
 
-**Lemma** (OpenAI Lemma 5.2; Li Lemma 17 and the involution $\iota_1$; trees paper Lemma 4.2, move (b)). For a state $s$ put $\mu(s) = \sum_{r} \varepsilon(r,s)$, the sum over the partners of $s$.
+**Lemma** (paper Lemma 4.5; OpenAI Lemma 5.2; Li Lemma 17 and the involution $\iota_1$; trees paper Lemma 4.2, move (b)). For a state $s$ put $\mu(s) = \sum_{r} \varepsilon(r,s)$, the sum over the partners of $s$.
 
 1. If $Q_s$ contains a cycle, $\mu(s) = 0$.
 2. If $s$ has a partner and $Q_s$ is a forest, $s$ has exactly one partner and $\mu(s) = \pm 1$.
@@ -61,7 +67,7 @@ $Z$ is a directed cycle of edges $r(t) \to u(t)$ leaving the corners chosen by t
 
 What was used. Of the pair, that $r$ is injective, that $r(t) \neq s(t)$, and that no root is a value of $r$. Of the disk identity, only that state cycles have odd length. Planarity enters through that parity alone.
 
-The OpenAI paper proves the flip in another way. It uses $\delta(u,s) - \delta(r,s) = 2\delta(r,u)$ and then the exact value $\pm 3$ of the $\delta$-sum of $Z$ to get $J(r',s) = J(r,s) \pm 2$. The parity version above is shorter and is what `SIGNIFICANCE.md` recommends. That write-up has had no second reader. The two-line computation above is all it needs, and the flip was confirmed on every pair of every instance by two independent programs (`fable_referee-determinants/code/extra_checks.py` and my `examples.py`, which asserts $\varepsilon = (-1)^{(n+J)/2}$ on every pair).
+The OpenAI paper proves the flip in another way. It uses $\delta(u,s) - \delta(r,s) = 2\delta(r,u)$ and then the exact value $\pm 3$ of the $\delta$-sum of $Z$ to get $J(r',s) = J(r,s) \pm 2$. The parity version above is shorter and is the paper's. The same computation proves that reversing a cycle of $D(r,s)$ also flips $\varepsilon$: there every factor on the cycle becomes $\delta(s(t), r(t)) = -\delta(r(t),s(t))$. The recomputation script of this audit asserts $\varepsilon = (-1)^{(n+c)/2}(-1)^{c^+} = (-1)^{(n+J)/2}$ on every pair of the cube, the prism, the running example and the 16-vertex example.
 
 Here a cube is a finite set of independent binary choices, not a subgraph of the triangulation. Its dimension counts cycles that can be reversed independently.
 
@@ -76,21 +82,21 @@ Good states are the cubes of the second kind that have dimension zero. A sum of 
 
 ## Worked example
 
-**Running example.** There are 8 pairs. Seven states have a partner. For six of them $Q_s$ is a forest and there is one partner. The seventh is
+**Running example.** We use the paper's names. There are 8 pairs. Seven states have a partner. For six of them $Q_s$ is a forest and there is one partner. The seventh is the paper's state $\alpha$,
 
-$$s^* = (1, 3, 7, 2, 9, 11, 6, 12, 8, 10),$$
+$$\alpha = (1, 3, 7, 2, 9, 11, 6, 12, 8, 10),$$
 
-the images of the faces of $A$ in the order $0, 2, 7, 9, 11, 13, 15, 17, 19, 21$ of `paper/figures/running.json`. Its $Q_{s^*}$ contains one cycle, a triangle around a white face. It has two partners,
+the images of the black faces $0{\cdot}1{\cdot}6$, $0{\cdot}2{\cdot}3$, $1{\cdot}7{\cdot}8$, $1{\cdot}2{\cdot}9$, $3{\cdot}4{\cdot}9$, $4{\cdot}10{\cdot}11$, $5{\cdot}6{\cdot}11$, $6{\cdot}7{\cdot}12$, $8{\cdot}11{\cdot}12$, $8{\cdot}9{\cdot}10$ (a face is named by its corners; these are faces $0, 2, 7, 9, 11, 13, 15, 17, 19, 21$ of `paper/figures/running.json`). Its $Q_\alpha$ contains one cycle, the triangle on $1, 8, 9$ around a white face. It has two partners,
 
-$$r = (6, 2, 8, 1, 3, 10, 11, 7, 12, 9), \qquad r' = (6, 2, 1, 9, 3, 10, 11, 7, 12, 8).$$
+$$\beta = (6, 2, 8, 1, 3, 10, 11, 7, 12, 9), \qquad \tilde\beta = (6, 2, 1, 9, 3, 10, 11, 7, 12, 8).$$
 
-They differ exactly on the three faces $7, 9, 21$ that supply the triangle. The signs are $\varepsilon(r, s^*) = -1$ and $\varepsilon(r', s^*) = +1$, with $J = 0$ and $J = -2$. They cancel.
+$\beta$ directs the triangle as $8 \to 1 \to 9 \to 8$. Reversing it changes $\beta$ exactly in the faces $1{\cdot}7{\cdot}8$, $1{\cdot}2{\cdot}9$, $8{\cdot}9{\cdot}10$, from $8, 1, 9$ to $1, 9, 8$. The signs are $\varepsilon(\beta, \alpha) = -1$ and $\varepsilon(\tilde\beta, \alpha) = +1$, with $J = 0$ and $J = -2$. They cancel.
 
-Notice what the reversal did to the cover. $D(r, s^*)$ consists of the 7-cycle through $2,3,9,10,11,6,1$ and the triangle $8,12,7$. $D(r', s^*)$ consists of the 7-cycle through $7,12,8,10,11,6,1$ and the triangle $3,9,2$. The twins live in different cubes of the first kind. Reversing a cycle of $Q_s$ rearranges $D$ completely and still moves $J$ by exactly two.
+Notice what the reversal did to the cover. $D(\beta, \alpha)$ is the counterclockwise 7-cycle through $6,1,2,3,9,10,11$ and the clockwise triangle $8,7,12$. $D(\tilde\beta, \alpha)$ is the counterclockwise 7-cycle through $1,7,12,8,10,11,6$ and the counterclockwise triangle $9,2,3$. The twins live in different cubes of the first kind. Reversing a cycle of $Q_s$ rearranges $D$ completely and still moves $J$ by exactly two. All of this was recomputed for this audit.
 
 ![Reversing the cycle of Q_s changes only r](../../paper/figures/renders/10-cancellation.png)
 
-**Small cases.** In the octahedron and the prism every state with a partner is a good state and nothing cancels. Among all triangulations with at most 11 vertices no state has both a partner and a cycle in $Q_s$. The first appears at 12 vertices (`research/2026-11-14_fable_route-combinatorics/DATA.md`, computed, confirmed by the referee's independent enumeration). So the cancellation cannot be seen on toy examples. The lab's own test suite exercises it on 3 of its 77 runs, a weakness noted by the referee of the determinant reports.
+**Small cases.** In the octahedron and the prism every state with a partner is a good state and nothing cancels. Among all triangulations with at most 11 vertices no state has both a partner and a cycle in $Q_s$. The first appears at 12 vertices (`research/2026-11-14_fable_route-combinatorics/DATA.md`, computed, confirmed by the referee's independent enumeration). So the cancellation cannot be seen on toy examples, and the paper chose its 13-vertex running example to show one together with a cycle of $D$ that encloses vertices.
 
 ## The determinant reading
 
@@ -109,6 +115,7 @@ Status. The determinant formula is Proposition 5 of `fable_route-combinatorics/P
 ## What does not work
 
 - **A rule for $Z$ that depends on $r$.** Then the map need not be an involution, and the pairing of terms breaks. Nobody recorded a smallest counterexample, because a rule has to be specified first (`research/2026-11-14_astra_limits/HYPOTHESES.md`, not yet refereed).
+- **Cancellation without the sphere.** On the torus the Heawood graph's dual has 24 states and 48 pairs, all $Q$-cycles odd, and every state's contribution cancels: the whole polynomial is identically zero. Cancellation survives off the sphere and nonvanishing does not, because the disk identity's exact value is gone (`research/2026-11-14_astra_route-pfaffian/`, computed, atlas page [13](../atlas/pages/13-pfaffian.pdf)).
 - **A weight that depends on $r$.** The twins must have equal weight. A function of $s$ guarantees this. More general weights are possible if they are invariant under the chosen involution.
 - **Counting without signs.** A state is good exactly when it has an odd number of partners, namely one. So the number of good states has the parity of the number of pairs. That number is even, because $(r,s) \mapsto (s,r)$ has no fixed point. Counting modulo 2 proves nothing (`fable_dependency-graph/skeleton.md`, edge D3, proved there and not refereed).
 - **Constant weight.** With $F = 1$ the cancellation works and the total is zero for a different reason. Each cube of the first kind sums to zero. The conclusion is that good states of sign $+1$ and $-1$ are equally many. In particular there are never exactly one. This says nothing about whether there are any. It is the reason step 06 needs weights.
