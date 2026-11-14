@@ -1,39 +1,43 @@
-# Blueprint delta: nodes whose status changes
+# Blueprint delta: final statuses
 
-`proofs/blueprint/` is unchanged. This file lists what its owner should change in `blueprint.json`, `BLUEPRINT.md` and `FORMALISATION.md`, given what now compiles in `proofs/lean/` (see `README.md` there; logs in `research/2026-11-14_opus_lean-devices/build-logs/`). Status words are the blueprint's: `checked-exact`, `checked-form`, `refereed`.
+This file first proposed status changes for `proofs/blueprint/` (by `opus_lean-devices`). The changes are now applied there, in version 2 of the blueprint (`research/2026-11-14_opus_lean-integration`). The final statuses follow the independent check `research/2026-11-14_astra_lean-check` where it disagrees with the first proposal. Three of the first proposals were too high: Lemma 4.5 and Proposition 4.8 were proposed as exact, and Lemma 4.4 as exact without qualification.
 
-"New Lean" means a declaration in `proofs/lean/Devices/`, compiled against `openai/math` at `4eaee875`, Mathlib `d13f23b7` and Lean `v4.34.1`, with axioms `propext`, `Classical.choice` and `Quot.sound` only.
+Status words of blueprint version 2: **exact**; **after translation** (the dictionary to the paper's drawing is informal; named B1 to B5 in `proofs/blueprint/BLUEPRINT.md`); **weaker** (the Lean has part of the statement, or a different one); **none**. Every declaration below is in `proofs/lean/Devices/` and was rebuilt from a fresh clone by the checker, with axioms `propext`, `Classical.choice` and `Quot.sound` only.
 
-| node | number | old status | new status | new Lean | why the status is not higher |
-| --- | --- | --- | --- | --- | --- |
-| `lem:sign` | 4.4 | refereed (no counterpart) | **checked-exact** (in the Lean's model) | `OppositeCycle.paperSign_reverse`, `Pair.sign_orient`, `Pair.sign_reverse_one`, `Pair.sign_formula`; concrete: `ColoredDual.sign_reverse_opposite`, `sign_orient_concrete`, `sign_formula_concrete` | `δ` is `indexDelta` (cyclic order of `Fin 3`), and "counterclockwise" means `δ`-sum `-3`. That is the paper's own characterisation, but the Lean has no sphere orientation to compare with. |
-| `lem:cancel` | 4.5 | checked-form (complex phase) | **checked-exact** | `OppositeCycle.paperSign_partners_sum`, `Pair.sum_sign_eq_zero_of_no_good` | The second sentence is checked in the form the proof uses ("no good state ⇒ sum is 0"), not as the displayed identity with `r_s`. |
-| `lem:difference` | 4.7 | refereed (standalone Lean existed) | **checked-exact** | `Blueprint.finite_difference`, `finite_difference_fin`, now also used inside the main theorem's proof (see below) | none |
-| `prop:good` | 4.8 | checked-form (phase and polynomial) | **checked-exact** for the method, with the Lean's flow weights as `ω` | `Pair.group_sum`, `group_sum_lt`, `group_sum_card`, `realSum_ne_zero`, `forest_pair_of_disk_circulation_real`; concrete: `realSum_ne_zero_concrete`, `forest_pair_real` | `ω` is the Lean's flow weight, not the paper's heights (that bridge is T2 in `TODO-statements.lean.txt`). `m` is the minimum over one representative per class (T1). |
-| `rem:other-sums` | 4.10 | refereed | **checked-form** (the sentence `i^J = i^{-n} ε`) | `Pair.phase_eq_paperSign`, `paperSign_eq_I_pow_mul_phase`, `sign_eq_I_pow_mul_phase_concrete` | Only the first claim (OpenAI's phase versus `ε`) is checked. The `(z-1)^m` claim and the Li comparison are not. |
-| `lem:height` | 4.6 | checked-form (weaker) | unchanged; add `Pair.weight_orient` (additivity) to its Lean list | `Pair.weight_orient` | The per-white-face statement with paths of faces is not formalised. |
-| `lem:outdegree` | 3.7 | refereed (weaker) | **checked-form** | `Devices.OutOrientation.component_count`, `card_edgeSet_add_sinks` | Stated for one connected graph (a component) in plain Mathlib, not linked to `Q_s`. "Exactly one cycle" is stated as "not acyclic, and a tree after deleting any non-bridge edge". The first sentence ("every cycle is directed") is not checked (T4). |
+| node | number | v1 status | first proposal (this file) | final status | Lean added here | why not higher |
+| --- | --- | --- | --- | --- | --- | --- |
+| `lem:sign` | 4.4 | none | exact in the Lean's model | **after translation** (B1) | `OppositeCycle.paperSign_reverse`, `Pair.sign_orient`, `Pair.sign_reverse_one`, `Pair.sign_formula`; concrete `sign_reverse_opposite`, `sign_orient_concrete`, `sign_formula_concrete` | "counterclockwise" is `δ`-sum `-3` of `indexDelta`; the Lean has no drawing |
+| `lem:cancel` | 4.5 | other form (phase) | exact | **weaker** | `OppositeCycle.paperSign_partners_sum`, `Pair.sum_sign_eq_zero_of_no_good` | second sentence only when no pair has acyclic `Q_s`; the identity with good states and unique partners is not stated (TODO T10, T8) |
+| `lem:difference` | 4.7 | none (standalone file) | exact | **exact** | `Blueprint.finite_difference`, `finite_difference_fin` | stronger than the paper: any commutative ring |
+| `prop:good` | 4.8 | other form (phase, polynomial) | exact for the method | **after translation** (B3, B4) | `Pair.group_sum`, `group_sum_lt`, `group_sum_card`, `realSum_ne_zero`, `forest_pair_of_disk_circulation_real`; concrete `realSum_ne_zero_concrete`, `forest_pair_real` | flow weights, not heights (T2); conclusion is acyclic `Q_s` with a partner, not "good" (T7); `m` over representatives (T1) |
+| `lem:height` | 4.6 | other form (weaker) | unchanged | **weaker** | `Pair.weight_orient` | no face-path heights, no per-face jump |
+| `lem:outdegree` | 3.7 | none | other form | **weaker** | `OutOrientation.component_count`, `card_edgeSet_add_sinks` | one connected graph; first sentence missing (T4); not applied to `Q_s` (T3) |
+| `lem:Y` | 3.6 | other form | not listed | **weaker** | `IsAcyclic.perfectMatching_unique` | the rooted `P_s` and its identification with the Hall matching are not formalised (T9) |
+| `rem:other-sums` (off route) | 4.10 | none | other form | **weaker** | `Pair.phase_eq_paperSign`, `paperSign_eq_I_pow_mul_phase`, `sign_eq_I_pow_mul_phase_concrete` | only the phase sentence; the Taylor and Laurent claims are not checked |
+| `rem:which` (off route) | Sec. 7 | none | not listed | **weaker** | `IsAcyclic.perfectMatching_unique` | the image characterisation is not stated; the converse first proposed as T5 is false |
 
-## Edges and route
+Counts on the route to Theorem 1.1 (34 nodes): v1 4 exact / 25 other form / 5 none; now **5 exact / 17 after translation / 10 weaker / 2 none**. The checker's advisory recount was 5 / 27 / 2 with the middle classes merged. Statement by statement: `research/2026-11-14_opus_lean-integration/STATUS-TABLE.md`.
 
-- The main theorem's route: `OAI.Barnette.main` rebuilds (`PaperRoute/`, generated by `proofs/lean/paper-route/make_paper_route.py`) with one call changed, from OpenAI's `forest_pair_of_disk_circulation` to `forest_pair_of_disk_circulation_real`. The rebuilt `main` reaches `realSum_ne_zero`, `paperSign_reverse`, `sign_orient` and `Blueprint.finite_difference`, and reaches neither `phase` nor any polynomial lemma (`build-logs/paper-route-check.out`, with a control on the original `main`). So the edges `lem:sign → prop:good`, `lem:cancel → prop:good` and `lem:difference → prop:good` are now machine-checked edges of a proof of the main theorem, not only of side lemmas.
-- `lem:partner` (4.2): unchanged. Its derivation from Lemma 3.7 is T3.
+## The main theorem's route
+
+`OAI.Barnette.main` rebuilds (`PaperRoute/`, generated by `paper-route/make_paper_route.py`) with one call changed, from OpenAI's `forest_pair_of_disk_circulation` to `forest_pair_of_disk_circulation_real`. The checker's own dependency walker confirms that the rebuilt `main` reaches `realSum_ne_zero`, `paperSign_reverse`, `sign_orient` and `Blueprint.finite_difference`, and none of the six named phase and polynomial lemmas. It still reaches 276 general Mathlib `Polynomial` declarations through the unchanged exact-dual construction. So the edges `lem:sign -> prop:good`, `lem:cancel -> prop:good` and `lem:difference -> prop:good` are edges of a machine-checked proof of the main theorem, in the Lean's model and with flow weights.
 
 ## Bridges
 
-- B2 (`ε` versus phase) is closed: `ε(P) = i^n · phase(P)` for every pair of the concrete system (`sign_eq_I_pow_mul_phase_concrete`). This settles `research/2026-11-14_opus_cross-audit/ADJUDICATION.md` formally, with the Lean's corner order as the orientation: the ratio `ε / phase` is the constant `i^n`. If the paper's `δ` is opposite to `indexDelta`, the ratio is `i^{-n}` (ADJUDICATION, last paragraph of its proof). The Lean cannot tell the two apart, since it has no embedding orientation.
+- B2 (`ε` versus phase) is closed: `ε(P) = i^n · phase(P)` for every pair of the concrete system (`sign_eq_I_pow_mul_phase_concrete`), confirmed by the checker by hand and numerically (`SIGN-CHECK.md`). With the opposite corner orientation the ratio would be `i^{-n}`; the Lean cannot tell the two apart.
 - B3 (heights as a flow) is open: T2.
+- B4 (good state) is open: T7. The checker's hexagonal-prism example shows that acyclic `Q_s` without a partner is not enough.
 
 ## FORMALISATION.md, step by step
 
-| step | plan | done | lines (estimate → actual) |
+| step | plan | done | lines (estimate -> actual) |
 | --- | --- | --- | --- |
-| 1 Lemma 4.7 | done before | reused | 90 → 94 |
-| 2 Lemma 4.4 (2a, 2b, 2c) | 110 to 150 | yes, all three | → 350 (`LocalSign.lean`, including the phase bridge, the closed formula and Lemma 4.5) |
+| 1 Lemma 4.7 | done before | reused | 90 -> 94 |
+| 2 Lemma 4.4 | 110 to 150 | yes | -> 350 (`LocalSign.lean`, with the phase bridge, the closed formula and Lemma 4.5's first sentence) |
 | 3 heights as a path flow | 80 to 120 | no | T2 |
-| 4 Prop. 4.8 by `ω^m` (4a to 4d) | 250 to 350 | yes | → 277 (`RealSign.lean`) + 87 (`Concrete.lean`) |
-| 5 two-tree gluing | 150 to 250 | no | |
-| 6 Lemma 3.7 | 40 to 60 | yes, for one component | → 108 (`Outdegree.lean`) |
-| 7 explicit `P_s` | 100 to 150 | no; uniqueness of a forest's perfect matching done | → 44 (`TreeMatching.lean`) |
+| 4 Prop. 4.8 by `ω^m` | 250 to 350 | yes, with flow weights | -> 277 (`RealSign.lean`) + 87 (`Concrete.lean`) |
+| 5 two-tree gluing | 150 to 250 | no | T12 |
+| 6 Lemma 3.7 | 40 to 60 | count only, one component | -> 108 (`Outdegree.lean`) |
+| 7 explicit `P_s` | 100 to 150 | no; forest matching uniqueness done | -> 44 (`TreeMatching.lean`) |
 
-Steps 2 and 4 came to 714 lines against an estimate of 360 to 500. Most of the excess is the closed sign formula and the phase bridge, which the plan counted as optional.
+What remains, with estimates: `proofs/blueprint/FORMALISATION.md`.
