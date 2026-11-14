@@ -1,0 +1,1264 @@
+{
+  "tier": "quick",
+  "seconds": 14.021905799978413,
+  "instances": [
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_0"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_1"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_2"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_3"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_4"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_5"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_6"
+    },
+    {
+      "Li": {
+        "objects": 3,
+        "first_fixed": 3,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 6,
+      "states": 2,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_6_0_root_7"
+    },
+    {
+      "Li": {
+        "objects": 4,
+        "first_fixed": 4,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_0"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_1"
+    },
+    {
+      "Li": {
+        "objects": 4,
+        "first_fixed": 4,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_2"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_3"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_4"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_5"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_6"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_7"
+    },
+    {
+      "Li": {
+        "objects": 4,
+        "first_fixed": 4,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_8"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_9"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_10"
+    },
+    {
+      "Li": {
+        "objects": 6,
+        "first_fixed": 6,
+        "second_fixed": 2,
+        "orientation": -1
+      },
+      "F": 2,
+      "vertices": 8,
+      "states": 3,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_8_0_root_11"
+    },
+    {
+      "Li": {
+        "objects": 45,
+        "first_fixed": 45,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_0"
+    },
+    {
+      "Li": {
+        "objects": 41,
+        "first_fixed": 41,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_1"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_2"
+    },
+    {
+      "Li": {
+        "objects": 45,
+        "first_fixed": 45,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_3"
+    },
+    {
+      "Li": {
+        "objects": 41,
+        "first_fixed": 41,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_4"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_5"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_6"
+    },
+    {
+      "Li": {
+        "objects": 40,
+        "first_fixed": 40,
+        "second_fixed": 4,
+        "orientation": -1
+      },
+      "F": 4,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_7"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_8"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_9"
+    },
+    {
+      "Li": {
+        "objects": 41,
+        "first_fixed": 41,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_10"
+    },
+    {
+      "Li": {
+        "objects": 45,
+        "first_fixed": 45,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_11"
+    },
+    {
+      "Li": {
+        "objects": 40,
+        "first_fixed": 40,
+        "second_fixed": 4,
+        "orientation": -1
+      },
+      "F": 4,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 4,
+      "good": 4,
+      "m": 2,
+      "name": "plantri_9_0_root_12"
+    },
+    {
+      "Li": null,
+      "F": 0,
+      "vertices": 9,
+      "states": 4,
+      "pairs": 0,
+      "good": 0,
+      "m": null,
+      "name": "plantri_9_0_root_13"
+    },
+    {
+      "Li": {
+        "objects": 7,
+        "first_fixed": 7,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_0"
+    },
+    {
+      "Li": {
+        "objects": 11,
+        "first_fixed": 11,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_1"
+    },
+    {
+      "Li": {
+        "objects": 7,
+        "first_fixed": 7,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_2"
+    },
+    {
+      "Li": {
+        "objects": 11,
+        "first_fixed": 11,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_3"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_4"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_5"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_6"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_7"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_8"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_9"
+    },
+    {
+      "Li": {
+        "objects": 7,
+        "first_fixed": 7,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_10"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_11"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_12"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_13"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_14"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 4,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_0_root_15"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_0"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_1"
+    },
+    {
+      "Li": {
+        "objects": 11,
+        "first_fixed": 11,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_2"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_3"
+    },
+    {
+      "Li": {
+        "objects": 5,
+        "first_fixed": 5,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_4"
+    },
+    {
+      "Li": {
+        "objects": 7,
+        "first_fixed": 7,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_5"
+    },
+    {
+      "Li": {
+        "objects": 5,
+        "first_fixed": 5,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_6"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_7"
+    },
+    {
+      "Li": {
+        "objects": 11,
+        "first_fixed": 11,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_8"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_9"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_10"
+    },
+    {
+      "Li": {
+        "objects": 7,
+        "first_fixed": 7,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_11"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_12"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_13"
+    },
+    {
+      "Li": {
+        "objects": 11,
+        "first_fixed": 11,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_14"
+    },
+    {
+      "Li": {
+        "objects": 9,
+        "first_fixed": 9,
+        "second_fixed": 3,
+        "orientation": -1
+      },
+      "F": 3,
+      "vertices": 10,
+      "states": 5,
+      "pairs": 2,
+      "good": 2,
+      "m": 1,
+      "name": "plantri_10_1_root_15"
+    },
+    {
+      "Li": {
+        "objects": 213,
+        "first_fixed": 141,
+        "second_fixed": 9,
+        "orientation": -1
+      },
+      "F": 9,
+      "vertices": 13,
+      "states": 12,
+      "pairs": 8,
+      "good": 6,
+      "m": 2,
+      "name": "running"
+    },
+    {
+      "Li": {
+        "objects": 152,
+        "first_fixed": 98,
+        "second_fixed": 6,
+        "orientation": -1
+      },
+      "F": 6,
+      "vertices": 16,
+      "states": 26,
+      "pairs": 18,
+      "good": 12,
+      "m": 1,
+      "name": "minimal_cover_no_good_16"
+    },
+    {
+      "Li": {
+        "objects": 300,
+        "first_fixed": 180,
+        "second_fixed": 14,
+        "orientation": -1
+      },
+      "F": 14,
+      "vertices": 18,
+      "states": 54,
+      "pairs": 20,
+      "good": 12,
+      "m": 1,
+      "name": "lattice_18"
+    },
+    {
+      "Li": {
+        "objects": 1463,
+        "first_fixed": 1463,
+        "second_fixed": 1,
+        "orientation": -1
+      },
+      "F": 1,
+      "vertices": 12,
+      "states": 8,
+      "pairs": 8,
+      "good": 8,
+      "m": 3,
+      "name": "property_selected_m3"
+    }
+  ],
+  "sampler": [
+    {
+      "states": 2,
+      "samples": 1800,
+      "chi_square": 1.28,
+      "df": 1,
+      "cutoff": 36.48331477354788
+    },
+    {
+      "states": 3,
+      "samples": 1800,
+      "chi_square": 4.003333333333333,
+      "df": 2,
+      "cutoff": 40.58300524425836
+    }
+  ],
+  "coverage": {
+    "state disk W=B+1": [
+      70,
+      726,
+      0
+    ],
+    "pair local sign and closed formula": [
+      64,
+      190,
+      6
+    ],
+    "Lean phase ratio": [
+      64,
+      190,
+      6
+    ],
+    "Q cancellation partnered states": [
+      3,
+      8,
+      67
+    ],
+    "Q reversal objects": [
+      3,
+      16,
+      67
+    ],
+    "pair criterion": [
+      70,
+      70,
+      0
+    ],
+    "good unique partner": [
+      64,
+      174,
+      6
+    ],
+    "even good states": [
+      70,
+      352,
+      0
+    ],
+    "directed good-pair criterion": [
+      64,
+      190,
+      6
+    ],
+    "cover components": [
+      64,
+      190,
+      6
+    ],
+    "cycle white-face weight": [
+      64,
+      310,
+      6
+    ],
+    "lowest finite difference": [
+      64,
+      70,
+      6
+    ],
+    "recovery injectivity": [
+      64,
+      522,
+      6
+    ],
+    "recovery image": [
+      67,
+      329,
+      3
+    ],
+    "heights path independence": [
+      70,
+      3264,
+      0
+    ],
+    "height cycle increments": [
+      64,
+      3116,
+      6
+    ],
+    "signed height moments across paths": [
+      64,
+      278,
+      6
+    ],
+    "marked constructors": [
+      64,
+      190,
+      6
+    ],
+    "marked nonfixed moves": [
+      2,
+      60,
+      68
+    ],
+    "ordered token involutions": [
+      64,
+      1380,
+      6
+    ],
+    "ordered mult mark involutions": [
+      64,
+      1186,
+      6
+    ],
+    "exchange adjacency": [
+      64,
+      326,
+      6
+    ],
+    "exchange walks": [
+      64,
+      236,
+      6
+    ],
+    "bound 3.3 regions": [
+      70,
+      8554,
+      0
+    ],
+    "bound 3.4 connected subsets": [
+      55,
+      4055,
+      15
+    ],
+    "Euler induced regions": [
+      70,
+      8634,
+      0
+    ],
+    "property has pair": [
+      64,
+      64,
+      0
+    ],
+    "property m=1": [
+      54,
+      54,
+      0
+    ],
+    "independent states": [
+      67,
+      260,
+      0
+    ],
+    "independent pairs": [
+      61,
+      144,
+      6
+    ],
+    "independent good states": [
+      61,
+      144,
+      6
+    ],
+    "independent signs": [
+      61,
+      144,
+      6
+    ],
+    "Li independent objects and maps": [
+      64,
+      2836,
+      6
+    ],
+    "Li independent signed convention": [
+      64,
+      2836,
+      6
+    ],
+    "property white inner separator": [
+      9,
+      9,
+      0
+    ],
+    "property m=2": [
+      9,
+      9,
+      0
+    ],
+    "property black inner separator": [
+      6,
+      6,
+      0
+    ],
+    "saved running referees": [
+      1,
+      2,
+      0
+    ],
+    "property minimal cover without good pair": [
+      2,
+      3,
+      0
+    ],
+    "property m=3": [
+      1,
+      1,
+      0
+    ],
+    "sampler exact probability": [
+      2,
+      5,
+      0
+    ],
+    "sampler seeded chi square": [
+      2,
+      3600,
+      0
+    ],
+    "two matroid common bases": [
+      1,
+      6,
+      0
+    ],
+    "saved small census referees": [
+      2,
+      132,
+      0
+    ]
+  }
+}

@@ -52,3 +52,7 @@ COMPUTED. No production bug required a fix. No claim about a paper beyond the ch
 ## Leads for others
 
 COMPUTED. The prism remains a small useful counterexample to exactness of the two-matroid relaxation. The order-16 minimal cover without any good orientation and the order-18 lattice witness remain explicit regression inputs. Their presence prevents a future test campaign from selecting only easy successful starts.
+
+## Final replay
+
+COMPUTED. Both single-command tiers passed all 14 unit tests. Quick campaign: 14.02 seconds, 70 rooted runs. Full campaign: 232.19 seconds, 1,209 rooted runs; 13,016 states, 3,326 pairs, 3,270 good states, 27,090 deduplicated state-cycle disks, 56 Q-reversal objects and 34,846 multiple-mark involution applications. The full output and exact per-check counts are retained in this folder. No individual heavy run exceeded ten minutes.
