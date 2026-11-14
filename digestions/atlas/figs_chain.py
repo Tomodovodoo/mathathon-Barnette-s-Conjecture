@@ -4,7 +4,7 @@ lib.py or here, with an assertion next to it."""
 import lib
 from lib import *
 
-U2 = 0.645          # two panels across: 2 * 11.6 * U2 + gap = 15.3 cm
+U2 = 0.615          # two panels across: 2 * 11.6 * U2 + gap = 15.3 cm
 U4 = 0.25          # four across
 DISK = run['disk']
 DARCS = list(zip(DISK['cycle'], DISK['cycle'][1:] + DISK['cycle'][:1]))
@@ -36,7 +36,7 @@ def qcycle_face(z):
 # ---------------------------------------------------------------------------
 @fig('chain')
 def chain():
-    u = 0.25
+    u = 0.235
     th = {
         'G': P(u).base(shade=False).graphG(dots=False).graphG('bf cycle', [m.dual[m.e0]], dots=False).dotsG(1.0),
         'T': P(u).base().vertices(),
@@ -55,10 +55,10 @@ def chain():
            'disk': r'the cycles of $D$\\bound disks', 'forest': r'a state whose\\opposite edges are a forest',
            'wtree': r'a tree on\\the white faces', 'trees': r'two induced trees',
            'cycle': r'a Hamiltonian cycle\\avoiding $e$'}
-    dx, dy = 5.25, 5.35
+    dx, dy = 4.55, 5.2
     pos = {'G': (0, 0), 'T': (dx, 0), 'state': (2 * dx, 0), 'pair': (2 * dx, -dy), 'disk': (dx, -dy), 'forest': (0, -dy),
            'wtree': (0, -2 * dy), 'trees': (dx, -2 * dy), 'cycle': (2 * dx, -2 * dy)}
-    h = 1.45
+    h = 1.36
     L = []
     main = 'line width=2.6pt,draw=black'
     free = 'line width=2.6pt,draw=black,dash pattern=on 5pt off 2.5pt'
@@ -78,7 +78,7 @@ def chain():
     seg('state', 'pair', free, rf'the same inequality\\gives two at once')
     seg('pair', 'disk', main, rf'disk identity\\page {pg("disk")}')
     # the hard step: four parallel lines between the same two stations
-    alts = [('sum', 'sum'), ('polynomial', 'polynomial'), ('involutions', 'pairing'), ('determinant', 'determinant')]
+    alts = [('sum', 'sum'), ('polynomial', 'polynomial'), ('involutions', 'pairing'), ('determinant', 'matrix')]
     (x1, y1), (x2, y2) = pos['disk'], pos['forest']
     for k, (slug, name) in enumerate(alts):
         y = y1 + 1.05 - k * .7
@@ -88,30 +88,30 @@ def chain():
     seg('wtree', 'trees', main, r'one side of each\\black face')
     seg('trees', 'cycle', main, r'the curve between\\the two trees')
     # the primal reading runs beside the last three steps
-    y = pos['wtree'][1] - h - 1.25
-    L.append(rf'\draw[line width=1.2pt,draw=black] ({pos["forest"][0] - h - .35},{pos["forest"][1]}) -- ++(-.3,0) |- ({pos["cycle"][0]},{y}) -- ({pos["cycle"][0]},{pos["cycle"][1] - h - .95});')
+    y = pos['wtree'][1] - h - 1.45
+    L.append(rf'\draw[line width=1.2pt,draw=black] ({pos["wtree"][0]},{y + .3}) |- ({pos["cycle"][0]},{y}) -- ({pos["cycle"][0]},{y + .3});')
     L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.5pt] at ({dx},{y}) {{the same steps read inside $G$, page {pg("primal")}}};')
     # open routes from a pair to a forest state: dotted, above the second row
     y = pos['pair'][1] + h + .45
     L.append(rf'\draw[line width=1.2pt,draw=black,dash pattern=on 1.2pt off 2pt] ({pos["pair"][0] - .6},{pos["pair"][1] + h}) |- ({pos["forest"][0] + .0},{y}) -- ({pos["forest"][0]},{pos["forest"][1] + h});')
     L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.5pt] at ({dx - .3},{y}) {{not proved: exchange moves {pg("rainbow")}, contraction {pg("induction")}}};')
     # refuted shortcuts: dead-end stubs to the right of the pair station
-    stubs = [(rf'highest state {pg("canonical")}', .96), (rf'two constraints of three {pg("matroids")}', .32),
-             (rf'linear program {pg("lp")}', -.32), (rf'one determinant {pg("determinant")}', -.96)]
+    stubs = [(rf'highest state\\page {pg("canonical")}', 1.11), (rf'two conditions\\of three, page {pg("matroids")}', .37),
+             (rf'linear program\\page {pg("lp")}', -.37), (rf'one determinant\\page {pg("determinant")}', -1.11)]
     x0 = pos['pair'][0] + h
     for label, yy in stubs:
         y = pos['pair'][1] + yy
-        L.append(rf'\draw[af stub] ({x0},{y}) -- ({x0 + .75},{y});\draw[line width=1.4pt] ({x0 + .75},{y - .13}) -- ({x0 + .75},{y + .13});')
-        L.append(rf'\node[font=\footnotesize,anchor=west,text width=2.3cm,align=left,inner sep=1pt] at ({x0 + .85},{y}) {{{label}}};')
-    L.append(rf'\node[font=\footnotesize\itshape,anchor=south west,inner sep=1pt] at ({x0},{pos["pair"][1] + 1.42}) {{refuted shortcuts}};')
+        L.append(rf'\draw[af stub] ({x0},{y}) -- ({x0 + .5},{y});\draw[line width=1.4pt] ({x0 + .5},{y - .13}) -- ({x0 + .5},{y + .13});')
+        L.append(rf'\node[font=\footnotesize,anchor=west,align=left,inner sep=1pt] at ({x0 + .6},{y}) {{{label}}};')
+    L.append(rf'\node[font=\footnotesize\itshape,anchor=south west,inner sep=1pt] at ({x0 + .1},{pos["pair"][1] + 1.5}) {{refuted shortcuts}};')
     for i, k in enumerate(names):
         x, y = pos[k]
         L.append(rf'\node[inner sep=0pt] at ({x},{y}) {{\usebox\cb{chr(97 + i)}}};')
         L.append(rf'\node[font=\footnotesize,align=center,anchor=north,inner sep=1pt] at ({x},{y - h}) {{\textbf{{{i + 1}}}\ \ {cap[k]}}};')
     # legend
-    lx, ly = 2 * dx + h + .2, 1.2
-    L.append(rf'\draw[{main}] ({lx},{ly}) -- ++(.9,0) node[right,font=\footnotesize,text width=1.75cm,align=left] {{a construction, no choice}};')
-    L.append(rf'\draw[{free}] ({lx},{ly - .95}) -- ++(.9,0) node[right,font=\footnotesize,text width=1.75cm,align=left] {{existence only}};')
+    lx, ly = 2 * dx + h + .15, 1.1
+    L.append(rf'\draw[{main}] ({lx},{ly}) -- ++(.7,0) node[right,font=\footnotesize,text width=1.45cm,align=left] {{forced step}};')
+    L.append(rf'\draw[{free}] ({lx},{ly - .6}) -- ++(.7,0) node[right,font=\footnotesize,text width=1.45cm,align=left] {{existence step}};')
     return pre + tikz(L)
 
 
@@ -134,9 +134,9 @@ def pairs_fig():
     p.vertices()
     for v in S:
         ring(p, v)
-    a = cell(p.tex(), rf'(a) $S$ = the three ringed vertices. The marked black faces count ${"+".join(str(min(2, len(set(m.F[t]) & S))) for t in m.A if set(m.F[t]) & S)}={lhs}\geq 2|S|={rhs}$.', 7.3)
+    a = cell(p.tex(), rf'(a) $S$ = the three ringed vertices. The marked black faces count ${"+".join(str(min(2, len(set(m.F[t]) & S))) for t in m.A if set(m.F[t]) & S)}={lhs}\geq 2|S|={rhs}$.', 7.1)
     # (b) the two states it yields
-    b = cell(P(U2).base().state(r, 'bf r').state(s).vertices().tex(), '(b) Two states that differ at every black face: outlined wedges $r$, solid wedges $s$.', 7.3)
+    b = cell(P(U2).base().state(r, 'bf r').state(s).vertices().tex(), '(b) Two states that differ at every black face: outlined wedges $r$, solid wedges $s$.', 7.1)
     # (c) the obstruction: a separating triangle with black faces just inside it
     T = gl['T']
     cap = gl['cap']
@@ -161,7 +161,7 @@ def pairs_fig():
     p.lines(capedges, 'af bold').vertices()
     for v in Sin:
         ring(p, v)
-    c = cell(p.tex(), rf'(c) Another triangulation: the bold triangle has black faces just inside it. For the ringed set, ${tot}<{2 * len(Sin)}$, so no pair exists, although {nst} single states do.', 7.3)
+    c = cell(p.tex(), rf'(c) Another triangulation: the bold triangle has black faces just inside it. For the ringed set, ${tot}<{2 * len(Sin)}$, so no pair exists, although {nst} single states do.', 7.1)
     CERT['pairs'] = dict(S=sorted(S), lhs=lhs, rhs=rhs, obstruction=dict(faces=mod.F, t0=mod.t0, S=sorted(Sin), lhs=tot, rhs=6, states=nst, pairs=0))
     # (d) the incidence graph with r and s as a 2-factor
     p = P(U2).base().spokes(style='bf spoke', centres=False)
@@ -175,7 +175,7 @@ def pairs_fig():
     assert all(dg == 2 for _, dg in two.degree())
     ncomp = nx.number_connected_components(two)
     p.vertices()
-    d = cell(p.tex(), rf'(d) The same pair as spokes from the black centres: $s$ solid, $r$ dashed. Together they cover every centre and every vertex twice, in {ncomp} closed curves.', 7.3)
+    d = cell(p.tex(), rf'(d) The same pair as spokes from the black centres: $s$ solid, $r$ dashed. Together they cover every centre and every vertex twice, in {ncomp} closed curves.', 7.1)
     return grid([a, b, c, d], 2)
 
 
@@ -199,7 +199,7 @@ def disk_fig():
     for v in k['interior']:
         ring(p, v)
     assert k['B'] == k['I'] + k['l'] and k['B'] + k['W'] == 2 * k['I'] + k['h'] - 2 and 3 * (k['B'] - k['W']) == 2 * k['l'] - k['h']
-    a = cell(p.tex(), rf'(a) Count. Inside the cycle: $B={k["B"]}$ black faces, $W={k["W"]}$ white faces, $I={k["I"]}$ vertices (ringed). On it: $h={k["h"]}$ edges, $\ell={k["l"]}$ of them with the black face inside. Each black face inside owns one wedge, so $B=I+\ell$.', 7.3)
+    a = cell(p.tex(), rf'(a) Count. Inside the cycle: $B={k["B"]}$ black faces, $W={k["W"]}$ white faces, $I={k["I"]}$ vertices (ringed). On it: $h={k["h"]}$ edges, $\ell={k["l"]}$ of them with the black face inside. Each black face inside owns one wedge, so $B=I+\ell$.', 7.1)
     # (b) one more white face than black
     p = P(U2).base()
     shade_faces(p, k['white'], 'af tint')
@@ -210,7 +210,7 @@ def disk_fig():
         p.label(p.cen[f], rf'$b_{{{i + 1}}}$', 'inner sep=1pt')
     p.vertices()
     assert k['W'] == k['B'] + 1
-    b = cell(p.tex(), rf'(b) Shade. The disk holds white faces $w_1,\dots,w_{{{k["W"]}}}$ and black faces $b_1,\dots,b_{{{k["B"]}}}$. Always $W=B+1$.', 7.3)
+    b = cell(p.tex(), rf'(b) Shade. The disk holds white faces $w_1,\dots,w_{{{k["W"]}}}$ and black faces $b_1,\dots,b_{{{k["B"]}}}$. Always $W=B+1$.', 7.1)
     # (c) turning: corner angles in units of 60 degrees
     rr = dict(zip(m.A, r))
     def angle(f, v):
@@ -239,13 +239,13 @@ def disk_fig():
     p.vertices()
     order = [turns[v] for v in k['cycle']]
     ssum = ''.join(f'{t:+d}' for t in order).lstrip('+')
-    c = cell(p.tex(), rf'(c) Turn. Unit $60^\circ$. Every white corner is $1$ (not written), a wedge corner is $5$, any other black corner $-1$. Each face sums to $3$ and each inner vertex to $6$, so the disk is flat. The bold numbers are the turns of the boundary: ${ssum}=6$, one full turn.', 7.3)
-    led = (r'\begin{minipage}[c][7.2cm][c]{7.3cm}\centering\footnotesize\renewcommand{\arraystretch}{1.5}\begin{tabular}{@{}ll@{}}\toprule '
+    c = cell(p.tex(), rf'(c) Turn. Unit $60^\circ$. Every white corner is $1$ (not written), a wedge corner is $5$, any other black corner $-1$. Each face sums to $3$ and each inner vertex to $6$, so the disk is flat. The bold numbers are the turns of the boundary: ${ssum}=6$, one full turn.', 7.1)
+    led = (r'\begin{minipage}[c][6.9cm][c]{7.1cm}\centering\footnotesize\renewcommand{\arraystretch}{1.5}\begin{tabular}{@{}ll@{}}\toprule '
            r'\multicolumn{2}{@{}l}{\textbf{The same fact, three ways}}\\\midrule '
            rf'count & $3(B-W)=2\ell-h$:\quad $3({k["B"]}-{k["W"]})=2\cdot{k["l"]}-{k["h"]}$\\'
            rf'shade & $W=B+1$:\quad ${k["W"]}={k["B"]}+1$\\'
            rf'turn & total turning $=6\times 60^\circ$\\\midrule '
-           r'\multicolumn{2}{@{}p{7.1cm}@{}}{Used later as: walking once round a cycle of $D$, black faces lie on the left three more times than on the right (or three fewer, clockwise). Here the sum is $'
+           r'\multicolumn{2}{@{}p{6.9cm}@{}}{Used later as: walking once round a cycle of $D$, black faces lie on the left three more times than on the right (or three fewer, clockwise). Here the sum is $'
            + str(k['delta_sum']) + r'$.}\\\bottomrule\end{tabular}\end{minipage}')
     CERT['disk'] = dict(B=k['B'], W=k['W'], I=k['I'], h=k['h'], l=k['l'], cycle=k['cycle'], turns=order, delta_sum=k['delta_sum'])
     return grid([a, b, c, led], 2)
@@ -309,7 +309,7 @@ def polynomial_fig():
                 facelabel(p, f, rf'${j + 1}$')
         p.vertices()
         ws = sorted(d['W'], reverse=True)
-        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cycle cover $D_{{{i + 1}}}$. Its two cycles enclose ${ws[0]}$ and ${ws[1]}$ white faces: product ${ws[0] * ws[1]}$.', 7.3))
+        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cycle cover $D_{{{i + 1}}}$. Its two cycles enclose ${ws[0]}$ and ${ws[1]}$ white faces: product ${ws[0] * ws[1]}$.', 7.1))
     # (c) the long cycle slid onto spokes
     k = run['D_cycles'][0]
     cyc = k['ccw_cycle']
@@ -325,11 +325,11 @@ def polynomial_fig():
         p.add(rf'\fill {pt(p.cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
     p.vertices()
     assert abs(k['L_diff'] - k['W']) < 1e-9
-    c = cell(p.tex(), rf'(c) Why the count appears. Slide each arrow onto the two spokes through its black centre. The spoke path encloses exactly the shaded white faces, and the weights give each of them circulation one, so reversing the cycle changes the product by ${k["W"]}x$ to first order.', 7.3)
+    c = cell(p.tex(), rf'(c) Why the count appears. Slide each arrow onto the two spokes through its black centre. The spoke path encloses exactly the shaded white faces, and the weights give each of them circulation one, so reversing the cycle changes the product by ${k["W"]}x$ to first order.', 7.1)
     c2, c3 = Fp.nth(2), Fp.nth(3)
     prods = [math.prod(d['W']) for d in group_data]
     assert abs(c2) == sum(prods)
-    led = (r'\begin{minipage}[c][7.2cm][c]{7.3cm}\centering\footnotesize\renewcommand{\arraystretch}{1.6}\begin{tabular}{@{}p{7.1cm}@{}}\toprule '
+    led = (r'\begin{minipage}[c][6.9cm][c]{7.1cm}\centering\footnotesize\renewcommand{\arraystretch}{1.6}\begin{tabular}{@{}p{6.9cm}@{}}\toprule '
            r'\textbf{The polynomial}\quad $F(w)=\sum_{(r,s)}\pm\prod_{t}w_{t,s(t)}$,\\ one variable $w_{t,v}$ for each black face $t$ and corner $v$.\\\midrule '
            r'At $w\equiv 1$ the eight signs add up to $0$.\\'
            rf'Put $w_{{t,v}}=1+x\,a_{{t,v}}$ with the weights of (c):\\ $F={sp.latex(c2)}x^2{"+" if c3 > 0 else "-"}{sp.latex(abs(c3))}x^3+\cdots$\\'
@@ -353,8 +353,8 @@ def involutions_fig():
         return p.vertices()
     assert term[r, s]['sign'] == -term[r2, s]['sign'] and term[r, s]['vol'] == term[r2, s]['vol']
     changed = run['changed']
-    a = cell(qp(r, s).tex(), rf'(a) The pair $(s_{{{nm[r]}}},s_{{{nm[s]}}})$, term ${expo(term[r, s]["sign"], term[r, s]["vol"])}$. Dashed arrows: the cycle of $Q_s$, from the corner of $r$ to the third corner.', 7.3)
-    b = cell(qp(r2, s).tex(), rf'(b) Move $r$ to the third corner in the {len(changed)} faces on that cycle. The new pair $(s_{{{nm[r2]}}},s_{{{nm[s]}}})$ has the same $s$, the cycle reversed, and term ${expo(term[r2, s]["sign"], term[r2, s]["vol"])}$.', 7.3)
+    a = cell(qp(r, s).tex(), rf'(a) The pair $(s_{{{nm[r]}}},s_{{{nm[s]}}})$, term ${expo(term[r, s]["sign"], term[r, s]["vol"])}$. Dashed arrows: the cycle of $Q_s$, from the corner of $r$ to the third corner.', 7.1)
+    b = cell(qp(r2, s).tex(), rf'(b) Move $r$ to the third corner in the {len(changed)} faces on that cycle. The new pair $(s_{{{nm[r2]}}},s_{{{nm[s]}}})$ has the same $s$, the cycle reversed, and term ${expo(term[r2, s]["sign"], term[r2, s]["vol"])}$.', 7.1)
     top = grid([a, b], 2)
     # the two squares of orientations
     sq = []
@@ -413,10 +413,10 @@ def heights_fig():
         return p.vertices()
     ndiff = sum(a_ != b_ for a_, b_ in zip(lo, one))
     assert ndiff == 3
-    cells = [cell(hp(lo).tex(), rf'(a) The lowest state $s_0$. Height $0$ on every white face.', 7.3),
-             cell(hp(one, lo).tex(), rf'(b) One clock move: the three wedges round one white face each step to the next corner (old positions outlined). That face rises to $1$. This is $s_{{{nm[one]}}}$.', 7.3),
-             cell(hp(s).tex(), rf'(c) The state $s=s_{{{nm[s]}}}$ of the running pair. Heights add up to its volume ${vol[sid[s]]}$, the exponent in $e^{{{vol[sid[s]]}x}}$.', 7.3),
-             cell(hp(hi).tex(), rf'(d) The highest state $s_{{{nm[hi]}}}$, volume ${vol[sid[hi]]}$. Grey zeros: the three white faces on the outer circle never move.', 7.3)]
+    cells = [cell(hp(lo).tex(), rf'(a) The lowest state $s_0$. Height $0$ on every white face.', 7.1),
+             cell(hp(one, lo).tex(), rf'(b) One clock move: the three wedges round one white face each step to the next corner (old positions outlined). That face rises to $1$. This is $s_{{{nm[one]}}}$.', 7.1),
+             cell(hp(s).tex(), rf'(c) The state $s=s_{{{nm[s]}}}$ of the running pair. Heights add up to its volume ${vol[sid[s]]}$, the exponent in $e^{{{vol[sid[s]]}x}}$.', 7.1),
+             cell(hp(hi).tex(), rf'(d) The highest state $s_{{{nm[hi]}}}$, volume ${vol[sid[hi]]}$. Grey zeros: the three white faces on the outer circle never move.', 7.1)]
     CERT['heights'] = dict(lowest=nm[lo], first_move=nm[one], highest=nm[hi], volumes={nm[z]: vol[sid[z]] for z in states})
     return grid(cells, 2)
 
@@ -425,17 +425,17 @@ def heights_fig():
 @fig('recovery')
 def recovery_fig():
     a = cell(P(U2).base().state(r).lines(m.Q(r), 'bf Q').vertices().tex(),
-             rf'(a) The state $s_{{{nm[r]}}}$. Its opposite edges (dashed) form a forest: three trees, one hanging from each root.', 7.3)
+             rf'(a) The state $s_{{{nm[r]}}}$. Its opposite edges (dashed) form a forest: three trees, one hanging from each root.', 7.1)
     b = cell(P(U2).base().spokes(deleted=list(zip(m.A, r)), outer=True).white_tree(rec, r).vertices().tex(),
-             r'(b) Delete the chosen spoke in each black face (dotted). The other spokes form a spanning tree (bold), so the curves crossing the deleted spokes form a tree on the white faces. The ringed white face touches $e$.', 7.3)
+             r'(b) Delete the chosen spoke in each black face (dotted). The other spokes form a spanning tree (bold), so the curves crossing the deleted spokes form a tree on the white faces. The ringed white face touches $e$.', 7.1)
     p = P(U2).base()
     for t, ch in rec['chosen'].items():
         p.add(r'\draw[bf wtree,line width=.7pt] ' + p.curve_tex(p.white_curves(rec, t, ch['corner'])) + ';')
     p.lines(rec['P'], 'bf P').vertices()
     assert len(rec['P']) == len(m.A) + 1
-    c = cell(p.tex(), rf'(c) Each tree edge passes two sides of its black face. Select the side nearer the leaves, and add $e$: {len(rec["P"])} selected edges, one on every face.', 7.3)
+    c = cell(p.tex(), rf'(c) Each tree edge passes two sides of its black face. Select the side nearer the leaves, and add $e$: {len(rec["P"])} selected edges, one on every face.', 7.1)
     d = cell(P(U2).base().lines(rec['P'], 'bf P').graphG('bf cycle', rec['hamiltonian'], dots=False).vertices(classes=rec['parts']).tex(),
-             rf'(d) The selected edges are two trees (disks, squares) through all {len(m.V)} vertices, with no other edge inside either class. The closed curve between them visits all {len(m.F)} faces: a Hamiltonian cycle of $G$.', 7.3)
+             rf'(d) The selected edges are two trees (disks, squares) through all {len(m.V)} vertices, with no other edge inside either class. The closed curve between them visits all {len(m.F)} faces: a Hamiltonian cycle of $G$.', 7.1)
     CERT['recovery'] = dict(state=nm[r], P=rec['P'], parts=rec['parts'], cycle=rec['cycle_order'])
     return grid([a, b, c, d], 2)
 
@@ -452,7 +452,7 @@ def primal_fig():
     # (a) G with its two classes, the root vertex and the edge e
     p = P(U2).base(shade=False).graphG(dots=False).graphG('bf cycle', [m.dual[m.e0]], dots=False).dotsG(2.0)
     p.label(p.cen[m.t0] + np.array([.9, .0]), r'$t_0$', 'inner sep=1pt')
-    a = cell(p.tex(), rf'(a) $G$ on the same layout: one vertex per face of $T$, black or white, {m.G.number_of_edges()} edges. The vertex $t_0$ sits in the collar. The purple edge is $e$.', 7.3)
+    a = cell(p.tex(), rf'(a) $G$ on the same layout: one vertex per face of $T$, black or white, {m.G.number_of_edges()} edges. The vertex $t_0$ sits in the collar. The purple edge is $e$.', 7.1)
     # (b) a cycle of D is an edge cut; its disk is one shore
     p = P(U2).base(shade=False)
     shade_faces(p, k['faces'], 'af soft')
@@ -460,7 +460,7 @@ def primal_fig():
     p.graphG('af bold', cut, dots=False).dotsG(2.0)
     nb, nw = sum(f in m.black for f in inside), sum(f in m.white for f in inside)
     assert nw == nb + 1
-    b = cell(p.tex(), rf'(b) The long cycle of $D$ is a cut of $G$ with {len(cut)} edges (bold). The shore away from $t_0$ (tinted) holds {nb} black and {nw} white vertices. One more white: the disk identity.', 7.3)
+    b = cell(p.tex(), rf'(b) The long cycle of $D$ is a cut of $G$ with {len(cut)} edges (bold). The shore away from $t_0$ (tinted) holds {nb} black and {nw} white vertices. One more white: the disk identity.', 7.1)
     # (c) the state as a flow: each black vertex sends its unit to a face of G
     p = P(U2).base(shade=False).graphG(dots=False)
     for t, v in zip(m.A, r):
@@ -472,12 +472,12 @@ def primal_fig():
         else:
             p.add(rf'\node[draw=black!70,circle,inner sep=1.3pt,line width=.4pt,fill=white] at {pt(p.xy[v])} {{}};')
     assert sorted(r) == sorted(m.X)
-    c = cell(p.tex(), rf'(c) A state inside $G$. Small circles mark the faces of $G$ (vertices of $T$). Each black vertex except $t_0$ points into one of its three faces, and each of the {len(m.X)} faces away from $t_0$ is chosen once.', 7.3)
+    c = cell(p.tex(), rf'(c) A state inside $G$. Small circles mark the faces of $G$ (vertices of $T$). Each black vertex except $t_0$ points into one of its three faces, and each of the {len(m.X)} faces away from $t_0$ is chosen once.', 7.1)
     # (d) the matching whose removal leaves the cycle
     M = [g for g in m.G.edges() if und(*g) not in {und(*h_) for h_ in rec['hamiltonian']}]
     assert len(M) == len(m.F) // 2 and len({v for g in M for v in g}) == len(m.F) and m.dual[m.e0] in [und(*g) for g in M]
     p = P(U2).base(shade=False).graphG('bf cycle', rec['hamiltonian'], dots=False)
     p.graphG('af half', M, dots=False).dotsG(2.0)
-    d = cell(p.tex(), rf'(d) The outcome in $G$: a perfect matching (dashed, {len(M)} edges, $e$ among them) whose removal leaves one cycle through all {len(m.F)} vertices.', 7.3)
+    d = cell(p.tex(), rf'(d) The outcome in $G$: a perfect matching (dashed, {len(M)} edges, $e$ among them) whose removal leaves one cycle through all {len(m.F)} vertices.', 7.1)
     CERT['primal'] = dict(cut_edges=len(cut), shore=dict(black=nb, white=nw), matching=M)
     return grid([a, b, c, d], 2)

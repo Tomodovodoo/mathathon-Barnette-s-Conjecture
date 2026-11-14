@@ -26,11 +26,11 @@ SOURCES_INTRO = ('Each row lists the papers, the project reports and the computa
                  'and it writes the certificates to computed.json next to the atlas. '
                  'Where a row says a report is unrefereed, no second model has checked it. No human mathematician has read any page of this atlas.')
 
-G1, G2, G3, G4, G5, G6 = 'main chain', 'linear algebra', 'order and optimisation', 'trees', 'cutting and induction', 'scope and open questions'
+G1, G2, G3, G4, G5, G6 = 'main chain', 'linear algebra', 'order', 'trees', 'cutting', 'scope'
 
 page('chain', 'the chain', 'The chain, and where the routes branch', G1, r'''
 Read the stations in order. The proof turns a cubic graph into its dual triangulation, finds two states that disagree at every black face,
-and shows that some state has a forest of opposite edges. From such a state, three constructions with no choices in them build the Hamiltonian cycle.
+and shows that some state has a forest of opposite edges. From such a state, three forced steps build the Hamiltonian cycle.
 Only the step from station 5 to station 6 is hard, and the atlas has four readings of it. They are four ways to organise one argument,
 a signed sum that cancels the cyclic states and still cannot vanish. They are not four proofs.
 The stubs are shortcuts that this project tested and refuted with explicit examples.
@@ -82,11 +82,11 @@ This version has integer coefficients and no analysis. The geometric input is un
 
 page('involutions', 'involutions', 'Cancellation as a pairing of objects', G1, r'''
 Li's note replaces the sum by two pairings. The first keeps $s$ fixed. If $Q_s$ has a cycle, move $r$ to the third corner on every face of that cycle, as in (a) and (b).
-The result is again a pair, with the opposite sign and the same weight, so the two cancel.
-With $k$ cycles the partners of $s$ form a cube with $2^k$ corners and the move pairs them all off. A state with a forest has one partner and survives.
+The result is a pair with the opposite sign and the same weight, so the two cancel.
+With $k$ cycles the $2^k$ partners of $s$ pair off in the same way. A state with a forest has one partner and survives.
 The second pairing must show that the survivors do not cancel each other.
 Reversing a cycle of $D$ flips the sign, as in (c) and (d), but it also changes the weight, so Li adds marks to make this a true pairing.''',
-     r'''Li's note, Definitions 13 to 23. The first pairing is computed here on all eight pairs. The atlas does not draw the marks, and the code for them was checked on the cube only.''',
+     r'''Li's note, Definitions 13 to 23. The first pairing is computed here on all eight pairs. The marks are not drawn, and their code was checked on the cube only.''',
      ['sum', 'rowdep', 'lattice'],
      [LI + ', Definitions 13 to 23, Appendix B', 'workings/barnette_lab/barnette_lab/li.py', RS + 'fable_referee-topology/REFEREE.md, part d (Morse reading)', HERE])
 
@@ -116,7 +116,9 @@ so black faces become black vertices and the vertices of $T$ become the faces of
 A state lets each black vertex choose one of its three faces. A cycle of $D$ becomes an edge cut, and its disk becomes the shore of that cut away from the root vertex.
 The disk identity says the shore has one more white vertex than black.
 The outcome also needs no duality. Removing a perfect matching that contains $e$ leaves a single cycle.
-The proof gets no shorter. The gain is that the inside of a curve is now a shore of a cut, which a proof assistant can handle without a picture.''',
-     r'''The primal proof was written in this project and refereed by a second model. The Lean statement of it is unrefereed. Not read by a human.''',
+The proof gets no shorter. The gain is that the inside of a curve becomes a shore of a cut, which a proof assistant can handle.''',
+     r'''Written in this project and refereed by a second model. Its Lean statement is unrefereed. Not read by a human.''',
      ['disk', 'recovery', 'cuts'],
      [LI, 'proofs/primal/', RS + 'astra_primal-proof/', RS + 'fable_referee-primal/', RS + 'opus_lean-formalisation/REPORT.md', HERE])
+
+import pages_more  # noqa: E402,F401

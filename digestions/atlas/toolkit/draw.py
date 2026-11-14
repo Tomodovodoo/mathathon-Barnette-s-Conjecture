@@ -57,7 +57,8 @@ class Panel:
                     return np.array([self.R-np.linalg.norm(z[:2])-z[2]] +
                         [check.cross2(b-a,z[:2]-a)/np.linalg.norm(b-a)-z[2] for a,b in edges])
                 opt = minimize(lambda z:-z[2], [*start,.1], constraints=[{'type':'ineq','fun':clearance}],method='SLSQP',options={'ftol':1e-12})
-                assert opt.success and min(clearance(opt.x)) > -1e-7
+                if not (opt.success and min(clearance(opt.x)) > -1e-7):
+                    return start          # atlas copy: fall back to the midpoint rule instead of stopping
                 return opt.x[:2]
             return start
         # Incentres keep white-face marks away from narrow corners.

@@ -6,18 +6,18 @@
    "slug": "chain",
    "title": "The chain, and where the routes branch",
    "figure_cm": [
-    17.37,
-    15.31
+    15.15,
+    14.82
    ],
-   "words": 143
+   "words": 139
   },
   {
    "n": 2,
    "slug": "pairs",
    "title": "Two states from one count",
    "figure_cm": [
-    15.33,
-    17.12
+    14.64,
+    16.43
    ],
    "words": 142
   },
@@ -26,8 +26,8 @@
    "slug": "disk",
    "title": "The disk identity, three ways",
    "figure_cm": [
-    15.33,
-    20.08
+    14.64,
+    19.24
    ],
    "words": 133
   },
@@ -46,8 +46,8 @@
    "slug": "polynomial",
    "title": "The same sum as an integer polynomial",
    "figure_cm": [
-    15.33,
-    19.42
+    14.64,
+    18.57
    ],
    "words": 131
   },
@@ -56,18 +56,18 @@
    "slug": "involutions",
    "title": "Cancellation as a pairing of objects",
    "figure_cm": [
-    15.33,
-    17.03
+    14.71,
+    16.68
    ],
-   "words": 160
+   "words": 149
   },
   {
    "n": 7,
    "slug": "heights",
    "title": "The exponent is a volume",
    "figure_cm": [
-    15.33,
-    17.12
+    14.64,
+    16.43
    ],
    "words": 139
   },
@@ -76,8 +76,8 @@
    "slug": "recovery",
    "title": "From a forest state to the cycle",
    "figure_cm": [
-    15.33,
-    18.11
+    14.64,
+    17.69
    ],
    "words": 149
   },
@@ -86,11 +86,191 @@
    "slug": "primal",
    "title": "The same proof inside the cubic graph",
    "figure_cm": [
-    15.33,
-    17.76
+    14.64,
+    17.41
    ],
-   "words": 157
+   "words": 147
+  },
+  {
+   "n": 10,
+   "slug": "rowdep",
+   "title": "Cancellation is a dependent set of rows",
+   "figure_cm": [
+    14.64,
+    15.25
+   ],
+   "words": 143
+  },
+  {
+   "n": 11,
+   "slug": "determinant",
+   "title": "One determinant is not enough",
+   "figure_cm": [
+    15.09,
+    13.16
+   ],
+   "words": 144
+  },
+  {
+   "n": 12,
+   "slug": "dimers",
+   "title": "Two matchings laid on top of each other",
+   "figure_cm": [
+    14.64,
+    20.2
+   ],
+   "words": 150
+  },
+  {
+   "n": 13,
+   "slug": "pfaffian",
+   "title": "Off the sphere: the Heawood graph on a torus",
+   "figure_cm": [
+    14.57,
+    15.16
+   ],
+   "words": 148
+  },
+  {
+   "n": 14,
+   "slug": "lattice",
+   "title": "Twelve states under clock moves",
+   "figure_cm": [
+    12.89,
+    17.49
+   ],
+   "words": 148
+  },
+  {
+   "n": 15,
+   "slug": "pairlattice",
+   "title": "The lattice of cycle covers",
+   "figure_cm": [
+    14.64,
+    19.24
+   ],
+   "words": 144
+  },
+  {
+   "n": 16,
+   "slug": "canonical",
+   "title": "The extreme state can have a cycle",
+   "figure_cm": [
+    14.64,
+    11.92
+   ],
+   "words": 143
+  },
+  {
+   "n": 17,
+   "slug": "matroids",
+   "title": "Three conditions, and any two are easy",
+   "figure_cm": [
+    14.64,
+    19.24
+   ],
+   "words": 139
+  },
+  {
+   "n": 18,
+   "slug": "lp",
+   "title": "The relaxed problem has a fractional corner",
+   "figure_cm": [
+    14.64,
+    19.52
+   ],
+   "words": 137
+  },
+  {
+   "n": 19,
+   "slug": "rainbow",
+   "title": "A tree that uses every black face once",
+   "figure_cm": [
+    14.64,
+    17.08
+   ],
+   "words": 151
+  },
+  {
+   "n": 20,
+   "slug": "trinity",
+   "title": "Three graphs inside one triangulation",
+   "figure_cm": [
+    14.64,
+    16.41
+   ],
+   "words": 150
+  },
+  {
+   "n": 21,
+   "slug": "cuts",
+   "title": "What a small cut has to remember",
+   "figure_cm": [
+    15.11,
+    16.55
+   ],
+   "words": 150
+  },
+  {
+   "n": 22,
+   "slug": "induction",
+   "title": "Induction by removing a vertex of degree four",
+   "figure_cm": [
+    14.64,
+    17.1
+   ],
+   "words": 149
+  },
+  {
+   "n": 23,
+   "slug": "earlier",
+   "title": "Where the older methods meet this proof",
+   "figure_cm": [
+    14.64,
+    19.24
+   ],
+   "words": 150
+  },
+  {
+   "n": 24,
+   "slug": "produced",
+   "title": "Which Hamiltonian cycles the proof can produce",
+   "figure_cm": [
+    14.82,
+    14.24
+   ],
+   "words": 141
+  },
+  {
+   "n": 25,
+   "slug": "hypotheses",
+   "title": "What breaks when a hypothesis is dropped",
+   "figure_cm": [
+    14.77,
+    17.88
+   ],
+   "words": 149
+  },
+  {
+   "n": 26,
+   "slug": "families",
+   "title": "Two families, counted",
+   "figure_cm": [
+    14.89,
+    13.59
+   ],
+   "words": 139
+  },
+  {
+   "n": 27,
+   "slug": "open",
+   "title": "What is still open, and how far it was tested",
+   "figure_cm": [
+    15.11,
+    17.55
+   ],
+   "words": 147
   }
  ],
- "pdf_pages": 11
+ "pdf_pages": 30
 }

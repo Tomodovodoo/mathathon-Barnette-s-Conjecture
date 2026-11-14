@@ -63,7 +63,7 @@ for p in PAGES:
 (O / 'computed.json').write_text(json.dumps(lib.plain(lib.CERT), indent=1), encoding='utf8')
 
 # ---------------------------------------------------------------------------
-HEAD = r'''\documentclass[11pt,a4paper]{article}
+HEAD = r'''\documentclass[10pt,a4paper]{article}
 \usepackage[left=1in,right=1in,top=19mm,bottom=24mm,footskip=11mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,graphicx,booktabs,longtable,array,url}
@@ -135,9 +135,12 @@ for d in (PD, RD):
     d.mkdir()
 doc = fitz.open(O / 'atlas.pdf')
 names = ['00-contents'] + [f'{num[p["slug"]]:02d}-{p["slug"]}' for p in PAGES]
-names += [f'{len(PAGES) + 1 + i:02d}-sources' + (f'-{i + 1}' if i else '') for i in range(len(doc) - len(names))]
-assert len(names) == len(doc), (len(names), len(doc))
-assert len(doc) <= len(PAGES) + 3, 'a page overflowed'
+overflow = len(doc) > len(PAGES) + 3
+if overflow:
+    print('WARNING: some page overflowed; pages are named by position')
+    names = [f'p{i:02d}' for i in range(len(doc))]
+else:
+    names += [f'{len(PAGES) + 1 + i:02d}-sources' + (f'-{i + 1}' if i else '') for i in range(len(doc) - len(names))]
 for i, nm in enumerate(names):
     one = fitz.open()
     one.insert_pdf(doc, from_page=i, to_page=i)
@@ -149,3 +152,5 @@ for i, nm in enumerate(names):
                 words=len(re.sub(r'\$[^$]*\$', 'x', re.sub(r'\\[a-zA-Z]+', ' ', p['text'] + ' ' + p['status'])).split())) for p in PAGES],
     pdf_pages=len(doc)), indent=1), encoding='utf8')
 print('atlas.pdf', len(doc), 'pages')
+if overflow:
+    raise SystemExit('a page overflowed')

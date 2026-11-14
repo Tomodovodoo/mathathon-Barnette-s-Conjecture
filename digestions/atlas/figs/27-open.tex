@@ -1,0 +1,113 @@
+\documentclass[10pt,border=1pt]{standalone}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{atlas-figs}
+\begin{document}%
+\begin{tabular}{@{}c@{}}\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\draw[black!25,line width=.3pt] (0.000,.45) -- (0.000,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (0.000,.45) {$6$};
+\draw[black!25,line width=.3pt] (1.981,.45) -- (1.981,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (1.981,.45) {$12$};
+\draw[black!25,line width=.3pt] (3.140,.45) -- (3.140,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (3.140,.45) {$18$};
+\draw[black!25,line width=.3pt] (3.962,.45) -- (3.962,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (3.962,.45) {$24$};
+\draw[black!25,line width=.3pt] (5.276,.45) -- (5.276,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (5.276,.45) {$38$};
+\draw[black!25,line width=.3pt] (6.581,.45) -- (6.581,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (6.581,.45) {$60$};
+\draw[black!25,line width=.3pt] (8.041,.45) -- (8.041,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (8.041,.45) {$100$};
+\draw[black!25,line width=.3pt] (9.200,.45) -- (9.200,-6.6499999999999995);\node[font=\footnotesize,anchor=south] at (9.200,.45) {$150$};
+\node[font=\footnotesize,anchor=south west,inner sep=1pt] at (0,1.0) {number of vertices of $T$};
+\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,.25) {open, and tested up to};
+\draw[line width=5pt,black!78] (0,-0.7) -- (3.714,-0.7);
+\draw[line width=1.6pt,dash pattern=on 3pt off 2pt] (3.714,-0.7) -- (8.041,-0.7);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-0.7) {at least $2^c$ tree matchings, $c$ the fewest cycles of a cover};
+\draw[line width=1.6pt,dash pattern=on 3pt off 2pt] (0.000,-1.4) -- (9.200,-1.4);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-1.4) {greedy descent in the lattice reaches a tree matching};
+\draw[line width=5pt,black!78] (0,-2.0999999999999996) -- (2.803,-2.0999999999999996);
+\draw[line width=1.6pt,dash pattern=on 3pt off 2pt] (2.803,-2.0999999999999996) -- (8.562,-2.0999999999999996);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-2.0999999999999996) {exchange descent on rainbow trees reaches a tree matching};
+\draw[line width=5pt,black!78] (0,-2.8) -- (2.977,-2.8);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-2.8) {some contraction keeps a pair and no tree matching is lost};
+\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,-3.55) {refuted, first failure at};
+\draw[line width=.4pt,black!55] (0,-4.1) -- (1.981,-4.1);\draw[line width=1.6pt] (1.871,-4.21) -- (2.091,-3.9899999999999998) (1.871,-3.9899999999999998) -- (2.091,-4.21);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-4.1) {highest state with a partner};
+\draw[line width=.4pt,black!55] (0,-4.6499999999999995) -- (3.140,-4.6499999999999995);\draw[line width=1.6pt] (3.030,-4.76) -- (3.250,-4.539999999999999) (3.030,-4.539999999999999) -- (3.250,-4.76);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-4.6499999999999995) {an extreme cover has a tree pair};
+\draw[line width=.4pt,black!55] (0,-5.199999999999999) -- (3.962,-5.199999999999999);\draw[line width=1.6pt] (3.852,-5.31) -- (4.072,-5.089999999999999) (3.852,-5.089999999999999) -- (4.072,-5.31);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-5.199999999999999) {a cover one step from an extreme has one};
+\draw[line width=.4pt,black!55] (0,-5.749999999999999) -- (5.276,-5.749999999999999);\draw[line width=1.6pt] (5.166,-5.859999999999999) -- (5.386,-5.639999999999999) (5.166,-5.639999999999999) -- (5.386,-5.859999999999999);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-5.749999999999999) {the evict walk never repeats};
+\draw[line width=.4pt,black!55] (0,-6.299999999999999) -- (6.581,-6.299999999999999);\draw[line width=1.6pt] (6.471,-6.409999999999999) -- (6.691,-6.189999999999999) (6.471,-6.189999999999999) -- (6.691,-6.409999999999999);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-6.299999999999999) {every maximal chain of covers has one};
+\draw[line width=.4pt,black!55] (0,-6.849999999999999) -- (7.022,-6.849999999999999);\draw[line width=1.6pt] (6.912,-6.959999999999999) -- (7.132,-6.739999999999998) (6.912,-6.739999999999998) -- (7.132,-6.959999999999999);
+\node[font=\footnotesize,anchor=east,text width=5.3cm,align=right,inner sep=1pt] at (-.2,-6.849999999999999) {half of all covers have one};
+\draw[line width=5pt,black!78] (0,-7.549999999999999) -- (.9,-7.549999999999999) node[right,font=\footnotesize,black] {every case checked};
+\draw[line width=1.6pt,dash pattern=on 3pt off 2pt] (4.3,-7.549999999999999) -- (5.2,-7.549999999999999) node[right,font=\footnotesize] {random samples};
+\end{tikzpicture}\\[1mm]{\footnotesize (a) How far each open statement was tested, and where each refuted one first fails. Logarithmic scale.}\\[5mm]\begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,bf small,x=0.5cm,y=0.5cm]
+\path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
+\fill[bfblack] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;
+\fill[bfblack] (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;
+\fill[bfblack] (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;
+\fill[bfblack] (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;
+\draw[bf edge] (0,0) circle[radius=5.0];
+\draw[bf edge] (-4.330,-2.500) -- (-2.133,-0.405);
+\draw[bf edge] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf edge] (-4.330,-2.500) -- (-0.344,-4.394);
+\draw[bf edge] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-1.614,-2.366);
+\draw[bf edge] (-2.133,-0.405) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-0.963,1.243);
+\draw[bf edge] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf edge] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf edge] (-1.614,-2.366) -- (-0.344,-4.394);
+\draw[bf edge] (-1.614,-2.366) -- (0.900,-2.302);
+\draw[bf edge] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf edge] (-0.344,-4.394) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf edge] (4.330,-2.500) -- (2.799,2.992);
+\draw[bf edge] (0.000,5.000) -- (-2.200,3.528);
+\draw[bf edge] (0.000,5.000) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf edge] (-2.200,3.528) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (0.610,2.065);
+\draw[bf edge] (-0.963,1.243) -- (0.764,-0.167);
+\draw[bf edge] (-0.963,1.243) -- (0.610,2.065);
+\draw[bf edge] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf edge] (0.764,-0.167) -- (2.506,-0.651);
+\draw[bf edge] (0.764,-0.167) -- (2.799,2.992);
+\draw[bf edge] (0.764,-0.167) -- (0.610,2.065);
+\draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
+\draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
+\draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\fill[af tint] (-2.133,-0.405) -- (0.900,-2.302) -- (0.764,-0.167) -- (-2.133,-0.405) -- cycle;
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf s] (-0.963,1.243) -- ++(-125.37:0.709) arc[start angle=-125.37,end angle=-39.23,radius=0.709] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf s] (-1.614,-2.366) -- ++(1.46:0.648) arc[start angle=1.46,end angle=104.82,radius=0.648] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf s] (2.506,-0.651) -- ++(164.47:0.723) arc[start angle=164.47,end angle=225.79,radius=0.723] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[fill=black!45,draw=black!45] (-2.133,-0.405) -- ++(90.98:0.572) arc[start angle=90.98,end angle=223.64,radius=0.572] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[fill=black!45,draw=black!45] (-0.344,-4.394) -- ++(122.06:0.957) arc[start angle=122.06,end angle=154.58,radius=0.957] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[fill=black!45,draw=black!45] (0.900,-2.302) -- ++(-120.74:0.608) arc[start angle=-120.74,end angle=-3.30,radius=0.608] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[fill=black!45,draw=black!45] (2.799,2.992) -- ++(-94.60:1.462) arc[start angle=-94.60,end angle=-74.42,radius=1.462] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[fill=black!45,draw=black!45] (-2.200,3.528) -- ++(-6.12:1.042) arc[start angle=-6.12,end angle=33.79,radius=1.042] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[fill=black!45,draw=black!45] (0.610,2.065) -- ++(152.50:0.710) arc[start angle=152.50,end angle=207.59,radius=0.710] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[fill=black!45,draw=black!45] (0.764,-0.167) -- ++(57.21:0.895) arc[start angle=57.21,end angle=93.95,radius=0.895] -- cycle;\end{scope}
+\draw[bf Q,line width=2pt] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf Q,line width=2pt] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf Q,line width=2pt] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf root] (-4.330,-2.500) circle[radius=1.4pt];
+\fill[bf vertex] (-2.133,-0.405) circle[radius=.8pt];
+\fill[bf vertex] (-1.614,-2.366) circle[radius=.8pt];
+\fill[bf vertex] (-0.344,-4.394) circle[radius=.8pt];
+\draw[bf root] (4.330,-2.500) circle[radius=1.4pt];
+\draw[bf root] (0.000,5.000) circle[radius=1.4pt];
+\fill[bf vertex] (-2.200,3.528) circle[radius=.8pt];
+\fill[bf vertex] (-0.963,1.243) circle[radius=.8pt];
+\fill[bf vertex] (0.764,-0.167) circle[radius=.8pt];
+\fill[bf vertex] (0.900,-2.302) circle[radius=.8pt];
+\fill[bf vertex] (2.506,-0.651) circle[radius=.8pt];
+\fill[bf vertex] (2.799,2.992) circle[radius=.8pt];
+\fill[bf vertex] (0.610,2.065) circle[radius=.8pt];
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{5.6cm}\centering\footnotesize (b) The state $s_{9}$. The three black faces round the hatched white face all put their wedge (blue) at the corner away from it, so their opposite edges close a triangle.\end{minipage}\end{tabular}\end{tabular}%
+\end{document}
