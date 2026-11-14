@@ -53,6 +53,9 @@ def verify(data):
             assert set(hits)=={expected} and hits[expected][0]==1,(name,'G',g,expected,hits)
             angles.append(hits[expected][1])
         H={(t,v):np.array([p.cen[t],xy[v]]) for t in m.A for v in m.F[t]}
+        for v in m.roots:
+            radial=xy[v]*(R+RING)/R
+            H[m.t0,v]=np.concatenate((np.array([xy[v],radial]),arc(p,ang(radial),-90,R+RING)[1:]))
         for t,v in zip(m.A,state):
             hits=intersections(samples(p.white_curves(run['rec'],t,v)),H)
             assert set(hits)=={(t,v)} and hits[t,v][0]==1,(name,'white',t,v,hits)

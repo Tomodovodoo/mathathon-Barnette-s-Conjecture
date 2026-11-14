@@ -88,7 +88,7 @@ class Panel:
         f = self.m.F[i]
         return pt(self.xy[f[0]]) + ''.join(self.seg(a, b) for a, b in zip(f, f[1:] + f[:1])) + ' -- cycle'
 
-    def smooth_route(self, points, gates, handle=.18):
+    def smooth_route(self, points, gates, handle=.35):
         """Cubic pieces with explicit midpoint joins and transverse tangents.
 
         gates maps an interior waypoint to the crossed segment's endpoints.
@@ -299,7 +299,7 @@ def make():
     # 01 the cube and the octahedron, worked completely -------------------------
     om, oxy, oR = oc['model'], oc['xy'], oc['R']
     orr, os_, orec = oc['r'], oc['s'], oc['rec']
-    U = 0.40
+    U = 0.34
 
     def O():
         return Panel(om, oxy, oR, unit=U)
@@ -319,14 +319,14 @@ def make():
     for u,v in oc['two_factor']:
         cp.add(rf'\draw[bf cycle] {pt(square[u])} -- {pt(square[v])};')
     for v,q in square.items():
-        cp.add(rf'\draw[fill={"black" if v in om.black else "white"},line width=.5pt] {pt(q)} circle[radius=1.8pt];')
+        cp.add(rf'\draw[fill={"black" if v in om.black else "white"},line width=.5pt] {pt(q)} circle[radius=1.5pt];')
     cube2=cp.tex()
-    a = O().base().graphG().vertices(labels=True).tex()
+    a = O().base().vertices(labels=True).tex()
     b = O().base().state(orr, 'bf r').state(os_).arrows(om.D(orr, os_)).vertices().tex()
     c = O().base().state(os_).lines(om.Q(os_), 'bf Q').vertices().tex()
     d = O().base().spokes(deleted=list(zip(om.A, os_)), outer=True).white_tree(orec, os_).vertices().tex()
     e = O().base().lines(orec['P'], 'bf P').graphG('bf cycle', orec['hamiltonian'], dots=False).vertices(classes=orec['parts']).tex()
-    body = (r'\begin{tabular}{@{}c@{}}' + row([cube2, a, b], ['(a) two cycles, degree two', '(b) the cube $G$ inside its dual $T$', '(c) two states and $D$'], '1mm')
+    body = (r'\begin{tabular}{@{}c@{}}' + row([cube2, a, b], ['(a) two cycles, degree two', '(b) its dual, the octahedron $T$', '(c) two states and $D$'], '1mm')
             + r'\\[2mm]' + '\n'
             + row([c, d, e], ['(d) $Q_s$, opposite the wedges', '(e) kept spokes and the white tree', '(f) $P$, two trees, one cycle'], '1mm') + r'\end{tabular}')
     fig('01-cube', body,
@@ -339,13 +339,13 @@ def make():
         'cube and octahedron; all objects from check.octahedron()')
 
     # 02 degree two is not enough ------------------------------------------------
-    a = P().graphG(dots=False).graphG('bf cycle', run['two_factor'], dots=False).dotsG(1.8).tex()
-    b = P().graphG(dots=False).graphG('bf cycle', rec['hamiltonian'], dots=False).dotsG(1.8).tex()
+    a = P().graphG(dots=False).graphG('bf cycle', run['two_factor'], dots=False).dotsG().tex()
+    b = P().graphG(dots=False).graphG('bf cycle', rec['hamiltonian'], dots=False).dotsG().tex()
     fig('02-two-factors', row([a, b], ['(a) degree two, two cycles', '(b) degree two, one cycle']),
         r'The running example $G$: cubic, bipartite, planar, 3-connected, with 22 vertices. Filled and hollow dots are the two classes. '
         r'Both bold subgraphs have degree two at every vertex. Only (b) is connected, so only (b) is a Hamiltonian cycle. '
         r'The vertex below the picture is joined to three vertices inside, two of them by the long arcs.',
-        'G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 12')
+        'G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 13')
 
     # 03 the dual triangulation ----------------------------------------------------
     a = P().base().graphG().vertices(labels={3: (-0.5, 0.12), 9: (0.42, -0.42), 2: (-0.38, 0.4)}).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
@@ -428,7 +428,7 @@ def make():
         L.append(rf'\draw[draw=bfR,line width=1.3pt,double=white,double distance=.7pt] ({xx},{yx[v]:.2f}) -- ({xa},{yt[t]:.2f});')
         L.append(rf'\draw[draw=bfS,line width=1.5pt] ({xx},{yx[w]:.2f}) -- ({xa},{yt[t]:.2f});')
     for v in order_x:
-        L.append(rf'\fill ({xx},{yx[v]:.2f}) circle[radius=1.8pt]; \node[anchor=south,inner sep=2.5pt] at ({xx},{yx[v]:.2f}) {{${v}$}};')
+        L.append(rf'\fill ({xx},{yx[v]:.2f}) circle[radius=1.5pt]; \node[anchor=south,inner sep=2.5pt] at ({xx},{yx[v]:.2f}) {{${v}$}};')
     for t in order_t:
         L.append(rf'\fill ({xa},{yt[t]:.2f}) ++(-2pt,-2pt) rectangle ++(4pt,4pt); \node[anchor=west,inner sep=4pt] at ({xa},{yt[t]:.2f}) {{$\{{{",".join(map(str, sorted(m.F[t])))}\}}$}};')
     L += [rf'\draw[fill=white,line width=.6pt] ({xs0},{ys}) circle[radius=3pt]; \draw[fill=white,line width=.6pt] ({xt},{ys}) circle[radius=3pt];',
@@ -537,7 +537,7 @@ def make():
     for t in m.A:
         ps_.add(rf'\fill {pt(ps_.cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
     for kk,c,poly in polys:
-        w = kk['white'][0]
+        w = min(kk['white'],key=lambda w:ps_.cen[w][1])
         ps_.label(ps_.cen[w], rf'$W={kk["W"]}$', 'fill=white,inner sep=1pt')
     ps_.vertices()
     side = (r'\begin{tabular}{@{}l@{}}'
@@ -621,6 +621,9 @@ def make():
     '02-two-factors': r'Degree two does not ensure one cycle. The running graph $G$ has $22$ vertices; filled and hollow dots are its bipartition. Both bold subgraphs have degree two everywhere, but only the connected one in (b) is Hamiltonian. The same embedding is used for the final cycle in Figure~13.',
     '03-dual': r'Pass from $G$ to $T=G^*$. Grey edges join face centres across their corresponding edges of $T$. Shaded faces are black, including the outer face $t_0$ shown by the collar. The hollow roots are $0,4,5$; the $10$ bounded black faces match the $10$ nonroot vertices.',
     '04-local': r'Read the two choices inside one black triangle $t$. The outlined corner is $r(t)$, the solid corner is $s(t)$, and the third is $u(t)$. The solid arrow is $D$, while the dashed opposite side is $Q_s$. In (b), replacing the edge by two spokes gives weight $a(t,s(t))-a(t,r(t))$ and excludes $u(t)$ from the tinted subdisk.',
+    '05-state': r'A state is a perfect matching between the bounded black triangles $A$ and the nonroot vertices $X$. In (a), each solid choice belongs to its shaded triangle. In (b), the same choices are solid incidence edges; the double edges give the disjoint state $r$. Together $r+s$ has degree two at every square and dot.',
+    '06-flow': r'The incidence flow supplies a pair. Source and sink edges have capacity $2$; incidence edges have capacity $1$. The displayed integral flow has value $2|X|=20$. Its used incidences have degree two at every vertex and triangle, so alternating along cycles splits them into states $r,s$. The cut inequality is tight at $S=\{2\}$.',
+    '08-disk': r'Count the tinted disk of the long $D$-cycle. It contains $B=5$ black faces, $W=6$ white faces and $I=3$ ringed vertices. Each outlined choice lies at an interior vertex or at the tail of a marked boundary arrow, giving $B=I+\ell$. Combine this with the two face counts to get $2\ell-h=-3$.',
     '09-Q': r'The opposite sides distinguish failure from success. (a) The second state $s$ of Figure~7 gives a cycle of $Q_s$ around the central white triangle. (b) The first state $r$, now drawn solid, gives a forest with one root per component. Recovery uses the pair $(s,r)$.',
     '10-cancellation': r'Keep $s$ fixed and reverse the heavy dashed cycle of $Q_s$. Only the outlined choices move, from $r$ to $\tilde r$; the solid choices and $\omega(s)$ stay fixed. The disk identity changes $J$ by $2$, so the phases are opposite and the two terms $i^J e^{x\omega(s)}$ cancel.',
     '11-spokes': r'Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive. Each cycle gives a simple zero, so this group has a nonzero leading term of phase $(-i)^2$.',
@@ -675,7 +678,7 @@ def write():
               r'so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par')
     for i, (name, body, cap, note) in enumerate(FIGS, 1):
         g += [r'\par\medskip\noindent\begin{minipage}{\textwidth}\centering', rf'\input{{{name}-body.tex}}', rf'\captionof{{figure}}{{{cap}}}', rf'\label{{fig:{name[3:]}}}', r'\end{minipage}\par\medskip', filler]
-        if i % 2 == 0:
+        if i == 1 or i % 2 == 1 or i == len(FIGS):
             g.append(r'\clearpage')
     g.append(r'\end{document}')
     (HERE / 'gallery.tex').write_text('\n'.join(g) + '\n', encoding='utf-8')

@@ -1,17 +1,17 @@
 # Figures for the Barnette exposition
 
-Fifteen vector figures and a gallery. `gallery.pdf` sets every figure at its final size in the paper's text block (10pt `amsart`, A4, 1in margins, 15.92cm wide), two per page, with a line of body text between them so scale can be judged.
+Sixteen vector figures and a gallery. `gallery.pdf` sets every figure at its final size in the paper's text block (10pt `amsart`, A4, 1in margins, 15.92cm wide), at most two per page, with a line of body text between them so scale can be judged.
 
 ## Build
 
 From the repository root, with Python 3 and `pdflatex` on PATH:
 
 ```powershell
-python -m pip install networkx numpy pymupdf
+python -m pip install networkx numpy scipy pymupdf pillow
 python paper/figures/build.py
 ```
 
-`build.py` runs `check.py` (every assertion), then `draw.py`, compiles the fifteen standalone files and the gallery, and renders each PDF to `renders/` at 150 dpi (gallery pages at 100 dpi). It stops at the first failed assertion or TeX error. `python paper/figures/build.py 08 gallery` rebuilds only the files whose names contain those strings.
+`build.py` runs `check.py` (every assertion), then `draw.py`, compiles the sixteen standalone files and the gallery, and renders each PDF to `renders/` at 150 dpi (gallery pages at 100 dpi). It stops at the first failed assertion or TeX error. `python paper/figures/build.py 08 gallery` rebuilds only the files whose names contain those strings.
 
 Optional:
 
@@ -82,3 +82,60 @@ Colours are Okabe-Ito. Every pair of objects that appear together also differs i
 Put this directory on TeX's input path, load `barnette-figs`, and write `\input{08-disk-body.tex}` inside a centred `figure`. Captions are in `captions.json` (field `caption`; `drawn_from` says which checked object the figure shows). Do not rescale: the bodies are at final size, labels are `\footnotesize`, and line weights match across figures. Half-width panels are 7.2cm, which is 0.45 of the text width.
 
 The first pass (14 figures on the 14-vertex example in a straight outer triangle) is at commit `af6c63a`.
+
+## Finishing pass, 14 November 2026
+
+Every original filename is retained. `16-at-a-glance-body.tex` and its standalone
+PDF add the six-panel introduction strip at natural text width. Its small graphs
+are orientation aids; Figures 3 to 13 carry the detailed constructions. The cube
+uses a square-in-square embedding; the following panels use its checked octahedral
+dual. The worked example and caption occupy about half a text page.
+
+The gallery has nine pages, with body text and at most two figures on each page.
+The worked cube and the introduction strip each have their own page. Figure bodies
+and captions are kept in nonfloating minipages, so a float cannot leave an empty page.
+
+White centres are incentres. For the three curved boundary faces this means the
+largest inscribed circle of the circular-sided region, computed by SciPy SLSQP.
+The remaining centres retain the second-pass positions. White-tree curves pass
+through the midpoint of the deleted spoke with a transverse tangent. Curves of G
+pass through their corresponding T-edge midpoints. Both use the same numeric
+cubic controls for TikZ output and intersection validation, rounded to three decimals.
+
+COMPUTED (`check.py`, `geometry_check.py`, `geometry-validation.json`): every G edge
+and every white-tree edge on both examples crosses exactly its corresponding dual
+edge or spoke, once. Every cubic is sampled at 160 intervals; circular boundaries
+and collar arcs at 360 intervals. This is a sampled numerical check, not an exact
+geometric proof. All measured crossing angles exceed ten degrees. Outer spokes
+are included among the forbidden crossings.
+
+The first-pass `research/2026-11-14_astra_figures/FIGURE-STYLE.md` is historical.
+The current encodings are those of this README and `barnette-figs.sty`.
+`style-audit.json` inventories every generated body, the generator and style file,
+including all explicit width, font and colour declarations, and rendered PDF font
+sizes. It records the intentional departures from that historical specification.
+Text labels remain footnote size at final scale; TeX math scripts use their normal
+smaller sizes. Stroke weights are physical, including in the introduction strip.
+
+Additional verification commands, from the repository root:
+
+```powershell
+python paper/figures/audit.py
+python research/2026-11-14_sol_figures-polish/check_hunch.py
+python research/2026-11-14_sol_figures-polish/proofs.py
+```
+
+The last command needs Pillow and writes 150 dpi before/after review material,
+greyscale and full-severity deuteranopia proofs in the finishing-pass research
+folder. Run it after building. The deuteranopia matrix and sRGB transfer functions
+are explicit in the script. The PDFs are raster review proofs; the manuscript
+figures remain vector PDFs.
+
+COMPUTED (`research/2026-11-14_sol_figures-polish/check_hunch.py`, `hunch-results.json`):
+L+ minus L- equals the number of white faces inside C on 322 rooted instances,
+1,784 ordered pairs and 2,320 D-cycle occurrences, with 6 to 26 vertices in T.
+The range includes every stored JSON lab instance, all four named examples,
+and `generated(12)`, each with every face as outer face. Provenance duplicates
+are retained. This verifies the second-pass HUNCH on that range, not in general.
+The region counts in Figure 11 are separately asserted for the running example
+by `check.py`.

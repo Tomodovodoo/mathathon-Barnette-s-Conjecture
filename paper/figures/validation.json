@@ -9,6 +9,7 @@
   "forest_pairs": 6
  },
  "checks": [
+  "rounded cubic G and white-tree paths sampled at 160 steps per cubic; each crosses exactly its own dual edge/spoke, once; crossing angle above 10 degrees",
   "layouts: bounded faces counterclockwise, no crossing edges, roots on the circle",
   "running example: primal graph cubic, bipartite, 3-connected; dual Eulerian; no separating triangle",
   "all states and ordered pairs enumerated; every pair is two disjoint bijections A -> X",

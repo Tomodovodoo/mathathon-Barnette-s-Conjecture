@@ -1,0 +1,664 @@
+{
+ "status": "COMPUTED",
+ "sources": [
+  {
+   "source": "barnette-figs.sty",
+   "widths_pt": [
+    ".3",
+    ".4",
+    ".5",
+    ".7",
+    ".9",
+    "1.1",
+    "1.3",
+    "1.6"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfH",
+    "bfR",
+    "bfS",
+    "bfW",
+    "black",
+    "black!45",
+    "black!62",
+    "black!70",
+    "white"
+   ],
+   "colour_definitions": [
+    [
+     "bfS",
+     "HTML",
+     "0072B2"
+    ],
+    [
+     "bfR",
+     "HTML",
+     "D55E00"
+    ],
+    [
+     "bfW",
+     "HTML",
+     "009E73"
+    ],
+    [
+     "bfH",
+     "HTML",
+     "AA3377"
+    ]
+   ]
+  },
+  {
+   "source": "draw.py",
+   "widths_pt": [
+    ".5",
+    ".6",
+    ".7",
+    ".8",
+    ".9",
+    "1.3",
+    "1.5",
+    "1.7"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfR",
+    "bfS",
+    "bfW",
+    "black",
+    "black!55",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "01-cube-body.tex",
+   "widths_pt": [
+    ".5",
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "01-cube.tex",
+   "widths_pt": [
+    ".5",
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "02-two-factors-body.tex",
+   "widths_pt": [
+    ".5"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "02-two-factors.tex",
+   "widths_pt": [
+    ".5"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "03-dual-body.tex",
+   "widths_pt": [
+    ".5"
+   ],
+   "font_commands": [],
+   "colours": [
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "03-dual.tex",
+   "widths_pt": [
+    ".5"
+   ],
+   "font_commands": [],
+   "colours": [
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "04-local-body.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfR",
+    "bfS"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "04-local.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfR",
+    "bfS"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "05-state-body.tex",
+   "widths_pt": [
+    "1.3",
+    "1.5"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfR",
+    "bfS"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "05-state.tex",
+   "widths_pt": [
+    "1.3",
+    "1.5"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfR",
+    "bfS"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "06-flow-body.tex",
+   "widths_pt": [
+    ".6",
+    ".9",
+    "1.3",
+    "1.5"
+   ],
+   "font_commands": [],
+   "colours": [
+    "bfR",
+    "bfS",
+    "black!55",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "06-flow.tex",
+   "widths_pt": [
+    ".6",
+    ".9",
+    "1.3",
+    "1.5"
+   ],
+   "font_commands": [],
+   "colours": [
+    "bfR",
+    "bfS",
+    "black!55",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "07-pair-D-body.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "07-pair-D.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "08-disk-body.tex",
+   "widths_pt": [
+    ".7"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfS",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "08-disk.tex",
+   "widths_pt": [
+    ".7"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfS",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "09-Q-body.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "09-Q.tex",
+   "widths_pt": [],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "10-cancellation-body.tex",
+   "widths_pt": [
+    "1.7"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "10-cancellation.tex",
+   "widths_pt": [
+    "1.7"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "11-spokes-body.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "11-spokes.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "12-tree-cotree-body.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "12-tree-cotree.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "13-selected-body.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "13-selected.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "14-gluing-body.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "14-gluing.tex",
+   "widths_pt": [
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "15-overview-body.tex",
+   "widths_pt": [
+    ".5",
+    ".6"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "15-overview.tex",
+   "widths_pt": [
+    ".5",
+    ".6"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [],
+   "colour_definitions": []
+  },
+  {
+   "source": "16-at-a-glance-body.tex",
+   "widths_pt": [
+    ".5",
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  },
+  {
+   "source": "16-at-a-glance.tex",
+   "widths_pt": [
+    ".5",
+    ".8"
+   ],
+   "font_commands": [
+    "footnotesize"
+   ],
+   "colours": [
+    "bfW",
+    "black",
+    "white"
+   ],
+   "colour_definitions": []
+  }
+ ],
+ "rendered": [
+  {
+   "pdf": "01-cube.pdf",
+   "font_sizes_pt": {
+    "7.97": 169,
+    "5.98": 1
+   },
+   "width_cm": 12.99,
+   "height_cm": 9.51
+  },
+  {
+   "pdf": "02-two-factors.pdf",
+   "font_sizes_pt": {
+    "7.97": 51
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "03-dual.pdf",
+   "font_sizes_pt": {
+    "7.97": 17,
+    "5.98": 1
+   },
+   "width_cm": 7.61,
+   "height_cm": 7.61
+  },
+  {
+   "pdf": "04-local.pdf",
+   "font_sizes_pt": {
+    "7.97": 116,
+    "5.98": 2
+   },
+   "width_cm": 11.2,
+   "height_cm": 4.37
+  },
+  {
+   "pdf": "05-state.pdf",
+   "font_sizes_pt": {
+    "7.97": 60
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "06-flow.pdf",
+   "font_sizes_pt": {
+    "7.97": 177
+   },
+   "width_cm": 11.08,
+   "height_cm": 7.83
+  },
+  {
+   "pdf": "07-pair-D.pdf",
+   "font_sizes_pt": {
+    "7.97": 67
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "08-disk.pdf",
+   "font_sizes_pt": {
+    "7.97": 196
+   },
+   "width_cm": 11.99,
+   "height_cm": 7.74
+  },
+  {
+   "pdf": "09-Q.pdf",
+   "font_sizes_pt": {
+    "7.97": 51,
+    "5.98": 1
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "10-cancellation.pdf",
+   "font_sizes_pt": {
+    "7.97": 48,
+    "5.98": 3
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "11-spokes.pdf",
+   "font_sizes_pt": {
+    "7.97": 144,
+    "5.98": 28,
+    "4.98": 4
+   },
+   "width_cm": 12.45,
+   "height_cm": 7.74
+  },
+  {
+   "pdf": "12-tree-cotree.pdf",
+   "font_sizes_pt": {
+    "7.97": 77,
+    "5.98": 1
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "13-selected.pdf",
+   "font_sizes_pt": {
+    "7.97": 77
+   },
+   "width_cm": 15.01,
+   "height_cm": 8.21
+  },
+  {
+   "pdf": "14-gluing.pdf",
+   "font_sizes_pt": {
+    "7.97": 88
+   },
+   "width_cm": 15.93,
+   "height_cm": 6.12
+  },
+  {
+   "pdf": "15-overview.pdf",
+   "font_sizes_pt": {
+    "7.97": 504,
+    "5.98": 2
+   },
+   "width_cm": 12.45,
+   "height_cm": 8.75
+  },
+  {
+   "pdf": "16-at-a-glance.pdf",
+   "font_sizes_pt": {
+    "7.97": 863,
+    "5.98": 6
+   },
+   "width_cm": 16.12,
+   "height_cm": 7.66
+  }
+ ],
+ "interpretation": "All source label declarations use footnotesize. Smaller rendered glyphs are standard TeX subscripts, superscripts, fractions and summation limits, not independently shrunken labels. The PDF reports bp, so nominal 8pt labels appear near 7.97bp.",
+ "style_reference": "The first-pass FIGURE-STYLE.md is superseded by the second-pass README and barnette-figs.sty. Deviations from that historical file are retained deliberately.",
+ "historical_deviations": [
+  "17% black faces rather than 9%",
+  "0.4pt context rather than 0.35pt",
+  "filled/outlined wedges rather than disk/square states",
+  "D and Q 1.1pt rather than 1pt",
+  "P 1.6pt rather than 1.3pt",
+  "purple #AA3377 cycle rather than blue",
+  "black disk/white square induced classes rather than coloured classes",
+  "0.62cm running panels side by side rather than 0.72cm stacked",
+  "cube 0.34cm, gluing 0.44cm, introduction strip 0.205cm units; fonts and stroke widths stay physical"
+ ],
+ "local_overrides": [
+  "0.5pt face-centre dot outlines and overview box borders",
+  "0.8pt induced-square and white-centre outlines",
+  "0.6pt overview connectors",
+  "1.7pt Q-cycle emphasis in cancellation",
+  "0.8pt dashed original D in spoke-detour comparison",
+  "incidence r matching uses double stroke, s uses single stroke"
+ ]
+}

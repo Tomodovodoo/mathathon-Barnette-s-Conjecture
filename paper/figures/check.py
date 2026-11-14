@@ -194,6 +194,8 @@ def running():
             assert lhs >= rhs
             if S and (worst is None or lhs - rhs < worst[0] or (lhs - rhs == worst[0] and len(S) < len(worst[1]))):
                 worst = (lhs - rhs, S)
+    assert 2*len(m.X)==20 and worst[1]==(2,)
+    assert sum(2 in m.F[t] for t in m.A)==2
     out['tight_cut'] = dict(slack=worst[0], S=list(worst[1]))
     B = m.incidence_graph()
     two_b = nx.Graph([(('t', t), ('v', v)) for t, v in zip(m.A, r)] + [(('t', t), ('v', v)) for t, v in zip(m.A, s)])
@@ -214,6 +216,7 @@ def octahedron():
     rec = m.recover(s)
     two = m.two_factors(components=2)
     assert two
+    assert sorted(len(c) for c in nx.connected_components(nx.Graph(two[0]))) == [4,4]
     return dict(model=m, xy=xy, R=L['R'], r=r, s=s, rec=rec, two_factor=two[0],
                 counts=dict(states=len(states), pairs=len(pairs)))
 
@@ -241,6 +244,7 @@ def gluing():
     same = [e for e in zip(cap, cap[1:] + cap[:1]) if lab[e[0]] == lab[e[1]]]
     assert len(same) == 1                                    # both labels occur on the cap
     e1 = und(*same[0])
+    assert set(cap)=={3,4,5} and e1==(3,5)
     # piece 2: cap outside, prescribed edge e1
     faces2 = [tuple(reversed(cap))] + inner
     m2 = Model(faces2, 0, e1)
@@ -299,6 +303,7 @@ def jsonable(x):
 
 
 CHECKS = [
+    'rounded cubic G and white-tree paths sampled at 160 steps per cubic; each crosses exactly its own dual edge/spoke, once; crossing angle above 10 degrees',
     'layouts: bounded faces counterclockwise, no crossing edges, roots on the circle',
     'running example: primal graph cubic, bipartite, 3-connected; dual Eulerian; no separating triangle',
     'all states and ordered pairs enumerated; every pair is two disjoint bijections A -> X',

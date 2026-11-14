@@ -12,97 +12,98 @@
 \label{fig:cube}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{02-two-factors-body.tex}
 \captionof{figure}{Degree two does not ensure one cycle. The running graph $G$ has $22$ vertices; filled and hollow dots are its bipartition. Both bold subgraphs have degree two everywhere, but only the connected one in (b) is Hamiltonian. The same embedding is used for the final cycle in Figure~13.}
 \label{fig:two-factors}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{03-dual-body.tex}
 \captionof{figure}{Pass from $G$ to $T=G^*$. Grey edges join face centres across their corresponding edges of $T$. Shaded faces are black, including the outer face $t_0$ shown by the collar. The hollow roots are $0,4,5$; the $10$ bounded black faces match the $10$ nonroot vertices.}
 \label{fig:dual}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{04-local-body.tex}
 \captionof{figure}{Read the two choices inside one black triangle $t$. The outlined corner is $r(t)$, the solid corner is $s(t)$, and the third is $u(t)$. The solid arrow is $D$, while the dashed opposite side is $Q_s$. In (b), replacing the edge by two spokes gives weight $a(t,s(t))-a(t,r(t))$ and excludes $u(t)$ from the tinted subdisk.}
 \label{fig:local}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{05-state-body.tex}
-\captionof{figure}{(a) A state marks one corner of every bounded black triangle so that every vertex other than a root is marked once. No wedge sits at a root. (b) The same data as a graph. A square is the centre of a bounded black triangle, and a spoke joins it to each of its corners that is not a root. A state is a perfect matching of this graph. The solid spokes are $s$ from (a). The double spokes are a second state $r$ that differs from $s$ at every triangle. Together they have degree two at every square and every dot.}
+\captionof{figure}{A state is a perfect matching between the bounded black triangles $A$ and the nonroot vertices $X$. In (a), each solid choice belongs to its shaded triangle. In (b), the same choices are solid incidence edges; the double edges give the disjoint state $r$. Together $r+s$ has degree two at every square and dot.}
 \label{fig:state}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{06-flow-body.tex}
-\captionof{figure}{Why a pair exists. Send flow from the source through the vertices and the black triangles of Figure 5(b) to the sink. A source or sink edge carries at most $2$ and an incidence carries at most $1$. An integral flow of value $2|X|=20$ uses two incidences at every vertex and at every triangle. These are the double and the solid edges, and they alternate along cycles, so they split into two disjoint states $r$ and $s$. Such a flow exists if every set $S$ of vertices satisfies $\sum_t \min(2,|V(t)\cap S|)\ge 2|S|$. Here equality holds for $S=\{2\}$, a vertex in only two black triangles.}
+\captionof{figure}{The incidence flow supplies a pair. Source and sink edges have capacity $2$; incidence edges have capacity $1$. The displayed integral flow has value $2|X|=20$. Its used incidences have degree two at every vertex and triangle, so alternating along cycles splits them into states $r,s$. The cut inequality is tight at $S=\{2\}$.}
 \label{fig:flow}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{07-pair-D-body.tex}
 \captionof{figure}{(a) Two states that choose different corners in every bounded black triangle. (b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles. Here $D$ is a counterclockwise cycle of length $7$ and a clockwise triangle.}
 \label{fig:pair-D}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{08-disk-body.tex}
-\captionof{figure}{The disk identity on the long cycle of $D$ from Figure 7. The tinted disk has $B=5$ black and $W=6$ white faces and $I=3$ vertices strictly inside. The first two equations hold for any cycle. The third uses the state $r$: each black face inside holds one outlined wedge, at a ringed vertex ($I$ of them) or at the tail of an arrow whose black face lies inside ($\ell$ of them, marked). Hence $2\ell-h=-3$ for every counterclockwise cycle of this kind, whatever its length.}
+\captionof{figure}{Count the tinted disk of the long $D$-cycle. It contains $B=5$ black faces, $W=6$ white faces and $I=3$ ringed vertices. Each outlined choice lies at an interior vertex or at the tail of a marked boundary arrow, giving $B=I+\ell$. Combine this with the two face counts to get $2\ell-h=-3$.}
 \label{fig:disk}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{09-Q-body.tex}
 \captionof{figure}{The opposite sides distinguish failure from success. (a) The second state $s$ of Figure~7 gives a cycle of $Q_s$ around the central white triangle. (b) The first state $r$, now drawn solid, gives a forest with one root per component. Recovery uses the pair $(s,r)$.}
 \label{fig:Q}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{10-cancellation-body.tex}
 \captionof{figure}{Keep $s$ fixed and reverse the heavy dashed cycle of $Q_s$. Only the outlined choices move, from $r$ to $\tilde r$; the solid choices and $\omega(s)$ stay fixed. The disk identity changes $J$ by $2$, so the phases are opposite and the two terms $i^J e^{x\omega(s)}$ cancel.}
 \label{fig:cancellation}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{11-spokes-body.tex}
 \captionof{figure}{Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive. Each cycle gives a simple zero, so this group has a nonzero leading term of phase $(-i)^2$.}
 \label{fig:spokes}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{12-tree-cotree-body.tex}
 \captionof{figure}{Recover from the forest state $r$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.}
 \label{fig:tree-cotree}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{13-selected-body.tex}
 \captionof{figure}{The white-face tree selects the bold sides. Its root selects $e_0$; each other white face selects the side towards its parent. Every black and white face has one selected side. The resulting $P$ is a forest with two components. Its complementary dual in (b) is one cycle through all $22$ faces, separating the disk and square classes into two induced trees.}
 \label{fig:selected}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{14-gluing-body.tex}
 \captionof{figure}{Glue across the separating triangle $\{3,4,5\}$. Solve the outer piece first, then prescribe its same-class edge $\{3,5\}$ on the inner piece. The classes agree on the cap. For each class the two trees meet in that edge or in vertex $4$, so their union is again an induced tree.}
 \label{fig:gluing}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
-\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{15-overview-body.tex}
 \captionof{figure}{The order of the argument and where each figure belongs. Solid boxes are the main line for a triangulation without separating triangles. The disk identity is used twice, for the cancellation and for the forest of selected edges. Separating triangles are handled last, by induction.}
 \label{fig:overview}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{16-at-a-glance-body.tex}
 \captionof{figure}{The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The white-face tree then selects the forest whose complementary dual is the Hamiltonian cycle.}

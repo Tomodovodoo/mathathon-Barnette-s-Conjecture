@@ -30,4 +30,11 @@ for p in sorted(O.glob('[0-9][0-9]-*.tex')) + [O / 'gallery.tex']:
     doc = fitz.open(O / (p.stem + '.pdf'))
     for i, page in enumerate(doc):
         page.get_pixmap(dpi=100 if p.stem == 'gallery' else 150).save(R / (f'{p.stem}-{i + 1:02}.png' if p.stem == 'gallery' else f'{p.stem}.png'))
+    if p.stem == 'gallery':
+        for old in R.glob('gallery-*.png'):
+            if int(old.stem.split('-')[-1]) > len(doc):
+                old.unlink()
     print('built', p.stem, len(doc), 'page(s)', flush=True)
+
+if not only:
+    subprocess.run([sys.executable,str(O / 'audit.py')],cwd=O,check=True)
