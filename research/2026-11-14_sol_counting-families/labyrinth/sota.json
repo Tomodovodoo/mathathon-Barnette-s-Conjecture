@@ -1,0 +1,18 @@
+{
+  "groups": [
+    "families"
+  ],
+  "entries": [
+    {
+      "id": "tube",
+      "group": "families",
+      "cls": "T4",
+      "result": "Widths 4 and 6: integer transfer certificates",
+      "status": "under review",
+      "refs": "FAMILIES.md",
+      "lit": "",
+      "updated": "2026-11-14",
+      "previous": []
+    }
+  ]
+}

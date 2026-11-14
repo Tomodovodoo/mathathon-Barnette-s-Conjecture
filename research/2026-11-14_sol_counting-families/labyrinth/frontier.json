@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "size_name": "tube length L",
+    "value_name": "resolved selected quantities",
+    "value_scale": "linear"
+  },
+  "sizes": [
+    {
+      "size": 2,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 3,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 4,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 5,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 6,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 7,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 8,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 9,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 10,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 11,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 12,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 13,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 14,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 15,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 16,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 17,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 18,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 19,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    },
+    {
+      "size": 20,
+      "lo": 0,
+      "hi": 3,
+      "realized": [
+        [
+          0,
+          "states"
+        ],
+        [
+          1,
+          "pairs"
+        ],
+        [
+          2,
+          "tree matchings"
+        ],
+        [
+          3,
+          "HC"
+        ]
+      ]
+    }
+  ]
+}

@@ -43,7 +43,7 @@ def certificate(p,tree):
     layer=[tuple(v-2*p for v in f) for f in rows if level(f)==3]
     # Exact same local triangle list at every middle layer, after translation.
     for j in (4,5):assert layer==[tuple(v-(j-1)*p for v in f) for f in rows if level(f)==j]
-    cap=[tuple(v-6*p if v not in poles else p for v in f) for f in rows if poles.__contains__(6*p+p+1) and 6*p+p+1 in f]
+    cap=[tuple(v-6*p if v not in poles else p for v in f) for f in rows if 6*p+p+1 in f]
     keys=list(init);trans={};i=0
     while i<len(keys):
         key=keys[i];i+=1
