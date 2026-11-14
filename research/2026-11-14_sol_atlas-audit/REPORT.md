@@ -55,3 +55,5 @@ The atlas owner must integrate the exact proposals into a fresh build, update so
 ## Git and files
 
 First stable commit 25d5bcd records the target snapshot and independent baseline. Later commits contain only this folder and digestions/atlas/proposed/. AUDIT.md is the page-by-page review; EDITS.md gives literal old/new replacements; code/README.md gives commands and output provenance. The final commit and push result are reported in chat. No live atlas source was edited by this review.
+
+Git update. The main review commit is f224391. The first push to origin/main succeeded. A final small commit refreshes the inspection PNGs after the final figure layout changes.

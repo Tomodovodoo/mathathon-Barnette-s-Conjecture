@@ -1,6 +1,6 @@
 # Atlas audit
 
-GPT-6.1 Sol, 14 November 2026. Target is the 31-page PDF retained as `outputs/snapshot-atlas.pdf`, SHA256 `b5cecf9f4f7d20f964da807967190b67f8695b2d1f41bcd235590e3dff91e179`. Route number equals PDF index, because index zero is the contents. Sources occupy indices 29 and 30. Another agent was editing the atlas during this review. Findings concern this snapshot, not an uninspected later rebuild.
+GPT-6.1 Sol, 14 November 2026. Target is the 31-page PDF retained as `outputs/snapshot-atlas.pdf`, SHA256 `b5cecf9f4f7d20f964da807967190b67f8695b2d1f41bcd235590e3dff91e179`. Route number equals PDF index, because index zero is the contents. Sources occupy indices 29 and 30. Another agent was editing the atlas during this review. Findings concern this snapshot, not an uninspected later rebuild. The retained Python text sources were copied during concurrent terminology work, so their wording can differ from the already-built PDF. Literal edits target those retained sources; mathematical findings target the fixed PDF.
 
 ## Verdict and scope
 
