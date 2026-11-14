@@ -5,7 +5,7 @@ Fable 5.2, 14 November 2026. Folder `research/2026-11-14_fable_synthesis-audit/`
 1. Every number, size and "refuted" in the first version of the synthesis agrees with its source. I found no wrong counterexample size and no wrong census figure.
 2. Eleven statements were wrong, out of date or wider than their source. The ones that matter: the referee of the main paper read version 1, not version 2; two "referee" reports are by the same model as the author; a parity condition was credited to the wrong paper; the blueprint's numbers (4, 25, 5 of 34) were missing.
 3. The document is rewritten in the main paper's names, with a first page that answers five questions, a table of who wrote and who checked each piece of work, and a housekeeping section for the owner.
-4. Seven late runs are folded in: version 2 of the paper and its cold read, the second involution referee, the consistency edits, the atlas audit, the Lean devices run, and the referee run on version 2 that is still open.
+4. Nine late runs are folded in: version 2 of the paper, its cold read and its referee, the second involution referee, the consistency edits, the atlas audit, the Lean devices run and the descent study. Two runs were still open at my last scan.
 5. Both figures are regenerated from a recount (`count.py`, `figures.py`). `inventory.py` writes the snapshot numbers into the text and `check.py` verifies them.
 
 ## What I set out to do
@@ -20,7 +20,7 @@ All claims below are about the repository, not new mathematics. Mathematical sta
 
 **What was wrong or misleading.** The full list is in FACT-CHECK.md. In order of weight:
 
-- "Its main theorem has an independent AI referee" described version 1. Version 2 had only its reviser's audit when I finished.
+- "Its main theorem has an independent AI referee" described version 1. The referee of version 2 reported while I worked, and the text now gives both.
 - `sol_referee-covers` referees `sol_counting-families` and `sol_route-probabilistic`. Author and referee are the same model. The first version called this a referee check without that caveat.
 - The parity condition refuted on the truncated octahedron is that of Bagheri Gh., Feder, Fleischner and Subi (2021), not "Feder-Subi".
 - "Draft B left that premise unwritten": both drafts did.
@@ -40,12 +40,12 @@ All claims below are about the repository, not new mathematics. Mathematical sta
 - I read in full the referee reports, the blueprint, the cross-audit, the history review, the merge and revision reports, the packing report and the two induction reports. For the other route reports I read the summary and searched for the number in question. FACT-CHECK.md says this at its top.
 - I read the OpenAI paper only through its text dump, for statement numbers and the names of its devices.
 - The text is longer than the first version (the count is in check-output.txt against 4,163 before). The additions are the ones the brief asked for. I cut detail elsewhere, and CHANGELOG.md lists what went.
-- The main paper's PDF changed page count between two of my counts (19, then 20, then 19) while another run was rebuilding it. The synthesis therefore says "about 20 pages" on page one and gives the exact count with its time in section 11.
+- The main paper's PDF changed page count between my counts (19, then 20, then 19) while two other runs were editing and rebuilding it. The final referee report fixes it at 19 pages, and `check.py` ties the number in the text to the PDF.
 - A heredoc mangled backslashes in my figure script once. I repaired the file and rebuilt before committing.
 
 ## What is still open
 
-- The runs without a report at my last scan are listed in the last paragraph of section 11 of the synthesis. Two of them bear on its headline claims: `sol_referee-main-v2`, the referee of version 2 of the paper, and `astra_lean-check`, an independent check of the Lean devices.
+- The runs without a report at my last scan are listed in the last paragraph of section 11 of the synthesis. One of them bears on a headline claim: `astra_lean-check`, an independent check of the Lean devices.
 - The tally "8 exact, 24 translated, 2 without a counterpart" after the Lean devices run is my count from `proofs/lean/BLUEPRINT-DELTA.md`. The blueprint's owner has not updated the blueprint, and the delta qualifies two of the four new exact matches.
 - The review table in section 10 takes authors and referees from folder names and report headers. Nobody else has checked it.
 - No human has read the synthesis.

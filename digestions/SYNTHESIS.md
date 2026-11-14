@@ -12,13 +12,13 @@ Fix a black triangle $t_0$ at $e_0$ and call its corners roots. A state chooses 
 
 Nobody knows how to point to a good state, so the proof counts. A pair is two states that differ in every triangle. Each pair gets a sign, and a weight that depends only on its second state. If the opposite sides of the second state contain a cycle, reversing that cycle changes the first state, keeps the weight and flips the sign, so all such pairs cancel. The same sum, grouped by the cycles along which the two states differ, is a repeated difference. Its first surviving term is a product of positive numbers, the counts of white triangles inside those cycles. So the sum is nonzero, and a good state exists as soon as one pair exists. A flow argument gives a pair when $T$ has no separating triangle. Otherwise the induction cuts along a separating triangle, and the prescribed side makes the two halves agree.
 
-**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote an exposition of about 20 pages with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 227 attempted routes, 67 of them recorded as refuted.
+**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 19-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 227 attempted routes, 67 of them recorded as refuted.
 
-**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: a different model refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. A cold read of version 2 by Opus found no mathematical problem, and a second referee run was still open at this snapshot. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author.
+**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author.
 
 **What is open.** A proof that avoids the signed count. We have none, and section 6 says why the obvious shortcuts fail. A polynomial-time way to find the cycle. The bound that there are at least $2^m$ good states. A direct proof for non-planar Pfaffian graphs. A formal proof of our own route.
 
-**What a human should read first.** The [main paper](../paper/main/barnette.pdf), whose first two pages give the plan on the cube. Then the [referee's report](../research/2026-11-14_sol_referee-main/REFEREE.md) on version 1, which lists every obligation it checked. For a ten-minute tour of the mechanism, [how it works](route-map/HOW-IT-WORKS.md).
+**What a human should read first.** The [main paper](../paper/main/barnette.pdf), whose first two pages give the plan on the cube. Then the [referee's report](../research/2026-11-14_sol_referee-main-v2/REFEREE.md) on version 2, which lists every obligation it checked. For a ten-minute tour of the mechanism, [how it works](route-map/HOW-IT-WORKS.md).
 
 ## 2. What exists now
 
@@ -28,7 +28,7 @@ Nobody knows how to point to a good state, so the proof counts. A pair is two st
 
 | Product | What it is, and its review status |
 |---|---|
-| [Main paper](../paper/main/barnette.pdf) | Version 2, about 20 pages and still being polished: target, corner choices, disk identity, signed count, first pair, gluing. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is the one with a finished referee report. |
+| [Main paper](../paper/main/barnette.pdf) | Version 2, 19 pages: target, corner choices, disk identity, signed count, first pair, gluing. Refereed in both versions. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is kept. |
 | [Primal companion](../proofs/primal/primal.pdf) | 15 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 pages. Li's argument for general $m$, written out as two sign-reversing involutions. Refereed twice. |
 | [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean. Not reviewed. |
@@ -54,21 +54,19 @@ Each item names who found it and which other model checked it. Section 10 says w
 
 **Connectivity inside a cycle.** Euler's formula needs a connected plane graph. Both drafts applied it to the inside of a cycle without proof. Fable supplied a five-line lemma, and Sol checked that the repair is not circular. [Draft B review](../research/2026-11-14_fable_review-draft-B/REPORT.md)
 
-**The disk identity as turning.** Signed angles give a Gauss-Bonnet account of the identity. Opus derived it, and Fable accepted it after supplying two missing steps. It is intuition and does not replace the count. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
-
 **An exact criterion for the first pair.** The constructive manuscript states that a pair exists exactly when no separating triangle has black faces along its inner side, the side away from $t_0$. Opus proved it from one Euler identity for induced subgraphs, and Sol checked both directions. So gluing is needed only at such triangles. [Integration, sections 1 and 2](../research/2026-11-14_sol_referee-structure/INTEGRATION.md)
 
 **Which cycles the construction finds.** For fixed $t_0$ and $e_0$, different good states give different Hamiltonian cycles, and some cycles are missed. A cycle avoiding the edge yields a state, and the construction finds the cycle exactly when that state is good. Otherwise the state has no partner. On the hexagonal prism with $e_0$ on the equator there are three states, two of them good, and four cycles avoiding the edge. Astra and Fable proved this and Sol checked it. [Structure referee](../research/2026-11-14_sol_referee-structure/REPORT.md)
 
 **Counts.** Write $g$ for the number of good states at a root, $\#TM$ in the reports, and $h$ for the number of Hamiltonian cycles of $G$. Then $3g\le h$ and $g\ge 2m$. Fable proved both and Astra checked them. In $G$, a cover is an edge set $S$ with prescribed local degrees, and its number of cycles is $\kappa(G-S)-1$, one less than the number of components. Astra proved this and Sol checked it. $S$ is not the matching that the proof deletes. [Combinatorics referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 
-**Families.** The prism over a $2j$-gon has $2j+2$ Hamiltonian cycles. Two avoid a given rail edge and $2j-2$ avoid a given rung. A graph with $b$ irreducible pieces has at least $2^b$ cycles avoiding any given edge and at least $3\cdot2^b$ in all. The cube has six, so six is sharp, and prisms show that no exponential lower bound in the number of vertices holds for the whole class. Sol proved these. Their referee was a second Sol run, so no different model has checked them. [Families referee, F1 and F5](../research/2026-11-14_sol_referee-covers/REFEREE-families.md)
+**Families.** The prism over a $2j$-gon has $2j+2$ Hamiltonian cycles, so no exponential lower bound in the number of vertices holds for the whole class. A graph with $b$ irreducible pieces has at least $2^b$ cycles avoiding any given edge and at least $3\cdot2^b$ in all. The cube has six, so six is sharp. Sol proved these. Their referee was a second Sol run, so no different model has checked them. [Families referee, F1 and F5](../research/2026-11-14_sol_referee-covers/REFEREE-families.md)
 
 **Two smaller points.** To force a cycle through an edge at a cubic vertex, avoid another edge at that vertex. And the signed count is one coefficient of an integer determinant, whose positivity restates the theorem without proving it. [Older approaches](../research/2026-11-14_astra_older-approaches/REPORT.md), [determinant referee](../research/2026-11-14_fable_referee-determinants/REPORT.md)
 
 ## 4. The three papers connected
 
-The dependency audit found no error in any of the three papers and one shared skeleton of fourteen steps: the dual and root, the incidence graph, the first pair, the disk identity, the sign under reversal, positive increments, cancellation at a fixed second state, nonvanishing, the good pair, the tree on white faces, the selection, the single cycle, gluing, and the theorem with an avoided edge. [Skeleton](../research/2026-11-14_fable_dependency-graph/skeleton.md)
+The dependency audit found no error in any of the three papers and one shared skeleton of fourteen steps, from the dual and its root through the first pair, the disk identity, the two cancellations and the recovery to gluing. [Skeleton](../research/2026-11-14_fable_dependency-graph/skeleton.md)
 
 | Object | OpenAI | Li | Constructive manuscript |
 |---|---|---|---|
@@ -94,9 +92,9 @@ Sizes count vertices of $T$ unless marked primal. "First" means an exhaustive se
 |---|---|---|
 | Combinatorial | Heights, reversal and finite differences give the refereed proof. | Choosing the highest or lowest state, or turning all cycles of a smallest cover one way, fails at 12 once reflections are counted. A 13-vertex instance has six good states and $m=2$, so good states do not split into cubes of four. [Referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md) |
 | Graph-theoretic | The exact pair criterion and the three-matroid description are refereed. Two-tree packing has a proof nobody has reviewed. | A two-matroid relaxation fails on the hexagonal prism, 8 vertices: four of its six solutions are not states. The linear program has a half-integral vertex at 13, a witness. A cover with no good state occurs at 16. [Determinants](../research/2026-11-14_fable_referee-determinants/REPORT.md), [structure](../research/2026-11-14_sol_referee-structure/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |
-| Constructive | The lab enumerates, runs marked walks and recovers cycles. | No polynomial bound. Strict descent on rainbow trees fails at 8. The surplus walk cycles at 38, a witness. A search over plateaus has not failed yet. [Lab](../workings/barnette_lab/README.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
+| Constructive | The lab enumerates, runs marked walks and recovers cycles. | No polynomial bound. Strict descent fails first at 16 for pairs and at 8 for rainbow trees. The surplus walk cycles at 38, a witness. A search over plateaus has not failed yet. [Lab](../workings/barnette_lab/README.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
 | Algebraic | Two equivalent determinants and the linear weights are refereed. | The plain determinant fails on the hexagonal prism, and doubled edges fail at 9. No sign change on incidences removes the cancellation, by a 13-vertex witness. The number of good states can vanish modulo 2, 3, 4, 5, 7 and 11, witnesses at 6, 13, 9, 14, 16 and 26. The algebra report is not reviewed. [Referee](../research/2026-11-14_fable_referee-determinants/REPORT.md), [algebra](../research/2026-11-14_sol_route-algebra/REPORT.md) |
-| Topological | Turning number explains the disk identity, and a dual rank formula counts the cycles a selection leaves. Both are refereed. | The plain Euler characteristic loses the grading. The referee's own new results, that a rainbow tree exists and lies in a unique cover, are not reviewed. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
+| Topological | Signed angles give a Gauss-Bonnet reading of the disk identity, and a dual rank formula counts the cycles a selection leaves. Opus derived both and Fable refereed them. They are intuition, not a second proof. | The plain Euler characteristic loses the grading. The referee's own new results, that a rainbow tree exists and lies in a unique cover, are not reviewed. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
 | Probabilistic | Explicit families show that good states can be exponentially rare. | Positive weights on all spanning trees cannot match the target degrees, already on the cube, primal order 8. That excludes full-support measures only. Real roots and roots on the unit circle both fail at 12. Opus checked the degree obstruction, and otherwise only a second run of the author's model reviewed this. [Probability](../research/2026-11-14_sol_route-probabilistic/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |
 | Categorical | Cutting along a cycle and recording a boundary pattern composes: 3 patterns on triangles, 6 on quadrilaterals, given the theorem. | On 5-cycles the patterns depend on the piece, witness at 9. Homology and Belyi maps gave vocabulary only. Not reviewed. [Report](../research/2026-11-14_fable_route-categorical/REPORT.md) |
 | Inductive | Splitting of states, a lift criterion and a rotation are refereed. A one-sided induction step has a written proof. | The converse of the lift criterion fails at 11. "Some good state lifts" fails at 18. Selecting inward fails at 11, 13 and 14. Repair by the partner fails at 16, by one cycle at 17, by any reorientation of a fixed cover at 18. Lemmas G and X are open. [Referee](../research/2026-11-14_fable_induction-completion/REPORT.md), [later lemmas](../research/2026-11-14_astra_induction-lemmas/REPORT.md) |
@@ -121,11 +119,11 @@ A 16-vertex cover contains no good state. No reorientation of its cycles helps. 
 
 2. **Prove at least $2^m$ good states.** It holds on all 4,656,948 rooted instances with a pair through 22 vertices, computed by Opus and reproduced by Sol with separate code. Astra's census without separating triangles reports no failure on 23,824,742 rooted faces through 24 vertices, and Sol replayed it through 16. The cases of one cover and of two covers are proved and refereed. Explicit families attain equality for every $m$, and $m$ is unbounded even without separating triangles. The next step is the two-cover calculation for more covers. An induction on levels with a fixed number of cycles cannot work, because such levels can be disconnected. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 
-3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. It holds for all 24,744 pairs through 16 vertices. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices and in samples to 120. A proof must explain the escape from the periodic walks found at 38. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md), [conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md)
+3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 49,325,864 pairs through 22 vertices. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices and in samples to 120. Neither study is reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
 
 4. **Find a polynomial-time construction.** Testing one orientation of a cover is linear. Finding a good one among all covers has no polynomial bound. Sampling states at random cannot work in general, because good states can be exponentially rare even without separating triangles. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [families](../research/2026-11-14_sol_counting-families/REPORT.md)
 
-5. **Prove the non-planar statement directly.** The Pfaffian corollary rests on the planar theorem and a structure theorem. Start from the Heawood graph, where the count vanishes, and from the six path patterns across a trisum. [Pfaffian report](../research/2026-11-14_astra_route-pfaffian/REPORT.md)
+5. **Prove the non-planar statement directly.** The Pfaffian corollary rests on the planar theorem and a structure theorem. Start from the Heawood graph, where the count vanishes. [Pfaffian report](../research/2026-11-14_astra_route-pfaffian/REPORT.md)
 
 6. **Finish formalising our route.** The sign and the counting step are done. Next comes the bridge from the paper's heights to Lean's flow weights. The connectivity lemma and the two induced trees need a Jordan curve theorem, which Mathlib lacks. The paper could drop the second by gluing matchings as Lean does. [Lean devices report](../research/2026-11-14_opus_lean-devices/REPORT.md)
 
@@ -169,7 +167,7 @@ The merge followed these, and a cold reader still found the opening overloaded, 
 |---|---|---|---|
 | OpenAI's Lean proof | OpenAI | Lean kernel, built locally by Opus | Our texts |
 | Main paper, version 1 | Opus, merging drafts by Astra and Opus | Sol: follows, eight corrections. Fable: cold read, 40 edits | |
-| Main paper, version 2 | Astra | Astra's own audit. Opus: cold read, no mathematical problem, then 17 edits | The text after those edits. A Sol referee run is in progress |
+| Main paper, version 2 | Astra, then 17 finishing edits by Opus | Sol, on the final text: follows, eight small corrections. Opus: cold read, no mathematical problem | |
 | Primal companion | Astra | Fable: follows, one gap closed. Opus: final review, accept | |
 | Involution companion | Sol | Opus: follows, 15 edits. Fable, on the revision: follows, new lemma correct after a fix | |
 | Blueprint | Opus | Nobody | The 25 matches in another form |
@@ -180,6 +178,7 @@ The merge followed these, and a cold reader still found the opening overloaded, 
 | Topology | Opus | Fable | Fable's new rainbow results |
 | Lattice conjectures | Opus | Sol | Sol's 33-vertex refutation |
 | Induction | Opus | Fable | Fable's and Astra's later lemmas |
+| Descent study | Fable | Nobody | |
 | Cycle covers | Astra | Sol | The census from 17 to 24 vertices |
 | Families, probability | Sol | A second Sol run. Opus checked one probability result | A different model, for the rest |
 | Packing, algebra, category, Pfaffian | Opus, Sol, Fable, Astra | Nobody | |
@@ -198,9 +197,9 @@ Two disputes were settled by a model that was not a party, and referees correcte
 ## 11. Numbers and snapshot
 
 <!-- inventory-start -->
-The inventory was taken at 2026-11-14 13:24 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
+The inventory was taken at 2026-11-14 13:26 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
 
-There are 66 run folders and 62 of them hold a final report. By folder name, 17 are GPT-6 Astra, 17 Fable 5.2, 16 Opus 5.5 and 16 GPT-6.1 Sol. The route map has 227 records: 46 arguments from the sources, 58 proofs written here, 12 computations, 19 conjectures, 25 hunches and 67 refutations. Those are recorded statuses, not review verdicts.
+There are 66 run folders and 64 of them hold a final report. By folder name, 17 are GPT-6 Astra, 17 Fable 5.2, 16 Opus 5.5 and 16 GPT-6.1 Sol. The route map has 227 records: 46 arguments from the sources, 58 proofs written here, 12 computations, 19 conjectures, 25 hunches and 67 refutations. Those are recorded statuses, not review verdicts.
 
 | PDF | Pages |
 |---|---:|
@@ -219,6 +218,7 @@ The censuses cover different populations and must not be added up. The numbers a
 |---|---|---|---|
 | At least $2^m$ good states | every root, to 22 vertices | 4,656,948 rooted instances with a pair | Opus, reproduced by Sol |
 | The same, no separating triangle | to 24 vertices | 23,824,742 rooted faces | Astra. Sol replayed 3,374 through 16 |
+| Pair descent | every root, to 22 vertices | 49,325,864 pairs | Fable, not reviewed |
 | Rainbow descent | every root, to 17 vertices | 69,458,112 rainbow trees, the rest by a proposition | Fable, not reviewed |
 | Lemma G | 8 to 19 vertices | 62,416 rooted instances | Fable. Astra's criterion agrees |
 | Contraction inequality | to 18 vertices | 1,202,792 contractions | Fable |
@@ -226,7 +226,7 @@ The censuses cover different populations and must not be added up. The numbers a
 | Main paper's identities | to 12 vertices | 262 rooted faces of 15 triangulations | Sol |
 
 <!-- late-start -->
-**Runs still open at this snapshot.** Four folders hold no final report: `astra_lean-check`, `fable_atlas-final`, `fable_descent`, `sol_referee-main-v2`. Nothing from them is counted as a result above.
+**Runs still open at this snapshot.** Two folders hold no final report: `astra_lean-check`, `fable_atlas-final`. Nothing from them is counted as a result above.
 <!-- late-end -->
 
 ## Housekeeping for the owner

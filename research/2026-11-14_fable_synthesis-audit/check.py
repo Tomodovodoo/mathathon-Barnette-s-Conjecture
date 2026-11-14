@@ -58,7 +58,9 @@ if not (abs(counts["step_words_total"] - 28000) < 500):
 
 # numbers repeated outside the block
 R, X = counts["routes"], st["REFUTED"]
-for needle in [f"map of {R} attempted routes, {X} of them recorded as refuted",
+for needle in [f"{pg['paper/main/barnette.pdf']}-page exposition",
+               f"Version 2, {pg['paper/main/barnette.pdf']} pages",
+               f"map of {R} attempted routes, {X} of them recorded as refuted",
                f"{pg['proofs/primal/primal.pdf']} pages. The whole proof",
                f"{pg['proofs/involutions/involutions.pdf']} pages. Li's argument",
                f"{pg['digestions/atlas/atlas.pdf']} pages of computed pictures",

@@ -29,11 +29,11 @@ Editor: Fable 5.2, 14 November 2026. Base: commit `0d2c5cc` (GPT-6 Astra). The r
 - Recovery: the hexagonal prism example added.
 - Families: the prism parameter is $j$; the referee is named as a second Sol run.
 - "Obtain inclusion from avoidance" and "Keep the determinant's qualification" merged into "Two smaller points".
-- Removed for length: the Morse detail, the remark on reference normalisation of heights.
+- Removed for length: the Morse detail, the remark on reference normalisation of heights, the two prism avoidance counts. The Gauss-Bonnet item moved into the topological row of section 5.
 
 ## Section 4
 
-- Added that the dependency audit found no error in the three papers.
+- Added that the dependency audit found no error in the three papers. The list of the fourteen steps is shortened.
 - The blueprint paragraph now gives the numbers and names the four exact matches and the five statements without a counterpart, says the blueprint was extracted from version 1, and says nobody reviewed it.
 - Removed: the sentence about differing line estimates (true, but no estimate is quoted now).
 
@@ -89,3 +89,5 @@ Editor: Fable 5.2, 14 November 2026. Base: commit `0d2c5cc` (GPT-6 Astra). The r
 - The atlas audit (sol_atlas-audit REPORT): sections 2 and 10.
 - The Lean devices run (opus_lean-devices REPORT, proofs/lean/): a new product row, a new paragraph in section 4, open problem 6 rewritten, a row in the review table, the blueprint box of the products figure.
 - Section 11's inventory and its list of open runs are written by `inventory.py` from counts.json, because the numbers changed several times while I worked.
+- The referee of version 2 (sol_referee-main-v2 REPORT): page one, the product table, the review table, the products figure. The recommended referee report is now the version 2 one.
+- The descent study (fable_descent REPORT): open problem 3, the constructive row of section 5, a row in the census table and in the review table.

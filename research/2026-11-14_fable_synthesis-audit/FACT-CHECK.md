@@ -21,9 +21,9 @@ Folder names are short for `research/2026-11-14_<name>/`. "main" is `paper/main/
 | C006 | New mechanism = disk identity with the two-way signed count; dual form, edge avoidance and separator reduction are older. | opus_history-literature REPORT, item 2 | correct |
 | C006 | The mathathon produced an explanation, simpler forms and a record of failed replacements; no unsigned proof, no polynomial constructor. | sol_referee-conjectures, fable_referee-topology, astra_induction-lemmas REPORTs | correct. "Substantial" removed. |
 | C007 | The merge keeps the geometry in $T$, uses local signs, face-path heights and an inside-connectivity lemma. | opus_manuscript-merge REPORT; main, Section 7 | correct |
-| C007 | "Its main theorem has an independent AI referee." | sol_referee-main REPORT | corrected: the referee read version 1 (18 pages). Version 2 has only its reviser's audit, and a new referee run (`sol_referee-main-v2`) had no report at my last scan. |
+| C007 | "Its main theorem has an independent AI referee." | sol_referee-main REPORT | corrected: the referee read version 1 (18 pages). The text now says that Sol refereed version 1, and that Sol's second audit (sol_referee-main-v2 REPORT, delivered while I worked) covers the final text of version 2, verdict follows, eight small corrections. |
 | none | 4 exact, 25 after translation, 5 without counterpart, of 34. | proofs/blueprint/BLUEPRINT.md, lines 4, 5, 41 to 46 | added |
-| none | Reading order for a human. | | added on page one: main paper, the version 1 referee report, HOW-IT-WORKS. |
+| none | Reading order for a human. | | added on page one: main paper, the version 2 referee report, HOW-IT-WORKS. |
 | none | A late Lean run checked the sign, the cancellation and the nonvanishing step; 8 exact, 24 translated, 2 without counterpart. | opus_lean-devices REPORT; proofs/lean/BLUEPRINT-DELTA.md | added. The tally 8, 24, 2 is my count from the delta's rows (4.4 and 4.7 from none to exact, 4.5 and 4.8 from translated to exact, 3.7 from none to translated). The delta prints no totals, and it calls 4.4 exact "in the Lean's model" and 4.8 exact "for the method". |
 | none | A cold read of version 2 by Opus found no mathematical problem. | opus_coldread-main-v2 REPORT item 5 | added |
 
@@ -48,20 +48,20 @@ Folder names are short for `research/2026-11-14_<name>/`. "main" is `paper/main/
 | C025 | Face-path heights; fixed paths matter; Fable supplied them, Sol checked the merged version. | fable_review-draft-B REPORT (S1, 736 reversals); main, Lemma 4.6 | correct |
 | C026 | Finite difference over the cube of orientations; linear weights give one polynomial; Laurent caveat. | main, Lemma 4.7 and Remark 4.10; fable_referee-determinants REPORT; sol_referee-main REPORT item 3 | correct. Added: Opus proved the lemma in Lean (opus_blueprint REPORT item 3). |
 | C027 | "Draft B left that premise unwritten." | opus_manuscript-merge REPORT item 3 ("the gap both drafts shared") | corrected: both drafts |
-| C028 | Gauss-Bonnet reading; Fable accepted Opus's derivation after two additions; Morse reading needs the root spokes. | fable_referee-topology REPORT, claims (a), (d) | correct. The Morse detail is cut for length. |
+| C028 | Gauss-Bonnet reading; Fable accepted Opus's derivation after two additions; Morse reading needs the root spokes. | fable_referee-topology REPORT, claims (a), (d) | correct. The item now sits in the topological row of section 5; the Morse detail is cut for length. |
 | C029 | The Euler identity $e-b-(2p-4)=\frac12\sum(\beta-d+4)$ and the exact pair criterion; Sol checked both directions. | sol_referee-structure INTEGRATION, sections 1 and 2 | correct. Formula cut for length. Attribution corrected: the criterion is stated in the constructive manuscript (main, Section 7, citing its Theorem 1.2); Opus's contribution is the proof from the Euler identity. |
 | C030 | Gluing only at black-inner separating triangles. | same file | correct, merged into the previous item |
 | C031 | Recovery is injective, not surjective; found exactly when the state is good; otherwise no partner. | sol_referee-structure REPORT; main, Section 7; opus_cross-audit CONSISTENCY section 3 (prism: 3 states, 2 good, 4 cycles) | correct. Prism example added. |
 | C032 | $c(D)=\kappa(G-S)-1$; $3\#TM\le\#HC$; $\#TM\ge 2c_{\min}$. | sol_referee-covers REFEREE-covers C2; astra_referee-combinatorics REPORT, last section | correct |
 | C033 | Inclusion from avoidance; no separate referee. | astra_older-approaches REPORT | correct |
 | C034 | Squarefree coefficient of a determinant; the two formulas coincide; the norm is no independent proof. | fable_referee-determinants REPORT | correct |
-| C035 | Prism counts $2m+2$, 2, $2m-2$; $2^b$ and $3\cdot2^b$; cube has six; "the families referee checks these statements". | sol_referee-covers REFEREE-families F1, F5; INTEGRATION | corrected: the numbers are right, but the referee (Sol) is the same model as the author of `sol_counting-families`. The text now says no different model has checked them. The prism parameter is renamed $j$ because $m$ is taken. |
+| C035 | Prism counts $2m+2$, 2, $2m-2$; $2^b$ and $3\cdot2^b$; cube has six; "the families referee checks these statements". | sol_referee-covers REFEREE-families F1, F5; INTEGRATION | corrected: the numbers are right, but the referee (Sol) is the same model as the author of `sol_counting-families`. The text now says no different model has checked them. The prism parameter is renamed $j$ because $m$ is taken. The two avoidance counts (2 and $2m-2$) are cut for length. |
 
 ## Section 4, the three papers
 
 | Block | Claim | Source checked | Verdict |
 |---|---|---|---|
-| C036 | Fourteen shared nodes, listed. | fable_dependency-graph skeleton.md, table K0 to K16 | correct |
+| C036 | Fourteen shared nodes, listed. | fable_dependency-graph skeleton.md, table K0 to K16 | correct. The list is shortened to its ends and middle; the link gives all fourteen. |
 | C037 | Four points differ: first pair, weights, nonvanishing, final connectivity. | fable_dependency-graph REPORT item 2 | correct |
 | C037 | "Li's marks encode the same lowest-degree information as the weighted sum." | opus_referee-involutions REPORT (last finding); main, Remark 4.10 | correct, cut for length |
 | C038 | OpenAI and the constructive paper close; Li needs the balance count and three Appendix B checks; the involution companion is Li's proof unpacked, accepted by Opus. | fable_dependency-graph REPORT item 1; opus_referee-involutions REPORT items 1, 5 | correct. Added: "no error found in any of the three papers" (same report). |
@@ -109,7 +109,7 @@ Sizes checked against the report that owns each counterexample.
 | C057 | Contraction inequality on 1,202,792 contractions through 18. | same (344,872 + 857,920, sum) | correct |
 | C057 | Later report proves G without chordless 5-cycles; the strict inequality is sufficient, not proved necessary. | astra_induction-lemmas REPORT | correct. X restated in the sufficient direction only. |
 | C058 | 4,656,948 instances through 22, independently reproduced; separator-free census to 24 not independently replayed; one-cover and two-cover cases refereed. | sol_referee-conjectures REPORT; sol_referee-covers REFEREE-covers C3, C4 | correct. Added: who computed and who reproduced. |
-| C059 | Pair descent and rainbow descent differ; rainbow descent through 17 and samples to 120. | fable_referee-topology REPORT; sol_referee-structure REPORT | correct. Added: pair descent on 24,744 pairs through 16 (sol_referee-conjectures REPORT). |
+| C059 | Pair descent and rainbow descent differ; rainbow descent through 17 and samples to 120. | fable_referee-topology REPORT; sol_referee-structure REPORT | correct. Added from the descent study (fable_descent REPORT, delivered while I worked): pair descent on all 49,325,864 pairs through 22 vertices; strict descent fails first at 16, lookahead two first at 21; 27 of 28 potentials fail. The pair total equals the pair count of Sol's census (sol_referee-conjectures REPORT). The study is not reviewed. |
 | C060 | Testing a direction choice is easy, search is not; rarity defeats sampling. | sol_referee-conjectures REPORT (GAP); sol_referee-covers INTEGRATION (width-four tube) | correct |
 | C061 | Direct non-planar proof; Heawood; six trisum signatures. | astra_route-pfaffian REPORT | correct |
 | C062 | Formalise the exposition's route; start with sign and path flow. | opus_blueprint REPORT, next steps; opus_lean-devices REPORT, "still open" | corrected: the sign and the counting step are now done. What remains is the heights bridge (T2) and the two statements that need a Jordan curve theorem (T6). |

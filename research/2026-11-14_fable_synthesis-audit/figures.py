@@ -75,8 +75,8 @@ box(8.4, YS, xs[3] + W - 8.4, HS, "OpenAI's Lean proof",
 # row 2: proofs written here
 Y = 3.45
 rowlabel(Y + H / 2, "WRITTEN HERE")
-box(xs[0], Y, W, H, "Main paper", f"version 2, about 20 pages\ndual triangulation",
-    note=f"v1 ({V1} pp.) refereed by Sol.\nv2 referee run in progress.")
+box(xs[0], Y, W, H, "Main paper", f"version 2, {MAIN} pages\ndual triangulation",
+    note="Both versions\nrefereed by Sol.")
 box(xs[1], Y, W, H, "Involution companion", f"{INV} pages\nLi's argument, general m",
     note="Refereed by Opus,\nthen by Fable.")
 box(xs[2], Y, W, H, "Primal companion", f"{PRI} pages\nthe proof inside G",
