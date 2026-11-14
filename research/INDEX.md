@@ -83,7 +83,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | done | `FACTS.md`. Four documents agree; atlas repaired in `fable_atlas-repair/`. |
 | `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | done | Every document builds from a fresh clone; 14 tests and 1,209 rooted runs pass. Two editorial gates red (synthesis length, one gallery caption). `requirements.txt` added. |
 | `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | done | 63 cite commands, 23 keys, none missing; numbered citations match their sources. Kelmans and the 1969 Waterloo page are known only through secondary sources. `PDF-RIGHTS.md`. |
-| `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | done | `verify.py` passes; pages 26, 29, 30 corrected; evidence chart redrawn. Not audited. |
+| `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | done | `verify.py` passes; pages 26, 29, 30 corrected; evidence chart redrawn. Audited in `sol_atlas-recheck/`. |
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | done | No proof gap. Seven wording edits and a bibliography clean-up, applied by the coordinator. |
 | `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | done | Process residue removed; no mathematical change. Label defects in four figures listed in `PROBLEMS.md`. |
 | `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | done | Every proved result follows. One false sentence and stale ranges corrected. Counts reproduced with own code. |
@@ -91,4 +91,4 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `fable_sign-free-figure/` | Fable 5.2 | Figure 5 of the sign-free note redrawn | done | Planar layout; 76 figure assertions pass. Reports that the note's Figures 1 to 4 draw the outer triangle's sides across inner edges. |
 | `opus_synthesis-final/` | Opus 5.5 | Synthesis brought to its final state and length | done | 4,972 words; closing runs and owner decisions added. Not read by another model. |
 | `astra_final-recheck/` | GPT-6 Astra | Clean-clone recheck of the final commit | done | All checks pass at `286bcdc`; one 3.5pt overfull box in an atlas figure. |
-| `sol_atlas-recheck/` | GPT-6.1 Sol | Audit of the repaired atlas pages | running | |
+| `sol_atlas-recheck/` | GPT-6.1 Sol | Audit of the repaired atlas pages | done | 5 / 17 / 10 / 2 confirmed. Contraction bars corrected to 19 and 18, sampled descent to 200. Overfull box removed. |

@@ -56,3 +56,8 @@ Exploration is finished. Audit phase: eight audits or finishing runs in progress
 
 Two closing runs in progress (synthesis final update; recheck of the final commit from a clean clone). No further launches after 16:00 UTC. Open decisions for the owner are listed in the coordinator's final message and in digestions/SYNTHESIS.md (housekeeping). The two-hourly alarm is removed.
 
+
+## Final state, about 15:30 UTC (machine 16:30)
+
+All runs finished; none running. Every row of INDEX.md has a final status. Decisions for the owner are in the last sections of digestions/SYNTHESIS.md. The two-hourly alarm is removed.
+
