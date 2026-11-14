@@ -2,7 +2,7 @@
 
 ## Audit boundary
 
-PROVED-HERE. We audit only the final conversion used in O §6.2, not the existence of its certificate. Let T be a finite simple connected sphere triangulation. Assume P is a spanning forest of T and exactly one side of every triangular face belongs to P. Let C be the spanning subgraph of T* consisting of edges dual to E(T)\P. The conclusion is that C is a Hamiltonian cycle of T*.
+PROVED-HERE. We audit only the final conversion used in O §6.2, not the existence of its certificate. Let T be a finite simple connected sphere triangulation with at least four vertices. Assume P is a spanning forest of T and exactly one side of every triangular face belongs to P. Let C be the spanning subgraph of T* consisting of edges dual to E(T)\P. The conclusion is that C is a Hamiltonian cycle of T*.
 
 Accepted primitives: the given hypotheses; the definition of a plane dual with edge-side incidences; the definition of a Hamiltonian cycle; Euler's formula; contraction of a non-loop tree edge in a plane embedding, which deletes its dual edge while preserving faces; and elementary finite graph degree counts. No statement asserting the desired Hamiltonian cycle or the existence of P is accepted as a primitive.
 
