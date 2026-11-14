@@ -33,7 +33,7 @@ Pass or fail, with the offending passage on a fail. "Pass*" means the rule is me
 | 21 | Keep process out of the manuscript | **fail** in four sentences | "Figure from the shared figure set of this project." "in the shared figure style." "All numbers we state about it were computed by a short script that is independent of the figure code." "unpublished notes written during a collaborative reading of the three papers". |
 | 22 | Compare rendered passages when editing | n/a | A rule for edits. `EDITS.md` gives old and new text for each change. |
 
-Count: 14 pass (5 with a blemish), 7 fail, 1 not applicable. None of the fails touches the order of the argument.
+Count: 13 pass (5 with a blemish), 1 pass on the rule with its check failed (rule 17), 7 fail, 1 not applicable. None of the fails touches the order of the argument.
 
 ## (c) Step by step against the three papers
 
@@ -59,7 +59,7 @@ O = OpenAI, L = Li, C = the constructive paper. I read O in full for this review
 | What the hypotheses do | none | Section 7 | Only B has it. |
 | Example | O none; C the cube. | One example through every step, with numbers. | Yes. The promise "few enough to list" is not kept. |
 
-Net: B is clearer than the best of the three at ten of sixteen steps, level at four, and not clearer at two (weights against L, nonvanishing against O).
+Net, over the seventeen rows: B is clearer than the best of the three at eleven, clearer than O but level with L or C at two (obstacle, state to selection), level at two (duality lemma, cancellation), and not clearer at two (weights against L, nonvanishing against O).
 
 ## (d) Unslop audit
 
