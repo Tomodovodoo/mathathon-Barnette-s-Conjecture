@@ -222,7 +222,7 @@ Proof. If there are no partners the sum is empty. Otherwise fix a circuit of $Q_
 
 \textbf{Lemma 8, nonvanishing.} If there is at least one pair, $Z\ne0$. Hence there is a pair whose $Q_s$ has no face circuit.
 
-Proof. A pair marks at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Its edges are marked; selected is kept for the matching $P$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is marked at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
+Proof. A pair marks at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. We call its edges marked, and keep the word selected for the matching $P$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is marked at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$.
 
 Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one marked edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,\allowbreak f_{\rm head})z$ along the two orientations. The group's sum is therefore
 
@@ -249,7 +249,7 @@ Every factor in this nonempty sum is positive. This proves nonvanishing. If ever
 
 Oddness is enough for Lemma 7. The exact signed value three is needed in (6.3) to give all groups with the same number of circuits the same sign. This distinction is easy to lose when compressing the proof.
 
-\section*{7. Recovering the perfect matching in G}
+\section*{7. Recovering the perfect matching in $G$}
 
 \textbf{Lemma 9, the recovery tree.} This restates Lean's \nolinkurl{removed_acyclic}, \nolinkurl{remainder_connected}, and \nolinkurl{remainder_black_degree}. For a pair with circuit-free $Q_s$, put
 

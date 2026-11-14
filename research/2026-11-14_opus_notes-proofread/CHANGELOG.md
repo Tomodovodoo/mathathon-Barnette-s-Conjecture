@@ -1188,3 +1188,33 @@ The second state of a good pair is a good state in the sense of the main
 paper, by its Lemma~4.2, and through that lemma Theorem~\ref{main} is its
 Proposition~4.8. The proof
 ```
+
+## proofs/primal/primal.tex, second pass
+
+### primal second-pass edit 1
+
+Old:
+
+```latex
+\section*{7. Recovering the perfect matching in G}
+```
+
+New:
+
+```latex
+\section*{7. Recovering the perfect matching in $G$}
+```
+
+### primal second-pass edit 2
+
+Old:
+
+```latex
+Its edges are marked; selected is kept for the matching $P$.
+```
+
+New:
+
+```latex
+We call its edges marked, and keep the word selected for the matching $P$.
+```
