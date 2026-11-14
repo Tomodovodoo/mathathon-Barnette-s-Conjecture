@@ -12,7 +12,7 @@ Summary of status.
 | Lemma X2: surplus inside the fundamental cycle of an exchange | PROVED-HERE, COMPUTED on 102,976 moves |
 | Lemma X3, Corollary X4: the surplus walk is reversible; `n` fixed-point-free involutions on tree matchings | PROVED-HERE, COMPUTED |
 | Theorem S: every rainbow tree lies in exactly one 2-factor of `B`, as a spanning in-forest of a 2-out digraph. So Theorem R reproves the existence of a pair | PROVED-HERE, COMPUTED |
-| Conjecture X: non-increasing exchanges reach a tree matching from every rainbow tree | CONJECTURE. True for every rooted instance with `V <= 17` (exhaustive, with Proposition U for the instances with one 2-factor). No counterexample in sampled runs to `V = 120` |
+| Conjecture X: non-increasing exchanges reach a tree matching from every rainbow tree | CONJECTURE. True for every rooted instance with `V <= 17` and for 1,485 of the 1,543 triangulations with `V = 18` (exhaustive, with Proposition U for the instances with one 2-factor). No counterexample in sampled runs to `V = 120` |
 | X′: the surplus walk is never periodic | REFUTED at `V = 38`. True for all rootings with `V <= 15` |
 | Strict descent: some exchange always lowers the excess | REFUTED at `V = 8` |
 | M: the set of load vectors is M-convex | REFUTED at `V = 12`. True when `B` has one 2-factor |
@@ -123,6 +123,7 @@ Together with Theorem R, Conjecture X is the key lemma (a tree matching exists w
 | `V = 15`, all rootings | all 4,030,720 rainbow trees of 914 instances | no trap; depth at most 5 | `traps 15 15 all` |
 | `V = 16`, all rootings | all 29,366,528 rainbow trees of 3,294 instances | no trap; depth at most 5 | `traps 16 16 all` (467 s) |
 | `V = 17`, all 13,980 rootings | 5,938 have no rainbow tree; 6,923 have one 2-factor, where X holds by Proposition U (§5); in the other 1,119 all 34,659,072 rainbow trees were enumerated | no trap; depth at most 7 | `exp_rainbow.py traps_multi 17 0 233`, `traps_multi 17 233 466` (155 s, 478 s) |
+| `V = 18`, all rootings of 1,485 of the 1,543 triangulations (plantri indices 0 to 102, 131 to 309, 338 to 1540; the other 58 were cut off by the ten-minute cap) | 47,520 rooted instances: 21,404 have no rainbow tree; 22,265 have one 2-factor (Proposition U); in the other 3,851 all 242,957,312 rainbow trees were enumerated | no trap; depth at most 7 | `exp_rainbow.py traps_multi 18 LO HI`, fifteen runs, `data/traps_multi_18_*.json` (each file records `last_index_done`) |
 | `V = 18, 20, 22`, every 4th, 40th, 400th plantri triangulation, 2 random roots | 3,786 starts, one random and two adversarial per instance | all reach a tree matching, by surplus walks alone | `exp_walk.py sample 18 4 1`, `sample 20 40 1`, `sample 22 400 1` |
 | random, `V = 40, 60, 80, 120`, and `V = 45` with glued octahedra | 396 starts on 132 instances | 395 reach a tree matching by surplus walks; the last one after a plateau search of depth 7 | `exp_walk.py random ...`, `exp_cycles.py analyse` |
 | the saved `V = 40` to `120` instances of the graph-theory run (11 files) | 99 starts | 91 by surplus walks; the other 8 hit a periodic walk, see §4, and all 5 of them that were stuck at a tree with only periodic walkers escape by a plateau search of depth 3 to 27 | `exp_walk.py saved`, `exp_cycles.py analyse` |
@@ -225,7 +226,7 @@ COMPUTED (`exp_selection.py`, `exp_average.py`): `B` has one 2-factor in 326 of 
 
 **A counting-free proof: yes, if X is proved.** Theorem R produces a rainbow tree whenever the triangle obstruction is absent. Conjecture X lowers its excess to 0. A rainbow tree of excess 0 is a tree matching, and its mate is its parent map (Theorem S). No sign, no weight and no cancellation appear. Half of this is done: R is proved, and it already yields the pair. X is open.
 
-**A polynomial-time algorithm: no, not from X as stated.** X asserts that a non-increasing path exists. It does not bound the plateau search. The strict form is false, so some search is needed, and plateau components are large. The deterministic candidate, the surplus walk, has observed length at most `V + 2` per descent for `V <= 16`, but it is periodic on some instances from `V = 38` on. X becomes an algorithm only with a rule that picks plateau moves and has a polynomial bound. The data say that the needed plateau depth is small (at most 5 for `V <= 16`, 7 at `V = 17`, at most 27 in the periodic cases up to `V = 120`), which leaves the question open in both directions.
+**A polynomial-time algorithm: no, not from X as stated.** X asserts that a non-increasing path exists. It does not bound the plateau search. The strict form is false, so some search is needed, and plateau components are large. The deterministic candidate, the surplus walk, has observed length at most `V + 2` per descent for `V <= 16`, but it is periodic on some instances from `V = 38` on. X becomes an algorithm only with a rule that picks plateau moves and has a polynomial bound. The data say that the needed plateau depth is small (at most 5 for `V <= 16`, 7 at `V = 17` and `18`, at most 27 in the periodic cases up to `V = 120`), which leaves the question open in both directions.
 
 **What remains.**
 

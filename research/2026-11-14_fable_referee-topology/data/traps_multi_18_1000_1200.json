@@ -1,0 +1,31 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_rainbow.py traps_multi 18 1000 1200",
+ "result": {
+  "V": 18,
+  "index_range": [
+   1000,
+   1200
+  ],
+  "last_index_done": 1199,
+  "counts": {
+   "triangulations_total": 1543,
+   "rooted": 6400,
+   "one_two_factor_skipped": 2454,
+   "no_rainbow_tree": 3571,
+   "several_two_factors": 375,
+   "rainbow_trees": 22409216,
+   "N_is_power_of_two": 0,
+   "unique_move_violations": 0,
+   "instances_with_trap": 0,
+   "plateau_points_without_immediate_descent": 327174
+  },
+  "maxdepth_histogram": {
+   "3": 149,
+   "5": 175,
+   "2": 23,
+   "4": 28
+  },
+  "trap_examples": [],
+  "seconds": 491.2
+ }
+}
