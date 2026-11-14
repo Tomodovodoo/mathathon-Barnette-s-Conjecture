@@ -1,0 +1,22 @@
+{
+  "paper/main/barnette": {
+    "committed_pages": 20,
+    "rebuilt_pages": 20,
+    "text_equal": true
+  },
+  "proofs/primal/primal": {
+    "committed_pages": 15,
+    "rebuilt_pages": 15,
+    "text_equal": true
+  },
+  "proofs/involutions/involutions": {
+    "committed_pages": 18,
+    "rebuilt_pages": 18,
+    "text_equal": true
+  },
+  "proofs/sign-free/sign-free": {
+    "committed_pages": 11,
+    "rebuilt_pages": 11,
+    "text_equal": true
+  }
+}

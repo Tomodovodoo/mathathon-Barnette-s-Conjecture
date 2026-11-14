@@ -1,0 +1,296 @@
+[
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "barnette.tex"
+    ],
+    "cwd": "paper/main",
+    "code": 0,
+    "seconds": 1.55,
+    "log": "logs/00.txt"
+  },
+  {
+    "command": [
+      "bibtex",
+      "barnette"
+    ],
+    "cwd": "paper/main",
+    "code": 0,
+    "seconds": 0.27,
+    "log": "logs/01.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "barnette.tex"
+    ],
+    "cwd": "paper/main",
+    "code": 0,
+    "seconds": 1.49,
+    "log": "logs/02.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "barnette.tex"
+    ],
+    "cwd": "paper/main",
+    "code": 0,
+    "seconds": 1.56,
+    "log": "logs/03.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "primal.tex"
+    ],
+    "cwd": "proofs/primal",
+    "code": 0,
+    "seconds": 3.43,
+    "log": "logs/04.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "primal.tex"
+    ],
+    "cwd": "proofs/primal",
+    "code": 0,
+    "seconds": 3.35,
+    "log": "logs/05.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "primal.tex"
+    ],
+    "cwd": "proofs/primal",
+    "code": 0,
+    "seconds": 3.36,
+    "log": "logs/06.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "involutions.tex"
+    ],
+    "cwd": "proofs/involutions",
+    "code": 0,
+    "seconds": 1.7,
+    "log": "logs/07.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "involutions.tex"
+    ],
+    "cwd": "proofs/involutions",
+    "code": 0,
+    "seconds": 1.7,
+    "log": "logs/08.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "involutions.tex"
+    ],
+    "cwd": "proofs/involutions",
+    "code": 0,
+    "seconds": 1.59,
+    "log": "logs/09.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "sign-free.tex"
+    ],
+    "cwd": "proofs/sign-free",
+    "code": 0,
+    "seconds": 3.63,
+    "log": "logs/10.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "sign-free.tex"
+    ],
+    "cwd": "proofs/sign-free",
+    "code": 0,
+    "seconds": 3.51,
+    "log": "logs/11.txt"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "sign-free.tex"
+    ],
+    "cwd": "proofs/sign-free",
+    "code": 0,
+    "seconds": 3.62,
+    "log": "logs/12.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "digestions/atlas/build.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 61.65,
+    "log": "logs/13.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "digestions/atlas/verify.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 11.49,
+    "log": "logs/14.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "proofs/primal/figures/check.py",
+      "--build"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 28.41,
+    "log": "logs/15.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "proofs/sign-free/figures/check.py"
+    ],
+    "cwd": ".",
+    "code": 1,
+    "seconds": 0.1,
+    "log": "logs/16.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "paper/figures/check.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 3.03,
+    "log": "logs/17.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "workings/barnette_lab/setup_plantri.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 7.54,
+    "log": "logs/18.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "workings/barnette_lab/run_tests.py",
+      "quick"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 19.74,
+    "log": "logs/19.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "labyrinth/lab.py",
+      "check"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.07,
+    "log": "logs/20.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "digestions/route-map/build_map.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 11.05,
+    "log": "logs/21.txt"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--",
+      "digestions/route-map"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 1.01,
+    "log": "logs/22.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "E:\\rc-sol-late\\research\\2026-11-14_sol_release-check\\scan.py",
+      "E:\\rc-sol-late",
+      "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\research\\2026-11-14_astra_final-recheck\\logs"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 20.37,
+    "log": "logs/23.txt"
+  },
+  {
+    "command": [
+      "python",
+      "-B",
+      "E:\\rc-sol-late\\research\\2026-11-14_sol_release-check\\route_compare.py",
+      "E:\\rc-sol-late",
+      "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\research\\2026-11-14_astra_final-recheck\\logs"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.83,
+    "log": "logs/24.txt"
+  }
+]

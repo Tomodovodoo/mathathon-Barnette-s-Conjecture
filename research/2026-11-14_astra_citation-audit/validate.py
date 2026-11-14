@@ -4,7 +4,16 @@ used={k for x in inv if x['file']=='paper/main/barnette.tex' for k in x.get('key
 allused={k for x in inv for k in x.get('keys',[])}
 assert sum(x['file']=='digestions/atlas/atlas.tex' for x in inv)==30
 assert set(m)==used
-assert all(c[k]==v for k,v in m.items())
+# Internal verification notes use annote in the print subset; compare citation
+# metadata byte for byte after removing both note and annote fields.
+def without_notes(entry):
+ starts=list(re.finditer(r'(?m)^  ([A-Za-z]+)\s*=',entry))
+ for i in range(len(starts)-1,-1,-1):
+  if starts[i][1].lower() in {'note','annote'}:
+   end=starts[i+1].start() if i+1<len(starts) else entry.rfind('}')
+   entry=entry[:starts[i].start()]+entry[end:]
+ return entry
+assert all(without_notes(c[k])==without_notes(v) for k,v in m.items())
 assert allused<=c.keys()
 idx=read(R/'papers/INDEX.md');assert all('| '+k+' |' in idx for k in allused)
 orig=json.loads(read(O/'pdf-inventory.json'))

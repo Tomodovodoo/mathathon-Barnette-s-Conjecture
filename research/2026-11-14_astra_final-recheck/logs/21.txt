@@ -1,0 +1,1 @@
+16 waypoints, 17 steps, 246 routes: {'LIT': 46, 'PROVED-HERE': 65, 'REFUTED': 77, 'HUNCH': 25, 'CONJECTURE': 19, 'COMPUTED': 14}

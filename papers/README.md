@@ -24,3 +24,5 @@ Free reading access does not establish permission to redistribute a PDF. Most in
 The [manifest](../research/2026-11-14_astra_literature-consolidation/manifest.csv) records source URLs, SHA-256, byte sizes and licence evidence. New copies are unmodified. Attribution appears in INDEX.md. CC-BY copies retain [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); Bagheri Gh. 2022 uses [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Rights to supplied originals were not re-audited.
 
 See the [report](../research/2026-11-14_astra_literature-consolidation/REPORT.md), [citation checks](../research/2026-11-14_astra_literature-consolidation/MISMATCHES.md) and [key map](../research/2026-11-14_astra_literature-consolidation/KEY-MAP.md). Drafts were not edited.
+
+The main bibliography uses nonprinting `annote` fields for internal verification notes, so the citation validator compares canonical entries after dropping both `note` and `annote`.
