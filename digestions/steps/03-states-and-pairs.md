@@ -16,7 +16,7 @@ $$t \ \longmapsto\ \text{the tail of the edge of } P_0 \text{ in } t$$
 
 is a bijection from $A$ to $X$ that sends each black face to one of its own corners. The two trees leave behind a perfect matching between black faces and vertices. So a search for the trees can be organised as a search over such matchings.
 
-This derivation is Proposition 7 of `research/2026-11-14_fable_route-combinatorics/PROOF.md` and Theorem 7.2 of `research/2026-11-14_opus_route-graph-theory/PROOFS.md`. The first is proved in this project and checked by a second model, not yet read by a human. The published papers go in the other direction only, from the matching to the trees.
+This derivation is Proposition 7 of `research/2026-11-14_fable_route-combinatorics/PROOF.md` and Theorem 7.2 of `research/2026-11-14_opus_route-graph-theory/PROOFS.md`. Both are proved in this project and were checked by a second model, the first in `research/2026-11-14_astra_referee-combinatorics/`, the second in section 5 of `research/2026-11-14_sol_referee-structure/INTEGRATION.md`. Not yet read by a human. The published papers go in the other direction only, from the matching to the trees.
 
 ## Definitions
 
@@ -76,7 +76,7 @@ $$e(U) - b(U) \ \le\ 2|U| - 4 \qquad \text{for every } U \supseteq R. \tag{2}$$
 
 ### Part 2, the Euler identity
 
-**Lemma 3** (Euler identity, `research/2026-11-14_opus_route-graph-theory/PROOFS.md`, Lemma 2.2. Proved in this project. A second model is refereeing that folder in `research/2026-11-14_sol_referee-structure/` and had not reported when this was written. I rechecked the three lines below myself.) Let $K$ be a connected induced subgraph of $T$ with $p \ge 3$ vertices and $m$ edges. Some faces of the plane graph $K$ are faces of $T$. Call the others regions. Let $b$ be the number of black faces of $T$ that are faces of $K$. For a region $F_i$ let $d_i$ be the length of its boundary and $\beta_i$ the number of black faces of $T$ inside it minus the number of white ones. Then
+**Lemma 3** (Euler identity, `research/2026-11-14_opus_route-graph-theory/PROOFS.md`, Lemma 2.2. Proved in this project and checked by a second model, whose restatement is section 1 of `research/2026-11-14_sol_referee-structure/INTEGRATION.md`. Not yet read by a human.) Let $K$ be a connected induced subgraph of $T$ with $p \ge 3$ vertices and $m$ edges. Some faces of the plane graph $K$ are faces of $T$. Call the others regions. Let $b$ be the number of black faces of $T$ that are faces of $K$. For a region $F_i$ let $d_i$ be the length of its boundary and $\beta_i$ the number of black faces of $T$ inside it minus the number of white ones. Then
 
 $$m - b - (2p - 4) \ =\ \tfrac12 \sum_i \bigl(\beta_i - (d_i - 4)\bigr).$$
 
@@ -116,7 +116,7 @@ It has two perfect matchings, the states $s_1 = (3,4,5)$ and $s_2 = (5,3,4)$, wr
 ## Other routes to a pair
 
 - **Li's route.** Take a smallest set $S$ violating (1) and show that it is cut off by three edges of $G$. Published. The audit in `fable_dependency-graph/correspondence.md`, note 3.7, observes that Li's argument already yields the black inner boundary.
-- **Pairs as orientations.** A 2-factor of $B$ is the same as an orientation of $H$ minus the centre of $t_0$ with prescribed out-degrees, so by a theorem of Felsner the 2-factors form a distributive lattice. Proved in `opus_route-graph-theory/PROOFS.md` section 3, not yet refereed, and Felsner's theorem was cited there from memory. The lattice does not single out a good pair, see step 09.
+- **Pairs as orientations.** A 2-factor of $B$ is the same as an orientation of $H$ minus the centre of $t_0$ with prescribed out-degrees, so by a theorem of Felsner the 2-factors form a distributive lattice. Proved in `opus_route-graph-theory/PROOFS.md` section 3. The referee's integration notes do not list this lemma among the confirmed statements, so treat it as not yet refereed. Felsner's theorem was cited there from memory. The lattice does not single out a good pair, see step 09.
 - **A construction without flows.** Unknown. The obstruction is always a single triangle, which suggests that an explicit ordering argument should exist, as it does for Schnyder woods. Nobody in the project found one.
 
 ## Where this is used next

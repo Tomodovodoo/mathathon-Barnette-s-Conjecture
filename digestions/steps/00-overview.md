@@ -23,15 +23,15 @@ The proof gives more. For every edge $e$ of $G$ there is a Hamiltonian cycle tha
 9. Delete the spokes of that state from the graph joining black-face centres to corners. What remains is a spanning tree. Its dual is a tree on the white faces, which selects one edge in every face. The unselected edges, read in $G$, are a Hamiltonian cycle (step 07).
 10. If $T$ has separating triangles, cut along one, solve the two pieces with matching boundary conditions, and glue (step 08).
 
-Sentences 7 and 8 are the new idea. Everything else was known in some form before 2026, see `research/2026-11-14_opus_history-literature/WHAT-WAS-HARD.md`.
+Sentences 6 to 8 carry the new mathematics, the disk identity and the signed count it makes possible. The dual, the two trees, the avoided edge and the gluing were in the literature by 2016. States come from Tutte's theory of trinity and had not been used on this problem. This division is the reading of the project's literature review, `research/2026-11-14_opus_history-literature/WHAT-WAS-HARD.md` section 9, which marks it as its own judgement.
 
 ## Dependency diagram
 
 ```mermaid
 flowchart TD
     A["01 Hamiltonian = degree two + connected"] --> B["02 Dual triangulation T, black and white faces"]
-    B --> C["02 Two induced trees <=> Hamiltonian cycle (Stein)"]
-    B --> D["02 Counts: |A| = |X| = n"]
+    B --> C["02 Two induced trees = Hamiltonian cycle (Stein)"]
+    B --> D["02 Counts: as many inner black faces as non-root vertices"]
     B --> L["02 Tree/cotree duality (Lemma 2.1)"]
     D --> E["03 States and pairs"]
     E --> F["03 A pair exists iff no black-inner separating triangle"]
