@@ -55,3 +55,5 @@ PDF text extraction uses `pdftotext -layout INPUT.pdf OUTPUT.txt`. The visual ch
 The renewed search found Ford–Fulkerson, Felsner and Akiyama–Nishizeki–Saito in full, correcting earlier "not obtained" reports. See RETRIEVAL.md before repeating those searches. GSW's existing proof-typo audit remains in the Pfaffian route folder.
 
 Commits and final validation results are recorded in VALIDATION.md. The final push is attempted only after committing the owned paths, as required by BRIEF.md.
+
+Git result: binary batches 7d25c85 and bd7eea9; catalogue and audit commit 13a7402. Push to origin/main succeeded.

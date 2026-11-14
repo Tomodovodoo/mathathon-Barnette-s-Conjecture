@@ -14,3 +14,5 @@ This checks library consistency, not mathematical correctness or completeness of
 BibTeX 0.99e parsed all 87 entries using plain.bst. One warning remains: publisher omitted in Lovasz1982 because it was not verified. No syntax errors. 52 candidate PDFs have SHA-256 records in candidate-audit.csv.
 
 Binary batch commits: 7d25c85 and bd7eea9.
+
+Catalogue commit: 13a7402. Required push to origin/main succeeded.
