@@ -1,0 +1,12 @@
+{
+  "pages": 19,
+  "refs": 131,
+  "cited_entries": 17,
+  "overfull": [],
+  "bad_log_lines": [],
+  "hashes": {
+    "barnette.tex": "733be1d43245571e435415bc52473cb55f68b04f6cff0bf8d7a904e54976a632",
+    "barnette.pdf": "e4603901047cf6078889bc83ada40c5a940372222bc773f3a9f1f4cf850ea887",
+    "refs.bib": "bf1547321be48f98eab9a6fbf1270e4421a590103051b4333f73512a5aeb7406"
+  }
+}

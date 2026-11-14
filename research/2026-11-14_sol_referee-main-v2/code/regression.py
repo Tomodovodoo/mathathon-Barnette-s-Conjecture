@@ -6,8 +6,11 @@ ROOT = Path(__file__).resolve().parents[3]
 OUT = Path(__file__).parent / 'outputs'
 OUT.mkdir(exist_ok=True)
 a = (ROOT/'paper/main/history/barnette-v1.tex').read_text(encoding='utf-8')
-b = (ROOT/'paper/main/barnette.tex').read_text(encoding='utf-8')
-(OUT/'v2-start.tex').write_text(b, encoding='utf-8')
+current = (ROOT/'paper/main/barnette.tex').read_text(encoding='utf-8')
+if not (OUT/'v2-start.tex').exists():
+    (OUT/'v2-start.tex').write_text(current, encoding='utf-8')
+b = (OUT/'v2-start.tex').read_text(encoding='utf-8')
+(OUT/'corrections.diff').write_text(''.join(difflib.unified_diff(b.splitlines(True), current.splitlines(True), fromfile='v2-start', tofile='v2-corrected')),encoding='utf-8')
 (OUT/'full.diff').write_text(''.join(difflib.unified_diff(a.splitlines(True), b.splitlines(True), fromfile='v1', tofile='v2')), encoding='utf-8')
 def blocks(s):
     found = []
@@ -57,5 +60,6 @@ for m in re.finditer(r'\\(?:eq)?ref\{([^}]+)\}',b):
     start=b.rfind('\n',0,m.start())+1; end=b.find('\n',m.end())
     refs.append({'label':m[1],'line':b.count('\n',0,m.start())+1,'context':b[start:end]})
 (OUT/'refs.json').write_text(json.dumps(refs,indent=2),encoding='utf-8')
-(OUT/'fingerprints.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [ROOT/'paper/main/history/barnette-v1.tex',ROOT/'paper/main/barnette.tex',ROOT/'paper/main/barnette.pdf']},indent=2))
+if not (OUT/'fingerprints.json').exists():
+    (OUT/'fingerprints.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [ROOT/'paper/main/history/barnette-v1.tex',ROOT/'paper/main/barnette.tex',ROOT/'paper/main/barnette.pdf']},indent=2))
 print(json.dumps({'environments':len(bb),'changed_environments':sum(x['changed'] for x in bb),'displays_captions':len(inventory),'references':len(refs)}))

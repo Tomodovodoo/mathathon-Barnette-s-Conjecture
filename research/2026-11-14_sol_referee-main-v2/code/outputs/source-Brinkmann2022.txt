@@ -1,0 +1,1057 @@
+The Minimality of the Georges–Kelmans Graph
+Gunnar Brinkmann
+Department of Applied Mathematics, Computer Science & Statistics,
+Ghent University, 9000 Ghent, Belgium
+Gunnar.Brinkmann@ugent.be
+Jan Goedgebeur∗
+Department of Applied Mathematics, Computer Science & Statistics,
+Ghent University, 9000 Ghent, Belgium
+and
+Computer Science Department,
+University of Mons, 7000 Mons, Belgium
+and
+Department of Computer Science,
+KU Leuven Campus Kulak, 8500 Kortrijk, Belgium
+Jan.Goedgebeur@kuleuven.be
+Brendan D. McKay†
+Department of Computing,
+Australian National University, Canberra ACT 2601, Australia
+Brendan.McKay@anu.edu.au
+October 26, 2021
+keywords:
+hamiltonian cycle, bipartite, cubic, connectivity, Tutte’s conjecture,
+Barnette’s conjecture, genus
+MSC: 05C45, 05C85, 05C10
+Abstract
+In 1971, Tutte wrote in an article that it is tempting to conjecture that every
+3-connected bipartite cubic graph is hamiltonian. Motivated by this remark, Horton
+constructed a counterexample on 96 vertices. In a sequence of articles by diﬀerent
+authors several smaller counterexamples were presented.
+The smallest of these
+graphs is a graph on 50 vertices which was discovered independently by Georges
+and Kelmans. In this article we show that there is no smaller counterexample.
+∗Supported by a Postdoctoral Fellowship of the Research Foundation Flanders (FWO).
+†Supported by a Francqui International Professorship.
+1
+arXiv:2101.00943v2  [math.CO]  24 Oct 2021
+
+
+As all non-hamiltonian 3-connected bipartite cubic graphs in the literature have
+cyclic 4-cuts—even if they have girth 6—it is natural to ask whether this is a
+necessary prerequisite. In this article we answer this question in the negative and
+give a construction of an inﬁnite family of non-hamiltonian cyclically 5-connected
+bipartite cubic graphs.
+In 1969 Barnette gave a weaker version of the conjecture stating that 3-connected
+planar bipartite cubic graphs are hamiltonian. We show that Barnette’s conjecture
+is true up to at least 90 vertices.
+We also report that a search of small non-
+hamiltonian 3-connected bipartite cubic graphs did not ﬁnd any with genus less
+than 4.
+1
+Introduction
+In this article all graphs will be simple and undirected unless explicitly stated otherwise.
+For any standard graph theoretical concepts not explicitly deﬁned here, please refer to [9].
+Tait conjectured in 1880 that every 3-connected planar cubic graph is hamiltonian.
+This conjecture was disproved in 1946 by Tutte [23], who constructed a counterexample
+on 46 vertices. If Tait’s conjecture had been true, it would have implied the Four Colour
+Theorem. In the years that followed, several researchers constructed smaller counterex-
+amples. In 1988, Holton and McKay [15] completely settled the problem by showing
+that the smallest non-hamiltonian 3-connected planar cubic graphs have 38 vertices and
+that there are exactly 6 such graphs of that order (one of which is the famous Barnette–
+Bos´ak–Lederberg graph).
+For any graph H, V (G) is its vertex set and E(G) is its edge set. A graph is cyclically
+k-edge-connected if the deletion of fewer than k edges does not create two components
+both of which contain at least one cycle. Similarly, for cyclically k-vertex-connected. With
+the exception of a few graphs on 6 or fewer vertices, the cyclic edge-connectivity and cyclic
+vertex-connectivity of a connected cubic graph both equal the size of the smallest cut of
+independent edges [20]. (Edges are independent if they have no endpoints in common.)
+Consequently we will call this number just cyclic connectivity.
+With the same small
+exceptions, the complement of a shortest cycle has too many edges to be acyclic, so the
+cyclic connectivity is at most equal to the girth. Also note that cyclic 3-connectivity
+implies 3-connectivity.
+In 1971, Tutte [24] wrote that it is tempting to conjecture that every 3-connected
+bipartite cubic graph is hamiltonian. This statement that is often cited as a conjecture was
+disproved in 1976 by Horton [3, p. 240], who constructed a counterexample on 96 vertices.
+In 1982 he found a smaller counterexample, on 92 vertices [16]. Later Ellingham [10]
+discovered an inﬁnite family of non-hamiltonian 3-connected bipartite cubic graphs. The
+smallest member of his family has 78 vertices.
+All of the examples mentioned so far have cyclic connectivity 3. In 1983, Ellingham
+and Horton [11] published a non-hamiltonian cyclically 4-connected bipartite cubic graph.
+Their 54-vertex graph can be seen in Figure 1(a).
+Finally, Georges [12] and Kelmans [17, 18] independently discovered another inﬁnite
+family of non-hamiltonian cyclically 4-connected bipartite cubic graphs, the smallest of
+which has 50 vertices. Their 1986 submission dates were only 15 days apart. This graph
+is shown in Figure 1(b) and is the smallest known.
+In [17] it is written that Lomonosov and Kelmans proved without computer assistance
+that Tutte’s conjecture holds up to 30 vertices, but no reference is given.
+Recently,
+2
+
+
+Knauer and Valicov [19] veriﬁed Tutte’s conjecture up to 40 vertices using computational
+methods. Our aim in this paper is to prove that the Georges–Kelmans graph is in fact
+minimal.
+Theorem 1.1. There is no smaller non-hamiltonian 3-connected bipartite cubic graph
+than the Georges–Kelmans graph (which has 50 vertices). Moreover if there is another
+example with 50 vertices, it has girth and cyclic connectivity exactly 6.
+*
+*
+(a)
+(b)
+Figure 1: The Ellingham–Horton graph on 54 vertices (a) and the Georges–Kelmans graph on
+50 vertices (b). (The asterisks are used in Section 3.)
+Since we plan on liberal use of the computer, the reader may wonder why we do not
+just test all the 3-connected bipartite cubic graphs up to 48 vertices. The reason is that
+there are far too many of them. Based on exact counts for smaller sizes (Table 1 below;
+see [6] for some of the graphs) we estimate that there are about 5 × 1017 cubic bipartite
+graphs with 48 vertices, most of them 3-connected. With our programs able to generate
+and test about 50,000 bipartite cubic graphs per second, this approach would take about
+320,000 CPU years.
+We will instead take an incremental approach that combines theory and computation,
+successively eliminating the possibilities that a non-hamiltonian 3-connected bipartite
+cubic graph smaller than the Georges–Kelmans graph is cyclically 3-connected, cyclically
+4-connected, cyclically 5-connected, and ﬁnally show that it doesn’t exist. The required
+amount of computer time was large but available.
+Furthermore, noting that all previous examples had cyclic connectivity at most 4,
+we construct an inﬁnite family of non-hamiltonian cyclically 5-connected bipartite cubic
+graphs, of which the smallest has 300 vertices.
+Another important strongly related conjecture is Barnette’s conjecture, which is a
+weakened combination of Tait and Tutte’s conjectures. Barnette [2] conjectured in 1969
+that every 3-connected planar bipartite cubic graph is hamiltonian. Even after 50 years,
+this conjecture is still open. Holton, Manvel and McKay [14] showed that Barnette’s
+conjecture is true up to at least 64 vertices and this was later improved to 84 vertices by
+Aldred, Brinkmann and McKay [1]. We will show that Barnette’s conjecture is true up to
+at least 90 vertices. We also did a non-exhaustive search for non-hamiltonian 3-connected
+bipartite cubic graphs that are close to planar in the sense of having low genus. However
+we did not ﬁnd any with genus less than 4.
+The article is organised as follows. In Section 2 we give the theoretical and compu-
+tational results necessary to prove Theorem 1.1. We veriﬁed the correctness of each of
+3
+
+
+Vertices
+Girth at least 4
+Girth at least 6
+Girth at least 8
+6
+1
+8
+1
+10
+2
+12
+5
+14
+13
+1
+16
+38
+1
+18
+149
+3
+20
+703
+10
+22
+4 132
+28
+24
+29 579
+162
+26
+245 627
+1 201
+28
+2 291 589
+11 415
+30
+23 466 857
+125 571
+1
+32
+259 974 248
+1 514 489
+0
+34
+3 087 698 618
+19 503 476
+1
+36
+39 075 020 582
+265 448 847
+3
+38
+524 492 748 500
+3 799 509 760
+10
+40
+7 439 833 931 266
+57 039 155 060
+101
+42
+?
+896 293 917 129
+2 510
+44
+?
+?
+79 605
+46
+?
+?
+2 607 595
+48
+?
+?
+81 716 416
+50
+?
+?
+2 472 710 752
+Table 1: Counts of connected bipartite cubic graphs with girth at least 4, 6 or 8.
+our computational results by making an independent implementation of every program
+which was speciﬁcally developed for this project (often using an alternative algorithm)
+and using it to replicate each computational result as far as CPU time limits allowed.
+These correctness tests are described in Section 2 as well. In Section 3 we present an
+inﬁnite family of non-hamiltonian cyclically 5-connected bipartite cubic graphs. In Sec-
+tion 4 we verify Barnette’s conjecture up to 90 vertices and give the results about the
+generation of the non-hamiltonian 3-connected bipartite cubic graphs constructed in this
+project. As this project required the discovery of more than 1014 hamiltonian cycles in
+cubic graphs of up to 50 vertices, we needed a very eﬃcient practical algorithm for this.
+We describe this algorithm in Section 5.
+2
+Properties of a minimal non-hamiltonian bipartite
+cubic 3-connected graph
+Lemma 2.1. In a bipartite graph with vertices of degree 2 and 3, the number of vertices
+of degree 2 of each colour (that is: of each bipartition class) are equal modulo 3.
+Proof. Deﬁne nd,c to be the number of vertices of degree d and colour c, for d = 2, 3 and
+c = 0, 1. Counting the edges in two diﬀerent ways, we have 3n3,0 + 2n2,0 = 3n3,1 + 2n2,1,
+from which it follows that n2,0 and n2,1 are equal modulo 3.
+4
+
+
+Lemma 2.2. A minimal non-hamiltonian 3-connected bipartite cubic graph is cyclically
+4-connected.
+Proof. Suppose that a non-hamiltonian 3-connected bipartite cubic graph G has an inde-
+pendent 3-edge cut {e1, e2, e3}. Divide G into two parts at the cut. Due to Lemma 2.1,
+in each part the vertices of degree 2 have the same colour, so we can use one extra ver-
+tex for each part and connect it to the three vertices of degree 2 to form two bipartite
+cubic graphs G1, G2. It is an easy consequence of Menger’s theorem that they are both
+3-connected. For j = 1, 2 we label the new edges {e1,j, e2,j, e3,j} so that for 1 ≤i ≤3, ei,j
+is in Gj and has one endpoint the same as ei. As the cut was independent, G1 and G2
+are smaller than G.
+If one of G1, G2 was non-hamiltonian, G would not be minimal, so we may assume
+that both G1 and G2 are hamiltonian.
+Now assume that one smaller graph, w.l.o.g. G1, has a hamiltonian cycle not contain-
+ing ei,1. If G2 had a hamiltonian cycle not containing ei,2, these cycles could be combined
+to form a hamiltonian cycle of G. If for one smaller graph Gj, each edge of {e1,j, e2,j, e3,j}
+could be avoided by a hamiltonian cycle or for both smaller graphs there would be at
+least two edges that can be avoided, there would be a combination of hamiltonian cycles
+where the same edge would be avoided—so they could be combined to form a hamiltonian
+cycle of G. So in one smaller graph at most one edge can be avoided (which means that
+this forbidden edge is in no hamiltonian cycle) and in the other at most two edges can be
+avoided (which means that there is a forced edge that lies in each hamiltonian cycle).
+A straightforward computation using the programs minibaum and cubhamg showed
+that forced edges ﬁrst appear at 30 vertices and forbidden edges ﬁrst appear at 34 ver-
+tices. (Minibaum [4] is a generator for cubic graphs which can also generate bipartite
+cubic graphs eﬃciently and cubhamg is described in Section 5. The bipartite cubic graphs
+up to 30 vertices are available at the House of Graphs [6].) Using an independent imple-
+mentation of a program to test if a graph contains forced or forbidden edges, we obtained
+exactly the same number of graphs with forced/forbidden edges up to 34 vertices. There-
+fore, this construction only yields non-hamiltonian graphs with at least 62 vertices—larger
+than the Georges–Kelmans graph.
+Lemma 2.3. A minimal non-hamiltonian 3-connected bipartite cubic graph cannot have
+cyclic connectivity 4 unless it is the Georges–Kelmans graph. Moreover, a minimal non-
+hamiltonian 3-connected bipartite cubic graph has girth at least 6.
+Proof. For a cubic graph H, deﬁne two types of edge e:
+• Type 1: There is a hamiltonian cycle through at most 3 of the 4 paths of three
+edges whose central edge is e.
+• Type 2: At least one of the auxiliary (non-bipartite) graphs H′, H′′ deﬁned as in
+Figure 2 has no hamiltonian cycle.
+Now let G be a minimal non-hamiltonian bipartite cubic graph with cyclic connectiv-
+ity 4. By Lemma 2.1, we can divide G into two parts at a 4-edge cut and use new edges
+e1, e2 to complete the parts into bipartite cubic 3-connected graphs G1, G2 as shown in
+Figure 3. The 3-connectivity of G1 and G2 follows from the observation that a 2-cut in
+either of them would imply a cyclic 3-edge cut in G.
+If G1 has a hamiltonian cycle using e1, then e2 must have type 1, since otherwise G
+would be hamiltonian. Similarly, if G1 has a hamiltonian cycle avoiding e1, then e2 must
+have type 2, since otherwise G would be hamiltonian.
+5
+
+
+H
+H’
+H’’
+e
+Figure 2: Auxiliary graphs for type 2 edges used in the proof of Lemma 2.3.
+G
+G1
+G2
+e
+e
+2
+1
+Figure 3: Splitting a graph into two at a 4-edge cut.
+A direct computation, again using minibaum and cubhamg, showed that type 1 or
+type 2 edges ﬁrst appear at 18 vertices, so we have |V (G1)| ≥18, and similarly |V (G2)| ≥
+18. Consequently, it suﬃces to test combinations of graphs G1, G2 with 18 ≤|V (G1)| ≤26
+and 18 ≤|V (G2)| ≤54 −|V (G1)| with G1 restricted to graphs having an edge of type 1
+or type 2. We could also restrict G2 in the same way, but the number of possibilities
+for G1 when G2 is large is so small that simply testing every graph as G2 is as fast as
+checking G2 for edges of type 1 or type 2.
+This computation yielded only the Georges–Kelmans graph. The counts are shown
+in Table 2 (which includes graphs that are connected but not 3-connected). Using an
+independent implementation, we obtained exactly the same number of graphs with type
+1 or type 2 edges as in Table 2. Using another independent program we again tested all
+combinations of G1, G2 and this indeed only yielded the Georges–Kelmans graph.
+For the second part of the lemma, it is only necessary to observe that the Georges–
+Kelmans graph has girth 6.
+|V (G1)|
+type 1 count
+type 2 count
+G1 total
+|V (G2)|
+G2 count
+18
+1
+1
+0
+18–36
+6 461 410 120
+20
+1
+1
+2
+18–34
+3 373 711 502
+22
+5
+3
+8
+18–32
+286 012 884
+24
+15
+14
+27
+18–30
+26 038 636
+26
+71
+56
+121
+18–28
+2 571 779
+Table 2: The numbers of graphs that can act as G1, G2 in the proof of Lemma 2.3 with the
+candidates for G1 also listed according to their type.
+At this stage we could consider ﬁnishing the proof of Theorem 1.1 by computation
+alone. However, we estimate the number of bipartite cubic graphs with girth 6 up to 48
+vertices to be around 4.5×1015. With a lower generation rate of about 40,000 graphs per
+6
+
+
+second, this still amounts to 3,500 CPU years. By Lemma 2.3, we could also restrict our
+search to cyclic connectivity at least 5, but the counts are not much less and we don’t
+know of a fast generator.
+Lemma 2.4. A minimal non-hamiltonian 3-connected bipartite cubic graph cannot have
+cyclic connectivity 5.
+Proof. Deﬁne a 5-piece to be a connected bipartite graph of girth at least 6, cubic apart
+from 5 vertices of degree 2. By Lemma 2.1, a 5-piece has a vertex of degree 2 whose
+colour is diﬀerent from the other vertices of degree 2; call that the special vertex of the
+5-piece. Also, the number of vertices in the 5-piece with the same colour as the special
+vertex is one less than the number with the other colour.
+G
+G1
+G2
+Figure 4: Splitting a graph into two at a 5-edge cut.
+Figure 5: Three of the 12 test graphs of a 5-piece.
+Let G be a bipartite cubic graph with cyclic connectivity 5 and at most 50 vertices
+– so G is a candidate for a counterexample to the lemma. Separate G at a 5-cut into 5-
+pieces G1 and G2 as in Figure 4. We know that G1 and G2 are connected since otherwise
+G would have an edge cut of two independent edges. The special vertices of G1 and G2
+are adjacent in G; call that the special edge of G.
+The diﬀerence in the numbers of vertices in the two colour classes in 5-pieces imply:
+(a) If a hamiltonian cycle in G uses 4 edges of the cut, then one of those edges is the
+special edge.
+(b) If a hamiltonian cycle in G uses only 2 edges of the cut, then neither of those edges
+is the special edge.
+Given a 5-piece H, a “test graph” for H is formed by adjoining two vertices of degree 2,
+together adjacent to four distinct vertices of degree 2 in H, one of which is the special
+vertex. There are 12 (non-bipartite) test graphs, three of which are shown in Figure 5.
+Classify 5-pieces as follows:
+7
+
+
+• Class 0: None of the test graphs is hamiltonian;
+• Class 1: At least one of the test graphs is hamiltonian;
+• Class 2: All of the test graphs are hamiltonian (a subset of Class 1).
+Claim 1:
+If G1 and G2 are in Class 1, with one of them in Class 2, then G is hamiltonian.
+Proof:
+Suppose that G2 is in Class 2. Since G1 is in Class 1, it can be covered by two
+paths with endpoints v1, v2 and w1, w2, where one of v1, v2, w1, w2 is the special vertex.
+Join these two paths into a hamiltonian cycle in G using the hamiltonian cycle in the
+test graph of G2 where one vertex was connected to v1, v2 and the other to w1, w2.
+Claim 2:
+If |V (G1)| ≤13, then G is hamiltonian.
+Proof:
+As shown in Table 3 and checked twice by computer, there are no 5-pieces of
+order less than 11, one of order 11 and two of order 13. They are depicted in Figure 6. All
+of them are in Class 2. So, by Claim 1, the only possibility that G is non-hamiltonian is
+for G2 to be in Class 0. A hamiltonian cycle in G that uses 4 edges of the cut would imply
+hamiltonicity of one of G2’s test graphs, so the only possibility is a hamiltonian cycle in
+G that uses 2 edges of the cut (none of them the special edge) and induces hamiltonian
+paths in G1 and G2.
+2
+1
+v
+w
+w
+v
+w
+w
+w
+v
+v
+v
+w
+v1
+1
+2
+2
+1
+2
+2
+1
+2
+1
+Figure 6: The smallest 5-pieces.
+Looking at the hamiltonian paths in G1, we ﬁnd that the non-special vertices of
+degree 2 can be labelled v1, v2, w1, w2 such that any pair of them can be joined by a
+hamiltonian path except v1, v2 and possibly w1, w2. (See Figure 6.) Let v′
+1, v′
+2, w′
+1, w′
+2 be
+the vertices of G2 adjacent in G to v1, v2, w1, w2, respectively. Now construct a bipartite
+cubic graph G+
+2 from G2 by adjoining a path xyz with x adjacent to v′
+1 and v′
+2, y adjacent
+to the special vertex, and z adjacent to w′
+1 and w′
+2. Since |V (G+
+2 )| < |V (G)|, and it
+is 3-connected since otherwise G would have a 3-edge cut, G+
+2 is hamiltonian by the
+minimality of G. Also, since G2 is in Class 0, any hamiltonian cycle in G+
+2 cannot use
+exactly one of the edges xy and yz (else one of the test graphs of G2 is hamiltonian),
+so it must use both xy and yz. This provides a hamiltonian path in G2 from a vertex
+in {v′
+1, v′
+2} to a vertex in {w′
+1, w′
+2}. Any such path can be combined with a hamiltonian
+path in G1 to make a hamiltonian cycle in G. This completes the proof of Claim 2.
+Now we can complete the proof of the lemma. We used the program multigraph to
+construct all 5-pieces and tested them with cubhamg. (Multigraph can generate all simple
+graphs or multigraphs with a given degree sequence. It implements the same ideas as
+minibaum [4] but for general degree sequences, and as it does not contain new ideas, it
+was never published. For a large number of degree sequences its results were tested and
+8
+
+
+n
+5-pieces
+|Class 1 \ Class 2|
+11
+1
+0
+13
+2
+0
+15
+12
+2
+17
+90
+7
+19
+754
+14
+21
+7 003
+25
+23
+70 639
+68
+25
+766 134
+251
+27
+8 862 333
+1 086
+29
+108 917 294
+6 098
+31
+1 417 268 482
+44 842
+33
+19 471 253 036
+393 423
+35
+281 715 327 672
+3 887 896
+Table 3: Computation for Lemma 2.4.
+conﬁrmed by the program described in [13].) The computations showed that there are
+no 5-pieces of order at most 35 in Class 0. The number in Class 1 \ Class 2 are listed
+in Table 3. The total computation time was about 5 CPU years. We also independently
+determined all 5-pieces up to 29 vertices by using minibaum to generate all bipartite cubic
+graphs and using a separate program to remove one vertex and two of its neighbours in
+all possible ways of each input graph and retaining the connected graphs of girth at
+least 6 among the graphs resulting from this operation. We then determined the class of
+each 5-piece using another independent implementation and the results were in complete
+agreement with the counts reported in Table 3.
+We joined all combinations of two of these 5-pieces in Class 1 \ Class 2 up to 50
+vertices and found only the Georges–Kelmans graph among those that were 3-connected.
+(Also here we replicated this result using an independent implementation of the joining
+program.) The Georges–Kelmans graph has cyclic connectivity 4. Together with Claims
+1 and 2, this completes the proof.
+Lemma 2.5. All bipartite cubic graphs with girth at least 8 up to 50 vertices are hamil-
+tonian.
+Proof. This result was purely computational. There are only about 2.5×109 such graphs
+(see Table 1) but the much reduced generation time for girth 8 meant that it took about
+22 CPU years.
+After completing this long computation, we found that a modiﬁcation of Meringer’s
+program genreg [22] made by the ﬁrst author could generate the graphs in only 8 CPU
+months. This prompted us to perform a stronger test: all bipartite cubic graphs with
+girth at least 8 up to 50 vertices have the property that for each pair of distinct edges
+e, e′ there is a hamiltonian cycle using e and not using e′.
+Proof of Theorem 1.1. Let G be a non-hamiltonian 3-connected bipartite cubic graph
+with at most 48 vertices. By Lemmas 2.2–2.5, we know that G is cyclically 6-connected
+and has girth 6.
+Our approach is as follows: We deﬁne a reduction that transforms a bipartite cubic
+graph with girth 6 on n vertices to a bipartite cubic graph with some 4-cycles on n −8
+9
+
+
+vertices. The set of reduced graphs will be much smaller than the set of original graphs,
+but there will also be irreducible graphs on n vertices. The irreducible graphs have to be
+generated and tested directly and on the reduced graphs some tests have to be performed
+in order to guarantee that they do not come from a non-hamiltonian graph, and reduced
+graphs that do not pass the test have to be extended and checked for hamiltonicity.
+In order to be able to reduce the computation time to an amount available on a
+modern cluster, there has to be a balance between the two parts.
+On one hand the
+reduction should be so that there are not too many irreducible graphs and that it is
+possible to generate all irreducible graphs. On the other hand the tests necessary on the
+reduced graphs must not be too expensive, so that the reduced graphs can be tested in
+an aﬀordable amount of time. The (admittedly very technical) reduction we used is the
+following:
+Let ˆG be the bipartite graph with 16 vertices depicted on the left hand side of Figure 7.
+We will call a bipartite cubic graph G of girth 6 reducible if it contains ˆG in a way that
+has the following properties:
+(i) Neither v′
+8 and v′
+3 nor v′
+7 and v′
+4 are adjacent.
+(ii) At least one of the paths v′
+1, v1, v2, v′
+2 and v′
+5, v5, v6, v′
+6 lies on a 6-cycle.
+(iii) If exactly one of the paths in (ii) lies on a 6-cycle, then in addition at least one of
+the paths v′
+8, v8, v1, v2, v3, v′
+3 and v′
+4, v4, v5, v6, v7, v′
+7 lies on an 8-cycle.
+The reduced graph Gr is then obtained by deleting v1, . . . , v8 and adding the edges
+e1 = {v′
+1, v′
+2}, e2 = {v′
+8, v′
+3}, e3 = {v′
+7, v′
+4}, and e4 = {v′
+6, v′
+5}, as depicted on the right hand
+side of Figure 7. It is obvious that Gr is bipartite and cubic. Moreover, since G has
+girth 6 and satisﬁes property (i), Gr is simple. Since Gr is cubic, each component of Gr
+contains a cycle. If cycles Z1 and Z2 lie in diﬀerent components of Gr, then with Menger’s
+theorem applied to the graph obtained by adding two new vertices and connecting them
+once to all vertices of Z1 and once to all vertices of Z2, the cyclic 5-connectivity of G
+means that there are at least 5 edge-disjoint paths in G from Z1 to Z2. However, at most
+4 of these paths can contain vertices of the set {v1, . . . , v8}, so one of them connects Z1
+and Z2 in Gr, contradicting the assumption that Z1 and Z2 are in diﬀerent components.
+Thus, Gr is connected.
+8
+7
+6
+7
+1
+2
+4
+2
+6
+3
+1
+8
+5
+2
+3
+4
+3
+2
+5
+4
+1
+8
+7
+6
+5
+4
+3
+1v’
+v’
+v’
+v’
+v
+v
+v’
+v’
+e
+e
+v’
+v’
+v
+v’
+v’
+v’
+v’
+e
+v’
+e
+v’
+v’
+v’
+v
+v
+v
+v
+v
+Figure 7: The reduction of an 8-cycle.
+If Gr is hamiltonian, this does not necessarily imply that G is also hamiltonian, but
+some hamiltonian cycles in Gr imply hamiltonicity in G. We call a hamiltonian cycle Hr
+of Gr extendable for (e1, . . . , e4) if E(Hr) ∩{e1, e2, e3, e4} is one of {e1}, {e4}, {e1, e2},
+10
+
+
+{e2, e3} and {e3, e4}. In each of these cases it is easy to see that E(Hr) \ {e1, . . . , e4} can
+be extended to a hamiltonian cycle in G.
+Our strategy now consists of two parts:
+(a) Generate all irreducible bipartite cubic graphs of girth 6 on up to 48 vertices and
+test them for hamiltonicity.
+(b) Generate all connected bipartite cubic graphs Gr with at most 40 vertices that may
+be the reduction of a bipartite cubic graph G of girth 6. For each 4-tuple (e1, . . . , e4)
+of edges of Gr that may be the new edges added in the reduction, determine whether
+Gr has a hamiltonian cycle extendable for (e1, . . . , e4). If not, reconstruct G and
+test it for hamiltonicity.
+For part (a) we used the program minibaum. The algorithm used in minibaum con-
+structs the graphs by recursively adding one edge at a time. The subgraph constructed
+at each step remains part of all descendants, so as soon as the subgraph on the left hand
+side of Figure 7 appears with conditions (i)–(iii) satisﬁed, we know that all cubic graphs
+descended from this step are reducible. Consequently, the generation tree can be pruned
+at this point.
+The program was run on a cluster with various diﬀerent processors. It needed about 7
+CPU years and generated 136,941,076 irreducible graphs. Among the graphs were 4 non-
+hamiltonian ones, but they were not 3-connected. We also independently generated all
+irreducible graphs up to 40 vertices using the unmodiﬁed version of minibaum to generate
+all bipartite cubic graphs of girth 6 and an independently implemented program to ﬁlter
+the irreducible graphs. The results were in complete agreement.
+Part (b) of the proof was the most computationally expensive step in our whole
+project. We illustrate the magnitude of the task for Gr having 40 vertices. As indi-
+cated in Table 1, there are 7,439,833,931,266 connected bipartite cubic graphs with 40
+vertices. In total (up to reversal), there were 129,922,879,860,637,000 possibilities for
+the 4-tuple (e1, e2, e3, e4). In all but 417,626,620,084 of these (1 in 311,098) there was
+an extendable hamiltonian cycle. Since hamiltonian cycles can be extendable for many
+4-tuples, the total number of hamiltonian cycles found was “only” 131,062,665,710,324.
+Of the 417,626,620,084 4-tuples for which there was no extendable hamiltonian cycle, the
+reconstructed graph on 48 vertices was hamiltonian except in 368 cases, none of them
+3-connected. The total time was 5 CPU years for generation and 85 CPU years for hamil-
+tonian cycle investigation. We also independently veriﬁed the computations for part (b)
+up to 34 vertices.
+That completes the proof of the ﬁrst part of Theorem 1.1. For the second part, recall
+that Lemmas 2.2–2.5 apply also to 50 vertices.
+Remark 2.6. For each even girth g ≥4, there are inﬁnitely many non-hamiltonian
+3-connected bipartite cubic graphs of girth g.
+Proof. There exist 3-connected bipartite cubic graphs of arbitrary large even girth g (see
+e.g. the survey [25]). A non-hamiltonian 3-connected bipartite cubic graph of arbitrary
+even girth g can be obtained by replacing every vertex v of a non-hamiltonian 3-connected
+bipartite cubic graph G by a copy G′
+v of a 3-connected bipartite cubic graph G′ of girth
+g with one vertex removed. If {v1, v2} is an edge in G, then a vertex of degree 2 in G′
+v1 is
+connected to a vertex of degree 2 in G′
+v2 in a way that a 3-regular graph is constructed.
+11
+
+
+If the resulting graph has a hamiltonian cycle, it must enter and leave each G′
+v exactly
+once. Contracting each G′
+v to a single vertex would then recover a hamiltonian cycle in G,
+contradicting the assumption that G is non-hamiltonian.
+3
+Non-hamiltonian cyclically 5-connected bipartite
+cubic graphs
+Cubic graphs of course cannot have connectivity greater than 3, but among all cubic
+3-connected graphs, the cyclic connectivity provides a measure of how strong the con-
+nections between the parts of the graph are. Though the Georges–Kelmans graph has
+girth 6, which is a necessary prerequisite for being cyclically 6-connected, it is only cycli-
+cally 4-connected. To be exact: it has no cyclic edge-cuts of size 3, but 8 cyclic edge-cuts
+of size 4.
+Extending a folklore technique (described to us by Carol Zamﬁrescu) for constructing
+graphs without hamiltonian paths from graphs without hamiltonian cycles, we will now
+describe how to construct non-hamiltonian cyclically 5-connected bipartite cubic graphs
+out of a suitable non-hamiltonian bipartite cubic graph with lower cyclic connectivity,
+such as the Georges–Kelmans graph.
+Recall that minimal cyclic edge cuts in cubic graphs are always independent edge
+cuts. We denote the distance between vertices v, w by d(v, w). Let G = (V, E) be a
+cyclically 4-connected cubic graph, so that there is a vertex v ∈V with neighbours
+N(v) = {w1, w2, w3} and an edge e = {x, y}, so that d(v, x) ≥3, d(v, y) ≥3, and for each
+independent edge cut C of G with |C| = 4 we have that neither v nor x are contained
+in an edge of C and that v and x are in diﬀerent components of G \ C. Such graphs
+have girth at least 5, as a 4-cycle containing v or x would imply a 4-cut containing v or
+x, and a 4-cycle not containing v or x would imply a 4-cut with v and x in the same
+component. It is easy to see by inspection that the Georges–Kelmans graph has in fact
+several vertex-edge pairs with this property, for example the pair marked with asterisks in
+Figure 1. In the ﬁgures showing the operations we use coloured vertices to illustrate that
+we can choose to maintain bipartiteness; nevertheless the construction is not restricted
+to bipartite graphs.
+Take three copies G1, G2, G3 of G with corresponding vertices vi, wi,1, wi,2, wi,3, xi, yi
+for 1 ≤i ≤3 and add three new vertices z1, z2, z3. Then remove v1, v2, v3 and for 1 ≤i ≤3
+and 1 ≤j ≤3 connect zj with wi,j and remove the edge {xi, yi}. This operation is
+depicted on the left hand side of Figure 8. We call the result of this operation a triple
+and each of the copies Gi of G with vi and {xi, yi} removed a brick. Then we can take
+an arbitrary 3-edge connected cubic multigraph M, replace each vertex by a triple and
+assign the three bricks to the three adjacent edges. Finally we connect vertices xk and
+yℓfrom diﬀerent bricks that are assigned to the same edge. On the right hand side of
+Figure 8 this is depicted for the graph M = K4, but the smallest choice for M is the cubic
+multigraph with 2 vertices. We call this operation the triple-operation T (G, v, e, M).
+Theorem 3.1. Let G = (V, E) be a cyclically 4-connected cubic non-hamiltonian graph
+and v ∈V , e = {x, y} ∈E so that d(v, x) ≥3, d(v, y) ≥3, and for each cyclic edge cut
+C of G with |C| = 4 we have that neither v nor x are contained in an edge of C and that
+v and x are in diﬀerent components of G \ C. Furthermore let M be a 3-edge-connected
+cubic multigraph. Then T (G, v, e, M) is a cyclically 5-connected non-hamiltonian graph.
+12
+
+
+1
+1,1
+2
+3
+1
+1
+z
+w
+x
+x
+w
+x y
+z3
+z2
+3,1
+w
+y3
+2y
+2,1
+Figure 8: Constructing a cyclically 5-connected graph from a cyclically 4-connected one. The
+colour of the vertices zi and the vertices wi,j can be the other way around. Between
+the vertices xi and yi there is no edge.
+Proof. Let C = {e1, . . . , e4} be a set of four independent edges in T (G, v, e, M). We have
+to show that C is not a cut of T (G, v, e, M).
+Claim:
+If a brick B contains at most 2 edges of C, then B \ C is connected
+Proof:
+Assume that this is not the case and let C′ ⊂C denote a set of minimal size so
+that B \ C′ is not connected. This means that B \ C′ has two components, say P1 and
+P2, each of which has at most two endpoints of C′. Since every vertex of B has degree as
+least two, neither of P1 and P2 can be isolated vertices, and the only vertices that might
+have degree 1 in B \ C′ are x, y, w1, w2, w3 (if they are also endpoints of edges in C′).
+Since each component in B \ C′ is not an isolated vertex and has at most two vertices
+of degree 1, it has a cycle unless it is a non-trivial path within the vertices x, y, w1, w2, w3.
+As any two vertices of x, y, w1, w2, w3 have distance at least 2 from each other ({x, y} is
+removed when forming B, {x, wi} or {x, wi} are not present as d(v, x) ≥3, d(v, y) ≥3 and
+an edge {wi, wj} would be a triangle in G contradicting that it is cyclically 4-connected),
+this cannot be the case. So both components contain a cycle.
+One of P1, P2 would contain at most one of w1, w2, w3; w.l.o.g. P1 contains only w1 or
+none of these vertices. If P1 contains none of x, y or both, then C′ ∪{{v, w1}} (resp. C′)
+would be a cyclic edge-cut of G with at most 3 edges, otherwise C′ ∪{{v, w1}, {x, y}}
+(resp. C′ ∪{{x, y}}) would be a cyclic edge-cut of G with at most 4 edges containing
+the edge {x, y}. Both cases are in contradiction to the assumptions on G, so B \ C is
+connected.
+As only one brick can contain more than two edges of C, for at most one brick B we
+have that B \ C is not connected. Assume ﬁrst that there is such a B \ C in a triple T.
+Then there is at most one edge of C not in B and two bricks in the same triple (diﬀerent
+from T) belong to the same component of T (G, v, e, M)\C. Due to M being 3-connected
+all triples diﬀerent from T belong to the same component. The two bricks in T diﬀerent
+from B are connected to bricks in other triples, so they belong to the same component. If
+B contains all 4 edges of C, then each component contains a vertex of x, y, w1, w2, w3, as
+13
+
+
+otherwise C would be a cut in G not separating v and x. As x, y, w1, w2, w3 are connected
+to the other triples, in this case the graph is connected. If B contains only 3 edges of C,
+each component contains at least two vertices of x, y, w1, w2, w3 (otherwise we had a 4-cut
+in G containing x or v) and the result follows analogously.
+In B \ C each vertex is either in a component with all of w1, w2, w3—at least two of
+which have a path to another brick in the triple—or with both of x, y and at least one of
+them is connected to another triple. So in this case T (G, v, e, M) \ C is connected.
+Assume now that all bricks are connected after removing C. If no triple contains
+three or more edges of C, then all triples are connected and as M is 3-edge connected
+(so with the edges doubled 6-edge connected), all triples are in the same component of
+T (G, v, e, M) \ C.
+The last case is that a triple T contains three or more edges of C and is disconnected,
+which means that the edges are adjacent to the three new vertices, which are nevertheless
+still connected to at least two bricks in the triple. The other triples are still connected,
+and as each brick in T is connected with at least one edge to a brick in another triple,
+the bricks of T also belong to the same component. This completes the proof of cyclic
+5-connectivity.
+Next we prove the non-hamiltonicity. Assume that T (G, v, e, M) has a hamiltonian
+cycle H. Each edge-cut must contain a positive even number of edges of H, so the 6-edge-
+cut isolating a triple from the rest of the graph contains 2, 4 or 6 edges of H. If it contains
+exactly 2 edges, one of the bricks has no edges going to another triple, so it must have
+2 edges going to the vertices in the triple not belonging to a brick—but this implies a
+hamiltonian cycle in G.
+So the edge-cut contains at least 4 edges of H and there is a brick B where both
+edges e1, e2 going to another triple belong to H. After H enters B at e1, it must ﬁrst
+leave at e2; otherwise there is another segment of H that enters B at e2 and these two
+segments together would allow us to construct a hamiltonian cycle in the non-hamiltonian
+graph G. The same argument applies to the other brick which e1 is incident with, giving
+us a cycle made of segments of H involving only two bricks, in contradiction to H being
+a hamiltonian cycle.
+Corollary 3.2. There are inﬁnitely many non-hamiltonian cyclically 5-connected bipar-
+tite cubic graphs. The smallest one has at most 300 vertices.
+Proof. This is a direct consequence of Theorem 3.1 and the fact that the construction can
+be carried out to preserve bipartiteness. The lower bound is obtained by applying the
+construction to the Georges–Kelmans graph and the cubic multigraph on 2 vertices.
+Our construction raises the question of whether even higher cyclic connectivity can
+be achieved in a non-hamiltonian bipartite cubic graph. We are not able to answer this
+question and propose it as a research topic.
+4
+Barnette’s conjecture and the girth
+A famous variation on the problem at hand is Barnette’s conjecture [2], which states that
+every 3-connected planar bipartite cubic graph is hamiltonian. Here our main result is
+the following.
+Theorem 4.1. Let G be a 3-connected planar bipartite cubic graph with n vertices. Then
+14
+
+
+(a) n ≤90 implies that G is hamiltonian;
+(b) n ≤78 implies that every edge of G lies on a hamiltonian cycle;
+(c) n ≤66 implies that for any two edges e1, e2 of G, there is a hamiltonian cycle
+through e1 but avoiding e2.
+Proof. Using the generator plantri [8] and the program cubhamg, we established part (c)
+by direct computation. This required approximately 37 CPU years. We also found that
+the same property holds for those 3-connected planar bipartite cubic graphs on 68 or 70
+vertices that do not have a 4-face adjacent to two other 4-faces. This required another 5
+CPU years. Parts (a) and (b) now follow as in [14, Theorem 5].
+Even assuming that Barnette’s conjecture is true, it is natural to ask how close to
+planarity non-hamiltonian 3-connected bipartite cubic graphs can be; in particular, what
+is the minimum genus of a non-hamiltonian 3-connected bipartite cubic graph?
+Using the program multi genus [5] to determine the genus, we found that the Georges–
+Kelmans graph has genus 5. The Ellingham–Horton graphs on 54 and 78 vertices have
+genus 4 and 7, respectively. The graphs of Horton with 92 and 96 vertices have genus 8
+or 9, and genus between 8 and 10, respectively.
+During our project we compiled a collection of small non-hamiltonian 3-connected
+bipartite cubic graphs by a mixture of unsystematic searches. For 50–64 vertices, the
+number of graphs in our collection is 1, 4, 30, 187, 1334, 3377, 29529, 204069, respectively.
+(The non-hamiltonicity of these graphs was conﬁrmed with a separate program.) The
+smallest genus that occurs in the collection is 4, and the smallest graph found with genus 4
+has 52 vertices (see Figure 9).
+Figure 9: A non-hamiltonian 3-connected bipartite cubic graph of genus 4 on 52 vertices. Join
+two vertices of degree 2 if they have the same colour and shape. The two edges for
+each colour can be drawn on one handle.
+Note that the condition of being 3-connected is essential for Barnette’s conjecture.
+Requiring only connectivity but not 3-connectivity, there is a non-hamiltonian planar
+bipartite cubic graph already on 26 vertices. For genus 1 and 2, the smallest bipartite
+cubic non-hamiltonian graphs have 24 and 20 vertices, respectively.
+15
+
+
+5
+A fast practical algorithm for hamiltonian cycles
+As mentioned, this project required the discovery of more than 1014 hamiltonian cycles,
+in cubic graphs of up to 50 vertices. A naive search that grows a path one edge at a
+time has no chance of achieving this feat in an acceptable amount of time. A much faster
+approach, available as the program cubhamg (which is part of the nauty package [21]),
+has been used in several investigations since [15] but never published. We now give a
+brief description here.
+At each point of time, every edge has a label NO (not in the hamiltonian cycle), YES
+(in the hamiltonian cycle), or UNDEC (undecided). Every edge is initialized to UNDEC,
+except for edges we wish to force into or out of the hamiltonian cycle.
+Given an edge labelling, a propagation process can be performed by applying the
+following rules until no further rules can be applied or a failure condition occurs.
+(a) If a vertex has two incident NOs or three incident YESes, a failure condition occurs.
+(b) If a vertex has one incident NO, then the other two incident edges will be labelled
+YES.
+(c) If a vertex has two incident YESes, then the other incident edge will be labelled
+NO.
+(d) Let P be a maximal path of edges labelled YES.
+(i) Suppose P is a hamiltonian path. If its ends are adjacent, then a hamiltonian
+cycle has been found; otherwise, a failure condition occurs.
+(ii) If P is not a hamiltonian path and its ends are adjacent, then the edge between
+the ends will be labelled NO.
+(iii) If there are distinct vertices x, y not in P, such that the neighbours of x are y
+and the two ends of P, then the edge {x, y} will be labelled YES.
+The overall structure is a backtrack search, with three branches according to which edges
+incident to an arbitrarily chosen vertex are labelled NO. If propagation ends with a
+hamiltonian cycle, we are done. If it ﬁnishes without either a hamiltonian cycle or a
+failure condition, there must be a vertex with one incident edge labelled YES and the
+other two labelled UNDEC (otherwise (a), (b) or (c) could be applied). Now the search
+branches into two cases depending on which of the two UNDEC edges is to be labelled
+NO. If propagation ﬁnishes with a failure condition, we backtrack to the nearest branching
+point where there is an unexplored branch.
+The eﬃciency of this process is high because propagation usually gives new labels to
+many edges. Also, propagation can be carried out very quickly. Each vertex v has an
+attribute av whose meaning is “if this vertex is an end of a maximal path of edges labelled
+YES, then the other end is av”. With this simple data structure, each of the propagation
+operations can be carried out in constant time.
+Note that the algorithm is not a heuristic for ﬁnding cycles, but a complete search that
+certiﬁes the absence of hamiltonian cycles as well as their presence. When a hamiltonian
+cycle is found, checking it is trivial, but it is also worth pointing out that our proofs
+would still be valid if an error sometimes caused a hamiltonian graph to be misidentiﬁed
+as non-hamiltonian. As an example, if Table 2 contained a few graphs that didn’t belong,
+it would only mean that we have more pairs G1, G2 to join.
+16
+
+
+6
+The graphs mentioned in this paper
+For the reader’s convenience, in Table 4 we give the identiﬁcation by which the graphs
+mentioned in this paper can be examined and downloaded at the House of Graphs [6].
+order
+description of non-hamiltonian graph
+HoG id
+20
+smallest connected bipartite cubic graph
+6923
+24
+ditto, of genus 1
+34282
+26
+ditto, planar
+34286
+38
+Barnette–Bosak–Lederberg graph
+954
+50
+Georges–Kelmans graph
+1096
+52
+3-connected bipartite cubic graph of genus 4
+33805
+54
+Ellingham–Horton graph
+1059
+78
+Ellingham–Horton graph
+1061
+92
+Horton graph
+1179
+96
+Horton graph
+1181
+Table 4: House of Graphs id numbers for graphs mentioned in this paper.
+An archive of the software used for this project is available at [7].
+Acknowledgements
+Most of the extensive computational results were obtained from the Stevin Supercomputer
+Infrastructure provided by Ghent University, the Hercules Foundation and the Flemish
+Government, department EWI.
+References
+[1] R.E.L. Aldred, G. Brinkmann, and B.D. McKay.
+Announcement about Bar-
+nette’s conjecture, 2000.
+See: https://www.fmf.uni-lj.si/~mohar/Problems/
+P4BarnetteConjecture.html.
+[2] D. Barnette. Conjecture 5. Recent Progress in Combinatorics. In Proceedings of the
+Third Waterloo Conference on Combinatorics. Academic Press New York, 1969.
+[3] J.A. Bondy and U.S.R. Murty. Graph theory with applications. Macmillan London,
+1976.
+[4] G. Brinkmann. Fast generation of cubic graphs. Journal of Graph Theory, 23(2):139–
+149, 1996. The latest version of the software is available at https://caagt.ugent.
+be/minibaum/.
+[5] G. Brinkmann.
+A practical algorithm for the computation of the genus.
+arXiv
+preprint arXiv:2005.08243, 2020.
+[6] G. Brinkmann, K. Coolsaet, J. Goedgebeur, and H. M´elot. House of Graphs: a
+database of interesting graphs.
+Discrete Applied Mathematics, 161(1–2):311–314,
+2013. Available at http://hog.grinvin.org/.
+17
+
+
+[7] G. Brinkmann, J. Goedgebeur, and B.D. McKay.
+Software archive for cubic bi-
+partite non-hamiltonian graphs.
+2021.
+Available at https://caagt.ugent.be/
+cubic-bip-nonham.
+[8] G. Brinkmann and B.D. McKay. Fast generation of planar graphs. MATCH Com-
+mun. Math. Comput. Chem., 58(2):323–357, 2007. The latest version of the software
+is available at http://users.cecs.anu.edu.au/~bdm/plantri/.
+[9] R. Diestel. Graph Theory, volume 173 of Graduate Texts in Mathematics. Springer,
+Heidelberg, fourth edition, 2010.
+[10] M.N. Ellingham. Cycles in 3-connected cubic graphs. Master’s thesis, University of
+Melbourne, 1982.
+[11] M.N. Ellingham and J.D. Horton.
+Non-hamiltonian 3-connected cubic bipartite
+graphs. Journal of Combinatorial Theory, Series B, 34(3):350–353, 1983.
+[12] J.P. Georges. Non-hamiltonian bicubic graphs. Journal of Combinatorial Theory,
+Series B, 46(1):121–124, 1989.
+[13] R. Grund.
+Konstruktion schlichter Graphen mit gegebener Gradpartition.
+Bayreuther Mathematische Schriften, 44:73–104, 1993.
+[14] D.A. Holton, B. Manvel, and B.D. McKay. Hamiltonian cycles in cubic 3-connected
+bipartite planar graphs. Journal of Combinatorial Theory, Series B, 38(3):279–297,
+1985.
+[15] D.A. Holton and B.D. McKay. The smallest non-hamiltonian 3-connected cubic pla-
+nar graphs have 38 vertices. Journal of Combinatorial Theory, Series B, 45(3):305–
+319, 1988.
+[16] J.D. Horton.
+On two-factors of bipartite regular graphs.
+Discrete Mathematics,
+41(1):35–41, 1982.
+[17] A.K. Kelmans. Cubic bipartite cyclic 4-connected graphs without hamiltonian cir-
+cuits. Russian Mathematical Surveys, 43(3):205, 1988.
+[18] A.K. Kelmans. Constructions of cubic bipartite 3-connected graphs without hamil-
+tonian cycles. Selected Topics in Discrete Mathematics (Moscow, 1972-1990), pages
+127–140, 1994.
+[19] K. Knauer and P. Valicov. Cuts in matchings of 3-connected cubic graphs. European
+Journal of Combinatorics, 76:27–36, 2019.
+[20] W. McCuaig. Edge reductions in cyclically k-connected cubic graphs. Journal of
+Combinatorial Theory, Series B, 56:16–44, 1992.
+[21] B.D. McKay and A. Piperno. Practical graph isomorphism, II. J. Symbolic Comput.,
+60:94–112, 2014. The latest version of the software is available at http://users.
+cecs.anu.edu.au/~bdm/nauty/.
+[22] M. Meringer. Fast generation of regular graphs and construction of cages. Journal
+of Graph Theory, 30:137–146, 1999.
+18
+
+
+[23] W.T. Tutte. On hamiltonian circuits. Journal of the London Mathematical Society,
+1(2):98–101, 1946.
+[24] W.T. Tutte. On the 2-factors of bicubic graphs. Discrete Mathematics, 1(2):203–208,
+1971.
+[25] N.C. Wormald. Models of random regular graphs. In J.D. Lamb and D.A. Preece,
+editors, Surveys in Combinatorics, 1999, volume 267. Cambridge University Press,
+1999.
+19

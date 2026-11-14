@@ -1,0 +1,70 @@
+BARNETTE’S CONJECTURE
+13
+lies on the right of s(t) →r(t), the path enters t across g, and the same check gives +1. Reversing the
+direction of travel exchanges left and right, which gives −1 for a crossing from right to left.
+Every step of the path across an edge of C enters or leaves the black face of that edge, which lies in A
+and so is not an end of the path. The path passes through that face only once. So the sum over t is the
+number of steps that cross C from left to right minus the number that cross from right to left. The left
+of the counterclockwise cycle C is its inside, and by Lemma 2.5(1) a step changes sides of C exactly when
+it crosses an edge of C. The path ends in t0, which is outside C, so the sum is 1 if y is inside C and 0
+otherwise. Finally L(C) ≥1 by the disk identity.
+□
+Figure 10 follows this change along one path in the example.
++
+−
+y
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
++
+−
+y
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) 7-cycle clockwise: ηs(y) = −1
+(b) reversed: ηα(y) = 0
+Figure 10. A height in the example. The white face y = {1, 8, 9} (tinted) and its path
+of faces to the outer face (dash-dotted): y, {1, 7, 8}, {1, 6, 7}, {0, 1, 6}, {0, 5, 6}, t0. In
+each black face on the path the path turns around one corner; the circled sign is + if that
+corner lies on its left and −if on its right. The height of a state at y adds the signs at
+turned corners that carry its wedge. (a) A pair whose 7-cycle runs clockwise. Its second
+state s has its wedge at the turned corner 6 of {0, 1, 6} and not at the turned corner 1 of
+{1, 7, 8}, so ηs(y) = −1. (b) Reversing the 7-cycle as in Lemma 4.6 gives the pair (β, α)
+of Figure 8, where it runs counterclockwise. The wedge in {0, 1, 6} has moved to 1, and
+ηα(y) = 0, one more, because y lies inside the 7-cycle.
+Since ηs(y) is a sum over faces, and different cycles of D(r, s) use different faces, the effects of reversing
+several cycles add up.
+The total is not zero. It remains to choose F. Call the undirected edge set of D(r, s) the cover of the
+pair; OpenAI call it a group. Start with a single cycle. On the cube the two states of Figure 1(f) give two
+pairs, one in each order, with the same cover: the triangle 3, 4, 5 around one white face. Reversing the
+triangle turns one pair into the other, so by Lemmas 4.4 and 4.6 the two pairs have opposite signs and
+weights that differ by 1. With F = 1 the two terms cancel, and with F = ω they leave ±1.
+A cover with c cycles carries 2c pairs, one for each choice of orientations, as the proof of Proposition 4.8
+shows. Each reversal flips the sign, and the weight is a constant plus L(C) for each cycle C that runs
+counterclockwise. So the signed sum of F(s) over the cover is a difference taken once along each of the c
+cycles. For a power of ω the next lemma computes it. A c-fold difference kills every power below c, and
+on the c-th power it leaves ±c! times the product of the steps L(C), each at least 1. So we take F = ωm,
+where m ≥1 is the smallest number of cycles of a cover, assuming a pair exists. Covers with more than
+m cycles then contribute nothing, and the covers with exactly m cycles contribute nonzero products of
+one sign. Figure 11 shows this for the two covers of the example.

@@ -1,0 +1,93 @@
+6
+BARNETTE’S CONJECTURE
+Example 3.3. In the example, t0 = {0, 4, 5}, e0 = {0, 4}, o = 5 and n = 10. Two of its states, which we
+call α and β, are
+t
+0·1·6
+0·2·3
+1·7·8
+1·2·9
+3·4·9
+4·10·11
+5·6·11
+6·7·12
+8·11·12
+8·9·10
+α(t)
+1
+3
+7
+2
+9
+11
+6
+12
+8
+10
+β(t)
+6
+2
+8
+1
+3
+10
+11
+7
+12
+9
+where a face is named by its corners. The sides opposite α contain the triangle on 1, 8, 9, while those
+opposite β form a forest with components {0, 1, 3, 7}, {2, 4, 8, 9, 10, 11} and {5, 6, 12}, one root in each
+(Figure 4). The two states differ in every face. We return to this in Section 4.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) Qα contains a cycle
+(b) Qβ is a forest
+Figure 4. The opposite sides (dashed) of the two states of Example 3.3; solid wedges
+mark the chosen corners and hollow circles the roots. (a) Qα contains the triangle on
+1, 8, 9 around a white face, and its component has no root. (b) Qβ is a forest with three
+components, one through each root. The proof needs a state that looks like (b).
+The tree of faces. A selection that contains e0 and uses only sides at s(t) in each t ∈A is a selection
+that avoids Ss. It pairs each face with the face across its selected side, and these two faces are adjacent
+across an edge not in Ss. So consider the graph Ys = T ∗−S∗
+s, whose nodes are the faces of T, two faces
+being adjacent when they share a side not in Ss; it is a subgraph of G. A tree has at most one perfect
+matching, found by matching a leaf to its neighbour, removing both and repeating. So if Ys is a tree, at
+most one selection of this kind exists and no choice is left.
+For Ys to be a tree we need the following condition on s. The condition is sufficient for what follows and
+it is not necessary: the state that Lemma 3.1 reads off an acyclic selection need not satisfy it (Section 7).
+Definition 3.4. A state s is good if Qs is a forest in which each component contains exactly one root.
+The unsigned manuscript [4] calls a good state a tree matching.
+Lemma 3.5. A state s is good if and only if Ss is a spanning tree of T.
+Proof. Ss has |V (T)| −1 edges, so it is a spanning tree exactly when it is acyclic. That happens exactly
+when Qs is acyclic and adding ao and bo closes no cycle, that is, when a, b and o lie in three different
+components of Qs. A forest with n edges on n + 3 vertices has three components, so this means one root
+in each.
+□
+Figure 5(a) shows the tree Ys and the selection of the next lemma for the state β of the example.
+Lemma 3.6. Let s be a good state. Then Ys is a tree on the 2k faces of T, in which every face of A has
+degree two and t0 has degree one. Root Ys at t0, and let Ps consist of the side that each black face shares
+with its child. Then Ps is a selection, e0 ∈Ps, and for every t ∈A the side of t in Ps contains s(t).

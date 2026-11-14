@@ -1,0 +1,3 @@
+8 bcde,aefghc,abhd,achgfe,adfb,bedg,bfdh,bgdc
+E:\Personal\Math\mathathon\barnette-s-conjecture\workings\barnette_lab\vendor\plantri.exe -b -a 8 
+1 eulerian triangulations written to stdout

@@ -1,0 +1,342 @@
+{
+  "OpenAI2026": {
+    "path": "papers/OpenAI-Barnette.pdf",
+    "pages": 11,
+    "locators": {
+      "Theorem 1.1": [
+        {
+          "pdf_page": 1,
+          "context": ", Corollary 1.13]. We remove the face-size restriction within the full 3-connected bipartite class. Theorem 1.1. Every finite simple undirected graph that is cubic, bipartite, planar, and 3-vertex- connected has a Hamiltonian cycle. The difficulty is to obtain one spanning cycle. A spanning subgraph of degree two can have several cycle components, and local choices alone need not join them. We instead construct an acyclic edge set in a dual triangulation whose complement becomes one connected spanning cycle. The construction also retains a prescribed local pattern needed when the triangulation is cut into smaller pieces. 1.1 The dual problem and the proof strategy For a graph satisfying Theorem 1.1, the faces of its sphere dual are triangles. A bipartition of the original graph colors these triangles black and white, with opposite colors across every edge. The 1 "
+        },
+        {
+          "pdf_page": 10,
+          "context": "eriors of the two sides. The original prescription is preserved, completing the induction. Proof of Theorem 1.1. Let G satisfy the four hypotheses and fix a sphere embedding. It has no edge cut of size one or two. For otherwise each side of such a cut would have at least three vertices: cubicity and simplicity give at least three crossing edges for a singleton and at least four for two vertices. Deleting the at most two crossing endpoints on one side would leave a nonempty remnant disconnected from the other side, contrary to 3-vertex-connectivity. The sphere dual T = G\u2217is simple. A dual loop or a pair of parallel dual edges would be a Jordan curve crossing one or two primal edges once, giving an edge cut of that size. Its two primal sides are nonempty, since every crossed edge has its endpoints on opposite sides. Cubicity gives each dual face a boundary walk of length three, which in a simple graph is a triangle. Euler\u2019s formula gives |V (T)| = 2 + |V (G)| /2 \u22654. The bipartition of G "
+        }
+      ],
+      "Corollary 7.1": [
+        {
+          "pdf_page": 2,
+          "context": "tex in the other. The corresponding Hamiltonian cycle avoids any specified single edge, as shown in Corollary 7.1. This single-edge avoidance property is a known equivalent global strengthening of Barnette\u2019s conjecture, through the work of Kelmans as explained by Hertel [7, Corollary 3] and by Gorsky, Steiner, and Wiederrecht [5, Theorem 4.3]. Corollary 7.2 records a further consequence through their published equivalence [5, Theorem 4.16]: every three-edge path in a finite simple cubic 3-vertex-connected Pfaffian bipartite graph is contained in a Hamiltonian cycle. To explain the construction, choose one black triangle as the outer face and call its three vertices the roots. The remaining black triangles and the nonroot vertices have equal cardinality. A state assigns each remaining black triangle one of its vertices, using every nonroot exactly once. These face\u2013vertex incidence matchings are Tutte states, arising in Tutte\u2019s theory of trinity [15]. Hine and K\u00e1lm\u00e1n give a modern treatm"
+        },
+        {
+          "pdf_page": 10,
+          "context": "ee two at every vertex. They form a single spanning cycle, which is the required Hamiltonian cycle. Corollary 7.1. For every graph G satisfying Theorem 1.1 and every edge e \u2208E(G), there is a Hamiltonian cycle of G avoiding e. Proof. In the dual triangulation choose a facial triangle containing the dual edge e\u2217, and prescribe e0 = e\u2217in Theorem 2.2. That edge belongs to one of the induced trees. The complementary dual Hamiltonian cycle constructed above therefore omits e. Recall that a graph G is Pfaffian if its edges admit an orientation for which every even cycle C such that G \u2212V (C) has a perfect matching has an odd number of edges directed along either cyclic traversal [5, Section 4]. Corollary 7.2 (Prescribed paths in Pfaffian graphs). Let G be a finite simple undirected graph that is cubic, 3-vertex-connected, Pfaffian, and bipartite. Every path on four vertices (three edges) in G is contained in a Hamiltonian cycle. In other words, G is P4-Hamiltonian; in particular, it is Hamilto"
+        }
+      ],
+      "Corollary 7.2": [
+        {
+          "pdf_page": 2,
+          "context": "s as explained by Hertel [7, Corollary 3] and by Gorsky, Steiner, and Wiederrecht [5, Theorem 4.3]. Corollary 7.2 records a further consequence through their published equivalence [5, Theorem 4.16]: every three-edge path in a finite simple cubic 3-vertex-connected Pfaffian bipartite graph is contained in a Hamiltonian cycle. To explain the construction, choose one black triangle as the outer face and call its three vertices the roots. The remaining black triangles and the nonroot vertices have equal cardinality. A state assigns each remaining black triangle one of its vertices, using every nonroot exactly once. These face\u2013vertex incidence matchings are Tutte states, arising in Tutte\u2019s theory of trinity [15]. Hine and K\u00e1lm\u00e1n give a modern treatment and relate the state moves to Kauffman\u2019s clock theorem [8]. A pair consists of two states making distinct choices at every triangle. We prove all state properties needed here. For a second state s, let Qs contain the edge opposite its chosen "
+        },
+        {
+          "pdf_page": 10,
+          "context": " perfect matching has an odd number of edges directed along either cyclic traversal [5, Section 4]. Corollary 7.2 (Prescribed paths in Pfaffian graphs). Let G be a finite simple undirected graph that is cubic, 3-vertex-connected, Pfaffian, and bipartite. Every path on four vertices (three edges) in G is contained in a Hamiltonian cycle. In other words, G is P4-Hamiltonian; in particular, it is Hamiltonian. Proof. Gorsky, Steiner, and Wiederrecht [5, Theorem 4.16] proved the equivalence of Barnette\u2019s conjecture, their condition (i), with this P4-Hamiltonicity statement, their condition (v). Theorem 1.1 establishes condition (i), so their implication from (i) to (v) applies. Every planar graph is Pfaffian [5, Theorem 4.6], so the corollary includes the graphs of Theorem 1.1, while also allowing nonplanar graphs. 10 "
+        }
+      ],
+      "Lemma 5.3": [
+        {
+          "pdf_page": 7,
+          "context": "Lemma 5.3. There are real numbers a(t, v) on the spokes of H0 such that every counterclockwise simple spoke cycle has strictly positive weight, where center-to-vertex traversal has weight a(t, v) and reverse traversal its negative. Proof. Work separately in each connected component. Prescribe signed boundary circulation one on every bounded face and the negative of their number on the unbounded face, always traversing with the face on the left. For each bounded face take a simple path in the connected plane dual to the unbounded face. Give each crossed edge an antisymmetric weight contributing one to the face being left and minus one to the face being entered. Along the path these contributions cancel at intermediate faces. Summing over bounded faces realizes the prescribed circulations. Summing face boundaries inside any counterclockwise simple cycle cancels internal sides and gives the"
+        }
+      ],
+      "5.3": [
+        {
+          "pdf_page": 7,
+          "context": "Lemma 5.3. There are real numbers a(t, v) on the spokes of H0 such that every counterclockwise simple spoke cycle has strictly positive weight, where center-to-vertex traversal has weight a(t, v) and reverse traversal its negative. Proof. Work separately in each connected component. Prescribe signed boundary circulation one on every bounded face and the negative of their number on the unbounded face, always traversing with the face on the left. For each bounded face take a simple path in the connected plane dual to the unbounded face. Give each crossed edge an antisymmetric weight contributing one to the face being left and minus one to the face being entered. Along the path these contributions cancel at intermediate faces. Summing over bounded faces realizes the prescribed circulations. Summing face boundaries inside any counterclockwise simple cycle cancels internal sides and gives the posit"
+        }
+      ]
+    }
+  },
+  "Li2026": {
+    "path": "papers/A-Note-On-Barnette.pdf",
+    "pages": 14,
+    "locators": {
+      "Definition 28": [
+        {
+          "pdf_page": 10,
+          "context": "mplement of TF B. It is a spanning tree of G\u2217 F B. For this section, we work in both aux(G) and G\u2217. Definition 28. The black dual trace of an edge b1w1 \u2208E(aux(G)), b1 \u2208B, w1 \u2208W is the set of two edges {b1f1, b1f2} where \u2022 f1 is the next clockwise neighbour of b1 after w1, and \u2022 f2 is the next counterclockwise neighbour of b1 after w1. The black dual trace of a set of edges is the union of the black dual trace of each edge. A black dual trace can contain an edge twice, but we only trace matchings, which never produce duplicates. The black dual trace of a set of edges between B and F(G) in aux(G) is defined similarly, exchanging the roles of W and F(G). Definition 29. Call neighbours of b0 that are face-vertices root face-vertices. Let fout be the root face-vertex representing the outer face of G in aux(G). Lemma 30. Let (G, B, W, b0w0) be a rooted Barnette graph, H = GF B \u2212N[b0] and M2 a perfect matching of H where H \u2212M2 is acyclic and TW = M \u2217 2 is a spanning tree of white vertices. Le"
+        }
+      ],
+      "Lemma 30": [
+        {
+          "pdf_page": 10,
+          "context": "es root face-vertices. Let fout be the root face-vertex representing the outer face of G in aux(G). Lemma 30. Let (G, B, W, b0w0) be a rooted Barnette graph, H = GF B \u2212N[b0] and M2 a perfect matching of H where H \u2212M2 is acyclic and TW = M \u2217 2 is a spanning tree of white vertices. Let T \u20d7 W be the oriented spanning tree of G\u2212b0 obtained by taking the black dual trace of TW and orienting all edges towards w0. Let P be the set of all outgoing edges from white vertices in T \u20d7 W together with e0. Then E(G) \u2212P induces a Hamiltonian cycle of G. Proof. Claim 31. P is a perfect matching of G. Proof. Each edge of TW is the dual of an M2-edge between a black b and a face f and is traced as a path wbw\u2019 through b. Since M2 matches each black b \u0338= b0 exactly once, b lies on exactly one such path, and exactly one half of it leaves a white vertex in the orientation T \u20d7 W . Each white w \u0338= w0 has exactly one outgoing edge, and e0 covers b0 and w0. So P is a perfect matching of G. \u25a1 Since G is cubic, G "
+        },
+        {
+          "pdf_page": 11,
+          "context": "ry 27, M \u2217 2 as dual edges of GF B is a spanning tree of white vertices of G\u2217 F B. Construct P from Lemma 30. That is, let T \u20d7 W be the oriented spanning tree of G \u2212b0 obtained by taking the black dual trace of TW and orienting all edges towards w0. Let P be the set of all outgoing edges from white vertices in T \u20d7 W together with e0. By Lemma 30, E(G) \u2212P induces a Hamiltonian cycle of G avoiding e0 \u2208P. \u25a1 Statement of AI use LLMs were used to read and understand the OpenAI preprint, to revise and format this note and to generate figures from their description. Appendix A. Sign reversal We now prove \u03b91 and \u03b92 are sign-reversing Lemma 34. For all o \u2208O, \u03b91(o) = o or sign(\u03b91(o)) \u0338= sign(o) Proof. \u03b91(M1, M2, x) is fixed if H \u2212M2 contains no cycles and \u03b91(M1, M2, x) = (M1 \u25b3C, M2, x), where C is the first cycle of H \u2212M2. Note that x = (w1, e2) is unaffected as M2 is unchanged and its orientation in orient(M1, M2) is unchanged (orient(M1, M2) orients the edges of M1 and M2 independently). So di"
+        }
+      ],
+      "Appendix C": [
+        {
+          "pdf_page": 1,
+          "context": "cuts are called cyclically 4-edge-connected. We leave the details of the lower connectivity case to Appendix C. So we\u2019ll prove the following. Theorem 4. For every cyclically 4-edge-connected Barnette graph G and every edge e0 \u2208G, G \u2212e0 has a Hamiltonian cycle. We now sketch the proof. In the first step, we build the face-black vertex incidence graph of G. Definition 5. (See Figure 1.) The face-black vertex incidence graph of a planar bipartite graph G with bipartition (B, W), written GF B, is defined as \u2022 V (GF B) = B \u222aF(G) \u2022 E(GF B) = {bf : b \u2208f} Proof sketch. See Figure 2. Let (B, W) be the bipartition of G with vertices coloured black and white, and e0 = b0w0 with b0 black and w0 white. Fix a drawing of G where b0w0 is on the outer face and vertices are in general position. We find the desired Hamiltonian cycle in G in three steps. First we find a perfect matching M of GF B \u2212N[b0] such that GF B \u2212M is a spanning tree TF B of GF B. White vertices can be thought of as faces of GF B. T"
+        },
+        {
+          "pdf_page": 12,
+          "context": "le contributes the same value to the sign so the overall sign of any fixed object is \u230acmin/2\u230bmod 2. Appendix C. 3-edge cuts In this appendix, we complete the proof of the main theorem, which we now restate, by handling the case where G has a non-trivial 3-edge cut. Theorem 3. For every Barnette graph G and every edge e0 \u2208G, G \u2212e0 has a Hamiltonian cycle. Proof. Let G be a minimum counterexample to Theorem 3. If G has no non-trivial 3-edge cut, by Theorem 4, G is not a counterexample. Let \u03b4(X) be a non-trivial 3-edge cut and \u03b4(X) = \u03b4B \u222a\u03b4W where \u2022 \u03b4B is all edges of \u03b4(X) with a black end in X, and \u2022 \u03b4W is all edges of \u03b4(X) with a white end in X. 12 "
+        }
+      ]
+    }
+  },
+  "Anonymous2026": {
+    "path": "papers/barnette_trees.pdf",
+    "pages": 15,
+    "locators": {
+      "Theorem 1.2": [
+        {
+          "pdf_page": 2,
+          "context": "s black. This condition concerns the boundary incidences; the disk itself has faces of both colors. Theorem 1.2 (The incidence-tree criterion). Let T be a simple sphere triangulation with at least four vertices, with faces properly colored black and white and a chosen black outer face. For its incidence graphs H and B, the following are equivalent: (i) There is a perfect matching s of B for which H \u2212s is a spanning tree. (ii) The graph B has two edge-disjoint perfect matchings. (iii) No separating triangle has black inner boundary. Equivalently, H has a spanning tree with degrees two at the bounded black centers, three at the outer center, dH(x) \u22121 at nonroots, and dH(v) at roots. A perfect matching is a tree matching if and only if it has exactly one disjoint perfect matching in B. The criterion explains when to split the triangulation. A flow computation tests condition (ii). If the test succeeds, the whole rooted triangulation can be treated at once. If it fails, a black inner-bound"
+        },
+        {
+          "pdf_page": 4,
+          "context": "bed-degree formulation follows by taking edge complements in H. A spanning tree with the degrees in Theorem 1.2 leaves exactly one unused spoke at each vertex of B, and none at a root or at t0. Its unused spokes therefore form a perfect matching of B. Conversely, deleting a perfect matching gives exactly the prescribed degrees. Example 2.2 (The octahedral dual of the cube). Take roots r0, r1, r2 and nonroots x0, x1, x2. The bounded black faces are t1 = r0x1x0, t2 = x0x2r1, t3 = x1r2x2. With rows ordered as (t1, t2, t3) and columns as (x0, x1, x2), KB = \uf8eb \uf8ed 1 1 0 1 0 1 0 1 1 \uf8f6 \uf8f8, s = (x0, x2, x1), r = (x1, x0, x2). The displayed matchings are disjoint. The opposite-edge graph is Qs = {r0x1, r1x0, r2x2}, consisting of three single-edge rooted trees. Subdividing "
+        },
+        {
+          "pdf_page": 5,
+          "context": "arating triangle with black inner boundary. We prove this characterization, which is (ii)\u21d0\u21d2(iii) of Theorem 1.2. It sharpens the no-separating-triangle hypothesis in [11, Proposition 3.1]. To use planarity, put U = V (T) \\ S, so that U contains R. Let e(U) count edges of T[U], and let b(U) count black faces of T whose vertices lie in U, including t0. A black triangle with j vertices in U has 3 \u2212j in S. Its shortfall from a contribution of two to (4) is 2 \u2212min{2, 3 \u2212j} = max(0, j \u22121): its number of edges in T[U], less one if j = 3. Including t0 in this shortfall sum adds two, since it has no vertex in S. Thus (4) is equivalent to the density bound (5) e(U) \u2212b(U) \u22642|U| \u22124. First suppose a separating triangle has black inner boundary, and take U to be all vertices outside its strict interior. Let I count the vertices in that interior, and let Bd, Wd count the black and white faces in the bounded disk. Euler\u2019s formula and signed side counting give Bd + Wd = 2I + 1 and Bd \u2212Wd = 1, so Bd = I"
+        },
+        {
+          "pdf_page": 9,
+          "context": "t one exists, both signs occur in equal positive numbers. \u25a1 Together with Section 3, this completes Theorem 1.2. The polynomial shows that a tree pair can be reached from any pair in its exchange component. The algorithms below do not evaluate it, select a numerical z, or search for the minimum m. For the cube in Example 2.2, take a(t1, x0) = 1 and all other weights zero. The only underlying D-cycle has L+ = 1 and L\u2212= 0. The exchange graph has two pairs, (r, s) and (s, r), both tree pairs, of signs \u22121 and 1. Its polynomial is simply 1 \u2212z. It vanishes at z = 1, as sign balance requires, but is not the zero polynomial. In general, the first nonzero coefficient in powers of z \u22121 proves nonvanishing even though the value at 1 is zero. 5.1. A constructive extraction by two involutions. The cancellation can itself be realized as a finite walk. We use the involution principle [5]: two reversible rules pair the intermediate objects, leaving a path between their unpaired endpoints. Ordered mark"
+        },
+        {
+          "pdf_page": 11,
+          "context": "nput to the enumeration algorithm is a rooted triangulation satisfying the equivalent conditions of Theorem 1.2, with its bounded black faces ordered as t1, . . . , tn. It returns a tree matching and its unique mate. A partial assignment chooses distinct incident nonroots for the first j \u22121 faces; identify it with the corresponding set of deleted spokes S. Start with (S, j) = (\u2205, 1) and apply the following recursion, stopping at the first returned pair. "
+        },
+        {
+          "pdf_page": 12,
+          "context": " in O(n3M) time and polynomial space, and hence in O(n33n/2) time. Proof. A tree matching exists by Theorem 1.2. None of its prefixes is rejected: its remaining edges give a matching extension, and H \u2212S\u2032 contains the final tree. The finite search must therefore find a complete assignment. Every retained prefix extends to some perfect matching, whether or not it extends to a tree. Across all M matchings there are at most (n + 1)M different prefixes. There are at most three child tests per retained prefix. A residual perfect-matching test takes O(n2) operations by at most n augmentations in a graph with O(n) edges; connectivity takes O(n). This gives O(n3M) time. Depth-first traversal stores a path of length n together with polynomial working data. \u25a1 The implementation first tests the second matching supplied by max flow. If it is already a tree matching, enumeration is unnecessary. Otherwise its corners may be tried first in the search. This changes the order, not the correctness or the"
+        },
+        {
+          "pdf_page": 14,
+          "context": "Section 3 succeeds, the construction above applies to the entire rooted triangulation. If it fails, Theorem 1.2 supplies a black inner-boundary separating triangle. It can be found by enumerating 3-cycles, testing separation and the three boundary face colors; all these operations are polynomial. Split along it, capping both sides by a facial triangle. The color of each cap is forced. Signed side counting makes three times the face-color balance on either side a sum of three signs; divisibility by three forces all three signs to agree. The cap receives the opposite color from those three adjacent faces. First solve the piece containing the prescribed face t0, with prescription e0, and label its two induced-tree classes 0 and 1. The cap has both labels: putting all three vertices in one class would give a cycle in that induced tree. Prescribe its unique same-label edge in the other piece. Make that piece\u2019s cap the outer face, swap black and white if needed, and solve with this prescript"
+        }
+      ],
+      "Proposition 6.2": [
+        {
+          "pdf_page": 12,
+          "context": "ns for a tree completion; backtracking handles branches that pass the tests but do not lead to one. Proposition 6.2. This search returns a tree matching. It runs in O(n3M) time and polynomial space, and hence in O(n33n/2) time. Proof. A tree matching exists by Theorem 1.2. None of its prefixes is rejected: its remaining edges give a matching extension, and H \u2212S\u2032 contains the final tree. The finite search must therefore find a complete assignment. Every retained prefix extends to some perfect matching, whether or not it extends to a tree. Across all M matchings there are at most (n + 1)M different prefixes. There are at most three child tests per retained prefix. A residual perfect-matching test takes O(n2) operations by at most n augmentations in a graph with O(n) edges; connectivity takes O(n). This gives O(n3M) time. Depth-first traversal stores a path of length n together with polynomial working data. \u25a1 The implementation first tests the second matching supplied by max flow. If it i"
+        },
+        {
+          "pdf_page": 14,
+          "context": " the original n. This proves termination and bounds the total matching work by O(poly(n)3n/2) using Proposition 6.2. Proof of Theorem 1.1. Find a plane embedding of G and form its dual triangulation T. There is no primal edge cut of size one or two: each side of such a cut would have at least three vertices by simplicity and cubicity, and deleting its at most two boundary vertices on one side would contradict 3-connectivity. Thus the dual has no loop or parallel edges. Cubicity gives triangular dual faces, and the primal bipartition gives their two colors. Choose t0 incident with the dual edge e0 = e\u2217, exchange face colors so that it is black, and apply the preceding flow, enumeration, recovery and gluing procedure. The within-class edges form a spanning forest with exactly one side in each triangle. Its complementary dual is connected and 2-regular, hence a Hamiltonian cycle. Return those primal edges; they omit e because the ends of e0 belong to the same partition class. Finally, n ="
+        }
+      ]
+    }
+  },
+  "Hertel2005": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2005_Hertel_Survey-and-strengthening-Barnette.pdf",
+    "pages": 13,
+    "locators": {
+      "Corollary 3": [
+        {
+          "pdf_page": 7,
+          "context": "ette graph, there is a Hamiltonian Cycle which passes through any two arbitrary edges on that face. Corollary 3. Barnette\u2019s Conjecture holds if and only if for any arbitrary edge in a Barnette graph, there is a Hamiltonian Cycle which avoids that edge. Proof: \u21d2Suppose that Barnette\u2019s Conjecture holds. Then from Theorem 9, we know that there is a Hamiltonian Cycle which passes through any two adjacent edges of any Barnette graph. This means that the remaining edge is avoided. \u21d0Trivial. History was to repeat itself. It turns out that the strengthening results above had already been proved by the same A.K. Kelmans that proved all of the results pertaining to Tutte\u2019s Conjecture results before they had been discovered in the West. Kelmans published his strengthening result of Barnette\u2019s Conjecture in [28], the same paper which contains his results on Tutte\u2019s Conjecture. In fact, Kelmans\u2019 strengthening result is strictly stronger than those above in the sense that it subsumes both results: T"
+        }
+      ],
+      "Theorem 10": [
+        {
+          "pdf_page": 7,
+          "context": "engthening result is strictly stronger than those above in the sense that it subsumes both results: Theorem 10. Barnette\u2019s Conjecture holds if and only if for any arbitrary face in a Barnette graph, and for any arbitrary edges e1 and e2 on that face, there is a Hamiltonian Cycle which passes through e1 and avoids e2. Kelmans\u2019 result has since been translated into English [30], but remains strangely obscure and is hardly ever referenced. Perhaps one of the goals of this paper should be to draw attention to Kelmans\u2019 publi- cation, which contains many more interesting results. Not only would this give Kelmans the recognition that he deserves, but it would also make it less likely that future researchers overlook it. One important note about the strengthening results is that instead of talking about Hamiltonian Cycles which \u201cpass through\u201d or \u201cavoid\u201d certain edges, it is often useful to word the theorems more prescriptively. For example, instead of saying that \u201ca Hamiltonian Cycle passes th"
+        },
+        {
+          "pdf_page": 9,
+          "context": "n a Barnette graph G in such a way that the result G\u2217will always be a Barnette graph. We then apply Theorem 10, which allows us to delete one edge, and mark another one on any face without destroying Hamiltonicity. The resulting Hamiltonian Cycle in G\u2217corresponds to a Hamiltonian Cycle in G which passes through the middle edge in a path P of length 3, and avoids its other two edges. Since the face that we chose was arbitrary, the result holds for any path P of length 3 on any face of a Barnette graph. Theorem 12. Barnette\u2019s Conjecture holds if and only if for any arbitrary path P of length 3 that lies on a face in a Barnette graph, there is a Hamiltonian Cycle which passes through the middle edge in P, and avoids both its leading and trailing edges. Proof: \u21d2Suppose that Barnette\u2019s Conjecture is true. Let P = (A, B, C) be any arbitrary path of length 3 lying on the face of a Barnette graph G, as shown below in Figure 5.1. P lies on the face F2, which is separated from face F1 by edge B."
+        }
+      ],
+      "64": [
+        {
+          "pdf_page": 5,
+          "context": "ombination of clever analysis and computer search that all Barnette graphs with up to and including 64 vertices are Hamiltonian. In an announcement [14, 2], McKay et al. used computer search to extend this result to 84 vertices, inclusive. This implies that if Barnette\u2019s Conjecture is indeed false, then a minimal counterexample must contain at least 86 vertices, and is therefore considerably larger than the minimal counterexamples to Tait and Tutte\u2019s conjectures. This is not all we know about a possible counterexample; another interesting result is that of Fowler, who in an unpublished manuscript [15] provides a list of subgraphs that cannot appear in any minimal counterexample to Barnette\u2019s Conjecture. Also supporting Barnette\u2019s Conjecture, Goodey in [18] considered proper subsets of the Barnette graphs and proved the following: Theorem 2. Every Barnette graph which has faces consisting exclusively of quadrilaterals and hexagons is Hamiltonian, and furthermore in all such graphs, any "
+        },
+        {
+          "pdf_page": 13,
+          "context": "ruktsii Kubicheskih Dvudolnyh 3-Svyaznyh Bez Gamiltonovyh Tsiklov. Sb. Tr. VNII Sistem. Issled., 10:64\u201372, 1986. [29] A.K. Kelmans. Kubicheskie Dvudolnye Tsiklicheski 4-Svyaznye Grafy Bez Gamiltonovyh Tsiklov. Usp. Mat. Nauk, Vol. 43 No. 3:181\u2013182, 1988. [30] A.K. Kelmans. Constructions of Cubic Bipartite 3-Connected Graphs Without Hamiltonian Cycles. Amer. Math. Soc. Transl., Vol. 158 No. 2:127\u2013140, 1994. [31] D. K\u00a8onig. \u00a8Uber Graphen und ihre Anwendung auf Determinantentheorie und Mengenlehre. Math- ematische Annalen, 77:453\u2013465, 1916. [32] J. Malkevitch. Polytopal graphs. In L.W. Beineke and R.J. Wilson, editors, Selected Topics in Graph Theory 3, pages 169\u2013188. Academic Press, New York, 1988. [33] P.G. Tait. Listing\u2019s Topologie. Phil. Mag., 17:30\u201346, 1884. [34] C. Thomassen. A Theorem on Paths in Planar Graphs. Journal of Graph Theory, 7:169\u2013176, 1983. [35] W.T. Tutte. On Hamiltonian Circuits. J. London Math. Soc., 21:98\u2013101, 1946. [36] W.T. Tutte. A Theorem on Planar Graphs. Trans"
+        }
+      ]
+    }
+  },
+  "Gorsky2023": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2022_Gorsky-Steiner-Wiederrecht_Matching-theory-Barnette_arXiv2202.11641v3.pdf",
+    "pages": 26,
+    "locators": {
+      "Theorem 4.3": [
+        {
+          "pdf_page": 7,
+          "context": ", and bipar- tite. The following strengthenings of Conjecture 1.1 will prove central to our e\ufb00orts. Theorem 4.3 (Hertel [Her05] (corollary of a result by Kelmans [Kel86])). Conjecture 1.1 holds if and only if all graphs in B have the H\u2212-property. Theorem 4.4 (Hertel [Her05]). Conjecture 1.1 holds if and only if all graphs in B are P4- Hamiltonian. It should be noted that for the cubic, bipartite graphs the H\u2212-property is equivalent to P3- Hamiltonicity. We are now ready to prove the \ufb01rst major lemma of this section. Lemma 4.5. Let G be a cubic, 3-connected, bipartite graph, with a non-trivial tight cut \u2202(X), and let G1 = G/(X\u2192c) and G2 = G/(X\u2192c) be the two tight cut contractions belonging to \u2202(X). The following hold i) If G1 and G2 are P4-Hamiltonian, then G is P4-Hamiltonian. ii) G has the H\u2212-property if and only if G1 and G2 have the H\u2212-property. iii) G is P3-Hamiltonian if and only if G1 and G2 are P3-Hamiltonian. iv) G has the H+\u2212-property if and only if G1 and G2 have the H+\u2212-prop"
+        }
+      ],
+      "Theorem 4.16": [
+        {
+          "pdf_page": 12,
+          "context": "ich was claimed in the introduction as Lemma 1.2. This leads us into the proof of our main theorem. Theorem 4.16. The following statements are equivalent: i) All graphs in B are Hamiltonian. ii) All braces in B are Hamiltonian. iii) All braces in B are P4-Hamiltonian. iv) All cubic, Pfa\ufb03an braces are P4-Hamiltonian. v) All cubic, 3-connected, Pfa\ufb03an, bipartite graphs are P4-Hamiltonian. vi) All cubic, 3-connected, Pfa\ufb03an, bipartite graphs are Hamiltonian. 12 "
+        },
+        {
+          "pdf_page": 22,
+          "context": "cture are Pfa\ufb03an. If any of them are, then this would disprove Conjecture 1.1 via the sixth item of Theorem 4.16. Whilst investigating non-planar braces, the following question comes naturally in the vein of the main subject of [BGM21] and GK already gives an upper bound of 50. Question 6.2. What is the least number of vertices of a non-planar, non-Hamiltonian brace? One of the key lemmas for proving Theorem 4.16 was Lemma 4.5. Missing from the items there are both P2-Hamiltonicity and Hamiltonicity itself. If we have a P2-Hamiltonian, cubic, 3-connected, bipartite graph, then it is easy to show, using the methods we presented, that all of its tight cut contractions will also be P2-Hamiltonian and for Hamiltonicity this fact is stated in Theorem 1.8. One might wonder if the other direction holds for either property. This however can be disproven by considering the \ufb01rst graph presented by Horton [BM76] as a counterexample to Tutte\u2019s conjecture. First we note that this graph can be const"
+        }
+      ]
+    }
+  },
+  "Alt2016": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2013_Alt-Payne-Schmidt-Wood_Thoughts-on-Barnette_arXiv1312.3783.pdf",
+    "pages": 12,
+    "locators": {
+      "Lemma 5": [
+        {
+          "pdf_page": 3,
+          "context": "n is Hamiltonian [9, 10, 20, 21]. We include a proof for completeness. See Figure 1 for an example. Lemma 5. The following are equivalent for a planar triangulation G: 1. G\u2217is Hamiltonian, 2. G contains a permeating subtree, 3. G contains two disjoint permeating subtrees that partition V (G). Proof. (2) =\u21d2(3): Let T be a permeating subtree, and let T \u2032 be the subgraph of G induced by the vertices not in T. T \u2032 is permeating, otherwise T contains a whole facial cycle. If T \u2032 contains a cycle C, then T lies either inside or outside C (since T is connected). The other side of C contains a face of G that T does not hit. Hence T \u2032 is acyclic, and T \u222aT \u2032 is a forest. It remains to show that T \u2032 is connected. Suppose G has n vertices, m edges and f faces. For each triangle of G, T \u222aT \u2032 contains one of its three edges, so the number of edges is f/2. Since G is a triangulation, m = 3f/2. Combining this with Euler\u2019s formula yields f/2 = n \u22122. An n-vertex forest with n \u22122 edges has two components"
+        },
+        {
+          "pdf_page": 5,
+          "context": " no two vertices in S are adjacent. Therefore G[B \u222aS] is a permeating subtree. Theorem 1 follows by Lemma 5. 4 Proof of Theorem 4 The proof of this theorem makes use of the special graph H shown 3-coloured in Figure 2 which can be considered as the \u201cbarycentric subdivision\u201d of the tetrahe- dron. It has the following property: Lemma 6. Every permeating subtree of H has at least one vertex of degree 4. 5 "
+        }
+      ],
+      "5.": [
+        {
+          "pdf_page": 3,
+          "context": "amiltonian [9, 10, 20, 21]. We include a proof for completeness. See Figure 1 for an example. Lemma 5. The following are equivalent for a planar triangulation G: 1. G\u2217is Hamiltonian, 2. G contains a permeating subtree, 3. G contains two disjoint permeating subtrees that partition V (G). Proof. (2) =\u21d2(3): Let T be a permeating subtree, and let T \u2032 be the subgraph of G induced by the vertices not in T. T \u2032 is permeating, otherwise T contains a whole facial cycle. If T \u2032 contains a cycle C, then T lies either inside or outside C (since T is connected). The other side of C contains a face of G that T does not hit. Hence T \u2032 is acyclic, and T \u222aT \u2032 is a forest. It remains to show that T \u2032 is connected. Suppose G has n vertices, m edges and f faces. For each triangle of G, T \u222aT \u2032 contains one of its three edges, so the number of edges is f/2. Since G is a triangulation, m = 3f/2. Combining this with Euler\u2019s formula yields f/2 = n \u22122. An n-vertex forest with n \u22122 edges has two components, so T"
+        },
+        {
+          "pdf_page": 5,
+          "context": "o vertices in S are adjacent. Therefore G[B \u222aS] is a permeating subtree. Theorem 1 follows by Lemma 5. 4 Proof of Theorem 4 The proof of this theorem makes use of the special graph H shown 3-coloured in Figure 2 which can be considered as the \u201cbarycentric subdivision\u201d of the tetrahe- dron. It has the following property: Lemma 6. Every permeating subtree of H has at least one vertex of degree 4. 5 "
+        },
+        {
+          "pdf_page": 11,
+          "context": "nected cubic planar graphs. SIAM J. Discrete Math., 13(1):25\u201332, 2000. doi: 10.1137/S0895480198348665. [3] David W. Barnette. Conjecture 5. In William T. Tutte, ed., Recent Progress in Combinatorics. Proceedings of the 3rd Waterloo Conference on Combinatorics, vol. 3, p. 343. 1969. [4] Mieczys law Borowiecki, Izak Broere, and Peter Mih\u00b4ok. Minimal reducible bounds for planar graphs. Discrete Math., 212(1-2):19\u201327, 2000. doi: 10.1016/S0012-365X(99)00205-8. [5] Gek Ling Chia and Siew-Hui Ong. On Barnette\u2019s conjecture and CBP graphs with given number of Hamilton cycles. In Proceedings of the Third Asian Mathematical Conference (2000), pp. 94\u2013111. World Sci. Publ., 2002. doi: 10.1142/9789812777461 0012. [6] Gek Ling Chia and Siew-Hui Ong. Hamilton cycles in cubic graphs. AKCE Int. J. Graphs Comb., 4(3):251\u2013259, 2007. [7] Luis de la Torre. Investigations of Barnette\u2019s conjecture, 2008. http:// www.math.ucdavis.edu/undergrad/research/thesis/. Bachelor\u2019s Thesis, Department of Mathematics, Uni"
+        },
+        {
+          "pdf_page": 12,
+          "context": "an cycles in cubic 3-connected bipartite planar graphs. J. Combin. Theory Ser. B, 38(3):279\u2013297, 1985. doi: 10.1016/0095-8956(85)90072-3. [15] Alexander K. Kelmans. Constructions of cubic bipartite 3-connected graphs without Hamiltonian cycles, vol. 158 of American Mathematical So- ciety Translations, Series 2, pp. 127\u2013140. American Mathematical Society, 1994. [16] Alexander K. Kelmans. On Hamiltonian cycles in bipartite cubic 3- connected planar graph. Tech. Rep. RR26-203, Rutgers University and University of Puerto Rico, 2003. http://rutcor.rutgers.edu/pub/rrr/ reports2003/26_2003.ps. [17] Andr\u00b4e Krooss. Die Barnette\u2019sche Vermutung und die Grinberg\u2019sche Formel. An. Univ. Craiova Ser. Mat. Inform., 31:59\u201365, 2004. [18] Xiaoyun Lu. A note on Barnette\u2019s conjecture. Discrete Math., 311(23- 24):2711\u20132715, 2011. doi: 10.1016/j.disc.2011.08.011. [19] Michael D. Plummer and William R. Pulleyblank. On proximity to paths and cycles in 3-connected graphs. Ars Combin., 14:169\u2013185, 1982. [20] Zdz"
+        }
+      ]
+    }
+  },
+  "Stein1971": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/1971_Stein_B-sets-and-planar-maps_PJM.pdf",
+    "pages": 11,
+    "locators": {
+      "THEOREM 2.2": [
+        {
+          "pdf_page": 3,
+          "context": "unter-example presented there has three regions labelled a surrounding a vertex on the lower base.) THEOREM 2.2. Let M be a ^-regular map covering the sphere. Then the one-skeleton of M has a Hamiltonian circuit if and only if the family of all region-cycles of regions in M of length at least three has a B-set. Proof. Assume that the family of region-cycles of length at least three has a \u00a3-set S. Then the complementary set of regions, T, is also a jB-set of the same family. Let |S| and | T\\ be the unions of these sets. Both |S| and \\T\\ are closed subsets of S2. Since |S| contains no region-cycles of length at least three, the first homology group of |S| is trivial. By the Alexander duality theorem, therefore, | T\\ is connected. By symmetry, \\S\\ is connected. Thus both |S| and \\T\\ are connected and simply-connected. Con- sequently, each is homeomorphic to a disk. Their common boundary, h, is a circuit. Since both S and T are 5-sets of the family of basic cycles, h passes through each ve"
+        }
+      ]
+    }
+  },
+  "Brinkmann2022": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2021_Brinkmann-Goedgebeur-McKay_Minimality-Georges-Kelmans_arXiv2101.00943.pdf",
+    "pages": 19,
+    "locators": {
+      "Theorem 4.1": [
+        {
+          "pdf_page": 14,
+          "context": "ery 3-connected planar bipartite cubic graph is hamiltonian. Here our main result is the following. Theorem 4.1. Let G be a 3-connected planar bipartite cubic graph with n vertices. Then 14 "
+        }
+      ],
+      "90": [
+        {
+          "pdf_page": 1,
+          "context": "unnar Brinkmann Department of Applied Mathematics, Computer Science & Statistics, Ghent University, 9000 Ghent, Belgium Gunnar.Brinkmann@ugent.be Jan Goedgebeur\u2217 Department of Applied Mathematics, Computer Science & Statistics, Ghent University, 9000 Ghent, Belgium and Computer Science Department, University of Mons, 7000 Mons, Belgium and Department of Computer Science, KU Leuven Campus Kulak, 8500 Kortrijk, Belgium Jan.Goedgebeur@kuleuven.be Brendan D. McKay\u2020 Department of Computing, Australian National University, Canberra ACT 2601, Australia Brendan.McKay@anu.edu.au October 26, 2021 keywords: hamiltonian cycle, bipartite, cubic, connectivity, Tutte\u2019s conjecture, Barnette\u2019s conjecture, genus MSC: 05C45, 05C85, 05C10 Abstract In 1971, Tutte wrote in an article that it is tempting to conjecture that every 3-connected bipartite cubic graph is hamiltonian. Motivated by this remark, Horton constructed a counterexample on 96 vertices. In a sequence of articles by di\ufb00erent authors several "
+        },
+        {
+          "pdf_page": 2,
+          "context": "r bipartite cubic graphs are hamiltonian. We show that Barnette\u2019s conjecture is true up to at least 90 vertices. We also report that a search of small non- hamiltonian 3-connected bipartite cubic graphs did not \ufb01nd any with genus less than 4. 1 Introduction In this article all graphs will be simple and undirected unless explicitly stated otherwise. For any standard graph theoretical concepts not explicitly de\ufb01ned here, please refer to [9]. Tait conjectured in 1880 that every 3-connected planar cubic graph is hamiltonian. This conjecture was disproved in 1946 by Tutte [23], who constructed a counterexample on 46 vertices. If Tait\u2019s conjecture had been true, it would have implied the Four Colour Theorem. In the years that followed, several researchers constructed smaller counterex- amples. In 1988, Holton and McKay [15] completely settled the problem by showing that the smallest non-hamiltonian 3-connected planar cubic graphs have 38 vertices and that there are exactly 6 such graphs of t"
+        },
+        {
+          "pdf_page": 3,
+          "context": " by Aldred, Brinkmann and McKay [1]. We will show that Barnette\u2019s conjecture is true up to at least 90 vertices. We also did a non-exhaustive search for non-hamiltonian 3-connected bipartite cubic graphs that are close to planar in the sense of having low genus. However we did not \ufb01nd any with genus less than 4. The article is organised as follows. In Section 2 we give the theoretical and compu- tational results necessary to prove Theorem 1.1. We veri\ufb01ed the correctness of each of 3 "
+        },
+        {
+          "pdf_page": 4,
+          "context": "cyclically 5-connected bipartite cubic graphs. In Sec- tion 4 we verify Barnette\u2019s conjecture up to 90 vertices and give the results about the generation of the non-hamiltonian 3-connected bipartite cubic graphs constructed in this project. As this project required the discovery of more than 1014 hamiltonian cycles in cubic graphs of up to 50 vertices, we needed a very e\ufb03cient practical algorithm for this. We describe this algorithm in Section 5. 2 Properties of a minimal non-hamiltonian bipartite cubic 3-connected graph Lemma 2.1. In a bipartite graph with vertices of degree 2 and 3, the number of vertices of degree 2 of each colour (that is: of each bipartition class) are equal modulo 3. Proof. De\ufb01ne nd,c to be the number of vertices of degree d and colour c, for d = 2, 3 and c = 0, 1. Counting the edges in two di\ufb00erent ways, we have 3n3,0 + 2n2,0 = 3n3,1 + 2n2,1, from which it follows that n2,0 and n2,1 are equal modulo 3. 4 "
+        },
+        {
+          "pdf_page": 9,
+          "context": "n 5-pieces |Class 1 \\ Class 2| 11 1 0 13 2 0 15 12 2 17 90 7 19 754 14 21 7 003 25 23 70 639 68 25 766 134 251 27 8 862 333 1 086 29 108 917 294 6 098 31 1 417 268 482 44 842 33 19 471 253 036 393 423 35 281 715 327 672 3 887 896 Table 3: Computation for Lemma 2.4. con\ufb01rmed by the program described in [13].) The computations showed that there are no 5-pieces of order at most 35 in Class 0. The number in Class 1 \\ Class 2 are listed in Table 3. The total computation time was about 5 CPU years. We also independently determined all 5-pieces up to 29 vertices by using minibaum to generate all bipartite cubic graphs and using a separate program to remove one vertex and two of its neighbours in all possible ways of each input graph and retaining the connected graphs of girth at least 6 among the graphs resulting from this operation. We then determined the class of each 5-piece using another independent implementation and the results were in complet"
+        },
+        {
+          "pdf_page": 15,
+          "context": "(a) n \u226490 implies that G is hamiltonian; (b) n \u226478 implies that every edge of G lies on a hamiltonian cycle; (c) n \u226466 implies that for any two edges e1, e2 of G, there is a hamiltonian cycle through e1 but avoiding e2. Proof. Using the generator plantri [8] and the program cubhamg, we established part (c) by direct computation. This required approximately 37 CPU years. We also found that the same property holds for those 3-connected planar bipartite cubic graphs on 68 or 70 vertices that do not have a 4-face adjacent to two other 4-faces. This required another 5 CPU years. Parts (a) and (b) now follow as in [14, Theorem 5]. Even assuming that Barnette\u2019s conjecture is true, it is natural to ask how close to planarity non-hamiltonian 3-connected bipartite cubic graphs can be; in particular, what is the minimum genus of a non-hamiltonian 3-connected bipartite cubic graph? Using the program multi "
+        },
+        {
+          "pdf_page": 18,
+          "context": "nected graphs without hamil- tonian cycles. Selected Topics in Discrete Mathematics (Moscow, 1972-1990), pages 127\u2013140, 1994. [19] K. Knauer and P. Valicov. Cuts in matchings of 3-connected cubic graphs. European Journal of Combinatorics, 76:27\u201336, 2019. [20] W. McCuaig. Edge reductions in cyclically k-connected cubic graphs. Journal of Combinatorial Theory, Series B, 56:16\u201344, 1992. [21] B.D. McKay and A. Piperno. Practical graph isomorphism, II. J. Symbolic Comput., 60:94\u2013112, 2014. The latest version of the software is available at http://users. cecs.anu.edu.au/~bdm/nauty/. [22] M. Meringer. Fast generation of regular graphs and construction of cages. Journal of Graph Theory, 30:137\u2013146, 1999. 18 "
+        }
+      ],
+      "50": [
+        {
+          "pdf_page": 1,
+          "context": "University of Mons, 7000 Mons, Belgium and Department of Computer Science, KU Leuven Campus Kulak, 8500 Kortrijk, Belgium Jan.Goedgebeur@kuleuven.be Brendan D. McKay\u2020 Department of Computing, Australian National University, Canberra ACT 2601, Australia Brendan.McKay@anu.edu.au October 26, 2021 keywords: hamiltonian cycle, bipartite, cubic, connectivity, Tutte\u2019s conjecture, Barnette\u2019s conjecture, genus MSC: 05C45, 05C85, 05C10 Abstract In 1971, Tutte wrote in an article that it is tempting to conjecture that every 3-connected bipartite cubic graph is hamiltonian. Motivated by this remark, Horton constructed a counterexample on 96 vertices. In a sequence of articles by di\ufb00erent authors several smaller counterexamples were presented. The smallest of these graphs is a graph on 50 vertices which was discovered independently by Georges and Kelmans. In this article we show that there is no smaller counterexample. \u2217Supported by a Postdoctoral Fellowship of the Research Foundation Flanders (FWO"
+        },
+        {
+          "pdf_page": 2,
+          "context": " family of non-hamiltonian cyclically 4-connected bipartite cubic graphs, the smallest of which has 50 vertices. Their 1986 submission dates were only 15 days apart. This graph is shown in Figure 1(b) and is the smallest known. In [17] it is written that Lomonosov and Kelmans proved without computer assistance that Tutte\u2019s conjecture holds up to 30 vertices, but no reference is given. Recently, 2 "
+        },
+        {
+          "pdf_page": 3,
+          "context": "smaller non-hamiltonian 3-connected bipartite cubic graph than the Georges\u2013Kelmans graph (which has 50 vertices). Moreover if there is another example with 50 vertices, it has girth and cyclic connectivity exactly 6. * * (a) (b) Figure 1: The Ellingham\u2013Horton graph on 54 vertices (a) and the Georges\u2013Kelmans graph on 50 vertices (b). (The asterisks are used in Section 3.) Since we plan on liberal use of the computer, the reader may wonder why we do not just test all the 3-connected bipartite cubic graphs up to 48 vertices. The reason is that there are far too many of them. Based on exact counts for smaller sizes (Table 1 below; see [6] for some of the graphs) we estimate that there are about 5 \u00d7 1017 cubic bipartite graphs with 48 vertices, most of them 3-connected. With our programs able to generate and test about 50,000 bipartite cubic graphs per second, this approach would take about 320,000 CPU years. We will instead take an incremental approach that combines theory and computation,"
+        },
+        {
+          "pdf_page": 4,
+          "context": "27 1 201 28 2 291 589 11 415 30 23 466 857 125 571 1 32 259 974 248 1 514 489 0 34 3 087 698 618 19 503 476 1 36 39 075 020 582 265 448 847 3 38 524 492 748 500 3 799 509 760 10 40 7 439 833 931 266 57 039 155 060 101 42 ? 896 293 917 129 2 510 44 ? ? 79 605 46 ? ? 2 607 595 48 ? ? 81 716 416 50 ? ? 2 472 710 752 Table 1: Counts of connected bipartite cubic graphs with girth at least 4, 6 or 8. our computational results by making an independent implementation of every program which was speci\ufb01cally developed for this project (often using an alternative algorithm) and using it to replicate each computational result as far as CPU time limits allowed. These correctness tests are described in Section 2 as well. In Section 3 we present an in\ufb01nite family of non-hamiltonian cyclically 5-connected bipartite cubic graphs. In Sec- tion 4 we verify Barnette\u2019s conjecture up to 90 vertices and give the results about the generation of the non-hamiltonian 3-connected bipartite cubic graphs constructed"
+        },
+        {
+          "pdf_page": 6,
+          "context": "count type 2 count G1 total |V (G2)| G2 count 18 1 1 0 18\u201336 6 461 410 120 20 1 1 2 18\u201334 3 373 711 502 22 5 3 8 18\u201332 286 012 884 24 15 14 27 18\u201330 26 038 636 26 71 56 121 18\u201328 2 571 779 Table 2: The numbers of graphs that can act as G1, G2 in the proof of Lemma 2.3 with the candidates for G1 also listed according to their type. At this stage we could consider \ufb01nishing the proof of Theorem 1.1 by computation alone. However, we estimate the number of bipartite cubic graphs with girth 6 up to 48 vertices to be around 4.5\u00d71015. With a lower generation rate of about 40,000 graphs per 6 "
+        },
+        {
+          "pdf_page": 7,
+          "context": "second, this still amounts to 3,500 CPU years. By Lemma 2.3, we could also restrict our search to cyclic connectivity at least 5, but the counts are not much less and we don\u2019t know of a fast generator. Lemma 2.4. A minimal non-hamiltonian 3-connected bipartite cubic graph cannot have cyclic connectivity 5. Proof. De\ufb01ne a 5-piece to be a connected bipartite graph of girth at least 6, cubic apart from 5 vertices of degree 2. By Lemma 2.1, a 5-piece has a vertex of degree 2 whose colour is di\ufb00erent from the other vertices of degree 2; call that the special vertex of the 5-piece. Also, the number of vertices in the 5-piece with the same colour as the special vertex is one less than the number with the other colour. G G1 G2 Figure 4: Splitting a graph into two at a 5-edge cut. Figure 5: Three of the 12 test graphs of a 5-piece. Let G be a bipartite cubic graph with cyclic connectivity 5 and at most 50 vertices \u2013 so G is a c"
+        },
+        {
+          "pdf_page": 9,
+          "context": "reported in Table 3. We joined all combinations of two of these 5-pieces in Class 1 \\ Class 2 up to 50 vertices and found only the Georges\u2013Kelmans graph among those that were 3-connected. (Also here we replicated this result using an independent implementation of the joining program.) The Georges\u2013Kelmans graph has cyclic connectivity 4. Together with Claims 1 and 2, this completes the proof. Lemma 2.5. All bipartite cubic graphs with girth at least 8 up to 50 vertices are hamil- tonian. Proof. This result was purely computational. There are only about 2.5\u00d7109 such graphs (see Table 1) but the much reduced generation time for girth 8 meant that it took about 22 CPU years. After completing this long computation, we found that a modi\ufb01cation of Meringer\u2019s program genreg [22] made by the \ufb01rst author could generate the graphs in only 8 CPU months. This prompted us to perform a stronger test: all bipartite cubic graphs with girth at least 8 up to 50 vertices have the property that for each pa"
+        },
+        {
+          "pdf_page": 11,
+          "context": "roof of the \ufb01rst part of Theorem 1.1. For the second part, recall that Lemmas 2.2\u20132.5 apply also to 50 vertices. Remark 2.6. For each even girth g \u22654, there are in\ufb01nitely many non-hamiltonian 3-connected bipartite cubic graphs of girth g. Proof. There exist 3-connected bipartite cubic graphs of arbitrary large even girth g (see e.g. the survey [25]). A non-hamiltonian 3-connected bipartite cubic graph of arbitrary even girth g can be obtained by replacing every vertex v of a non-hamiltonian 3-connected bipartite cubic graph G by a copy G\u2032 v of a 3-connected bipartite cubic graph G\u2032 of girth g with one vertex removed. If {v1, v2} is an edge in G, then a vertex of degree 2 in G\u2032 v1 is connected to a vertex of degree 2 in G\u2032 v2 in a way that a 3-regular graph is constructed. 11 "
+        },
+        {
+          "pdf_page": 15,
+          "context": "small non-hamiltonian 3-connected bipartite cubic graphs by a mixture of unsystematic searches. For 50\u201364 vertices, the number of graphs in our collection is 1, 4, 30, 187, 1334, 3377, 29529, 204069, respectively. (The non-hamiltonicity of these graphs was con\ufb01rmed with a separate program.) The smallest genus that occurs in the collection is 4, and the smallest graph found with genus 4 has 52 vertices (see Figure 9). Figure 9: A non-hamiltonian 3-connected bipartite cubic graph of genus 4 on 52 vertices. Join two vertices of degree 2 if they have the same colour and shape. The two edges for each colour can be drawn on one handle. Note that the condition of being 3-connected is essential for Barnette\u2019s conjecture. Requiring only connectivity but not 3-connectivity, there is a non-hamiltonian planar bipartite cubic graph already on 26 vertices. For genus 1 and 2, the smallest bipartite cubic non-hamiltonian graphs have 24 and 20 vertices, respectively. 15 "
+        },
+        {
+          "pdf_page": 16,
+          "context": " this project required the discovery of more than 1014 hamiltonian cycles, in cubic graphs of up to 50 vertices. A naive search that grows a path one edge at a time has no chance of achieving this feat in an acceptable amount of time. A much faster approach, available as the program cubhamg (which is part of the nauty package [21]), has been used in several investigations since [15] but never published. We now give a brief description here. At each point of time, every edge has a label NO (not in the hamiltonian cycle), YES (in the hamiltonian cycle), or UNDEC (undecided). Every edge is initialized to UNDEC, except for edges we wish to force into or out of the hamiltonian cycle. Given an edge labelling, a propagation process can be performed by applying the following rules until no further rules can be applied or a failure condition occurs. (a) If a vertex has two incident NOs or three incident YESes, a failure condition occurs. (b) If a vertex has one incident NO, then the other two i"
+        },
+        {
+          "pdf_page": 17,
+          "context": " graph 6923 24 ditto, of genus 1 34282 26 ditto, planar 34286 38 Barnette\u2013Bosak\u2013Lederberg graph 954 50 Georges\u2013Kelmans graph 1096 52 3-connected bipartite cubic graph of genus 4 33805 54 Ellingham\u2013Horton graph 1059 78 Ellingham\u2013Horton graph 1061 92 Horton graph 1179 96 Horton graph 1181 Table 4: House of Graphs id numbers for graphs mentioned in this paper. An archive of the software used for this project is available at [7]. Acknowledgements Most of the extensive computational results were obtained from the Stevin Supercomputer Infrastructure provided by Ghent University, the Hercules Foundation and the Flemish Government, department EWI. References [1] R.E.L. Aldred, G. Brinkmann, and B.D. McKay. Announcement about Bar- nette\u2019s conjecture, 2000. See: https://www.fmf.uni-lj.si/~mohar/Problems/ P4BarnetteConjecture.html. [2] D. Barnette. Conjecture 5. Recent Progress in Combinatorics. In Proceedings of the Third Waterloo Conference on Combinatorics. Academic Press New York, 1969. [3] J"
+        },
+        {
+          "pdf_page": 18,
+          "context": "n-hamiltonian 3-connected cubic bipartite graphs. Journal of Combinatorial Theory, Series B, 34(3):350\u2013353, 1983. [12] J.P. Georges. Non-hamiltonian bicubic graphs. Journal of Combinatorial Theory, Series B, 46(1):121\u2013124, 1989. [13] R. Grund. Konstruktion schlichter Graphen mit gegebener Gradpartition. Bayreuther Mathematische Schriften, 44:73\u2013104, 1993. [14] D.A. Holton, B. Manvel, and B.D. McKay. Hamiltonian cycles in cubic 3-connected bipartite planar graphs. Journal of Combinatorial Theory, Series B, 38(3):279\u2013297, 1985. [15] D.A. Holton and B.D. McKay. The smallest non-hamiltonian 3-connected cubic pla- nar graphs have 38 vertices. Journal of Combinatorial Theory, Series B, 45(3):305\u2013 319, 1988. [16] J.D. Horton. On two-factors of bipartite regular graphs. Discrete Mathematics, 41(1):35\u201341, 1982. [17] A.K. Kelmans. Cubic bipartite cyclic 4-connected graphs without hamiltonian cir- cuits. Russian Mathematical Surveys, 43(3):205, 1988. [18] A.K. Kelmans. Constructions of cubic bipa"
+        }
+      ]
+    }
+  },
+  "Schnieders2025": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2025_Schnieders_Barnette-faces-up-to-8_arXiv2508.03531.pdf",
+    "pages": 16,
+    "locators": {
+      "Corollary 1.13": [
+        {
+          "pdf_page": 2,
+          "context": "ize up to 6 is Hamiltonian. The main Theorem 1.12 of this paper is a generalisation of Theorem 1.5. Corollary 1.13 follows using the uniqueness of the dual graph of a 3-connected graph (see Theorem 4.3.2 in [4]). Theorem 1.12 (See Theorem 5.2). Let G be a finite, simple graph that is cubic, bipartite, planar and connected. Fix an embedding of the graph in R2 and suppose that every face of the embedding is of size at most 8. Then G is Hamiltonian. Corollary 1.13. Every Barnette graph with faces of size up to 8 is Hamiltonian. Parts of the proof of Theorem 5.2 are computer-aided, including distinction of 339.068.624 cases. The upper bound of 8 in Theorem 1.12 is sharp. That is, there exist cubic, bipartite, planar and connected graphs, which are not Hamiltonian and in which every face of every embedding in R2 is of size up to 10. An example of such a graph is given in Figure 1. Nonetheless, we discuss in Section 6 how the method of our proof could perhaps be used to prove even stronger s"
+        }
+      ]
+    }
+  },
+  "Feder2006": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2006_Feder-Subi_On-Barnettes-conjecture_ECCC-TR06-015.pdf",
+    "pages": 13,
+    "locators": {}
+  },
+  "Hine2018": {
+    "path": "research/2026-11-14_opus_history-literature/pdf/2018_Hine-Kalman_Clock-theorems-triangulated-surfaces_arXiv1808.06091.pdf",
+    "pages": 21,
+    "locators": {}
+  }
+}

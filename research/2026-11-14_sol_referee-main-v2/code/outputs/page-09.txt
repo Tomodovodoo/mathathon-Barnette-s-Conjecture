@@ -1,0 +1,60 @@
+BARNETTE’S CONJECTURE
+9
+Only the third count uses the state, and it uses both halves of bijectivity: injectivity so that no vertex
+is counted twice, surjectivity so that every interior vertex is counted. Without it the conclusion fails for
+cycles of T in general.
+The selection has no cycle. A cycle in Ps \ {e0} would be a cycle of chosen sides, so the disk identity
+fixes the number of white faces it encloses. The selection itself gives a different number.
+Proposition 3.9. If s is a good state, then Ps is an acyclic selection containing e0. Consequently, if T
+has a good state for t0 and e0, then G has a Hamiltonian cycle avoiding the edge that crosses e0.
+Proof. By Lemma 3.6, Ps is a selection containing e0. Let P0 = Ps \ {e0} and direct the side of each
+t ∈A in P0 out of s(t), which is one of its ends. These are chosen sides for the state s.
+Suppose P0 contains a cycle Z. By Lemma 3.7 it is a directed cycle of chosen sides, so the disk identity,
+Lemma 3.8, gives W −B = 1 and h −2ℓ= 3. Now count the faces inside Z through Ps, which matches
+every face with the face across its selected side. The selected side of a face inside Z lies in the closed
+disk; it is not e0, whose ends are roots. If it is strictly inside Z, it matches the face with another face
+inside Z of the other colour. Every edge of Z lies in Ps, so it is the selected side of both its faces, one
+inside and one outside. Thus exactly ℓblack faces and h −ℓwhite faces inside Z are matched across Z,
+and the others are matched in pairs inside. Hence B −ℓ= W −(h −ℓ), that is W −B = h −2ℓ= 3,
+contradicting W −B = 1.
+So P0 is a forest, and by Lemma 3.7 each component contains exactly one root. The edge e0 =
+ab joins the components of a and b, so Ps = P0 ∪{e0} is acyclic.
+The last sentence follows from
+Proposition 2.6(1).
+□
+In words: a cycle of chosen sides encloses one more white face than black, but a selection running
+along it would force three more.
+Example 3.10. The state β of Example 3.3 is good. Its selection Pβ has eleven edges forming two trees,
+on {0, 2, 4, 6, 7, 8} and {1, 3, 5, 9, 10, 11, 12}, and Figure 5 shows it with the Hamiltonian cycle of G that
+crosses the other 22 edges. The example has six good states, and they give six different Hamiltonian
+cycles avoiding the edge of G that crosses e0. These are all such cycles of this G. On the cube (Figure 1),
+with t0 = {0, 1, 2} and e0 = {0, 1}, the cube has exactly two states, those of Figure 1(f), and both are
+good. For the solid one, s, the tree Ys makes the black faces 135, 234, 045 select 35, 23, 04, and with e0
+these form the trees on {0, 1, 4} and {2, 3, 5}.
+So Theorem 1.1 follows once we find a good state, and once we can deal with triangulations that have
+none. Section 4 finds a good state from a pair of states, Section 5 finds a pair when T has no separating
+triangle, and Section 6 removes separating triangles.
+4. Pairs of states
+We do not know how to point to a good state. This section shows that one exists, by a count in four
+steps. A second corner choice turns goodness into the absence of cycles (Lemma 4.2). Every pair of
+choices gets a sign, and the pairs that fail cancel in twos (Lemma 4.5). A weight, built from the white
+faces that certain cycles enclose, lets the same sum be computed in a second way (Lemma 4.6). The
+second computation shows that the sum is not zero (Proposition 4.8), so some pair does not fail.
+Why two states. Goodness asks two things of Qs, no cycle and one root per component. The second
+condition concerns whole components. Another state r that differs from s in every face reduces the second
+condition to the first. It gives every vertex of X exactly one outgoing edge of Qs, and then a component
+without a cycle contains exactly one root.
+Definition 4.1. A pair is an ordered pair (r, s) of states with r(t) ̸= s(t) for every t ∈A; we call r a
+partner of s, and s the second state. For a pair we write u(t) for the third corner of t.
+r(t)
+s(t)
+u(t)
+t
+D(r, s)
+Qs
+Figure 7. A pair in a black triangle. Out-
+lined wedges mark the first state r(t); solid
+wedges mark the second, s(t). The solid
+arrow belongs to D(r, s), defined below.
+The dashed arrow orients Qs from r(t) to
+the third corner u(t), as in Lemma 4.2.

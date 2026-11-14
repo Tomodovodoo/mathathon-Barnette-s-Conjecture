@@ -1,0 +1,75 @@
+diff --git a/paper/main/barnette.tex b/paper/main/barnette.tex
+index 7d7a90b..2d4acb0 100644
+--- a/paper/main/barnette.tex
++++ b/paper/main/barnette.tex
+@@ -37,7 +37,7 @@
+ \begin{abstract}
+ We give a self-contained exposition of OpenAI's 2026 proof of Barnette's conjecture, in the form that every cubic, bipartite, 3-connected planar graph has a Hamiltonian cycle avoiding any given edge.
+ In a cubic graph the complement of a perfect matching has degree two at every vertex, so the task is to find a perfect matching whose complement is connected.
+-In the planar dual, a triangulation whose triangles are coloured black and white, a perfect matching is a set of edges containing one side of every triangle, and its complement is connected when the set contains no cycle.
++In the planar dual, a triangulation whose triangles are coloured black and white, a perfect matching corresponds to a set of edges containing exactly one side of every triangle; the matching's complement in the original graph is connected exactly when this set contains no cycle.
+ We reduce the search for such a set to a choice of one corner in each black triangle.
+ A suitable choice exists because of a signed count over pairs of choices, in which the unsuitable ones cancel and a second grouping of the same sum shows that it is not zero.
+ The avoided edge is what lets an induction cut the triangulation along triangles that are not faces.
+@@ -82,7 +82,7 @@ A count called the \emph{disk identity} proves that this selection has no cycle.
+ \item \emph{Two states.} Another state, different in every triangle, orients the opposite sides with one edge leaving every vertex off $t_0$.
+ This makes a state good as soon as its opposite sides contain no cycle (Section~\ref{sec:pairs}).
+ \item \emph{One count, two groupings.} Give each pair a sign and a weight depending only on its second state.
+-A reversal pairs off the unsuitable second states with opposite signs and equal weights.
++A reversal pairs off pairs whose second state is unsuitable, with opposite signs and equal weights.
+ The arrows between the two chosen corners form cycles (Figure~\ref{fig:cube}(f)).
+ Grouping by these cycles, with weight increments counting enclosed white triangles, proves that the sum is nonzero.
+ Thus a good state survives.
+@@ -201,7 +201,7 @@ Let $M$ be a connected plane graph and $N\subseteq E(M)$.
+ \end{lemma}
+ 
+ \begin{proof}
+-(1) By the Jordan curve theorem $Z$ splits the sphere into two open disks, and every face of $M$ lies in one of them.
++(1) By the Jordan curve theorem $Z$ splits the sphere into two connected open regions with boundary $Z$, and every face of $M$ lies in one of them.
+ An edge of $M^*$ crosses only its own edge of $M$, so it joins faces on opposite sides of $Z$ exactly when it crosses an edge of $Z$.
+ The two faces at an edge of $Z$ lie on opposite sides, so both sides contain faces, and every edge of $M^*$ between the two sides crosses an edge of $N$ and is missing from $M^*-N^*$.
+ 
+@@ -404,7 +404,7 @@ Figure~\ref{fig:disk} shows these five numbers on a cycle of the example.
+ 
+ Euler's formula needs a connected plane graph, so we first say what the inside of $Z$ is.
+ Let $R_Z$ consist of $Z$ and the vertices and edges of $\T$ inside $Z$.
+-By the Jordan curve theorem the outside of $Z$ is an open disk; it contains no point of $R_Z$ and its boundary is $Z$, so it is one face of $R_Z$, bounded by the cycle $Z$.
++By the Jordan curve theorem the outside of $Z$ is a connected open region with boundary $Z$; it contains no point of $R_Z$, so it is one face of $R_Z$, bounded by the cycle $Z$.
+ Every other face of $R_Z$ lies inside $Z$ and contains no vertex or edge of $\T$, so it lies in one face of $\T$; conversely a face of $\T$ inside $Z$ is a connected region disjoint from $R_Z$ whose boundary triangle lies in $R_Z$.
+ So the faces of $R_Z$ are the $B+W$ faces of $\T$ inside $Z$ and the outside of $Z$, each bounded by a cycle, and $R_Z$ is connected by Lemma~\ref{lem:connected}.
+ We also use that every face at a vertex strictly inside $Z$ lies inside $Z$.
+@@ -440,7 +440,7 @@ Only the third count uses the state, and it uses both halves of bijectivity: inj
+ Without it the conclusion fails for cycles of $\T$ in general.
+ 
+ \subsection*{The selection has no cycle}
+-A cycle in $P_s$ would be a cycle of chosen sides, so the disk identity fixes the number of white faces it encloses.
++A cycle in $P_s\setminus\{e_0\}$ would be a cycle of chosen sides, so the disk identity fixes the number of white faces it encloses.
+ The selection itself gives a different number.
+ 
+ \begin{proposition}\label{prop:recover}
+@@ -454,7 +454,7 @@ Let $P_0=P_s\setminus\{e_0\}$ and direct the side of each $t\in A$ in $P_0$ out
+ These are chosen sides for the state $s$.
+ 
+ Suppose $P_0$ contains a cycle $Z$.
+-By Lemma~\ref{lem:outdegree} it is a directed cycle of chosen sides, so the disk identity gives $W-B=1$ and $h-2\ell=3$.
++By Lemma~\ref{lem:outdegree} it is a directed cycle of chosen sides, so the disk identity, Lemma~\ref{lem:disk}, gives $W-B=1$ and $h-2\ell=3$.
+ Now count the faces inside $Z$ through $P_s$, which matches every face with the face across its selected side.
+ The selected side of a face inside $Z$ lies in the closed disk; it is not $e_0$, whose ends are roots.
+ If it is strictly inside $Z$, it matches the face with another face inside $Z$ of the other colour.
+@@ -658,7 +658,7 @@ The disk identity offers a way, because every such cycle encloses a white face.
+ For each white face we walk from it to the outer face and record, at every black face on the way, whether the walk passes the chosen corner.
+ 
+ For each white face $y$ fix a path of faces $y=f_0,f_1,\dots,f_j=t_0$ in $G$: consecutive faces share a side, and no face is repeated.
+-Such a path exists because $G$ is connected.
++Such a path exists because $G$ is connected by Lemma~\ref{lem:duality}(2) with $M=\T$ and $N=\varnothing$.
+ A black face $t\in A$ on the path is entered across one of its sides and left across another.
+ These two sides meet in one corner $v$ of $t$, and we say that the path \emph{turns around} $v$ in $t$.
+ Put $\kappa_y(t,v)=1$ if the path turns around $v$ in $t$ with $v$ on its left, $\kappa_y(t,v)=-1$ if it turns around $v$ with $v$ on its right, and $\kappa_y(t,v)=0$ if the path misses $t$ or turns around another corner of $t$.
+@@ -1031,6 +1031,7 @@ The argument above prescribes only an avoided edge, and the gluing needs exactly
+ The Pfaffian consequence uses a universal equivalence: it passes from the planar theorem to cubic Pfaffian braces through trisums, then to general cubic $3$-connected bipartite Pfaffian graphs through tight-cut decompositions, as proved in \cite[Theorem~4.16]{Gorsky2023}.
+ 
+ OpenAI's accompanying Lean formalisation gives a machine-checked proof of Barnette's conjecture \cite{OpenAI2026b}.
++It uses a different route through algebraic duality and does not formally verify every statement or proof in this exposition, including the two-induced-trees statement of Proposition~\ref{prop:target}(2).
+ Two companion notes give a primal formulation and an account using two sign-reversing involutions.
+ 
+ \bibliographystyle{amsplain}

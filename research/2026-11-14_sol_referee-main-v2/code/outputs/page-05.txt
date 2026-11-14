@@ -1,0 +1,49 @@
+BARNETTE’S CONJECTURE
+5
+Proof. (1) Every face of T has one side in P, so every vertex of G meets one edge of P ∗, and since G is
+cubic the other edges give every vertex degree two. By Lemma 2.5(2) with M = T and N = P they form
+a connected graph, and a finite connected graph with all degrees two is a single cycle.
+(2) P is acyclic with k edges on k + 2 vertices, so it has two components. Suppose an edge uv /∈P has
+both ends in one component. Then P ∪{uv} contains a cycle Z through uv, and by Lemma 2.5(1) the
+edges of G crossing Z form an edge cut of G. The Hamiltonian cycle of (1) meets this cut in exactly one
+edge, the one crossing uv, because the other edges of Z are in P. But a cycle meets every edge cut in an
+even number of edges.
+□
+Part (1) shows that the two conditions on the target do different jobs: one side per face gives degree
+two, and acyclicity gives connectivity. Part (2) is the two-induced-trees form [16, 2], and we use it in
+Lemma 3.1 and in the gluing. An acyclic selection containing an edge e0 of T gives a Hamiltonian cycle
+of G that avoids the edge crossing e0, so Theorem 1.1 asks for an acyclic selection containing a prescribed
+edge.
+3. Corner choices and the tree of faces
+Fix a face t0 of T and one of its sides e0 = ab, and let o be the third corner of t0. Exchanging the
+colours if necessary, t0 is black; selections do not depend on the colours. We draw t0 as the outer face, so
+that “inside” a cycle means on the side away from t0. The corners a, b, o are the roots. Let A be the set of
+black faces other than t0 and X the set of vertices other than the roots. By (2.3), |A| = |X| = k −1 =: n.
+Where the corner choices come from. Suppose P is an acyclic selection containing e0, and put
+P0 = P \ {e0}.
+Lemma 3.1. Each of the three components of P0 contains exactly one root. Orient every edge of P0
+towards the root of its component, and for t ∈A let s(t) be the tail of the side of t in P0. Then s is a
+bijection from A to X, and s(t) is a corner of t for every t.
+Proof. By Proposition 2.6(2), a and b lie in one component of P and o in the other, because ao /∈P.
+Deleting e0 splits the first component into a tree containing a and a tree containing b. In a tree oriented
+towards its root every vertex other than the root has exactly one outgoing edge, so every vertex of X is
+the tail of exactly one edge of P0, and the roots are tails of none. The side of t ∈A in P is not e0, which
+lies in t0, so s(t) ∈X is defined. Distinct black faces have distinct selected sides, because an edge has
+only one black face, and distinct edges of P0 have distinct tails, so s is injective; it is onto because every
+x ∈X is the tail of an edge of P0, whose black face lies in A.
+□
+So the unknown is a choice of one corner in every face of A that uses every vertex of X once.
+Definition 3.2. A state is a bijection s: A →X such that s(t) is a corner of t for every t ∈A.
+We will build P from a state, and P will contain, in every t ∈A, one of the two sides of t at s(t). The
+third side of t, opposite s(t), is excluded (Figure 3). Let Qs be the set of these opposite sides, one in
+each face of A; they are distinct because an edge has only one black face, so |Qs| = n. In t0 the selection
+must contain e0 and exclude ao and bo. Put Ss = Qs ∪{ao, bo}, the set of edges that every such selection
+excludes; it has n + 2 = |V (T)| −1 elements.
+x
+s(t)
+y
+t
+Qs
+Figure 3. One black triangle t ∈A. A state chooses the corner s(t) (solid wedge). A
+selection built from s uses one of the two bold sides at s(t), and the dashed side opposite
+s(t) is the edge of Qs in t.

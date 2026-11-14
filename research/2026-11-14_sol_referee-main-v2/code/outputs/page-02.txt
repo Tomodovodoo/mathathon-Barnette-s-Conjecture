@@ -1,0 +1,64 @@
+2
+BARNETTE’S CONJECTURE
+(5) The first pair and the induction. A flow gives a pair when every 3-cycle bounds a face (Section 5).
+Otherwise a separating triangle, with vertices on both sides, cuts T into smaller triangulations. The
+first selection prescribes a side for the second, and their union finishes the induction (Section 6).
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+(a) two cycles
+(b) the dual
+(c) a state and opposite sides
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+(d) avoided edges and face tree
+(e) selected sides and one cycle
+(f) two states and arrows
+Figure 1. The construction on the cube, read along the rows. (a) Degree two can leave
+two cycles. (b) The dual octahedron, with the cube in grey and black triangles shaded;
+the grey collar represents the outer black triangle. Its hollow corners are 0, 1, 2, and
+e0 = {0, 1}. (c) A state, shown by solid wedges, and its opposite sides, dashed. (d) The
+avoided edges form a spanning tree, and the dash-dotted tree joins the white triangles,
+with black nodes suppressed; the ring marks its root. (e) One bold side per triangle, and
+the Hamiltonian cycle crossing all other sides. Disks and squares distinguish the two
+trees of bold edges. (f) Two states, outlined and solid, and the arrows between their
+chosen corners.
+History and sources. We follow Hertel’s survey [9] for the older history. Tait conjectured in 1884 that
+cubic 3-connected planar graphs are Hamiltonian, and Tutte disproved this in 1946 with a non-bipartite
+example [17]. Barnette asked whether bipartiteness rescues the statement. Before 2026 the conjecture
+was known when all faces have four or six sides [9], under conditions on two of the three face colour
+classes [5], and when all faces have at most eight sides [15]. Computer checks reached 64 vertices in work
+of Holton, Manvel and McKay [9], and 90 vertices in work of Brinkmann, Goedgebeur and McKay [3]. In
+a preprint dated 24 September 2026, OpenAI proved Theorem 1.1 [14]. The paired-state argument, disk
+identity, flow argument and induction are theirs. States are the corner choices of Tutte’s theory of trinity,
+as explained by Hine and Kálmán [10]. The target, two induced trees in T, is Stein’s reformulation [16]
+in the form of Alt, Payne, Schmidt and Wood [2, Lemma 5]. Two expositions followed, one by Li [12],
+who works in G, and one in an unsigned manuscript [4], which adds an exact criterion for the first step
+and an enumeration algorithm. Remark 4.10 and Section 7 say how these accounts and ours differ.
+The example. We follow one triangulation through every step (Figure 2). It has 13 vertices, 22 triangles
+and no separating triangle, and its dual G has 22 vertices. It has 12 states and 8 pairs. All eight pairs

@@ -1,0 +1,64 @@
+8
+BARNETTE’S CONJECTURE
+every black face inside Z lies in A. Let B and W be the numbers of black and white faces inside Z, let I
+be the number of vertices strictly inside, and let ℓbe the number of edges of Z whose black face is inside.
+Figure 6 shows these five numbers on a cycle of the example.
+ℓ
+ℓ
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+h = 7 arrows on the cycle
+I = 3 vertices inside (ringed)
+B = 5 black faces inside
+W = 6 white faces inside
+ℓ= 2 arrows with their
+black face inside
+B + W = 2I + h −2
+3(B −W) = 2ℓ−h
+B = I + ℓ
+so 2ℓ−h = −3
+Figure 6. The disk identity on the 7-cycle 1, 2, 3, 9, 10, 11, 6, whose arrows leave the
+corners chosen by the state β of Example 3.3 (outlined wedges); it is the long cycle of
+Figure 8. The tinted disk has B = 5 black and W = 6 white faces, I = 3 vertices strictly
+inside (ringed: 7, 8, 12) and h = 7 edges, of which ℓ= 2 have their black face inside
+(marked). Each black face inside holds one outlined wedge, at a ringed vertex or at the
+tail of a marked arrow, which is the count B = I + ℓ. So W = B + 1 and h = 2ℓ+ 3,
+equivalently 2ℓ−h = −3.
+Euler’s formula needs a connected plane graph, so we first say what the inside of Z is. Let RZ consist of
+Z and the vertices and edges of T inside Z. By the Jordan curve theorem the outside of Z is a connected
+open region with boundary Z; it contains no point of RZ, so it is one face of RZ, bounded by the cycle
+Z. Every other face of RZ lies inside Z and contains no vertex or edge of T, so it lies in one face of T;
+conversely a face of T inside Z is a connected region disjoint from RZ whose boundary triangle lies in RZ.
+So the faces of RZ are the B + W faces of T inside Z and the outside of Z, each bounded by a cycle, and
+RZ is connected by Lemma 2.2. We also use that every face at a vertex strictly inside Z lies inside Z.
+Lemma 3.8 (disk identity). Let r be a state and Z a directed cycle of chosen sides for r, of length h.
+Let B and W be the numbers of black and white faces inside Z, and ℓthe number of edges of Z whose
+black face is inside. Then W = B + 1 and h = 2ℓ+ 3. In particular h is odd and Z encloses at least one
+white face.
+Proof. Two counts hold for every cycle of T. The plane graph RZ has I + h vertices, B + W + 1 faces,
+and (3(B + W) + h)/2 edges, since each inner face has three sides, an edge strictly inside lies on two inner
+faces and an edge of Z on one; Euler’s formula gives the first count below. For the second, count each
+side of an inner face with +1 if the face is black and −1 if it is white: an edge strictly inside contributes
++1 −1, and an edge of Z contributes +1 or −1 according to its inner face. Thus
+B + W = 2I + h −2,
+3(B −W) = 2ℓ−h.
+The third count uses the state. Send each black face t inside Z to r(t), a vertex inside or on Z. This
+is injective because r is. Every vertex v strictly inside is hit: v = r(t) for some t ∈A because r is onto
+X, and t has the corner v, so it lies inside. A vertex v on Z is r(t) for exactly one t, and the edge of Z
+leaving v is the chosen side of that t, because each face has only one chosen side and r is injective. So v
+is hit exactly when that edge has its black face inside. This happens for ℓvertices of Z, so
+B = I + ℓ.
+Substituting into the first count gives W = I + h −ℓ−2, hence B −W = 2ℓ−h + 2, and the second
+count becomes 3(2ℓ−h + 2) = 2ℓ−h, that is h = 2ℓ+ 3. Then W −B = h −2ℓ−2 = 1.
+□

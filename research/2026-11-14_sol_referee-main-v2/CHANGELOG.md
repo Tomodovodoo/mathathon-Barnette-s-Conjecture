@@ -11,5 +11,6 @@ All items are PROVED-HERE scope or dependency corrections, except C7, which reco
 | C5 | Proposition 3.9 proof | Added explicit reference to Lemma 3.8 at the disk-identity invocation. | Blueprint's first implicit use. |
 | C6 | Heights definition paragraph | Added Lemma 2.5(2), with M=T and N empty, to justify G connected. | G now denotes the dual of an arbitrary coloured triangulation, not just the original graph in Theorem 1.1. T is connected by Lemma 2.2. |
 | C7 | Final paragraph | Added that the Lean route uses algebraic duality and does not check every statement or proof here; names Proposition 2.6(2). | COMPUTED in the supplied Lean build and PROVED-HERE source comparison in proofs/blueprint/BLUEPRINT.md. The original sentence about the formal proof of Barnette itself remains correct. |
+| C8 | Plan, fourth step, finishing-pass sentence added in edd9c0c | Restricted the weight-raising reversal to a clockwise cycle. | Reversing ccw to cw lowers the weight by L(C); the positive increment in Lemma 4.6 is cw to ccw only. The body and new orientation-square arrows already use the correct direction. |
 
 Build and commit recorded in REPORT.md and code/README.md.

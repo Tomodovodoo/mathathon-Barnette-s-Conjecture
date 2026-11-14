@@ -1,0 +1,52 @@
+THE PROOF OF BARNETTE’S CONJECTURE: AN EXPOSITION
+Abstract. We give a self-contained exposition of OpenAI’s 2026 proof of Barnette’s conjecture, in the
+form that every cubic, bipartite, 3-connected planar graph has a Hamiltonian cycle avoiding any given
+edge. In a cubic graph the complement of a perfect matching has degree two at every vertex, so the task
+is to find a perfect matching whose complement is connected. In the planar dual, a triangulation whose
+triangles are coloured black and white, a perfect matching corresponds to a set of edges containing
+exactly one side of every triangle; the matching’s complement in the original graph is connected exactly
+when this set contains no cycle. We reduce the search for such a set to a choice of one corner in each
+black triangle. A suitable choice exists because of a signed count over pairs of choices, in which the
+unsuitable ones cancel and a second grouping of the same sum shows that it is not zero. The avoided
+edge is what lets an induction cut the triangulation along triangles that are not faces.
+1. Introduction
+A Hamiltonian cycle is a connected spanning subgraph in which every vertex has degree two. In a cubic
+graph the degree condition is the easy half. Deleting a perfect matching leaves every vertex with two
+edges, and a cubic bipartite graph has a perfect matching by Hall’s theorem. Connectivity is the whole
+problem. On the cube, the two opposite squares form a subgraph of degree two with two components
+(Figure 1(a)).
+Theorem 1.1 (OpenAI [14, Theorem 1.1 and Corollary 7.1]). Let G be a finite simple graph that is
+cubic, bipartite, planar and 3-connected, and let e be an edge of G. Then G has a Hamiltonian cycle that
+does not contain e.
+Here 3-connected means that G has at least four vertices and stays connected after deleting any two of
+them. Barnette’s conjecture is the case without e. The edge e is there for the induction of Section 6,
+which cuts G into smaller graphs and needs their cycles to agree on the cut. That the version with e is
+equivalent to the conjecture goes back to Kelmans, as explained by Hertel [9, Corollary 3] and by Gorsky,
+Steiner and Wiederrecht [8, Theorem 4.3].
+The plan. The planar dual T has a vertex in each face of G and an edge across each edge of G. Each
+vertex of G lies in a triangular face of T, coloured by its bipartition class (Figure 1(b)). A perfect
+matching of G selects one side of every triangle. Its complement is connected exactly when the selected
+sides contain no cycle: a cycle would separate the triangles inside it from those outside (Section 2). We
+seek such an acyclic selection containing the side e0 that crosses e.
+(1) Corner choices. Fix a black triangle t0 at e0. Removing e0 from the desired selection leaves three
+trees, each containing one corner of t0. Direct them towards these corners. In each other black
+triangle the selected side then points away from one corner, its tail, and every vertex off t0 is a
+tail exactly once. Such a choice of corners is a state (Section 3).
+(2) From a state back to a selection. The side we take must touch the chosen corner, so it must avoid
+the opposite side. Call a state good when these opposite sides form three trees, each containing
+one corner of t0 (Figure 1(c)). The sides that are not avoided then join the triangles into a tree,
+and this tree forces a selection (panels (d)–(e)). A count called the disk identity proves that this
+selection has no cycle.
+(3) Two states. Another state, different in every triangle, orients the opposite sides with one edge
+leaving every vertex off t0. This makes a state good as soon as its opposite sides contain no cycle
+(Section 4).
+(4) One count, two groupings. Give each pair a sign and a weight depending only on its second state.
+A reversal pairs off pairs whose second state is unsuitable, with opposite signs and equal weights.
+The arrows between the two chosen corners form cycles (Figure 1(f)). Reversing a clockwise cycle
+flips the sign and raises the weight by the number of white triangles inside the cycle, which is at
+least one. Grouped by these cycles, with the weight raised to a suitable power, the sum becomes
+a sum of products of these numbers, all of one sign. So the sum is not zero, and a good state
+survives.
+Date: 14 November 2026.
+2020 Mathematics Subject Classification. 05C45, 05C10, 05C70.
+1

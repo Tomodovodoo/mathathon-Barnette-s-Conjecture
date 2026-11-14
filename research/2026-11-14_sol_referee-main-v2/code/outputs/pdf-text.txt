@@ -1,0 +1,1328 @@
+THE PROOF OF BARNETTE’S CONJECTURE: AN EXPOSITION
+Abstract. We give a self-contained exposition of OpenAI’s 2026 proof of Barnette’s conjecture, in the
+form that every cubic, bipartite, 3-connected planar graph has a Hamiltonian cycle avoiding any given
+edge. In a cubic graph the complement of a perfect matching has degree two at every vertex, so the task
+is to find a perfect matching whose complement is connected. In the planar dual, a triangulation whose
+triangles are coloured black and white, a perfect matching corresponds to a set of edges containing
+exactly one side of every triangle; the matching’s complement in the original graph is connected exactly
+when this set contains no cycle. We reduce the search for such a set to a choice of one corner in each
+black triangle. A suitable choice exists because of a signed count over pairs of choices, in which the
+unsuitable ones cancel and a second grouping of the same sum shows that it is not zero. The avoided
+edge is what lets an induction cut the triangulation along triangles that are not faces.
+1. Introduction
+A Hamiltonian cycle is a connected spanning subgraph in which every vertex has degree two. In a cubic
+graph the degree condition is the easy half. Deleting a perfect matching leaves every vertex with two
+edges, and a cubic bipartite graph has a perfect matching by Hall’s theorem. Connectivity is the whole
+problem. On the cube, the two opposite squares form a subgraph of degree two with two components
+(Figure 1(a)).
+Theorem 1.1 (OpenAI [14, Theorem 1.1 and Corollary 7.1]). Let G be a finite simple graph that is
+cubic, bipartite, planar and 3-connected, and let e be an edge of G. Then G has a Hamiltonian cycle that
+does not contain e.
+Here 3-connected means that G has at least four vertices and stays connected after deleting any two of
+them. Barnette’s conjecture is the case without e. The edge e is there for the induction of Section 6,
+which cuts G into smaller graphs and needs their cycles to agree on the cut. That the version with e is
+equivalent to the conjecture goes back to Kelmans, as explained by Hertel [9, Corollary 3] and by Gorsky,
+Steiner and Wiederrecht [8, Theorem 4.3].
+The plan. The planar dual T has a vertex in each face of G and an edge across each edge of G. Each
+vertex of G lies in a triangular face of T, coloured by its bipartition class (Figure 1(b)). A perfect
+matching of G selects one side of every triangle. Its complement is connected exactly when the selected
+sides contain no cycle: a cycle would separate the triangles inside it from those outside (Section 2). We
+seek such an acyclic selection containing the side e0 that crosses e.
+(1) Corner choices. Fix a black triangle t0 at e0. Removing e0 from the desired selection leaves three
+trees, each containing one corner of t0. Direct them towards these corners. In each other black
+triangle the selected side then points away from one corner, its tail, and every vertex off t0 is a
+tail exactly once. Such a choice of corners is a state (Section 3).
+(2) From a state back to a selection. The side we take must touch the chosen corner, so it must avoid
+the opposite side. Call a state good when these opposite sides form three trees, each containing
+one corner of t0 (Figure 1(c)). The sides that are not avoided then join the triangles into a tree,
+and this tree forces a selection (panels (d)–(e)). A count called the disk identity proves that this
+selection has no cycle.
+(3) Two states. Another state, different in every triangle, orients the opposite sides with one edge
+leaving every vertex off t0. This makes a state good as soon as its opposite sides contain no cycle
+(Section 4).
+(4) One count, two groupings. Give each pair a sign and a weight depending only on its second state.
+A reversal pairs off pairs whose second state is unsuitable, with opposite signs and equal weights.
+The arrows between the two chosen corners form cycles (Figure 1(f)). Reversing a clockwise cycle
+flips the sign and raises the weight by the number of white triangles inside the cycle, which is at
+least one. Grouped by these cycles, with the weight raised to a suitable power, the sum becomes
+a sum of products of these numbers, all of one sign. So the sum is not zero, and a good state
+survives.
+Date: 14 November 2026.
+2020 Mathematics Subject Classification. 05C45, 05C10, 05C70.
+1
+
+
+2
+BARNETTE’S CONJECTURE
+(5) The first pair and the induction. A flow gives a pair when every 3-cycle bounds a face (Section 5).
+Otherwise a separating triangle, with vertices on both sides, cuts T into smaller triangulations. The
+first selection prescribes a side for the second, and their union finishes the induction (Section 6).
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+(a) two cycles
+(b) the dual
+(c) a state and opposite sides
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+5
+(d) avoided edges and face tree
+(e) selected sides and one cycle
+(f) two states and arrows
+Figure 1. The construction on the cube, read along the rows. (a) Degree two can leave
+two cycles. (b) The dual octahedron, with the cube in grey and black triangles shaded;
+the grey collar represents the outer black triangle. Its hollow corners are 0, 1, 2, and
+e0 = {0, 1}. (c) A state, shown by solid wedges, and its opposite sides, dashed. (d) The
+avoided edges form a spanning tree, and the dash-dotted tree joins the white triangles,
+with black nodes suppressed; the ring marks its root. (e) One bold side per triangle, and
+the Hamiltonian cycle crossing all other sides. Disks and squares distinguish the two
+trees of bold edges. (f) Two states, outlined and solid, and the arrows between their
+chosen corners.
+History and sources. We follow Hertel’s survey [9] for the older history. Tait conjectured in 1884 that
+cubic 3-connected planar graphs are Hamiltonian, and Tutte disproved this in 1946 with a non-bipartite
+example [17]. Barnette asked whether bipartiteness rescues the statement. Before 2026 the conjecture
+was known when all faces have four or six sides [9], under conditions on two of the three face colour
+classes [5], and when all faces have at most eight sides [15]. Computer checks reached 64 vertices in work
+of Holton, Manvel and McKay [9], and 90 vertices in work of Brinkmann, Goedgebeur and McKay [3]. In
+a preprint dated 24 September 2026, OpenAI proved Theorem 1.1 [14]. The paired-state argument, disk
+identity, flow argument and induction are theirs. States are the corner choices of Tutte’s theory of trinity,
+as explained by Hine and Kálmán [10]. The target, two induced trees in T, is Stein’s reformulation [16]
+in the form of Alt, Payne, Schmidt and Wood [2, Lemma 5]. Two expositions followed, one by Li [12],
+who works in G, and one in an unsigned manuscript [4], which adds an exact criterion for the first step
+and an enumeration algorithm. Remark 4.10 and Section 7 say how these accounts and ours differ.
+The example. We follow one triangulation through every step (Figure 2). It has 13 vertices, 22 triangles
+and no separating triangle, and its dual G has 22 vertices. It has 12 states and 8 pairs. All eight pairs
+
+
+BARNETTE’S CONJECTURE
+3
+are listed in Table 2. Among them are a state whose opposite sides contain a cycle and two states that
+differ along a cycle enclosing three vertices. The numbers quoted for the example come from exhaustive
+enumeration.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+t0
+Figure 2. The example triangulation T, its 13 vertices labelled, with G in grey: each
+vertex of G sits in a face of T and each edge of G crosses one edge of T. Black faces are
+shaded. The outer face t0 = {0, 4, 5} is black too, as the grey collar shows; the vertex of
+G inside it is drawn below the disk. Its corners 0, 4, 5 are hollow, and the prescribed side
+e0 = {0, 4} is the bottom arc. There are 11 black faces, 11 white faces and 33 edges.
+2. The dual triangulation and the target
+The dual. Fix an embedding of G in the sphere, with edges drawn as polygonal arcs. Its dual T has a
+vertex in each face of G and an edge crossing each edge of G once. Conversely G is the graph of faces of
+T: each face of T contains one vertex of G, and two faces are adjacent in G when they share a side.
+Lemma 2.1. Let G be as in Theorem 1.1. Then T is a simple graph with at least four vertices, every
+face of T is bounded by a triangle, and the faces of T can be coloured black and white so that every edge
+of T has one black and one white face.
+Proof. First, G has no set of at most two edges whose removal separates a nonempty vertex set U from
+the nonempty rest. If |U| = 1 then three edges leave U, and if |U| = 2 at least four do, since G is simple.
+So |U| ≥3, and likewise for the rest. Deleting the at most two endpoints in U of the cut edges leaves a
+nonempty part of U with no edge to the rest, contradicting 3-connectivity.
+A loop of T, or two edges of T joining the same two vertices, is a closed curve that meets G in one
+or two points, on one or two edges of G. The two ends of a crossed edge lie on opposite sides of the
+curve, so both sides contain vertices of G, and the crossed edges form a cut of size at most two. Hence
+T is simple. The face of T containing a vertex v of G is bounded by a closed walk through the three
+faces of G at v, and in a simple graph a closed walk of length three is a triangle. Euler’s formula gives
+|V (T)| = |F(G)| = 2 + |E(G)| −|V (G)| = 2 + |V (G)|/2 ≥4. Finally, colour the face of T containing v by
+the class of v in the bipartition of G. The two faces at an edge of T contain the two ends of an edge of G,
+so they get different colours.
+□
+From now on T is a coloured triangulation: a simple graph with at least four vertices, embedded in
+the sphere so that every face is bounded by a triangle, with a black and white colouring of its faces in
+which every edge has one face of each colour. Two faces share at most one side, since two faces with two
+
+
+4
+BARNETTE’S CONJECTURE
+common sides would have the same three corners, and that triangle would bound both of them, leaving no
+room for a fourth vertex. Euler’s formula needs a connected graph. The next lemma supplies connectivity
+for T, for the inside of a cycle in Section 3 and for the pieces of Section 6.
+Lemma 2.2. Let R be a finite graph embedded in the sphere such that every face of R is bounded by a
+cycle of R. Then R is connected.
+Proof. Let K be a component of R. The boundary of a face is a cycle, which is connected, so it lies in
+one component. Let Ωbe the union of K and the faces whose boundary lies in K, and Ω′ the union of
+the other components and the other faces. A point of K has a neighbourhood that meets only K and
+faces with that point on their boundary, and these faces have their boundary in K. So Ωis open, and Ω′
+is open for the same reason. They are disjoint, they cover the sphere, which is connected, and Ωis not
+empty. Hence Ω′ is empty and R = K.
+□
+Each edge of T has exactly one black face and each black face has three sides, so the number of edges
+is three times the number of black faces, and likewise for white faces. With Euler’s formula this gives
+(2.3)
+#{black faces} = #{white faces} = k,
+|E(T)| = 3k,
+|V (T)| = k + 2.
+In the example k = 11 (Figure 2).
+The target. A perfect matching of G is a set of edges of G meeting every vertex once. Read in T, it is a
+set of edges of T containing exactly one side of every face.
+Definition 2.4. A selection is a set P of edges of T that contains exactly one side of every face of T.
+We write P ∗for the set of edges of G that cross the edges of P.
+A selection matches each black face with the white face across its selected side, so it has k edges. The
+question is which selections leave a connected graph in G. We need the answer for two kinds of edge set,
+a selection here and a spanning tree in Section 3, so the next lemma is about an arbitrary set N of edges.
+For a plane graph M and N ⊆E(M) write M ∗−N ∗for the spanning subgraph of the dual M ∗whose
+edges cross the edges not in N.
+Lemma 2.5 (duality). Let M be a connected plane graph and N ⊆E(M).
+(1) If N contains a cycle Z, then an edge of M ∗joins a face inside Z to a face outside Z exactly
+when it crosses an edge of Z, and M ∗−N ∗is disconnected.
+(2) If N is acyclic, then M ∗−N ∗is connected. If N is a spanning tree of M, then M ∗−N ∗is a
+spanning tree of M ∗.
+Proof. (1) By the Jordan curve theorem Z splits the sphere into two connected open regions with boundary
+Z, and every face of M lies in one of them. An edge of M ∗crosses only its own edge of M, so it joins
+faces on opposite sides of Z exactly when it crosses an edge of Z. The two faces at an edge of Z lie on
+opposite sides, so both sides contain faces, and every edge of M ∗between the two sides crosses an edge of
+N and is missing from M ∗−N ∗.
+(2) Suppose M ∗−N ∗is disconnected, and let Φ be the set of faces in one of its components. Call an
+edge of M a boundary edge if one of its faces is in Φ and the other is not. A boundary edge lies in N,
+since otherwise the edge of M ∗crossing it would leave Φ. Around a vertex v edges and faces alternate,
+and an edge at v is a boundary edge exactly when the faces before and after it differ in membership of Φ.
+Membership changes an even number of times around a circle, so every vertex meets an even number of
+boundary edges. There is a boundary edge, for otherwise all faces at each vertex would agree, the two
+ends of every edge would agree because they share the faces of that edge, and connectivity of M would
+put all faces in Φ or none. A nonempty edge set with all degrees even contains a cycle, and this cycle
+lies in N. If N is a spanning tree, then M ∗−N ∗is connected with |E(M)| −|V (M)| + 1 = |F(M)| −1
+edges by Euler’s formula, so it is a spanning tree of M∗.
+□
+A reader who knows plane duality may prefer the classical proof of (2): contract a spanning tree
+containing N to one vertex, which deletes the crossing edges from the dual and leaves the dual connected.
+Proposition 2.6. Let P be an acyclic selection of a coloured triangulation T with dual G.
+(1) The edges of G not in P ∗form a Hamiltonian cycle of G.
+(2) P is a forest with exactly two components, and an edge of T lies in P exactly when its two ends
+lie in the same component.
+
+
+BARNETTE’S CONJECTURE
+5
+Proof. (1) Every face of T has one side in P, so every vertex of G meets one edge of P ∗, and since G is
+cubic the other edges give every vertex degree two. By Lemma 2.5(2) with M = T and N = P they form
+a connected graph, and a finite connected graph with all degrees two is a single cycle.
+(2) P is acyclic with k edges on k + 2 vertices, so it has two components. Suppose an edge uv /∈P has
+both ends in one component. Then P ∪{uv} contains a cycle Z through uv, and by Lemma 2.5(1) the
+edges of G crossing Z form an edge cut of G. The Hamiltonian cycle of (1) meets this cut in exactly one
+edge, the one crossing uv, because the other edges of Z are in P. But a cycle meets every edge cut in an
+even number of edges.
+□
+Part (1) shows that the two conditions on the target do different jobs: one side per face gives degree
+two, and acyclicity gives connectivity. Part (2) is the two-induced-trees form [16, 2], and we use it in
+Lemma 3.1 and in the gluing. An acyclic selection containing an edge e0 of T gives a Hamiltonian cycle
+of G that avoids the edge crossing e0, so Theorem 1.1 asks for an acyclic selection containing a prescribed
+edge.
+3. Corner choices and the tree of faces
+Fix a face t0 of T and one of its sides e0 = ab, and let o be the third corner of t0. Exchanging the
+colours if necessary, t0 is black; selections do not depend on the colours. We draw t0 as the outer face, so
+that “inside” a cycle means on the side away from t0. The corners a, b, o are the roots. Let A be the set of
+black faces other than t0 and X the set of vertices other than the roots. By (2.3), |A| = |X| = k −1 =: n.
+Where the corner choices come from. Suppose P is an acyclic selection containing e0, and put
+P0 = P \ {e0}.
+Lemma 3.1. Each of the three components of P0 contains exactly one root. Orient every edge of P0
+towards the root of its component, and for t ∈A let s(t) be the tail of the side of t in P0. Then s is a
+bijection from A to X, and s(t) is a corner of t for every t.
+Proof. By Proposition 2.6(2), a and b lie in one component of P and o in the other, because ao /∈P.
+Deleting e0 splits the first component into a tree containing a and a tree containing b. In a tree oriented
+towards its root every vertex other than the root has exactly one outgoing edge, so every vertex of X is
+the tail of exactly one edge of P0, and the roots are tails of none. The side of t ∈A in P is not e0, which
+lies in t0, so s(t) ∈X is defined. Distinct black faces have distinct selected sides, because an edge has
+only one black face, and distinct edges of P0 have distinct tails, so s is injective; it is onto because every
+x ∈X is the tail of an edge of P0, whose black face lies in A.
+□
+So the unknown is a choice of one corner in every face of A that uses every vertex of X once.
+Definition 3.2. A state is a bijection s: A →X such that s(t) is a corner of t for every t ∈A.
+We will build P from a state, and P will contain, in every t ∈A, one of the two sides of t at s(t). The
+third side of t, opposite s(t), is excluded (Figure 3). Let Qs be the set of these opposite sides, one in
+each face of A; they are distinct because an edge has only one black face, so |Qs| = n. In t0 the selection
+must contain e0 and exclude ao and bo. Put Ss = Qs ∪{ao, bo}, the set of edges that every such selection
+excludes; it has n + 2 = |V (T)| −1 elements.
+x
+s(t)
+y
+t
+Qs
+Figure 3. One black triangle t ∈A. A state chooses the corner s(t) (solid wedge). A
+selection built from s uses one of the two bold sides at s(t), and the dashed side opposite
+s(t) is the edge of Qs in t.
+
+
+6
+BARNETTE’S CONJECTURE
+Example 3.3. In the example, t0 = {0, 4, 5}, e0 = {0, 4}, o = 5 and n = 10. Two of its states, which we
+call α and β, are
+t
+0·1·6
+0·2·3
+1·7·8
+1·2·9
+3·4·9
+4·10·11
+5·6·11
+6·7·12
+8·11·12
+8·9·10
+α(t)
+1
+3
+7
+2
+9
+11
+6
+12
+8
+10
+β(t)
+6
+2
+8
+1
+3
+10
+11
+7
+12
+9
+where a face is named by its corners. The sides opposite α contain the triangle on 1, 8, 9, while those
+opposite β form a forest with components {0, 1, 3, 7}, {2, 4, 8, 9, 10, 11} and {5, 6, 12}, one root in each
+(Figure 4). The two states differ in every face. We return to this in Section 4.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) Qα contains a cycle
+(b) Qβ is a forest
+Figure 4. The opposite sides (dashed) of the two states of Example 3.3; solid wedges
+mark the chosen corners and hollow circles the roots. (a) Qα contains the triangle on
+1, 8, 9 around a white face, and its component has no root. (b) Qβ is a forest with three
+components, one through each root. The proof needs a state that looks like (b).
+The tree of faces. A selection that contains e0 and uses only sides at s(t) in each t ∈A is a selection
+that avoids Ss. It pairs each face with the face across its selected side, and these two faces are adjacent
+across an edge not in Ss. So consider the graph Ys = T ∗−S∗
+s, whose nodes are the faces of T, two faces
+being adjacent when they share a side not in Ss; it is a subgraph of G. A tree has at most one perfect
+matching, found by matching a leaf to its neighbour, removing both and repeating. So if Ys is a tree, at
+most one selection of this kind exists and no choice is left.
+For Ys to be a tree we need the following condition on s. The condition is sufficient for what follows and
+it is not necessary: the state that Lemma 3.1 reads off an acyclic selection need not satisfy it (Section 7).
+Definition 3.4. A state s is good if Qs is a forest in which each component contains exactly one root.
+The unsigned manuscript [4] calls a good state a tree matching.
+Lemma 3.5. A state s is good if and only if Ss is a spanning tree of T.
+Proof. Ss has |V (T)| −1 edges, so it is a spanning tree exactly when it is acyclic. That happens exactly
+when Qs is acyclic and adding ao and bo closes no cycle, that is, when a, b and o lie in three different
+components of Qs. A forest with n edges on n + 3 vertices has three components, so this means one root
+in each.
+□
+Figure 5(a) shows the tree Ys and the selection of the next lemma for the state β of the example.
+Lemma 3.6. Let s be a good state. Then Ys is a tree on the 2k faces of T, in which every face of A has
+degree two and t0 has degree one. Root Ys at t0, and let Ps consist of the side that each black face shares
+with its child. Then Ps is a selection, e0 ∈Ps, and for every t ∈A the side of t in Ps contains s(t).
+
+
+BARNETTE’S CONJECTURE
+7
+Proof. Ys is a spanning tree of G by Lemmas 3.5 and 2.5(2). A face t ∈A has exactly one side in Ss, its
+side in Qs, because ao and bo belong to t0. So t has degree two. The face t0 has ao, bo ∈Ss and e0 /∈Ss,
+so it has degree one, and its neighbour is the white face y0 across e0. Colours alternate along every edge
+of Ys. In the rooted tree, t0 has one child, every t ∈A has a parent and so exactly one child, and every
+white face has a parent, which is black. Thus every black face has exactly one side in Ps. A white face y
+is the only child of its parent, so the side towards its parent is in Ps. Any other side of y would be shared
+with a black child t of y, and the side that t selects is shared with the child of t, which is not y; since two
+faces share at most one side, that side is not in Ps. So every white face has exactly one side in Ps. The
+side that t0 shares with y0 is e0, and for t ∈A the side shared with its child is not in Qs, so it is one of
+the two sides at s(t).
+□
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) one bold edge for each white face
+(b) two trees and the curve between them
+Figure 5. The selection Pβ (bold). (a) The dash-dotted tree is Yβ with its black nodes
+suppressed: a tree on the white faces rooted at the ringed face y0 across e0 = {0, 4}. The
+root selects e0, and every other white face selects the side towards its parent. Every face
+has one bold side. (b) The bold edges form two trees, on the disks and on the squares,
+and the curve that crosses each other edge once is the Hamiltonian cycle of G through
+all 22 faces.
+For a good state Lemma 3.6 produces a selection Ps containing e0 without any further choice. It
+remains to see that Ps has no cycle. A cycle in Ps \ {e0} would be made of sides leaving chosen corners,
+and the rest of this section says what such a cycle looks like.
+The inside of a cycle. Throughout the paper, the cycles we need are made of sides leaving corners
+chosen by a state. Let r be a state, and suppose that in every face t ∈A one of the two sides at r(t) has
+been chosen and directed out of r(t). We call these the chosen sides. The state is called r here because
+Section 4 applies these facts to the first state of a pair.
+Lemma 3.7 (outdegree). Let ⃗E be a set of edges of T, each directed, such that every vertex has at most
+one outgoing edge in ⃗E. Then every cycle of ⃗E is a directed cycle. A component of ⃗E with ν vertices,
+of which γ have no outgoing edge, has ν −γ edges. So γ ≤1, the component is a tree if γ = 1, and it
+contains exactly one cycle if γ = 0.
+Proof. A cycle with h edges has h distinct tails on its h vertices, so every vertex is the tail of one of its
+edges. The edge count is the sum of the outdegrees, and a connected graph with ν vertices has at least
+ν −1 edges, with equality for a tree, and exactly one cycle if it has ν.
+□
+The chosen sides have outdegree one at every vertex of X and zero at the roots, so Lemma 3.7 applies.
+Let Z be a directed cycle of chosen sides, of length h. Every vertex of Z has an outgoing chosen side, so
+it lies in X. The roots lie on the boundary of the outer face, and not on Z, so they lie outside Z. Hence
+
+
+8
+BARNETTE’S CONJECTURE
+every black face inside Z lies in A. Let B and W be the numbers of black and white faces inside Z, let I
+be the number of vertices strictly inside, and let ℓbe the number of edges of Z whose black face is inside.
+Figure 6 shows these five numbers on a cycle of the example.
+ℓ
+ℓ
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+h = 7 arrows on the cycle
+I = 3 vertices inside (ringed)
+B = 5 black faces inside
+W = 6 white faces inside
+ℓ= 2 arrows with their
+black face inside
+B + W = 2I + h −2
+3(B −W) = 2ℓ−h
+B = I + ℓ
+so 2ℓ−h = −3
+Figure 6. The disk identity on the 7-cycle 1, 2, 3, 9, 10, 11, 6, whose arrows leave the
+corners chosen by the state β of Example 3.3 (outlined wedges); it is the long cycle of
+Figure 8. The tinted disk has B = 5 black and W = 6 white faces, I = 3 vertices strictly
+inside (ringed: 7, 8, 12) and h = 7 edges, of which ℓ= 2 have their black face inside
+(marked). Each black face inside holds one outlined wedge, at a ringed vertex or at the
+tail of a marked arrow, which is the count B = I + ℓ. So W = B + 1 and h = 2ℓ+ 3,
+equivalently 2ℓ−h = −3.
+Euler’s formula needs a connected plane graph, so we first say what the inside of Z is. Let RZ consist of
+Z and the vertices and edges of T inside Z. By the Jordan curve theorem the outside of Z is a connected
+open region with boundary Z; it contains no point of RZ, so it is one face of RZ, bounded by the cycle
+Z. Every other face of RZ lies inside Z and contains no vertex or edge of T, so it lies in one face of T;
+conversely a face of T inside Z is a connected region disjoint from RZ whose boundary triangle lies in RZ.
+So the faces of RZ are the B + W faces of T inside Z and the outside of Z, each bounded by a cycle, and
+RZ is connected by Lemma 2.2. We also use that every face at a vertex strictly inside Z lies inside Z.
+Lemma 3.8 (disk identity). Let r be a state and Z a directed cycle of chosen sides for r, of length h.
+Let B and W be the numbers of black and white faces inside Z, and ℓthe number of edges of Z whose
+black face is inside. Then W = B + 1 and h = 2ℓ+ 3. In particular h is odd and Z encloses at least one
+white face.
+Proof. Two counts hold for every cycle of T. The plane graph RZ has I + h vertices, B + W + 1 faces,
+and (3(B + W) + h)/2 edges, since each inner face has three sides, an edge strictly inside lies on two inner
+faces and an edge of Z on one; Euler’s formula gives the first count below. For the second, count each
+side of an inner face with +1 if the face is black and −1 if it is white: an edge strictly inside contributes
++1 −1, and an edge of Z contributes +1 or −1 according to its inner face. Thus
+B + W = 2I + h −2,
+3(B −W) = 2ℓ−h.
+The third count uses the state. Send each black face t inside Z to r(t), a vertex inside or on Z. This
+is injective because r is. Every vertex v strictly inside is hit: v = r(t) for some t ∈A because r is onto
+X, and t has the corner v, so it lies inside. A vertex v on Z is r(t) for exactly one t, and the edge of Z
+leaving v is the chosen side of that t, because each face has only one chosen side and r is injective. So v
+is hit exactly when that edge has its black face inside. This happens for ℓvertices of Z, so
+B = I + ℓ.
+Substituting into the first count gives W = I + h −ℓ−2, hence B −W = 2ℓ−h + 2, and the second
+count becomes 3(2ℓ−h + 2) = 2ℓ−h, that is h = 2ℓ+ 3. Then W −B = h −2ℓ−2 = 1.
+□
+
+
+BARNETTE’S CONJECTURE
+9
+Only the third count uses the state, and it uses both halves of bijectivity: injectivity so that no vertex
+is counted twice, surjectivity so that every interior vertex is counted. Without it the conclusion fails for
+cycles of T in general.
+The selection has no cycle. A cycle in Ps \ {e0} would be a cycle of chosen sides, so the disk identity
+fixes the number of white faces it encloses. The selection itself gives a different number.
+Proposition 3.9. If s is a good state, then Ps is an acyclic selection containing e0. Consequently, if T
+has a good state for t0 and e0, then G has a Hamiltonian cycle avoiding the edge that crosses e0.
+Proof. By Lemma 3.6, Ps is a selection containing e0. Let P0 = Ps \ {e0} and direct the side of each
+t ∈A in P0 out of s(t), which is one of its ends. These are chosen sides for the state s.
+Suppose P0 contains a cycle Z. By Lemma 3.7 it is a directed cycle of chosen sides, so the disk identity,
+Lemma 3.8, gives W −B = 1 and h −2ℓ= 3. Now count the faces inside Z through Ps, which matches
+every face with the face across its selected side. The selected side of a face inside Z lies in the closed
+disk; it is not e0, whose ends are roots. If it is strictly inside Z, it matches the face with another face
+inside Z of the other colour. Every edge of Z lies in Ps, so it is the selected side of both its faces, one
+inside and one outside. Thus exactly ℓblack faces and h −ℓwhite faces inside Z are matched across Z,
+and the others are matched in pairs inside. Hence B −ℓ= W −(h −ℓ), that is W −B = h −2ℓ= 3,
+contradicting W −B = 1.
+So P0 is a forest, and by Lemma 3.7 each component contains exactly one root. The edge e0 =
+ab joins the components of a and b, so Ps = P0 ∪{e0} is acyclic.
+The last sentence follows from
+Proposition 2.6(1).
+□
+In words: a cycle of chosen sides encloses one more white face than black, but a selection running
+along it would force three more.
+Example 3.10. The state β of Example 3.3 is good. Its selection Pβ has eleven edges forming two trees,
+on {0, 2, 4, 6, 7, 8} and {1, 3, 5, 9, 10, 11, 12}, and Figure 5 shows it with the Hamiltonian cycle of G that
+crosses the other 22 edges. The example has six good states, and they give six different Hamiltonian
+cycles avoiding the edge of G that crosses e0. These are all such cycles of this G. On the cube (Figure 1),
+with t0 = {0, 1, 2} and e0 = {0, 1}, the cube has exactly two states, those of Figure 1(f), and both are
+good. For the solid one, s, the tree Ys makes the black faces 135, 234, 045 select 35, 23, 04, and with e0
+these form the trees on {0, 1, 4} and {2, 3, 5}.
+So Theorem 1.1 follows once we find a good state, and once we can deal with triangulations that have
+none. Section 4 finds a good state from a pair of states, Section 5 finds a pair when T has no separating
+triangle, and Section 6 removes separating triangles.
+4. Pairs of states
+We do not know how to point to a good state. This section shows that one exists, by a count in four
+steps. A second corner choice turns goodness into the absence of cycles (Lemma 4.2). Every pair of
+choices gets a sign, and the pairs that fail cancel in twos (Lemma 4.5). A weight, built from the white
+faces that certain cycles enclose, lets the same sum be computed in a second way (Lemma 4.6). The
+second computation shows that the sum is not zero (Proposition 4.8), so some pair does not fail.
+Why two states. Goodness asks two things of Qs, no cycle and one root per component. The second
+condition concerns whole components. Another state r that differs from s in every face reduces the second
+condition to the first. It gives every vertex of X exactly one outgoing edge of Qs, and then a component
+without a cycle contains exactly one root.
+Definition 4.1. A pair is an ordered pair (r, s) of states with r(t) ̸= s(t) for every t ∈A; we call r a
+partner of s, and s the second state. For a pair we write u(t) for the third corner of t.
+r(t)
+s(t)
+u(t)
+t
+D(r, s)
+Qs
+Figure 7. A pair in a black triangle. Out-
+lined wedges mark the first state r(t); solid
+wedges mark the second, s(t). The solid
+arrow belongs to D(r, s), defined below.
+The dashed arrow orients Qs from r(t) to
+the third corner u(t), as in Lemma 4.2.
+
+
+10
+BARNETTE’S CONJECTURE
+Lemma 4.2. Let (r, s) be a pair, and direct the edge of Qs in each t ∈A from r(t) to u(t). Then every
+vertex of X has outdegree one and every root outdegree zero. Each component of Qs either is a tree
+containing exactly one root, or contains no root and exactly one cycle, which is directed. So s is good if
+and only if Qs is acyclic, and a good state has exactly one partner.
+Proof. The edge of Qs in t joins r(t) and u(t), and r is a bijection onto X, which gives the outdegrees; the
+rest of the first two sentences is Lemma 3.7. If s is good, a partner must direct each tree of Qs towards
+its root, and r(t) is the tail of the edge of Qs in t. So r is determined. Conversely, directing the trees
+towards their roots and taking tails defines a bijection r: A →X with r(t) ̸= s(t), because the edge of
+Qs in t avoids s(t).
+□
+A pair determines a second set of edges, and it gives the second way of grouping the count. Let D(r, s)
+be the set of directed edges r(t) →s(t), t ∈A (Figure 7). Every vertex of X is r(t) for one t and s(t′)
+for one t′, so it has one outgoing and one incoming edge in D(r, s). The edges come from distinct black
+faces, so they are distinct even as undirected edges, and T is simple. Hence D(r, s) is a union of disjoint
+directed cycles of T, each of length at least three, covering X, and each face t ∈A supplies one edge to
+exactly one of them. The edges of D(r, s) are chosen sides for the state r, and so are the edges of Qs
+directed as in Lemma 4.2. So the disk identity applies to every cycle of D(r, s) and to every cycle of Qs.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Figure 8. The pair (β, α) of Example 3.3: outlined wedges mark β, solid wedges α.
+The arrows β(t) →α(t) form D(β, α), a counterclockwise cycle of length 7 through
+6, 1, 2, 3, 9, 10, 11 and a clockwise triangle through 8, 7, 12.
+In the example (β, α) is a pair (Figure 8), and so is (α, β). The second state of (α, β) is good, and the
+second state of (β, α) is not.
+Two reversals. A pair can be changed along a cycle in two ways.
+Lemma 4.3. Let (r, s) be a pair.
+(1) Let K be a cycle of Qs, and put ˜r(t) = u(t) for the faces t whose edge lies on K and ˜r(t) = r(t)
+otherwise. Then (˜r, s) is a pair, ˜r directs K the other way round, and the same operation applied
+to (˜r, s) and K returns (r, s).
+(2) Let C be a cycle of D(r, s), and exchange r(t) and s(t) for the faces t whose edge lies on C. The
+result is a pair whose set of D-edges is D(r, s) with C reversed.
+Proof. (1) By Lemma 4.2 the cycle K is directed by r, so r maps its faces onto the tails of its edges,
+which are all its vertices, and u maps them onto the heads, again all its vertices. So ˜r is a bijection, and
+˜r(t) = u(t) ̸= s(t). On the faces of K the corners r(t) and u(t) trade roles, so K is reversed and the
+operation undoes itself. (2) The tails and the heads of C are both its vertex set, so both new maps are
+bijections, and they still differ on every face.
+□
+
+
+BARNETTE’S CONJECTURE
+11
+A sign. We want to count pairs so that the pairs with cyclic Qs cancel. Reversing a cycle of Qs pairs
+them up, so we need a sign that this reversal changes. For adjacent vertices v, w put δ(v, w) = 1 if the
+black face of the edge vw lies to the left of v →w, and δ(v, w) = −1 otherwise; equivalently δ(v, w) = 1
+when w follows v in the counterclockwise order of the corners of that black face. Along a directed cycle Z
+of T traversed counterclockwise the inside is on the left, so the sum of δ along Z is ℓ−(h −ℓ) = 2ℓ−h,
+and by the disk identity a counterclockwise cycle of chosen sides has δ-sum −3 and a clockwise one +3.
+For a pair put
+ε(r, s) =
+Y
+t∈A
+δ
+ r(t), s(t)
+
+.
+Lemma 4.4. Both reversals of Lemma 4.3 change the sign ε. If D(r, s) has c cycles, of which c+ run
+counterclockwise, then n ≡c (mod 2) and
+ε(r, s) = (−1)(n+c)/2(−1)c+.
+Proof. In a black triangle t, the three directed edges r(t) →s(t), s(t) →u(t), u(t) →r(t) run the same
+way round. Their δ values agree, so δ(u(t), s(t)) = −δ(s(t), u(t)) = −δ(r(t), s(t)). Reversing a cycle K of
+Qs replaces δ(r(t), s(t)) by δ(u(t), s(t)) on the faces of K. Reversing a cycle C of D(r, s) replaces it by
+δ(s(t), r(t)). In both cases every factor on the cycle changes sign, and the cycle has odd length by the
+disk identity, so ε changes sign.
+A cycle of D(r, s) of length h has h factors ±1 with sum −3 if it runs counterclockwise and +3 if
+clockwise, so it has (h + 3)/2 or (h −3)/2 factors −1. The lengths are odd and add up to |X| = n, so
+c ≡n, and the total number of factors −1 is (n −3c)/2 + 3c+, which has the parity of (n + c)/2 + c+.
+□
+The reversal of a cycle of Qs can rearrange the cycles of D completely, so a sign defined by counting
+the cycles of D would not be controlled. The product of local signs changes in a computable way under
+both reversals, and the disk identity makes the number of changed factors odd. Table 1 sets the two
+reversals side by side.
+reversal of
+changes
+keeps
+sign
+used for
+a cycle of Qs
+r on its faces
+s and Qs
+flips
+cancelling the pairs with cyclic Qs
+a cycle of D(r, s)
+r and s on its faces
+undirected D
+flips
+the second grouping of the count
+Table 1. The two reversals of Lemma 4.3. The sign is that of Lemma 4.4.
+Cancellation. Fix s and let the partner vary. If Qs contains a cycle, the first reversal pairs up the
+partners of s with opposite signs. The lemma allows a weight F(s) on each term, and the next subsection
+shows why one is needed.
+Lemma 4.5. Let s be a state for which Qs contains a cycle. Then P
+r ε(r, s) = 0, the sum running over
+the partners r of s. Consequently, for every function F on states,
+X
+(r,s) pair
+ε(r, s) F(s) =
+X
+s good
+F(s) ε(rs, s),
+where rs is the partner of the good state s.
+Proof. Fix an order on the cycles of T, and let Ks be the first cycle of Qs. It depends on s only. For a
+partner r of s, reverse Ks as in Lemma 4.3(1). The new partner ˜r has the same second state s, hence the
+same Qs and the same Ks, and reversing again gives back r. This is an involution on the partners of s
+without fixed points, and by Lemma 4.4 it changes ε, so the sum is zero. For the second statement group
+the pairs by s: the states with a partner and acyclic Qs are the good states, each with one partner, by
+Lemma 4.2.
+□
+The cycle Ks must be chosen from s alone. A rule that looked at r might pick a different cycle after
+the reversal, and the map would not be an involution. In the example α is the only second state of a pair
+whose opposite sides contain a cycle, and its two partners are β and the state ˜β obtained by reversing the
+triangle 8, 1, 9, which changes β in the faces 1·7·8, 1·2·9, 8·9·10 from 8, 1, 9 to 1, 9, 8 (Figure 9).
+
+
+12
+BARNETTE’S CONJECTURE
+1
+2
+7
+8
+9
+10
+1
+2
+7
+8
+9
+10
+(a) (β, α), ε = −1
+(b) ( ˜β, α), ε = +1
+Figure 9. Cancellation in the example (n = 10), enlarged around the three affected
+black faces; the rest of the triangulation is omitted. (a) The pair (β, α). Dashed edges
+are Qα; its cycle 1, 8, 9 (heavy, around the tinted white face) is directed by β from the
+outlined corner to the third corner. (b) Reversing that cycle moves the outlined wedges in
+its three faces to their third corners and leaves the solid wedges, the state α, unchanged.
+Three local signs flip, so ε changes sign and the two pairs cancel in any sum weighted by
+a function of the second state.
+Heights. Lemma 4.5 turns the search for a good state into a question: is there a function F of the
+second state for which P
+(r,s) ε(r, s)F(s) ̸= 0? With F = 1 the answer is no, since reversing the cycle of
+D(r, s) through a fixed vertex pairs every pair with one of opposite sign. So F must tell apart the two
+orientations of a cycle of D. The disk identity offers a way, because every such cycle encloses a white face.
+For each white face we walk from it to the outer face and record, at every black face on the way, whether
+the walk passes the chosen corner.
+For each white face y fix a path of faces y = f0, f1, . . . , fj = t0 in G: consecutive faces share a side,
+and no face is repeated. Such a path exists because G is connected by Lemma 2.5(2) with M = T and
+N = ∅. A black face t ∈A on the path is entered across one of its sides and left across another. These
+two sides meet in one corner v of t, and we say that the path turns around v in t. Put κy(t, v) = 1 if the
+path turns around v in t with v on its left, κy(t, v) = −1 if it turns around v with v on its right, and
+κy(t, v) = 0 if the path misses t or turns around another corner of t. In combinatorial terms, if a′ is the
+far end of the side of entry and b′ the far end of the side of exit, then v is on the left exactly when v, a′, b′
+is the counterclockwise order of the corners of t. The height of a state s at y and its weight are
+ηs(y) =
+X
+t∈A
+κy
+ t, s(t)
+
+,
+ω(s) =
+X
+y white
+ηs(y).
+The paths are fixed once and for all.
+Reversing a clockwise cycle C of D raises the height at y by the number of times the path of y leaves
+the inside of C minus the number of times it enters it. That number is 1 when y is inside C and 0
+otherwise.
+Lemma 4.6. Let (r, s) be a pair, C a clockwise cycle of D(r, s), and (r′, s′) the pair obtained by reversing
+C. Then ηs′(y) −ηs(y) is 1 if the white face y lies inside C and 0 otherwise. Hence ω(s′) −ω(s) = L(C),
+the number of white faces inside C, and L(C) ≥1.
+Proof. After the reversal C runs counterclockwise, with edges s(t) →r(t), and s′(t) = r(t) on its faces.
+So ηs′(y) −ηs(y) = P
+t
+ κy(t, r(t)) −κy(t, s(t))
+
+over the faces t whose edge lies on C. Fix such a face t
+and let g be its side on C, which joins s(t) and r(t). If the path of y misses t or turns around u(t) in t, it
+does not cross g on its way through t, and the summand of t is 0. Otherwise it crosses g once on its way
+through t. We claim that the summand is then +1 if this crossing leads from the left of s(t) →r(t) to
+its right, and −1 if it leads from right to left. Suppose it leads from left to right. If t lies on the left of
+s(t) →r(t), the path leaves t across g, and the corners of t in counterclockwise order are s(t), r(t), u(t).
+Either the path entered across r(t)u(t) and turns around r(t), which is then on its left, or it entered
+across s(t)u(t) and turns around s(t), which is then on its right. In both cases the summand is +1. If t
+
+
+BARNETTE’S CONJECTURE
+13
+lies on the right of s(t) →r(t), the path enters t across g, and the same check gives +1. Reversing the
+direction of travel exchanges left and right, which gives −1 for a crossing from right to left.
+Every step of the path across an edge of C enters or leaves the black face of that edge, which lies in A
+and so is not an end of the path. The path passes through that face only once. So the sum over t is the
+number of steps that cross C from left to right minus the number that cross from right to left. The left
+of the counterclockwise cycle C is its inside, and by Lemma 2.5(1) a step changes sides of C exactly when
+it crosses an edge of C. The path ends in t0, which is outside C, so the sum is 1 if y is inside C and 0
+otherwise. Finally L(C) ≥1 by the disk identity.
+□
+Figure 10 follows this change along one path in the example.
++
+−
+y
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
++
+−
+y
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) 7-cycle clockwise: ηs(y) = −1
+(b) reversed: ηα(y) = 0
+Figure 10. A height in the example. The white face y = {1, 8, 9} (tinted) and its path
+of faces to the outer face (dash-dotted): y, {1, 7, 8}, {1, 6, 7}, {0, 1, 6}, {0, 5, 6}, t0. In
+each black face on the path the path turns around one corner; the circled sign is + if that
+corner lies on its left and −if on its right. The height of a state at y adds the signs at
+turned corners that carry its wedge. (a) A pair whose 7-cycle runs clockwise. Its second
+state s has its wedge at the turned corner 6 of {0, 1, 6} and not at the turned corner 1 of
+{1, 7, 8}, so ηs(y) = −1. (b) Reversing the 7-cycle as in Lemma 4.6 gives the pair (β, α)
+of Figure 8, where it runs counterclockwise. The wedge in {0, 1, 6} has moved to 1, and
+ηα(y) = 0, one more, because y lies inside the 7-cycle.
+Since ηs(y) is a sum over faces, and different cycles of D(r, s) use different faces, the effects of reversing
+several cycles add up.
+The total is not zero. It remains to choose F. Call the undirected edge set of D(r, s) the cover of the
+pair; OpenAI call it a group. Start with a single cycle. On the cube the two states of Figure 1(f) give two
+pairs, one in each order, with the same cover: the triangle 3, 4, 5 around one white face. Reversing the
+triangle turns one pair into the other, so by Lemmas 4.4 and 4.6 the two pairs have opposite signs and
+weights that differ by 1. With F = 1 the two terms cancel, and with F = ω they leave ±1.
+A cover with c cycles carries 2c pairs, one for each choice of orientations, as the proof of Proposition 4.8
+shows. Each reversal flips the sign, and the weight is a constant plus L(C) for each cycle C that runs
+counterclockwise. So the signed sum of F(s) over the cover is a difference taken once along each of the c
+cycles. For a power of ω the next lemma computes it. A c-fold difference kills every power below c, and
+on the c-th power it leaves ±c! times the product of the steps L(C), each at least 1. So we take F = ωm,
+where m ≥1 is the smallest number of cycles of a cover, assuming a pair exists. Covers with more than
+m cycles then contribute nothing, and the covers with exactly m cycles contribute nonzero products of
+one sign. Figure 11 shows this for the two covers of the example.
+
+
+14
+BARNETTE’S CONJECTURE
+Lemma 4.7. Let ω0, L1, . . . , Lc be real numbers and m ≤c a nonnegative integer. Then
+X
+x∈{0,1}c
+(−1)x1+···+xc ω0 + x1L1 + · · · + xcLc
+m =
+(
+0
+if m < c,
+(−1)c c! L1 · · · Lc
+if m = c.
+Proof. Expand the power and use xj
+i = xi for xi ∈{0, 1} and j ≥1. Every term becomes a constant
+times Q
+i∈I xi for a set I with |I| ≤m. For such a product the sum over x factors into one sum for each
+i: P
+xi(−1)xixi = −1 if i ∈I and P
+xi(−1)xi = 0 if i /∈I. So it vanishes unless I = {1, . . . , c}, which
+needs m = c. Those terms arise by taking a different xiLi from each of the c factors, in c! ways.
+□
+Proposition 4.8. If T has a pair, then it has a good state.
+Proof. Let Σ = P
+(r,s) ε(r, s) ω(s)m over all pairs. By Lemma 4.5 it is a sum over good states, so it
+suffices to show Σ ̸= 0.
+Sort the pairs into classes by their cover, the undirected edge set of D(r, s). Fix a pair (r, s) whose D
+has cycles C1, . . . , Cc, and a pair (r′, s′) with the same undirected edges. This edge set contains exactly one
+side of each face t ∈A, so (r′(t), s′(t)) = (r(t), s(t)) or (s(t), r(t)). Along a cycle consecutive faces make
+the same choice, since if exactly one of the two edges at a vertex x were reversed, x would be the value of r′,
+or of s′, at two faces. So the class of (r, s) consists of the 2c pairs obtained by reversing some of its cycles,
+which are pairs by Lemma 4.3(2). Index them by x ∈{0, 1}c, with xi = 1 when Ci runs counterclockwise.
+By Lemma 4.4, ε = (−1)(n+c)/2(−1)x1+···+xc, and by Lemma 4.6, ω = ω0 + x1L(C1) + · · · + xcL(Cc),
+where ω0 is the weight of the second state when every cycle runs clockwise. Every class has c ≥m, so by
+Lemma 4.7 the class contributes 0 if c > m, and
+(−1)(n+m)/2(−1)m m! L(C1) · · · L(Cm) = (−1)(n−m)/2 m! L(C1) · · · L(Cm)
+if c = m. At least one class has c = m, and every L(Ci) ≥1, so
+Σ = (−1)(n−m)/2 m!
+X
+m
+Y
+i=1
+L(Ci) ̸= 0,
+the sum running over the classes with m cycles.
+□
+The minimum cannot be dropped: a class with c cycles contributes with the sign (−1)(n−c)/2 in its
+leading term, and this sign alternates as c grows by two. Only the classes with the fewest cycles are sure
+to agree.
+class
+7-cycle
+triangle
+ε
+ω(s)
+second state s
+L = 6, 1
+cw
+cw
++1
+−4
+good
+L = 6, 1
+cw
+ccw
+−1
+−3
+good (s = β)
+L = 6, 1
+ccw
+cw
+−1
+2
+cycle in Qs (s = α)
+L = 6, 1
+ccw
+ccw
++1
+3
+good
+L = 3, 1
+cw
+cw
++1
+−2
+good
+L = 3, 1
+cw
+ccw
+−1
+−1
+good
+L = 3, 1
+ccw
+cw
+−1
+1
+good
+L = 3, 1
+ccw
+ccw
++1
+2
+cycle in Qs (s = α)
+Table 2. The eight pairs of the example. Reversing the 7-cycle from clockwise to
+counterclockwise raises ω by L = 6 or 3, reversing the triangle raises it by 1, and each
+reversal flips ε.
+Example 4.9. In the example the 8 pairs fall into two classes of four, both with m = 2 cycles: a 7-cycle
+enclosing 6 white faces and a triangle enclosing 1 (the class of (β, α)), and a 7-cycle enclosing 3 and a
+triangle enclosing 1. Table 2 lists all eight, with the weights of the paths of faces chosen as shortest paths.
+In each class the four values of ε ω2 add up to 2 L1L2: 16 −9 −4 + 9 = 12 and 4 −1 −1 + 4 = 6. So
+Σ = 18, while P ε = P ε ω = 0. The two pairs with a cycle in Qs have the same second state α and
+cancel (Figure 11). The six good states are the second states of the other six pairs, three with ε = +1
+and three with ε = −1.
+
+
+BARNETTE’S CONJECTURE
+15
+ε = +1
+ω = −4
+ε = −1
+ω = 2
+s = α
+ε = −1
+ω = −3
+ε = +1
+ω = 3
++6
++6
++1
++1
+7-cycle cw
+7-cycle ccw
+triangle cw
+triangle ccw
+cover with L1 = 6, L2 = 1
+P
+ε ω2 = 16 −9 −4 + 9 = 12 = 2 · 6 · 1
+ε = +1
+ω = −2
+ε = −1
+ω = 1
+ε = −1
+ω = −1
+ε = +1
+ω = 2
+s = α
++3
++3
++1
++1
+7-cycle cw
+7-cycle ccw
+triangle cw
+triangle ccw
+cover with L1 = 3, L2 = 1
+P
+ε ω2 = 4 −1 −1 + 4 = 6 = 2 · 3 · 1
+Figure 11. The two covers of the example, each as a square of its four pairs (Table 2).
+Moving right reverses the 7-cycle to counterclockwise and raises ω by L1; moving down
+does the same for the triangle and raises ω by L2 = 1. Every step flips ε. So the signed
+sum of ω2 over a square is a difference across and a difference down, and it equals 2L1L2.
+The two shaded pairs share the second state α and cancel each other.
+Remark 4.10. OpenAI test the signed count against exp(x ω(s)) with the phase iJ, where J =
+1
+3
+P
+t δ(r(t), s(t)), and read off the Taylor coefficient of order m. Since iJ = i−nε, that coefficient is
+i−nΣ/m!. The unsigned manuscript [4] uses nonnegative integer incidence weights to obtain an integer
+polynomial of this form. For our signed heights, P ε(r, s)zω(s) is an integer Laurent polynomial. Its
+expansion at z = 1 has coefficient P ε(r, s)
+ ω(s)
+m
+
+= Σ/m! in degree m, where the binomial coefficient has
+its usual polynomial meaning also for negative integers ω(s). The lower moments vanish by Lemma 4.7.
+Li [12] marks m distinct crossings, which gives a symmetric function of degree m in the crossing signs in
+place of the power. These nonvanishing arguments do not by themselves give an efficient construction.
+5. The first pair
+Proposition 4.8 needs one pair. Let B be the bipartite graph on A ∪X in which t is joined to its
+corners in X. States are the perfect matchings of B. A spanning subgraph of B with all degrees two is a
+union of disjoint even cycles, and taking alternate edges along each cycle splits it into two states that
+differ in every face, that is, a pair. We find such a subgraph as a flow.
+Give the edges of a network capacity 2 from a source to each x ∈X, capacity 1 from x to each face
+t ∈A with corner x, and capacity 2 from each t ∈A to a sink. An integral flow of value 2n saturates every
+source and sink edge, and the incidences that carry flow form the required subgraph. A cut with S ⊆X
+on the source side and the best placement of each t has capacity 2(n −|S|) + P
+t∈A min
+ 2, |V (t) ∩S|
+
+,
+where V (t) is the set of corners of t. By the integral max-flow min-cut theorem [6], a pair exists if
+(5.1)
+X
+t∈A
+min
+ 2, |V (t) ∩S|
+
+≥2|S|
+for all S ⊆X.
+A separating triangle of T is a 3-cycle of T with vertices of T on both of its sides.
+Proposition 5.2. If T has no separating triangle, then T has a pair.
+Proof. We rewrite (5.1) in terms of U = V (T) \ S, which contains the roots. Let e(U) be the number of
+edges of T with both ends in U, and b(U) the number of black faces, t0 included, with all corners in U.
+A face t ∈A with j corners in U contributes min(2, 3 −j) = 2 −max(0, j −1) to the left side of (5.1),
+and max(0, j −1) is the number of sides of t with both ends in U, minus one if j = 3. Every edge has
+exactly one black face, and t0 has all three sides and all corners in U, so the left side of (5.1) equals
+2n −(e(U) −3) + (b(U) −1). Since |S| = n + 3 −|U|, condition (5.1) becomes
+(5.3)
+e(U) −b(U) ≤2|U| −4.
+This is a planar edge count. A coloured triangulation with p vertices has 3p −6 edges and p −2 black
+faces, so it attains equality, and the claim is that no set U does better. The corners of a black face with
+all corners in U are pairwise adjacent, so they lie in one component of the graph T[U] formed by the
+edges with both ends in U. So it is enough to show, for each component H with p vertices, q edges and
+bH black faces of T with all corners in H, that q −bH ≤2p −4 for the component containing the roots
+and q −bH ≤2p for the others. Summing gives (5.3).
+For p ≤3 we have q ≤p(p −1)/2 ≤2p. If the root component has p = 3, it is the triangle abo with
+q = 3 and bH = 1, since a second black face with corners a, b, o would share the side ab with the black
+face t0. So q −bH = 2 = 2p −4.
+
+
+16
+BARNETTE’S CONJECTURE
+Now let p ≥4, and regard H as a plane graph with f faces, each with a boundary walk of length d ≥3,
+a bridge being counted twice. The faces of H of length three are exactly the faces of T with all corners in
+H. A face of T with all corners in H contains no vertex or edge of T, so it is a face of H. Conversely, a
+face of length three is bounded by a triangle xyz of H; it is a connected region with boundary xyz, so it
+is one whole side of xyz. The other side contains a vertex of H, because p ≥4. As xyz is not separating,
+the face side contains no vertex of T, and no edge either, since such an edge would join two of x, y, z and
+be parallel to a side. So it is a face of T. This is the only use of the hypothesis.
+Let f• and f◦be the numbers of black and white faces of H of length three. So f• = bH. Each other
+face Ψ of H, of length dΨ ≥4, is a union of faces of T and parts of other components; let bal(Ψ) be the
+number of black faces of T in Ψ minus the number of white ones. Count the sides of the faces of T in Ψ
+with sign +1 for black and −1 for white. An edge of T inside Ψ contributes +1 −1, and what remains
+are the dΨ sides along the boundary walk, so 3 bal(Ψ) is a sum of dΨ terms ±1. For dΨ = 4 the sum is
+even and divisible by three, hence 0. For dΨ = 5 it is odd and divisible by three, hence ±3. For dΨ ≥6,
+| bal(Ψ)| ≤dΨ/3 ≤dΨ −4. In all cases bal(Ψ) ≤dΨ −4. The faces of H partition the faces of T, and T
+has as many black faces as white by (2.3), so
+f◦−f• =
+X
+dΨ≥4
+bal(Ψ) ≤
+X
+dΨ≥4
+(dΨ −4).
+Counting sides, 2q = 3(f• + f◦) + P
+dΨ≥4 dΨ = 4f −(f• + f◦) + P
+dΨ≥4(dΨ −4) ≥4f −2f•. With Euler’s
+formula p −q + f = 2 this gives q −f• ≤2p −4.
+□
+Figure 12 shows the network and a tight cut in the example.
+1
+2
+3
+9
+10
+11
+6
+8
+7
+12
+{1, 2, 9}
+{0, 2, 3}
+{3, 4, 9}
+{8, 9, 10}
+{4, 10, 11}
+{5, 6, 11}
+{0, 1, 6}
+{1, 7, 8}
+{6, 7, 12}
+{8, 11, 12}
+source
+sink
+2
+1
+2
+vertices X
+black triangles A
+Figure 12. The flow network for the example. Each vertex of X receives at most 2
+from the source, each incidence (thin) carries at most 1, and each black triangle of A
+sends at most 2 to the sink. An integral flow of value 2|X| = 20 uses two incidences at
+every vertex and every triangle, the double and the solid ones, which alternate along
+cycles and split into the states β and α. Here (5.1) holds with equality for S = {2}, a
+vertex in only two black triangles.
+6. Separating triangles
+Let ∆= xyz be a separating triangle of a coloured triangulation T, and let D be one of the two closed
+disks it bounds. The piece TD consists of the vertices, edges and faces of T in D, together with one new
+face, the cap, bounded by ∆on the other side.
+Lemma 6.1. The three faces of T in D that have a side on ∆have the same colour. Colouring the cap
+with the other colour makes TD a coloured triangulation with fewer vertices than T.
+Proof. Count the sides of the faces of T in D with sign +1 for black and −1 for white. Edges inside D
+cancel, so three times the number of black faces minus white faces in D is a sum of three terms ±1, one
+for each side of ∆; being divisible by three, it is ±3, so the three terms agree. Every face of the piece is
+
+
+BARNETTE’S CONJECTURE
+17
+bounded by a triangle, so the piece is connected by Lemma 2.2, and its graph is a subgraph of T, hence
+simple. It has a vertex strictly inside D, so at least four vertices, and it misses the vertices strictly on the
+other side. With the cap coloured oppositely, every side of ∆has faces of both colours, and the other
+edges keep their two faces.
+□
+Figure 13 shows the two pieces of a small example and the gluing of Theorem 6.2.
+0
+1
+2
+3
+4
+5
+3
+4
+5
+6
+7
+8
+0
+1
+2
+3
+4
+5
+6
+7
+8
+(a) outer piece, cap tinted
+(b) inner piece, cap as outer face
+(c) glued
+Figure 13. Gluing across the separating triangle {3, 4, 5} of an octahedron with a
+second octahedron inside one face (9 vertices). (a) The outer piece, cap tinted; its acyclic
+selection (bold) puts 3 and 5 in one tree. (b) The inner piece with the cap as outer face
+and {3, 5} prescribed. (c) The union is an acyclic selection of the whole triangulation.
+Disks and squares mark its two trees. Each is a tree of (a) joined to a tree of (b): the
+square trees share the edge {3, 5}, and the disk trees share the vertex 4.
+Theorem 6.2. Let T be a coloured triangulation, t0 a face of T and e0 a side of t0. Then T has an
+acyclic selection containing e0.
+Proof. We use induction on the number of vertices. If T has no separating triangle, exchange the colours
+if necessary so that t0 is black. Then T has a pair by Proposition 5.2, a good state by Proposition 4.8,
+and an acyclic selection containing e0 by Proposition 3.9.
+Otherwise let ∆= xyz be a separating triangle, let D1 be the closed disk bounded by ∆that contains
+t0 and D2 the other, and let T1, T2 be the pieces, coloured as in Lemma 6.1. The face t0 is a face of T1,
+and by induction T1 has an acyclic selection P1 containing e0. The cap of T1 is bounded by ∆, so P1
+contains exactly one side of ∆. Call it e′. The cap of T2 is also bounded by ∆, and by induction T2 has
+an acyclic selection P2 containing e′, which is then its only side of ∆. Put P = P1 ∪P2.
+P is a selection containing e0. Every face of T is a face of exactly one piece. Say f is a face of T1.
+The edges that T1 and T2 share are the sides of ∆, and P2 contains only e′ among them, which is also in
+P1. So f has the same sides in P as in P1, namely exactly one, and the same holds for faces of T2.
+P is acyclic. By Proposition 2.6(2) applied in Ti, a side of ∆other than e′ has its ends in different
+components of Pi. So if e′ = xy, then x and y lie in one component of Pi and z in the other, and the
+only path in Pi between two of x, y, z is the edge e′. Suppose Z is a cycle in P. It is not contained in P1
+or in P2, so it contains an edge of P2 \ P1, which is not a side of ∆and so has an end strictly inside D2.
+Follow Z from this edge in both directions until it first meets {x, y, z}. The pieces meet only in x, y, z,
+so this gives a path in P2 of length at least two between two vertices of {x, y, z}, and they are distinct
+because Z is not contained in P2. This contradicts the previous paragraph.
+□
+The prescribed edge is what makes the gluing work: P2 must use the same side of ∆as P1, and an
+arbitrary acyclic selection of T2 need not. Read in G, ∆is a cut of three edges, each piece is G with one
+side of the cut contracted to a vertex, and the gluing joins two Hamiltonian cycles that use the same two
+cut edges. This is the form of the argument in [12, Appendix C]. That it suffices to treat graphs without
+such cuts goes back to Kelmans; see [2, Section 5].
+Proof of Theorem 1.1. By Lemma 2.1, the dual T of G is a coloured triangulation. Let e0 be the edge of
+T crossing e and t0 one of its two faces. Theorem 6.2 gives an acyclic selection P with e0 ∈P, and by
+Proposition 2.6(1) the edges of G not in P ∗form a Hamiltonian cycle. It avoids e, because e ∈P ∗.
+□
+
+
+18
+BARNETTE’S CONJECTURE
+7. Remarks
+How this account differs from the sources. The proof is that of [14], and its presentation here
+differs in four places. The disk identity is stated as “one more white face than black”, Lemma 2.2 makes
+Euler’s formula applicable to the inside of a cycle, and Proposition 3.9 reads the acyclicity of the selection
+off that statement. The sign of a pair is real, as in [4], and is written as a product of local signs. The
+weights are heights read along paths of faces. They are the weights that OpenAI construct in the proof
+of [14, Lemma 5.3] for one choice of their circulations, and they are Li’s counts of crossings between
+half-rays and matching edges [12, Section 4] taken along fixed paths. This choice removes the spokes and
+the sliding argument of [14, Section 5.3], and the finite difference of Lemma 4.7 replaces the exponential
+sum. The tree of faces Ys is obtained from the opposite sides by planar duality in T; in G it is Li’s black
+dual trace [12, Section 6] with one extra leaf.
+Which Hamiltonian cycles arise. For fixed t0 and e0, Lemma 3.1 assigns a state sC to every
+Hamiltonian cycle C avoiding the edge across e0. C is produced by Proposition 3.9 exactly when sC
+is good, and different good states give different cycles. If sC is good, the complement P of C avoids
+SsC, because its side in each t ∈A contains sC(t) and its side in t0 is e0. Thus P and PsC are perfect
+matchings of the tree YsC, and a tree has at most one perfect matching, so P = PsC. Conversely, when C
+comes from a good state s, directing Ps \ {e0} out of s(t) gives outdegree one at each nonroot and zero at
+each root. On each rooted tree this is its orientation towards the root, so Lemma 3.1 recovers sC = s.
+This also proves that different good states give different cycles. In the example all six such cycles arise.
+In the hexagonal prism, whose dual is the hexagonal bipyramid, take a black face as t0 and its side on
+the equator as e0; there are three states, two of them good, and four Hamiltonian cycles avoiding the
+edge, so only two arise. For the two other sides of t0 there are two such cycles, and both arise.
+Why each hypothesis is needed. Bipartite. The colouring of the faces of T is the bipartition of G. It
+gives every edge one black face, which makes Qs and D(r, s) consist of distinct edges and gives |A| = |X|.
+Tutte’s 46-vertex graph [17] is cubic, planar and 3-connected but not Hamiltonian. The smallest such
+graphs have 38 vertices [11].
+Planar. On an orientable surface of genus g the same counting gives |V | = k +2−2g, so |X| = |A|−2g
+and there are no states when g > 0. The smallest non-Hamiltonian cubic bipartite 3-connected graph is
+the 50-vertex graph of Georges and Kelmans [7, 3].
+Cubic. Cubicity makes the faces of T triangles, so that a corner has one opposite side, and it gives the
+complement of a selection degree two. The incidence graph of the vertices and faces of the triangular
+bipyramid has classes of sizes 5 and 6, so it has 11 vertices and no Hamiltonian cycle. It is planar by
+drawing each face centre joined to its three corners. Here is also a check of 3-connectivity. The bipyramid
+has equatorial vertices p1, p2, p3, apices u, v, and faces up1p2, up2p3, up3p1, vp1p2, vp2p3, vp3p1. Deleting
+at most two of its five vertices leaves a connected graph, as is seen directly from the equatorial triangle
+and the two apices. If at most one face centre is deleted from the incidence graph, every surviving
+bipyramid edge is still represented by a two-edge path through one of its incident face centres, and every
+remaining face centre has a surviving corner. If two face centres are deleted, no original vertex is deleted,
+and at most one bipyramid edge loses both its incident face centres, since two faces share at most one
+side. The bipyramid stays connected after deleting one edge, and the surviving face centres all attach to
+it. Thus the incidence graph stays connected after any two vertex deletions.
+3-connected. It is used once, to make T simple (Lemma 2.1). Simplicity is used in the density bound,
+where a face of H of length two would break bal(Ψ) ≤dΨ −4, and in the pieces of Section 6. Take two new
+vertices and three copies of the cube with one edge removed, and join the two ends of the removed edge
+in each copy to the two new vertices, one to each, respecting the bipartition. The result is cubic, bipartite
+and planar with 26 vertices. To check 2-connectivity, each cube with an edge removed is 2-connected and
+joins the two new vertices by a path. Deleting a new vertex leaves the three copies connected through the
+other new vertex. Deleting a vertex of a copy leaves that copy connected to at least one new vertex, while
+the other two copies still connect the new vertices. Deleting both new vertices leaves three components,
+so the graph is 2-connected but has no Hamiltonian cycle. Deciding Hamiltonicity is NP-complete for
+2-connected cubic bipartite planar graphs [1].
+No separating triangle. Proposition 5.2 uses it once, and it is not necessary: by [4, Theorem 1.2], a
+pair exists exactly when no separating triangle has black faces along all three of its sides on the side away
+from t0. Two octahedra glued along a face (9 vertices) give the smallest examples, with a pair for one
+choice of t0 and none for another of the same colour; an exhaustive check over every face rooting of every
+Eulerian sphere triangulation with at most 12 vertices confirms this minimality.
+
+
+BARNETTE’S CONJECTURE
+19
+The polynomial behind the count. Give each corner choice (t, v) a variable wt,v and put Π(w) =
+P
+(r,s) ε(r, s) Q
+t∈A wt,s(t). By Lemmas 4.2 and 4.5 the coefficient of a state s is 0 unless s is good, and
+±1 if it is. So the monomials of Π are exactly the good states. Grouping by the undirected cycles of D as
+in Proposition 4.8,
+Π(w) =
+X
+D
+(−1)(n−c(D))/2 Y
+C∈D
+ wC+ −wC−
+,
+where wC± is the product of wt,v over the faces of C, with v the head of the edge of C in t when C runs
+counterclockwise (+) or clockwise (−). When a pair exists, Proposition 4.8 proves Π ̸= 0. This can also
+be read off at wt,v = 1 + ξκ(t, v) with κ = P
+y κy: each factor is then ξL(C) + O(ξ2), and the classes
+with the fewest cycles have a common leading sign. OpenAI’s exponential sum is, up to the factor i−n,
+the substitution wt,v = eξa(t,v) with the spoke weights a of [14, Lemma 5.3].
+No polynomial-time construction is known. The proof shows that a good state exists but gives
+no efficient way to find one. The unsigned manuscript [4] states an algorithm that enumerates the good
+states in time polynomial in the number |V (G)| of vertices times 3|V (G)|/4; we do not use it. We know of
+no polynomial-time algorithm that finds a Hamiltonian cycle in every graph as in Theorem 1.1.
+Consequences and open questions. By the equivalence of Gorsky, Steiner and Wiederrecht [8,
+Theorem 4.16], Theorem 1.1 implies that every cubic, 3-connected, bipartite Pfaffian graph has a
+Hamiltonian cycle through any given path of three edges [14, Corollary 7.2]. Kelmans showed that the
+conjecture is equivalent to the statement that for any two distinct edges e, f on a common face there
+is a Hamiltonian cycle through e that avoids f (as explained in [9, 2]), so that statement now holds
+too. Whether the same holds for two arbitrary distinct edges e, f remains open. The argument above
+prescribes only an avoided edge, and the gluing needs exactly that. The Pfaffian consequence uses a
+universal equivalence: it passes from the planar theorem to cubic Pfaffian braces through trisums, then
+to general cubic 3-connected bipartite Pfaffian graphs through tight-cut decompositions, as proved in [8,
+Theorem 4.16].
+OpenAI’s accompanying Lean formalisation gives a machine-checked proof of Barnette’s conjecture
+[13]. It uses a different route through algebraic duality and does not formally verify every statement or
+proof in this exposition, including the two-induced-trees statement of Proposition 2.6(2). Two companion
+notes give a primal formulation and an account using two sign-reversing involutions.
+References
+1. Takanori Akiyama, Takao Nishizeki, and Nobuji Saito, NP-completeness of the Hamiltonian cycle problem for bipartite
+graphs, Journal of Information Processing 3 (1980), no. 2, 73–76.
+2. Helmut Alt, Michael S. Payne, Jens M. Schmidt, and David R. Wood, Thoughts on Barnette’s conjecture, Australasian
+Journal of Combinatorics 64 (2016), no. 2, 354–365.
+3. Gunnar Brinkmann, Jan Goedgebeur, and Brendan D. McKay, The minimality of the Georges–Kelmans graph,
+Mathematics of Computation 91 (2022), no. 335, 1483–1500.
+4. A constructive proof of Barnette’s conjecture, Unsigned manuscript, dated 18 October, 2026.
+5. Tomás Feder and Carlos Subi, On Barnette’s conjecture, Tech. Report TR06-015, Electronic Colloquium on Computa-
+tional Complexity, 2006.
+6. Lester R. Ford, Jr. and Delbert R. Fulkerson, Maximal flow through a network, Canadian Journal of Mathematics 8
+(1956), 399–404.
+7. John P. Georges, Non-Hamiltonian bicubic graphs, Journal of Combinatorial Theory, Series B 46 (1989), no. 1, 121–124.
+8. Maximilian Gorsky, Raphael Steiner, and Sebastian Wiederrecht, Matching theory and Barnette’s conjecture, Discrete
+Mathematics 346 (2023), no. 2, 113249.
+9. Alexander Hertel, A survey & strengthening of Barnette’s conjecture, Tech. report, Department of Computer Science,
+University of Toronto, April 2005.
+10. Camden Hine and Tamás Kálmán, Clock theorems for triangulated surfaces, arXiv:1808.06091, 2018.
+11. D. A. Holton and B. D. McKay, The smallest non-Hamiltonian 3-connected cubic planar graphs have 38 vertices,
+Journal of Combinatorial Theory, Series B 45 (1988), no. 3, 305–319.
+12. Zhentao Li, A note on the proof of Barnette’s conjecture, arXiv:2610.30490v1 [math.CO], 2026.
+13. OpenAI, openai/math: mathematical manuscripts and supporting proof artifacts, https://github.com/openai/math,
+2026.
+14.
+, Paired states and Hamiltonian cycles in cubic bipartite planar graphs, Preprint, 24 September 2026, OpenAI
+Math Release, September 2026.
+15. Tobias Schnieders, Barnette graphs with faces up to size 8 are Hamiltonian, arXiv:2508.03531, 2025.
+16. Sherman K. Stein, B-sets and planar maps, Pacific Journal of Mathematics 37 (1971), no. 1, 217–224.
+17. W. T. Tutte, On Hamiltonian circuits, Journal of the London Mathematical Society s1-21 (1946), no. 2, 98–101.

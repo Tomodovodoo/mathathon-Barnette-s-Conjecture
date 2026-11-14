@@ -1,0 +1,47 @@
+BARNETTE’S CONJECTURE
+3
+are listed in Table 2. Among them are a state whose opposite sides contain a cycle and two states that
+differ along a cycle enclosing three vertices. The numbers quoted for the example come from exhaustive
+enumeration.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+t0
+Figure 2. The example triangulation T, its 13 vertices labelled, with G in grey: each
+vertex of G sits in a face of T and each edge of G crosses one edge of T. Black faces are
+shaded. The outer face t0 = {0, 4, 5} is black too, as the grey collar shows; the vertex of
+G inside it is drawn below the disk. Its corners 0, 4, 5 are hollow, and the prescribed side
+e0 = {0, 4} is the bottom arc. There are 11 black faces, 11 white faces and 33 edges.
+2. The dual triangulation and the target
+The dual. Fix an embedding of G in the sphere, with edges drawn as polygonal arcs. Its dual T has a
+vertex in each face of G and an edge crossing each edge of G once. Conversely G is the graph of faces of
+T: each face of T contains one vertex of G, and two faces are adjacent in G when they share a side.
+Lemma 2.1. Let G be as in Theorem 1.1. Then T is a simple graph with at least four vertices, every
+face of T is bounded by a triangle, and the faces of T can be coloured black and white so that every edge
+of T has one black and one white face.
+Proof. First, G has no set of at most two edges whose removal separates a nonempty vertex set U from
+the nonempty rest. If |U| = 1 then three edges leave U, and if |U| = 2 at least four do, since G is simple.
+So |U| ≥3, and likewise for the rest. Deleting the at most two endpoints in U of the cut edges leaves a
+nonempty part of U with no edge to the rest, contradicting 3-connectivity.
+A loop of T, or two edges of T joining the same two vertices, is a closed curve that meets G in one
+or two points, on one or two edges of G. The two ends of a crossed edge lie on opposite sides of the
+curve, so both sides contain vertices of G, and the crossed edges form a cut of size at most two. Hence
+T is simple. The face of T containing a vertex v of G is bounded by a closed walk through the three
+faces of G at v, and in a simple graph a closed walk of length three is a triangle. Euler’s formula gives
+|V (T)| = |F(G)| = 2 + |E(G)| −|V (G)| = 2 + |V (G)|/2 ≥4. Finally, colour the face of T containing v by
+the class of v in the bipartition of G. The two faces at an edge of T contain the two ends of an edge of G,
+so they get different colours.
+□
+From now on T is a coloured triangulation: a simple graph with at least four vertices, embedded in
+the sphere so that every face is bounded by a triangle, with a black and white colouring of its faces in
+which every edge has one face of each colour. Two faces share at most one side, since two faces with two

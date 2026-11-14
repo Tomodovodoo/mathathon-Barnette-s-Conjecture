@@ -1,0 +1,65 @@
+BARNETTE’S CONJECTURE
+7
+Proof. Ys is a spanning tree of G by Lemmas 3.5 and 2.5(2). A face t ∈A has exactly one side in Ss, its
+side in Qs, because ao and bo belong to t0. So t has degree two. The face t0 has ao, bo ∈Ss and e0 /∈Ss,
+so it has degree one, and its neighbour is the white face y0 across e0. Colours alternate along every edge
+of Ys. In the rooted tree, t0 has one child, every t ∈A has a parent and so exactly one child, and every
+white face has a parent, which is black. Thus every black face has exactly one side in Ps. A white face y
+is the only child of its parent, so the side towards its parent is in Ps. Any other side of y would be shared
+with a black child t of y, and the side that t selects is shared with the child of t, which is not y; since two
+faces share at most one side, that side is not in Ps. So every white face has exactly one side in Ps. The
+side that t0 shares with y0 is e0, and for t ∈A the side shared with its child is not in Qs, so it is one of
+the two sides at s(t).
+□
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a) one bold edge for each white face
+(b) two trees and the curve between them
+Figure 5. The selection Pβ (bold). (a) The dash-dotted tree is Yβ with its black nodes
+suppressed: a tree on the white faces rooted at the ringed face y0 across e0 = {0, 4}. The
+root selects e0, and every other white face selects the side towards its parent. Every face
+has one bold side. (b) The bold edges form two trees, on the disks and on the squares,
+and the curve that crosses each other edge once is the Hamiltonian cycle of G through
+all 22 faces.
+For a good state Lemma 3.6 produces a selection Ps containing e0 without any further choice. It
+remains to see that Ps has no cycle. A cycle in Ps \ {e0} would be made of sides leaving chosen corners,
+and the rest of this section says what such a cycle looks like.
+The inside of a cycle. Throughout the paper, the cycles we need are made of sides leaving corners
+chosen by a state. Let r be a state, and suppose that in every face t ∈A one of the two sides at r(t) has
+been chosen and directed out of r(t). We call these the chosen sides. The state is called r here because
+Section 4 applies these facts to the first state of a pair.
+Lemma 3.7 (outdegree). Let ⃗E be a set of edges of T, each directed, such that every vertex has at most
+one outgoing edge in ⃗E. Then every cycle of ⃗E is a directed cycle. A component of ⃗E with ν vertices,
+of which γ have no outgoing edge, has ν −γ edges. So γ ≤1, the component is a tree if γ = 1, and it
+contains exactly one cycle if γ = 0.
+Proof. A cycle with h edges has h distinct tails on its h vertices, so every vertex is the tail of one of its
+edges. The edge count is the sum of the outdegrees, and a connected graph with ν vertices has at least
+ν −1 edges, with equality for a tree, and exactly one cycle if it has ν.
+□
+The chosen sides have outdegree one at every vertex of X and zero at the roots, so Lemma 3.7 applies.
+Let Z be a directed cycle of chosen sides, of length h. Every vertex of Z has an outgoing chosen side, so
+it lies in X. The roots lie on the boundary of the outer face, and not on Z, so they lie outside Z. Hence
