@@ -1,0 +1,159 @@
+[
+  {
+    "header": "W SINK pot=k V=16 graph=27 t0=0,1,2 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W TRAP2 pot=k+c V=16 graph=27 t0=0,1,2 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W TRAP2 pot=(c,wq) V=16 graph=27 t0=0,1,2 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W SINK pot=(k,+psi,+om) V=16 graph=27 t0=0,1,2 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W SINK pot=(k,+psi,-om) V=18 graph=141 t0=12,17,15 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W TRAP1 pot=(k,+psi) V=18 graph=141 t0=12,17,15 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W TRAP2 pot=wq+wd V=18 graph=143 t0=3,13,4 k=1 c=1 extra=0",
+    "k": 1,
+    "c": 1,
+    "radius_k": 2,
+    "layer_sizes": [
+      2,
+      4
+    ]
+  },
+  {
+    "header": "W RHO pot=k V=21 graph=47751 t0=0,1,2 k=1 c=2 extra=3",
+    "k": 1,
+    "c": 2,
+    "radius_k": 3,
+    "layer_sizes": [
+      3,
+      5,
+      9
+    ]
+  },
+  {
+    "header": "W RHO V=60 graph=8 t0=13,58,46 k=1 rho=4",
+    "k": 1,
+    "c": 3,
+    "radius_k": 4,
+    "layer_sizes": [
+      4,
+      11,
+      30,
+      69
+    ]
+  },
+  {
+    "header": "W RHO V=40 graph=37 t0=10,14,34 k=1 rho=3",
+    "k": 1,
+    "c": 5,
+    "radius_k": 3,
+    "layer_sizes": [
+      6,
+      16,
+      33
+    ]
+  },
+  {
+    "header": "W SIGNEDRHO V=60 graph=8 t0=13,58,46 k=1 pot=1 rho=3",
+    "k": 1,
+    "c": 1,
+    "radius_k": 4,
+    "layer_sizes": [
+      2,
+      6,
+      18,
+      43
+    ]
+  },
+  {
+    "header": "W SIGNEDRHO V=60 graph=8 t0=13,58,46 k=1 pot=4 rho=4",
+    "k": 1,
+    "c": 3,
+    "radius_k": 4,
+    "layer_sizes": [
+      4,
+      11,
+      30,
+      69
+    ]
+  },
+  {
+    "header": "W TRAP1 pot=(k,-om) V=40 graph=0 t0=4,19,5 k=1 c=3 extra=0",
+    "k": 1,
+    "c": 3,
+    "radius_k": 2,
+    "layer_sizes": [
+      4,
+      9
+    ]
+  },
+  {
+    "header": "W TRAP2 pot=(k,-om) V=40 graph=13 t0=2,10,6 k=1 c=3 extra=0",
+    "k": 1,
+    "c": 3,
+    "radius_k": 3,
+    "layer_sizes": [
+      4,
+      10,
+      21
+    ]
+  },
+  {
+    "header": "W TRAP1 pot=(k,wq) V=40 graph=21 t0=6,30,31 k=1 c=3 extra=0",
+    "error": "truncated certificate"
+  },
+  {
+    "header": "W TRAP2 pot=(k,wq) V=50 graph=11 t0=5,15,14 k=1 c=3 extra=0",
+    "error": "truncated certificate"
+  }
+]
