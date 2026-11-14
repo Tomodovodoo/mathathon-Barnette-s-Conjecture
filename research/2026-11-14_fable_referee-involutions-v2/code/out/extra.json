@@ -1,0 +1,15 @@
+{
+ "a": {
+  "pairs": 3280,
+  "cycles": 6832
+ },
+ "b": {
+  "m": 2,
+  "objects": 69,
+  "branches": {
+   "exterior move+reverse": 6,
+   "exterior move": 14,
+   "interior nonfirst move+reverse": 2
+  }
+ }
+}
