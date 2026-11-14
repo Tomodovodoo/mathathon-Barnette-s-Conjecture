@@ -163,7 +163,7 @@ Proof. Every tail belongs to $X$, so the circuit avoids $R$. Both shores are con
 
 The first counts ends at $S$. In the second, $3|B\cap S|$ counts internal edges and the $\ell$ black-ended boundary edges; adding $h$ gives the displayed form. The third is (2.1).
 
-Here are all details of the state count, the fourth equation. The set $U$ is the union of $r(B\cap S)$ and the $h$ faces of $C$. Indeed, $U$ contains no root face by Lemma 2. A face in $U$ off $C$ has every boundary vertex in $S$ by the no-pinch statement, so its unique state partner is in $B\cap S$. Conversely both sets are contained in $U$. Their intersection has size $\ell$: a face on $C$ is the assigned face of the black endpoint of its outgoing circuit edge, and that endpoint is in $S$ exactly for those $\ell$ edges. Bijection of $r$ makes this count exact, with no duplicates. Inclusion-exclusion proves the fourth equation.
+The fourth equation is the state count. The set $U$ is the union of $r(B\cap S)$ and the $h$ faces of $C$. Indeed, $U$ contains no root face by Lemma 2. A face in $U$ off $C$ has every boundary vertex in $S$ by the no-pinch statement, so its unique state partner is in $B\cap S$. Conversely both sets are contained in $U$. Their intersection has size $\ell$: a face on $C$ is the assigned face of the black endpoint of its outgoing circuit edge, and that endpoint is in $S$ exactly for those $\ell$ edges. Bijection of $r$ makes this count exact, with no duplicates. Inclusion-exclusion proves the fourth equation.
 
 Eliminating $|S|,\allowbreak |U|,\allowbreak |E_S|$ from (4.2) gives $h-2\ell=3$. The colour degree count on the cut is
 
@@ -209,7 +209,7 @@ Set
 Z(z)=\sum_{(r,s)\text{ pair}}\varepsilon(r,s)L_s(z)\in\mathbb Z[z].           \tag{6.1}
 \end{equation*}
 
-The construction uses a finite integer polynomial. With aligned corner signs and weights it equals $i^n$ times Lean's phase polynomial. Indeed, writing $t=\sum_b\delta(r(b),\allowbreak s(b))$, the disk identity gives $3\mid t$, the real sign is $i^{n-t}$, and Lean's phase is $i^{t/3}$. Their ratio is $i^{n-4t/3}=i^n$. This corrects the circuit-count dependence claimed in the referee's M4; it does not assert a new formal verification.
+The construction uses a finite integer polynomial. With the same weights it is a constant multiple of Lean's phase polynomial, so the two are one sum written in two normalizations. Write $t=\sum_b\delta(r(b),\allowbreak s(b))$. The selected edges of a pair split into state circuits, each with delta-sum $\pm3$ by Lemma 5 (see the proof of Lemma 8), so $3\mid t$. A product of $n$ signs with sum $t$ equals $i^{n-t}$, and Lean's phase of the pair is $i^{t/3}$ when its corner order agrees with ours. The ratio is $i^{n-4t/3}=i^n$, which depends on the rooted graph but not on the pair. If Lean's corner order runs the other way, the ratio is $i^{-n}$. STATUS.md records the adjudication of an earlier claim that the ratio depends on the number of circuits.
 
 \textbf{Lemma 7, cancellation.} PROVED-HERE. For any fixed $s$ for which $Q_s$ contains a face circuit,
 
@@ -266,11 +266,11 @@ The two removed edges at $b_0$ join the three root faces as a two-edge path. Add
 
 Proof. Every white vertex has exactly one parent edge. Every nonroot black vertex has degree two in $K$, one parent and one child, both white. It is selected by its white child, and by no other white vertex. The root has the single white child $w_0$ and is selected by it through $e_0$. Each black and white vertex is therefore covered exactly once. Since $P$ avoids $q_s(b)$, its edge at $b\ne b_0$ lies on the assigned face $s(b)$.
 
-\textbf{Lemma 11, matching cut balance.} PROVED-HERE; Lean's \nolinkurl{matching_cut_balance}. If the cut $\partial S$ is contained in any perfect matching of a cubic bipartite graph and $\ell$ of its $h$ edges have black ends in $S$, then $h=2\ell$.
+\textbf{Lemma 11, matching cut balance.} PROVED-HERE; Lean's \nolinkurl{matching_cut_balance}. If the cut $\partial S$ is contained in a perfect matching of a cubic bipartite graph and $\ell$ of its $h$ edges have black ends in $S$, then $h=2\ell$.
 
 Proof. Let $p$ count matching edges internal to $S$, and $b=|B\cap S|$, $w=|W\cap S|$. Matching degrees give $b=p+\ell$ and $w=p+h-\ell$, so $b-w=2\ell-h$. Cubic degrees give $3(b-w)=2\ell-h$. Subtract to obtain $b=w$ and $h=2\ell$.
 
-\textbf{Lemma 12, the complement is one cycle.} PROVED-HERE, restating Lean's \nolinkurl{selectNet_forest}, \nolinkurl{selected_forest}, and \nolinkurl{recover_connected_complement}. Let $s$ be any state and $P$ any perfect matching whose edge at every $b\in A$ lies on $s(b)$. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.
+\textbf{Lemma 12, the complement is one cycle.} PROVED-HERE, restating Lean's \nolinkurl{selectNet_forest}, \nolinkurl{selected_forest}, and \nolinkurl{recover_connected_complement}. Let $s$ be any state and $P$ any perfect matching whose edge at every $b\in A$ lies on $s(b)$; call such $P$ and $s$ \emph{compatible}. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.
 
 Proof. First consider $P\setminus\{e_0\}$ as face links. Direct its edge at $b\in A$ from $s(b)$ to the other incident face. Every nonroot face has one outgoing link and root faces have none. Any face circuit would therefore be directed and would be a state circuit for $s$. Its cut side would satisfy $h=2\ell+3$ by Lemma 5. All its edges belong to $P$, so Lemma 11 gives $h=2\ell$, a contradiction. Thus these links are a forest. The same component count as in Lemma 9 gives exactly one root face per component. Adding $e_0$, which joins two distinct root faces, still creates no face circuit.
 
@@ -302,7 +302,7 @@ Finally a cubic 3-vertex-connected graph is 3-edge-connected in the present sett
 
 Finiteness supplies the enumerations, minima, flow network, and strong induction. Simplicity is automatic once $|V|>2$: bipartiteness excludes loops, and parallel edges at $u,\allowbreak v$ leave at most two edges leaving $\{u,\allowbreak v\}$, contradicting 3-edge-connectivity unless these are all vertices. We keep the word because Barnette's conjecture is stated for simple graphs. Cubicity supplies three incident faces, the unique opposite edge, the four counts, the recovery-tree degrees, and the cap degrees. Bipartiteness supplies balanced incidence parts, the local black-edge labels, the colour counts, and the matching recovery. Planarity supplies Lemmas 1 through 3 and Euler in Lemma 4, and survives capping. Three-edge-connectivity makes $G$ 2-connected, giving facial cycles and three distinct faces at each vertex in Lemma 1. It makes face links simple, survives capping as the induction hypothesis, and gives connected shores and three distinct ends for nontrivial three-edge cuts in Lemma 13. Lemma 4 obtains $c\ge3$ from positive divisibility, not from 3-edge-connectivity. The additional absence of nontrivial three-edge cuts is used only in Lemma 4.
 
-The real-sign polynomial proof in Section 6 is the linear-weight refinement from the local determinant referee report, Section 2. The flow and cut-side form of the disk identity come from the Lean development. The complete argument written here is an informal proof, not a new Lean file or a claim that this exact prose has been machine-checked.
+The real-sign polynomial proof in Section 6 is the linear-weight refinement from research/2026-11-14\_fable\_referee-determinants/SIGNIFICANCE.md, Section 2. The flow and cut-side form of the disk identity come from the Lean development. The complete argument written here is an informal proof, not a new Lean file or a claim that this exact prose has been machine-checked.
 
 \section*{10. Sources}
 
@@ -325,7 +325,7 @@ Proof. A partner orients each edge of $Q_s$ with one outgoing edge at each nonro
 
 Proof. The forward direction is Lemma 12. Conversely suppose the complement $C$ is connected. The face links in $P$ have no circuit, since such a circuit would be a cut disjoint from $C$. They form a forest with two components, since $|P|=n+1$ and there are $n+3$ faces. Let $e_0$ be the matching edge at the root; it joins two root faces. Each of the other two root edges has its ends in different components of this forest. Otherwise the path between its faces in $P$, together with that edge, would be a face circuit and hence a cut met by the cycle $C$ exactly once, impossible since every cycle meets every cut evenly. The third root face therefore lies in the other component from the two ends of $e_0$. Removing $e_0$ leaves three trees, one per root. Orient these toward their roots and assign to each $b\in A$ the tail face of its matching edge. This gives a bijection onto $X$ and a face incident with the matching edge, hence the required state. Every compatible state must give this same orientation, proving uniqueness.
 
-COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in the structure referee's INTEGRATION.md, Sections 6 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner.
+COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in research/2026-11-14\_sol\_referee-structure/INTEGRATION.md, Sections 5 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner.
 
 The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The illustrated running example below instead uses the current 13-face example, whose primal graph has 22 vertices.
 \clearpage\section*{Primal-dual dictionary}
@@ -369,7 +369,7 @@ LIT for the source terminology; PROVED-HERE for the identifications. Sources: Op
 \clearpage
 \begin{center}\begin{minipage}{\textwidth}\centering
 \input{figures/05-cancellation-body.tex}
-\par\smallskip\raggedright\footnotesize Figure 5. The same second state s and its two partners. Dashed primal edges are Q\_s, viewed as links between faces. Reversing the tails on its odd face circuit exchanges the outlined incidence segments and reverses the sign. The blue state, and hence its entire weight polynomial, stays fixed.
+\par\smallskip\raggedright\footnotesize Figure 5. A second state s whose Q\_s contains a face circuit, shown with its two partners. Dashed primal edges are Q\_s, viewed as links between faces. Reversing the tails on its odd face circuit exchanges the outlined incidence segments and reverses the sign. The blue state, and hence its entire weight polynomial, stays fixed.
 \end{minipage}\end{center}\vspace{5mm}
 \begin{center}\begin{minipage}{\textwidth}\centering
 \input{figures/06-recovery-body.tex}
@@ -382,6 +382,6 @@ LIT for the source terminology; PROVED-HERE for the identifications. Sources: Op
 \end{minipage}\end{center}\vspace{5mm}
 \begin{center}\begin{minipage}{\textwidth}\centering
 \input{figures/08-pieces-body.tex}
-\par\smallskip\raggedright\footnotesize Figure 8. The two capped pieces of the preceding cut, both cubes. The cap vertices replace the opposite shores. Deleting the cap vertices from compatible Hamiltonian cycles gives two spanning paths that glue across the two retained cut edges.
+\par\smallskip\raggedright\footnotesize Figure 8. The two capped pieces of the preceding cut, both cubes. The cap vertices replace the opposite shores. If a Hamiltonian cycle in each piece omits the same cut edge, deleting the cap vertices leaves two spanning paths that glue across the two used cut edges (Lemma 13; the cycles are not drawn).
 \end{minipage}\end{center}\vspace{5mm}
 \end{document}

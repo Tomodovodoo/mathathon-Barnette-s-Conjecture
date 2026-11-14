@@ -93,7 +93,7 @@ output('04-flow',ps,'Integer path flow from b0 to every white vertex of G. Arrow
 z=run;R=z['R'];ps=[];partners=[r for r in z['states'] if R.is_pair(r,z['s'])];assert len(partners)==2 and sum(R.eps(r,z['s']) for r in partners)==0
 for r in partners:
  p=panel(z);state(p,z,r,'draw=bfR,line width=1.2pt,double=white,double distance=.5pt');state(p,z,z['s'],'draw=bfS,line width=1.1pt');p.graphG('bf Q',edges=[und(*e) for e in R.Q(z['s'])]);p.label([0,-z['L']['R']-.8],rf'$\varepsilon(r,s)={R.eps(r,z["s"])}$');p.box[1]-=1;ps.append(p)
-output('05-cancellation',ps,'The same second state s and its two partners. Dashed primal edges are Q_s, viewed as links between faces. Reversing the tails on its odd face circuit exchanges the outlined incidence segments and reverses the sign. The blue state, and hence its entire weight polynomial, stays fixed.')
+output('05-cancellation',ps,'A second state s whose Q_s contains a face circuit, shown with its two partners. Dashed primal edges are Q_s, viewed as links between faces. Reversing the tails on its odd face circuit exchanges the outlined incidence segments and reverses the sign. The blue state, and hence its entire weight polynomial, stays fixed.')
 ps=[]
 for z in both:
  p=panel(z);p.graphG('bf cycle',edges=[und(*e) for e in z['g'].edges if e not in z['P']],dots=False);p.graphG('bf P',edges=[und(*e) for e in z['P']]);ps.append(p)
@@ -103,10 +103,10 @@ p=Panel(m,gl['xy'],gl['R'],unit=.62,collar=False,pad=.85).graphG();p.graphG('bf 
 # separate page: original plus two cap pieces, full width total ~14cm
 for mm,xy in [(gl['m1'],gl['xy1']),(gl['m2'],gl['xy2'])]:
  assert nx.is_isomorphic(mm.G,nx.cubical_graph())
- pp=Panel(mm,xy,gl['R'],unit=.42,collar=False,pad=.85).graphG();capv=next(i for i,f in enumerate(mm.F) if set(f)==set(gl['cap'])); assert set(mm.F[capv])==set(gl['cap']); pp.label(pp.cen[capv]+[0,-.45],'cap');ps.append(pp)
+ pp=Panel(mm,xy,gl['R'],unit=.42,collar=False,pad=.85).graphG();capv=next(i for i,f in enumerate(mm.F) if set(f)==set(gl['cap'])); assert set(mm.F[capv])==set(gl['cap']); pp.label(pp.cen[capv]+([.75,-.27] if pp.cen[capv][1]<-3 else [.75,.3]),'cap');ps.append(pp)
 # Place original on one row, the pieces on the next to preserve label size.
 output('07-cut',ps[:1],'A nontrivial three-edge cut in the glued-cube example, dashed vermilion. Its two capped shores are the cube pieces shown next. This example is separate from the irreducible running graph.')
-output('08-pieces',ps[1:],'The two capped pieces of the preceding cut, both cubes. The cap vertices replace the opposite shores. Deleting the cap vertices from compatible Hamiltonian cycles gives two spanning paths that glue across the two retained cut edges.')
+output('08-pieces',ps[1:],'The two capped pieces of the preceding cut, both cubes. The cap vertices replace the opposite shores. If a Hamiltonian cycle in each piece omits the same cut edge, deleting the cap vertices leaves two spanning paths that glue across the two used cut edges (Lemma 13; the cycles are not drawn).')
 summary={'status':'COMPUTED','examples':{name:{'vertices':len(z['g'].V),'faces':z['g'].nF,'states':len(z['states']),'pairs':len(z['pairs']),'counts':{k:z['d'][k] for k in ['nS','nBS','nWS','nES','nUS','h','ell','slope']},'P':[sorted(e) for e in z['P']],'r':z['r'],'s':z['s'],'face_map':z['fmap']} for name,z in [('cube',cube),('running',run)]},'cut':[list(e) for e in cut],'cut_shore_sizes':list(map(len,comps)),'assertions':'state bijections, pairs, four counts, slope, divergences, tree, perfect matching, Hamiltonian complement, nontrivial cut and cube caps'}
 (HERE/'checked.json').write_text(json.dumps(summary,indent=2));(HERE/'captions.json').write_text(json.dumps(captions,indent=2))
 print(json.dumps(summary,indent=2))
