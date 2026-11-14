@@ -155,6 +155,10 @@ def main():
                        covered=cur['covered'], bridge=cur.get('bridge'), gap=cur.get('gap'))
             for x in cur['lean']:
                 edges.append(dict(src=nid, dst=L(x), type='corresponds-to', relation=cur['rel']))
+        if n['kind'] != 'example':
+            rec['short'] = short_label(n, rec).split('\n')[1]
+        if nid == 'lem:difference':
+            rec['lean_here'] = 'research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (Blueprint.finite_difference_fin; compiled, axioms propext, Classical.choice, Quot.sound)'
         out_nodes.append(rec)
         for u in n['uses']:
             edges.append(dict(src=nid, dst=u, type='uses'))
@@ -279,7 +283,7 @@ def short_label(n, rec):
           'lem:Y': 'tree Y_s and selection P_s', 'lem:outdegree': 'outdegree <= 1', 'lem:disk': 'disk identity',
           'prop:recover': 'P_s acyclic', 'def:pair': 'pair', 'lem:partner': 'partner orients Q_s',
           'lem:reversals': 'two reversals', 'lem:sign': 'sign = product of local signs', 'lem:cancel': 'cancellation',
-          'lem:height': 'height jump = white faces inside', 'lem:difference': 'finite difference',
+          'lem:height': 'height jump = white faces inside', 'lem:difference': 'finite difference [Lean: here]',
           'prop:good': 'a pair gives a good state', 'rem:other-sums': 'other sums', 'eq:hall': 'capacity condition',
           'prop:pair': 'no separating triangle => pair', 'lem:cap': 'caps', 'thm:T': 'acyclic selection containing e0',
           'txt:two-faces': 'two faces share <= 1 side', 'txt:inside': 'inside of a cycle (R_Z)',
