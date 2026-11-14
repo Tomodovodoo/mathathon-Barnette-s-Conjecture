@@ -62,45 +62,72 @@ def part1():
 
 
 def part2():
+    """Decode the saved certificates without their face numbering: a black face t of the pair
+    is the face of the chosen colour on the edge {r(t), s(t)}; white ids are matched through
+    the cherry structure.  Then every colour class is re-checked with my own W."""
     data = json.loads(SOL.read_text())
     out = []
     for row in data['rows']:
         g = nx.Graph()
         g.add_edges_from(tuple(e) for e in row['triangulation_edges'])
-        lab, tri, idx, inst = rooted_like_lab(g, row['outer'])
-        fmap = {}  # lab face id -> my face id
-        for i, F in enumerate(lab.faces):
-            s = frozenset(idx[v] for v in F)
-            fmap[i] = next(j for j, G in enumerate(tri.faces) if frozenset(G) == s)
+        tri, idx = tri_from_nx(g)
         r, s = row['pair']
-        A = [fmap[t] for t in lab.A]
-        assert sorted(A) == sorted(inst.A)
-        rr = {fmap[t]: idx[v] for t, v in zip(lab.A, r)}
-        ss = {fmap[t]: idx[v] for t, v in zip(lab.A, s)}
+        # their A order is the order of the pair lists; recover their t ids from the edge list
+        their_t = sorted({e[0] for e in row['edges']})
+        assert len(their_t) == len(r)
+        found = None
+        for colour in (0, 1):
+            tmap = {}
+            for t, a, b in zip(their_t, r, s):
+                fa, fb = tri.fid[idx[a], idx[b]], tri.fid[idx[b], idx[a]]
+                tmap[t] = fa if tri.col[fa] == colour else fb
+            left = [f for f in range(len(tri.faces)) if tri.col[f] == colour and f not in tmap.values()]
+            if len(set(tmap.values())) == len(their_t) and len(left) == 1:
+                found = (tmap, left[0])
+                break
+        assert found, row['name']
+        tmap, outer = found
+        inst = Rooted(tri, outer)
+        rr = {tmap[t]: idx[v] for t, v in zip(their_t, r)}
+        ss = {tmap[t]: idx[v] for t, v in zip(their_t, s)}
         ok_pair = (all(rr[t] != ss[t] and rr[t] in tri.faces[t] and ss[t] in tri.faces[t] for t in inst.A)
                    and sorted(rr.values()) == sorted(inst.X) == sorted(ss.values()))
-        # coloured edges in my numbering, recomputing their W-ends from my own W
         classes = {0: [], 1: []}
         spokes = set()
-        ends_match = True
+        phi, phi_ok = {}, True
         for (t, v, a, c), col in zip(row['edges'], row['colors']):
-            T_, v_ = fmap[t], idx[v]
+            T_, v_ = tmap[t], idx[v]
             spokes.add((T_, v_))
             mine = inst.wedge[T_, v_]
-            theirs = {inst.widx[fmap[a]], inst.widx[fmap[c]]}
-            ends_match &= set(mine) == theirs
             classes[col].append(mine)
+            # their white ids {a, c} must correspond to my {mine}; record consistent bijection
+            cand = [(a, mine[0]), (c, mine[1])], [(a, mine[1]), (c, mine[0])]
+            phi.setdefault(('edge', T_, v_), (a, c, mine))
+        # solve phi by propagation over cherries: the shared white id of a cherry is the face across {r,s}
+        for t in their_t:
+            T_ = tmap[t]
+            es = [e for e in row['edges'] if e[0] == t]
+            shared = set(es[0][2:]) & set(es[1][2:])
+            me = set(inst.wedge[T_, rr[T_]]) & set(inst.wedge[T_, ss[T_]])
+            if len(shared) != 1 or len(me) != 1:
+                phi_ok = False
+                continue
+            x, y = shared.pop(), me.pop()
+            if phi.get(x, y) != y:
+                phi_ok = False
+            phi[x] = y
         support = {(t, rr[t]) for t in inst.A} | {(t, ss[t]) for t in inst.A}
         m = len(inst.white)
-        out.append({'name': row['name'], 'V': row['V'], 'pair_valid': ok_pair,
-                    'support_matches': spokes == support, 'ends_match': ends_match,
+        out.append({'name': row['name'], 'V': row['V'], 'their_pass': row['pass'], 'pair_valid': ok_pair,
+                    'support_matches': spokes == support, 'white_ids_consistent': phi_ok,
                     'tree0': is_spanning_tree(m, classes[0]), 'tree1': is_spanning_tree(m, classes[1])})
         print(out[-1], flush=True)
     return out
 
 
 if __name__ == '__main__':
-    res = {'command': 'python code/referee_sol.py', 'part1_recount': part1()}
+    res = {'command': 'python code/referee_sol.py',
+           'part1_recount': part1() if '--skip1' not in sys.argv else 'skipped'}
     print(res['part1_recount'], flush=True)
     res['part2_certificates'] = part2()
     (OUT / 'referee_sol.json').write_text(json.dumps(res, indent=1))

@@ -1,0 +1,2 @@
+16 {'triangulations': 185, 'rooted': 5180, 'rooted_with_pair': 3294, 'pair_supports': 3656, 'pack_fail': 0, 'random_tests_with_pair': 9882, 'random_fail_with_pair': 0, 'random_tests_no_pair': 5658, 'random_fail_no_pair': 1886, 'groups_without_tree': 1, 'seconds': 50.7}
+17 {'triangulations': 466, 'rooted': 13980, 'rooted_with_pair': 8042, 'pair_supports': 9290, 'pack_fail': 0, 'random_tests_with_pair': 24126, 'random_fail_with_pair': 0, 'random_tests_no_pair': 17814, 'random_fail_no_pair': 6241, 'groups_without_tree': 0, 'seconds': 243.5}

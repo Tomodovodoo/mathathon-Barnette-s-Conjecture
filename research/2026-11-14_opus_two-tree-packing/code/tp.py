@@ -279,14 +279,14 @@ def forest_path(adj, a, b):
     return None
 
 
-def two_tree_partition(m, ends):
+def two_tree_partition(m, ends, k=2):
     """Partition edges (list of (a,b), parallel edges allowed) into two forests on m vertices.
 
     Edmonds' matroid-partition algorithm with shortest augmenting paths.  Returns a list of
     colours 0/1, or None if no partition into two forests exists (then the caller should
     produce a density witness)."""
     colour = [None] * len(ends)
-    adj = [{v: {} for v in range(m)} for _ in (0, 1)]
+    adj = [{v: {} for v in range(m)} for _ in range(k)]
 
     def put(e, c):
         a, b = ends[e]
@@ -310,7 +310,7 @@ def two_tree_partition(m, ends):
         while q and term is None:
             x = q.popleft()
             a, b = ends[x]
-            for c in (0, 1):
+            for c in range(k):
                 if colour[x] == c:
                     continue
                 path = forest_path(adj[c], a, b)
@@ -336,7 +336,7 @@ def two_tree_partition(m, ends):
             if colour[x] is not None:
                 take(x)
     # verify (independent of the algorithm)
-    for c in (0, 1):
+    for c in range(k):
         d = DSU(m)
         for e, cc in enumerate(colour):
             if cc == c and not d.union(*ends[e]):
