@@ -8,6 +8,7 @@
     "graphs": 16,
     "states": 1722,
     "rootings": 270,
+    "arbitrary_state_circuits": 248,
     "pairs": 640,
     "deficit_subsets": 96640,
     "directed_disk_checks": 1140,

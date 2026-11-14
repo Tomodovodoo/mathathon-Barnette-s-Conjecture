@@ -42,7 +42,7 @@ $$
 
 A face meeting both shores contains a cut edge on its boundary. If the cut is a face circuit, the mixed faces are precisely its listed faces. This is the no-pinch assertion needed here.
 
-Proof. We give the cycle-cut argument without drawing a separating curve. Over $\mathbb F_2$, the boundary vectors of the faces span the cycle space of $G$. Here is the standard Euler proof of this fact. Their sum is zero. Every other dependence assigns equal coefficients to the two faces at each edge. All faces are linked by successive edge incidences, so those coefficients are all equal. Face-incidence connectivity follows, for example, by contracting a spanning tree and deleting the remaining edges one by one: every deletion merges the two incident faces until only one remains. Thus the boundary span has dimension $|\mathcal F|-1=|E|-|V|+1$, the cycle-space dimension. Facial boundaries are even-degree edge sets, so their span is the whole cycle space.
+Proof. We give the cycle-cut argument without drawing a separating curve. Over $\mathbb F_2$, the boundary vectors of the faces span the cycle space of $G$. Here is the standard Euler proof of this fact. Their sum is zero. Every other dependence assigns equal coefficients to the two faces at each edge. All faces are linked by successive edge incidences, so those coefficients are all equal. Face-incidence connectivity follows, for example, by contracting a spanning tree and deleting the remaining loops one by one. The resulting one-vertex graph remains connected at each deletion, so Euler forces its face count to fall by one; that deletion merges its two incident faces. Eventually only one face remains. Thus the boundary span has dimension $|\mathcal F|-1=|E|-|V|+1$, the cycle-space dimension. Facial boundaries are even-degree edge sets, so their span is the whole cycle space.
 
 An edge set is therefore a cut exactly when it meets every facial boundary evenly. For completeness, the orthogonal complement of the cycle space is the cut space: if an edge indicator has even sum on every cycle, its path sum from a fixed vertex is independent of the path; its value on an edge is the difference of the two vertex path sums. In characteristic two this is the cut of the vertices assigned value one.
 
@@ -596,6 +596,8 @@ Z(z)=4z+9z^2-2z^3-9z^4-2z^5.
 $$
 
 The cancelling second state is $s_{1}$. Its two partners are $s_{6}$ with sign $-1$ and $s_{7}$ with sign $1$. The fixed circuit of $Q_s$ is the face sequence $(5,9,10)$. Reversing its tails interchanges exactly these partners. Their entire state-weight polynomials cancel, not merely their constant terms.
+
+This cancellation circuit crosses $(e_{22},e_{23},e_{20})$ and has cut side $S=\{12\}$. Its four-count tuple is $(1,0,3,3,3,0)$, so its odd length is visible directly in G.
 
 For recovery choose $s_{0}$. The removed edge set is $\{e_{1},e_{2},e_{4},e_{5},e_{9},e_{13},e_{14},e_{16},e_{20},e_{22},e_{28}\}$.
 

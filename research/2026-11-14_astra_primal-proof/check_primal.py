@@ -5,7 +5,7 @@ Run from any directory: python check_primal.py [--max-order 20]
 """
 from pathlib import Path
 import sys, json, argparse
-from itertools import combinations
+from itertools import combinations, product
 from collections import Counter, defaultdict
 import networkx as nx
 
@@ -131,6 +131,14 @@ class Primal:
 
     def check(self, counts):
         ss=self.states(); counts['states']+=len(ss); counts['rootings']+=1
+        if len(self.g)<=12:
+            for state in ss:
+                options=[sorted(set(self.inc[b])-{f}) for b,f in zip(self.A,state)]
+                for heads in product(*options):
+                    arcs=nx.DiGraph(); arcs.add_edges_from(zip(state,heads))
+                    for C in nx.simple_cycles(arcs):
+                        self.disk(C,state)
+                        counts['arbitrary_state_circuits']+=1
         pairs=[(r,s) for r in ss for s in ss if all(x!=y for x,y in zip(r,s))]
         counts['pairs']+=len(pairs)
         n=len(self.A)

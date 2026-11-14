@@ -1,6 +1,6 @@
 # Actual Lean statement extracts
 
-Read from openai/math commit 4eaee87548250b2682affda7d05d947c05554bae. These are declaration headers from the existing upstream clone, not transcriptions from the earlier report. File-level variables and namespaces remain in the source. Our prose replaces the second network with the face-incidence relation of G; that interpretation is proved in Lemmas 2 and 3. No fresh Lean build was run by this agent.
+Read from openai/math commit 4eaee87548250b2682affda7d05d947c05554bae. These are declaration headers from the existing upstream clone, not transcriptions from the earlier report. File-level variables and namespaces remain in the source. Our prose replaces the second network with the face-incidence relation of G; that interpretation is proved in Lemmas 2 and 3. No fresh Lean build was run by this agent. Regenerate with python research/2026-11-14_astra_primal-proof/extract_lean.py.
 
 ## BMatching.lean:403
 
@@ -47,6 +47,30 @@ lemma white_positive_of_boundary (black : V → Prop)
     (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (A : Finset V)
     (hcount : (N.cut A).card = 2 * (N.blackCut black A).card + 3) :
     0 < (A.filter fun v => ¬black v).card
+```
+
+## ColoredDual.lean:102
+
+```lean
+def weights (α : E → ℝ) (root : V) (t : M.Black root) : Fin 3 → ℝ
+```
+
+## ColoredDual.lean:106
+
+```lean
+lemma weights_diff (root : V) (α : E → ℝ)
+    (hα : N.boundary α = whiteCharge M.black root)
+    (t : M.Black root) {i j : Fin 3} (hij : i ≠ j) :
+    M.weights α root t j - M.weights α root t i =
+      α ((M.face t.val).side D i j) *
+        D.arcSign ((M.face t.val).side D i j) ((M.face t.val).corner i)
+```
+
+## ColoredDual.lean:183
+
+```lean
+theorem signed (α : E → ℝ) (hα : N.boundary α = whiteCharge M.black root) :
+    (C.delta = -3 ∧ 0 < C.slope α) ∨ (C.delta = 3 ∧ C.slope α < 0)
 ```
 
 ## DiskRegions.lean:252
@@ -239,6 +263,25 @@ theorem state_disk_count (h : N.Duality D) (sD : D.Simple)
     (A : Finset V) (hroot : root ∉ A) (hcut : N.cut A = D.cycleEdges C) :
     (A.filter black).card + (N.cut A).card =
       (N.regionVertices D A).card + (N.blackCut black A).card
+```
+
+## StateDisk.lean:390
+
+```lean
+lemma blackDelta_cut (black : V → Prop)
+    (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e))
+    (C : Barnette.CycleCoordinates D.graph) (A : Finset V) (c : ℝ)
+    (hx : D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0))
+    (hcut : N.cut A = D.cycleEdges C) :
+    N.blackDelta D black C = c * (2 * (N.blackCut black A).card - (N.cut A).card)
+```
+
+## StateDisk.lean:416
+
+```lean
+lemma cycle_cut_scalar (C : Barnette.CycleCoordinates D.graph) (A : Finset V) (c : ℝ)
+    (hx : D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0)) :
+    c = 1 ∨ c = -1
 ```
 
 ## StateDisk.lean:428

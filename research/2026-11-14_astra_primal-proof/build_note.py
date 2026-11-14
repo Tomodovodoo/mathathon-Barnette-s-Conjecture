@@ -70,6 +70,13 @@ def examples():
             out += [rf'The cancelling second state is $s_{{{stateids[s]}}}$. Its two partners are '+
                     ' and '.join(rf'$s_{{{stateids[tuple(row["r"])]}}}$ with sign ${row["sign"]}$' for row in mates)+
                     rf'. The fixed circuit of $Q_s$ is the face sequence $({numbers(c)})$. Reversing its tails interchanges exactly these partners. Their entire state-weight polynomials cancel, not merely their constant terms.','']
+            es=[q[f][h]['edge'] for f,h in zip(c,c[1:]+c[:1])]
+            cutgraph=g.copy();cutgraph.remove_edges_from(es)
+            shore=next(S for S in nx.connected_components(cutgraph) if d['root'] not in S)
+            ell=sum(next(v for v in e if v in d['black']) in shore for e in es)
+            U={f for f,vs in enumerate(d['faces']) if set(vs)&shore}
+            counts=[len(shore),len(shore&set(d['black'])),sum(bool(set(e)&shore) for e in d['edges']),len(U),len(es),ell]
+            out += [rf'This cancellation circuit crosses $({eset(es,ids)})$ and has cut side $S=\{{{numbers(sorted(shore))}\}}$. Its four-count tuple is $({numbers(counts)})$, so its odd length is visible directly in G.','']
         rec=d['recovery']; chosen=next(tuple(c['s']) for c in d['coefficients'] if c['coefficient'])
         out += [rf'For recovery choose $s_{{{stateids[chosen]}}}$. The removed edge set is $\{{{eset(rec["removed"],ids)}\}}$.','',
                 rf'The recovery tree has edges $\{{{eset(rec["tree"],ids)}\}}$.','',
@@ -81,12 +88,13 @@ def escape(s):
     return ''.join({'&':r'\&','%':r'\%','#':r'\#','_':r'\_','{':r'\{','}':r'\}','~':r'\textasciitilde{}','^':r'\textasciicircum{}','\\':r'\textbackslash{}'}.get(c,c) for c in s)
 
 def inline(s):
-    chunks=re.split(r'(\$[^$]+\$|`[^`]+`|\*\*[^*]+\*\*)',s)
+    chunks=re.split(r'(\$[^$]+\$|`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)',s)
     out=[]
     for t in chunks:
         if t.startswith('$'):out.append(t.replace(',',r',\allowbreak '))
         elif t.startswith('`'):out.append(r'\nolinkurl{'+t[1:-1]+'}')
         elif t.startswith('**'):out.append(r'\textbf{'+escape(t[2:-2])+'}')
+        elif t.startswith('*'):out.append(r'\emph{'+escape(t[1:-1])+'}')
         else:out.append(escape(t))
     return ''.join(out)
 

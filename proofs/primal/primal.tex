@@ -28,7 +28,7 @@ Fix an orientation of the sphere, a bipartition $B,\allowbreak W$ of $V(G)$, and
 A=B\setminus\{b_0\},\qquad X=\mathcal F\setminus R,\qquad n=|A|.
 \end{equation*}
 
-We use faces as incidence labels. We never construct a triangulation, a spoke graph, or a labelling by the two sides of the final Hamiltonian cycle. A *face link* is simply an edge $e$ of $G$, regarded as joining its two incident faces. A face circuit is a cyclic list of distinct faces $f_0,\allowbreak \ldots,\allowbreak f_{h-1}$ and distinct edges $e_i$ with $e_i$ incident with $f_i,\allowbreak f_{i+1}$, with indices modulo $h$. This is an incidence description on $G$; no drawn arcs through faces are required. Forest and connected-component language for face links means the corresponding ordinary finite incidence relation on the face labels. This relation retains the cycle-cut content of planar duality. Avoiding the triangulation does not remove that content.
+We use faces as incidence labels. We never construct a triangulation, a spoke graph, or a labelling by the two sides of the final Hamiltonian cycle. A \emph{face link} is simply an edge $e$ of $G$, regarded as joining its two incident faces. A face circuit is a cyclic list of distinct faces $f_0,\allowbreak \ldots,\allowbreak f_{h-1}$ and distinct edges $e_i$ with $e_i$ incident with $f_i,\allowbreak f_{i+1}$, with indices modulo $h$. This is an incidence description on $G$; no drawn arcs through faces are required. Forest and connected-component language for face links means the corresponding ordinary finite incidence relation on the face labels. This relation retains the cycle-cut content of planar duality. Avoiding the triangulation does not remove that content.
 
 \textbf{Lemma 1, elementary setup.} PROVED-HERE. Facial boundaries are cycles; each vertex is incident with three distinct faces; two faces share at most one edge; and
 
@@ -46,7 +46,7 @@ The following lemma isolates the two planar facts used by the four-count identit
 
 \textbf{Lemma 2, face circuits and cut-side faces.} PROVED-HERE; Lean counterparts are \nolinkurl{Duality.circuit_cut}, \nolinkurl{Bond.connected_shore}, \nolinkurl{region_euler}, and \nolinkurl{mixed_corner_on_boundary}.
 
-(a) A face circuit is exactly the edge set of a bond of $G$, a nonempty inclusion-minimal edge cut. Its two shores induce connected graphs. If a face circuit avoids the three faces in $R$, let $S$ be the unique shore not containing $b_0$. Call this its *cut side*. No root face meets $S$.
+(a) A face circuit is exactly the edge set of a bond of $G$, a nonempty inclusion-minimal edge cut. Its two shores induce connected graphs. If a face circuit avoids the three faces in $R$, let $S$ be the unique shore not containing $b_0$. Call this its \emph{cut side}. No root face meets $S$.
 
 (b) For connected complementary shores $S,\allowbreak \overline S$, let $E_S$ be all edges with an end in $S$, and $U_S$ all faces incident with a vertex of $S$. Then
 
@@ -56,7 +56,7 @@ The following lemma isolates the two planar facts used by the four-count identit
 
 A face meeting both shores contains a cut edge on its boundary. If the cut is a face circuit, the mixed faces are precisely its listed faces. This is the no-pinch assertion needed here.
 
-Proof. We give the cycle-cut argument without drawing a separating curve. Over $\mathbb F_2$, the boundary vectors of the faces span the cycle space of $G$. Here is the standard Euler proof of this fact. Their sum is zero. Every other dependence assigns equal coefficients to the two faces at each edge. All faces are linked by successive edge incidences, so those coefficients are all equal. Face-incidence connectivity follows, for example, by contracting a spanning tree and deleting the remaining edges one by one: every deletion merges the two incident faces until only one remains. Thus the boundary span has dimension $|\mathcal F|-1=|E|-|V|+1$, the cycle-space dimension. Facial boundaries are even-degree edge sets, so their span is the whole cycle space.
+Proof. We give the cycle-cut argument without drawing a separating curve. Over $\mathbb F_2$, the boundary vectors of the faces span the cycle space of $G$. Here is the standard Euler proof of this fact. Their sum is zero. Every other dependence assigns equal coefficients to the two faces at each edge. All faces are linked by successive edge incidences, so those coefficients are all equal. Face-incidence connectivity follows, for example, by contracting a spanning tree and deleting the remaining loops one by one. The resulting one-vertex graph remains connected at each deletion, so Euler forces its face count to fall by one; that deletion merges its two incident faces. Eventually only one face remains. Thus the boundary span has dimension $|\mathcal F|-1=|E|-|V|+1$, the cycle-space dimension. Facial boundaries are even-degree edge sets, so their span is the whole cycle space.
 
 An edge set is therefore a cut exactly when it meets every facial boundary evenly. For completeness, the orthogonal complement of the cycle space is the cut space: if an edge indicator has even sum on every cycle, its path sum from a fixed vertex is independent of the path; its value on an edge is the difference of the two vertex path sums. In characteristic two this is the cut of the vertices assigned value one.
 
@@ -82,7 +82,7 @@ Proof. The real signed facial boundary vectors span the real cycle space by exac
 
 \section*{3. The incidence matchings and existence of a pair}
 
-A *state* is a bijection $s:A\to X$ assigning to each black vertex an incident face. It is a perfect matching of the bipartite incidence relation between $A$ and $X$. A *pair* is two states $r,\allowbreak s$ such that $r(b)\ne s(b)$ for every $b\in A$.
+A \emph{state} is a bijection $s:A\to X$ assigning to each black vertex an incident face. It is a perfect matching of the bipartite incidence relation between $A$ and $X$. A \emph{pair} is two states $r,\allowbreak s$ such that $r(b)\ne s(b)$ for every $b\in A$.
 
 For a state $s$, let $q_s(b)$ be the unique edge at $b$ not on face $s(b)$. Let $Q_s$ be the set of these $n$ edges, regarded as face links. For a pair, orient $q_s(b)$ from $r(b)$ to the third face at $b$. Each nonroot face has one outgoing link and root faces have none. If $Q_s$ has a circuit, it is directed: the distinct tails of its edges exhaust its vertices. In particular that circuit avoids $R$.
 
@@ -295,11 +295,11 @@ The real-sign polynomial proof in Section 6 is the linear-weight refinement from
 
 \section*{10. Sources}
 
-LIT. OpenAI, *Paired states and Hamiltonian cycles in cubic bipartite planar graphs*, September 24, 2026, especially Proposition 3.1, Lemma 4.1, Proposition 5.1, Lemmas 6.1 and 6.2, and Corollary 7.1. Repository copy: papers/OpenAI-Barnette.pdf.
+LIT. OpenAI, \emph{Paired states and Hamiltonian cycles in cubic bipartite planar graphs}, September 24, 2026, especially Proposition 3.1, Lemma 4.1, Proposition 5.1, Lemmas 6.1 and 6.2, and Corollary 7.1. Repository copy: papers/OpenAI-Barnette.pdf.
 
-LIT. Zhentao Li, *A note on the proof of Barnette's conjecture*, arXiv:2610.30490v1, October 21, 2026, especially Lemma 9, Claim 12, Lemma 30, and Appendix C. Repository copy: papers/A-Note-On-Barnette.pdf. We use the written deficit proof, supply its balance and connectivity details, and do not rely on the sketched general case of Appendix B.
+LIT. Zhentao Li, \emph{A note on the proof of Barnette's conjecture}, arXiv:2610.30490v1, October 21, 2026, especially Lemma 9, Claim 12, Lemma 30, and Appendix C. Repository copy: papers/A-Note-On-Barnette.pdf. We use the written deficit proof, supply its balance and connectivity details, and do not rely on the sketched general case of Appendix B.
 
-LIT. *A constructive proof of Barnette's conjecture*, October 18, 2026, repository copy papers/barnette\_trees.pdf, Proposition 2.1 and Theorem 1.2. Its incidence-tree viewpoint helps explain the unique partner in the recovery case; its sharper obstruction theorem is not an input here.
+LIT. \emph{A constructive proof of Barnette's conjecture}, October 18, 2026, repository copy papers/barnette\_trees.pdf, Proposition 2.1 and Theorem 1.2. Its incidence-tree viewpoint helps explain the unique partner in the recovery case; its sharper obstruction theorem is not an input here.
 
 Source-checked Lean statements and exact file locations are recorded in STATUS.md and research/2026-11-14\_astra\_primal-proof/LEAN-EXTRACTS.md. The local reverse-Lamport audit is AUDIT.md in that research folder. Worked examples generated by the primal checker follow below.
 
@@ -610,6 +610,8 @@ Z(z)=4z+9z^2-2z^3-9z^4-2z^5.
 \end{equation*}
 
 The cancelling second state is $s_{1}$. Its two partners are $s_{6}$ with sign $-1$ and $s_{7}$ with sign $1$. The fixed circuit of $Q_s$ is the face sequence $(5,\allowbreak 9,\allowbreak 10)$. Reversing its tails interchanges exactly these partners. Their entire state-weight polynomials cancel, not merely their constant terms.
+
+This cancellation circuit crosses $(e_{22},\allowbreak e_{23},\allowbreak e_{20})$ and has cut side $S=\{12\}$. Its four-count tuple is $(1,\allowbreak 0,\allowbreak 3,\allowbreak 3,\allowbreak 3,\allowbreak 0)$, so its odd length is visible directly in G.
 
 For recovery choose $s_{0}$. The removed edge set is $\{e_{1},\allowbreak e_{2},\allowbreak e_{4},\allowbreak e_{5},\allowbreak e_{9},\allowbreak e_{13},\allowbreak e_{14},\allowbreak e_{16},\allowbreak e_{20},\allowbreak e_{22},\allowbreak e_{28}\}$.
 

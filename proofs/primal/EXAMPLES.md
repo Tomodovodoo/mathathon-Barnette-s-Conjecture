@@ -306,6 +306,8 @@ $$
 
 The cancelling second state is $s_{1}$. Its two partners are $s_{6}$ with sign $-1$ and $s_{7}$ with sign $1$. The fixed circuit of $Q_s$ is the face sequence $(5,9,10)$. Reversing its tails interchanges exactly these partners. Their entire state-weight polynomials cancel, not merely their constant terms.
 
+This cancellation circuit crosses $(e_{22},e_{23},e_{20})$ and has cut side $S=\{12\}$. Its four-count tuple is $(1,0,3,3,3,0)$, so its odd length is visible directly in G.
+
 For recovery choose $s_{0}$. The removed edge set is $\{e_{1},e_{2},e_{4},e_{5},e_{9},e_{13},e_{14},e_{16},e_{20},e_{22},e_{28}\}$.
 
 The recovery tree has edges $\{e_{0},e_{3},e_{6},e_{7},e_{8},e_{10},e_{11},e_{12},e_{15},e_{17},e_{18},e_{19},e_{21},e_{23},e_{24},e_{25},e_{26},e_{27},e_{29}\}$.
