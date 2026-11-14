@@ -1,0 +1,4 @@
+running example: pairs, D-cycle reversals checked, m, sum eps*omega^m = (8, 16, 2, 18)
+hexagonal bipyramid: (2, 2, 1, -2)
+lab generated family up to 12 dual vertices: rootings 148 {'rootings with a pair': 94, 'pairs': 344, 'D-cycle reversals': 736}
+all assertions passed
