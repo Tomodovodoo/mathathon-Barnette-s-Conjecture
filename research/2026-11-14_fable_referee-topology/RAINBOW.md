@@ -172,7 +172,7 @@ COMPUTED (`exp_walk.py exhaust`): for all rootings with `V <= 15` and two rootin
 
 Machine-readable counterexamples (rotation system, outer face, `σ` as point to face-triple): the `failures` lists in `data/walk_saved.json` and `data/walk_random_120_8_4_0.0.json`, and `examples` in the `data/cycles_hunt_*.json` files (38, 40, 50, 60, 70). To verify one, load it and call `exp_cycles.orbit`. The smallest order with a periodic walk is somewhere between 17 and 38. In random sampling the first appears at `V = 38` (3 of 345,370 walkers), none among 719,999 walkers with `V = 24` to `36`, and the frequency grows with `V` (26 of 369,962 at `V = 70`).
 
-The periodic walks sit on the same adversarial instances that broke single-step descent in the graph-theory run. This is not a coincidence I can explain yet. HUNCH: a periodic surplus walk is the rainbow-tree shadow of a Hamiltonian `D`-cycle.
+The periodic walks sit on the same adversarial instances that broke single-step descent in the graph-theory run. Theorem S in §5 explains the link: a surplus walk is a `D`-cycle reversal done one point at a time, interrupted by the analogue of a `Q`-cycle reversal whenever a directed cycle would form, and those instances are the ones where the two kinds of reversal chase each other.
 
 **Lesson.** Moving only the surplus is not enough. In all 38 trees found whose walkers are all periodic, moves of type `(1, 0)`, which relocate the empty face, lead to a decreasing move after a short plateau search (depth at most 27 and at most 2,048 trees explored in the cases recorded in detail). So Conjecture X survives, but a proof must use both kinds of plateau move.
 

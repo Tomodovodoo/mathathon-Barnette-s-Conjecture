@@ -66,7 +66,7 @@ Exhaustive over every rainbow tree: `V <= 12` (74,432 trees), `V = 13, 14` (1,32
 
 1. **Referee Theorem R, Theorem S and Corollary X4, then put them in the paper.** R is short, replaces the conditional statement in the topology report, and with S gives the pair of Prop. 3.1 as a by-product. S is the dictionary between rainbow trees and the proof's own objects (2-factors, deleted corners, `Q_s`). X4 is a one-paragraph, sign-free proof that tree matchings come in pairs, which the exposition wanted and the mate involution could not give.
 2. **Decide whether X is a corollary of the component theorem.** For `V <= 14`, map every rainbow tree to its 2-factor and compare plateau components with exchange components of pairs. If X lifts, it is a theorem and only its direct proof is missing. In parallel, read the periodic walks at `V = 38`: Theorem S says each one keeps hitting a directed cycle of `G_u`, and which cycle it is will show what a potential must measure.
-3. **Push the exhaustive range of X with compiled code.** Python handles all 29.4 million rainbow trees at `V = 16` in eight minutes. A C port, restricted to triangulations with at least two 2-factors (the others are settled by Proposition U), should reach `V = 20`, where the first states with two cyclic components appear.
+3. **Push the exhaustive range of X with compiled code.** Python handles all 29.4 million rainbow trees at `V = 16` in eight minutes. A C port, restricted to rooted instances with at least two 2-factors (the others are settled by Proposition U), should reach `V = 20`.
 
 ## Leads for others
 
