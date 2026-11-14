@@ -1,0 +1,1 @@
+Every explicit table entry, state, cycle, height, and auxiliary finite example checked.
