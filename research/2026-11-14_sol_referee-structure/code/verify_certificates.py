@@ -48,6 +48,11 @@ weights=read('weights-leading-zero.json'); poly={int(e):int(c) for e,c in weight
 assert poly and sum(poly.values())==0 and sum(e*c for e,c in poly.items())==0
 assert all(isinstance(w,int) for f,v,w in weights['spoke_weights'])
 assert weights['cmin']==1
+factor={}
+for bits in range(8):
+    exponent=-18+sum(v for j,v in enumerate([7,9,13]) if bits>>j&1)
+    factor[exponent]=1 if bits.bit_count()%2==0 else -1
+assert factor==poly
 
 census=read('census.json'); alpha=read('alpha-small.json'); glue=read('gluing.json'); strengths=read('strengthenings.json')
 assert census['root_count']==alpha['roots']==1206
@@ -56,6 +61,6 @@ assert census['D3_ordered_pairs']==3280 and census['images']==9720 and census['p
 assert glue['prescriptions_checked']==3618
 assert len(strengths)==55 and all(not(r['include_avoid_failures'] or r['P4_failures'] or r['opposite_endpoint_failures']) for r in strengths)
 
-result={'LP_subset_inequalities':2047,'LP_full_rank_active_matrix_determinant':str(determinant),'LP_vertex':True,'degree_four_reverse_implication_refuted':True,'local_rarity_enumeration_rechecked':True,'zero_first_coefficient_nonzero_polynomial':True,'output_count_sanity_checks':True}
+result={'LP_subset_inequalities':2047,'LP_full_rank_active_matrix_determinant':str(determinant),'LP_vertex':True,'degree_four_reverse_implication_refuted':True,'local_rarity_enumeration_rechecked':True,'zero_first_coefficient_nonzero_polynomial':True,'weight_sum_factorization':'exp(-18x)*(1-exp(7x))*(1-exp(9x))*(1-exp(13x))','output_count_sanity_checks':True}
 (P/'certificate-checks.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2))

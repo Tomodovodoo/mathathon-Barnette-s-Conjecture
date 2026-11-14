@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T11:33:42.975011+00:00",
+  "generated_utc": "2026-11-14T11:35:50.265491+00:00",
   "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
   "platform": "Windows-10-10.0.19045-SP0",
   "libraries": {
@@ -132,13 +132,13 @@
     "research/2026-11-14_sol_referee-structure/code/limits.py": "b25182607ac6d1377b79168e64f5fb8046953d18762a26c7baef270c63b97c91",
     "research/2026-11-14_sol_referee-structure/code/provenance.py": "81adb0e3e4da9ffe6e5d6b26e4ff38528afe02f1572ebb4836e23ae6244090e8",
     "research/2026-11-14_sol_referee-structure/code/structure.py": "58281911ff90c4e0e89a4687011b9224b3d17edc60bc41882a0c7de62b56e8e5",
-    "research/2026-11-14_sol_referee-structure/code/verify_certificates.py": "2c13430653b875cfccbcbf217332a99a7ca6b30cdc269f03151069d020d764f0"
+    "research/2026-11-14_sol_referee-structure/code/verify_certificates.py": "da4aa1cc9daedc18c744414b36e6caee01e936ffb72f31cf47ef4f6956ab3c88"
   },
   "outputs": {
     "research/2026-11-14_sol_referee-structure/code/alpha-large.json": "71e92c40efe8ba52c8f636695cd079e70dfb291737b341d049609837c360c920",
     "research/2026-11-14_sol_referee-structure/code/alpha-small.json": "2a12e2a2f6c93925d28c99f8915306c228bedc7b0c64b175f19df9c2ed2892c4",
     "research/2026-11-14_sol_referee-structure/code/census.json": "c8b5b39c39c442223a0654a01cb482264aa147a5c272ffda0ccc5acbdaaa89b9",
-    "research/2026-11-14_sol_referee-structure/code/certificate-checks.json": "8166500531a7b5490a41792bd2e52306189cafa9962f32284b3ca3f3707ac12a",
+    "research/2026-11-14_sol_referee-structure/code/certificate-checks.json": "e794459e9783b6a2117b6efc7961256ab223c6f4fbdfca6cd75e718a44970787",
     "research/2026-11-14_sol_referee-structure/code/contractions.json": "744b2ecca13b9ed516c6e1aa0bcfb73607a4142d5316a5ad708b99bb3199b783",
     "research/2026-11-14_sol_referee-structure/code/euler.json": "ce986330ad8465ebec7f3f282e99bf456eee1a709a00ed0f779700878dd3308d",
     "research/2026-11-14_sol_referee-structure/code/fable16.json": "2ea5be2314636ebd36a82f828bace41e2363ddbc21755c4e9304ef2bcbc49bfb",

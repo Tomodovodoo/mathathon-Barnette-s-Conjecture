@@ -130,7 +130,13 @@ Z(x)/i^n=\sum_j c_j e^{jx},\qquad
 \sum_jc_j=0,\quad \sum_jj c_j=0,
 \]
 
-but the coefficient dictionary c_j is not zero. `code/weights-leading-zero.json` gives the graph, all nonzero spoke weights and that dictionary. The checker aggregates all pairs directly and separately aggregates tree states; the two polynomials agree exactly. Thus the first possible coefficient vanishes although Z is not identically zero. The fix is to call the displayed minimal-cycle coefficient the first potentially nonzero coefficient, or a sufficient nonvanishing test.
+but the coefficient dictionary c_j is not zero. In fact the exact sum is
+
+\[
+Z(x)/i^n=e^{-18x}(1-e^{7x})(1-e^{9x})(1-e^{13x}).
+\]
+
+It vanishes to order three, although c_min=1. `code/weights-leading-zero.json` gives the graph, all nonzero spoke weights and the expanded dictionary. The checker aggregates all pairs directly and separately aggregates tree states; the two polynomials agree exactly. Thus the first possible coefficient vanishes although Z is not identically zero. The fix is to call the displayed minimal-cycle coefficient the first potentially nonzero coefficient, or a sufficient nonvanishing test.
 
 Verdict for the paragraph as a whole: CORRECT AFTER FIX.
 
