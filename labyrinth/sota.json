@@ -102,7 +102,7 @@
    "id": "disk",
    "group": "The theorem and its proofs",
    "cls": "What the disk identity is used for",
-   "result": "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
+   "result": "The final paper uses the exact disk count in its sign and nonvanishing route, and again to exclude selected cycles during recovery; parity alone does not justify that recovery count.",
    "status": "proved here (refd, unreviewed)",
    "kind": "proved",
    "refs": [
@@ -115,6 +115,11 @@
     {
      "date": "2026-11-14",
      "was": "four uses of the full identity (dependency-graph audit)"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
+     "status": "proved here (refd, unreviewed)"
     }
    ]
   },
@@ -227,7 +232,7 @@
    "id": "canonical",
    "group": "Structure of good states",
    "cls": "Canonical good pair",
-   "result": "No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.",
+   "result": "C2 is false. Both extremes of Felsner's pair lattice can carry no good pair; the independent witness has V=18. This is distinct from Propp's state clock lattice, where an extreme can lack a partner at V=10. A bottom, top, join-irreducible or meet-irreducible element need not carry a good pair.",
    "status": "Independent AI referee and two V=33 implementations; no human check.",
    "kind": "refuted",
    "refs": [
@@ -246,6 +251,11 @@
      "date": "2026-11-14",
      "was": "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, each lattice extreme alone: all refuted. The conjecture campaign reports joint failures of the true minimum and maximum at 18 vertices; independent replay pending.",
      "status": "reported refuted; finite computation under review"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.",
+     "status": "Independent AI referee and two V=33 implementations; no human check."
     }
    ]
   },
@@ -346,8 +356,8 @@
    "id": "formal",
    "group": "Verification",
    "cls": "Formal verification",
-   "result": "Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.",
-   "status": "COMPUTED T4; compiled by its author; independent check pending.",
+   "result": "Independently rebuilt and checked: upstream theorem, submitted devices and real-sign finite-difference replacement main. Only propext, Classical.choice and Quot.sound occur in the advertised axiom reports. Qualifications: TODO T5 surjectivity is false; full general paper Lemma 4.5 is not formalised; generic Mathlib polynomial dependencies remain; heights use an abstract flow whose translation from paper face paths is unformalised.",
+   "status": "COMPUTED; independently rebuilt and statement-checked; retain the four qualifications in the review.",
    "kind": "computed",
    "refs": [
     "c.G2.c",
@@ -364,6 +374,11 @@
      "date": "2026-11-14",
      "was": "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
      "status": "computed (lean-formalisation, unreviewed)"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.",
+     "status": "COMPUTED T4; compiled by its author; independent check pending."
     }
    ]
   },
@@ -450,8 +465,8 @@
    "id": "induction",
    "group": "Structure of good states",
    "cls": "Unsigned contraction induction",
-   "result": "Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.",
-   "status": "CONJECTURE; unreviewed; human check pending",
+   "result": "Induction X: when both opposite contractions have good states, at least one has a nonexceptional state whose unique lift or three-face rotation succeeds. This is sufficient for induction, not a converse equivalent to existence upstairs. Independent referee reproduces all 7,940 exceptions through V=18, the rotation bijection, counting inequality, corner avoidance and global half bound; none of those finite checks proves general X.",
+   "status": "CONJECTURE; refereed; human check pending",
    "kind": "conjecture",
    "refs": [
     "k.U.ML2"
@@ -473,6 +488,11 @@
      "date": "2026-11-14",
      "was": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
      "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.",
+     "status": "CONJECTURE; unreviewed; human check pending"
     }
    ]
   },
@@ -480,7 +500,7 @@
    "id": "rainbow",
    "group": "Structure of good states",
    "cls": "Rainbow exchange",
-   "result": "Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.",
+   "result": "Step X asks that every point-rainbow tree reach a good state without increasing black-face excess, using both plateau move types. Author checks all roots through V=17 and 1,485 of 1,543 graphs at V=18. Independent referee checks through V=12 and completes seven more V=18 graphs, all 224 roots and 7,999,488 enumerated multi-cover rainbow trees. Fifty-one graphs remain incomplete, with some roots of one tested. This is finite evidence; Step X is open.",
    "status": "CONJECTURE; unreviewed; human check pending",
    "kind": "conjecture",
    "refs": [
@@ -498,6 +518,11 @@
      "date": "2026-11-14",
      "was": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
      "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.",
+     "status": "CONJECTURE; unreviewed; human check pending"
     }
    ]
   },
@@ -506,7 +531,7 @@
    "group": "Structure of good states",
    "cls": "Two-tree packing",
    "result": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
-   "status": "PROVED-HERE; unreviewed; human check pending",
+   "status": "PROVED-HERE; refereed; human check pending",
    "kind": "partial",
    "refs": [
     "k.U.packing"
@@ -523,6 +548,11 @@
      "date": "2026-11-14",
      "was": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
      "status": "PROVED-HERE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+     "status": "PROVED-HERE; unreviewed; human check pending"
     }
    ]
   },
@@ -608,43 +638,71 @@
    "id": "pair-descent",
    "group": "Structure of good states",
    "cls": "Monotone pair descent C3",
-   "result": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.",
-   "status": "CONJECTURE; unreviewed; human check pending",
+   "result": "C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.",
+   "status": "CONJECTURE; refereed; human check pending",
    "kind": "conjecture",
    "refs": [
     "k.N.11"
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.",
+     "status": "CONJECTURE; unreviewed; human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 193,623,384 pairs through V=23 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent descent referee checkpoint reproduces C3 through V=16; larger-range checks and proof verdicts remain in progress.",
+     "status": "CONJECTURE; under-review; human check pending"
+    }
+   ]
   },
   {
    "id": "rainbow-R",
    "group": "Structure of good states",
    "cls": "Unsigned rainbow existence",
-   "result": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
-   "status": "PROVED-HERE; unreviewed; human check pending",
+   "result": "Step R gives a point-rainbow tree iff no black-inner separating triangle exists, by Rado and Euler. Theorem S gives unique-factor completion. Independent rainbow referee accepts these proofs with corrections in its completed REPORT.md.",
+   "status": "PROVED-HERE; independently AI-refereed with corrections; no human check.",
    "kind": "partial",
    "refs": [
     "p.U.rainbow"
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
+     "status": "PROVED-HERE; unreviewed; human check pending"
+    }
+   ]
   },
   {
    "id": "partial-G",
    "group": "Structure of good states",
    "cls": "Short-cycle obstruction and partial G",
-   "result": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
-   "status": "PROVED-HERE; unreviewed; human check pending",
+   "result": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. T2 independently AI-refereed with the stated qualifications; no human check.",
+   "status": "PROVED-HERE; refereed; human check pending",
    "kind": "partial",
    "refs": [
     "p.U.G-partial"
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
+     "status": "PROVED-HERE; unreviewed; human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
+     "status": "PROVED-HERE; refereed; human check pending"
+    }
+   ]
   }
  ]
 }

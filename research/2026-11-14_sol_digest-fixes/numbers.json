@@ -91,5 +91,17 @@
     }
   ],
   "census_pairs_through_23": 193623384,
-  "method": "Sum saved census records, not repeat the large computation."
+  "method": "Sum saved census records, not repeat the large computation.",
+  "rainbow_completed_graphs": 7,
+  "rainbow_completed_roots": 224,
+  "rainbow_completed_multi_trees": 7999488,
+  "descent_referee_census_max_V": 19,
+  "descent_referee_random_batch": {
+    "graphs": 40,
+    "roots": 3040,
+    "paired_roots": 3040,
+    "pairs": 335704,
+    "good": 209542
+  },
+  "induction_referee_exceptions": 7940
 }

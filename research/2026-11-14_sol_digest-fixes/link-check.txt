@@ -1,0 +1,15 @@
+digestions\steps\00-overview.md: 34 local Markdown links resolve
+digestions\steps\09-what-is-still-open.md: 54 local Markdown links resolve
+digestions\atlas\README.md: 31 local Markdown links resolve
+digestions\route-map\HOW-IT-WORKS.md: 3 local Markdown links resolve
+digestions\route-map\ROUTE-MAP.head.md: 4 local Markdown links resolve
+digestions\route-map\ROUTE-MAP.md: 6 local Markdown links resolve
+digestions\route-map\ROUTE-MAP.tail.md: 1 local Markdown links resolve
+labyrinth\README.md: 2 local Markdown links resolve
+labyrinth\STATUS.md: 0 local Markdown links resolve
+research\2026-11-14_sol_digest-fixes\CHANGELOG.md: 0 local Markdown links resolve
+research\2026-11-14_sol_digest-fixes\lab-replay\full-coverage.md: 0 local Markdown links resolve
+research\2026-11-14_sol_digest-fixes\REPORT.md: 11 local Markdown links resolve
+labyrinth\dashboard\index.html: 0 static HTML targets resolve; dynamic JavaScript links not executed
+labyrinth\dashboard\template.html: 0 static HTML targets resolve; dynamic JavaScript links not executed
+12 Markdown files; 0 missing targets

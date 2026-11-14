@@ -305,8 +305,8 @@ frontier_history = [
 ]
 # Current door statements supersede the first map's tests. Keep stable ids for events.
 updates = {
- 'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.', 'Referee the new local, packing and induction-lemma arguments.'),
- 'q.canonical': ('No universal canonical good pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
+ 'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.', 'Use the completed rainbow and packing reviews; finish the descent and induction review, then attack plateau components.'),
+ 'q.canonical': ('No universal canonical good pair is known. Felsner pair-lattice extremes fail at V=18; Propp state-clock extremes can lack partners at V=10. R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
  'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'The AI-refereed two-cover weak bound is proved; exclude its equality overlap, then treat more covers.'),
  'q.disk': ('Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.', 'Human-check the corrected flat-angle proof.'),
  'q.li-b': ('The marked-involution writeup has two AI referees, FOLLOWS on rays and drawing-free face paths.', 'Human-check the note and formalise the path-mark dictionary.'),

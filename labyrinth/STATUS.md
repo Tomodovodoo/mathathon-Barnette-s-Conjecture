@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T13:45:27Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T14:24:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -40,20 +40,20 @@ Generated 2026-11-14T13:45:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **remove a leaf of the white tree** [`k.F.4`, open] Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a good state, and the cycle of the larger graph is a local detour.
 - **a cut-free root** [`k.G.3`, open] Count how often some root (black face on the black side of all separating triangles, or the same with colours swapped) exists.
 - **ordered pairs of edges (global H+-)** [`k.G2.5`, open] Some Hamiltonian cycle contains x and avoids y for any two edges. Not implied by the theorem.
-- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.
+- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3 is open. Author census checks 193,623,384 pairs through V=23, plus all pairs on 230 random graphs through V=80 and sampled starts through V=200. Three capped V=300 starts remain undecided. Independent referee verifies all roots and pairs through V=19 and all 335,704 pairs of a 40-graph V=40 batch. The larger author census is not thereby independently replayed.
 - **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with m distinct marks are the elementary symmetric reading of the linear-weight coefficient.
-- **local search from a point-rainbow tree** [`k.U.7h`, open] Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.
+- **local search from a point-rainbow tree** [`k.U.7h`, open] Step X asks that every point-rainbow tree reach a good state without increasing black-face excess, using both plateau move types. Author checks all roots through V=17 and 1,485 of 1,543 graphs at V=18. Independent referee checks through V=12 and completes seven more V=18 graphs, all 224 roots and 7,999,488 enumerated multi-cover rainbow trees. Fifty-one graphs remain incomplete, with some roots of one tested. This is finite evidence; Step X is open.
 - **every Hamiltonian cycle from a two-root good state** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
 - **contraction inequality tau(T) >= tau(T/ac)** [`k.D.9`, open] Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted good state lifts directly.
 - **ML1: preserve a pair in some merge** [`k.U.G`, open] G: every separator-free rooted T with V>6 has a non-root degree-four vertex with a simple opposite-neighbour merge admitting a pair. Checked on 62,416 separator-free facial roots through V=19. Proved without chordless five-cycles, separately U.G-partial; unrestricted G remains open.
-- **ML2: two-sided existence lifting** [`k.U.ML2`, open] Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.
+- **ML2: two-sided existence lifting** [`k.U.ML2`, open] Induction X: when both opposite contractions have good states, at least one has a nonexceptional state whose unique lift or three-face rotation succeeds. This is sufficient for induction, not a converse equivalent to existence upstairs. Independent referee reproduces all 7,940 exceptions through V=18, the rotation bijection, counting inequality, corner avoidance and global half bound; none of those finite checks proves general X.
 - **P2: two face-rainbow trees in every pair support** [`k.U.packing-P2`, open] Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.
 
 ## Open doors (questions) (12)
 
 - **Is there a polynomial-time construction of the Hamiltonian cycle?** [`q.poly-time`, open] The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; good states can be exponentially rare.
 - **Is there an existence proof with no signed count?** [`q.structural`, open] No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.
-- **Is there a canonical good pair?** [`q.canonical`, open] No universal canonical good pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.
+- **Is there a canonical good pair?** [`q.canonical`, open] No universal canonical good pair is known. Felsner pair-lattice extremes fail at V=18; Propp state-clock extremes can lack partners at V=10. R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.
 - **How many good states must there be?** [`q.tm-lower`, open] C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.
 - **Is there a determinant or Pfaffian for Z without coefficient extraction?** [`q.det`, open] Z is the squarefree coefficient of one determinant (2^n evaluations). Raw determinants, doubled edges and scalar factorisations are refuted.
 - **Which Hamiltonian cycles come from good states?** [`q.which-hc`, open] Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.
@@ -120,15 +120,15 @@ Generated 2026-11-14T13:45:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **unconstrained white spanning trees** [`x.U.x2`, refuted] Every spanning tree of the white-face graph, or of its restriction to duals of B, gives a good state.
 - **trinity arborescences = good states** [`x.U.x3`, refuted] The Hine-Kalman bijection carries all states to arborescences; perhaps every arborescence is a good state.
 - **Yutsis partition of G** [`x.U.x4`, refuted] Identify the two induced trees with a Yutsis decomposition of the cubic graph.
-- **a good state is enough** [`x.R.x1`, refuted] Call s good as soon as Q_s is acyclic, with no partner assumed.
+- **acyclic Q_s alone is enough** [`x.R.x1`, refuted] Every state with acyclic Q_s is good, without requiring a partner or one root per component.
 - **prescribe whatever each cut needs** [`x.G.x1`, refuted] Strengthen the induction hypothesis to an arbitrary set of prescribed edges.
 - **LP relaxation of the three constraints is integral** [`x.U.x5`, refuted] Perfect matchings of B intersected with complements of spanning trees of H form an integral polytope.
 - **induction by degree-4 expansion** [`x.U.x6`, refuted] Lift a good state through the expansion of a degree-4 vertex.
 - **positivity of the norm or of the Laplacian terms** [`x.U.x7`, refuted] CT F(w)F(1/w) and the constrained Laplacian coefficient are sums of nonnegative terms, so they are positive.
 - **tree count as an unrooted invariant** [`x.U.x8`, refuted] The number of good states equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.
-- **single-swap descent on the number of Q-cycles** [`x.N.x14`, refuted] From every pair with a cycle in Q_s some single exchange lowers the number of cycles.
-- **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all good states get the same coefficient sign.
-- **extremes of Felsner's lattice of pairs** [`k.D.7`, refuted] C2 is false. Both true lattice extremes can have no good pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.
+- **strict q-descent** [`x.N.x14`, refuted] Every non-good pair has an immediately q-decreasing D-swap or Q-reversal.
+- **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all good states get the same coefficient sign. The refutation concerns signs on the variables of F, hence one state only. Signs on both states incidences are not refuted: finite gauge equations remain solvable on the tested census. This does not establish a general positive formula.
+- **extremes of Felsner's lattice of pairs** [`k.D.7`, refuted] C2 is false. Both extremes of Felsner's pair lattice can carry no good pair; the independent witness has V=18. This is distinct from Propp's state clock lattice, where an extreme can lack a partner at V=10.
 - **the partner of a good state is a good state** [`x.D.x1`, refuted] Swapping r and s would then be a free involution on good states and explain why their number is even.
 - **a uniform boundary condition for longer cuts** [`x.G.x2`, refuted] Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.
 - **two roots instead of a root face** [`x.A.x2`, refuted] Root at two vertices not tied to a face; every root pair then has a two-root good state, and it gives a Hamiltonian cycle.
@@ -145,39 +145,38 @@ Generated 2026-11-14T13:45:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **joint Lorentzian rounding** [`x.U.support-dead`, refuted] Joint endpoint degree support inherits M-convexity from the spanning-tree polynomial.
 - **universal analytic root locations** [`x.N.zeros-dead`, refuted] Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.
 - **root-free torus nonvanishing** [`x.N.heawood`, refuted] Transfer spherical signed nonvanishing directly to Heawood on the torus.
-- **induction R1: Lift lemma, only-if half (route-graph-theory PROOFS Lemma 6.** [`x.U.ind-R1`, refuted] Lift lemma, only-if half (route-graph-theory PROOFS Lemma 6.2(iii)): if the lift s of s' is a TM then s' is a TM R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R2: Degree-4 contraction preserves the existence of a pair** [`x.U.ind-R2`, refuted] Degree-4 contraction preserves the existence of a pair R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R3: Every TM of T/M lifts to a TM of T** [`x.U.ind-R3`, refuted] Every TM of T/M lifts to a TM of T R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R4: Failing lifts are compensated within the same type (B >= b)** [`x.U.ind-R4`, refuted] Failing lifts are compensated within the same type (B >= b) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R5: Some TM of T/M satisfies the local condition LC (edge a v in** [`x.U.ind-R5`, refuted] Some TM of T/M satisfies the local condition LC (edge a v in Q) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R6: rho(lift) is a TM for every failing lift** [`x.U.ind-R6`, refuted] rho(lift) is a TM for every failing lift R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R7: TM(T) >= 2 TM(T/M)** [`x.U.ind-R7`, refuted] TM(T) >= 2 TM(T/M) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R8: lowest coefficient lc = sum over D with m cycles of prod** [`x.U.ind-R8`, refuted] lowest coefficient lc = sum over D with m cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R9: m(T) = m(T/M) (when both have pairs)** [`x.U.ind-R9`, refuted] m(T) = m(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R10: Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges define** [`x.U.ind-R10`, refuted] Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges defined) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R11: Prescribed corner: for every face t in A and non-root corner** [`x.U.ind-R11`, refuted] Prescribed corner: for every face t in A and non-root corner u, some TM has s(t)=u (HCs); same for the mate r (HCr) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R12: A good contraction (result has a pair) always exists** [`x.U.ind-R12`, refuted] A good contraction (result has a pair) always exists R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R13: Inverse P-operation (Batagelj) preserves pairs** [`x.U.ind-R13`, refuted] Inverse P-operation (Batagelj) preserves pairs R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
+- **induction R1: A good lifted state must come from a good contracted state.** [`x.U.ind-R1`, refuted] A good lifted state must come from a good contracted state. Specified witness independently replayed in the completion referee.
+- **induction R2: Every simple degree-four contraction preserves a pair.** [`x.U.ind-R2`, refuted] Every simple degree-four contraction preserves a pair. Specified witness independently replayed in the completion referee.
+- **induction R3: Every contracted good state lifts to a good state.** [`x.U.ind-R3`, refuted] Every contracted good state lifts to a good state. Specified witness independently replayed in the completion referee.
+- **induction R4: Failed lifts can be compensated by good states of the same contraction type.** [`x.U.ind-R4`, refuted] Failed lifts can be compensated by good states of the same contraction type. Specified witness independently replayed in the completion referee.
+- **induction R5: Some contracted good state uses the prescribed local opposite edge.** [`x.U.ind-R5`, refuted] Some contracted good state uses the prescribed local opposite edge. Specified witness independently replayed in the completion referee.
+- **induction R6: The original rotation repairs every failed lift.** [`x.U.ind-R6`, refuted] The original rotation repairs every failed lift. Specified witness independently replayed in the completion referee.
+- **induction R7: $g(T)\geq2g(T/M)$.** [`x.U.ind-R7`, refuted] $g(T)\geq2g(T/M)$. Specified witness independently replayed in the completion referee.
+- **induction R8: The lowest nonzero cover-area coefficient is monotone under contraction.** [`x.U.ind-R8`, refuted] The lowest nonzero cover-area coefficient is monotone under contraction. R8 coefficient comparison is author-only.
+- **induction R9: $m(T)=m(T/M)$ whenever both admit pairs.** [`x.U.ind-R9`, refuted] $m(T)=m(T/M)$ whenever both admit pairs. Specified witness independently replayed in the completion referee.
+- **induction R10: $g(T)=g(T/M)+g(T/N)$ for the two contractions.** [`x.U.ind-R10`, refuted] $g(T)=g(T/M)+g(T/N)$ for the two contractions. Specified witness independently replayed in the completion referee.
+- **induction R11: Every allowed non-root corner can be prescribed in a good state.** [`x.U.ind-R11`, refuted] Every allowed non-root corner can be prescribed in a good state. Specified witness independently replayed in the completion referee.
+- **induction R12: Some pair-preserving contraction always exists, even with separators.** [`x.U.ind-R12`, refuted] Some pair-preserving contraction always exists, even with separators. Specified witness independently replayed in the completion referee.
+- **induction R13: Every inverse Batagelj P-operation preserves a pair.** [`x.U.ind-R13`, refuted] Every inverse Batagelj P-operation preserves a pair. R13 independently checked only on the octahedron.
 - **rainbow loads are M-convex** [`x.U.loads-dead`, refuted] Rainbow load vectors satisfy simultaneous M-exchange.
 - **every maximal lattice chain hits success** [`x.D.chain-dead`, refuted] Every maximal chain contains an element carrying a good pair.
 - **at least half the lattice succeeds** [`x.D.fraction-dead`, refuted] At least half the factor lattice admits a successful direction choice.
-- **strict black-excess descent** [`x.U.rainbow-strict`, refuted] Every positive-excess rainbow tree has an immediately decreasing exchange.
+- **strict black-excess descent** [`x.U.rainbow-strict`, refuted] Every positive-black-excess rainbow tree has an immediately black-excess-decreasing exchange. This is distinct from strict q-descent on pairs.
 - **four rainbow distance potentials** [`x.U.rainbow-pot`, refuted] Tree or spoke-graph distances between loaded and empty faces, minimized or summed, always guide exchange.
 - **innermost bad-disk selection** [`x.U.G-inward`, refuted] The specified local repair always closes the induction.
 - **innermost bad five-cycle selection** [`x.U.G-five`, refuted] The specified local repair always closes the induction.
 - **fixed-cover exceptional repair** [`x.U.X-cover`, refuted] The specified local repair always closes the induction.
 - **round within a fixed pair support** [`x.U.pack-support`, refuted] Every pair support contains a good state, meeting both rainbow constraints.
-- **bounded-lookahead q descent** [`x.N.lookahead`, refuted] The specified potential or lookahead always reaches a good pair.
-- **height and cover-count tie-breaks** [`x.N.height-ties`, refuted] The specified potential or lookahead always reaches a good pair.
+- **bounded-lookahead q descent** [`x.N.lookahead`, refuted] For a fixed lookahead L, every non-good pair has a lower-q pair within L exchanges. L=1,2,3 are refuted; L=4 and unbounded escape radius remain open.
+- **height and cover-count tie-breaks** [`x.N.height-ties`, refuted] The 27 explicitly named alternative potentials have independent counterexamples, including repaired complete area/size certificates. This refutes neither every potential involving cover count nor every bounded local rule.
 - **uniform rainbow mean load one** [`x.U.rainbow-mean`, refuted] The uniform rainbow tree has expected load one at every bounded black face.
 - **resident involutions act transitively** [`x.U.evict-transitive`, refuted] The n resident-eviction involutions connect every good state.
 
-## Under review (4)
+## Under review (3)
 
 - **exactly one good state is impossible** [`p.D.4`]
 - **the gluing needs the same-label edge** [`p.G.2`]
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
-- **real-sign and finite-difference Lean replacement** [`c.G2.devices`]
 
 ## Recent events (76 total)
 

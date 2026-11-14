@@ -12,7 +12,7 @@ Summary.
 4. The bypass from states to a good state with no signed count has nine exact reformulations and no existence argument, with the failed relaxations retained next to them. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
 5. This file lists {N} routes: {LIT} published, {PH} proved in this project (none human-checked), {CO} computed, {CJ} conjectures, {HU} hunches and {RE} refuted, each refuted one with its lesson and a saved counterexample or explicitly certified minimum.
 
-The final update includes rainbow R and unique-factor completion, the partial contraction G theorem, ordinary tree packing and its remaining P2, the descent failures, the v2 written-route verdicts and the author-compiled real-sign Lean replacement. New proof claims keep their individual AI review states. See [the ranked open problems](../steps/09-what-is-still-open.md).
+The final update includes rainbow R and unique-factor completion, the partial contraction G theorem, ordinary tree packing and its remaining P2, the descent failures, the v2 written-route verdicts and the independently rebuilt real-sign Lean replacement, with the statement and dependency qualifications in its review. New proof claims keep their individual AI review states. See [the ranked open problems](../steps/09-what-is-still-open.md).
 
 ## The picture
 

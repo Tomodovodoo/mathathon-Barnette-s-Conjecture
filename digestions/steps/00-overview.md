@@ -11,7 +11,7 @@ The theorem has a Lean proof. The [independent rebuild](../../research/2026-11-1
 ## The argument in ten sentences
 
 1. A spanning subgraph of degree two is a union of cycles; Hamiltonicity asks that it have just one component.
-2. Pass to the dual sphere triangulation $T=G^*$, whose triangular faces have alternating black and white colours; two vertex sets that each induce a tree in $T$ give a Hamiltonian cycle in $G$.
+2. Pass to the dual sphere triangulation $T=G^*$, whose triangular faces have alternating black and white colours; a partition of $V(T)$ into two sets that each induce a tree gives a Hamiltonian cycle in $G$.
 3. Fix a black root face $t_0=abo$ and its side $e_0=ab$; a state $s$ assigns each other black face a corner, using each non-root vertex exactly once.
 4. Let $Q_s$ contain the side opposite each assigned corner; a state is good when $Q_s$ is a forest with one root per component, equivalently when $S_s=Q_s\cup\{ao,bo\}$ is a spanning tree of $T$.
 5. A pair consists of states $r,s$ differing at every black face; the paper's density argument supplies a pair when there is no separating triangle, and the sharper criterion excludes exactly triangles with black inner boundary.

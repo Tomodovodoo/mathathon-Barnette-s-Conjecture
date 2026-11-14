@@ -18,8 +18,3 @@ for v in range(6,13):
  print(v,len(graphs),cyclic)
 assert all(r['partnered_cyclic_states']==0 for r in rows[:-1]) and rows[-1]['partnered_cyclic_states']>0
 (OUT/'recompute.json').write_text(json.dumps(rows,indent=2)+'\n')
-# Load the independent auditor's implementation without its write-to-own-folder main.
-p=ROOT/'research/2026-11-14_opus_digestions-audit-2/code/recompute.py'
-import runpy
-ns=runpy.run_path(str(p),run_name='digest_fixes_import')
-print('audit functions', [k for k in ns if k.startswith('run') or k.startswith('main')])
