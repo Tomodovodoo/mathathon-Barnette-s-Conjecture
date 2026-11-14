@@ -17,7 +17,7 @@ Close the last known items on `paper/main/barnette.pdf`, `proofs/primal/primal.p
 
 COMPUTED (`python paper/figures/build.py`, which runs `check.py`, `draw.py`, all eighteen figures, the gallery and `audit.py`): every assertion passes, including the new ones.
 
-- New record `flow` in `check.running()`. The displayed pair `(beta, alpha)` gives an integral flow that respects every capacity, is conserved at every vertex and triangle, and has value `2|X| = 20`. NetworkX's maximum flow is 20. The cut with source side `{source, 2}` has capacity `2(n - 1) + 2 = 20`. The 10 incidences without flow are listed. In the folded row order every used incidence joins equal or neighbouring rows and the used incidences cross 8 times.
+- New record `flow` in `check.running()`. The displayed pair `(beta, alpha)` gives an integral flow that respects every capacity, is conserved at every vertex and triangle, and has value `2|X| = 20`. NetworkX's maximum flow is 20. The cut with source side `{source, 2}` has capacity `2(n - 1) + 2 = 20`. The 5 incidences without flow are listed (25 incidences between `A` and `X`, of which 20 are used). In the folded row order every used incidence joins equal or neighbouring rows and the used incidences cross 8 times.
 - `label-placement.json`: 129 placed vertex labels in the eighteen figures, root labels aside. All are at least 0.5pt from every registered object, and all but four at least 0.95pt. The registry holds line widths and marker radii entered by hand from the style file, so this checks the stated geometry, not the pixels.
 
 COMPUTED (`latexmk -pdf -interaction=nonstopmode -halt-on-error`, and `pdflatex` three times for the primal note): the three documents build with no error, no undefined or multiply defined reference and no overfull box. The main paper has one underfull box, badness 1694, in the narrow caption of Figure 7. Page counts: 20, 15, 18.
@@ -61,13 +61,13 @@ LIT, read and followed for the Lean paragraph: `proofs/lean/README.md`, `researc
 
 ## For a human editor
 
-1. **Page count.** The paper has 20 pages and page 20 holds only the 17 references. Setting Figure 2 back to `0.62\textwidth` would not recover the page; shortening the Lean paragraph by about five lines probably would.
-2. **The Lean paragraph** (page 19) is long for a remark. It lists exactly what was checked, as asked. An editor may prefer two sentences and a pointer to `proofs/lean/README.md`, once that README is corrected.
+1. **Page count.** The paper has 20 pages and page 20 holds only the 17 references. I did not test which cut recovers the page. The closing section is about fifteen lines longer than before and Figure 2 about 1.4cm taller.
+2. **The Lean paragraph** (page 19) is long for a remark. It lists exactly what was checked, as asked. An editor may prefer two sentences and a pointer to `proofs/lean/README.md`, once that README is corrected. `research/2026-11-14_opus_lean-integration/PAPER-SENTENCE.md`, written while I worked, offers a two-sentence and a one-sentence wording with the same qualifications. I took from it the words "in its algebraic model".
 3. **Figure 2, label 11.** It is clear of everything, but it sits about as near to a hollow vertex of G as to its own vertex. Label 10 in Figure 5(a) lies on a shaded face with a white halo, the only label in the paper that does.
 4. **Figure 12.** Check that the folded rows read well to someone who has not seen the old figure. The alternative, cyclic order with one long closing edge per cycle, is a one-line change in `check.py` (`fold`).
 5. **Figure 13(c).** Labels 6, 7, 8 are clear by 0.56pt to 0.92pt only. The panel is small.
 6. **The two lists in "Why each hypothesis is needed".** They are the only bulleted lists in the paper. A footnote is the alternative.
 7. **Example 3.3.** The table lost its vertical rule to match Tables 1 and 2. Check that the row labels still read as labels.
 8. **Author lines.** The main paper's is empty by decision. The notes still say "Primal reconstruction, gpt-6-astra" and "Research note, 14 November 2026", and the primal note's running head repeats the first.
-9. **The primal note's figures.** I did not touch them. In its Figures 1 and 2 some face labels (`f6`, `f11`, `f12`) sit close to curves of G. The label placer added here would fix that if those panels called `vertices(labels=...)`, which they do not.
+9. **The primal note's figures.** I did not touch them. In its Figures 1 and 2 some face labels (`f6`, `f11`, `f12`) looked close to curves of G on a 66 dpi contact sheet. I did not inspect them at 200 dpi. The label placer added here would fix that if those panels called `vertices(labels=...)`, which they do not.
 10. **The bibliography** breaks "Computa-tional" in entry 5. It is the only line-end hyphen left in the paper.

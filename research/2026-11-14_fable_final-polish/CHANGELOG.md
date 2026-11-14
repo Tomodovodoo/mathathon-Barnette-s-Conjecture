@@ -23,6 +23,7 @@ Patch scripts. `patch_draw_labels.py`, `patch_flow.py`, `patch_involutions.py`, 
 
 A6 in detail. The independent rebuild `research/2026-11-14_astra_lean-check/REPORT.md` finished during this task and confirms the build, the axioms, the statements and the dependency claim, with three corrections to the wording of `proofs/lean/README.md`. The new text follows the corrected wording:
 
+- the check is said to hold "in its algebraic model", where counterclockwise means delta-sum -3 and no sphere is present;
 - Lemma 4.5 is claimed only "for a second state whose opposite sides contain a cycle", not as the full identity over good states;
 - Proposition 4.8 is claimed as the step "from a pair to a pair whose second state has acyclic opposite sides", which is the statement of `forest_pair_real`, and the word "good" is avoided because the good-state dictionary is not formalised;
 - Lemma 4.6 is claimed only as the addition of the steps for a weight that is a sum of local terms;
