@@ -1,0 +1,6 @@
+text/
+metadata/
+downloads/
+renders/
+__pycache__/
+bibcheck.*
