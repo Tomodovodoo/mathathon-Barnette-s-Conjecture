@@ -1,0 +1,41 @@
+{
+  "command": "research/2026-11-14_astra_referee-combinatorics/code/compare.py",
+  "rooted_profiles_equal": true,
+  "fields": [
+    "V",
+    "states",
+    "pairs",
+    "tree_matchings",
+    "cmin",
+    "Hamiltonian_cycles"
+  ],
+  "roots_with_pairs": 5088,
+  "nonimage_HC_on_roots_with_pairs": 176726,
+  "totals": {
+    "roots": 7868,
+    "states": 140358,
+    "pairs": 24744,
+    "tree_matchings": 24090,
+    "hc": 378632,
+    "determinants": 140358,
+    "D_cycles": 60152,
+    "height_monomials": 636682,
+    "HC_states": 378632,
+    "nonimage_HC_states": 306362,
+    "Q_cycles": 654
+  },
+  "classes": {
+    "6": 1,
+    "7": 0,
+    "8": 1,
+    "9": 1,
+    "10": 2,
+    "11": 2,
+    "12": 8,
+    "13": 8,
+    "14": 32,
+    "15": 57,
+    "16": 185
+  },
+  "seconds_main_run": 190.66091442108154
+}

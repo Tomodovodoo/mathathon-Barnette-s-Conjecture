@@ -17,6 +17,18 @@ AUTHOR = REPO / 'research/2026-11-14_fable_route-combinatorics'
 
 def edge(a,b): return tuple(sorted((a,b)))
 def arcs(c): return list(zip(c,c[1:]+c[:1]))
+def determinant(mat):
+    a=[list(map(int,row)) for row in mat]; n=len(a); old=1; sign=1
+    for k in range(n-1):
+        p=next((i for i in range(k,n) if a[i][k]),None)
+        if p is None:return 0
+        if p!=k:a[k],a[p]=a[p],a[k]; sign=-sign
+        pivot=a[k][k]
+        for i in range(k+1,n):
+            for j in range(k+1,n):a[i][j]=(pivot*a[i][j]-a[i][k]*a[k][j])//old
+            a[i][k]=0
+        old=pivot
+    return sign*a[-1][-1]
 def pm(g):
     if not g:
         yield ()
@@ -47,6 +59,7 @@ class Map:
 
 class Root:
     def __init__(self, M, outer):
+        self.diskmemo={}
         self.M=M; self.o=outer; self.R=set(M.faces[outer])
         self.X=sorted(set(M.T)-self.R)
         self.black={f for f in M.G if M.fc[f]==M.fc[outer]}
@@ -88,11 +101,14 @@ class Root:
             out.append(c)
         return out
     def disk(self,c):
+        key=tuple(c)
+        if key in self.diskmemo:return self.diskmemo[key]
         g=self.M.G.copy(); g.remove_edges_from(self.M.dual[edge(a,b)] for a,b in arcs(c))
         outside=nx.node_connected_component(g,self.o)
         inside=set(g)-outside
         assert len(list(nx.connected_components(g)))==2
         ccw=self.M.side[c[0],c[1]] in inside
+        self.diskmemo[key]=(inside,ccw)
         return inside,ccw
     def disk_check(self,c):
         ins,ccw=self.disk(c); B=len(ins&self.black); W=len(ins&self.white)
@@ -152,7 +168,7 @@ class Root:
                     if x in self.X:
                         j=self.X.index(x); d[i,j]=sgn; N[i,j]=z**self.delta(x,v)
             assert np.max(np.abs(N@np.diag([om**col[x] for x in self.X])-np.diag(rho)@d))<1e-10
-            detd=int(sp.det(sp.Matrix(d.tolist())))
+            detd=determinant(d.tolist())
             detN=np.linalg.det(N)
             partner_sum=sum((1j)**(sum(self.delta(a,b) for a,b in zip(r,s))//3) for r in self.partners[s])
             assert abs(sigma*detN-partner_sum)<1e-8
