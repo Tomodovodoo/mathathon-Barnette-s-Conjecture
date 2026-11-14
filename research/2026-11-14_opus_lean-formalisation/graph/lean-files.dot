@@ -1,0 +1,303 @@
+digraph files {
+  rankdir=BT; node [shape=box,fontsize=10];
+  "Model" [label="Model
+50 lines"];
+  "Network" [label="Network
+266 lines"];
+  "CutSpaces" [label="CutSpaces
+315 lines"];
+  "FlowCircuits" [label="FlowCircuits
+360 lines"];
+  "Bonds" [label="Bonds
+305 lines"];
+  "Quotients" [label="Quotients
+195 lines"];
+  "DiskRegions" [label="DiskRegions
+318 lines"];
+  "StateDisk" [label="StateDisk
+483 lines"];
+  "Circulation" [label="Circulation
+253 lines"];
+  "TriangleSystem" [label="TriangleSystem
+319 lines"];
+  "ColoredDual" [label="ColoredDual
+209 lines"];
+  "CycleReversal" [label="CycleReversal
+250 lines"];
+  "PairPhases" [label="PairPhases
+369 lines"];
+  "PairPolynomials" [label="PairPolynomials
+450 lines"];
+  "Forest" [label="Forest
+295 lines"];
+  "Contraction" [label="Contraction
+429 lines"];
+  "MinorDuality" [label="MinorDuality
+240 lines"];
+  "BMatching" [label="BMatching
+432 lines"];
+  "Matching" [label="Matching
+509 lines"];
+  "ForestMatching" [label="ForestMatching
+395 lines"];
+  "ThreeCuts" [label="ThreeCuts
+466 lines"];
+  "CappedDuality" [label="CappedDuality
+251 lines"];
+  "Gluing" [label="Gluing
+303 lines"];
+  "Traces" [label="Traces
+260 lines"];
+  "SquareGrid" [label="SquareGrid
+189 lines"];
+  "Corridors" [label="Corridors
+96 lines"];
+  "MinorModel" [label="MinorModel
+279 lines"];
+  "BranchPartition" [label="BranchPartition
+123 lines"];
+  "Rectangle" [label="Rectangle
+316 lines"];
+  "ExactDual" [label="ExactDual
+125 lines"];
+  "Main" [label="Main
+86 lines"];
+  "BMatching" -> "ColoredDual" [label=18,fontsize=7,penwidth=4.00];
+  "BMatching" -> "Contraction" [label=4,fontsize=7,penwidth=1.50];
+  "BMatching" -> "CutSpaces" [label=4,fontsize=7,penwidth=1.50];
+  "BMatching" -> "CycleReversal" [label=4,fontsize=7,penwidth=1.50];
+  "BMatching" -> "FlowCircuits" [label=2,fontsize=7,penwidth=1.00];
+  "BMatching" -> "Forest" [label=4,fontsize=7,penwidth=1.50];
+  "BMatching" -> "MinorDuality" [label=2,fontsize=7,penwidth=1.00];
+  "BMatching" -> "PairPhases" [label=16,fontsize=7,penwidth=4.00];
+  "BMatching" -> "StateDisk" [label=7,fontsize=7,penwidth=2.25];
+  "BMatching" -> "TriangleSystem" [label=15,fontsize=7,penwidth=4.00];
+  "Bonds" -> "CutSpaces" [label=31,fontsize=7,penwidth=4.00];
+  "Bonds" -> "FlowCircuits" [label=24,fontsize=7,penwidth=4.00];
+  "Bonds" -> "Network" [label=18,fontsize=7,penwidth=4.00];
+  "BranchPartition" -> "Bonds" [label=2,fontsize=7,penwidth=1.00];
+  "BranchPartition" -> "StateDisk" [label=1,fontsize=7,penwidth=0.75];
+  "CappedDuality" -> "Bonds" [label=2,fontsize=7,penwidth=1.00];
+  "CappedDuality" -> "Contraction" [label=2,fontsize=7,penwidth=1.00];
+  "CappedDuality" -> "CutSpaces" [label=4,fontsize=7,penwidth=1.50];
+  "CappedDuality" -> "DiskRegions" [label=1,fontsize=7,penwidth=0.75];
+  "CappedDuality" -> "Forest" [label=6,fontsize=7,penwidth=2.00];
+  "CappedDuality" -> "Matching" [label=2,fontsize=7,penwidth=1.00];
+  "CappedDuality" -> "Network" [label=11,fontsize=7,penwidth=3.25];
+  "CappedDuality" -> "PairPhases" [label=5,fontsize=7,penwidth=1.75];
+  "CappedDuality" -> "Quotients" [label=31,fontsize=7,penwidth=4.00];
+  "CappedDuality" -> "ThreeCuts" [label=10,fontsize=7,penwidth=3.00];
+  "CappedDuality" -> "TriangleSystem" [label=5,fontsize=7,penwidth=1.75];
+  "Circulation" -> "Bonds" [label=9,fontsize=7,penwidth=2.75];
+  "Circulation" -> "CutSpaces" [label=13,fontsize=7,penwidth=3.75];
+  "Circulation" -> "FlowCircuits" [label=12,fontsize=7,penwidth=3.50];
+  "Circulation" -> "Network" [label=13,fontsize=7,penwidth=3.75];
+  "Circulation" -> "Quotients" [label=6,fontsize=7,penwidth=2.00];
+  "Circulation" -> "StateDisk" [label=6,fontsize=7,penwidth=2.00];
+  "ColoredDual" -> "Bonds" [label=6,fontsize=7,penwidth=2.00];
+  "ColoredDual" -> "Circulation" [label=6,fontsize=7,penwidth=2.00];
+  "ColoredDual" -> "CutSpaces" [label=15,fontsize=7,penwidth=4.00];
+  "ColoredDual" -> "FlowCircuits" [label=16,fontsize=7,penwidth=4.00];
+  "ColoredDual" -> "Network" [label=9,fontsize=7,penwidth=2.75];
+  "ColoredDual" -> "StateDisk" [label=6,fontsize=7,penwidth=2.00];
+  "ColoredDual" -> "TriangleSystem" [label=38,fontsize=7,penwidth=4.00];
+  "Contraction" -> "Bonds" [label=1,fontsize=7,penwidth=0.75];
+  "Contraction" -> "ColoredDual" [label=8,fontsize=7,penwidth=2.50];
+  "Contraction" -> "CutSpaces" [label=17,fontsize=7,penwidth=4.00];
+  "Contraction" -> "DiskRegions" [label=1,fontsize=7,penwidth=0.75];
+  "Contraction" -> "FlowCircuits" [label=15,fontsize=7,penwidth=4.00];
+  "Contraction" -> "Forest" [label=14,fontsize=7,penwidth=4.00];
+  "Contraction" -> "Network" [label=31,fontsize=7,penwidth=4.00];
+  "Contraction" -> "PairPhases" [label=4,fontsize=7,penwidth=1.50];
+  "Contraction" -> "Quotients" [label=13,fontsize=7,penwidth=3.75];
+  "Contraction" -> "StateDisk" [label=5,fontsize=7,penwidth=1.75];
+  "Contraction" -> "TriangleSystem" [label=3,fontsize=7,penwidth=1.25];
+  "Corridors" -> "CutSpaces" [label=2,fontsize=7,penwidth=1.00];
+  "Corridors" -> "SquareGrid" [label=6,fontsize=7,penwidth=2.00];
+  "Corridors" -> "StateDisk" [label=1,fontsize=7,penwidth=0.75];
+  "Corridors" -> "Traces" [label=17,fontsize=7,penwidth=4.00];
+  "CutSpaces" -> "Model" [label=4,fontsize=7,penwidth=1.50];
+  "CutSpaces" -> "Network" [label=29,fontsize=7,penwidth=4.00];
+  "CycleReversal" -> "Circulation" [label=6,fontsize=7,penwidth=2.00];
+  "CycleReversal" -> "ColoredDual" [label=34,fontsize=7,penwidth=4.00];
+  "CycleReversal" -> "FlowCircuits" [label=13,fontsize=7,penwidth=3.75];
+  "CycleReversal" -> "StateDisk" [label=4,fontsize=7,penwidth=1.50];
+  "CycleReversal" -> "TriangleSystem" [label=50,fontsize=7,penwidth=4.00];
+  "DiskRegions" -> "Bonds" [label=5,fontsize=7,penwidth=1.75];
+  "DiskRegions" -> "CutSpaces" [label=14,fontsize=7,penwidth=4.00];
+  "DiskRegions" -> "FlowCircuits" [label=8,fontsize=7,penwidth=2.50];
+  "DiskRegions" -> "Network" [label=22,fontsize=7,penwidth=4.00];
+  "DiskRegions" -> "Quotients" [label=19,fontsize=7,penwidth=4.00];
+  "ExactDual" -> "Bonds" [label=1,fontsize=7,penwidth=0.75];
+  "ExactDual" -> "BranchPartition" [label=2,fontsize=7,penwidth=1.00];
+  "ExactDual" -> "CappedDuality" [label=1,fontsize=7,penwidth=0.75];
+  "ExactDual" -> "Corridors" [label=1,fontsize=7,penwidth=0.75];
+  "ExactDual" -> "CutSpaces" [label=2,fontsize=7,penwidth=1.00];
+  "ExactDual" -> "Matching" [label=3,fontsize=7,penwidth=1.25];
+  "ExactDual" -> "MinorModel" [label=3,fontsize=7,penwidth=1.25];
+  "ExactDual" -> "Model" [label=1,fontsize=7,penwidth=0.75];
+  "ExactDual" -> "Network" [label=13,fontsize=7,penwidth=3.75];
+  "ExactDual" -> "PairPhases" [label=2,fontsize=7,penwidth=1.00];
+  "ExactDual" -> "Quotients" [label=8,fontsize=7,penwidth=2.50];
+  "ExactDual" -> "Rectangle" [label=2,fontsize=7,penwidth=1.00];
+  "ExactDual" -> "SquareGrid" [label=4,fontsize=7,penwidth=1.50];
+  "ExactDual" -> "StateDisk" [label=3,fontsize=7,penwidth=1.25];
+  "ExactDual" -> "ThreeCuts" [label=1,fontsize=7,penwidth=0.75];
+  "ExactDual" -> "Traces" [label=2,fontsize=7,penwidth=1.00];
+  "ExactDual" -> "TriangleSystem" [label=2,fontsize=7,penwidth=1.00];
+  "FlowCircuits" -> "CutSpaces" [label=35,fontsize=7,penwidth=4.00];
+  "FlowCircuits" -> "Model" [label=1,fontsize=7,penwidth=0.75];
+  "FlowCircuits" -> "Network" [label=29,fontsize=7,penwidth=4.00];
+  "Forest" -> "Circulation" [label=6,fontsize=7,penwidth=2.00];
+  "Forest" -> "ColoredDual" [label=49,fontsize=7,penwidth=4.00];
+  "Forest" -> "CutSpaces" [label=2,fontsize=7,penwidth=1.00];
+  "Forest" -> "CycleReversal" [label=17,fontsize=7,penwidth=4.00];
+  "Forest" -> "FlowCircuits" [label=6,fontsize=7,penwidth=2.00];
+  "Forest" -> "Network" [label=19,fontsize=7,penwidth=4.00];
+  "Forest" -> "PairPhases" [label=37,fontsize=7,penwidth=4.00];
+  "Forest" -> "PairPolynomials" [label=9,fontsize=7,penwidth=2.75];
+  "Forest" -> "Quotients" [label=2,fontsize=7,penwidth=1.00];
+  "Forest" -> "StateDisk" [label=6,fontsize=7,penwidth=2.00];
+  "Forest" -> "TriangleSystem" [label=37,fontsize=7,penwidth=4.00];
+  "ForestMatching" -> "BMatching" [label=4,fontsize=7,penwidth=1.50];
+  "ForestMatching" -> "ColoredDual" [label=24,fontsize=7,penwidth=4.00];
+  "ForestMatching" -> "CutSpaces" [label=11,fontsize=7,penwidth=3.25];
+  "ForestMatching" -> "CycleReversal" [label=3,fontsize=7,penwidth=1.25];
+  "ForestMatching" -> "DiskRegions" [label=2,fontsize=7,penwidth=1.00];
+  "ForestMatching" -> "FlowCircuits" [label=30,fontsize=7,penwidth=4.00];
+  "ForestMatching" -> "Forest" [label=5,fontsize=7,penwidth=1.75];
+  "ForestMatching" -> "Matching" [label=16,fontsize=7,penwidth=4.00];
+  "ForestMatching" -> "MinorDuality" [label=1,fontsize=7,penwidth=0.75];
+  "ForestMatching" -> "Network" [label=13,fontsize=7,penwidth=3.75];
+  "ForestMatching" -> "PairPhases" [label=8,fontsize=7,penwidth=2.50];
+  "ForestMatching" -> "Quotients" [label=3,fontsize=7,penwidth=1.25];
+  "ForestMatching" -> "StateDisk" [label=15,fontsize=7,penwidth=4.00];
+  "ForestMatching" -> "TriangleSystem" [label=17,fontsize=7,penwidth=4.00];
+  "Gluing" -> "BMatching" [label=2,fontsize=7,penwidth=1.00];
+  "Gluing" -> "CappedDuality" [label=4,fontsize=7,penwidth=1.50];
+  "Gluing" -> "ColoredDual" [label=2,fontsize=7,penwidth=1.00];
+  "Gluing" -> "Contraction" [label=5,fontsize=7,penwidth=1.75];
+  "Gluing" -> "CutSpaces" [label=20,fontsize=7,penwidth=4.00];
+  "Gluing" -> "DiskRegions" [label=18,fontsize=7,penwidth=4.00];
+  "Gluing" -> "FlowCircuits" [label=13,fontsize=7,penwidth=3.75];
+  "Gluing" -> "Matching" [label=6,fontsize=7,penwidth=2.00];
+  "Gluing" -> "Network" [label=9,fontsize=7,penwidth=2.75];
+  "Gluing" -> "PairPhases" [label=4,fontsize=7,penwidth=1.50];
+  "Gluing" -> "Quotients" [label=6,fontsize=7,penwidth=2.00];
+  "Gluing" -> "StateDisk" [label=2,fontsize=7,penwidth=1.00];
+  "Gluing" -> "ThreeCuts" [label=21,fontsize=7,penwidth=4.00];
+  "Gluing" -> "TriangleSystem" [label=3,fontsize=7,penwidth=1.25];
+  "Main" -> "Bonds" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "CappedDuality" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "ColoredDual" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "Contraction" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "CutSpaces" [label=3,fontsize=7,penwidth=1.25];
+  "Main" -> "ExactDual" [label=3,fontsize=7,penwidth=1.25];
+  "Main" -> "FlowCircuits" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "Gluing" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "Matching" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "Model" [label=4,fontsize=7,penwidth=1.50];
+  "Main" -> "Network" [label=7,fontsize=7,penwidth=2.25];
+  "Main" -> "PairPhases" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "Quotients" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "SquareGrid" [label=2,fontsize=7,penwidth=1.00];
+  "Main" -> "StateDisk" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "ThreeCuts" [label=1,fontsize=7,penwidth=0.75];
+  "Main" -> "TriangleSystem" [label=1,fontsize=7,penwidth=0.75];
+  "Matching" -> "BMatching" [label=5,fontsize=7,penwidth=1.75];
+  "Matching" -> "Bonds" [label=1,fontsize=7,penwidth=0.75];
+  "Matching" -> "ColoredDual" [label=83,fontsize=7,penwidth=4.00];
+  "Matching" -> "CutSpaces" [label=19,fontsize=7,penwidth=4.00];
+  "Matching" -> "CycleReversal" [label=14,fontsize=7,penwidth=4.00];
+  "Matching" -> "DiskRegions" [label=2,fontsize=7,penwidth=1.00];
+  "Matching" -> "FlowCircuits" [label=14,fontsize=7,penwidth=4.00];
+  "Matching" -> "Forest" [label=16,fontsize=7,penwidth=4.00];
+  "Matching" -> "MinorDuality" [label=2,fontsize=7,penwidth=1.00];
+  "Matching" -> "Network" [label=32,fontsize=7,penwidth=4.00];
+  "Matching" -> "PairPhases" [label=35,fontsize=7,penwidth=4.00];
+  "Matching" -> "Quotients" [label=15,fontsize=7,penwidth=4.00];
+  "Matching" -> "StateDisk" [label=15,fontsize=7,penwidth=4.00];
+  "Matching" -> "TriangleSystem" [label=36,fontsize=7,penwidth=4.00];
+  "MinorDuality" -> "ColoredDual" [label=16,fontsize=7,penwidth=4.00];
+  "MinorDuality" -> "Contraction" [label=45,fontsize=7,penwidth=4.00];
+  "MinorDuality" -> "CutSpaces" [label=12,fontsize=7,penwidth=3.50];
+  "MinorDuality" -> "CycleReversal" [label=2,fontsize=7,penwidth=1.00];
+  "MinorDuality" -> "DiskRegions" [label=2,fontsize=7,penwidth=1.00];
+  "MinorDuality" -> "FlowCircuits" [label=9,fontsize=7,penwidth=2.75];
+  "MinorDuality" -> "Forest" [label=2,fontsize=7,penwidth=1.00];
+  "MinorDuality" -> "Network" [label=11,fontsize=7,penwidth=3.25];
+  "MinorDuality" -> "PairPhases" [label=2,fontsize=7,penwidth=1.00];
+  "MinorDuality" -> "StateDisk" [label=3,fontsize=7,penwidth=1.25];
+  "MinorDuality" -> "TriangleSystem" [label=2,fontsize=7,penwidth=1.00];
+  "MinorModel" -> "Bonds" [label=2,fontsize=7,penwidth=1.00];
+  "MinorModel" -> "Corridors" [label=13,fontsize=7,penwidth=3.75];
+  "MinorModel" -> "CutSpaces" [label=4,fontsize=7,penwidth=1.50];
+  "MinorModel" -> "FlowCircuits" [label=1,fontsize=7,penwidth=0.75];
+  "MinorModel" -> "Model" [label=1,fontsize=7,penwidth=0.75];
+  "MinorModel" -> "PairPhases" [label=1,fontsize=7,penwidth=0.75];
+  "MinorModel" -> "SquareGrid" [label=1,fontsize=7,penwidth=0.75];
+  "MinorModel" -> "StateDisk" [label=3,fontsize=7,penwidth=1.25];
+  "MinorModel" -> "Traces" [label=10,fontsize=7,penwidth=3.00];
+  "MinorModel" -> "TriangleSystem" [label=1,fontsize=7,penwidth=0.75];
+  "Network" -> "Model" [label=1,fontsize=7,penwidth=0.75];
+  "PairPhases" -> "Circulation" [label=3,fontsize=7,penwidth=1.25];
+  "PairPhases" -> "ColoredDual" [label=20,fontsize=7,penwidth=4.00];
+  "PairPhases" -> "CycleReversal" [label=14,fontsize=7,penwidth=4.00];
+  "PairPhases" -> "FlowCircuits" [label=1,fontsize=7,penwidth=0.75];
+  "PairPhases" -> "PairPolynomials" [label=3,fontsize=7,penwidth=1.25];
+  "PairPhases" -> "StateDisk" [label=14,fontsize=7,penwidth=4.00];
+  "PairPhases" -> "TriangleSystem" [label=49,fontsize=7,penwidth=4.00];
+  "PairPolynomials" -> "ColoredDual" [label=4,fontsize=7,penwidth=1.50];
+  "PairPolynomials" -> "CycleReversal" [label=5,fontsize=7,penwidth=1.75];
+  "PairPolynomials" -> "PairPhases" [label=113,fontsize=7,penwidth=4.00];
+  "PairPolynomials" -> "StateDisk" [label=5,fontsize=7,penwidth=1.75];
+  "PairPolynomials" -> "TriangleSystem" [label=11,fontsize=7,penwidth=3.25];
+  "Quotients" -> "Network" [label=24,fontsize=7,penwidth=4.00];
+  "Rectangle" -> "Corridors" [label=2,fontsize=7,penwidth=1.00];
+  "Rectangle" -> "MinorModel" [label=2,fontsize=7,penwidth=1.00];
+  "Rectangle" -> "Network" [label=17,fontsize=7,penwidth=4.00];
+  "Rectangle" -> "PairPhases" [label=7,fontsize=7,penwidth=2.25];
+  "Rectangle" -> "SquareGrid" [label=2,fontsize=7,penwidth=1.00];
+  "Rectangle" -> "StateDisk" [label=2,fontsize=7,penwidth=1.00];
+  "Rectangle" -> "Traces" [label=3,fontsize=7,penwidth=1.25];
+  "Rectangle" -> "TriangleSystem" [label=13,fontsize=7,penwidth=3.75];
+  "SquareGrid" -> "Bonds" [label=1,fontsize=7,penwidth=0.75];
+  "SquareGrid" -> "CutSpaces" [label=1,fontsize=7,penwidth=0.75];
+  "SquareGrid" -> "Network" [label=1,fontsize=7,penwidth=0.75];
+  "SquareGrid" -> "PairPhases" [label=1,fontsize=7,penwidth=0.75];
+  "SquareGrid" -> "StateDisk" [label=1,fontsize=7,penwidth=0.75];
+  "SquareGrid" -> "TriangleSystem" [label=1,fontsize=7,penwidth=0.75];
+  "StateDisk" -> "Bonds" [label=16,fontsize=7,penwidth=4.00];
+  "StateDisk" -> "CutSpaces" [label=33,fontsize=7,penwidth=4.00];
+  "StateDisk" -> "DiskRegions" [label=14,fontsize=7,penwidth=4.00];
+  "StateDisk" -> "FlowCircuits" [label=37,fontsize=7,penwidth=4.00];
+  "StateDisk" -> "Network" [label=42,fontsize=7,penwidth=4.00];
+  "ThreeCuts" -> "BMatching" [label=3,fontsize=7,penwidth=1.25];
+  "ThreeCuts" -> "Bonds" [label=1,fontsize=7,penwidth=0.75];
+  "ThreeCuts" -> "Circulation" [label=1,fontsize=7,penwidth=0.75];
+  "ThreeCuts" -> "ColoredDual" [label=6,fontsize=7,penwidth=2.00];
+  "ThreeCuts" -> "Contraction" [label=12,fontsize=7,penwidth=3.50];
+  "ThreeCuts" -> "CutSpaces" [label=37,fontsize=7,penwidth=4.00];
+  "ThreeCuts" -> "CycleReversal" [label=1,fontsize=7,penwidth=0.75];
+  "ThreeCuts" -> "DiskRegions" [label=11,fontsize=7,penwidth=3.25];
+  "ThreeCuts" -> "FlowCircuits" [label=15,fontsize=7,penwidth=4.00];
+  "ThreeCuts" -> "Forest" [label=3,fontsize=7,penwidth=1.25];
+  "ThreeCuts" -> "ForestMatching" [label=1,fontsize=7,penwidth=0.75];
+  "ThreeCuts" -> "Matching" [label=5,fontsize=7,penwidth=1.75];
+  "ThreeCuts" -> "Network" [label=29,fontsize=7,penwidth=4.00];
+  "ThreeCuts" -> "PairPhases" [label=8,fontsize=7,penwidth=2.50];
+  "ThreeCuts" -> "Quotients" [label=8,fontsize=7,penwidth=2.50];
+  "ThreeCuts" -> "StateDisk" [label=12,fontsize=7,penwidth=3.50];
+  "ThreeCuts" -> "TriangleSystem" [label=6,fontsize=7,penwidth=2.00];
+  "Traces" -> "CutSpaces" [label=1,fontsize=7,penwidth=0.75];
+  "Traces" -> "Model" [label=12,fontsize=7,penwidth=3.50];
+  "Traces" -> "PairPhases" [label=13,fontsize=7,penwidth=3.75];
+  "Traces" -> "StateDisk" [label=8,fontsize=7,penwidth=2.50];
+  "Traces" -> "TriangleSystem" [label=2,fontsize=7,penwidth=1.00];
+  "TriangleSystem" -> "Bonds" [label=11,fontsize=7,penwidth=3.25];
+  "TriangleSystem" -> "Circulation" [label=7,fontsize=7,penwidth=2.25];
+  "TriangleSystem" -> "CutSpaces" [label=18,fontsize=7,penwidth=4.00];
+  "TriangleSystem" -> "FlowCircuits" [label=16,fontsize=7,penwidth=4.00];
+  "TriangleSystem" -> "Network" [label=13,fontsize=7,penwidth=3.75];
+  "TriangleSystem" -> "StateDisk" [label=7,fontsize=7,penwidth=2.25];
+}
