@@ -1,0 +1,4 @@
+outputs/p[0-9][0-9].png
+outputs/gray[0-9][0-9].png
+outputs/deut[0-9][0-9].png
+__pycache__/

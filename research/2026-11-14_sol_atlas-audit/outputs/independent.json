@@ -1,0 +1,919 @@
+{
+  "checks": [
+    {
+      "test": "states",
+      "actual": [
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          10,
+          6,
+          12,
+          11,
+          8
+        ],
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          10,
+          11,
+          6,
+          12,
+          8
+        ],
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          11,
+          6,
+          12,
+          8,
+          10
+        ],
+        [
+          1,
+          2,
+          8,
+          9,
+          3,
+          11,
+          6,
+          7,
+          12,
+          10
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          10,
+          6,
+          12,
+          11,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          10,
+          11,
+          6,
+          12,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          11,
+          6,
+          12,
+          8,
+          10
+        ],
+        [
+          1,
+          3,
+          8,
+          2,
+          9,
+          11,
+          6,
+          7,
+          12,
+          10
+        ],
+        [
+          6,
+          2,
+          1,
+          9,
+          3,
+          10,
+          11,
+          7,
+          12,
+          8
+        ],
+        [
+          6,
+          2,
+          7,
+          1,
+          3,
+          10,
+          11,
+          12,
+          8,
+          9
+        ],
+        [
+          6,
+          2,
+          8,
+          1,
+          3,
+          10,
+          11,
+          7,
+          12,
+          9
+        ],
+        [
+          6,
+          3,
+          1,
+          2,
+          9,
+          10,
+          11,
+          7,
+          12,
+          8
+        ]
+      ],
+      "expected": [
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          10,
+          6,
+          12,
+          11,
+          8
+        ],
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          10,
+          11,
+          6,
+          12,
+          8
+        ],
+        [
+          1,
+          2,
+          7,
+          9,
+          3,
+          11,
+          6,
+          12,
+          8,
+          10
+        ],
+        [
+          1,
+          2,
+          8,
+          9,
+          3,
+          11,
+          6,
+          7,
+          12,
+          10
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          10,
+          6,
+          12,
+          11,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          10,
+          11,
+          6,
+          12,
+          8
+        ],
+        [
+          1,
+          3,
+          7,
+          2,
+          9,
+          11,
+          6,
+          12,
+          8,
+          10
+        ],
+        [
+          1,
+          3,
+          8,
+          2,
+          9,
+          11,
+          6,
+          7,
+          12,
+          10
+        ],
+        [
+          6,
+          2,
+          1,
+          9,
+          3,
+          10,
+          11,
+          7,
+          12,
+          8
+        ],
+        [
+          6,
+          2,
+          7,
+          1,
+          3,
+          10,
+          11,
+          12,
+          8,
+          9
+        ],
+        [
+          6,
+          2,
+          8,
+          1,
+          3,
+          10,
+          11,
+          7,
+          12,
+          9
+        ],
+        [
+          6,
+          3,
+          1,
+          2,
+          9,
+          10,
+          11,
+          7,
+          12,
+          8
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "test": "pairs",
+      "actual": 8,
+      "expected": 8,
+      "ok": true
+    },
+    {
+      "test": "good states",
+      "actual": 6,
+      "expected": 6,
+      "ok": true
+    },
+    {
+      "test": "Hamiltonian cycles via two induced trees",
+      "actual": 28,
+      "expected": 28,
+      "ok": true
+    },
+    {
+      "test": "FS relaxed predicate",
+      "actual": [
+        28,
+        28,
+        28
+      ],
+      "expected": [
+        28,
+        28,
+        28
+      ],
+      "ok": true
+    },
+    {
+      "test": "Hall failures over 1024 sets",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "height vectors",
+      "actual": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "test": "exponential leading coefficient",
+      "actual": -9,
+      "expected": -9,
+      "ok": true
+    },
+    {
+      "test": "linear coefficient",
+      "actual": "9",
+      "expected": "9",
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s11",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s9",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s7",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s5",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s10",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s8",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s6",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s3",
+      "actual": 0,
+      "expected": 0,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s4",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s2",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s1",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "partner determinant magnitude s0",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "test": "face plus forest",
+      "actual": 350,
+      "expected": 350,
+      "ok": true
+    },
+    {
+      "test": "vertex plus forest",
+      "actual": 304,
+      "expected": 304,
+      "ok": true
+    },
+    {
+      "test": "LP inequalities",
+      "actual": 1946,
+      "expected": 1946,
+      "ok": true
+    },
+    {
+      "test": "LP active rank",
+      "actual": 25,
+      "expected": 25,
+      "ok": true
+    },
+    {
+      "test": "LP equalities",
+      "actual": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "expected": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ok": true
+    },
+    {
+      "test": "spoke spanning trees",
+      "actual": 6670188,
+      "expected": 6670188,
+      "ok": true
+    },
+    {
+      "test": "4-cut frequencies",
+      "actual": {
+        "(0, 0, 1, 0)": 6,
+        "(0, 1, 0, 1)": 12,
+        "(0, 1, 1, 1)": 2,
+        "(0, 0, 1, 1)": 4,
+        "(0, 1, 1, 0)": 4
+      },
+      "expected": {
+        "(0, 1, 0, 1)": 12,
+        "(0, 1, 1, 0)": 4,
+        "(0, 1, 1, 1)": 2,
+        "(0, 0, 1, 1)": 4,
+        "(0, 0, 1, 0)": 6
+      },
+      "ok": true
+    },
+    {
+      "test": "canonical state count",
+      "actual": 9,
+      "expected": 9,
+      "ok": true
+    },
+    {
+      "test": "canonical good count",
+      "actual": 8,
+      "expected": 8,
+      "ok": true
+    },
+    {
+      "test": "determinant state count",
+      "actual": 3,
+      "expected": 3,
+      "ok": true
+    },
+    {
+      "test": "determinant good count",
+      "actual": 2,
+      "expected": 2,
+      "ok": true
+    },
+    {
+      "test": "avoidance range",
+      "actual": [
+        4,
+        14
+      ],
+      "expected": [
+        4,
+        14
+      ],
+      "ok": true
+    }
+  ],
+  "terms": [
+    [
+      11,
+      0,
+      2,
+      -1,
+      1,
+      0
+    ],
+    [
+      9,
+      2,
+      2,
+      -1,
+      1,
+      2
+    ],
+    [
+      9,
+      1,
+      0,
+      1,
+      -1,
+      1
+    ],
+    [
+      8,
+      4,
+      0,
+      1,
+      -1,
+      3
+    ],
+    [
+      4,
+      8,
+      0,
+      1,
+      -1,
+      5
+    ],
+    [
+      2,
+      9,
+      -2,
+      -1,
+      1,
+      6
+    ],
+    [
+      1,
+      9,
+      0,
+      1,
+      -1,
+      6
+    ],
+    [
+      0,
+      11,
+      -2,
+      -1,
+      1,
+      7
+    ]
+  ],
+  "determinants": {
+    "11": 1,
+    "9": 0,
+    "7": 0,
+    "5": 0,
+    "10": 0,
+    "8": -1,
+    "6": 0,
+    "3": 0,
+    "4": -1,
+    "2": 1,
+    "1": -1,
+    "0": 1
+  },
+  "cut_patterns": "Counter({(0, 1, 0, 1): 12, (0, 0, 1, 0): 6, (0, 0, 1, 1): 4, (0, 1, 1, 0): 4, (0, 1, 1, 1): 2})",
+  "avoidance": {
+    "(6, 12)": 8,
+    "(3, 4)": 14,
+    "(4, 9)": 6,
+    "(0, 2)": 8,
+    "(8, 9)": 8,
+    "(0, 5)": 10,
+    "(8, 12)": 8,
+    "(1, 6)": 10,
+    "(1, 9)": 10,
+    "(6, 11)": 6,
+    "(4, 5)": 12,
+    "(3, 9)": 8,
+    "(5, 6)": 10,
+    "(4, 11)": 4,
+    "(8, 11)": 6,
+    "(0, 1)": 10,
+    "(9, 10)": 10,
+    "(1, 2)": 10,
+    "(0, 4)": 6,
+    "(10, 11)": 12,
+    "(1, 8)": 10,
+    "(6, 7)": 8,
+    "(7, 12)": 12,
+    "(4, 10)": 12,
+    "(5, 11)": 12,
+    "(0, 3)": 8,
+    "(8, 10)": 10,
+    "(0, 6)": 8,
+    "(2, 3)": 12,
+    "(2, 9)": 8,
+    "(1, 7)": 10,
+    "(11, 12)": 14,
+    "(7, 8)": 8
+  },
+  "scope": "Running example, canonical fixture, hexagonal prism. No atlas imports. Not a full verification of all extra fixtures."
+}
