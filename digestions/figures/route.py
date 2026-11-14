@@ -248,7 +248,7 @@ def fig_count():
             disks = [m.disk(C) for C in m.directed_cycles(m.D(r, s))]
             ccw = [k for k in disks if k['ccw']]
             eps, w = bn.sign(T, d(r), d(s)), bn.weight(T, d(s))
-            assert eps == (-1) ** ((n + c) // 2 + len(ccw))                       # (4.3)       
+            assert eps == (-1) ** ((n + c) // 2 + len(ccw))                       # (4.3)
             assert w == wF + sum(k['W'] for k in ccw)                             # Lemma 4.6
             depth = {y: sum(y in k['white'] for k in ccw) for y in m.white}
             assert sum(depth.values()) == w - wF
