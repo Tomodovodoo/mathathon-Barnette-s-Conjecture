@@ -12,7 +12,7 @@
 \author{Research note, 14 November 2026}
 \begin{document}
 \begin{abstract}
-We complete the multi-mark argument in Appendix B of Zhentao Li's note.
+We write out Li's intended multi-mark proof in Appendix B of Zhentao Li's note.
 The proof uses finite signed sets and two explicit involutions. It uses no
 generating function, limiting argument, or complex number. A finite alternating
 path constructs a forest pair. The coefficient comparison at the end is a
@@ -73,16 +73,19 @@ Roots lie on the outside triangle and no selected side has a root as tail.
 Thus the cycle avoids roots and its bounded disk contains none.
 Let $I$ count strictly interior vertices and $B,W$ the black and white faces
 inside the disk. State bijectivity gives $B=I+\ell$.
-Indeed a black triangle inside must select an interior vertex, unless its
-selected vertex is on the boundary. Every boundary vertex already has its
-unique selected triangle supplying the outgoing boundary side. The latter
-triangles are inside exactly for the $\ell$ specified sides. Conversely an
-interior vertex can only select an inside triangle.
+Indeed the state is injective, and an inside triangle selects a vertex of
+the closed disk. An interior vertex is selected by some triangle, which
+contains it and so lies inside. A boundary vertex is selected by the
+triangle supplying its outgoing boundary side, which lies inside exactly
+for the $\ell$ specified sides. So the inside triangles correspond to the
+$I$ interior vertices and those $\ell$ boundary vertices.
 If $E$ counts disk edges, side counting gives
 \[
  E=3B+h-\ell=3W+\ell.
 \]
-Euler's disk formula is $I+h-E+B+W=1$. Substitute $B=I+\ell$
+The closed disk with its triangulation is connected: its underlying space is a disk,
+and its triangles join along their edges and vertices. Its faces are exactly
+the triangles counted above. Euler's disk formula is $I+h-E+B+W=1$. Substitute $B=I+\ell$
 and the first edge count to get $W=B+1$. Equating edge counts now gives
 $h-2\ell=3$. The asserted signs follow by traversing the disk boundary.
 In particular $W\ge1$.
@@ -101,12 +104,14 @@ Let $m=\min_p c(p)$. Thus $m\ge1$.
 
 Replace every directed side $r(t)\to s(t)$ by the two-spoke route
 $r(t)\to t\to s(t)$. Its cycles have the same orientation and enclose the
-same white-face points. To justify this assertion, the side and its detour
-bound a subdisk in its black triangle excluding the third corner. Distinct
-detours use distinct black triangles and have disjoint interiors. Sliding
-successively across these subdisks preserves simplicity and orientation;
-it never crosses a white-face point. This also handles a third corner that
-lies elsewhere on the cycle. We call these the spoke cycles of $p$.
+same white-face points. Indeed, each detour lies in the interior of its
+own black triangle apart from its two ends, and distinct triangles have
+disjoint interiors, so the route is a simple closed polygon. It differs
+from the side cycle by the boundaries of the small triangles
+$r(t),t,s(t)$, which contain no white-face point. Winding numbers at
+white-face points are therefore equal. Lemma~\ref{disk} puts a
+white-face point inside, where both winding numbers are $\pm1$, so the
+orientations agree. We call these the spoke cycles of $p$.
 
 \begin{definition}\label{objects}
 A token is a crossing $(w,t)$ of $\rho_w$ with the spoke $t\to s(t)$.
@@ -114,6 +119,9 @@ An object is $o=(p,M)$, where $M$ is an unordered set of exactly $m$ distinct
 tokens. The same white face may occur more than once, with different spokes.
 The same spoke may occur more than once, with different white faces.
 The identical crossing may not occur twice. Let $\Omega$ be this finite set.
+It depends on the drawing, since a ray swept past a vertex or a centre
+gains or loses crossings. Only its signed size is used, and
+Lemma~\ref{fixed} shows that the signed size does not depend on the drawing.
 For a token let $d(w,t)=0$ if the spoke $t\to s(t)$ goes left to right
 across the ray and $1$ otherwise. Give the object sign
 \[
@@ -130,9 +138,10 @@ fixed objects are $m!$ labelled versions of ours. We use sets to avoid that
 extra multiplicity.
 
 \section{First involution: keep the second state}
-Fix total orders on unoriented simple cycles, for example the lexicographic
-order on their sorted supplying-face sets. Cycle choices below never use
-their current direction.
+Fix total orders on unoriented simple cycles. Both maps compare only
+cycles of one $Q_s$ or of one $D_p$, which use disjoint sets of faces,
+so the lexicographic order on sorted supplying-face sets suffices.
+Cycle choices below never use their current direction.
 If $Q_s$ is a forest, define $\iota_1(o)=o$. Otherwise choose its first cycle
 $K$ using $s$ alone. Write $u(t)$ for the third corner of $t$.
 On faces supplying $K$, replace $r(t)$ by $u(t)$; retain $s$ and all tokens.
@@ -166,8 +175,11 @@ pair indices $1\leftrightarrow2,3\leftrightarrow4,\ldots$.
 If $w$ is inside, $k$ is odd; leave index $1$ unpaired and pair
 $2\leftrightarrow3,4\leftrightarrow5,\ldots$.
 Call this partial pairing $P_{C,w}$. It depends only on the drawing, $C$,
-and $w$. Two paired crossings have opposite directions when $C$ is directed,
-because consecutive crossings alternate entry and exit.
+and $w$. When $C$ is directed it is traversed $r(t)\to t\to s(t)$, so an
+$s$-spoke is traversed away from its centre and an $r$-spoke towards it;
+after reversal of $C$ the old $r$-spoke is an $s$-spoke traversed away
+from the centre. Two paired crossings have opposite directions of
+traversal, because consecutive crossings alternate entry and exit.
 
 Here is $\iota_2$ on $o=(p,M)$, in priority order.
 \begin{enumerate}
@@ -193,8 +205,10 @@ point is inside that cycle and whose crossing is first along its ray.
 \begin{proof}
 Cycle reversal exchanges two perfect matchings on an alternating cycle,
 so it preserves valid pairs and the underlying unoriented cycles.
-In case 1 the same cycles remain unmarked. The same first cycle is chosen
-twice, and no token changes membership or direction. Reversal changes $J$
+In case 1 the reversed cycle carries no token, so every token keeps its
+spoke as an $s$-spoke and $M$ is a token set of the new pair. The same
+cycles remain unmarked. The same first cycle is chosen twice, and no
+token changes membership or direction. Reversal changes $J$
 by $2$ or $-2$, so the sign reverses.
 
 In case 2 exactly one token is assigned to each cycle. The partner exists
@@ -258,6 +272,96 @@ therefore differ by $(-1)^{\lfloor m/2\rfloor}F\ne0$. A fixed object of
 $\iota_1$ exists, and its underlying pair has $Q_s$ a forest.
 \end{proof}
 
+
+\section{Marks without a drawing}\label{paths}
+The following version uses only the oriented sphere map, its face incidences,
+and a fixed tree in the dual graph rooted at $t_0$. No coordinates, rays,
+or general-position choices enter its definitions. For each white face $w$
+let $w=f_0,f_1,\ldots,f_j=t_0$ be its tree path. At each bounded black
+face $t=f_i$, the entering and leaving sides meet in a corner $v$.
+Set $\kappa_w(i)=1$ if this turn has $v$ on its left and $-1$ if
+it has $v$ on its right, using the orientation of the sphere map.
+This is the turn convention of the main paper, Section 4.
+A token for $s$ is the incidence $(w,i)$ with $f_i\in A$ and $s(f_i)=v$.
+Its direction bit is $d(w,i)=(1+\kappa_w(i))/2$.
+Keep exactly $m$ distinct tokens and the same sign formula as before.
+Since a tree path visits a face at most once, $(w,i)$ also determines its
+black face; retaining the step makes the definition explicit.
+
+For a spoke cycle $C$, its list at $w$ consists of the steps turning
+around either $r(t)$ or $s(t)$ for $t$ on $C$, in increasing path order.
+A spoke here means the formal incidence of a triangle with a corner.
+Such incidences have their cyclic order from the sphere map.
+
+\begin{lemma}\label{path-crossings}
+These lists have the same parity, alternation, and first-exit sign rules
+as the ray lists. With these lists and direction bits, both involutions,
+the fixed-set formula, and the alternating constructor hold unchanged.
+\end{lemma}
+\begin{proof}
+Subdivide every black triangle into its three corner sectors by its formal
+centre-to-corner incidences. Passing through $t$ between two sides cuts off
+exactly their common corner $v$. It crosses the incidence at $v$ once and
+neither of the other two. Its local signed crossing with the incidence
+directed away from the centre is $-\kappa_w(i)$. Reversing the incidence
+changes this sign. This is a check of the two cyclic orders of the entering
+and leaving sides, so it uses no lengths or angles.
+
+Cut the subdivided sphere map along the simple incidence cycle $C$.
+The two components are its inside disk and its outside disk. The face path
+changes components exactly at the listed steps: in a triangle on $C$,
+the route $r(t),t,s(t)$ separates precisely the corner sectors at $r(t)$
+and $s(t)$ from each other, and the third turn crosses neither incidence.
+Successive listed steps therefore alternate exit and entry. The path ends
+in $t_0$ on the outside, so its list is odd exactly when $w$ is inside.
+At a first exit, a counterclockwise cycle traverses the incidence from
+right to left relative to the path, and a clockwise cycle from left to
+right. These statements can also be read directly from the oriented
+boundary of the inside disk. If the incidence is an $s$-incidence its
+traversal is away from the centre; an $r$-incidence is traversed towards it.
+Thus the direction bit above has exactly the convention of Definition~\ref{objects}.
+
+The first map retains $s$, so it retains token eligibility and every bit.
+In the second map an unmarked cycle can still be reversed without changing
+any token. Otherwise minimality again forces one token on each of $m$
+cycles. Pair consecutive list entries with the same index rules as before.
+The common white face, the unoriented cycle, and the status of an entry
+as first or nonfirst are unchanged by this pairing and any cycle reversal.
+The partner lies on $r$ or $s$ exactly as before; reversal when it lies on
+$r$ makes it eligible. Distinct cycles have distinct incidences, so no
+other token is lost or duplicated. The return move makes the same reversal
+decision. Alternating traversal signs give the same two sign-reversal
+cases in Lemma~\ref{two}.
+
+For each enclosed white face the odd list has a first entry. Exactly one
+orientation of its cycle makes this an $s$-incidence. Independent choices
+on distinct cycles give exactly the same product $F$. If $q$ cycles are
+counterclockwise, the first-exit rule gives direction sum $q$ and
+$J=m-2q$, so every fixed sign is $(-1)^{\lfloor m/2\rfloor}$.
+The counting proof and the finite alternating-path proof now apply without
+any further change.
+\end{proof}
+
+The marked-set size, first-fixed count, and path lengths depend on the
+chosen tree of face paths, even though they require no drawing. The
+minimum $m$, the enclosed-face counts, $F$, the common fixed sign and the
+signed sum depend only on the rooted oriented triangulation. The identities
+of fixed marked objects depend on the paths; their number does not.
+For this version $H(s)=-\sum_w\eta_s(w)=-\omega(s)$ exactly, with the
+main paper's turn heights. For rays the same cycle-reversal increments
+hold; an additive constant may differ between unoriented-cover classes.
+This is a term-by-term bijective unpacking of the height proof for this
+particular height. The first involution is its cancellation lemma on
+marked objects. The second proves its height and finite-difference
+lemmas together by pairing the terms of the expansion.
+
+The number of marks matters. With fewer than $m$ marks every object has
+an unmarked cycle, so the signed count is zero. With more than $m$, the
+one-token-per-cycle deduction fails and the second map is undefined on
+some objects. COMPUTED for the original ray convention: with $m-1$ marks
+the count is zero on all 880 paired roots through 14 vertices; with $m+1$
+it is zero on 57 of them. Thus arbitrary mark counts cannot replace $m$.
+
 \section{An explicit constructor}
 Enumerate pairs to determine $m$ and a minimum cover. Choose its white
 faces and orient its first crossings as in Lemma~\ref{fixed}, obtaining
@@ -292,20 +396,26 @@ minimum search. A bound on the subsequent path is $|\Omega|-1$ moves.
 \section{What Li's note leaves unwritten}
 Li's Definitions 13--23 and Lemmas 34--35 give exactly the one-token
 version. Claim 25 is the disk count and Lemma 17 is our first sign change.
-Appendix B states the extension, the fixed set and its sign, but leaves
-the following checks implicit. The marks need a set or list convention.
-A cycle choice needs invariant data. Once all cycles carry marks,
-minimality forces exactly one mark on each cycle. Moving that mark cannot
-invalidate another one. If the partner belongs to the other matching, the
-cycle must be reversed even in the interior nonfirst-crossing case.
-The selected cycle must remain selected on the return move. The fixed set
+Appendix B states the set convention, the rule for an unmarked cycle,
+the case of exactly $c_{\min}$ cycles with one mark each, the priority
+rule (using the total order on cycles fixed in Li's Section 4.3), the
+reversal along a single cycle in the exterior case, the fixed set and
+its sign. It does not prove that all-marked objects have one mark per
+cycle, that the map is an involution, or that it reverses sign; it says
+only ``switch to the other edge'' in the interior nonfirst case, where
+the cycle must also be reversed when the partner belongs to the other
+matching; and it does not show that the fixed set is nonempty, which
 needs an independent orientation choice on each minimum cycle.
-Lemmas~\ref{two} and \ref{fixed} supply these checks for every $m$.
+The project's dependency audit of Li's note
+(\texttt{research/2026-11-14\_fable\_dependency-graph/audit-li.md},
+items L-F5 and L-F6) first identified these steps and sketched them.
+Lemmas~\ref{two} and \ref{fixed} write them out for every $m$.
 
-The issue is already present at $m=2$: a set of two tokens can lie entirely
-on one cycle, so the unmarked-cycle rule is necessary. At $m=3$ a reversal
-on a singly marked cycle must leave the other two token directions intact;
-a global interchange of the matchings would not do this. Concrete pairs
+These cases occur early. At $m=2$ a set of two tokens can lie entirely
+on one cycle, so Li's unmarked-cycle rule is used. At $m=3$ a reversal on
+a singly marked cycle must leave the other two token directions intact,
+as Li's $M_1\triangle C_i$ does; the global interchange $(M_2,M_1)$ of
+Li's one-cycle case would not. Concrete pairs
 and their images are recorded in \texttt{witnesses.json}. They use the
 9-vertex class 0 root 0 and the 12-vertex class 0 root 0, respectively,
 in the canonical census encoding. Their marked sets have 40 and 1200
@@ -338,8 +448,13 @@ Heights at white faces are signed crossing counts of the same spokes.
 Pairing successive crossings on a directed cycle leaves one first exit
 for each interior white face and none for exterior faces. This explains
 why the fixed-set formula is a product of enclosed-white-face counts.
-The height-product proof in the project fixes an indexed list of white
-faces; here we allow all white faces and mark the actual crossings.
+The height proof in the project's main paper (Section 4) measures heights
+along fixed paths of faces and expands $\omega(s)^m$ algebraically. Here
+the paths are rays, and the expansion is replaced by marking $m$ actual
+crossings. The second involution is a bijective form of its
+finite-difference lemma: case 1 kills the monomials that miss a cycle,
+and case 2 reduces each remaining factor to one first exit per enclosed
+white face.
 
 For comparison only, put $H(s)$ equal to the sum, over all white rays,
 of the signed crossings with the selected spokes, left-to-right positive.
@@ -352,22 +467,29 @@ $\varepsilon(p)=(-1)^{\lceil n/2\rceil}(-1)^{\lfloor J(p)/2\rfloor}$,
 \[
  \frac1{m!}\sum_p\varepsilon(p)H(s)^m
  =(-1)^{\lceil n/2\rceil}\sum_{o\in\Omega}\sigma(o)
- =(-1)^{(n-m)/2}F.
+ =(-1)^{(n+m)/2}F.
 \]
-The last signs agree since $n\equiv m\pmod2$. This is the lowest
+The last signs agree since $\lceil n/2\rceil+\lfloor m/2\rfloor=(n+m)/2$
+when $n\equiv m\pmod2$. The height $H$ falls by $a(C)$ when a cycle $C$
+turns from clockwise to counterclockwise, while the height $\omega$ of
+the project's main paper rises by the same amount. This accounts for the
+factor $(-1)^m$ between this formula and its Proposition~4.8. This is the lowest
 coefficient of the refereed height polynomial with unit charge at every
 white face, or of its exponential version after the standard phase
 normalization. It is not an assertion that arbitrary choices of weights
 have the same numerical coefficient.
 
-COMPUTED. The independent verifier checks all roots of all 56 unrooted
+COMPUTED. The independent verifier checks all roots of all 55 unrooted
 classes with at most 14 triangulation vertices. The class list was compared
 as canonical maps, not only by cardinality, with \texttt{plantri -ba}.
 There are 1206 rooted instances, 880 with a pair. On all 221050 marked
 objects it checks both involution identities, membership, sign reversal,
 the forest fixed-set criterion, the second fixed-set count, and the
-moment identity above. There are 4658 second fixed points. Alternating
-paths from all of them have length zero or two, with maximum two.
+moment identity above. There are 4658 second fixed points. In our
+drawings, alternating paths from all of them have length zero or two.
+Path lengths depend on the drawing: an independent census with a
+different generic direction finds a path of four moves, and the running
+example with unsheared vertical rays has paths of six moves.
 These are bounds in triangulation vertices; the corresponding cubic
 graphs have at most 24 vertices.
 An additional comparison computes the existing integer-weight polynomial's
@@ -378,7 +500,7 @@ uses the existing lab only as an external comparator, not to implement our maps.
 The hard-family check includes circumference 4 and 6 tubes of lengths
 0 through 2, stacks of 2 and 3 pieces, and the subdivided octahedron.
 It measures every second-fixed starting object for each indicated root,
-up to 20 triangulation vertices. The longest ray path is two moves.
+up to 20 triangulation vertices. The longest ray path in those particular drawings is two moves.
 On the subdivided octahedron all 14 ray starts take two moves, whereas
 the existing constructive walk, run from every pair, has maximum three
 moves and eight total restarts. The starting conventions differ, so this
@@ -391,11 +513,17 @@ with outer face 4 and roots $0,4,5$. The requested older name
 \texttt{example.json} is absent. We copy the current input into this folder.
 The exact rational layout is specified by \texttt{running-geometry.json}:
 solve the uniform Dirichlet equations at nonroots with root positions
-$(0,0),(100,0),(0,100)$ in stored face order, then take the first positive
+$(0,0),(100,0),(0,100)$ for roots $0,5,4$, respectively, in stored face order, then take the first positive
 integer shear making all crossings generic. Centres are barycentres.
 The listing uses that geometry, not the manuscript's optimized disk layout.
-Marked-object counts depend on these choices. In particular the present
-279 objects should not be identified with an earlier layout's 213 objects.
+The project's Li replay (\texttt{workings/barnette\_lab}) uses the same
+recipe with roots $4$ and $5$ interchanged. That drawing is the mirror
+image of ours, its rays cross other spokes, and it has $213$ objects,
+none of them among our $279$. Both lists are correct. The number of
+objects, the first fixed set and the path lengths depend on the drawing.
+The signed sum $-9$ and the second-fixed count of nine do not, by
+Lemma~\ref{fixed}: over 69 generic drawings the object count ranges
+from $103$ to $363$, taking 35 values; path lengths range from zero to six moves.
 
 This example has 12 states, 8 pairs, $m=2$, and 279 objects. Exactly nine
 objects are second-fixed, all negative. Their signed sum is $-9$ and the

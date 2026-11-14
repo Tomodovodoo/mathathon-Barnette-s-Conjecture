@@ -18,11 +18,11 @@ Choose any second-fixed object by enumerating minimum covers. Alternate first an
 
 ## Verification
 
-COMPUTED by research/2026-11-14_sol_li-completion/verify.py and extras.py. All 56 classes through 14 triangulation vertices agree as canonical maps with plantri. All 1206 roots are checked, including 880 with pairs. The verifier enumerates 221050 marked objects and checks both maps, signs, fixed sets, lowest coefficients and all 4658 paths from second-fixed objects. Maximum path length is two moves. Family checks reach 20 triangulation vertices. See the research census, witnesses and family outputs.
+COMPUTED by research/2026-11-14_sol_li-completion/verify.py and extras.py. All 55 classes through 14 triangulation vertices agree as canonical maps with plantri. All 1206 roots are checked, including 880 with pairs. The verifier enumerates 221050 marked objects and checks both maps, signs, fixed sets, lowest coefficients and all 4658 paths from second-fixed objects. Maximum path length is two moves. Family checks reach 20 triangulation vertices. See the research census, witnesses and family outputs.
 
 ## Example and source relation
 
-The current running.json has minimum cycle count two. The exact rational layout here gives 279 marked objects, nine second-fixed objects, and lowest coefficient nine. running-objects.json lists every object and both images; example-table.tex includes the full listing in the PDF. Earlier counts of 213 refer to a different geometry or input and are not silently reused.
+The current running.json has minimum cycle count two. The exact rational layout here gives 279 marked objects, nine second-fixed objects, and lowest coefficient nine. running-objects.json lists every object and both images; example-table.tex includes the full listing in the PDF. The earlier Li replay has 213 objects on the same input with roots 4 and 5 interchanged. The marked set depends on the drawing; the signed sum and the nine second-fixed objects do not.
 
 Li's incidence orientation is opposite to the directed two-spoke convention used here, so his cw-prime is -J. The two sign definitions nevertheless agree because n and m have the same parity. Li Definitions 13 through 23 and Appendix B supply the maps. The full general-m verifications, set convention, invariant selection rule, nonemptiness proof and finite-path extraction are written in the note. OpenAI supplies the disk identity and first cancellation; barnette_trees uses a different ordered weight-token walk with restarts. Heights at white faces are signed counts of the same ray crossings.
 
