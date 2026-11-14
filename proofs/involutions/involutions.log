@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 13:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -697,7 +697,8 @@ x.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count342
 )
-No file involutions.aux.
+(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
+s.aux)
 \openout1 = `involutions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -720,7 +721,7 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
-(C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
@@ -788,45 +789,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 13.
+
+(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
+s.out)
+(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
+s.out)
 \@outlinefile=\write4
 \openout4 = `involutions.out'.
 
-
-
-Class amsart Warning: Abstract should precede \maketitle in AMS document classe
-s; reported on input line 15.
-
-
-LaTeX Warning: Reference `main' on page 1 undefined on input line 39.
-
-
-LaTeX Warning: Reference `disk' on page 1 undefined on input line 85.
-
-[1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-
-LaTeX Warning: Reference `disk' on page 2 undefined on input line 148.
-
-[2]
-
-LaTeX Warning: Reference `disk' on page 3 undefined on input line 229.
-
-
-LaTeX Warning: Reference `main' on page 3 undefined on input line 244.
-
-[3]
-
-LaTeX Warning: Reference `fixed' on page 4 undefined on input line 254.
-
-
-LaTeX Warning: Reference `fixed' on page 4 undefined on input line 272.
-
-
-LaTeX Warning: Reference `two' on page 4 undefined on input line 294.
-
-
-LaTeX Warning: Reference `fixed' on page 4 undefined on input line 294.
-
-[4]
+ [1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+[2] [3] [4] [5]
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/pa
 nels.tex
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/ma
@@ -834,62 +806,42 @@ rked.tex)
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/se
 cond.tex)
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/fi
-rst.tex))
+rst.tex)) [6] [7]
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\example-ta
-ble.tex
-Underfull \vbox (badness 2894) has occurred while \output is active []
+ble.tex [8
 
- [5]
-Overfull \vbox (49.62767pt too high) has occurred while \output is active []
+] [9
 
+] [10
 
-[6]
-ignored error: Infinite glue shrinkage found in box being split [7]
-ignored error: Infinite glue shrinkage found in box being split [8]
-ignored error: Infinite glue shrinkage found in box being split [9]
+] [11
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 1 on input line 308.
+] [12
 
-ignored error: Infinite glue shrinkage found in box being split [10])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] [13
 
- [11]
-[12]
+] [14
 
-Package longtable Warning: Table widths have changed. Rerun LaTeX.
+]) [15
 
-
+]
 (E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
 s.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `involutions.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `involutions.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  6EFED4CF5B84A377EA5A7B3E060EEE52;2036.
+Package rerunfilecheck Info: File `involutions.out' has not changed.
+(rerunfilecheck)             Checksum: 6EFED4CF5B84A377EA5A7B3E060EEE52;2036.
  ) 
 Here is how much of TeX's memory you used:
- 22326 strings out of 467870
- 420954 string characters out of 5419323
- 950592 words of memory out of 5000000
- 50635 multiletter control sequences out of 15000+600000
+ 22347 strings out of 467870
+ 421601 string characters out of 5419323
+ 866842 words of memory out of 5000000
+ 50648 multiletter control sequences out of 15000+600000
  638250 words of font info for 81 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 99i,9n,118p,621b,708s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,118p,621b,710s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmcsc10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -916,9 +868,9 @@ rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Tom/AppData/
 Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Tom/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\invol
-utions\involutions.pdf (12 pages, 340820 bytes).
+utions\involutions.pdf (15 pages, 351836 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 40 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

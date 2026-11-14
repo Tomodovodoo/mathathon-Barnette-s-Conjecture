@@ -13,11 +13,15 @@ body=[r'\subsection*{States and pairs}',r'Corner tuples are in black-face order 
 body += [str(i)+' & $'+','.join(map(str,s))+r'$\\' for i,s in enumerate(ss)]
 body += [r'\bottomrule\end{tabular}\qquad\begin{tabular}{rrr}\toprule Pair & $r$ state & $s$ state\\\midrule']
 body += [f'{i} & {ss.index(p[0])} & {ss.index(p[1])}'+r'\\' for i,p in enumerate(pairs)]
-body += [r'\bottomrule\end{tabular}\end{center}',r'\small',r'\begin{longtable}{rrrrrr}\toprule Object & Pair & Tokens & Sign & $\iota_1$ & $\iota_2$\\\midrule\endfirsthead',r'\toprule Object & Pair & Tokens & Sign & $\iota_1$ & $\iota_2$\\\midrule\endhead']
-for row in rows:
+body += [r'\bottomrule\end{tabular}\end{center}',r'\clearpage\small']
+for j,row in enumerate(rows):
+    if j%48==0:
+        body.append(r'\begin{center}\begin{tabular}{rrrrrr}\toprule Object & Pair & Tokens & Sign & $\iota_1$ & $\iota_2$\\\midrule')
     p=tuple(map(tuple,row['pair']));tokens=','.join(f'{w}:{b.a[i]}' for w,i in row['marks'])
     body.append(f"{row['id']} & {pairs.index(p)} & ${tokens}$ & {'+' if row['sign']>0 else '-'} & {row['iota1']} & {row['iota2']}"+r'\\')
-body += [r'\bottomrule\end{longtable}\normalsize']
+    if j%48==47 or j==len(rows)-1:
+        body.append(r'\bottomrule\end{tabular}\end{center}\clearpage')
+body += [r'\normalsize']
 (DEST/'example-table.tex').write_text('\n'.join(body))
 shutil.copyfile(OUT/'running-geometry.json',DEST/'running-geometry.json')
 shutil.copyfile(OUT/'running-objects.json',DEST/'running-objects.json')
@@ -48,13 +52,13 @@ def figure(b,o,name,other=None,label=''):
             pp.add(rf'\draw[bf kept] {pt(a)} -- {pt(v)};')
             pp.add(rf'\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\tiny] at {pt(q)} {{$w_{{{w}}}$}};')
             pp.add(rf'\node[fill=white,font=\tiny,inner sep=.3pt] at {pt((a+v)/2)} {{$t_{{{t}}}$}};')
-        return pp.tex()
+        return pp.tex().replace('[bf,x=', '[baseline=(current bounding box.center),bf,x=')
     out=panel(o)
     if other is not None:out+=r'\quad$\longleftrightarrow$\quad'+panel(other)
     (DEST/'figures'/f'{name}.tex').write_text(out)
     return r'\begin{figure}[ht]\centering\input{figures/'+name+r'.tex}\caption{'+label+r'}\end{figure}'
 
-o=next(o for o in b.objects(2) if b.two(o)!=o)
+o=next(o for o in b.objects(2) if b.two(o)!=o and len({w for w,i in o[1]})==2)
 figs=[figure(b,o,'marked',label='A marked pair on the current running example. Blue arrows show $D$; thick spokes and labelled white points specify the two tokens. Rays are encoded by the stored exact layout. Thin spokes show $s$.')]
 figs.append(figure(b,o,'second',b.two(o),'The second involution on the same marked pair. It preserves the unoriented cover and moves only the selected token, reversing its cycle when needed.'))
 levels=enumerate_classes(12);T=from_code(levels[12][6]);b1=Check(T.faces,8)

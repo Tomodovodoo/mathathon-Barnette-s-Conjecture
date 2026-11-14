@@ -11,7 +11,6 @@
 \title{Two involutions for the forest-pair lemma}
 \author{Research note, 14 November 2026}
 \begin{document}
-\maketitle
 \begin{abstract}
 We complete the multi-mark argument in Appendix B of Zhentao Li's note.
 The proof uses finite signed sets and two explicit involutions. It uses no
@@ -19,6 +18,8 @@ generating function, limiting argument, or complex number. A finite alternating
 path constructs a forest pair. The coefficient comparison at the end is a
 separate verification, not a premise of the proof.
 \end{abstract}
+\maketitle
+\raggedbottom
 
 \section{Contract and notation}
 Let $T$ be a finite simple sphere triangulation whose faces have a proper
@@ -38,6 +39,14 @@ This is OpenAI Proposition 5.1. It is the cancellation part of Li's Key
 Lemma 7. Li's preliminary existence of a pair requires additional graph
 hypotheses; Theorem~\ref{main} does not. Throughout the proof we assume a pair
 exists. We do not assume that $T$ has no separating triangle.
+In Li's incidence language delete the outer black centre and its three
+root corners, obtaining the balanced incidence graph on $A$ and $X$.
+The union of the two states is a 2-factor there. After deleting the second
+matching, each remaining black centre joins the two corners of its
+opposite side, with root endpoints removed. A cycle is therefore exactly
+a subdivided cycle of $Q_s$ avoiding roots. Every cycle of a partnered
+$Q_s$ avoids roots by the outdegree argument in Lemma~\ref{one} below.
+Consequently the forest conclusion is exactly Li's cycle-breaking condition.
 
 Place a centre in each bounded black face and join it to its corners by
 spokes. A plane straight-line drawing exists, and a small rotation makes
@@ -301,6 +310,14 @@ and their images are recorded in \texttt{witnesses.json}. They use the
 9-vertex class 0 root 0 and the 12-vertex class 0 root 0, respectively,
 in the canonical census encoding. Their marked sets have 40 and 1200
 objects and their second fixed sets have 4 and 28 objects.
+The first separator-free example in this census with $m=3$ is the
+14-vertex class 27, root 0. It has 826 marked objects and eight second-fixed
+objects. Its full face list and a nonfixed move are recorded in
+\texttt{nonseparating-witness.json}. Thus the multi-mark checks cannot be
+bypassed by restricting to triangulations without separating triangles.
+The interior nonfirst-crossing branch occurs already at $m=2$ on
+11-vertex class 1, root 0. Its exact object and image appear in
+\texttt{polynomial-comparison.json}.
 
 Li also invokes the bipartite 2-factor criterion without explicitly
 counting the two sides. For a cubic bipartite plane graph on $N$ vertices,
@@ -353,6 +370,10 @@ moment identity above. There are 4658 second fixed points. Alternating
 paths from all of them have length zero or two, with maximum two.
 These are bounds in triangulation vertices; the corresponding cubic
 graphs have at most 24 vertices.
+An additional comparison computes the existing integer-weight polynomial's
+coefficients directly at $z=1$ on all 880 paired roots. Lower coefficients
+vanish and the absolute lowest coefficient agrees in every case. This check
+uses the existing lab only as an external comparator, not to implement our maps.
 
 The hard-family check includes circumference 4 and 6 tubes of lengths
 0 through 2, stacks of 2 and 3 pieces, and the subdivided octahedron.
@@ -385,6 +406,7 @@ black face $t$. Object and pair IDs start at zero. The two mark entries
 form a set, not an ordered list.
 
 \input{figures/panels.tex}
+\clearpage
 \input{example-table.tex}
 
 \begin{thebibliography}{9}
