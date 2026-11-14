@@ -1,0 +1,105 @@
+{
+  "timestamp": "2026-11-14T13:03:01+00:00",
+  "head": "25d5bcd",
+  "run_folders": 62,
+  "reports": 56,
+  "models": {
+    "GPT-6 Astra": 16,
+    "Fable 5.2": 16,
+    "Opus 5.5": 15,
+    "GPT-6.1 Sol": 15
+  },
+  "runs_without_report": [
+    "2026-11-14_fable_descent",
+    "2026-11-14_fable_referee-involutions-v2",
+    "2026-11-14_fable_synthesis-audit",
+    "2026-11-14_opus_consistency-edits",
+    "2026-11-14_opus_lean-devices",
+    "2026-11-14_sol_atlas-audit"
+  ],
+  "routes": 226,
+  "route_status": {
+    "LIT": 46,
+    "PROVED-HERE": 57,
+    "REFUTED": 67,
+    "HUNCH": 25,
+    "CONJECTURE": 19,
+    "COMPUTED": 12
+  },
+  "route_matrix": {
+    "Combinatorial": {
+      "Proved": 32,
+      "Computed": 7,
+      "Open": 15,
+      "Refuted": 14
+    },
+    "Graph-theoretic / structural": {
+      "Proved": 21,
+      "Computed": 3,
+      "Open": 9,
+      "Refuted": 9
+    },
+    "Constructive / algorithmic": {
+      "Proved": 8,
+      "Computed": 1,
+      "Open": 3,
+      "Refuted": 3
+    },
+    "Algebraic / determinantal": {
+      "Proved": 15,
+      "Computed": 1,
+      "Open": 6,
+      "Refuted": 10
+    },
+    "Topological": {
+      "Proved": 11,
+      "Computed": 0,
+      "Open": 2,
+      "Refuted": 2
+    },
+    "Probabilistic": {
+      "Proved": 3,
+      "Computed": 0,
+      "Open": 1,
+      "Refuted": 2
+    },
+    "Categorical": {
+      "Proved": 4,
+      "Computed": 0,
+      "Open": 2,
+      "Refuted": 2
+    },
+    "Inductive": {
+      "Proved": 5,
+      "Computed": 0,
+      "Open": 3,
+      "Refuted": 16
+    },
+    "Lattice-theoretic": {
+      "Proved": 2,
+      "Computed": 0,
+      "Open": 1,
+      "Refuted": 7
+    },
+    "Non-planar / Pfaffian": {
+      "Proved": 2,
+      "Computed": 0,
+      "Open": 2,
+      "Refuted": 2
+    }
+  },
+  "pdf_pages": {
+    "paper/main/barnette.pdf": 19,
+    "paper/main/history/barnette-v1.pdf": 18,
+    "proofs/primal/primal.pdf": 15,
+    "proofs/involutions/involutions.pdf": 18,
+    "proofs/blueprint/blueprint.pdf": 1,
+    "proofs/blueprint/columns.pdf": 1,
+    "digestions/atlas/atlas.pdf": 31
+  },
+  "current_product_pages_total": 85,
+  "step_files": 11,
+  "step_words_total": 26827,
+  "synthesis_words": 4163,
+  "index_rows": 46
+}
