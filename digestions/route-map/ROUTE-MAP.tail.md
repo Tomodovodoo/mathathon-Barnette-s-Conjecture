@@ -10,6 +10,6 @@ The contraction route has two missing lemmas, ML1 and ML2. C3 allows plateaus am
 
 - The map integrates attributed reports and named AI referee verdicts. New results in a referee's own report remain unreviewed unless another review is named. Nothing is human-checked.
 - The independently checked full invariant-value frontier remains at dual order 16. The C1 census reaches 22 for all facial roots and 24 only for separator-free inputs. The latter is T4 under review.
-- The upstream Lean proof was built locally. Machine checking applies to its formal statement, not every new research claim or written route.
+- The upstream Lean proof was built locally. The real-sign replacement main theorem is compiled by its author; independent check pending. Machine checking applies to its formal statement, not every new research claim or written route.
 - A counterexample order is a witness size, not a minimum, unless an exhaustive minimum-order check is explicitly named. V=33 R2 is not claimed minimal.
-- Sources still running at the final scan are listed in the map-update report. The generated figures and catalogue come from routes.py; the dashboard also uses seed.py and make_frontier.py.
+- Sources still running at the final scan are listed in [the final update report](../../research/2026-11-14_sol_map-final/REPORT.md). The generated figures and catalogue come from routes.py; the dashboard also uses seed.py and make_frontier.py.

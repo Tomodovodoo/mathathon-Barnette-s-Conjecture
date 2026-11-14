@@ -36,7 +36,11 @@
   "pack": "research/2026-11-14_opus_two-tree-packing",
   "xa": "research/2026-11-14_opus_cross-audit",
   "bp": "research/2026-11-14_opus_blueprint",
-  "il": "research/2026-11-14_astra_induction-lemmas"
+  "il": "research/2026-11-14_astra_induction-lemmas",
+  "des": "research/2026-11-14_fable_descent",
+  "devices": "research/2026-11-14_opus_lean-devices",
+  "cr": "research/2026-11-14_sol_referee-covers",
+  "lc": "research/2026-11-14_astra_lean-check"
  },
  "waypoints": [
   {
@@ -432,8 +436,8 @@
    "label": "trees of faces (Feder-Subi)",
    "status": "LIT",
    "src": "lit",
-   "where": "Feder-Subi 2006; Bagheri Gh. et al. 2021",
-   "text": "Contract a colour class of faces and look for a quasi spanning tree of faces. Polynomial when the remaining faces have 2 or 3 sides, NP-complete in general. The closest older relative of the incidence tree.",
+   "where": "Feder-Subi 2006; Bagheri Gh. et al. 2021; research/2026-11-14_sol_atlas-audit/AUDIT.md",
+   "text": "Contract a colour class of faces and look for a quasi spanning tree of faces. Polynomial when the remaining faces have 2 or 3 sides, NP-complete in general. The closest older relative of the incidence tree. The Feder-Subi quasi-tree dictionary requires the proper-quasi-vertex condition in Section 2; dropping it changes the predicate already at primal order 10. Precisely, every omitted quasi vertex must have degree four and no incident digon. This restriction is part of the proper dictionary, not a consequence of the relaxed induced-tree predicate.",
    "partial": true,
    "role": "partial"
   },
@@ -1348,7 +1352,7 @@
    "status": "PROVED-HERE",
    "src": "mach",
    "where": "mach/REFORMULATIONS.md 1, 4",
-   "text": "[y^{d*}] det L_H(y) is the number of good states: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial.",
+   "text": "[y^{d*}] det L_H(y) is the number of good states: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "role": "equiv"
   },
   {
@@ -1368,7 +1372,7 @@
    "status": "PROVED-HERE",
    "src": "mach,gt",
    "where": "mach/REFORMULATIONS.md 6; gt/PROOFS.md Section 1",
-   "text": "A good state is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.",
+   "text": "A good state is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1422,7 +1426,7 @@
    "status": "PROVED-HERE",
    "src": "mach",
    "where": "mach/REFORMULATIONS.md 5, 7",
-   "text": "Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation.",
+   "text": "Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1500,7 +1504,7 @@
    "status": "HUNCH",
    "src": "hist,mach",
    "where": "hist/REPORT.md (leads); mach/ROUTE-IDEAS.md 10",
-   "text": "'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces.",
+   "text": "'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces. The exact Feder-Subi predicate also imposes the proper-quasi-vertex condition. This is a lead, not an algorithm for the joint state constraints.",
    "vivid": "If it is a matroid parity instance, Lovasz gives a polynomial algorithm, against 3^(N/4).",
    "test": "Design the gadget for one black centre and two adjacent centres; enumerate feasible parity solutions against partial spoke choices.",
    "role": "route"
@@ -2095,9 +2099,9 @@
    "label": "non-increasing exchange path to a good pair",
    "status": "CONJECTURE",
    "src": "gt",
-   "where": "rc/REFEREE.md; conjectures/REPORT.md",
-   "text": "C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a good pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.",
-   "test": "Find a potential on plateau components, or search for a closed positive-cycle component at larger orders.",
+   "where": "des/REPORT.md; des/DESCENT.md; des/data/census_summary.json; rc/REFEREE.md",
+   "text": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.",
+   "test": "Prove no closed positive-q plateau, beginning at q=1. Do not infer C3 from the full exchange-component theorem.",
    "role": "route"
   },
   {
@@ -2224,8 +2228,8 @@
    "label": "sutured Floer support; point-rainbow white trees",
    "status": "PROVED-HERE",
    "src": "topo",
-   "where": "topo/REPORT.md; reft/REFEREE.md; reft/RAINBOW.md",
-   "text": "The topology dictionary was AI-refereed. New Theorem R in reft/RAINBOW.md proves the point-rainbow criterion by Rado plus Euler, independent of signed nonvanishing. That new proof is T2 unreviewed.",
+   "where": "topo/REPORT.md; reft/REFEREE.md",
+   "text": "The original point-rainbow dictionary is independently AI-refereed, with the corrected Morse grading and root pairing. The new Rado-Euler existence proof is separately recorded in U.rainbow, T2 unreviewed.",
    "review": {
     "state": "refereed",
     "by": [
@@ -2243,8 +2247,8 @@
    "status": "CONJECTURE",
    "src": "topo",
    "where": "reft/RAINBOW.md; reft/REPORT.md",
-   "text": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
-   "test": "Use both kinds of plateau moves; analyze periodic witnesses at V=38 before proposing another deterministic rule.",
+   "text": "Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.",
+   "test": "Finish the 58 missing V=18 triangulations; compare plateau components across unique-factor completions. Use both plateau move types.",
    "role": "route"
   },
   {
@@ -2406,6 +2410,14 @@
    "where": "families/FAMILIES.md Section 1",
    "text": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1. Full proof supplied, independent review pending.",
    "partial": true,
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+   },
    "role": "partial"
   },
   {
@@ -2496,15 +2508,15 @@
    "label": "merged dual exposition",
    "status": "PROVED-HERE",
    "src": "main",
-   "where": "paper/main/barnette.tex; research/2026-11-14_sol_referee-main/REFEREE.md; research/2026-11-14_sol_referee-main/EDITS.md",
-   "text": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending. A second version applying the eight edits is in progress. Blueprint: of 34 route statements, 4 have an exact Lean counterpart, 25 a counterpart in another form (translation not formalised), 5 none; Lemma 4.7 has a standalone Lean proof (research/2026-11-14_opus_blueprint/REPORT.md).",
+   "where": "paper/main/barnette.tex; research/2026-11-14_sol_referee-main-v2/REFEREE.md; research/2026-11-14_opus_coldread-main-v2/REPORT.md",
+   "text": "Main paper version 2: fresh independent AI regression referee FOLLOWS; fresh cold reader found no mathematical problem and completed editorial edits. The proof uses local real signs, face-path heights and finite differences. No human check. Author-compiled Lean replacement is tracked separately, not a certificate of every statement of the paper.",
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-main"
+     "research/2026-11-14_sol_referee-main-v2"
     ],
     "date": "2026-11-14",
-    "verdict": "Main theorem route FOLLOWS. Eight edits proposed; a second version applying them is in progress, not certified here. Human check pending."
+    "verdict": "Version 2 main route FOLLOWS, after the explicit scope and dependency fixes. Fresh cold read also complete. Human check pending."
    },
    "role": "route"
   },
@@ -2514,15 +2526,15 @@
    "label": "complete marked involution exposition",
    "status": "PROVED-HERE",
    "src": "inv",
-   "where": "proofs/involutions/; research/2026-11-14_opus_referee-involutions/REPORT.md; research/2026-11-14_sol_involutions-revision/REPORT.md",
-   "text": "Written bijective route through marked objects and two involutions. Independent AI referee: FOLLOWS, one sign error off the route. The revision applied all fifteen edits and added a drawing-free mark model, which has no second referee yet.",
+   "where": "proofs/involutions/; research/2026-11-14_fable_referee-involutions-v2/REPORT.md",
+   "text": "Marked-involution proof independently AI-refereed FOLLOWS on both ray and drawing-free face-path routes. The fifteen first-round edits and the revised path-mark statement were checked; independent code reproduces all 279 running-example rows and tests five path families on 1,206 rooted instances through V=14. No human check.",
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_opus_referee-involutions"
+     "research/2026-11-14_fable_referee-involutions-v2"
     ],
     "date": "2026-11-14",
-    "verdict": "FOLLOWS; fifteen edits, all applied in the revision. The added drawing-free model is unreviewed. Human check pending."
+    "verdict": "Both routes FOLLOWS after path-mark statement and sector-wording corrections. Human check pending."
    },
    "role": "route"
   },
@@ -2580,8 +2592,16 @@
    "label": "primal meaning and unbounded m without separators",
    "status": "PROVED-HERE",
    "src": "covers",
-   "where": "covers/PROOFS.md; covers/data/family.json",
-   "text": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
+   "where": "covers/PROOFS.md; cr/INTEGRATION.md; cr/REFEREE-covers.md",
+   "text": "For admissible primal deletion S, c(D)=components(G-S)-1; G-S need not be a 2-factor. Separator-free T_j has V=3j+2, one cover of j-2 triangles and a pentagon, m=j-1 and #good states=2^(j-1). Pole degrees grow. Independently AI-refereed; bounded-face-size separator-free unboundedness remains open.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+   },
    "role": "route"
   },
   {
@@ -2600,9 +2620,9 @@
    "label": "fixed-cycle-count flip connectivity",
    "status": "REFUTED",
    "src": "covers",
-   "where": "covers/data/levels.json; covers/PROOFS.md",
+   "where": "covers/data/levels.json; cr/code/witnesses.json; cr/INTEGRATION.md",
    "text": "Covers with the same c, including minimum-c covers, form a connected flip level.",
-   "cex": "V=18 flip squares with labels 3,1,5,3 and 1,3,3,1; no smaller failure in the separator-free search.",
+   "cex": "Two independently replayed V=18 certificates. No certified smallest-order claim.",
    "lesson": "Do not assume that minimizing c gives a convex or connected lattice level.",
    "role": "route"
   },
@@ -2612,8 +2632,16 @@
    "label": "two-cover exponential bound",
    "status": "PROVED-HERE",
    "src": "covers",
-   "where": "covers/PROOFS.md",
-   "text": "Two covers with c1,c2 cycles and j shared component cycles have overlap a either zero or 2^j and TM=2^c1+2^c2-2a. This proves C1 for two covers. Strictness has one unexcluded planar overlap configuration. Unreviewed.",
+   "where": "covers/PROOFS.md; cr/INTEGRATION.md",
+   "text": "For exactly two covers with c1,c2 cycles and j shared cycles, #good states=2^c1+2^c2-2a with a=0 or 2^j. Thus #good states>=2^min(c1,c2). Equality requires c1=c2=j+1 and a=2^j; strictness is not proved.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+   },
    "role": "route"
   },
   {
@@ -2640,8 +2668,8 @@
    "label": "ML1: preserve a pair in some merge",
    "status": "CONJECTURE",
    "src": "ri",
-   "where": "ri/MISSING-LEMMA.md",
-   "text": "Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass. The induction-lemmas run (where it is called G) proves it for triangulations without chordless five-cycles; unreviewed.",
+   "where": "ri/MISSING-LEMMA.md; il/G.md; il/REPORT.md",
+   "text": "G: every separator-free rooted T with V>6 has a non-root degree-four vertex with a simple opposite-neighbour merge admitting a pair. Checked on 62,416 separator-free facial roots through V=19. Proved without chordless five-cycles, separately U.G-partial; unrestricted G remains open.",
    "test": "Use short-cycle obstructions and minimal tight sets in MISSING-LEMMA.md; referee the reduction first.",
    "role": "route"
   },
@@ -2651,9 +2679,9 @@
    "label": "ML2: two-sided existence lifting",
    "status": "CONJECTURE",
    "src": "ri",
-   "where": "ri/MISSING-LEMMA.md; ri/RESIDUAL-CASES.md",
-   "text": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
-   "test": "Bound the exceptional fraction by one half, or construct a sign-free injection into non-exceptional matchings.",
+   "where": "ri/MISSING-LEMMA.md; ri/RESIDUAL-CASES.md; il/X.md; il/REPORT.md",
+   "text": "Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.",
+   "test": "Construct a cover-changing injection from exceptions to non-exceptions; test against cube_witness.json and all 7,940 exceptions.",
    "role": "route"
   },
   {
@@ -2675,7 +2703,10 @@
    "status": "PROVED-HERE",
    "src": "reft",
    "where": "reft/RAINBOW.md",
-   "text": "Theorem R proves rainbow existence exactly at feasible roots. Theorem S completes each rainbow tree to a unique incidence 2-factor. Reversible surplus walks give fixed-point-free involutions on good states. New proofs T2 unreviewed.",
+   "text": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
+   "review": {
+    "state": "unreviewed"
+   },
    "role": "route"
   },
   {
@@ -2684,7 +2715,7 @@
    "label": "surplus walk always terminates",
    "status": "REFUTED",
    "src": "reft",
-   "where": "reft/RAINBOW.md; reft/data/",
+   "where": "reft/RAINBOW.md; reft/data/cycles_hunt_38_400_19_0.0.json",
    "text": "The surplus walk alone reaches smaller black excess.",
    "cex": "Periodic walks at V=38, periods 48 and 68; minimum order unresolved in 17..38.",
    "lesson": "Conjecture X needs both plateau moves; a deterministic walk can miss the exit.",
@@ -2696,8 +2727,8 @@
    "label": "positive full-spoke UST mean fitting",
    "status": "REFUTED",
    "src": "prob",
-   "where": "prob/PROOFS.md Sections 1-3",
-   "text": "Finite positive weights attain the target degrees on all of H.",
+   "where": "prob/PROOFS.md; cr/INTEGRATION.md",
+   "text": "Finite positive weights on the full spoke graph cannot attain the forced target degrees in expectation under a full-support spanning-tree law. This does not exclude conditioned or boundary-supported positive measures.",
    "cex": "Cube: root and outer-centre target degrees are maximal, but every spoke can be absent.",
    "lesson": "Condition to the forced-spoke face before fitting means; fractional feasibility still does not round exact joint degrees.",
    "role": "route"
@@ -2721,7 +2752,7 @@
    "status": "PROVED-HERE",
    "src": "pack",
    "where": "research/2026-11-14_opus_two-tree-packing/PROOFS.md Thm 2.1; research/2026-11-14_opus_two-tree-packing/REPORT.md",
-   "text": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
+   "text": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
    "test": "Check Nash-Williams rank inequalities by the disk count; consume the dedicated packing report when available.",
    "role": "route"
   },
@@ -2731,9 +2762,9 @@
    "label": "universal analytic root locations",
    "status": "REFUTED",
    "src": "prob",
-   "where": "prob/PROOFS.md; prob/code/secondary.py",
+   "where": "prob/PROOFS.md; cr/code/polynomials.json; cr/INTEGRATION.md",
    "text": "Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.",
-   "cex": "V=12 exact factors (z-1)(z^2+3) and x(x+1)(2x+1)(2x^2+5x+4); real-rooted z already fails at V=10.",
+   "cex": "Off-circle factor (z-1)(z^2+3) at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2). Real-rooted z already fails at V=10; no gauge-independent minimum claim for linear weights.",
    "lesson": "Family product factorizations do not establish a universal zero-location argument.",
    "role": "route"
   },
@@ -2775,8 +2806,16 @@
    "label": "separator-free exponential rarity",
    "status": "PROVED-HERE",
    "src": "families",
-   "where": "families/FAMILIES.md; families/data/",
-   "text": "Width-four nanotubes have S_L=Fib_(2L+3), #TM=2 and m=1. Stationary transfer certificates also cover width six. All-length transfer reasoning is author proved; finite arithmetic and matrices remain unreviewed.",
+   "where": "families/FAMILIES.md; cr/INTEGRATION.md; cr/REFEREE-families.md",
+   "text": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
+   },
    "role": "route"
   },
   {
@@ -2999,6 +3038,203 @@
    "where": "research/2026-11-14_opus_two-tree-packing/PACKING.md; research/2026-11-14_opus_two-tree-packing/PROOFS.md Conj 3.4",
    "text": "Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.",
    "test": "Extend the support census to V=18 and look for a support with no split.",
+   "role": "route"
+  },
+  {
+   "id": "U.evict",
+   "step": "U",
+   "label": "resident eviction pairs good states",
+   "status": "PROVED-HERE",
+   "src": "reft",
+   "where": "reft/RAINBOW.md Lemma X3 and Corollary X4",
+   "text": "For each of the n bounded black faces, reversible resident eviction gives a fixed-point-free involution on good states. Their number is even without signs. These new proofs are unreviewed.",
+   "role": "route"
+  },
+  {
+   "id": "U.rainbow-strict",
+   "step": "U",
+   "label": "strict black-excess descent",
+   "status": "REFUTED",
+   "src": "reft",
+   "where": "reft/RAINBOW.md; reft/data/traps_16_16_all.json",
+   "text": "Every positive-excess rainbow tree has an immediately decreasing exchange.",
+   "cex": "V=8, smallest reported failure; T4 author enumeration.",
+   "lesson": "The exchange graph needs plateau moves even at the smallest nontrivial obstruction.",
+   "role": "route"
+  },
+  {
+   "id": "U.rainbow-pot",
+   "step": "U",
+   "label": "four rainbow distance potentials",
+   "status": "REFUTED",
+   "src": "reft",
+   "where": "reft/RAINBOW.md; reft/data/potential_10.json; reft/data/potential_12.json",
+   "text": "Tree or spoke-graph distances between loaded and empty faces, minimized or summed, always guide exchange.",
+   "cex": "Failures in 5 to 7 percent of trees through V=12; per-potential minimum not certified.",
+   "lesson": "Distance to the deficit does not control the fundamental-cycle obstruction.",
+   "role": "route"
+  },
+  {
+   "id": "U.G-partial",
+   "step": "U",
+   "label": "short-cycle obstruction and partial G",
+   "status": "PROVED-HERE",
+   "src": "il",
+   "where": "il/G.md; il/PARTIAL.md; il/REPORT.md",
+   "text": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
+   "role": "route"
+  },
+  {
+   "id": "U.G-inward",
+   "step": "U",
+   "label": "innermost bad-disk selection",
+   "status": "REFUTED",
+   "src": "il",
+   "where": "il/REPORT.md; il/data/certificates.json; il/data/g_five_certificates.json",
+   "text": "The specified local repair always closes the induction.",
+   "cex": "V=11 graph 1: innermost bad four-cycle has a sole interior degree-four vertex and both its merges blocked.",
+   "lesson": "Curvature supplies a degree-four vertex, not a good merge.",
+   "role": "route"
+  },
+  {
+   "id": "U.G-five",
+   "step": "U",
+   "label": "innermost bad five-cycle selection",
+   "status": "REFUTED",
+   "src": "il",
+   "where": "il/REPORT.md; il/data/g_five_certificates.json",
+   "text": "The specified local repair always closes the induction.",
+   "cex": "V=13 graph 4; blocked-source refinement fails at V=14 graph 22.",
+   "lesson": "The next obstruction can leave the current disk.",
+   "role": "route"
+  },
+  {
+   "id": "U.X-cover",
+   "step": "U",
+   "label": "fixed-cover exceptional repair",
+   "status": "REFUTED",
+   "src": "il",
+   "where": "il/REPORT.md; il/data/cube_witness.json",
+   "text": "The specified local repair always closes the induction.",
+   "cex": "V=18 graph 80, root {8,0,1}, x=15, merge {14,9}: the only good state of a one-cycle cover is exceptional. Mate repair first fails at V=16, single-cycle repair at V=17.",
+   "lesson": "A successful repair must sometimes change the cover.",
+   "role": "route"
+  },
+  {
+   "id": "U.pack-one-side",
+   "step": "U",
+   "label": "each rainbow constraint separately",
+   "status": "PROVED-HERE",
+   "src": "pack",
+   "where": "pack/PROOFS.md Cor 3.2 and Thm 3.3",
+   "text": "Every pair support contains a face-rainbow tree and splits into two point-rainbow trees. The first follows by Rado and the second by Edmonds branchings. Both constraints together need not be attainable inside the support. T2 unreviewed.",
+   "role": "route"
+  },
+  {
+   "id": "U.pack-support",
+   "step": "U",
+   "label": "round within a fixed pair support",
+   "status": "REFUTED",
+   "src": "pack",
+   "where": "pack/REPORT.md; pack/data/rainbow_V14-17.json",
+   "text": "Every pair support contains a good state, meeting both rainbow constraints.",
+   "cex": "V=16, plantri index 27, face 0; smallest reported support failure. At V=17, 239 of 9,290 supports have no complementary good split.",
+   "lesson": "Fractional feasibility and each one-sided constraint do not give simultaneous integrality; change the support.",
+   "role": "route"
+  },
+  {
+   "id": "N.descent-structure",
+   "step": "N",
+   "label": "cycle destruction, three heights, product gluing",
+   "status": "PROVED-HERE",
+   "src": "des",
+   "where": "des/PROOFS.md; des/REPORT.md",
+   "text": "A D-swap destroys exactly the Q-cycles meeting it and may create others. Three heights have constant sum; each exchange transfers enclosed white area. C3 is equivalent to no closed positive-q plateau. White-face gluing gives product exchange graphs and preserves C3. New proofs T2 unreviewed.",
+   "role": "route"
+  },
+  {
+   "id": "N.lookahead",
+   "step": "N",
+   "label": "bounded-lookahead q descent",
+   "status": "REFUTED",
+   "src": "des",
+   "where": "des/DESCENT.md; des/data/witnesses.txt; des/data/witnesses_verified.json; des/data/census_tables.md",
+   "text": "The specified potential or lookahead always reaches a good pair.",
+   "cex": "Radius one fails first at V=16; radius two first at V=21. Radius three fails at V=40, not known least; reference-engine radius-four certificate at V=60.",
+   "lesson": "C3 allows arbitrarily long plateau exploration; fixed radii one, two and three fail.",
+   "role": "route"
+  },
+  {
+   "id": "N.height-ties",
+   "step": "N",
+   "label": "height and cover-count tie-breaks",
+   "status": "REFUTED",
+   "src": "des",
+   "where": "des/DESCENT.md; des/data/witnesses.txt; des/data/witnesses_verified.json; des/data/census_tables.md",
+   "text": "The specified potential or lookahead always reaches a good pair.",
+   "cex": "Cover-count penalties trap at V=16. Twelve plateau-free height choices have non-good local minima first at V=16 or 18. Height tie-break traps at V=40; full per-potential ledger in census_tables.md.",
+   "lesson": "Odd-cycle area transfer ensures strictness, not the direction of progress.",
+   "role": "route"
+  },
+  {
+   "id": "N.PPADS",
+   "step": "N",
+   "label": "conditional sink-search complexity",
+   "status": "PROVED-HERE",
+   "src": "des",
+   "where": "des/COMPLEXITY.md Proposition G",
+   "text": "Conditional on the trees preprint Theorem 5.3, TREE-PAIR reduces to PPADS by merging marked-walk levels with polynomial-size histories. Extra sources prevent the obvious PPAD reduction. Full Hamiltonian search additionally needs the cited closure or an explicit chaining argument. T2 unreviewed; complexity citations were recalled, not opened by the author.",
+   "role": "route"
+  },
+  {
+   "id": "G2.devices",
+   "step": "G2",
+   "label": "real-sign and finite-difference Lean replacement",
+   "status": "COMPUTED",
+   "src": "devices",
+   "where": "proofs/lean/README.md; devices/REPORT.md; devices/build-logs/paper-route-check.out",
+   "text": "Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.",
+   "review": {
+    "state": "under-review",
+    "by": [
+     "research/2026-11-14_astra_lean-check"
+    ],
+    "verdict": "Compiled by its author; independent check pending."
+   },
+   "role": "route"
+  },
+  {
+   "id": "U.rainbow-local",
+   "step": "U",
+   "label": "unique exchange and disk-surplus identity",
+   "status": "PROVED-HERE",
+   "src": "reft",
+   "where": "reft/RAINBOW.md Lemmas X1 and X2",
+   "text": "Every point of a rainbow tree has exactly one exchange, so the move graph is n-regular. The fundamental-cycle surplus is W-B-1 plus the old-face interior indicator. These exact local statements do not prove Step X. T2 unreviewed.",
+   "role": "route"
+  },
+  {
+   "id": "U.rainbow-mean",
+   "step": "U",
+   "label": "uniform rainbow mean load one",
+   "status": "REFUTED",
+   "src": "reft",
+   "where": "reft/RAINBOW.md; reft/data/average_6_14.json",
+   "text": "The uniform rainbow tree has expected load one at every bounded black face.",
+   "cex": "V=12 first reported failure; holds in 828 of 880 instances through V=14, exactly the singleton-factor instances.",
+   "lesson": "Uniform one-sided trees do not automatically meet the other degree constraint in expectation.",
+   "role": "route"
+  },
+  {
+   "id": "U.evict-transitive",
+   "step": "U",
+   "label": "resident involutions act transitively",
+   "status": "REFUTED",
+   "src": "reft",
+   "where": "reft/RAINBOW.md; reft/data/walk_exhaust_13_14_all.json",
+   "text": "The n resident-eviction involutions connect every good state.",
+   "cex": "Disconnected in 24 of 672 instances at V=13 or 14; exact least order not certified in the report.",
+   "lesson": "Fixed-point-free pairings prove evenness, not connectivity of good states.",
    "role": "route"
   }
  ]

@@ -1181,3 +1181,15 @@ _upd('G2.inv',where='proofs/involutions/; research/2026-11-14_fable_referee-invo
 checked('G2.inv','research/2026-11-14_fable_referee-involutions-v2','Both routes FOLLOWS after path-mark statement and sector-wording corrections.')
 add('G2.devices','G2','real-sign and finite-difference Lean replacement','COMPUTED','devices','proofs/lean/README.md; devices/REPORT.md; devices/build-logs/paper-route-check.out',
     'Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.','polynomial',review={'state':'under-review','by':[FOLDERS['lc']],'verdict':'Compiled by its author; independent check pending.'})
+
+_upd('U.G-inward',where='il/REPORT.md; il/data/certificates.json; il/data/g_five_certificates.json')
+_upd('TG.5',text='+ Precisely, every omitted quasi vertex must have degree four and no incident digon. This restriction is part of the proper dictionary, not a consequence of the relaxed induced-tree predicate.')
+
+add('U.rainbow-local','U','unique exchange and disk-surplus identity','PROVED-HERE','reft','reft/RAINBOW.md Lemmas X1 and X2',
+    'Every point of a rainbow tree has exactly one exchange, so the move graph is n-regular. The fundamental-cycle surplus is W-B-1 plus the old-face interior indicator. These exact local statements do not prove Step X. T2 unreviewed.','topology')
+add('U.rainbow-mean','U','uniform rainbow mean load one','REFUTED','reft','reft/RAINBOW.md; reft/data/average_6_14.json',
+    'The uniform rainbow tree has expected load one at every bounded black face.','probability',cex='V=12 first reported failure; holds in 828 of 880 instances through V=14, exactly the singleton-factor instances.',lesson='Uniform one-sided trees do not automatically meet the other degree constraint in expectation.')
+add('U.evict-transitive','U','resident involutions act transitively','REFUTED','reft','reft/RAINBOW.md; reft/data/selection_6_13.json',
+    'The n resident-eviction involutions connect every good state.','bijective',cex='Disconnected in 24 of 672 instances at V=13 or 14; exact least order not certified in the report.',lesson='Fixed-point-free pairings prove evenness, not connectivity of good states.')
+
+_upd('U.evict-transitive',where='reft/RAINBOW.md; reft/data/walk_exhaust_13_14_all.json')

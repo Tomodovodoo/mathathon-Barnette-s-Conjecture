@@ -1,6 +1,6 @@
 ﻿# Labyrinth: current research map
 
-The canonical route catalogue is `digestions/route-map/routes.py`. `seed.py` reads it and adds doors, sources, history and state-of-the-art rows. Generated data and figures must be rebuilt rather than edited by hand. The map-update run is `research/2026-11-14_sol_map-update/`.
+The canonical route catalogue is `digestions/route-map/routes.py`. `seed.py` reads it and adds doors, sources, history and state-of-the-art rows. Generated data and figures must be rebuilt rather than edited by hand. The map-update run is `research/2026-11-14_sol_map-final/`.
 
 The local dashboard is [dashboard/index.html](dashboard/index.html), absolute path `E:\Personal\Math\mathathon\barnette-s-conjecture\labyrinth\dashboard\index.html`. It is not published. `STATUS.md` is the generated text summary. Open `index.html?tab=sota`, `frontier`, `graph`, `timeline` or `board` for a specific view.
 
@@ -22,7 +22,7 @@ python -X utf8 -B labyrinth/lab.py build
 
 T1 means published literature or a standard result. LIT records source provenance and does not promote a supplied unrefereed 2026 preprint to T1. T2 means a written proof, with its review state. An AI referee changes that state, never the tier. No node is human-checked. Newly discovered proofs inside referee reports remain unreviewed.
 
-T3 is used for independently validated exhaustive computations, including the all-root census through 16 and the independent C1 census through 22. T4 records the newer separator-free order-24 census and other unchecked numerical campaigns. T5 is a testable conjecture and T6 a hunch. Claim-specific reviews override folder defaults. The earlier primal proof is AI-refereed; its revision and its disagreement with referee M4 are not newly refereed. Merged main theorem now has one independent AI referee, FOLLOWS; proposed ancillary edits are not certified applied. Its second cold read and the involution referee remain pending.
+T3 is used for independently validated exhaustive computations, including the all-root census through 16 and the independent C1 census through 22. T4 records the newer separator-free order-24 census and other unchecked numerical campaigns. T5 is a testable conjecture and T6 a hunch. Claim-specific reviews override folder defaults. The main v2 theorem has a fresh AI referee, FOLLOWS, and a completed fresh cold read. Both ray and drawing-free involution routes have a second referee, FOLLOWS. The revised primal proof is accepted in the cross-audit; the phase ratio is the constant i^n. The real-sign and finite-difference Lean replacement is compiled by its author; independent rebuild and statement check are pending. This does not certify the paper's unformalised translation bridges.
 
 ## Frontier scope
 
@@ -30,8 +30,8 @@ Size is dual order V=|V(T)|, with primal order 2V-4. The plotted invariant is th
 
 `frontier.json` also records `statistic_coverage` with the exact larger ranges and source paths. The all-root C1 and equality-pattern census reaches 22, on 9,531,638 facial roots, 4,656,948 feasible, independently replayed by the conjecture referee. The cycle-cover run reaches 24 only for 4-connected Eulerian triangulations, on 23,824,742 facial roots. It checks C1, equality patterns and m distributions, not the full invariant-value spectrum, and remains T4 under review. It observes maximum m=6 at order 23. The scatter is still the original 5,088 feasible-root sample through 16; its caption states that range.
 
-The source reports include an unreviewed separator-free family with unbounded m. ML1 and ML2, C3 and rainbow exchange are tracked as separate questions. See the route catalogue and current open-problems chapter for exact hypotheses and counterexamples.
+The separator-free family with unbounded m and the prescribed-root width-four rarity family now have independent AI referees. ML1 and ML2, C3 and rainbow exchange are tracked as separate questions. See the route catalogue and current open-problems chapter for exact hypotheses and counterexamples.
 
 ## Verification limits
 
-The update ran `lab.py check` and `lab.py build` and visually inspected the map figures. The dashboard build is local; no interactive browser audit is claimed. New large enumerations were not repeated during integration. `research/2026-11-14_sol_map-update/spotcheck.json` records the independent certificate-order and aggregate-arithmetic checks that were performed. The final report records late report availability.
+The update ran `lab.py check` and `lab.py build` and visually inspected the map figures. The dashboard build is local; no interactive browser audit is claimed. New large enumerations were not repeated during integration. `research/2026-11-14_sol_map-update/spotcheck.json` records the independent certificate-order and aggregate-arithmetic checks that were performed. [The final report](../research/2026-11-14_sol_map-final/REPORT.md) records late report availability, route counts, exact checks and remaining scope. The full invariant-value frontier was not extended by this integration.

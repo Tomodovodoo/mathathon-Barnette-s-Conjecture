@@ -101,7 +101,7 @@ for tag, folder in RT.FOLDERS.items():
     nodes.append(dict(id=f"src.agent.{tag}", kind="source", tier=None, status="agent folder",
                       title=folder.split("/")[-1], statement=f"Agent archive {folder}/. Review state of its proofs: {rv['state']}"
                       + (f" ({rv['verdict']})" if rv.get("verdict") else "") + ".",
-                      where=[folder + "/REPORT.md"], links=[], created=DAY, updated=DAY))
+                      where=[folder + "/REPORT.md" if (ROOT / folder / "REPORT.md").exists() else folder + "/"], links=[], created=DAY, updated=DAY))
 SRC_NODE = {"O": "src.O", "L": "src.L", "T": "src.T", "Lean": "src.Lean"}
 
 # ---- waypoints and steps

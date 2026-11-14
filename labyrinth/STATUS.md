@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T13:45:27Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -40,13 +40,13 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **remove a leaf of the white tree** [`k.F.4`, open] Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a good state, and the cycle of the larger graph is a local detour.
 - **a cut-free root** [`k.G.3`, open] Count how often some root (black face on the black side of all separating triangles, or the same with colours swapped) exists.
 - **ordered pairs of edges (global H+-)** [`k.G2.5`, open] Some Hamiltonian cycle contains x and avoids y for any two edges. Not implied by the theorem.
-- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a good pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.
+- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.
 - **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with m distinct marks are the elementary symmetric reading of the linear-weight coefficient.
-- **local search from a point-rainbow tree** [`k.U.7h`, open] Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.
+- **local search from a point-rainbow tree** [`k.U.7h`, open] Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.
 - **every Hamiltonian cycle from a two-root good state** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
 - **contraction inequality tau(T) >= tau(T/ac)** [`k.D.9`, open] Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted good state lifts directly.
-- **ML1: preserve a pair in some merge** [`k.U.G`, open] Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass. The induction-lemmas run (where it is called G) proves it for triangulations without chordless five-cycles; unreviewed.
-- **ML2: two-sided existence lifting** [`k.U.ML2`, open] If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.
+- **ML1: preserve a pair in some merge** [`k.U.G`, open] G: every separator-free rooted T with V>6 has a non-root degree-four vertex with a simple opposite-neighbour merge admitting a pair. Checked on 62,416 separator-free facial roots through V=19. Proved without chordless five-cycles, separately U.G-partial; unrestricted G remains open.
+- **ML2: two-sided existence lifting** [`k.U.ML2`, open] Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.
 - **P2: two face-rainbow trees in every pair support** [`k.U.packing-P2`, open] Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.
 
 ## Open doors (questions) (12)
@@ -59,7 +59,7 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **Which Hamiltonian cycles come from good states?** [`q.which-hc`, open] Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.
 - **Is there a second proof of the disk identity?** [`q.disk`, answered] Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.
 - **Can a different rooting remove the separating-triangle induction?** [`q.roots`, open] With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).
-- **Do Li's higher-mark involutions match the polynomial coefficient?** [`q.li-b`, open] A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.
+- **Do Li's higher-mark involutions match the polynomial coefficient?** [`q.li-b`, open] The marked-involution writeup has two AI referees, FOLLOWS on rays and drawing-free face paths.
 - **What is the right statement on other surfaces?** [`q.surface`, open] Rooted cardinality fails by 2g. Root-free Heawood has odd-cycle cancellation but identically zero polynomial.
 - **What is the status of formal verification?** [`q.formal`, open] The Lean proof builds locally with standard axioms and follows a different route in four places. Corollary 7.2 and Theorem 2.2 are not formalised.
 - **Has a human checked any of the proofs written here?** [`q.human`, open] No human-checked claim is recorded. Claim-specific AI reviews are in the route nodes; new referee discoveries remain unreviewed.
@@ -84,7 +84,7 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **abstract valuation theorem** [`h.N.8`, live] Axiomatise: a finite signed cycle system, two involutions, a positive circulation.
 - **flux on a small set of faces** [`h.N.10`, live] Put positive flux only on a set of faces that meets the interior of every feasible D-cycle.
 - **support of the tree-degree polynomial** [`h.U.1h`, live] Show the target degree vector d* lies in the support of det L_H(y), from plane incidence inequalities.
-- **spanning-tree parity / matroid parity** [`h.U.2h`, live] 'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces.
+- **spanning-tree parity / matroid parity** [`h.U.2h`, live] 'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces. The exact Feder-Subi predicate also imposes the proper-quasi-vertex condition. This is a lead, not an algorithm for the joint state constraints.
 - **Bernardi process, Schnyder woods, blossom trees** [`h.U.4h`, live] A canonical tree or orientation of the map might produce a good state directly.
 - **Temperley / Kenyon-Propp-Wilson** [`h.E.2`, live] Read the step as the tree-to-matching bijection of KPW.
 - **a potential along the selected out-edges** [`h.F.5`, live] Follow selected out-edges from a vertex to a root; a quantity that decreases along the walk proves connectivity.
@@ -92,7 +92,7 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **finding a good state is in PPAD** [`h.D.8`, live] Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs.
 - **older radial-tree dictionary and limits** [`h.TG.older`, live] The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.
 
-## Dead ends (refuted) (67)
+## Dead ends (refuted) (77)
 
 - **drop bipartite** [`x.S0.x1`, refuted] Without bipartiteness there is no proper face colouring of T, so states are not defined.
 - **drop 3-connectivity** [`x.S0.x2`, refuted] A 2-connected cubic bipartite planar graph can be non-Hamiltonian. Its dual has parallel edges.
@@ -141,7 +141,7 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **fixed-cycle-count flip connectivity** [`x.D.level-dead`, refuted] Covers with the same c, including minimum-c covers, form a connected flip level.
 - **some contracted good state lifts directly** [`x.U.lift-dead`, refuted] If T/M has good states, at least one lifts directly to T.
 - **surplus walk always terminates** [`x.U.walk-dead`, refuted] The surplus walk alone reaches smaller black excess.
-- **positive full-spoke UST mean fitting** [`x.U.mean-dead`, refuted] Finite positive weights attain the target degrees on all of H.
+- **positive full-spoke UST mean fitting** [`x.U.mean-dead`, refuted] Finite positive weights on the full spoke graph cannot attain the forced target degrees in expectation under a full-support spanning-tree law. This does not exclude conditioned or boundary-supported positive measures.
 - **joint Lorentzian rounding** [`x.U.support-dead`, refuted] Joint endpoint degree support inherits M-convexity from the spanning-tree polynomial.
 - **universal analytic root locations** [`x.N.zeros-dead`, refuted] Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.
 - **root-free torus nonvanishing** [`x.N.heawood`, refuted] Transfer spherical signed nonvanishing directly to Heawood on the torus.
@@ -161,18 +161,26 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **rainbow loads are M-convex** [`x.U.loads-dead`, refuted] Rainbow load vectors satisfy simultaneous M-exchange.
 - **every maximal lattice chain hits success** [`x.D.chain-dead`, refuted] Every maximal chain contains an element carrying a good pair.
 - **at least half the lattice succeeds** [`x.D.fraction-dead`, refuted] At least half the factor lattice admits a successful direction choice.
+- **strict black-excess descent** [`x.U.rainbow-strict`, refuted] Every positive-excess rainbow tree has an immediately decreasing exchange.
+- **four rainbow distance potentials** [`x.U.rainbow-pot`, refuted] Tree or spoke-graph distances between loaded and empty faces, minimized or summed, always guide exchange.
+- **innermost bad-disk selection** [`x.U.G-inward`, refuted] The specified local repair always closes the induction.
+- **innermost bad five-cycle selection** [`x.U.G-five`, refuted] The specified local repair always closes the induction.
+- **fixed-cover exceptional repair** [`x.U.X-cover`, refuted] The specified local repair always closes the induction.
+- **round within a fixed pair support** [`x.U.pack-support`, refuted] Every pair support contains a good state, meeting both rainbow constraints.
+- **bounded-lookahead q descent** [`x.N.lookahead`, refuted] The specified potential or lookahead always reaches a good pair.
+- **height and cover-count tie-breaks** [`x.N.height-ties`, refuted] The specified potential or lookahead always reaches a good pair.
+- **uniform rainbow mean load one** [`x.U.rainbow-mean`, refuted] The uniform rainbow tree has expected load one at every bounded black face.
+- **resident involutions act transitively** [`x.U.evict-transitive`, refuted] The n resident-eviction involutions connect every good state.
 
-## Under review (3)
+## Under review (4)
 
 - **exactly one good state is impossible** [`p.D.4`]
 - **the gluing needs the same-label edge** [`p.G.2`]
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
+- **real-sign and finite-difference Lean replacement** [`c.G2.devices`]
 
-## Recent events (73 total)
+## Recent events (76 total)
 
-- 2026-11-14T11:00 · proposed · Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)
-- 2026-11-14T11:05 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 175 routes
-- 2026-11-14T11:12 · proved · Categorical routes: gluing formula across any cycle; boundary patterns complete at cut lengths 3 and 4 (route-categorical, unreviewed)
 - 2026-11-14T11:12 · refuted · No uniform boundary condition at cut length 5; two roots do not replace the root face; the two reversals do not commute; topological Hall fails
 - 2026-11-14T11:12 · proposed · Conjectures: every Hamiltonian cycle comes from a two-root tree matching; contraction never increases the number of tree matchings
 - 2026-11-14T11:08 · computed · Own spot check on bipyramids: counts, signs, odd D-cycles confirmed; the cycle-to-state map is not injective off the tree matchings (prism: 4 avoiding cycles, 3 states)
@@ -195,3 +203,6 @@ Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 - 2026-11-14T15:14 · documented · Map refresh, attributed report integration: merged dual exposition. Written dual route uses product of local signs, heights along face paths, and an explicit connectivity lemma inside a selected cycle. Under two AI reader reviews; no final verdict at integration. New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.
 - 2026-11-14T15:15 · documented · Map refresh, attributed report integration: complete marked involution exposition. Written bijective route through marked objects and two involutions. Under independent AI referee; no final verdict at integration. New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.
 - 2026-11-14T12:30 · reviewed · Late merged-paper referee: main theorem FOLLOWS; eight edits proposed, including off-route Laurent terminology; application not certified. Human check pending.
+- 2026-11-14T13:45 · documented · Final map integration: 244 routes, 77 retained refutations; tiers kept separate from AI review.
+- 2026-11-14T13:45 · reviewed · Main v2 FOLLOWS, both involution routes FOLLOWS, revised primal ACCEPT; no human check. Covers and prescribed-root families have claim-specific AI reviews.
+- 2026-11-14T13:45 · computed · Reference-checker replay of four descent certificates at dual orders 16, 21, 60 and 40: escape radii 2, 3, 4 and 3. Not a new census.

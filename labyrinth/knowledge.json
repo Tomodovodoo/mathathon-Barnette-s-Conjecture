@@ -495,7 +495,7 @@
    "title": "draft-A",
    "statement": "Agent archive paper/draft-A/. Review state of its proofs: unreviewed.",
    "where": [
-    "paper/draft-A/REPORT.md"
+    "paper/draft-A/"
    ],
    "links": [],
    "created": "2026-11-14",
@@ -509,7 +509,7 @@
    "title": "draft-B",
    "statement": "Agent archive paper/draft-B/. Review state of its proofs: unreviewed.",
    "where": [
-    "paper/draft-B/REPORT.md"
+    "paper/draft-B/"
    ],
    "links": [],
    "created": "2026-11-14",
@@ -621,7 +621,7 @@
    "title": "main",
    "statement": "Agent archive paper/main/. Review state of its proofs: under-review.",
    "where": [
-    "paper/main/REPORT.md"
+    "paper/main/"
    ],
    "links": [],
    "created": "2026-11-14",
@@ -635,7 +635,7 @@
    "title": "involutions",
    "statement": "Agent archive proofs/involutions/. Review state of its proofs: under-review.",
    "where": [
-    "proofs/involutions/REPORT.md"
+    "proofs/involutions/"
    ],
    "links": [],
    "created": "2026-11-14",
@@ -706,6 +706,62 @@
    "statement": "Agent archive research/2026-11-14_astra_induction-lemmas/. Review state of its proofs: unreviewed.",
    "where": [
     "research/2026-11-14_astra_induction-lemmas/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.des",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_fable_descent",
+   "statement": "Agent archive research/2026-11-14_fable_descent/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_descent/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.devices",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_opus_lean-devices",
+   "statement": "Agent archive research/2026-11-14_opus_lean-devices/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_opus_lean-devices/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.cr",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_sol_referee-covers",
+   "statement": "Agent archive research/2026-11-14_sol_referee-covers/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_sol_referee-covers/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.lc",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_astra_lean-check",
+   "statement": "Agent archive research/2026-11-14_astra_lean-check/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_lean-check/"
    ],
    "links": [],
    "created": "2026-11-14",
@@ -1902,9 +1958,9 @@
   {
    "id": "th.TG.5",
    "title": "trees of faces (Feder-Subi)",
-   "statement": "Contract a colour class of faces and look for a quasi spanning tree of faces. Polynomial when the remaining faces have 2 or 3 sides, NP-complete in general. The closest older relative of the incidence tree.",
+   "statement": "Contract a colour class of faces and look for a quasi spanning tree of faces. Polynomial when the remaining faces have 2 or 3 sides, NP-complete in general. The closest older relative of the incidence tree. The Feder-Subi quasi-tree dictionary requires the proper-quasi-vertex condition in Section 2; dropping it changes the predicate already at primal order 10. Precisely, every omitted quasi vertex must have degree four and no incident digon. This restriction is part of the proper dictionary, not a consequence of the relaxed induced-tree predicate.",
    "where": [
-    "Feder-Subi 2006; Bagheri Gh. et al. 2021"
+    "Feder-Subi 2006; Bagheri Gh. et al. 2021; research/2026-11-14_sol_atlas-audit/AUDIT.md"
    ],
    "tags": [
     "step TG"
@@ -4736,7 +4792,7 @@
   {
    "id": "p.U.1",
    "title": "prescribed-degree spanning tree of H",
-   "statement": "[y^{d*}] det L_H(y) is the number of good states: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial.",
+   "statement": "[y^{d*}] det L_H(y) is the number of good states: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "where": [
     "research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 1, 4"
    ],
@@ -4812,7 +4868,7 @@
   {
    "id": "p.U.3",
    "title": "three-matroid intersection",
-   "statement": "A good state is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.",
+   "statement": "A good state is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "where": [
     "research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 6; research/2026-11-14_opus_route-graph-theory/PROOFS.md Section 1"
    ],
@@ -4942,7 +4998,7 @@
   {
    "id": "p.U.6",
    "title": "rooted functional orientations; two-sided hypertrees",
-   "statement": "Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation.",
+   "statement": "Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation. Forest constraints are in T/R, equivalently each component contains exactly one root; ordinary acyclicity in T is insufficient without a partner.",
    "where": [
     "research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 5, 7"
    ],
@@ -5140,7 +5196,7 @@
   {
    "id": "h.U.2h",
    "title": "spanning-tree parity / matroid parity",
-   "statement": "'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces.",
+   "statement": "'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces. The exact Feder-Subi predicate also imposes the proper-quasi-vertex condition. This is a lead, not an algorithm for the joint state constraints.",
    "where": [
     "research/2026-11-14_opus_history-literature/REPORT.md (leads); research/2026-11-14_sol_machinery-literature/ROUTE-IDEAS.md 10"
    ],
@@ -6945,9 +7001,9 @@
   {
    "id": "k.N.11",
    "title": "non-increasing exchange path to a good pair",
-   "statement": "C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a good pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.",
+   "statement": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.",
    "where": [
-    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_opus_conjectures/REPORT.md"
+    "research/2026-11-14_fable_descent/REPORT.md; research/2026-11-14_fable_descent/DESCENT.md; research/2026-11-14_fable_descent/data/census_summary.json; research/2026-11-14_sol_referee-conjectures/REFEREE.md"
    ],
    "tags": [
     "step N"
@@ -6957,7 +7013,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Find a potential on plateau components, or search for a closed positive-cycle component at larger orders.",
+   "test": "Prove no closed positive-q plateau, beginning at q=1. Do not infer C3 from the full exchange-component theorem.",
    "links": [
     {
      "to": "m.step.N",
@@ -7261,9 +7317,9 @@
   {
    "id": "p.U.7",
    "title": "sutured Floer support; point-rainbow white trees",
-   "statement": "The topology dictionary was AI-refereed. New Theorem R in reft/RAINBOW.md proves the point-rainbow criterion by Rado plus Euler, independent of signed nonvanishing. That new proof is T2 unreviewed.",
+   "statement": "The original point-rainbow dictionary is independently AI-refereed, with the corrected Morse grading and root pairing. The new Rado-Euler existence proof is separately recorded in U.rainbow, T2 unreviewed.",
    "where": [
-    "research/2026-11-14_opus_route-topology/REPORT.md; research/2026-11-14_fable_referee-topology/REFEREE.md; research/2026-11-14_fable_referee-topology/RAINBOW.md"
+    "research/2026-11-14_opus_route-topology/REPORT.md; research/2026-11-14_fable_referee-topology/REFEREE.md"
    ],
    "tags": [
     "step U"
@@ -7299,7 +7355,7 @@
   {
    "id": "k.U.7h",
    "title": "local search from a point-rainbow tree",
-   "statement": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
+   "statement": "Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.",
    "where": [
     "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/REPORT.md"
    ],
@@ -7311,7 +7367,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Use both kinds of plateau moves; analyze periodic witnesses at V=38 before proposing another deterministic rule.",
+   "test": "Finish the 58 missing V=18 triangulations; compare plateau components across unique-factor completions. Use both plateau move types.",
    "links": [
     {
      "to": "m.step.U",
@@ -7753,10 +7809,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
    },
    "links": [
     {
@@ -7996,9 +8056,9 @@
   {
    "id": "p.G2.main",
    "title": "merged dual exposition",
-   "statement": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending. A second version applying the eight edits is in progress. Blueprint: of 34 route statements, 4 have an exact Lean counterpart, 25 a counterpart in another form (translation not formalised), 5 none; Lemma 4.7 has a standalone Lean proof (research/2026-11-14_opus_blueprint/REPORT.md).",
+   "statement": "Main paper version 2: fresh independent AI regression referee FOLLOWS; fresh cold reader found no mathematical problem and completed editorial edits. The proof uses local real signs, face-path heights and finite differences. No human check. Author-compiled Lean replacement is tracked separately, not a certificate of every statement of the paper.",
    "where": [
-    "paper/main/barnette.tex; research/2026-11-14_sol_referee-paper/main/REFEREE.md; research/2026-11-14_sol_referee-paper/main/EDITS.md"
+    "paper/main/barnette.tex; research/2026-11-14_sol_referee-main-v2/REFEREE.md; research/2026-11-14_opus_coldread-main-v2/REPORT.md"
    ],
    "tags": [
     "step G2"
@@ -8011,10 +8071,10 @@
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-main"
+     "research/2026-11-14_sol_referee-main-v2"
     ],
     "date": "2026-11-14",
-    "verdict": "Main theorem route FOLLOWS. Eight edits proposed; a second version applying them is in progress, not certified here. Human check pending."
+    "verdict": "Version 2 main route FOLLOWS, after the explicit scope and dependency fixes. Fresh cold read also complete. Human check pending."
    },
    "links": [
     {
@@ -8034,9 +8094,9 @@
   {
    "id": "p.G2.inv",
    "title": "complete marked involution exposition",
-   "statement": "Written bijective route through marked objects and two involutions. Independent AI referee: FOLLOWS, one sign error off the route. The revision applied all fifteen edits and added a drawing-free mark model, which has no second referee yet.",
+   "statement": "Marked-involution proof independently AI-refereed FOLLOWS on both ray and drawing-free face-path routes. The fifteen first-round edits and the revised path-mark statement were checked; independent code reproduces all 279 running-example rows and tests five path families on 1,206 rooted instances through V=14. No human check.",
    "where": [
-    "proofs/involutions/; research/2026-11-14_opus_referee-involutions/REPORT.md; research/2026-11-14_sol_involutions-revision/REPORT.md"
+    "proofs/involutions/; research/2026-11-14_fable_referee-involutions-v2/REPORT.md"
    ],
    "tags": [
     "step G2"
@@ -8049,10 +8109,10 @@
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_opus_referee-involutions"
+     "research/2026-11-14_fable_referee-involutions-v2"
     ],
     "date": "2026-11-14",
-    "verdict": "FOLLOWS; fifteen edits, all applied in the revision. The added drawing-free model is unreviewed. Human check pending."
+    "verdict": "Both routes FOLLOWS after path-mark statement and sector-wording corrections. Human check pending."
    },
    "links": [
     {
@@ -8176,9 +8236,9 @@
   {
    "id": "p.D.covers",
    "title": "primal meaning and unbounded m without separators",
-   "statement": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
+   "statement": "For admissible primal deletion S, c(D)=components(G-S)-1; G-S need not be a 2-factor. Separator-free T_j has V=3j+2, one cover of j-2 triangles and a pentagon, m=j-1 and #good states=2^(j-1). Pole degrees grow. Independently AI-refereed; bounded-face-size separator-free unboundedness remains open.",
    "where": [
-    "research/2026-11-14_astra_cycle-covers/PROOFS.md; research/2026-11-14_astra_cycle-covers/data/family.json"
+    "research/2026-11-14_astra_cycle-covers/PROOFS.md; research/2026-11-14_sol_referee-covers/INTEGRATION.md; research/2026-11-14_sol_referee-covers/REFEREE-covers.md"
    ],
    "tags": [
     "step D"
@@ -8187,10 +8247,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
    },
    "links": [
     {
@@ -8248,7 +8312,7 @@
    "title": "fixed-cycle-count flip connectivity",
    "statement": "Covers with the same c, including minimum-c covers, form a connected flip level.",
    "where": [
-    "research/2026-11-14_astra_cycle-covers/data/levels.json; research/2026-11-14_astra_cycle-covers/PROOFS.md"
+    "research/2026-11-14_astra_cycle-covers/data/levels.json; research/2026-11-14_sol_referee-covers/code/witnesses.json; research/2026-11-14_sol_referee-covers/INTEGRATION.md"
    ],
    "tags": [
     "step D"
@@ -8259,7 +8323,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "Do not assume that minimizing c gives a convex or connected lattice level.",
-   "note": "Smallest known counterexample: V=18 flip squares with labels 3,1,5,3 and 1,3,3,1; no smaller failure in the separator-free search.",
+   "note": "Smallest known counterexample: Two independently replayed V=18 certificates. No certified smallest-order claim.",
    "links": [
     {
      "to": "m.step.D",
@@ -8274,9 +8338,9 @@
   {
    "id": "p.D.two-covers",
    "title": "two-cover exponential bound",
-   "statement": "Two covers with c1,c2 cycles and j shared component cycles have overlap a either zero or 2^j and TM=2^c1+2^c2-2a. This proves C1 for two covers. Strictness has one unexcluded planar overlap configuration. Unreviewed.",
+   "statement": "For exactly two covers with c1,c2 cycles and j shared cycles, #good states=2^c1+2^c2-2a with a=0 or 2^j. Thus #good states>=2^min(c1,c2). Equality requires c1=c2=j+1 and a=2^j; strictness is not proved.",
    "where": [
-    "research/2026-11-14_astra_cycle-covers/PROOFS.md"
+    "research/2026-11-14_astra_cycle-covers/PROOFS.md; research/2026-11-14_sol_referee-covers/INTEGRATION.md"
    ],
    "tags": [
     "step D"
@@ -8285,10 +8349,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
    },
    "links": [
     {
@@ -8346,9 +8414,9 @@
   {
    "id": "k.U.G",
    "title": "ML1: preserve a pair in some merge",
-   "statement": "Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass. The induction-lemmas run (where it is called G) proves it for triangulations without chordless five-cycles; unreviewed.",
+   "statement": "G: every separator-free rooted T with V>6 has a non-root degree-four vertex with a simple opposite-neighbour merge admitting a pair. Checked on 62,416 separator-free facial roots through V=19. Proved without chordless five-cycles, separately U.G-partial; unrestricted G remains open.",
    "where": [
-    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md"
+    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md; research/2026-11-14_astra_induction-lemmas/G.md; research/2026-11-14_astra_induction-lemmas/REPORT.md"
    ],
    "tags": [
     "step U"
@@ -8377,9 +8445,9 @@
   {
    "id": "k.U.ML2",
    "title": "ML2: two-sided existence lifting",
-   "statement": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
+   "statement": "Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.",
    "where": [
-    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md; research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md"
+    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md; research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md; research/2026-11-14_astra_induction-lemmas/X.md; research/2026-11-14_astra_induction-lemmas/REPORT.md"
    ],
    "tags": [
     "step U"
@@ -8389,7 +8457,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Bound the exceptional fraction by one half, or construct a sign-free injection into non-exceptional matchings.",
+   "test": "Construct a cover-changing injection from exceptions to non-exceptions; test against cube_witness.json and all 7,940 exceptions.",
    "links": [
     {
      "to": "m.step.U",
@@ -8436,7 +8504,7 @@
   {
    "id": "p.U.rainbow",
    "title": "Rado-Euler rainbow tree and unique factor",
-   "statement": "Theorem R proves rainbow existence exactly at feasible roots. Theorem S completes each rainbow tree to a unique incidence 2-factor. Reversible surplus walks give fixed-point-free involutions on good states. New proofs T2 unreviewed.",
+   "statement": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
    "where": [
     "research/2026-11-14_fable_referee-topology/RAINBOW.md"
    ],
@@ -8449,8 +8517,7 @@
    "tier": "T2",
    "status": "proof supplied (unreviewed)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "unreviewed"
    },
    "links": [
     {
@@ -8472,7 +8539,7 @@
    "title": "surplus walk always terminates",
    "statement": "The surplus walk alone reaches smaller black excess.",
    "where": [
-    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/"
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/cycles_hunt_38_400_19_0.0.json"
    ],
    "tags": [
     "step U"
@@ -8498,9 +8565,9 @@
   {
    "id": "x.U.mean-dead",
    "title": "positive full-spoke UST mean fitting",
-   "statement": "Finite positive weights attain the target degrees on all of H.",
+   "statement": "Finite positive weights on the full spoke graph cannot attain the forced target degrees in expectation under a full-support spanning-tree law. This does not exclude conditioned or boundary-supported positive measures.",
    "where": [
-    "research/2026-11-14_sol_route-probabilistic/PROOFS.md Sections 1-3"
+    "research/2026-11-14_sol_route-probabilistic/PROOFS.md; research/2026-11-14_sol_referee-covers/INTEGRATION.md"
    ],
    "tags": [
     "step U"
@@ -8554,7 +8621,7 @@
   {
    "id": "k.U.packing",
    "title": "two white trees in every pair support",
-   "statement": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
+   "statement": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
    "where": [
     "research/2026-11-14_opus_two-tree-packing/PROOFS.md Thm 2.1; research/2026-11-14_opus_two-tree-packing/REPORT.md"
    ],
@@ -8590,7 +8657,7 @@
    "title": "universal analytic root locations",
    "statement": "Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.",
    "where": [
-    "research/2026-11-14_sol_route-probabilistic/PROOFS.md; research/2026-11-14_sol_route-probabilistic/code/secondary.py"
+    "research/2026-11-14_sol_route-probabilistic/PROOFS.md; research/2026-11-14_sol_referee-covers/code/polynomials.json; research/2026-11-14_sol_referee-covers/INTEGRATION.md"
    ],
    "tags": [
     "step N"
@@ -8601,7 +8668,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "Family product factorizations do not establish a universal zero-location argument.",
-   "note": "Smallest known counterexample: V=12 exact factors (z-1)(z^2+3) and x(x+1)(2x+1)(2x^2+5x+4); real-rooted z already fails at V=10.",
+   "note": "Smallest known counterexample: Off-circle factor (z-1)(z^2+3) at V=12. Independent linear gauge gives -x(x+2)(x^2+2x+2). Real-rooted z already fails at V=10; no gauge-independent minimum claim for linear weights.",
    "links": [
     {
      "to": "m.step.N",
@@ -8712,9 +8779,9 @@
   {
    "id": "p.D.tubes",
    "title": "separator-free exponential rarity",
-   "statement": "Width-four nanotubes have S_L=Fib_(2L+3), #TM=2 and m=1. Stationary transfer certificates also cover width six. All-length transfer reasoning is author proved; finite arithmetic and matrices remain unreviewed.",
+   "statement": "At the specified lateral root, width-four tubes have S_L=Fib_(2L+3), exactly two good states and m=1 for every L>=0, with only square/hexagonal primal faces and no separators. Width-six recurrences hold at their stated starting indices, not uniformly from L=0. Independent transfer matrices prove all lengths.",
    "where": [
-    "research/2026-11-14_sol_counting-families/FAMILIES.md; research/2026-11-14_sol_counting-families/data/"
+    "research/2026-11-14_sol_counting-families/FAMILIES.md; research/2026-11-14_sol_referee-covers/INTEGRATION.md; research/2026-11-14_sol_referee-covers/REFEREE-families.md"
    ],
    "tags": [
     "step D"
@@ -8723,10 +8790,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-covers"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named proof checked in INTEGRATION.md and the claim-specific covers/families referee; retain prescribed roots and recurrence ranges. Human check pending."
    },
    "links": [
     {
@@ -9264,6 +9335,530 @@
    ]
   },
   {
+   "id": "p.U.evict",
+   "title": "resident eviction pairs good states",
+   "statement": "For each of the n bounded black faces, reversible resident eviction gives a fixed-point-free involution on good states. Their number is even without signs. These new proofs are unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md Lemma X3 and Corollary X4"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.U.rainbow-strict",
+   "title": "strict black-excess descent",
+   "statement": "Every positive-excess rainbow tree has an immediately decreasing exchange.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/traps_16_16_all.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The exchange graph needs plateau moves even at the smallest nontrivial obstruction.",
+   "note": "Smallest known counterexample: V=8, smallest reported failure; T4 author enumeration.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.rainbow-pot",
+   "title": "four rainbow distance potentials",
+   "statement": "Tree or spoke-graph distances between loaded and empty faces, minimized or summed, always guide exchange.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/potential_10.json; research/2026-11-14_fable_referee-topology/data/potential_12.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Distance to the deficit does not control the fundamental-cycle obstruction.",
+   "note": "Smallest known counterexample: Failures in 5 to 7 percent of trees through V=12; per-potential minimum not certified.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.U.G-partial",
+   "title": "short-cycle obstruction and partial G",
+   "statement": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_induction-lemmas/G.md; research/2026-11-14_astra_induction-lemmas/PARTIAL.md; research/2026-11-14_astra_induction-lemmas/REPORT.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.il",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.U.G-inward",
+   "title": "innermost bad-disk selection",
+   "statement": "The specified local repair always closes the induction.",
+   "where": [
+    "research/2026-11-14_astra_induction-lemmas/REPORT.md; research/2026-11-14_astra_induction-lemmas/data/certificates.json; research/2026-11-14_astra_induction-lemmas/data/g_five_certificates.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Curvature supplies a degree-four vertex, not a good merge.",
+   "note": "Smallest known counterexample: V=11 graph 1: innermost bad four-cycle has a sole interior degree-four vertex and both its merges blocked.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.il",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.G-five",
+   "title": "innermost bad five-cycle selection",
+   "statement": "The specified local repair always closes the induction.",
+   "where": [
+    "research/2026-11-14_astra_induction-lemmas/REPORT.md; research/2026-11-14_astra_induction-lemmas/data/g_five_certificates.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The next obstruction can leave the current disk.",
+   "note": "Smallest known counterexample: V=13 graph 4; blocked-source refinement fails at V=14 graph 22.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.il",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.X-cover",
+   "title": "fixed-cover exceptional repair",
+   "statement": "The specified local repair always closes the induction.",
+   "where": [
+    "research/2026-11-14_astra_induction-lemmas/REPORT.md; research/2026-11-14_astra_induction-lemmas/data/cube_witness.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "A successful repair must sometimes change the cover.",
+   "note": "Smallest known counterexample: V=18 graph 80, root {8,0,1}, x=15, merge {14,9}: the only good state of a one-cycle cover is exceptional. Mate repair first fails at V=16, single-cycle repair at V=17.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.il",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.U.pack-one-side",
+   "title": "each rainbow constraint separately",
+   "statement": "Every pair support contains a face-rainbow tree and splits into two point-rainbow trees. The first follows by Rado and the second by Edmonds branchings. Both constraints together need not be attainable inside the support. T2 unreviewed.",
+   "where": [
+    "research/2026-11-14_opus_two-tree-packing/PROOFS.md Cor 3.2 and Thm 3.3"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.pack",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.U.pack-support",
+   "title": "round within a fixed pair support",
+   "statement": "Every pair support contains a good state, meeting both rainbow constraints.",
+   "where": [
+    "research/2026-11-14_opus_two-tree-packing/REPORT.md; research/2026-11-14_opus_two-tree-packing/data/rainbow_V14-17.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Fractional feasibility and each one-sided constraint do not give simultaneous integrality; change the support.",
+   "note": "Smallest known counterexample: V=16, plantri index 27, face 0; smallest reported support failure. At V=17, 239 of 9,290 supports have no complementary good split.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.pack",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.N.descent-structure",
+   "title": "cycle destruction, three heights, product gluing",
+   "statement": "A D-swap destroys exactly the Q-cycles meeting it and may create others. Three heights have constant sum; each exchange transfers enclosed white area. C3 is equivalent to no closed positive-q plateau. White-face gluing gives product exchange graphs and preserves C3. New proofs T2 unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_descent/PROOFS.md; research/2026-11-14_fable_descent/REPORT.md"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.des",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.N",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.N.lookahead",
+   "title": "bounded-lookahead q descent",
+   "statement": "The specified potential or lookahead always reaches a good pair.",
+   "where": [
+    "research/2026-11-14_fable_descent/DESCENT.md; research/2026-11-14_fable_descent/data/witnesses.txt; research/2026-11-14_fable_descent/data/witnesses_verified.json; research/2026-11-14_fable_descent/data/census_tables.md"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "C3 allows arbitrarily long plateau exploration; fixed radii one, two and three fail.",
+   "note": "Smallest known counterexample: Radius one fails first at V=16; radius two first at V=21. Radius three fails at V=40, not known least; reference-engine radius-four certificate at V=60.",
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.des",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.N.height-ties",
+   "title": "height and cover-count tie-breaks",
+   "statement": "The specified potential or lookahead always reaches a good pair.",
+   "where": [
+    "research/2026-11-14_fable_descent/DESCENT.md; research/2026-11-14_fable_descent/data/witnesses.txt; research/2026-11-14_fable_descent/data/witnesses_verified.json; research/2026-11-14_fable_descent/data/census_tables.md"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Odd-cycle area transfer ensures strictness, not the direction of progress.",
+   "note": "Smallest known counterexample: Cover-count penalties trap at V=16. Twelve plateau-free height choices have non-good local minima first at V=16 or 18. Height tie-break traps at V=40; full per-potential ledger in census_tables.md.",
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.des",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.N.PPADS",
+   "title": "conditional sink-search complexity",
+   "statement": "Conditional on the trees preprint Theorem 5.3, TREE-PAIR reduces to PPADS by merging marked-walk levels with polynomial-size histories. Extra sources prevent the obvious PPAD reduction. Full Hamiltonian search additionally needs the cited closure or an explicit chaining argument. T2 unreviewed; complexity citations were recalled, not opened by the author.",
+   "where": [
+    "research/2026-11-14_fable_descent/COMPLEXITY.md Proposition G"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.des",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.N",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "c.G2.devices",
+   "title": "real-sign and finite-difference Lean replacement",
+   "statement": "Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.",
+   "where": [
+    "proofs/lean/README.md; research/2026-11-14_opus_lean-devices/REPORT.md; research/2026-11-14_opus_lean-devices/build-logs/paper-route-check.out"
+   ],
+   "tags": [
+    "step G2"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "evidence",
+   "tier": "T4",
+   "status": "computed",
+   "evidence": [
+    "proofs/lean/README.md; research/2026-11-14_opus_lean-devices/REPORT.md; research/2026-11-14_opus_lean-devices/build-logs/paper-route-check.out"
+   ],
+   "review": {
+    "state": "under-review",
+    "by": [
+     "research/2026-11-14_astra_lean-check"
+    ],
+    "verdict": "Compiled by its author; independent check pending."
+   },
+   "links": [
+    {
+     "to": "m.step.G2",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.devices",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.HC",
+     "rel": "tests"
+    }
+   ]
+  },
+  {
+   "id": "p.U.rainbow-local",
+   "title": "unique exchange and disk-surplus identity",
+   "statement": "Every point of a rainbow tree has exactly one exchange, so the move graph is n-regular. The fundamental-cycle surplus is W-B-1 plus the old-face interior indicator. These exact local statements do not prove Step X. T2 unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md Lemmas X1 and X2"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.U.rainbow-mean",
+   "title": "uniform rainbow mean load one",
+   "statement": "The uniform rainbow tree has expected load one at every bounded black face.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/average_6_14.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Uniform one-sided trees do not automatically meet the other degree constraint in expectation.",
+   "note": "Smallest known counterexample: V=12 first reported failure; holds in 828 of 880 instances through V=14, exactly the singleton-factor instances.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.evict-transitive",
+   "title": "resident involutions act transitively",
+   "statement": "The n resident-eviction involutions connect every good state.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/walk_exhaust_13_14_all.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Fixed-point-free pairings prove evenness, not connectivity of good states.",
+   "note": "Smallest known counterexample: Disconnected in 24 of 672 instances at V=13 or 14; exact least order not certified in the report.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
    "id": "e.census16",
    "kind": "exhaustive",
    "tier": "T3",
@@ -9616,7 +10211,7 @@
    "title": "How many good states must there be?",
    "statement": "C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.",
    "why": "C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.",
-   "next": "Exclude the exceptional two-cover overlap; then treat more covers.",
+   "next": "The AI-refereed two-cover weak bound is proved; exclude its equality overlap, then treat more covers.",
    "links": [
     {
      "to": "k.D.3",
@@ -9748,9 +10343,9 @@
    "tier": null,
    "status": "open",
    "title": "Do Li's higher-mark involutions match the polynomial coefficient?",
-   "statement": "A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.",
-   "why": "A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.",
-   "next": "Finish the independent referee and reconcile distinct-mark conventions.",
+   "statement": "The marked-involution writeup has two AI referees, FOLLOWS on rays and drawing-free face paths.",
+   "why": "The marked-involution writeup has two AI referees, FOLLOWS on rays and drawing-free face paths.",
+   "next": "Human-check the note and formalise the path-mark dictionary.",
    "links": [
     {
      "to": "k.N.12",

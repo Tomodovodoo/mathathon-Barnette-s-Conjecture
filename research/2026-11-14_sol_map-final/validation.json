@@ -1,0 +1,84 @@
+{
+  "total_routes": 244,
+  "routes_by_status": {
+    "LIT": 46,
+    "PROVED-HERE": 64,
+    "REFUTED": 77,
+    "HUNCH": 25,
+    "CONJECTURE": 19,
+    "COMPUTED": 13
+  },
+  "routes_by_kind_including_computations": {
+    "duality": 17,
+    "count": 30,
+    "matching": 7,
+    "topology": 19,
+    "induction": 47,
+    "search": 15,
+    "matroid": 15,
+    "order": 12,
+    "linear": 20,
+    "computation": 9,
+    "bijective": 21,
+    "polynomial": 20,
+    "lattice": 8,
+    "probability": 4
+  },
+  "matrix_routes_by_kind_excluding_computations": {
+    "duality": 17,
+    "count": 29,
+    "matching": 7,
+    "topology": 19,
+    "induction": 47,
+    "search": 15,
+    "matroid": 15,
+    "order": 11,
+    "linear": 20,
+    "bijective": 20,
+    "polynomial": 19,
+    "lattice": 8,
+    "probability": 4
+  },
+  "local_links_checked": 55,
+  "broken_local_links": [],
+  "late_reports": {
+    "research\\2026-11-14_fable_descent\\REPORT.md": {
+      "exists": true,
+      "sha256": "bf2a7cdf5a494d267bb3a5f7c9773c63ab7347768a33417a1fc5fc91b75c6d5c"
+    },
+    "research\\2026-11-14_astra_lean-check\\REPORT.md": {
+      "exists": false,
+      "sha256": null
+    },
+    "research\\2026-11-14_sol_referee-main-v2\\REPORT.md": {
+      "exists": true,
+      "sha256": "212099c3555a6ba8229e4a58afee8f33d6ce536500a6af1ce56bfe09bacd279d"
+    },
+    "research\\2026-11-14_opus_coldread-main-v2\\REPORT.md": {
+      "exists": true,
+      "sha256": "740f35217438773812a0c18d368a28b637316a6740206ef02b9d505f846ffe29"
+    },
+    "research\\2026-11-14_fable_referee-involutions-v2\\REPORT.md": {
+      "exists": true,
+      "sha256": "528b68e70e14987a61a7420155f6a4b9ad0392574eb243af33a5bbdf32aa83e4"
+    },
+    "research\\2026-11-14_opus_two-tree-packing\\REPORT.md": {
+      "exists": true,
+      "sha256": "cf19fd2ca2f0ba8560fbd872ae4ae160b7c7cfda9e8b9609592af6d126e19ac4"
+    },
+    "research\\2026-11-14_astra_induction-lemmas\\REPORT.md": {
+      "exists": true,
+      "sha256": "7ebe29c374b950c6e81e149fbbd879220db4ff542cd675ceb549475d270215c5"
+    }
+  },
+  "spot_checks": {
+    "descent_totals": {
+      "pairs": 49325864,
+      "rooted_with_pair": 4656948,
+      "tree_pairs": 45375214
+    },
+    "descent_no_closed_plateau_through": 22,
+    "two_cover_arithmetic": "j=0..7; j<c1,c2<=9; a=0 or 2^j; weak bound and equality condition pass",
+    "scope": "Retained outputs and elementary arithmetic, not independent enumeration or full proof review."
+  }
+}

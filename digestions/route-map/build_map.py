@@ -258,9 +258,10 @@ def draw(detail, stem):
             # The catalogue keeps the full title; this index uses a shortened title.
             import textwrap
             title=textwrap.shorten(r["label"],width=48,placeholder="...")
-            tx=ax.text(x + 1.45, y, title, fontsize=FS, va="center", ha="left", color=tcol, zorder=6)
+            label_x = max(1.45, 0.38 + max(len(q["id"]) for q in BY_STEP[sid]) * FS * 0.65 / 72 + 0.12)
+            tx=ax.text(x + label_x, y, title, fontsize=FS, va="center", ha="left", color=tcol, zorder=6)
             srcwidth=max(0.32,len(r["src"])*(FS-1)*0.57/72)
-            avail=(width-1.45-srcwidth-0.1)*fig.dpi
+            avail=(width-label_x-srcwidth-0.1)*fig.dpi
             lim=48
             while tx.get_window_extent(fig.canvas.get_renderer()).width>avail and lim>12:
                 lim-=1

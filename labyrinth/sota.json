@@ -192,7 +192,7 @@
    "group": "Structure of good states",
    "cls": "Fraction of states that are good states",
    "result": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
-   "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.",
+   "status": "T2 independently AI-refereed all-length transfer at the specified lateral root; no human check.",
    "kind": "proved",
    "refs": [
     "p.D.5",
@@ -214,6 +214,11 @@
     {
      "date": "2026-11-14",
      "was": "Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.",
+     "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed."
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
      "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed."
     }
    ]
@@ -292,8 +297,8 @@
    "id": "algorithm",
    "group": "Formulas and algorithms",
    "cls": "Polynomial-time construction of the cycle",
-   "result": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard.",
-   "status": "LIT bounds (trees paper); NP-hardness proved here modulo a cited theorem (gt, under review)",
+   "result": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard. Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.",
+   "status": "Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked.",
    "kind": "partial",
    "refs": [
     "th.N.T2",
@@ -305,7 +310,13 @@
     "trees paper 2026"
    ],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "None. Deterministic polynomial space and O(poly(N) 3^(N/4)) time; marked walk 2^O(n log n). Uniform sampling of states is polynomial. The abstract problem without the spoke-graph structure is NP-hard.",
+     "status": "LIT bounds (trees paper); NP-hardness proved here modulo a cited theorem (gt, under review)"
+    }
+   ]
   },
   {
    "id": "frontier",
@@ -335,12 +346,12 @@
    "id": "formal",
    "group": "Verification",
    "cls": "Formal verification",
-   "result": "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
-   "status": "computed (lean-formalisation, unreviewed)",
+   "result": "Compiled by its author; independent check pending. On the OpenAI development, Lean checks the real sign and phase ratio i^n, finite-difference nonvanishing and a replacement main theorem whose dependency closure excludes the complex phase and polynomial. This is not a formalisation of the paper heights or its topological bridges. T4 pending independent rebuild and statement check.",
+   "status": "COMPUTED T4; compiled by its author; independent check pending.",
    "kind": "computed",
    "refs": [
     "c.G2.c",
-    "th.G2.2"
+    "c.G2.devices"
    ],
    "lit": [],
    "updated": "2026-11-14",
@@ -348,6 +359,11 @@
     {
      "date": "2026-10-10",
      "was": "third-party report of a kernel replay (cert-machine), not reproduced here"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
+     "status": "computed (lean-formalisation, unreviewed)"
     }
    ]
   },
@@ -396,8 +412,8 @@
    "id": "new-presentations",
    "group": "The theorem and its proofs",
    "cls": "Written proof routes",
-   "result": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
-   "status": "Merged theorem AI-refereed FOLLOWS; a second version applying the eight edits is in progress. Involution note AI-refereed FOLLOWS, all fifteen edits applied. Primal note accepted in the cross-audit; M4 settled, the real sign over the Lean phase is i^n. Lean covers 4 of 34 merged-route statements exactly. No human check.",
+   "result": "Three complete written routes. Main version 2 and both involution routes FOLLOWS; primal route ACCEPT.",
+   "status": "Independent AI referees and completed main-v2 cold read; human check pending.",
    "kind": "partial",
    "refs": [
     "p.G2.main",
@@ -422,6 +438,11 @@
      "date": "2026-11-14",
      "was": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
      "status": "Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check."
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
+     "status": "Merged theorem AI-refereed FOLLOWS; a second version applying the eight edits is in progress. Involution note AI-refereed FOLLOWS, all fifteen edits applied. Primal note accepted in the cross-audit; M4 settled, the real sign over the Lean phase is i^n. Lean covers 4 of 34 merged-route statements exactly. No human check."
     }
    ]
   },
@@ -429,8 +450,8 @@
    "id": "induction",
    "group": "Structure of good states",
    "cls": "Unsigned contraction induction",
-   "result": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
-   "status": "CONJECTURE; new claims unreviewed, human check pending",
+   "result": "Induction X, also ML2: when both contractions have good states, some good state is non-exceptional and lifts or rotates successfully. One-sided case proved, new extension unreviewed. The whole-contraction half-exception bound survives all 7,940 exceptions through V=18. Repair confined to a cover fails; do not confuse induction X with rainbow Step X.",
+   "status": "CONJECTURE; unreviewed; human check pending",
    "kind": "conjecture",
    "refs": [
     "k.U.ML2"
@@ -447,6 +468,11 @@
      "date": "2026-11-14",
      "was": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
      "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
     }
    ]
   },
@@ -454,8 +480,8 @@
    "id": "rainbow",
    "group": "Structure of good states",
    "cls": "Rainbow exchange",
-   "result": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
-   "status": "CONJECTURE; new claims unreviewed, human check pending",
+   "result": "Step X: every point-rainbow tree reaches a good state by exchanges never increasing black excess. All rooted instances through V=17; all rootings of 1,485 of 1,543 triangulations at V=18, remaining 58 untested; samples to V=120. T4 evidence. R plus X would be counting-free, with no polynomial-time bound on plateau search.",
+   "status": "CONJECTURE; unreviewed; human check pending",
    "kind": "conjecture",
    "refs": [
     "k.U.7h"
@@ -467,6 +493,11 @@
      "date": "2026-11-14",
      "was": "Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
      "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
     }
    ]
   },
@@ -474,8 +505,8 @@
    "id": "packing",
    "group": "Structure of good states",
    "cls": "Two-tree packing",
-   "result": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
-   "status": "PROVED-HERE; new claims unreviewed, human check pending",
+   "result": "Under the no-black-inner-triangle criterion, every deleted-corner map has white support decomposable into two spanning trees. Nash-Williams follows from the extended density inequality for all vertex sets. It also gives two root-separating forests in T/R. T2 author proof unreviewed; it holds without states and cannot prove exact joint rounding.",
+   "status": "PROVED-HERE; unreviewed; human check pending",
    "kind": "partial",
    "refs": [
     "k.U.packing"
@@ -487,6 +518,11 @@
      "date": "2026-11-14",
      "was": "Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.",
      "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
+     "status": "PROVED-HERE; new claims unreviewed, human check pending"
     }
    ]
   },
@@ -494,8 +530,8 @@
    "id": "covers",
    "group": "Structure of good states",
    "cls": "Meaning and range of m",
-   "result": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
-   "status": "PROVED-HERE; new claims unreviewed, human check pending",
+   "result": "For admissible primal deletion S, c(D)=components(G-S)-1; G-S need not be a 2-factor. Separator-free T_j has V=3j+2, one cover of j-2 triangles and a pentagon, m=j-1 and #good states=2^(j-1). Pole degrees grow. Independently AI-refereed; bounded-face-size separator-free unboundedness remains open.",
+   "status": "PROVED-HERE; refereed; human check pending",
    "kind": "partial",
    "refs": [
     "p.D.covers"
@@ -507,6 +543,11 @@
      "date": "2026-11-14",
      "was": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_m, V=3m+2, has no separating triangle, one cover with m-2 triangles and one pentagon, c_min=m-1 and #TM=2^(m-1). Author proof and finite checks, unreviewed.",
      "status": "PROVED-HERE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
+     "status": "PROVED-HERE; new claims unreviewed, human check pending"
     }
    ]
   },
@@ -515,7 +556,7 @@
    "group": "Structure of good states",
    "cls": "Separator-free C1 census",
    "result": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum m=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
-   "status": "COMPUTED; new claims unreviewed, human check pending",
+   "status": "COMPUTED; unreviewed; human check pending",
    "kind": "computed",
    "refs": [
     "c.D.cover-census"
@@ -526,6 +567,11 @@
     {
      "date": "2026-11-14",
      "was": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum c_min=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
+     "status": "COMPUTED; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum m=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
      "status": "COMPUTED; new claims unreviewed, human check pending"
     }
    ]
@@ -539,6 +585,62 @@
    "kind": "partial",
    "refs": [
     "p.G2.pf"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "packing-P2",
+   "group": "Structure of good states",
+   "cls": "Face-side rainbow packing P2",
+   "result": "Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.",
+   "status": "CONJECTURE; unreviewed; human check pending",
+   "kind": "conjecture",
+   "refs": [
+    "k.U.packing-P2"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "pair-descent",
+   "group": "Structure of good states",
+   "cls": "Monotone pair descent C3",
+   "result": "C3: from every ordered pair, D-swaps and Q-reversals never increasing q(s) reach a good pair. New T4 author census checks all 49,325,864 pairs through V=22 and all 9,970,784 pairs of 230 random triangulations at V=26..80. Sampled starts to V=200 succeed; three capped starts at V=300 undecided. Independent earlier reachability replay only through V=16.",
+   "status": "CONJECTURE; unreviewed; human check pending",
+   "kind": "conjecture",
+   "refs": [
+    "k.N.11"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "rainbow-R",
+   "group": "Structure of good states",
+   "cls": "Unsigned rainbow existence",
+   "result": "Step R: a point-rainbow spanning tree exists iff no separating triangle has black inner boundary. Rado plus the exact Euler identity proves it without signed nonvanishing. Theorem S completes every rainbow tree to exactly one incidence 2-factor, so R also supplies a pair. New proofs T2 unreviewed.",
+   "status": "PROVED-HERE; unreviewed; human check pending",
+   "kind": "partial",
+   "refs": [
+    "p.U.rainbow"
+   ],
+   "lit": [],
+   "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "partial-G",
+   "group": "Structure of good states",
+   "cls": "Short-cycle obstruction and partial G",
+   "result": "Parallel edges under contraction correspond to chordless four-cycles; new black-inner separating triangles in simple contractions correspond to chordless five-cycles with four black and one white inner incidences. Coloured disk curvature proves G without chordless five-cycles. New proofs T2 unreviewed.",
+   "status": "PROVED-HERE; unreviewed; human check pending",
+   "kind": "partial",
+   "refs": [
+    "p.U.G-partial"
    ],
    "lit": [],
    "updated": "2026-11-14",

@@ -9,8 +9,10 @@ Summary.
 1. The proof is one chain of 16 waypoints. Every published proof (OpenAI, Li, the trees paper, the Lean formalisation) passes through the same chain. Nobody has a second way to reach a good state.
 2. The chain is forced at the disk identity, the sign, the cancellation with `s` fixed, the comparison, tree-cotree duality and the gluing. It is free at three steps: the first pair (A), the nonvanishing (N) and the last step from the selection to one cycle (F).
 3. The direct edge from the triangulation to two induced trees, which is where every attack before 2026 worked, has no complete route.
-4. The bypass from states to a good state with no signed count has nine exact reformulations and no existence argument, with nine refuted relaxations next to them. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
-5. This file lists {N} routes: {LIT} published, {PH} proved in this project (none human-checked), {CO} computed, {CJ} conjectures, {HU} hunches and {RE} refuted, each refuted one with its lesson and smallest known counterexample.
+4. The bypass from states to a good state with no signed count has nine exact reformulations and no existence argument, with the failed relaxations retained next to them. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
+5. This file lists {N} routes: {LIT} published, {PH} proved in this project (none human-checked), {CO} computed, {CJ} conjectures, {HU} hunches and {RE} refuted, each refuted one with its lesson and a saved counterexample or explicitly certified minimum.
+
+The final update includes rainbow R and unique-factor completion, the partial contraction G theorem, ordinary tree packing and its remaining P2, the descent failures, the v2 written-route verdicts and the author-compiled real-sign Lean replacement. New proof claims keep their individual AI review states. See [the ranked open problems](../steps/09-what-is-still-open.md).
 
 ## The picture
 
