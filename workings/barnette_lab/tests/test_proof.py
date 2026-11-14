@@ -17,7 +17,7 @@ class ProofTests(unittest.TestCase):
     def test_all_cube_incidence_forests_dual_connected(self):
         b=Instance.from_primal(named_graphs()['cube'])
         # Inherited spoke embedding is implicit in the white-side correspondence.
-        # Use the planar embedding of H; duality itself is embedding independent.
+        # Use the planar embedding of this subdivided K4, whose embedding is unique.
         _,emb=nx.check_planarity(b.H)
         fs,sides=faces_of(emb)
         es=list(b.H.edges())

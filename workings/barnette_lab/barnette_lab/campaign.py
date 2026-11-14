@@ -70,25 +70,29 @@ def inside(b, edges):
     return set(d) - nx.node_connected_component(d, b.outer)
 
 
-def state_cycles(b, states, exhaustive):
-    """Include cycles of arbitrary outgoing choices, not just disjoint pairs."""
+def state_cycles(b, states):
+    """Every attainable simple state cycle, deduplicated as an edge set.
+
+    A simple cycle in the graph of all allowed outgoing edges uses each tail
+    once. Each tail owns exactly one black face, so choosing its cycle edge
+    extends to an outgoing choice independently at all remaining faces.
+    """
     seen = set()
     for r in states:
-        choices = [[v for v in b.faces[t] if v != a] for t, a in zip(b.A, r)]
-        heads = product(*choices) if exhaustive else (s for s in states if all(a != z for a, z in zip(r, s)))
-        for s in heads:
-            d = nx.DiGraph(zip(r, s))
-            for c in nx.simple_cycles(d):
-                es = tuple(sorted(edge(a, z) for a, z in zip(c, c[1:] + c[:1])))
-                if es not in seen:
-                    seen.add(es)
-                    yield c, es
+        d = nx.DiGraph()
+        d.add_edges_from((a,v) for t,a in zip(b.A,r) for v in b.faces[t] if v != a)
+        for c in nx.simple_cycles(d):
+            es = tuple(sorted(edge(a,z) for a,z in zip(c,c[1:]+c[:1])))
+            if es not in seen:
+                seen.add(es)
+                yield c,es
 
 
 def regions(b, cov, exhaustive):
     # All connected induced K up to order 10. At larger orders use all
     # triples plus deterministic prefixes and complements of single vertices.
     vertices = sorted(b.T)
+    separator_free = not separators(b)
     subsets = (combinations(vertices, k) for k in range(3, len(vertices) + 1)) if exhaustive else (
         combinations(vertices, 3), [vertices[:k] for k in range(4, len(vertices) + 1)],
         [set(vertices) - {v} for v in vertices])
@@ -115,7 +119,7 @@ def regions(b, cov, exhaustive):
             defect = k.number_of_edges() - black - 2 * len(subset) + 4
             require(2 * defect == terms, 'exact Euler identity')
             cov.hit('Euler induced regions')
-            if len(subset) >= 4 and not separators(b):
+            if len(subset) >= 4 and separator_free:
                 require(defect <= 0, 'bound 3.4')
                 cov.hit('bound 3.4 connected subsets')
 
@@ -168,14 +172,29 @@ def hamiltonian_sets(g, forbidden):
     yield from visit([start], {start})
 
 
-def check_instance(b, cov, referee, fp, exhaustive_disk=False, exhaustive_regions=False, reverse_image=False, li=False):
+def partition_cycles(b,e0):
+    """Avoiding Hamiltonian candidates from a fixed sample of two-tree cuts."""
+    third, = b.R - set(e0)
+    # Prefixes, alternating bits and 32 low-bit patterns cover both sparse
+    # and balanced cuts; no random state or hash ordering enters the sample.
+    masks = set(range(min(32,2**b.n)))
+    masks.update((1<<i)-1 for i in range(b.n+1))
+    masks.add(sum(1<<i for i in range(0,b.n,2)))
+    for mask in sorted(masks):
+        left=set(e0) | {v for i,v in enumerate(b.X) if mask & (1<<i)}
+        right=set(b.T)-left
+        if nx.is_tree(b.T.subgraph(left)) and nx.is_tree(b.T.subgraph(right)):
+            yield frozenset(d for e,d in b.dual_edges.items() if (e[0] in left) != (e[1] in left))
+
+
+def check_instance(b, cov, referee, fp, exhaustive_regions=False, reverse_image=False, li=False):
     checks = ['state disk W=B+1', 'pair local sign and closed formula', 'Lean phase ratio',
               'Q cancellation partnered states', 'Q reversal objects', 'pair criterion',
               'good unique partner', 'even good states', 'directed good-pair criterion',
               'cover components', 'cycle white-face weight', 'lowest finite difference',
               'recovery injectivity', 'recovery image', 'heights path independence',
-              'height cycle increments', 'marked constructors', 'marked nonfixed moves',
-              'ordered token involutions', 'exchange adjacency', 'exchange walks',
+              'height cycle increments', 'signed height moments across paths', 'marked constructors', 'marked nonfixed moves',
+              'ordered token involutions', 'ordered mult mark involutions', 'exchange adjacency', 'exchange walks',
               'bound 3.3 regions', 'bound 3.4 connected subsets', 'Euler induced regions']
     for check in checks:
         cov.hit(check, 0)
@@ -203,7 +222,7 @@ def check_instance(b, cov, referee, fp, exhaustive_disk=False, exhaustive_region
                     require(q in ps and q != (r,s) and q[1] == s and b.reverse_q(q,c) == (r,s), 'Q involution')
                     require(b.sign(*q) == -b.sign(r,s), 'Q sign reversal')
                     cov.hit('Q reversal objects')
-    for c, es in state_cycles(b, ss, exhaustive_disk):
+    for c, es in state_cycles(b, ss):
         ins = inside(b, es)
         black = len(ins & set(b.black)); white = len(ins & set(b.white))
         require(white == black + 1, 'state disk W=B+1')
@@ -250,12 +269,25 @@ def check_instance(b, cov, referee, fp, exhaustive_disk=False, exhaustive_region
             require(q in ps and p in b.neighbors(q) and b.sign(*q) == -b.sign(*p), 'exchange adjacency')
             cov.hit('exchange adjacency')
         result, stats = marked_walk(b,p,cap=10000)
-        require(b.is_tree(result[1]), 'marked walk')
+        require(b.is_tree(result[1]) and not I.qcycles_from_s(result[1]), 'marked walk independent endpoint')
         cov.hit('marked constructors'); cov.hit('marked nonfixed moves',stats['moves'])
         result, moves = exchange_walk(b,p,seed=17,cap=10000)
-        require(result is not None and b.is_tree(result[1]), 'exchange walk')
+        require(result is not None and b.is_tree(result[1]) and not I.qcycles_from_s(result[1]), 'exchange walk independent endpoint')
         cov.hit('exchange walks', moves + 1)
-        for token in [(t,k) for t,v in zip(b.A,s) for k in range(1,a[t,v]+1)]:
+        tokens = [(t,k) for t,v in zip(b.A,s) for k in range(1,a[t,v]+1)]
+        # One token per cycle, with deterministic rank variations.
+        choices = [[tok for tok in tokens if tok[0] in c] for c in cycles]
+        from itertools import islice
+        for marks in islice(product(*choices), 24):
+            obj=p,tuple(marks)
+            for inv in (alpha,beta):
+                image=inv(b,obj)
+                require(image[0] in ps and inv(b,image)==obj, 'multi-token closure/involution')
+                require(image == obj or b.sign(*image[0]) == -b.sign(*p), 'multi-token sign')
+                valid_tokens={(t,k) for t,v in zip(b.A,image[0][1]) for k in range(1,a[t,v]+1)}
+                require(all(tok in valid_tokens for tok in image[1]), 'multi-token validity')
+                cov.hit('ordered mult mark involutions')
+        for token in tokens:
             obj = p,(token,)
             for inv in (alpha,beta):
                 image = inv(b,obj)
@@ -274,6 +306,14 @@ def check_instance(b, cov, referee, fp, exhaustive_disk=False, exhaustive_region
             require(sum(v * comb(e,k) for e,v in poly.items() if e >= k) == 0, 'lower finite difference')
         require(sum(v * comb(e,m) for e,v in poly.items() if e >= m) == (-1)**((b.n-m)//2)*expected, 'exact lowest coefficient')
         cov.hit('lowest finite difference',len(groups))
+        from math import factorial
+        for cr in (cr1,cr2):
+            weights={s:-sum(height(s,cr).values()) for s in ss}
+            for k in range(m):
+                require(sum(b.sign(r,s)*weights[s]**k for r,s in pairs)==0, 'lower signed height moment')
+            moment=sum(b.sign(r,s)*weights[s]**m for r,s in pairs)
+            require(moment == factorial(m)*(-1)**((b.n-m)//2)*expected, 'path independent lowest signed height moment')
+            cov.hit('signed height moments across paths',m+1)
     for e0 in combinations(b.faces[b.outer],2):
         e0 = edge(*e0); images = set()
         for s in trees:
@@ -283,17 +323,29 @@ def check_instance(b, cov, referee, fp, exhaustive_disk=False, exhaustive_region
             require(image not in images, 'recovery injectivity'); images.add(image)
             cov.hit('recovery injectivity')
         if reverse_image:
-            for image in hamiltonian_sets(b.G,b.dual_edges[e0]):
-                selected = {e for e,d in b.dual_edges.items() if d not in image}
-                s = recovery_state(b,selected,e0)
-                require(b.valid(s) and ((image in images) == b.is_tree(s) == any(z == s for _,z in pairs)), 'recovery exact image')
-                cov.hit('recovery image')
+            image_candidates = hamiltonian_sets(b.G,b.dual_edges[e0])
+        else:
+            image_candidates = partition_cycles(b,e0)
+        for image in image_candidates:
+            selected = {e for e,d in b.dual_edges.items() if d not in image}
+            s = recovery_state(b,selected,e0)
+            require(b.valid(s) and ((image in images) == b.is_tree(s) == any(z == s for _,z in pairs)), 'recovery exact image')
+            cov.hit('recovery image')
     if len(b.T) <= 12:
         independent(b,ss,pairs,cov,referee)
     regions(b,cov,exhaustive_regions)
-    if li and pairs:
-        compare_li(b,pairs,cov,fp)
-    return {'vertices':len(b.T),'states':len(ss),'pairs':len(pairs),'good':len(trees),
+    if pairs:
+        minimum = min(len(b.dcycles(*p)) for p in pairs)
+        for group in groups.values():
+            if len(b.dcycles(*group[0])) == minimum and not any(b.is_tree(p[1]) for p in group):
+                cov.hit('property minimal cover without good pair')
+    li_stats = None
+    if li:
+        cov.hit('Li independent objects and maps',0)
+        cov.hit('Li independent signed convention',0)
+        if pairs: li_stats = compare_li(b,pairs,cov,fp)
+    minimal_F = sum(prod(len(inside(b,[edge(p[0][b.A.index(t)],p[1][b.A.index(t)]) for t in c]) & set(b.white)) for c in b.dcycles(*p)) for group in groups.values() for p in group[:1] if len(b.dcycles(*p)) == min((len(b.dcycles(*q)) for q in pairs),default=0))
+    return {'Li':li_stats,'F':minimal_F,'vertices':len(b.T),'states':len(ss),'pairs':len(pairs),'good':len(trees),
             'm':min((len(b.dcycles(*p)) for p in pairs),default=None)}
 
 
@@ -310,9 +362,11 @@ def compare_li(b,pairs,cov,fp):
         return p, (marks[0] if m == 1 else marks)
     obs = list(model.objects()); labobs = set(lab.objects(pairs))
     require({convert(o) for o in obs} == labobs, 'Li objects independent equality')
-    signs = set()
+    signs = set(); fixed1 = fixed2 = 0
     for o in obs:
         q = convert(o)
+        fixed1 += lab.iota1(q) == q
+        fixed2 += lab.iota2(q) == q
         require(convert(model.iota1(o)) == lab.iota1(q), 'Li iota1 comparison')
         require(convert(model.iota2(o)) == lab.iota2(q), 'Li iota2 comparison')
         signs.add(model.sign(o) * (-1)**lab.sign(q))
@@ -322,6 +376,7 @@ def compare_li(b,pairs,cov,fp):
         cov.hit('Li independent objects and maps')
     require(len(signs) == 1, 'Li signs differ only by global convention')
     cov.hit('Li independent signed convention',len(obs))
+    return {'objects':len(obs),'first_fixed':fixed1,'second_fixed':fixed2,'orientation':ori}
 
 
 def sampler(b,cov,samples=1800):
@@ -392,7 +447,7 @@ def main():
             for root in range(2*len(g)-4):
                 b=Instance(g,root)
                 name=f'plantri_{n}_{index}_root_{root}'
-                rec=check_instance(b,cov,referee,fp,exhaustive_disk=n<=8,
+                rec=check_instance(b,cov,referee,fp,
                                    exhaustive_regions=n<=8 or (n<=10 and root==0),
                                    reverse_image=n<=8,li=n<=12)
                 rec['name']=name; rows.append(rec); cov.finish()
@@ -400,6 +455,12 @@ def main():
     for name,b in special_instances():
         rec=check_instance(b,cov,referee,fp,li=True)
         rec['name']=name; rows.append(rec); cov.finish()
+        if name == 'running':
+            require((rec['states'],rec['pairs'],rec['m'],rec['F']) == (12,8,2,9), 'running note invariants')
+            for folder in ['2026-11-14_opus_referee-involutions','2026-11-14_fable_referee-involutions-v2']:
+                saved=json.loads((RESEARCH/folder/'code/out/running.json').read_text())
+                require((saved['note layout']['F'] if 'note layout' in saved else saved['rows'][0]['fix2']) == rec['F'], 'saved referee running fixed count')
+            cov.hit('saved running referees',2); cov.finish()
         print(name,rec,flush=True)
     # Small deterministic witness for m=3, selected by property.
     if args.tier == 'quick':
@@ -428,8 +489,17 @@ def main():
     cov.hit('two matroid common bases',bases); cov.finish()
     require(cov.rows['Q reversal objects'][1]>0,'cancellation coverage floor')
     for m in (1,2,3): require(cov.rows[f'property m={m}'][0]>0,f'm={m} coverage floor')
-    for check in ['property black inner separator','property white inner separator']:
+    for check in ['property black inner separator','property white inner separator','property minimal cover without good pair']:
         require(cov.rows[check][0]>0,check)
+    census=[r for r in rows if r['name'].startswith('plantri_')]
+    small=[r for r in census if r['vertices']<=10]
+    for folder in ['2026-11-14_opus_referee-involutions','2026-11-14_fable_referee-involutions-v2']:
+        saved=json.loads((RESEARCH/folder/'code/out/census-10.json').read_text())
+        summary=saved.get('summary',saved.get('totals'))
+        require(summary['rooted' if 'rooted' in summary else 'roots']==len(small),'saved census root count')
+        require(summary['paired']==sum(bool(r['pairs']) for r in small),'saved census paired count')
+        require(summary['fix2' if 'fix2' in summary else 'bfs+:fix2']==sum(r['F'] for r in small),'saved census fixed count')
+        cov.hit('saved small census referees',len(small)); cov.finish()
     elapsed=time.perf_counter()-started
     print(cov.table(),flush=True)
     print(f'PASS {args.tier}: {len(rows)} rooted runs; {elapsed:.2f} seconds',flush=True)
