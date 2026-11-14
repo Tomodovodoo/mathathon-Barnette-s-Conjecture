@@ -1,0 +1,17 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_rainbow.py rado 12",
+ "result": {
+  "vmax": 12,
+  "counts": {
+   "instances": 262,
+   "connected_sets": 57901,
+   "formula_ok": 57901,
+   "criterion_agrees": 262,
+   "with_black_inner": 54,
+   "min_slack_0": 208,
+   "violating_sets": 68,
+   "violations_are_d3_sigma3_c1": 68,
+   "min_slack_-1": 54
+  }
+ }
+}

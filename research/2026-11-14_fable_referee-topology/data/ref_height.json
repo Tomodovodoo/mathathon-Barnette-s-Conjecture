@@ -1,0 +1,22 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/referee.py height 12",
+ "result": {
+  "vmax": 12,
+  "counts": {
+   "instances": 262,
+   "one_source_one_sink": 262,
+   "connected": 262,
+   "graded_by_moves": 262,
+   "instances_nosep": 170,
+   "all_moves_area1_nosep": 170,
+   "pairs_nosep": 5531,
+   "height_eq_area_nosep": 5531,
+   "additive_nosep": 5531,
+   "instances_sep": 92,
+   "all_moves_area1_sep": 67,
+   "pairs_sep": 3154,
+   "height_eq_area_sep": 2644,
+   "additive_sep": 3154
+  }
+ }
+}
