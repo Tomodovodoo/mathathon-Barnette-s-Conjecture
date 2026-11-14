@@ -220,7 +220,7 @@ def cuts_fig():
                         four_patterns={str(k): len(v) for k, v in by4.items()}, hamiltonian_cycles=len(rparts),
                         four_signatures=[dict(word=w, joins_inside_outside=sig, cycles=len(v_)) for (w, sig), v_ in bysig.items()])
     return (r'\begin{tabular}{@{}c@{}}' + hd(rf'A separating triangle (heavy dashes), 9 vertices: the {len(by3)} ways two trees can meet it')
-            + grid(top, 3, colsep='3mm') + r'\\[5mm]'
+            + grid(top, 3, colsep='3mm') + r'\\\noalign{\vskip 4mm}'
             + hd(rf'A separating cycle \textit{{abcd}} of length four in the running example (inside hatched): {len(by4)} splits of its vertices occur among {len(rparts)} cycles, in {len(bysig)} ways. '
                  r'``Joined\textquotedblright{} lists the cut vertices that a tree connects through that side, not along the cycle')
             + grid(bot, 3, colsep='3mm', rowsep='2mm') + r'\end{tabular}')
@@ -360,7 +360,7 @@ def relaxed_fs(mod, parts_list, col):
 
 @fig('earlier')
 def earlier_fig():
-    UE = 0.53
+    UE = 0.5
     rparts = partitions(m)
     cycles = m.two_factors(1)
     a = cell(P(UE).base().lines(rec['P'], 'bf P').graphG('bf cycle', rec['hamiltonian'], dots=False).vertices(classes=rec['parts']).tex(),
@@ -488,16 +488,16 @@ def produced_fig():
          rf'\fill[black!78] (0,0) rectangle ({n_pr * wu},.75);',
          rf'\draw[line width=.8pt] (0,0) rectangle (14,.75);']
     for k in range(1, len(info)):
-        L.append(rf'\draw[line width={".8pt" if k in (n_pr, n_pr + n_miss) else ".3pt,black!50"}] ({k * wu},0) -- ({k * wu},.75);')
+        L.append(rf'\draw[line width={".8pt" if k in (n_pr, n_pr + n_miss) else ".3pt,black!50"}] ({k * wu},0) -- ({k * wu},{.75 if k in (n_pr, n_pr + n_miss) else .13});')
     L.append(rf'\node[font=\footnotesize,text=white] at ({n_pr * wu / 2},.375) {{{n_pr} produced}};')
     L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.5pt] at ({(n_pr + n_miss / 2) * wu},.375) {{{n_miss} avoid $e$, not produced}};')
     L.append(rf'\node[font=\footnotesize] at ({(n_pr + n_miss + n_use / 2) * wu},.375) {{{n_use} use $e$}};')
     L.append(rf'\node[font=\footnotesize,anchor=north] at (7,-.12) {{The {len(info)} Hamiltonian cycles of the hexagonal prism, one box each. The proof reaches the {n_pr} dark ones.}};')
     CERT['produced'] = dict(cycles=info, reasons=reasons, faces=hm.F, t0=hm.t0, e0=hm.e0, counts=dict(use_e=n_use, produced=n_pr, avoid_not_produced=n_miss))
     return (r'\begin{tabular}{@{}c@{}}' + hd('The hexagonal prism, drawn inside its dual triangulation: all eight Hamiltonian cycles (purple). The prescribed edge $e$ is the dashed one.')
-            + grid(top, 4, colsep='2mm', rowsep='3mm') + r'\\[5mm]'
+            + grid(top, 4, colsep='2mm', rowsep='3mm') + r'\\\noalign{\vskip 4mm}'      # \\[len] adds nothing under a deep nested tabular
             + hd('The four cycles that avoid $e$, run backwards: the state each one comes from, with its opposite edges dashed')
-            + grid(bot, 4, colsep='2mm') + r'\\[5mm]' + tikz(L) + r'\end{tabular}')
+            + grid(bot, 4, colsep='2mm') + r'\\\noalign{\vskip 3mm}' + tikz(L) + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
 @fig('hypotheses')
@@ -722,7 +722,7 @@ def open_fig():
             L.append(rf'\fill[black!80] (0,{y - .11}) rectangle ({X(tw):.3f},{y + .11});')
         lab = f'{on}' if tw in (None, on) else f'{tw}, {on}'
         L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1pt,anchor=south west] at ({X(on) + .04:.3f},{y + .08}) {{${lab}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{\hyphenpenalty=10000 {name}}};')
     y -= .72
     L.append(rf'\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,{y}) {{refuted, counterexample known at}};')
     for name, v, smallest in dead:
@@ -731,7 +731,7 @@ def open_fig():
         if smallest:
             L.append(rf'\draw[line width=.8pt] ({X(v):.3f},{y}) circle[radius=.19];')
         L.append(rf'\node[font=\footnotesize,inner sep=1pt,anchor=west] at ({X(v) + .25:.3f},{y}) {{${v}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{\hyphenpenalty=10000 {name}}};')
     y -= .75
     x0 = -5.8
     L.append(rf'\fill[black!80] ({x0},{y - .11}) rectangle ({x0 + .8},{y + .11});\node[right,font=\footnotesize] at ({x0 + .8},{y}) {{every case, two programs}};')
