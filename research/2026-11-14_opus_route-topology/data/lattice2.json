@@ -1,0 +1,60 @@
+{
+ "command": "python research/2026-11-14_opus_route-topology/code/topo.py lattice2 14",
+ "result": {
+  "counts": {
+   "tree_matchings": 442,
+   "mate_is_tree": 436,
+   "rel_cycles": 17312,
+   "rel_cycle_W_eq_B_plus_1": 17312,
+   "pairs": 12310,
+   "height_eq_signed_white_area": 12042
+  },
+  "failures": [
+   {
+    "meta": {
+     "V": 9,
+     "index": 0,
+     "outer": 7
+    },
+    "dh": -2,
+    "area": -5
+   },
+   {
+    "meta": {
+     "V": 9,
+     "index": 0,
+     "outer": 7
+    },
+    "dh": 0,
+    "area": 3
+   },
+   {
+    "meta": {
+     "V": 9,
+     "index": 0,
+     "outer": 7
+    },
+    "dh": -1,
+    "area": -4
+   },
+   {
+    "meta": {
+     "V": 9,
+     "index": 0,
+     "outer": 7
+    },
+    "dh": 0,
+    "area": -3
+   },
+   {
+    "meta": {
+     "V": 9,
+     "index": 0,
+     "outer": 7
+    },
+    "dh": -1,
+    "area": -4
+   }
+  ]
+ }
+}
