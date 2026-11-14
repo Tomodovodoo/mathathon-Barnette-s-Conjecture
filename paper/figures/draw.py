@@ -15,6 +15,7 @@ from model import HERE, und
 UNIT = 0.62          # cm per layout unit in the half-width panels of the running example
 COLLAR = 0.55        # width of the grey collar that shows the outer black face
 RING = 0.28          # the centre of t0 and the edges reaching it live at radius R + RING
+LBL = {3: (-0.5, 0.12), 9: (0.42, -0.42), 2: (-0.38, 0.4)}   # label offsets that avoid G and the edges
 
 
 def pt(p):
@@ -182,7 +183,7 @@ class Panel:
                 off = d * (0.62 if v in self.roots else 0.5)
                 if isinstance(labels, dict) and v in labels:
                     off = np.array(labels[v])
-                self.add(rf'\node at {pt(self.xy[v] + off)} {{${v}$}};')
+                self.add(rf'\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at {pt(self.xy[v] + off)} {{${v}$}};')
         return self
 
     def wedge(self, t, v, style):
@@ -322,19 +323,21 @@ def make():
         cp.add(rf'\draw[fill={"black" if v in om.black else "white"},line width=.5pt] {pt(q)} circle[radius=1.5pt];')
     cube2=cp.tex()
     a = O().base().vertices(labels=True).tex()
-    b = O().base().state(orr, 'bf r').state(os_).arrows(om.D(orr, os_)).vertices().tex()
-    c = O().base().state(os_).lines(om.Q(os_), 'bf Q').vertices().tex()
-    d = O().base().spokes(deleted=list(zip(om.A, os_)), outer=True).white_tree(orec, os_).vertices().tex()
-    e = O().base().lines(orec['P'], 'bf P').graphG('bf cycle', orec['hamiltonian'], dots=False).vertices(classes=orec['parts']).tex()
+    b = O().base().state(orr, 'bf r').state(os_).arrows(om.D(orr, os_)).vertices(labels=True).tex()
+    c = O().base().state(os_).lines(om.Q(os_), 'bf Q').vertices(labels=True).tex()
+    f0 = om.F[om.t0]
+    Ss = om.Q(os_) + [(x, y) for x, y in zip(f0, f0[1:] + f0[:1]) if und(x, y) != om.e0]
+    d = O().base().lines(Ss, 'bf kept').white_tree(orec, os_).vertices(labels=True).tex()
+    e = O().base().lines(orec['P'], 'bf P').graphG('bf cycle', orec['hamiltonian'], dots=False).vertices(classes=orec['parts'], labels=True).tex()
     body = (r'\begin{tabular}{@{}c@{}}' + row([cube2, a, b], ['(a) two cycles, degree two', '(b) its dual, the octahedron $T$', '(c) two states and $D$'], '1mm')
             + r'\\[2mm]' + '\n'
-            + row([c, d, e], ['(d) $Q_s$, opposite the wedges', '(e) kept spokes and the white tree', '(f) $P$, two trees, one cycle'], '1mm') + r'\end{tabular}')
+            + row([c, d, e], ['(d) $Q_s$, opposite the wedges', '(e) $S_s$ and the tree of faces', '(f) $P$, two trees, one cycle'], '1mm') + r'\end{tabular}')
     fig('01-cube', body,
         r'The complete construction on the cube. (a) The square-in-square cube has a degree-two subgraph with two cycles. '
         r'(b) Its dual is the octahedron, in the disk embedding used below; shaded faces are black and hollow vertices are roots. '
         r'(c) Outlined choices $r$ and solid choices $s$ are disjoint states; the arrows $r(t)\to s(t)$ form $D$. '
         r'(d) The sides opposite $s$ form the forest $Q_s$. '
-        r'(e) Delete the dotted chosen spokes. The remaining spokes form a tree; the dual edges across deleted spokes form the white-face tree, rooted at the ring. '
+        r'(e) The bold edges $S_s$ are $Q_s$ and the two sides of the outer face other than $e_0=\{0,1\}$; they form a spanning tree. The dash-dotted tree joins the white faces across the other edges, rooted at the ring. '
         r'(f) That tree selects one bold side per face. The selected edges $P$ induce two trees, and their complementary dual is one Hamiltonian cycle.',
         'cube and octahedron; all objects from check.octahedron()')
 
@@ -348,7 +351,7 @@ def make():
         'G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 13')
 
     # 03 the dual triangulation ----------------------------------------------------
-    a = P().base().graphG().vertices(labels={3: (-0.5, 0.12), 9: (0.42, -0.42), 2: (-0.38, 0.4)}).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
+    a = P().base().graphG().vertices(labels=LBL).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
     fig('03-dual', a,
         r'The dual triangulation $T$ of the running example, with $G$ in grey. Each vertex of $G$ sits in a face of $T$ and each edge of $G$ crosses one edge of $T$. '
         r'Shaded faces are black. The outer face $t_0$ is black as well, which the grey collar shows, and the vertex of $G$ inside it is drawn below. '
@@ -444,12 +447,12 @@ def make():
         'incidence graph of running.json; cut inequality (3.1) checked for all 1024 subsets S')
 
     # 07 a pair and D --------------------------------------------------------------------
-    a = P().base().state(r, 'bf r').state(s).vertices().tex()
-    b = P().base().state(r, 'bf r').state(s).arrows(m.D(r, s)).vertices().tex()
-    fig('07-pair-D', row([a, b], ['(a) a pair: outlined $r$, solid $s$', '(b) $D$: an arrow $r(t)\\to s(t)$ in each $t$']),
-        r'(a) Two states that choose different corners in every bounded black triangle. '
-        r'(b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles. '
-        r'Here $D$ is a counterclockwise cycle of length $7$ and a clockwise triangle.',
+    a = P().base().state(r, 'bf r').state(s).vertices(labels=LBL).tex()
+    b = P().base().state(r, 'bf r').state(s).arrows(m.D(r, s)).vertices(labels=LBL).tex()
+    fig('07-pair-D', row([a, b], ['(a) the pair $(\\beta,\\alpha)$: outlined $\\beta$, solid $\\alpha$', '(b) $D(\\beta,\\alpha)$']),
+        r'(a) Two states $\beta$ (outlined) and $\alpha$ (solid) that choose different corners in every bounded black triangle. '
+        r'(b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles: '
+        r'the counterclockwise $7$-cycle $1,2,3,9,10,11,6$ and the clockwise triangle $8,7,12$.',
         'the displayed pair; D-cycles from check.running')
 
     # 08 the disk identity ------------------------------------------------------------------
@@ -467,7 +470,7 @@ def make():
         if np.dot(pd.cen[m.black_face(a_, b_)] - mid, nrm) > 0:
             nrm = -nrm
         pd.label(mid + 0.42 * nrm, r'$\ell$', 'text=bfS,fill=white,inner sep=.8pt')
-    pd.vertices()
+    pd.vertices(labels=LBL)
     for v in k['interior']:
         pd.add(rf'\draw[line width=.7pt] {pt(xy[v])} circle[radius=3.4pt];')
     side = (r'\begin{tabular}{@{}l@{}}'
@@ -486,12 +489,12 @@ def make():
         'disk of the 7-cycle of D(r,s); counts and the face-by-face matching from check.running')
 
     # 09 Q cyclic and Q forest -----------------------------------------------------------------
-    a = P().base().state(s).lines(m.Q(s), 'bf Q').vertices().tex()
-    b = P().base().state(r).lines(m.Q(r), 'bf Q').vertices().tex()
-    fig('09-Q', row([a, b], ['(a) $Q_s$ contains a cycle', '(b) the other state: a forest']),
+    a = P().base().state(s).lines(m.Q(s), 'bf Q').vertices(labels=LBL).tex()
+    b = P().base().state(r).lines(m.Q(r), 'bf Q').vertices(labels=LBL).tex()
+    fig('09-Q', row([a, b], ['(a) $Q_\\alpha$ contains a cycle', '(b) $Q_\\beta$ is a forest']),
         r'$Q$ of a state is the dashed edge opposite the solid wedge in each bounded black triangle. '
-        rf'(a) For the state $s$ of Figure 7 the dashed edges contain a cycle, the triangle around the white face in the middle (length ${len(run["Q_cycle"])}$). '
-        r'(b) For the state $r$ of Figure 7, now drawn solid, they form a forest with three components, one through each root. The proof needs a pair whose second state looks like (b).',
+        rf'(a) For the state $\alpha$ the dashed edges contain a cycle, the triangle $1,8,9$ around a white face (length ${len(run["Q_cycle"])}$). '
+        r'(b) For the state $\beta$ they form a forest with three components, one through each root. The proof needs a pair whose second state looks like (b).',
         'Q_s and Q_r for the displayed pair; one root per component asserted')
 
     # 10 cancellation ---------------------------------------------------------------------------
@@ -505,12 +508,12 @@ def make():
         p.lines([e for e in qd if e not in on], 'bf Q')
         p.arrows([e for e in qd if e in on], 'bf Qdir,line width=1.7pt')
         p.state(s).state(rr_, 'bf r')
-        return p.vertices().tex()
+        return p.vertices(labels=LBL).tex()
     fig('10-cancellation', row([canc(r, run['Q_cycle']), canc(r2, run['Q_cycle_rev'])],
-                              [rf'(a) $(r,s)$, phase $i^{{{run["J"]}}}=1$', rf'(b) $(\tilde r,s)$, phase $i^{{{run["J2"]}}}=-1$']),
-        r'The two partners of the state $s$ whose $Q_s$ has a cycle. Dashed edges are $Q_s$. Those on its cycle, around the tinted face, are heavier and directed from the outlined corner $r(t)$ to the third corner. '
-        r'Going from (a) to (b), each outlined wedge on the cycle moves to the third corner of its triangle. The cycle reverses, the solid wedges stay, and so does the weight $\omega(s)$. '
-        r'By the disk identity $J$ changes by $2$, so the two terms $i^{J}e^{x\omega(s)}$ cancel.',
+                              [rf'(a) $(\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J"])//2):+d}$', rf'(b) $(\tilde\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J2"])//2):+d}$']),
+        r'The two partners of the state $\alpha$, whose $Q_\alpha$ has a cycle. Dashed edges are $Q_\alpha$. Those on its cycle $1,8,9$, around the tinted face, are heavier and directed from the outlined corner to the third corner. '
+        r'Going from (a) to (b), each outlined wedge on the cycle moves to the third corner of its triangle. The cycle reverses and the solid wedges stay. '
+        r'Three local signs change, so the sign $\varepsilon$ changes, and the two pairs cancel in any sum weighted by a function of the second state.',
         'reversal of the Q_s cycle (Lemma 5.2); J values and involution asserted')
 
     # 11 spokes and the two orientations ----------------------------------------------------------
@@ -543,14 +546,13 @@ def make():
     side = (r'\begin{tabular}{@{}l@{}}'
             r'long cycle $C_1$:\\[.5mm]\quad $L^+(C_1)-L^-(C_1)=' + f'{run["D_cycles"][0]["L_diff"]:.0f}' + r'$\\[2mm]'
             r'triangle $C_2$:\\[.5mm]\quad $L^+(C_2)-L^-(C_2)=' + f'{run["D_cycles"][1]["L_diff"]:.0f}' + r'$\\[3mm]'
-            r'the four pairs with this $D$\\ contribute to $Z(x)$\\[1mm]'
-            r'$\displaystyle\prod_{j=1,2}\bigl(-i\,e^{xL^+(C_j)}+i\,e^{xL^-(C_j)}\bigr)$\\[2mm]'
-            rf'$=(-i)^2\cdot {run["D_cycles"][0]["L_diff"]:.0f}\cdot {run["D_cycles"][1]["L_diff"]:.0f}\cdot x^2+O(x^3)$'
+            r'the four pairs with these\\ undirected cycles contribute\\[1mm]'
+            rf'$\sum\varepsilon\,\omega(s)^2=2!\cdot {run["D_cycles"][0]["L_diff"]:.0f}\cdot {run["D_cycles"][1]["L_diff"]:.0f}$'
             r'\end{tabular}')
     fig('11-spokes', r'\begin{tabular}{@{}c@{\hspace{6mm}}c@{}}' + ps_.tex() + ' & ' + r'\raisebox{24mm}{\footnotesize ' + side + r'}\end{tabular}',
         r'Why the sum does not vanish. Both cycles of $D$ are drawn counterclockwise (dashed), and each arrow is replaced by its route along two spokes through the centre of its black triangle (solid). '
         r'The solid route is again a simple closed curve, and its inside is tinted. With spoke weights of circulation $1$ around each face of the spoke graph, its weight is the number of white faces it encloses: ' + f'${run["D_cycles"][0]["W"]}$ for the long cycle and ${run["D_cycles"][1]["W"]}$ for the triangle inside it. '
-        r'That number is $L^+(C)-L^-(C)$, the difference between the weights of the two orientations of $C$, so it is positive. Each cycle gives a simple zero at $x=0$ and the leading coefficient is a positive multiple of $(-i)^{2}$.',
+        r'That number is $L^+(C)-L^-(C)$, the difference between the weights of the two orientations of $C$, so it is positive. The four pairs with these two cycles contribute $2!$ times the product of the two numbers to $\sum\varepsilon\,\omega^2$.',
         'unit spoke circulations solved in check.spoke_weights; L+ - L- = W asserted for both cycles')
 
     # 12 tree and cotree ----------------------------------------------------------------------------
@@ -558,14 +560,14 @@ def make():
     a = P().base().spokes(deleted=dele, outer=True).state(r).vertices().label((0, -(R + RING)), r'$c_0$', 'anchor=north west,xshift=3pt,yshift=-1pt').tex()
     b = P().base().spokes(deleted=dele, kept=None).white_tree(rec, r).vertices().tex()
     fig('12-tree-cotree', row([a, b], ['(a) the spokes that remain form a tree', '(b) the white faces form the dual tree']),
-        r'From a forest state to a tree on the white faces. The state is $r$ of Figure 9(b), drawn solid. '
+        r'From a forest state to a tree on the white faces. The state is $\beta$ of Figure 9(b), drawn solid. '
         r'(a) All spokes, including the three from the centre $c_0$ of the outer face to the roots. Delete the dotted spoke at each solid wedge. The remaining spokes are $Q$ with a square on each edge, joined through $c_0$, and they form a spanning tree. '
         r'(b) Only the deleted spokes are shown. Each one separates two white faces, and joining them across it gives the green tree on all $11$ white faces. It is rooted at the ringed face $y_0$, the white face on the prescribed edge $e_0=\{0,4\}$.',
         'H - r is a tree, white-face tree is a tree (check.recover)')
 
     # 13 selected edges and the cycle ------------------------------------------------------------------
-    a = P().base().white_tree(rec, r).lines(rec['P'], 'bf P').vertices().tex()
-    b = P().base().lines(rec['P'], 'bf P').graphG('bf cycle', rec['hamiltonian'], dots=False).vertices(classes=rec['parts']).tex()
+    a = P().base().white_tree(rec, r).lines(rec['P'], 'bf P').vertices(labels=LBL).tex()
+    b = P().base().lines(rec['P'], 'bf P').graphG('bf cycle', rec['hamiltonian'], dots=False).vertices(classes=rec['parts'], labels=LBL).tex()
     fig('13-selected', row([a, b], ['(a) one bold edge for each white face', '(b) two trees and the curve between them']),
         r'(a) The root $y_0$ selects $e_0$, the bottom arc. Every other white face selects the side it shares with the black triangle on the tree edge towards $y_0$. Every face, black or white, then has one bold side. '
         r'(b) The bold edges $P$ form a forest with two components. The curve crosses the other $22$ edges once each. It is a single closed curve through all $22$ faces, which is the Hamiltonian cycle of Figure 2(b). '
@@ -624,10 +626,10 @@ def make():
     '05-state': r'A state is a perfect matching between the bounded black triangles $A$ and the nonroot vertices $X$. In (a), each solid choice belongs to its shaded triangle. In (b), the same choices are solid incidence edges; the double edges give the disjoint state $r$. Together $r+s$ has degree two at every square and dot.',
     '06-flow': r'The incidence flow supplies a pair. Source and sink edges have capacity $2$; incidence edges have capacity $1$. The displayed integral flow has value $2|X|=20$. Its used incidences have degree two at every vertex and triangle, so alternating along cycles splits them into states $r,s$. The cut inequality is tight at $S=\{2\}$.',
     '08-disk': r'Count the tinted disk of the long $D$-cycle. It contains $B=5$ black faces, $W=6$ white faces and $I=3$ ringed vertices. Each outlined choice lies at an interior vertex or at the tail of a marked boundary arrow, giving $B=I+\ell$. Combine this with the two face counts to get $2\ell-h=-3$.',
-    '09-Q': r'The opposite sides distinguish failure from success. (a) The second state $s$ of Figure~7 gives a cycle of $Q_s$ around the central white triangle. (b) The first state $r$, now drawn solid, gives a forest with one root per component. Recovery uses the pair $(s,r)$.',
-    '10-cancellation': r'Keep $s$ fixed and reverse the heavy dashed cycle of $Q_s$. Only the outlined choices move, from $r$ to $\tilde r$; the solid choices and $\omega(s)$ stay fixed. The disk identity changes $J$ by $2$, so the phases are opposite and the two terms $i^J e^{x\omega(s)}$ cancel.',
-    '11-spokes': r'Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive. Each cycle gives a simple zero, so this group has a nonzero leading term of phase $(-i)^2$.',
-    '12-tree-cotree': r'Recover from the forest state $r$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.',
+    '09-Q': r'The opposite sides distinguish failure from success. (a) The state $\alpha$ gives a cycle of $Q_\alpha$ around the white triangle $1,8,9$. (b) The state $\beta$ gives a forest with one root per component. Recovery uses the pair $(\alpha,\beta)$.',
+    '10-cancellation': r'Keep $\alpha$ fixed and reverse the heavy dashed cycle of $Q_\alpha$. Only the outlined choices move, from $\beta$ to $\tilde\beta$; the solid choices stay. Three local signs flip, so $\varepsilon$ changes sign and the two pairs cancel in any sum weighted by a function of the second state.',
+    '11-spokes': r'Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive, and the four pairs of this class contribute $2!\cdot6\cdot1$ to $\sum\varepsilon\,\omega^2$.',
+    '12-tree-cotree': r'Recover from the forest state $\beta$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.',
     '13-selected': r'The white-face tree selects the bold sides. Its root selects $e_0$; each other white face selects the side towards its parent. Every black and white face has one selected side. The resulting $P$ is a forest with two components. Its complementary dual in (b) is one cycle through all $22$ faces, separating the disk and square classes into two induced trees.',
     '14-gluing': r'Glue across the separating triangle $\{3,4,5\}$. Solve the outer piece first, then prescribe its same-class edge $\{3,5\}$ on the inner piece. The classes agree on the cap. For each class the two trees meet in that edge or in vertex $4$, so their union is again an induced tree.',
     }
@@ -642,22 +644,81 @@ def make():
             mini().base().state(r).lines(m.Q(r),'bf Q').vertices().tex(),
             mini().base().white_tree(rec,r).lines(rec['P'],'bf P').vertices().tex(),
             mini().base().lines(rec['P'],'bf P').graphG('bf cycle',rec['hamiltonian'],dots=False).vertices(classes=rec['parts']).tex()]
-    strip=row(panels,[r'(a) $T=G^*$',r'(b) $(r,s)$ and $D$',r'(c) cyclic $Q_s$',r'(d) forest $Q_r$',r'(e) tree and $P$',r'(f) one cycle'],'1mm')
+    strip=row(panels,[r'(a) $T=G^*$',r'(b) $(\beta,\alpha)$ and $D$',r'(c) cyclic $Q_\alpha$',r'(d) forest $Q_\beta$',r'(e) tree and $P$',r'(f) one cycle'],'1mm')
     notes=r'''\begin{minipage}{15.7cm}\footnotesize
 \medskip
 (a) Colour the dual triangles by the bipartition of $G$. Choose the black outer face and its roots.\\[2mm]
-(b) An integral incidence flow supplies two disjoint states. Their arrows form $D$.\\[2mm]
-(c) For fixed $s$, reverse a cycle of $Q_s$. Opposite phases cancel all pairs with cyclic $Q_s$.\\[2mm]
-(d) Regroup by $D$. Positive spoke circulations make the sum nonzero, so a forest pair survives.
-Here the same states in the order $(s,r)$ give the forest $Q_r$.\\[2mm]
-(e) Delete the chosen spokes. Their dual white-face tree selects $P$; the disk identity makes $P$ acyclic.\\[2mm]
+(b) An integral incidence flow supplies two states that differ in every triangle. Their arrows form $D$.\\[2mm]
+(c) For a fixed second state, reverse a cycle of $Q_\alpha$. Opposite signs cancel all pairs with a cyclic $Q$.\\[2mm]
+(d) Regroup by the cycles of $D$. Heights at the white faces make the weighted sum nonzero, so a pair with forest $Q$ survives.
+Here the same states in the order $(\alpha,\beta)$ give the forest $Q_\beta$.\\[2mm]
+(e) The tree of faces selects one side of every face; the disk identity makes the selected set $P$ acyclic.\\[2mm]
 (f) One selected side at each face gives degree two in the complementary dual. Tree duality makes it connected,
 so it is a Hamiltonian cycle. The two sides induce trees in $T$.\\[2mm]
 Separating triangles are handled by cutting and gluing with a prescribed edge, as in Figure~14.
 \end{minipage}'''
     fig('16-at-a-glance',r'\begin{tabular}{@{}c@{}}'+strip+r'\\[3mm]'+notes+r'\end{tabular}',
-        r'The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The white-face tree then selects the forest whose complementary dual is the Hamiltonian cycle.',
+        r'The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The tree of faces then selects the forest whose complementary dual is the Hamiltonian cycle.',
         'running example; all states, cycles, white-tree and P from check.running; general implications LIT OpenAI Sections 2--7')
+
+    # 17 heights by a path of faces ---------------------------------------------------------------------------
+    dist = nx.single_source_shortest_path_length(m.G, m.t0)
+    y = next(w for w in m.white if sorted(m.F[w]) == [1, 8, 9])
+    path, cur = [y], y
+    while cur != m.t0:
+        cur = min(w for w in m.G[cur] if dist[w] == dist[cur] - 1)
+        path.append(cur)
+    turns = {}
+    for prev, t, nxt in zip(path, path[1:], path[2:]):
+        if t not in m.A:
+            continue
+        f = m.F[t]
+        e_in, e_out = set(m.F[prev]) & set(f), set(f) & set(m.F[nxt])
+        (v,) = e_in & e_out
+        (a_,) = e_in - {v}
+        (b_,) = e_out - {v}
+        i = f.index(v)
+        turns[t] = (v, 1 if (f[(i + 1) % 3], f[(i + 2) % 3]) == (a_, b_) else -1)
+    long_ = run['D_cycles'][0]
+    assert long_['h'] == 7 and long_['ccw'] and y in long_['white']
+    on = set(zip(long_['cycle'], long_['cycle'][1:] + long_['cycle'][:1]))
+    rcw = tuple(b_ if (a_, b_) in on else a_ for a_, b_ in zip(r, s))
+    scw = tuple(a_ if (a_, b_) in on else b_ for a_, b_ in zip(r, s))
+    assert m.is_pair(rcw, scw)
+
+    def eta(st):
+        return sum(sg for t, (v, sg) in turns.items() if st[m.A.index(t)] == v)
+    assert (eta(scw), eta(s)) == (-1, 0)
+    assert sorted(sorted(m.F[t]) for t in turns) == [[0, 1, 6], [1, 7, 8]]
+
+    def hpanel(st, arcs):
+        p = P().base(tint={y: 'bfW!28'})
+        p.state(st)
+        p.arrows(arcs)
+        pts, gates = [p.cen[path[0]]], {}
+        for f1, f2 in zip(path, path[1:]):
+            a_, b_ = sorted(set(m.F[f1]) & set(m.F[f2]))
+            pts.append(p.mid(a_, b_))
+            gates[len(pts) - 1] = (xy[a_], xy[b_])
+            if f2 != m.t0:
+                pts.append(p.cen[f2])
+        pts.append(pts[-1] * (R + COLLAR * 0.85) / np.hypot(*pts[-1]))
+        p.add(r'\draw[bf wtree,-{Stealth[length=4.5pt,width=4pt]}] ' + p.curve_tex(p.smooth_route(pts, gates)) + ';')
+        for t, (v, sg) in turns.items():
+            q = xy[v] + 0.5 * (p.cen[t] - xy[v])
+            p.label(q, rf'${"+" if sg > 0 else "-"}$', 'fill=white,draw=bfW,circle,inner sep=.3pt,line width=.5pt,minimum size=9pt')
+        p.label(p.cen[y] + np.array([0.05, -0.05]), r'$y$', 'fill=white,inner sep=.8pt')
+        return p.vertices(labels=LBL).tex()
+    arcs_cw = [(b_, a_) for a_, b_ in on]
+    arcs_ccw = list(on)
+    fig('17-heights', row([hpanel(scw, arcs_cw), hpanel(s, arcs_ccw)],
+                          [r'(a) $7$-cycle clockwise: $\eta_s(y)=-1$', r'(b) reversed: $\eta_\alpha(y)=0$']),
+        r'A height. The white face $y=\{1,8,9\}$ (tinted) and its path of faces to the outer face (dash-dotted): $y$, $\{1,7,8\}$, $\{1,6,7\}$, $\{0,1,6\}$, $\{0,5,6\}$, $t_0$. '
+        r'In each black face on the path, the path turns around one corner; the circled sign is $+$ if that corner lies on the left of the path and $-$ if it lies on the right. '
+        r'The height of a state at $y$ adds the signs at turned corners that carry its wedge. '
+        r'(a) The pair with the $7$-cycle of $D$ clockwise. Only $\{0,1,6\}$ has its solid wedge at the turned corner $6$, so the height is $-1$. '
+        r'(b) After reversing the $7$-cycle the pair is $(\beta,\alpha)$ and the wedge in $\{0,1,6\}$ sits at $1$. The height is $0$, one more, because $y$ lies inside the cycle.',
+        'face path = shortest path in G, ties by face index; heights asserted (-1, 0); pair with 7-cycle clockwise obtained from (beta, alpha)')
 
     return run, oc, gl
 

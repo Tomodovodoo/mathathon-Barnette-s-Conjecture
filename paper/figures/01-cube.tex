@@ -51,17 +51,17 @@
 \draw[bf edge] (1.743,1.006) -- (-0.000,-2.013);
 \draw[bf edge] (-1.743,1.006) -- (-0.000,-2.013);
 \draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
-\node at (-4.867,-2.810) {$0$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-4.867,-2.810) {$0$};
 \draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
-\node at (4.867,-2.810) {$1$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (4.867,-2.810) {$1$};
 \draw[bf root] (0.000,5.000) circle[radius=2.3pt];
-\node at (0.000,5.620) {$2$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (0.000,5.620) {$2$};
 \fill[bf vertex] (1.743,1.006) circle[radius=1.4pt];
-\node at (2.176,1.256) {$3$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (2.176,1.256) {$3$};
 \fill[bf vertex] (-1.743,1.006) circle[radius=1.4pt];
-\node at (-2.176,1.256) {$4$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-2.176,1.256) {$4$};
 \fill[bf vertex] (-0.000,-2.013) circle[radius=1.4pt];
-\node at (-0.000,-2.513) {$5$};
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-0.000,-2.513) {$5$};
 \end{tikzpicture} &
 \begin{tikzpicture}[bf,x=0.34cm,y=0.34cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
@@ -89,11 +89,17 @@
 \draw[bf D] (-1.743,1.006) -- (1.743,1.006);
 \draw[bf D] (-0.000,-2.013) -- (-1.743,1.006);
 \draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-4.867,-2.810) {$0$};
 \draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (4.867,-2.810) {$1$};
 \draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (0.000,5.620) {$2$};
 \fill[bf vertex] (1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (2.176,1.256) {$3$};
 \fill[bf vertex] (-1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-2.176,1.256) {$4$};
 \fill[bf vertex] (-0.000,-2.013) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-0.000,-2.513) {$5$};
 \end{tikzpicture}\\[0.5mm]
 \footnotesize (a) two cycles, degree two & \footnotesize (b) its dual, the octahedron $T$ & \footnotesize (c) two states and $D$
 \end{tabular}\\[2mm]
@@ -121,11 +127,17 @@
 \draw[bf Q] (0.000,5.000) -- (-1.743,1.006);
 \draw[bf Q] (-4.330,-2.500) -- (-0.000,-2.013);
 \draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-4.867,-2.810) {$0$};
 \draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (4.867,-2.810) {$1$};
 \draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (0.000,5.620) {$2$};
 \fill[bf vertex] (1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (2.176,1.256) {$3$};
 \fill[bf vertex] (-1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-2.176,1.256) {$4$};
 \fill[bf vertex] (-0.000,-2.013) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-0.000,-2.513) {$5$};
 \end{tikzpicture} &
 \begin{tikzpicture}[bf,x=0.34cm,y=0.34cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
@@ -143,22 +155,11 @@
 \draw[bf edge] (1.743,1.006) -- (-1.743,1.006);
 \draw[bf edge] (1.743,1.006) -- (-0.000,-2.013);
 \draw[bf edge] (-1.743,1.006) -- (-0.000,-2.013);
-\draw[bf kept] (2.024,-1.169) -- (4.330,-2.500);
-\draw[bf kept] (2.024,-1.169) -- (1.743,1.006);
-\draw[bf cut] (2.024,-1.169) -- (-0.000,-2.013);
-\draw[bf kept] (0.000,2.337) -- (0.000,5.000);
-\draw[bf kept] (0.000,2.337) -- (-1.743,1.006);
-\draw[bf cut] (0.000,2.337) -- (1.743,1.006);
-\draw[bf kept] (-2.024,-1.169) -- (-4.330,-2.500);
-\draw[bf kept] (-2.024,-1.169) -- (-0.000,-2.013);
-\draw[bf cut] (-2.024,-1.169) -- (-1.743,1.006);
-\draw[bf kept] (-4.330,-2.500) -- (-150.00:5.28) arc[start angle=-150.00,end angle=-90.00,radius=5.28];
-\draw[bf kept] (0.000,5.000) -- (90.00:5.28) arc[start angle=90.00,end angle=-90.00,radius=5.28];
-\draw[bf kept] (4.330,-2.500) -- (-30.00:5.28) arc[start angle=-30.00,end angle=-90.00,radius=5.28];
-\draw[fill=black] (0.000,-5.280) ++(-2pt,-2pt) rectangle ++(4pt,4pt);
-\fill (2.024,-1.169) ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);
-\fill (0.000,2.337) ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);
-\fill (-2.024,-1.169) ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);
+\draw[bf kept] (4.330,-2.500) -- (1.743,1.006);
+\draw[bf kept] (0.000,5.000) -- (-1.743,1.006);
+\draw[bf kept] (-4.330,-2.500) -- (-0.000,-2.013);
+\draw[bf kept] (-4.330,-2.500) arc[start angle=-150.00,end angle=-270.00,radius=5.0];
+\draw[bf kept] (0.000,5.000) arc[start angle=90.00,end angle=-30.00,radius=5.0];
 \draw[bf wtree] (-0.000,-3.511) .. controls (0.425,-2.705) and (1.317,-2.322) .. (1.012,-1.591) .. controls (0.707,-0.860) and (0.425,-0.668) .. (0.000,-0.000);
 \draw[bf wtree] (0.000,-0.000) .. controls (0.366,0.702) and (0.391,1.042) .. (0.872,1.672) .. controls (1.352,2.301) and (2.130,1.720) .. (3.041,1.755);
 \draw[bf wtree] (0.000,-0.000) .. controls (-0.791,-0.034) and (-1.098,-0.183) .. (-1.884,-0.081) .. controls (-2.669,0.020) and (-2.555,0.984) .. (-3.041,1.755);
@@ -168,11 +169,17 @@
 \draw[draw=bfW,fill=white,line width=.8pt] (0.000,-0.000) circle[radius=2pt];
 \draw[draw=bfW,line width=.8pt] (-0.000,-3.511) circle[radius=3.6pt];
 \draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-4.867,-2.810) {$0$};
 \draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (4.867,-2.810) {$1$};
 \draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (0.000,5.620) {$2$};
 \fill[bf vertex] (1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (2.176,1.256) {$3$};
 \fill[bf vertex] (-1.743,1.006) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-2.176,1.256) {$4$};
 \fill[bf vertex] (-0.000,-2.013) circle[radius=1.4pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-0.000,-2.513) {$5$};
 \end{tikzpicture} &
 \begin{tikzpicture}[bf,x=0.34cm,y=0.34cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
@@ -203,12 +210,18 @@
 \draw[bf cycle] (0.000,2.337) .. controls (0.000,1.871) and (0.000,1.358) .. (0.000,1.006) .. controls (0.000,0.654) and (0.000,0.352) .. (0.000,-0.000);
 \draw[bf cycle] (-2.024,-1.169) .. controls (-1.621,-0.936) and (-1.177,-0.680) .. (-0.872,-0.503) .. controls (-0.566,-0.327) and (-0.305,-0.176) .. (0.000,-0.000);
 \fill (-4.330,-2.500) circle[radius=2.6pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-4.867,-2.810) {$0$};
 \fill (4.330,-2.500) circle[radius=2.6pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (4.867,-2.810) {$1$};
 \draw[fill=white,line width=.8pt] ($ (0.000,5.000)+(-2.3pt,-2.3pt) $) rectangle ($ (0.000,5.000)+(2.3pt,2.3pt) $);
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (0.000,5.620) {$2$};
 \draw[fill=white,line width=.8pt] ($ (1.743,1.006)+(-2.3pt,-2.3pt) $) rectangle ($ (1.743,1.006)+(2.3pt,2.3pt) $);
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (2.176,1.256) {$3$};
 \fill (-1.743,1.006) circle[radius=2.6pt];
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-2.176,1.256) {$4$};
 \draw[fill=white,line width=.8pt] ($ (-0.000,-2.013)+(-2.3pt,-2.3pt) $) rectangle ($ (-0.000,-2.013)+(2.3pt,2.3pt) $);
+\node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt] at (-0.000,-2.513) {$5$};
 \end{tikzpicture}\\[0.5mm]
-\footnotesize (d) $Q_s$, opposite the wedges & \footnotesize (e) kept spokes and the white tree & \footnotesize (f) $P$, two trees, one cycle
+\footnotesize (d) $Q_s$, opposite the wedges & \footnotesize (e) $S_s$ and the tree of faces & \footnotesize (f) $P$, two trees, one cycle
 \end{tabular}\end{tabular}%
 \end{document}

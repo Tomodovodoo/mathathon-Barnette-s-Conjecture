@@ -8,7 +8,7 @@
 \noindent This gallery sets every figure at its final size in the text block of the paper (\texttt{amsart}, A4, 1in margins). Captions are the proposed captions. The filler text between figures is there to judge scale against body type.\par\medskip
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{01-cube-body.tex}
-\captionof{figure}{The complete construction on the cube. (a) The square-in-square cube has a degree-two subgraph with two cycles. (b) Its dual is the octahedron, in the disk embedding used below; shaded faces are black and hollow vertices are roots. (c) Outlined choices $r$ and solid choices $s$ are disjoint states; the arrows $r(t)\to s(t)$ form $D$. (d) The sides opposite $s$ form the forest $Q_s$. (e) Delete the dotted chosen spokes. The remaining spokes form a tree; the dual edges across deleted spokes form the white-face tree, rooted at the ring. (f) That tree selects one bold side per face. The selected edges $P$ induce two trees, and their complementary dual is one Hamiltonian cycle.}
+\captionof{figure}{The complete construction on the cube. (a) The square-in-square cube has a degree-two subgraph with two cycles. (b) Its dual is the octahedron, in the disk embedding used below; shaded faces are black and hollow vertices are roots. (c) Outlined choices $r$ and solid choices $s$ are disjoint states; the arrows $r(t)\to s(t)$ form $D$. (d) The sides opposite $s$ form the forest $Q_s$. (e) The bold edges $S_s$ are $Q_s$ and the two sides of the outer face other than $e_0=\{0,1\}$; they form a spanning tree. The dash-dotted tree joins the white faces across the other edges, rooted at the ring. (f) That tree selects one bold side per face. The selected edges $P$ induce two trees, and their complementary dual is one Hamiltonian cycle.}
 \label{fig:cube}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
@@ -47,7 +47,7 @@
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{07-pair-D-body.tex}
-\captionof{figure}{(a) Two states that choose different corners in every bounded black triangle. (b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles. Here $D$ is a counterclockwise cycle of length $7$ and a clockwise triangle.}
+\captionof{figure}{(a) Two states $\beta$ (outlined) and $\alpha$ (solid) that choose different corners in every bounded black triangle. (b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles: the counterclockwise $7$-cycle $1,2,3,9,10,11,6$ and the clockwise triangle $8,7,12$.}
 \label{fig:pair-D}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
@@ -60,27 +60,27 @@
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{09-Q-body.tex}
-\captionof{figure}{The opposite sides distinguish failure from success. (a) The second state $s$ of Figure~7 gives a cycle of $Q_s$ around the central white triangle. (b) The first state $r$, now drawn solid, gives a forest with one root per component. Recovery uses the pair $(s,r)$.}
+\captionof{figure}{The opposite sides distinguish failure from success. (a) The state $\alpha$ gives a cycle of $Q_\alpha$ around the white triangle $1,8,9$. (b) The state $\beta$ gives a forest with one root per component. Recovery uses the pair $(\alpha,\beta)$.}
 \label{fig:Q}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{10-cancellation-body.tex}
-\captionof{figure}{Keep $s$ fixed and reverse the heavy dashed cycle of $Q_s$. Only the outlined choices move, from $r$ to $\tilde r$; the solid choices and $\omega(s)$ stay fixed. The disk identity changes $J$ by $2$, so the phases are opposite and the two terms $i^J e^{x\omega(s)}$ cancel.}
+\captionof{figure}{Keep $\alpha$ fixed and reverse the heavy dashed cycle of $Q_\alpha$. Only the outlined choices move, from $\beta$ to $\tilde\beta$; the solid choices stay. Three local signs flip, so $\varepsilon$ changes sign and the two pairs cancel in any sum weighted by a function of the second state.}
 \label{fig:cancellation}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{11-spokes-body.tex}
-\captionof{figure}{Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive. Each cycle gives a simple zero, so this group has a nonzero leading term of phase $(-i)^2$.}
+\captionof{figure}{Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive, and the four pairs of this class contribute $2!\cdot6\cdot1$ to $\sum\varepsilon\,\omega^2$.}
 \label{fig:spokes}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{12-tree-cotree-body.tex}
-\captionof{figure}{Recover from the forest state $r$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.}
+\captionof{figure}{Recover from the forest state $\beta$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.}
 \label{fig:tree-cotree}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
@@ -106,8 +106,14 @@
 \clearpage
 \par\medskip\noindent\begin{minipage}{\textwidth}\centering
 \input{16-at-a-glance-body.tex}
-\captionof{figure}{The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The white-face tree then selects the forest whose complementary dual is the Hamiltonian cycle.}
+\captionof{figure}{The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The tree of faces then selects the forest whose complementary dual is the Hamiltonian cycle.}
 \label{fig:at-a-glance}
+\end{minipage}\par\medskip
+\noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
+\par\medskip\noindent\begin{minipage}{\textwidth}\centering
+\input{17-heights-body.tex}
+\captionof{figure}{A height. The white face $y=\{1,8,9\}$ (tinted) and its path of faces to the outer face (dash-dotted): $y$, $\{1,7,8\}$, $\{1,6,7\}$, $\{0,1,6\}$, $\{0,5,6\}$, $t_0$. In each black face on the path, the path turns around one corner; the circled sign is $+$ if that corner lies on the left of the path and $-$ if it lies on the right. The height of a state at $y$ adds the signs at turned corners that carry its wedge. (a) The pair with the $7$-cycle of $D$ clockwise. Only $\{0,1,6\}$ has its solid wedge at the turned corner $6$, so the height is $-1$. (b) After reversing the $7$-cycle the pair is $(\beta,\alpha)$ and the wedge in $\{0,1,6\}$ sits at $1$. The height is $0$, one more, because $y$ lies inside the cycle.}
+\label{fig:heights}
 \end{minipage}\par\medskip
 \noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par
 \clearpage
