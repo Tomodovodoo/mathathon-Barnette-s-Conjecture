@@ -1,0 +1,85 @@
+== model=ins V=30 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=1 fail_hi=3 fail_both=0 extremes_equal=705
+C1 tested=1000 violations=0 equality=705 overflow=0 maxlattice=18
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:1000
+TM by #D-cycles of the 2-factor: c1:1925 c3:2592 c5:484 c7:61
+== model=ins V=40 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=1 fail_hi=5 fail_both=0 extremes_equal=515
+C1 tested=1000 violations=0 equality=515 overflow=0 maxlattice=18
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:1000
+TM by #D-cycles of the 2-factor: c1:1881 c3:4982 c5:2666 c7:299
+== model=ins V=60 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=16 fail_hi=12 fail_both=1 extremes_equal=201
+C1 tested=1000 violations=0 equality=201 overflow=0 maxlattice=68
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:999 d1:1
+TM by #D-cycles of the 2-factor: c1:2014 c3:16275 c5:24703 c7:11070 c9:1918
+== model=ins V=80 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=25 fail_hi=38 fail_both=3 extremes_equal=84
+C1 tested=1000 violations=0 equality=84 overflow=0 maxlattice=171
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:997 d1:3
+TM by #D-cycles of the 2-factor: c1:1958 c3:30276 c5:84141 c7:73105 c9:19468 c11:4780
+== model=ins V=100 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=45 fail_hi=35 fail_both=3 extremes_equal=41
+C1 tested=1000 violations=0 equality=41 overflow=0 maxlattice=2176
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:997 d1:3
+TM by #D-cycles of the 2-factor: c1:2138 c3:44241 c5:239343 c7:571526 c9:729564 c11:425144 c13:87596
+== model=skew V=30 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=9 fail_hi=7 fail_both=3 extremes_equal=213
+C1 tested=1000 violations=0 equality=213 overflow=0 maxlattice=18
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:997 d1:3
+TM by #D-cycles of the 2-factor: c1:2162 c3:11914 c5:3786 c7:166
+== model=skew V=40 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=33 fail_hi=25 fail_both=3 extremes_equal=47
+C1 tested=1000 violations=0 equality=47 overflow=0 maxlattice=70
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:997 d1:3
+TM by #D-cycles of the 2-factor: c1:2298 c3:29624 c5:41811 c7:9481
+== model=skew V=60 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=48 fail_hi=65 fail_both=3 extremes_equal=0
+C1 tested=1000 violations=0 equality=0 overflow=0 maxlattice=1877
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:997 d1:3
+TM by #D-cycles of the 2-factor: c1:2989 c3:123020 c5:622252 c7:805289 c9:316145 c11:38221
+== model=skew V=80 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=1000 fail_lo=113 fail_hi=109 fail_both=17 extremes_equal=0
+C1 tested=1000 violations=0 equality=0 overflow=0 maxlattice=116126
+STRUCT tested=1000 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:983 d1:17
+TM by #D-cycles of the 2-factor: c1:5536 c3:488584 c5:5232684 c7:15561434 c9:17631422 c11:9303839 c13:2789445 c15:601494 c17:77788
+== model=skew V=100 graphs=100 roots_per_graph=10 seed=1
+== model=mcmc V=30 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=259 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=219
+C1 tested=259 violations=0 equality=219 overflow=0 maxlattice=5
+STRUCT tested=259 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:259
+TM by #D-cycles of the 2-factor: c1:54 c3:1486 c5:2588 c7:128
+== model=mcmc V=40 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=183 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=113
+C1 tested=183 violations=0 equality=113 overflow=0 maxlattice=4
+STRUCT tested=183 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:183
+TM by #D-cycles of the 2-factor: c1:57 c3:757 c5:3136 c7:2640 c9:2048
+== model=mcmc V=60 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=85 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=33
+C1 tested=85 violations=0 equality=33 overflow=0 maxlattice=24
+STRUCT tested=85 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:85
+TM by #D-cycles of the 2-factor: c3:255 c5:2329 c7:6587 c9:7561 c11:6144 c13:8192
+== model=mcmc V=80 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=30 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=6
+C1 tested=30 violations=0 equality=6 overflow=0 maxlattice=8
+STRUCT tested=30 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:30
+TM by #D-cycles of the 2-factor: c5:336 c7:4960 c9:18016
+== model=mcmc V=100 graphs=100 roots_per_graph=10 seed=1
+SUMMARY graphs=100 rooted=1000 withpair=8 fail_lo=1 fail_hi=0 fail_both=0 extremes_equal=0
+C1 tested=8 violations=0 equality=0 overflow=0 maxlattice=48
+STRUCT tested=8 skipped(L>200000)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:8
+TM by #D-cycles of the 2-factor: c5:128 c7:5040 c9:14912 c11:13824 c13:41472

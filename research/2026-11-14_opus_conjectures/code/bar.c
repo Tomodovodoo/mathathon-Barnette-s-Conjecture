@@ -61,7 +61,8 @@ static int read_planar(FILE *f) {
     }
     return 1;
 }
-static int printu = 0;
+static int printu = 0, near_on = 0, near_max = 6;
+static long long near_hist[16], near_over;
 static FILE *ufile = NULL;
 static int given_root[3], use_given_root = 0;
 static int read_text(FILE *f) {
@@ -382,11 +383,19 @@ static int setup_enum(void) {
     }
     return qt;
 }
+#define SMAX 200000
+#define SPOOL 20000000
+static int S_on = 0, *S_phi = NULL, S_tp[SMAX], S_c[SMAX];
+static long long tm_per_c[64];
 static void visit_element(void) {
     int u[MAXV];
     u_from_phi(phi_cur, u);
     long long tp = tree_pairs(u, 1LL << 40);
     int c = ncyc;
+    if (c < 64) tm_per_c[c] += tp;
+    if (S_on && L_size < SMAX && (L_size + 1) * nW <= SPOOL) {
+        memcpy(S_phi + L_size * nW, phi_cur, sizeof(int) * nW); S_tp[L_size] = tp > 0; S_c[L_size] = c;
+    }
     L_size++;
     L_pairs += 1LL << c;
     L_tm += tp;
@@ -464,6 +473,172 @@ static void facial_senses(const int *u, int *ccw, int *cw) {
         *ccw += k0; *cw += k1;
     }
 }
+/* lattice structure on stored elements, via closures:
+   an up-cover of phi raises by 1 an inclusion-minimal forced set C (closure), C not containing node 0. */
+static int st_dist, st_ji, st_mi, st_R;
+static int cl_mark[MAXF], cl_q[MAXF], cl_stamp = 0;
+static int closure(const int *phi, int a, int dir) {
+    cl_stamp++;
+    int qh = 0, qt = 0;
+    cl_mark[a] = cl_stamp; cl_q[qt++] = a;
+    while (qh < qt) {
+        int x = cl_q[qh++];
+        if (x == 0) return -1;
+        for (int k = 0; k < nodeinc_cnt[x]; k++) {
+            int e = nodeinc[x][k], t = e / 3, i = e % 3;
+            int L = cL[t][i], R = cR[t][i], y = L == x ? R : L;
+            if (cl_mark[y] == cl_stamp) continue;
+            int d = phi[R] - phi[L], force;
+            if (dir > 0) force = (L == x && d == -1) || (R == x && d == 0);
+            else force = (L == x && d == 0) || (R == x && d == -1);
+            if (force) { cl_mark[y] = cl_stamp; cl_q[qt++] = y; }
+        }
+    }
+    return qt;
+}
+/* minimal closures of phi in direction dir; returns count, and writes one representative set per cover via callback */
+static int csize[MAXF];
+static int covers(const int *phi, int dir, void (*cb)(const int *phi, int dir, int a, int sz)) {
+    for (int a = 1; a < nW; a++) csize[a] = closure(phi, a, dir);
+    int cnt = 0;
+    for (int a = 1; a < nW; a++) {
+        if (csize[a] < 0) continue;
+        closure(phi, a, dir);
+        int minimal = 1, rep = 1;
+        for (int j = 0; j < csize[a]; j++) {
+            int b = cl_q[j];
+            if (csize[b] != csize[a]) { minimal = 0; break; }
+            if (b < a) rep = 0;
+        }
+        if (minimal && rep) { cnt++; if (cb) cb(phi, dir, a, csize[a]); }
+    }
+    return cnt;
+}
+/* hash table of stored elements */
+static int *H_tab = NULL; static long long H_size = 0;
+static unsigned long long hphi(const int *p) {
+    unsigned long long h = 1469598103934665603ULL;
+    for (int i = 0; i < nW; i++) { h ^= (unsigned)(p[i] + 1000); h *= 1099511628211ULL; }
+    return h;
+}
+static void h_insert(long long L) {
+    H_size = 1; while (H_size < 2 * L + 2) H_size <<= 1;
+    H_tab = realloc(H_tab, sizeof(int) * H_size);
+    for (long long i = 0; i < H_size; i++) H_tab[i] = -1;
+    for (long long x = 0; x < L; x++) {
+        unsigned long long h = hphi(S_phi + x * nW) & (H_size - 1);
+        while (H_tab[h] >= 0) h = (h + 1) & (H_size - 1);
+        H_tab[h] = (int)x;
+    }
+}
+static int h_find(const int *p) {
+    unsigned long long h = hphi(p) & (H_size - 1);
+    while (H_tab[h] >= 0) {
+        if (!memcmp(S_phi + (long long)H_tab[h] * nW, p, sizeof(int) * nW)) return H_tab[h];
+        h = (h + 1) & (H_size - 1);
+    }
+    return -1;
+}
+static int *rnk = NULL, *upc = NULL, *dnc = NULL, *bq = NULL;
+static int cur_x;
+static int tmpphi[MAXF];
+static void cb_up(const int *phi, int dir, int a, int sz) {
+    memcpy(tmpphi, phi, sizeof(int) * nW);
+    closure(phi, a, dir);
+    for (int j = 0; j < sz; j++) tmpphi[cl_q[j]] += dir;
+    int y = h_find(tmpphi);
+    if (y < 0) { fprintf(stderr, "cover not found\n"); exit(1); }
+    if (rnk[y] < 0) { rnk[y] = rnk[cur_x] + 1; bq[bq[0] + 1] = y; bq[0]++; }
+}
+static void structure(int L) {
+    rnk = realloc(rnk, sizeof(int) * L); upc = realloc(upc, sizeof(int) * L); dnc = realloc(dnc, sizeof(int) * L);
+    bq = realloc(bq, sizeof(int) * (L + 2));
+    h_insert(L);
+    for (int x = 0; x < L; x++) {
+        rnk[x] = -1;
+        upc[x] = covers(S_phi + (long long)x * nW, +1, NULL);
+        dnc[x] = covers(S_phi + (long long)x * nW, -1, NULL);
+    }
+    int bot = -1;
+    for (int x = 0; x < L; x++) if (dnc[x] == 0) { if (bot >= 0) { fprintf(stderr, "two bottoms\n"); exit(1); } bot = x; }
+    /* BFS over up-covers gives rank (graded lattice) */
+    rnk[bot] = 0; bq[0] = 0; bq[1] = bot; bq[0] = 1;
+    for (int h = 1; h <= bq[0]; h++) { cur_x = bq[h]; covers(S_phi + (long long)cur_x * nW, +1, cb_up); }
+    st_R = 0;
+    for (int x = 0; x < L; x++) { if (rnk[x] < 0) { fprintf(stderr, "unreached\n"); exit(1); } if (upc[x] == 0) st_R = rnk[x]; }
+    st_dist = 1 << 20; st_ji = st_mi = 0;
+    for (int x = 0; x < L; x++) {
+        if (!S_tp[x]) continue;
+        int d = rnk[x] < st_R - rnk[x] ? rnk[x] : st_R - rnk[x];
+        if (d < st_dist) st_dist = d;
+        if (dnc[x] == 1) st_ji = 1;
+        if (upc[x] == 1) st_mi = 1;
+    }
+}
+/* ---------- search outward from both extremes (cover moves) until a tree-pair element ---------- */
+#define NPOOL 4000000
+static int *N_pool = NULL; static long long N_cnt;
+static int *N_tab = NULL; static long long N_tsize = 1 << 22;
+static int n_lookup_insert(const int *p) {   /* returns 1 if newly inserted */
+    unsigned long long h = hphi(p) & (N_tsize - 1);
+    while (N_tab[h] >= 0) {
+        if (!memcmp(N_pool + (long long)N_tab[h] * nW, p, sizeof(int) * nW)) return 0;
+        h = (h + 1) & (N_tsize - 1);
+    }
+    if ((N_cnt + 1) * nW > NPOOL || N_cnt * 2 >= N_tsize) return -1;
+    memcpy(N_pool + N_cnt * nW, p, sizeof(int) * nW);
+    N_tab[h] = (int)N_cnt++;
+    return 1;
+}
+static int nb_dir, nb_overflow;
+static long long nb_next_end;
+static void cb_near(const int *phi, int dir, int a, int sz) {
+    memcpy(tmpphi, phi, sizeof(int) * nW);
+    closure(phi, a, dir);
+    for (int j = 0; j < sz; j++) tmpphi[cl_q[j]] += dir;
+    int r = n_lookup_insert(tmpphi);
+    if (r < 0) nb_overflow = 1;
+}
+/* returns cover distance (from the nearer extreme) of nearest element carrying a tree pair, or -1 if > maxd/overflow */
+static int near_tp(int maxd, long long *explored) {
+    if (!N_pool) { N_pool = malloc(sizeof(int) * (size_t)NPOOL); N_tab = malloc(sizeof(int) * N_tsize); }
+    for (long long i = 0; i < N_tsize; i++) N_tab[i] = -1;
+    N_cnt = 0; nb_overflow = 0;
+    setup_enum();
+    long long lo_beg = 0, hi_beg;
+    n_lookup_insert(phi_lo); n_lookup_insert(phi_hi);
+    /* two frontiers interleaved: we keep separate level ranges */
+    static long long fl_b[2], fl_e[2];
+    /* store frontier indices in two lists */
+    static int *fr[2] = {NULL, NULL}; static long long frn[2], frcap = 2000000;
+    if (!fr[0]) { fr[0] = malloc(sizeof(int) * frcap); fr[1] = malloc(sizeof(int) * frcap); }
+    (void)lo_beg; (void)hi_beg; (void)fl_b; (void)fl_e;
+    int u[MAXV];
+    frn[0] = 1; fr[0][0] = 0;
+    frn[1] = 0; if (N_cnt == 2) { frn[1] = 1; fr[1][0] = 1; }
+    for (int d = 0; d <= maxd; d++) {
+        for (int side = 0; side < 2; side++)
+            for (long long k = 0; k < frn[side]; k++) {
+                u_from_phi(N_pool + (long long)fr[side][k] * nW, u);
+                if (tree_pairs(u, 1)) { *explored = N_cnt; return d; }
+            }
+        if (d == maxd) break;
+        for (int side = 0; side < 2; side++) {
+            long long start = N_cnt;
+            for (long long k = 0; k < frn[side]; k++) {
+                int x = fr[side][k];
+                memcpy(phi_cur, N_pool + (long long)x * nW, sizeof(int) * nW);
+                covers(phi_cur, side == 0 ? +1 : -1, cb_near);
+                if (nb_overflow) { *explored = N_cnt; return -2; }
+            }
+            frn[side] = 0;
+            for (long long i = start; i < N_cnt && frn[side] < frcap; i++) fr[side][frn[side]++] = (int)i;
+        }
+        if (frn[0] + frn[1] == 0) break;
+    }
+    *explored = N_cnt;
+    return -1;
+}
 /* ---------- output helpers ---------- */
 static void dump_instance(FILE *out, const char *tag, int froot) {
     fprintf(out, "%s %d %d", tag, nv, froot);
@@ -487,10 +662,13 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "-cap")) cap = atoll(argv[++i]);
         else if (!strcmp(argv[i], "-d")) dumpfile = argv[++i];
         else if (!strcmp(argv[i], "-U")) printu = 1;
+        else if (!strcmp(argv[i], "-S")) S_on = 1;
+        else if (!strcmp(argv[i], "-N")) { near_on = 1; near_max = atoi(argv[++i]); }
         else if (!strcmp(argv[i], "-u")) ufile = fopen(argv[++i], "r");
         else if (!strcmp(argv[i], "-T")) { text = 1; use_given_root = 1; }
     }
     srand(seed);
+    if (S_on || 1) S_phi = malloc(sizeof(int) * (size_t)SPOOL);
     FILE *dump = dumpfile ? fopen(dumpfile, "w") : NULL;
     long long graphs = 0, rooted = 0, withpair = 0;
     long long fail_min = 0, fail_max = 0, fail_both = 0, same_ext = 0;
@@ -498,6 +676,8 @@ int main(int argc, char **argv) {
     long long hist[64][8];   /* hist[c_min][min(#TM/2^cmin,7)] */
     memset(hist, 0, sizeof hist);
     long long maxlat = 0;
+    long long s_tested = 0, s_hist[16], s_noji = 0, s_nomi = 0, s_neither = 0, s_skipped = 0; int s_maxdist = 0;
+    memset(s_hist, 0, sizeof s_hist);
     while (text ? read_text(stdin) : read_planar(stdin)) {
         graphs++;
         build_faces();
@@ -565,6 +745,15 @@ int main(int argc, char **argv) {
                 fail_both++;
                 if (dump) dump_instance(dump, "BOTH", froot);
             } else if ((!tmin || !tmax) && dump) dump_instance(dump, !tmin ? "LOFAIL" : "HIFAIL", froot);
+            if (near_on && (!tmin || !tmax)) {
+                long long ex;
+                int d = near_tp(near_max, &ex);
+                int dd = d < 0 ? 15 : (d > 14 ? 14 : d);
+                near_hist[dd]++;
+                if (d == -2) near_over++;
+                if ((d < 0 || d >= 2) && dump) dump_instance(dump, d == -2 ? "NEAROVER" : "NEARFAR", froot);
+                if (d >= 2 || d < 0) printf("NEAR %lld %d dist=%d explored=%lld%s", graphs, froot, d, ex, "\n");
+            }
             if (full) {
                 setup_enum();
                 L_size = 0; L_cap = cap; L_tm = 0; L_with_tp = 0; L_pairs = 0;
@@ -573,6 +762,17 @@ int main(int argc, char **argv) {
                 assigned[0] = 1; phi_cur[0] = 0;
                 enum_rec(1);
                 if (L_overflow) { overflow++; continue; }
+                if (S_on && L_size <= SMAX && L_size * nW <= SPOOL) {
+                    structure((int)L_size);
+                    s_tested++;
+                    int dd = st_dist < 15 ? st_dist : 15;
+                    s_hist[dd]++;
+                    if (st_dist > 0 && !st_ji) s_noji++;
+                    if (st_dist > 0 && !st_mi) s_nomi++;
+                    if (st_dist > 0 && !st_ji && !st_mi) { s_neither++; if (dump) dump_instance(dump, "NOIRRED", froot); }
+                    if (st_dist >= 2 && dump) dump_instance(dump, "DIST2", froot);
+                    if (st_dist > s_maxdist) s_maxdist = st_dist;
+                } else if (S_on) s_skipped++;
                 if (L_size > maxlat) maxlat = L_size;
                 c1_tested++;
                 long long p2 = 1LL << L_cmin;
@@ -598,6 +798,22 @@ int main(int argc, char **argv) {
             for (int j = 0; j < 8; j++) printf(" %lld", hist[c][j]);
             printf("   (#TM/2^cmin floor = 0..7+)\n");
         }
+    }
+    if (S_on) {
+        printf("STRUCT tested=%lld skipped(L>%d)=%lld  no_JI_with_tp=%lld no_MI_with_tp=%lld neither=%lld maxdist=%d" "\n", s_tested, SMAX, s_skipped, s_noji, s_nomi, s_neither, s_maxdist);
+        printf("STRUCT dist-to-nearest-extreme of nearest tree-pair element:");
+        for (int i = 0; i < 16; i++) if (s_hist[i]) printf(" d%d:%lld", i, s_hist[i]);
+        printf("\n");
+    }
+    if (full) {
+        printf("TM by #D-cycles of the 2-factor:");
+        for (int c = 0; c < 64; c++) if (tm_per_c[c]) printf(" c%d:%lld", c, tm_per_c[c]);
+        printf("\n");
+    }
+    if (near_on) {
+        printf("NEARHIST (instances where some extreme fails) dist of nearest tree-pair element:");
+        for (int i = 0; i < 16; i++) if (near_hist[i]) printf(" %s%d:%lld", i == 15 ? ">max/ovf" : "d", i, near_hist[i]);
+        printf(" overflow=%lld\n", near_over);
     }
     if (dump) fclose(dump);
     return 0;

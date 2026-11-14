@@ -1,0 +1,25 @@
+== model=skew V=150 graphs=60 roots_per_graph=20 seed=3
+NEAR 1 48 dist=2 explored=91
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=410 fail_hi=363 fail_both=124 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:525 d1:123 d2:1 overflow=0
+== model=skew V=200 graphs=60 roots_per_graph=20 seed=3
+NEAR 5 221 dist=2 explored=118
+NEAR 9 334 dist=2 explored=183
+NEAR 27 83 dist=2 explored=157
+NEAR 51 201 dist=2 explored=173
+NEAR 53 309 dist=2 explored=192
+NEAR 59 318 dist=2 explored=112
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=447 fail_hi=481 fail_both=182 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:564 d1:176 d2:6 overflow=0
+== model=skew V=250 graphs=60 roots_per_graph=20 seed=3
+NEAR 2 487 dist=2 explored=293
+NEAR 5 204 dist=2 explored=272
+NEAR 22 319 dist=2 explored=167
+NEAR 29 274 dist=2 explored=260
+NEAR 56 49 dist=2 explored=223
+NEAR 56 405 dist=2 explored=166
+NEAR 59 25 dist=2 explored=262
+NEAR 59 162 dist=2 explored=260
+NEAR 60 79 dist=2 explored=193
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=560 fail_hi=590 fail_both=276 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:598 d1:267 d2:9 overflow=0

@@ -1,0 +1,47 @@
+== model=ins V=40 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=1 fail_hi=5 fail_both=0 extremes_equal=693
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:6 overflow=0
+== model=ins V=60 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=18 fail_hi=7 fail_both=1 extremes_equal=252
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:23 d1:1 overflow=0
+== model=ins V=80 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=41 fail_hi=44 fail_both=0 extremes_equal=178
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:85 overflow=0
+== model=ins V=100 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=96 fail_hi=64 fail_both=1 extremes_equal=50
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:158 d1:1 overflow=0
+== model=ins V=150 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=117 fail_hi=91 fail_both=7 extremes_equal=1
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:194 d1:7 overflow=0
+== model=skew V=40 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=51 fail_hi=32 fail_both=0 extremes_equal=37
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:83 overflow=0
+== model=skew V=60 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=78 fail_hi=83 fail_both=9 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:143 d1:9 overflow=0
+== model=skew V=80 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=156 fail_hi=137 fail_both=22 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:249 d1:22 overflow=0
+== model=skew V=100 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=194 fail_hi=147 fail_both=24 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:293 d1:24 overflow=0
+== model=skew V=150 graphs=60 roots_per_graph=20 seed=2
+NEAR 13 158 dist=2 explored=115
+NEAR 15 29 dist=2 explored=125
+SUMMARY graphs=60 rooted=1200 withpair=1200 fail_lo=358 fail_hi=345 fail_both=116 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:471 d1:114 d2:2 overflow=0
+== model=mcmc V=40 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=145 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=108
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: overflow=0
+== model=mcmc V=60 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=145 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=81
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: overflow=0
+== model=mcmc V=80 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=14 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=3
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: overflow=0
+== model=mcmc V=100 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=39 fail_lo=4 fail_hi=0 fail_both=0 extremes_equal=1
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:4 overflow=0
+== model=mcmc V=150 graphs=60 roots_per_graph=20 seed=2
+SUMMARY graphs=60 rooted=1200 withpair=11 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=0
+NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: overflow=0

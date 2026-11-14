@@ -1,0 +1,8 @@
+SENSES directed facial hexagons: E_lo ccw=644 cw=0 ; E_hi ccw=0 cw=635
+SUMMARY graphs=466 rooted=13980 withpair=8042 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=6923
+C1 tested=8042 violations=0 equality=6923 overflow=0 maxlattice=4
+cmin=2: 0 6491 468 11 200 52 0 0   (#TM/2^cmin floor = 0..7+)
+cmin=4: 0 820 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)
+STRUCT tested=8042 skipped(L>1500)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=0
+STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:8042
+TM by #D-cycles of the 2-factor: c2:31391 c4:16677
