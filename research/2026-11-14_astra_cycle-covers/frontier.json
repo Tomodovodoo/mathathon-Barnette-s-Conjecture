@@ -1,0 +1,187 @@
+{
+  "parameter": "dual vertices",
+  "invariant": "c_min",
+  "rows": [
+    {
+      "size": 6,
+      "realized": [
+        1
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 7,
+      "realized": [],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 8,
+      "realized": [
+        1
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 9,
+      "realized": [],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 10,
+      "realized": [
+        1
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 11,
+      "realized": [
+        2
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 12,
+      "realized": [
+        1
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 13,
+      "realized": [
+        2
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 14,
+      "realized": [
+        1,
+        3
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 15,
+      "realized": [
+        2
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 16,
+      "realized": [
+        1,
+        3
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 17,
+      "realized": [
+        2,
+        4
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 18,
+      "realized": [
+        1,
+        3
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 19,
+      "realized": [
+        2,
+        4
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 20,
+      "realized": [
+        1,
+        3,
+        5
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 21,
+      "realized": [
+        2,
+        4
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 22,
+      "realized": [
+        1,
+        3,
+        5
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 23,
+      "realized": [
+        2,
+        4,
+        6
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    },
+    {
+      "size": 24,
+      "realized": [
+        1,
+        3,
+        5
+      ],
+      "exhaustive": true,
+      "tier": "T4",
+      "review": "under-review"
+    }
+  ]
+}

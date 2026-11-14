@@ -92,3 +92,21 @@ On the other hand, for fixed s with a cyclic Q_s, choose one Q_s cycle using s a
 PROVED-HERE. The absolute coefficient counts covers with the minimum number of cycles, together with an independent choice of a white vertex of G in the b0-free shore of each corresponding bond. Choices may repeat when shores nest. This is a literal bijection with pointed laminar bond families satisfying the local conditions in Section 1: dualize the bonds and retain each white mark, with the inverse given by the dual cycles. In the region tree, a mark for an edge may be any white vertex in the descendant subtree cut off by that edge. Thus the coefficient is a sum of products of descendant white masses. This gives a wholly primal counting interpretation without claiming an unknown bijection to spanning forests or unweighted tree matchings.
 
 PROVED-HERE. No bijection to all unweighted tree matchings can hold in general. In Section 2 the coefficient is 2 and #TM=2^(m-1), unequal for m>=3. For a 2r-prism the coefficient is r-1 while #TM=2, also giving arbitrarily large ratios in the other direction. A bijection involving additional weights or signed objects remains open.
+
+## 5. Counting when there are exactly two covers
+
+PROVED-HERE. Suppose B has exactly two distinct covers D1,D2, with c1,c2 cycles, and let j be the number of component cycles identical as edge sets in both. Then
+
+    #TM = 2^c1 + 2^c2 - 2a,   where a is either 0 or 2^j.
+
+In particular #TM >= 2^min(c1,c2). Equality could occur only if c1=c2=j+1 and a=2^j. This is a necessary condition, not a construction or an assertion that this configuration is possible in a plane instance.
+
+Proof. For fixed s, orient Q_s using a partner. Each component contains at most one root: its edge count is its vertex count minus its number of roots, and connectivity forbids two roots. Components with a root are trees and orient uniquely toward it. Root-free components are unicyclic and have two independent cyclic directions. Thus s has exactly 2^k partners, with k its number of unicyclic components. Different partners give different covers, because s and a cover determine r uniquely. With only two covers available k is zero or one. A state has k=1 precisely when it occurs as second state in both covers; all others occurring in a pair are tree states. Counting pairs proves the first formula.
+
+On a face where the two covers differ, the two selected two-element corner sets have exactly one common corner. A common second state must choose that corner, fixing the orientation of that entire component cycle in either cover. Any D1 cycle containing no changed face is identical in D2. Conversely every nonidentical D1 cycle contains a changed face, so its orientation is forced. The j common cycles are disjoint from all other components in both covers and may each be oriented freely. If the forced choices are consistent they give exactly 2^j common states; otherwise none. This proves the formula for a.
+
+Distinctness gives j<=min(c1,c2)-1. Put q=min(c1,c2). Then 2a<=2^q and 2^c1+2^c2>=2^(q+1), proving the bound. Equality in both inequalities requires exactly c1=c2=j+1 and a=2^j.
+
+PROVED-HERE. If c1!=c2, parity gives max(c1,c2)>=q+2, so #TM>=4*2^q. If c1=c2=q and j<=q-2, then #TM>=3*2^(q-1)>2^q. The remaining equality configuration would have just one noncommon cycle in each cover. Excluding it by planarity would prove strictness in the two-element case. No such exclusion is proved here.
+
+CONJECTURE. The exceptional configuration cannot occur for these planar incidence graphs. Test by recording c1,c2,j,a for all two-element lattices, and seek a Jordan-curve obstruction using the shared second-state spokes. This isolates a smaller obligation than the full strict-inequality conjecture. The census supports strictness but does not replace that proof.
