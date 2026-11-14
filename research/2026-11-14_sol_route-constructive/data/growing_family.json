@@ -1,0 +1,123 @@
+[
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 4,
+    "N": 24,
+    "n": 11,
+    "enumeration_seconds": 0.004585899994708598,
+    "flow_seconds": 0.0017389999702572823,
+    "marked_seconds_excluding_flow": 0.0023738000309094787,
+    "prefix_stats": {
+      "prefixes": 20,
+      "candidates": 23,
+      "disconnected": 1,
+      "unextendable": 3
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 8,
+    "N": 48,
+    "n": 23,
+    "enumeration_seconds": 0.009569000103510916,
+    "flow_seconds": 0.0017747998936101794,
+    "marked_seconds_excluding_flow": 0.002699500066228211,
+    "prefix_stats": {
+      "prefixes": 24,
+      "candidates": 23
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 12,
+    "N": 72,
+    "n": 35,
+    "enumeration_seconds": 0.020396300009451807,
+    "flow_seconds": 0.0027547000208869576,
+    "marked_seconds_excluding_flow": 0.004219700000248849,
+    "prefix_stats": {
+      "prefixes": 36,
+      "candidates": 35
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 16,
+    "N": 96,
+    "n": 47,
+    "enumeration_seconds": 0.03498250001575798,
+    "flow_seconds": 0.004226300050504506,
+    "marked_seconds_excluding_flow": 0.005396399996243417,
+    "prefix_stats": {
+      "prefixes": 48,
+      "candidates": 47
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 24,
+    "N": 144,
+    "n": 71,
+    "enumeration_seconds": 0.10646209993865341,
+    "flow_seconds": 0.0060374999884516,
+    "marked_seconds_excluding_flow": 0.00893260003067553,
+    "prefix_stats": {
+      "prefixes": 72,
+      "candidates": 71
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 32,
+    "N": 192,
+    "n": 95,
+    "enumeration_seconds": 0.14098829997237772,
+    "flow_seconds": 0.008160099969245493,
+    "marked_seconds_excluding_flow": 0.012988600065000355,
+    "prefix_stats": {
+      "prefixes": 96,
+      "candidates": 95
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  },
+  {
+    "family": "truncated_even_bipyramid",
+    "equator": 48,
+    "N": 288,
+    "n": 143,
+    "enumeration_seconds": 0.33488400001078844,
+    "flow_seconds": 0.012249800027348101,
+    "marked_seconds_excluding_flow": 0.02258829993661493,
+    "prefix_stats": {
+      "prefixes": 144,
+      "candidates": 143
+    },
+    "marked_stats": {
+      "moves": 0,
+      "restarts": []
+    }
+  }
+]

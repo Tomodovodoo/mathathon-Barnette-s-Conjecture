@@ -1,0 +1,256 @@
+[
+  {
+    "name": "cube",
+    "two_matroid_size": 3,
+    "two_matroid_state_valid": true,
+    "spokes": [
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        6,
+        5
+      ]
+    ],
+    "wilson_successes": 24,
+    "wilson_trials": 100,
+    "seconds": 0.004156099981628358
+  },
+  {
+    "name": "hexagonal_prism",
+    "two_matroid_size": 5,
+    "two_matroid_state_valid": true,
+    "spokes": [
+      [
+        2,
+        5
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        8,
+        7
+      ],
+      [
+        10,
+        4
+      ]
+    ],
+    "wilson_successes": 3,
+    "wilson_trials": 100,
+    "seconds": 0.004307399969547987
+  },
+  {
+    "name": "truncated_octahedron",
+    "two_matroid_size": 11,
+    "two_matroid_state_valid": false,
+    "spokes": [
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        13,
+        7
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        17,
+        6
+      ],
+      [
+        19,
+        8
+      ],
+      [
+        20,
+        9
+      ],
+      [
+        23,
+        11
+      ]
+    ],
+    "wilson_successes": 0,
+    "wilson_trials": 100,
+    "seconds": 0.00961249996908009
+  },
+  {
+    "name": "truncated_cuboctahedron",
+    "two_matroid_size": 23,
+    "two_matroid_state_valid": false,
+    "spokes": [
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        6,
+        5
+      ],
+      [
+        8,
+        3
+      ],
+      [
+        10,
+        12
+      ],
+      [
+        12,
+        10
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        17,
+        4
+      ],
+      [
+        19,
+        4
+      ],
+      [
+        21,
+        6
+      ],
+      [
+        23,
+        8
+      ],
+      [
+        25,
+        9
+      ],
+      [
+        27,
+        9
+      ],
+      [
+        29,
+        10
+      ],
+      [
+        30,
+        23
+      ],
+      [
+        33,
+        13
+      ],
+      [
+        34,
+        16
+      ],
+      [
+        36,
+        14
+      ],
+      [
+        38,
+        15
+      ],
+      [
+        41,
+        17
+      ],
+      [
+        43,
+        18
+      ],
+      [
+        45,
+        18
+      ],
+      [
+        46,
+        23
+      ]
+    ],
+    "wilson_successes": 0,
+    "wilson_trials": 100,
+    "seconds": 0.025604099966585636
+  },
+  {
+    "name": "cyclic_20",
+    "two_matroid_size": 9,
+    "two_matroid_state_valid": false,
+    "spokes": [
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        9,
+        7
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        13,
+        3
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        16,
+        11
+      ],
+      [
+        19,
+        8
+      ]
+    ],
+    "wilson_successes": 0,
+    "wilson_trials": 100,
+    "seconds": 0.007491500000469387
+  }
+]

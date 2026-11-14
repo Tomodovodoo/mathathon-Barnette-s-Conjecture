@@ -77,3 +77,46 @@ class LiObjects:
         _, new_t, kind = hits[partner]
         return (self.b.reverse_d(p, c) if kind == 0 else p), (y, new_t)
 
+
+class LiMultiObjects(LiObjects):
+    """Appendix B using unordered sets of distinct intersections as Definition 14.
+    A canonical tuple stores each set. No repetitions or ordering multiplicity.
+    """
+    def objects(self, pairs):
+        from itertools import combinations
+        m = min(len(self.b.dcycles(*p)) for p in pairs)
+        for p in pairs:
+            marks = set()
+            for y in self.b.white:
+                for c in self.b.dcycles(*p):
+                    marks.update((y,t) for _,t,k in self.hits(p,c,y) if k==1)
+            for tokens in combinations(sorted(marks),m):
+                yield p,tokens
+
+    def sign(self,obj):
+        p, marks=obj
+        return (self.b.J(*p)//2 + sum(int(bool(self.pos[p[1][self.b.A.index(t)]][0] < self.centers[t][0])) for y,t in marks))%2
+
+    def iota2(self,obj):
+        p,marks=obj
+        cs=self.b.dcycles(*p)
+        for c in cs:
+            if not any(t in c for y,t in marks):
+                return self.b.reverse_d(p,c),marks
+        # Minimum cycle count forces exactly one mark per cycle.
+        assert len(cs)==len(marks)
+        entries=[]
+        for c in cs:
+            y,t=next(mark for mark in marks if mark[1] in c)
+            hits=self.hits(p,c,y)
+            index=next(i for i,(_,f,k) in enumerate(hits) if f==t and k==1)
+            entries.append((c,y,t,hits,index))
+        offending=next((e for e in entries if len(e[3])%2==0),None)
+        if offending is None:
+            offending=next((e for e in entries if e[4]>0),None)
+        if offending is None: return obj
+        c,y,t,hits,index=offending
+        partner=(index^1) if len(hits)%2==0 else ((index-1)^1)+1
+        _,new_t,kind=hits[partner]
+        new_marks=tuple(sorted((set(marks)-{(y,t)})|{(y,new_t)}))
+        return (self.b.reverse_d(p,c) if kind==0 else p),new_marks

@@ -1,0 +1,6 @@
+{
+  "naive": "0",
+  "coefficient": "45/64",
+  "signed_sum": "45/64",
+  "formula": "5*y0*y1*y4*(-4*y0*y3 - 5*y1*y2 + 9*y2*y3)/64"
+}

@@ -1,4 +1,4 @@
-﻿"""Constructive algorithms and experimental candidates. All caps are explicit."""
+"""Constructive algorithms and experimental candidates. All caps are explicit."""
 from collections import Counter
 import random
 import networkx as nx
@@ -43,20 +43,21 @@ def marked_walk(b, pair=None, cap=1000000):
     p = pair or b.flow_pair()
     if p is None:
         raise ValueError('No disjoint pair; split first')
-    moves, restarts = 0, []
+    moves, restarts, normalizations = 0, [], 0
     while True:
         cycles = b.dcycles(*p)
         m = len(cycles)
         for c in cycles:
             if sum(b.delta(p[0][b.A.index(t)], p[1][b.A.index(t)]) for t in c) == 3:
                 p = b.reverse_d(p, c)
+                normalizations += 1
         tokens = tuple(pool(b, p, c, True)[len(pool(b, p, c, False))] for c in cycles)
         obj = p, tokens
         assert alpha(b, obj) == obj
         while True:
             nxt = beta(b, obj)
             if nxt == obj:
-                return obj[0], {'moves': moves, 'restarts': restarts}
+                return obj[0], {'moves': moves, 'normalization_reversals': normalizations, 'restarts': restarts}
             obj = nxt
             moves += 1
             nxt = alpha(b, obj)
@@ -181,4 +182,95 @@ def solve(b, prescribed=None, stats=None):
         cycle.append(nxt)
         prev, cur = cur, nxt
     stats['splits'] += 1
-    return {'classes': classes, 'P': p, 'cycle': cycle, 'avoided_edge': b.dual_edges[e0], 'separator': sorted(tri), 'children': [a, z]}
+    result = {'classes': classes, 'P': p, 'cycle': cycle, 'avoided_edge': b.dual_edges[e0], 'separator': sorted(tri), 'children': [a, z]}
+    if hasattr(b, 'primal_labels'):
+        result['cycle_original'] = [b.primal_labels[v] for v in cycle]
+        result['avoided_edge_original'] = [b.primal_labels[v] for v in b.dual_edges[e0]]
+    return result
+
+def white_ground(b):
+    ground = []
+    for t in b.A:
+        for v in sorted(set(b.faces[t]) & set(b.X)):
+            ys = []
+            for u in set(b.faces[t]) - {v}:
+                ys.append(next(y for y in (b.sides[v, u], b.sides[u, v]) if y in b.white))
+            ground.append((t, v, *ys))
+    return ground
+
+
+def two_matroid_candidate(b):
+    """Exact intersection of face partition and white graphic matroids.
+    This deliberately omits the X partition, then reports whether it held anyway.
+    """
+    ground = white_ground(b)
+    def face_independent(ids):
+        return len({ground[i][0] for i in ids}) == len(ids)
+    def forest(ids):
+        uf = nx.utils.UnionFind(b.white)
+        for i in ids:
+            _, _, u, v = ground[i]
+            if uf[u] == uf[v]: return False
+            uf.union(u, v)
+        return True
+    selected = set()
+    while True:
+        outside = set(range(len(ground))) - selected
+        starts = [y for y in outside if face_independent(selected | {y})]
+        parent = {y: None for y in starts}
+        queue = list(starts)
+        endpoint = None
+        for y in queue:
+            if y not in selected and forest(selected | {y}):
+                endpoint = y
+                break
+            if y in selected:
+                ns = [z for z in outside if face_independent(selected - {y} | {z})]
+            else:
+                ns = [z for z in selected if forest(selected - {z} | {y})]
+            for z in ns:
+                if z not in parent:
+                    parent[z] = y
+                    queue.append(z)
+        if endpoint is None: break
+        path = []
+        while endpoint is not None:
+            path.append(endpoint)
+            endpoint = parent[endpoint]
+        selected.symmetric_difference_update(path)
+        assert face_independent(selected) and forest(selected)
+    spokes = [(ground[i][0], ground[i][1]) for i in sorted(selected)]
+    return spokes, len(spokes) == b.n and len({v for t,v in spokes}) == b.n
+
+
+def wilson_candidate(b, seed=0, cap=100000):
+    """Loop-erased walk on the white multigraph, followed by state rejection."""
+    rng = random.Random(seed)
+    ground = white_ground(b)
+    adjacency = {v: [] for v in b.white}
+    for i, (_, _, u, v) in enumerate(ground):
+        adjacency[u].append((v, i)); adjacency[v].append((u, i))
+    tree = {b.white[0]}
+    selected = []
+    steps = 0
+    for start in b.white:
+        if start in tree: continue
+        path, es = [start], []
+        while path[-1] not in tree:
+            steps += 1
+            if steps > cap: return None
+            v, i = rng.choice(adjacency[path[-1]])
+            if v in path:
+                j = path.index(v)
+                path, es = path[:j+1], es[:j]
+            else:
+                path.append(v); es.append(i)
+        tree.update(path)
+        selected.extend(es)
+    spokes = [(ground[i][0], ground[i][1]) for i in selected]
+    if len({t for t,v in spokes}) != b.n or len({v for t,v in spokes}) != b.n:
+        return None
+    state = dict(spokes)
+    s = tuple(state[t] for t in b.A)
+    assert b.is_tree(s)
+    return s

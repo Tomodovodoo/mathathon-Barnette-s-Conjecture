@@ -565,6 +565,20 @@
     "avoided_edge": [
       0,
       1
+    ],
+    "cycle_original": [
+      0,
+      1,
+      7,
+      6,
+      2,
+      3,
+      5,
+      4
+    ],
+    "avoided_edge_original": [
+      0,
+      3
     ]
   }
 }

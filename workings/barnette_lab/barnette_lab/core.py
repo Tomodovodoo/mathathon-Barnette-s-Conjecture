@@ -1,4 +1,4 @@
-﻿"""Executable incidence-matching construction. Vertices are integers; face IDs index faces."""
+"""Executable incidence-matching construction. Vertices are integers; face IDs index faces."""
 from collections import Counter, deque
 from itertools import combinations, product
 import random
@@ -65,12 +65,25 @@ class Instance:
         self.B = self.H.subgraph([('t', t) for t in self.A] + [('v', v) for v in self.X]).copy()
         self.K = sp.Matrix([[int(v in self.faces[t]) for v in self.X] for t in self.A])
         self._weights = None
+        assert self.n == len(self.X)
+        assert len(self.white) == len(self.black) == self.n + 1
+        assert len(self.T) == self.n + 3
+        assert self.T.number_of_edges() == 3 * (self.n + 1)
+        assert len(self.H) == 2 * self.n + 4
+        assert self.H.number_of_edges() == 3 * self.n + 3
 
     @classmethod
     def from_primal(cls, g):
         if not (nx.is_bipartite(g) and all(d == 3 for _, d in g.degree()) and nx.node_connectivity(g) == 3):
             raise ValueError('Expected simple cubic bipartite 3-connected graph')
-        return cls(dual_graph(g))
+        b = cls(dual_graph(g))
+        _, original_embedding = nx.check_planarity(g)
+        original_faces, original_sides = faces_of(original_embedding)
+        by_incidence = {frozenset(original_sides[v, w] for w in g[v]): v for v in g}
+        b.primal_labels = {i: by_incidence[frozenset(f)] for i, f in enumerate(b.faces)}
+        b.input_graph = g.copy()
+        assert set(b.primal_labels.values()) == set(g)
+        return b
 
     def delta(self, u, v):
         return 1 if self.sides[u, v] in self.black else -1
@@ -238,6 +251,11 @@ class Instance:
             shift = min(a[t, v] for v in self.faces[t])
             for v in self.faces[t]:
                 a[t, v] -= shift
+        for i, face in enumerate(fs):
+            circulation = 0
+            for u, v in zip(face, face[1:] + face[:1]):
+                circulation += a[u[1], v[1]] if u[0] == 't' else -a[v[1], u[1]]
+            assert circulation == (1 - len(fs) if i == outer else 1)
         self._weights = dict(a)
         return self._weights
 
@@ -284,8 +302,13 @@ class Instance:
                 break
             cycle.append(nxt)
             previous, current = current, nxt
-        return {'state': list(s), 'white_tree': sorted(map(list, wtree.edges())), 'white_root': y0,
+        result = {'state': list(s), 'white_tree': sorted(map(list, wtree.edges())), 'white_root': y0,
                 'P': p, 'classes': classes, 'cycle': cycle, 'avoided_edge': self.dual_edges[e0]}
+        if hasattr(self, 'primal_labels'):
+            result['cycle_original'] = [self.primal_labels[v] for v in cycle]
+            result['avoided_edge_original'] = [self.primal_labels[v] for v in self.dual_edges[e0]]
+            assert check_cycle(self.input_graph, result['cycle_original'], result['avoided_edge_original'])
+        return result
 
 
 def check_cycle(g, cycle, forbidden):
@@ -346,3 +369,33 @@ def generated(max_vertices=12):
             for f in range(len(fs)):
                 queue.append(glue_triangles(t, nx.octahedral_graph(), f, 0))
 
+
+def plantri_graphs(vertices, executable):
+    """All plane Eulerian triangulations from external plantri -ba, one per class."""
+    import subprocess
+    run = subprocess.run([str(executable), '-ba', str(vertices)], capture_output=True, check=True, text=True, timeout=120)
+    for line in run.stdout.splitlines():
+        n, data = line.split()
+        adjacency = data.split(',')
+        g = nx.Graph()
+        for v, ns in enumerate(adjacency):
+            g.add_edges_from((v, ord(c) - ord('a')) for c in ns)
+        assert len(g) == int(n)
+        yield g
+
+def hamiltonian_cycle(g, forbidden):
+    """Return original vertex labels and avoid an arbitrary prescribed input edge."""
+    from .algorithms import solve
+    if not g.has_edge(*forbidden):
+        raise ValueError('The forbidden edge is not an input edge')
+    initial = Instance.from_primal(g)
+    inverse = {v: i for i, v in initial.primal_labels.items()}
+    dual_forbidden = edge(*(inverse[v] for v in forbidden))
+    e0 = next(e for e, dual_e in initial.dual_edges.items() if dual_e == dual_forbidden)
+    b = Instance(initial.T, inverse[forbidden[0]])
+    b.primal_labels = initial.primal_labels
+    b.input_graph = g.copy()
+    cert = solve(b, e0)
+    result = cert['cycle_original']
+    assert check_cycle(g, result, forbidden)
+    return result

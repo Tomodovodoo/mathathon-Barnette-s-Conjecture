@@ -1,0 +1,7 @@
+{
+  "python": "3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "networkx": "3.6.1",
+  "sympy": "1.14.0",
+  "numpy": "2.4.3"
+}

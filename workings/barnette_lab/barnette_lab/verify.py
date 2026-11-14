@@ -9,7 +9,7 @@ import time
 import networkx as nx
 from .core import Instance, named_graphs, generated, edge, check_cycle, faces_of
 from .algorithms import alpha, beta, marked_walk, exchange_walk, determinant_sample, separators, solve, pool
-from .li import LiObjects
+from .li import LiObjects, LiMultiObjects
 
 
 def verify(b, exhaustive_disk=False):
@@ -72,7 +72,7 @@ def verify(b, exhaustive_disk=False):
                 assert black + white == 2 * len(vertices) + h - 2
                 assert 3 * (black - white) == 2 * l - h
                 assert black == len(vertices) + l
-                assert abs(sum(b.delta(v, w) for v, w in zip(c, c[1:] + c[:1]))) == 3
+                assert sum(b.delta(v, w) for v, w in zip(c, c[1:] + c[:1])) == (-3 if b.sides[c[0], c[1]] in inside_faces else 3)
                 counts['disk_cycles'] += 1
     for s in ss:
         mates = [r for r, z in pairs if z == s]
@@ -111,6 +111,16 @@ def verify(b, exhaustive_disk=False):
         assert b.is_tree(found[1])
         counts['marked_runs'] += 1
         counts['marked_moves'] += stats['moves']
+    for p in pairs:
+        tokens = [(t, k) for t, v in zip(b.A, p[1]) for k in range(1, a.get((t, v), 0) + 1)]
+        for token in tokens:
+            obj = p, (token,)
+            for inv in (alpha, beta):
+                image = inv(b, obj)
+                assert inv(b, image) == obj
+                if image != obj:
+                    assert b.sign(*image[0]) == -b.sign(*p)
+                counts['marked_involution_checks'] += 1
     for component in nx.connected_components(exchange):
         trees = [p for p in component if b.is_tree(p[1])]
         assert trees and sum(b.sign(*p) for p in trees) == 0
@@ -139,6 +149,17 @@ def verify(b, exhaustive_disk=False):
                 fixed_count += 1
             counts['li_objects'] += 1
         assert fixed_count and len(fixed_signs) == 1
+    if pairs and b.n <= 11 and min(len(b.dcycles(*p)) for p in pairs) > 1:
+        li = LiMultiObjects(b)
+        fixed_signs = set()
+        for obj in li.objects(pairs):
+            for inv in (li.iota1, li.iota2):
+                image = inv(obj)
+                assert inv(image) == obj
+                if image != obj: assert li.sign(image) != li.sign(obj)
+            if li.iota2(obj) == obj: fixed_signs.add(li.sign(obj))
+            counts['li_multi_objects'] += 1
+        assert len(fixed_signs) == 1
     for e0 in combinations(b.faces[b.outer], 2):
         cert = solve(b, e0)
         assert check_cycle(b.G, cert['cycle'], cert['avoided_edge'])
@@ -151,8 +172,9 @@ def verify(b, exhaustive_disk=False):
 
 def export(b):
     ss = list(b.states())
-    pair = b.flow_pair()
     s = b.enumerate_tree()
+    mate = next(r for r in ss if all(x != y for x, y in zip(r, s)))
+    pair = mate, s
     return {'schema': 1, 'T_edges': sorted(map(list, b.T.edges())), 'T_rotation': {str(v): list(b.embedding.neighbors_cw_order(v)) for v in b.T},
             'G_edges': sorted(map(list, b.G.edges())), 'faces': b.faces, 'black': b.black, 'white': b.white, 'outer': b.outer,
             'roots': sorted(b.R), 'A': b.A, 'X': b.X, 'states': ss, 'pair': pair,
@@ -166,11 +188,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--max-dual-vertices', type=int, default=10)
+    parser.add_argument('--plantri', type=Path)
+    parser.add_argument('--plantri-max', type=int, default=14)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     rows = []
     graphs = [(name, Instance.from_primal(g)) for name, g in named_graphs().items()]
     graphs += [(f'generated_{i}', Instance(t)) for i, t in enumerate(generated(args.max_dual_vertices))]
+    if args.plantri:
+        from .core import plantri_graphs
+        for n in range(6, args.plantri_max + 1):
+            graphs += [(f'plantri_{n}_{i}', Instance(t)) for i, t in enumerate(plantri_graphs(n, args.plantri.resolve()))]
     # Both boundary colors occur by rerooting a glued example.
     from .core import glue_triangles
     glued = glue_triangles(nx.octahedral_graph(), nx.octahedral_graph())
