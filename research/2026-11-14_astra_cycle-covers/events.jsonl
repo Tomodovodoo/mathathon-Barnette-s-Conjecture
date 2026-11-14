@@ -1,0 +1,1 @@
+{"event": "proposed", "prediction": "4-connected census reaches cmin>=5 by V24; fixed-cycle-count flip levels need not be connected; primal complement has c+1 components.", "tests": "plantri -b -c4, lattice enumeration; independent lab checks"}
