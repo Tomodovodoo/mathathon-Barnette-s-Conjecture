@@ -739,8 +739,8 @@ def open_fig():
     # (statement, largest size with every case checked by two independent programs, by at least one program, largest sampled size)
     bars = [(r'at least $2^m$ good states, $m$ the fewest\\cycles of a cover: every root', 22, 22, 100),
             (r'the same bound, on triangulations\\without separating triangles', 16, 24, None),
-            (r'greedy descent in the lattice\\reaches a good state', None, 16, 150),
-            (r'exchange descent on rainbow trees\\reaches a good state', None, 17, 120),
+            (r'pair descent that never adds a cycle\\reaches a good pair', 20, 23, 150),
+            (r'exchange descent on rainbow trees\\reaches a good state', 12, 17, 120),
             ('some contraction keeps a pair', 17, 19, None),
             (r'a contraction never has more\\good states than the original', 17, 18, None)]
     # (statement, size of a known counterexample, True if every smaller case was checked)
@@ -749,6 +749,9 @@ def open_fig():
             ('an extreme or irreducible cover has one', 33, False), ('every maximal chain of covers has one', 33, False),
             ('at least half of all covers have one', 33, False), ('the evict walk never repeats', 38, False)]
     assert all((tw is None or tw <= on) and (sa is None or sa > on) for _, tw, on, sa in bars)
+    # pair descent: author's census 193,623,384 pairs through 23 (fable_descent), independent replay 3,373,400 pairs through 20 (astra_referee-descent).
+    # rainbow descent: author through 17 (fable_referee-topology), independent replay through 12 (opus_referee-rainbow).
+    assert [(tw, on) for _, tw, on, _ in bars] == [(22, 22), (16, 24), (20, 23), (12, 17), (17, 19), (17, 18)]
     w = 7.6
     X = lambda v: w * (math.log(v) - math.log(8)) / (math.log(150) - math.log(8))
     L = []

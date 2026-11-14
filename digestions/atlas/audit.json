@@ -33,7 +33,7 @@
   "families": 149,
   "hypotheses": 149,
   "pfaffian": 147,
-  "blueprint": 149,
+  "blueprint": 150,
   "open": 149
  },
  "figure_width_over_textwidth": {
@@ -65,7 +65,7 @@
   "families": 0.919,
   "hypotheses": 0.928,
   "pfaffian": 0.915,
-  "blueprint": 0.928,
+  "blueprint": 0.929,
   "open": 0.884
  },
  "overfull_pt": [],

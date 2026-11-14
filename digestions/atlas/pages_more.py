@@ -198,26 +198,30 @@ On a torus, cycles need not bound disks. The grid in (d) has pairs, but no state
      [RS + 'astra_limits/HYPOTHESES.md', RS + 'astra_limits/examples/', RS + 'sol_referee-structure/REFEREE-limits.md', HERE])
 
 page('families', 'families', 'Two families, counted', G6, r'''
-Counting on families shows how thin the set of good states can be.
+Two families show how thin the set of good states can be.
 The dual of a prism with $2m$ sides has $m$ states and exactly two good states, while the number of Hamiltonian cycles of the prism grows with $m$.
 A nanotube of width four is a stack of rings. Its states multiply with every layer, 2, 5, 13, 34, and it still has exactly two good states.
-So the proof finds a cycle in a set of states where almost none qualify, and the cycles it finds are a small part of all Hamiltonian cycles.
-Both families have no separating triangles, so the rarity is not caused by gluing.''',
-     r'''The counts in the chart are computed here by direct enumeration. The general formulas for these families come from a report of this project, and a second model rebuilt their proofs independently. Not read by a human.''',
+So the proof finds its cycle among states of which almost none qualify, and the cycles it finds are few among all Hamiltonian cycles.
+Neither family has a separating triangle, so gluing does not cause the rarity.''',
+     r'''The chart's counts are enumerated here. The general formulas come from a report of this project. A second run of the author's model checked them for every length, and a different model confirmed the counts on finite ranges. Not read by a human.''',
      ['produced', 'lattice', 'open'],
-     [RS + 'sol_counting-families/FAMILIES.md', RS + 'sol_counting-families/REPORT.md', RS + 'sol_referee-covers/REFEREE-families.md', HERE])
+     [RS + 'sol_counting-families/FAMILIES.md', RS + 'sol_counting-families/REPORT.md', RS + 'sol_referee-covers/REFEREE-families.md (same model as the author, every length)',
+      RS + 'fable_referee-families/REFEREE-families.md (a different model, finite ranges only)', RS + 'fable_referee-families/DISAGREEMENTS.md', HERE])
 
 page('open', 'open doors', 'What is still open, and how far it was tested', G6, r'''
-Six statements would give a proof that avoids the signed sum, a fast algorithm, or a count. None is proved.
-A solid bar reaches the size up to which two independent programs checked every case. An outlined bar marks checks by one program, and a dashed line marks random samples.
-The counting bound was checked twice on every root up to 22 vertices. The search without separating triangles reaches 24, but a second program repeated it only up to 16.
-The crosses are statements of the same kind that failed, at the size of a known counterexample.
+Six statements would give a proof without the signed sum, a fast algorithm, or a count. None is proved.
+A solid bar ends where two independent programs checked every case, an outlined bar where one did. Dashes are random samples.
+Two programs checked the counting bound on every root up to 22 vertices. Without separating triangles the search reaches 24, repeated only up to 16.
+The pair descent passed its author's census of 193,623,384 pairs up to 23, and another model's program on 3,373,400 pairs up to 20.
+A cross marks a similar statement that failed, at the size of a known counterexample.
 Three crosses sit at 33 vertices, beyond every exhaustive range, so passing all small cases is weak evidence.''',
-     r'''The ranges are quoted from this project's reports and from the second models that repeated them. No census was rerun for this atlas. Panel (b) is computed here. Not read by a human.''',
+     r'''The ranges are quoted, not rerun, from this project's reports and the other models that repeated them. Panel (b) is computed here. Not read by a human.''',
      ['chain', 'rainbow', 'induction', 'pairlattice', 'canonical'],
-     [RS + 'opus_conjectures/REPORT.md', RS + 'sol_referee-conjectures/REFEREE.md (bound replayed on 9,531,638 roots through 22; descent on all 24,744 pairs through 16; 33-vertex counterexamples)',
+     [RS + 'opus_conjectures/REPORT.md', RS + 'sol_referee-conjectures/REFEREE.md (bound replayed on 9,531,638 roots through 22, of which 4,656,948 have a pair; descent on all 24,744 pairs through 16; 33-vertex counterexamples)',
+      RS + 'fable_descent/REPORT.md (pair descent, the author: 193,623,384 pairs through 23)',
+      RS + 'astra_referee-descent/REPORT.md (pair descent replayed by a different model: 3,373,400 pairs through 20)',
       RS + 'astra_cycle-covers/REPORT.md (23,824,742 roots through 24, no separating triangles)', RS + 'sol_referee-covers/REFEREE-covers.md (replayed through 16 only: 129 graphs, 3,374 roots)',
-      RS + 'fable_referee-topology/REPORT.md (rainbow descent through 17, walk periodic at 38)', RS + 'opus_route-induction/REPORT.md',
+      RS + 'fable_referee-topology/REPORT.md (rainbow descent through 17, walk periodic at 38)', RS + 'opus_referee-rainbow/REPORT.md (rainbow descent replayed through 12)', RS + 'opus_route-induction/REPORT.md',
       RS + 'fable_induction-completion/REFEREE.md (contractions through 18 and 19, direct lift refuted at 18)', RS + 'astra_referee-combinatorics/REPORT.md (12-vertex example)',
       RS + 'sol_atlas-audit/AUDIT.md (range ledger)', HERE + ' (panel b only)'])
 
@@ -238,16 +242,17 @@ Bijective note: refereed twice, verdict follows. None was read by a human. All n
       HERE + ' (figs_proofs.py: 176 height jumps, 16 cut fluxes, the local potentials of the flow, all 43 marked objects and the 9 unpaired ones)'])
 
 page('blueprint', 'machine check', 'What is machine-checked', G6, r'''
-OpenAI published a Lean proof with their paper. This project's main paper takes a different route in places,
-so a blueprint lists the 34 statements on its route and looks for each in the Lean proof.
-Four match a Lean declaration exactly. Twenty-five match only after a translation, and five have no counterpart.
-The translations are not machine-checked, so Lean certifies the theorem and not this paper's argument.
-Nothing in this atlas is checked in Lean either.
-A later Lean version follows the paper's sign and finite-difference route. With it a second model counts 5, 27 and 2.''',
-     r'''The blueprint is this project's. The later Lean version was rebuilt and checked by a second model.
-It compiles from a fresh copy and its statements say what is claimed. That model calls its recount advisory, and it corrected three claims made around the proof. Not read by a human.''',
+OpenAI published a Lean proof. This project's main paper takes a different route in places,
+so a blueprint looks for each of the 34 statements on its route in the Lean proof.
+Five match a Lean declaration exactly, seventeen match after a translation, ten have only a weaker or different counterpart and two have none.
+These counts include a later Lean version that follows the paper's sign and finite-difference route, rebuilt and checked by a second model.
+With it the main theorem avoids six named lemmas of OpenAI's phase and polynomial argument. The dual construction still uses general polynomial algebra.
+The translations are not machine-checked, so Lean certifies the theorem and not this paper's argument.''',
+     r'''One model of this project made the blueprint and its four-way count. The second model's recount has three classes and agrees. Nothing in this atlas is checked in Lean. Not read by a human.''',
      ['keystep', 'primal', 'open'],
      ['proofs/blueprint/BLUEPRINT.md', 'proofs/blueprint/blueprint.json (statuses and uses, read by the build)', 'proofs/blueprint/columns.pdf',
       'proofs/lean/README.md', 'proofs/lean/BLUEPRINT-DELTA.md',
-      RS + 'astra_lean-check/REPORT.md (independent rebuild; advisory recount 5, 27, 2; three corrections)',
+      RS + 'opus_lean-integration/STATUS-TABLE.md (four-way status: 5, 17, 10, 2)',
+      RS + 'astra_lean-check/REPORT.md (independent rebuild; advisory recount 5, 27, 2 in three classes; three corrections)',
+      RS + 'astra_lean-check/REACHABILITY.md (the six lemmas no longer reached; 276 general polynomial declarations still reached)',
       RS + 'astra_lean-check/recount.json (read by the build)', HERE])

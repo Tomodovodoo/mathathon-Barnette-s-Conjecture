@@ -43,8 +43,9 @@ check(k['height_jump_checks'] == 176 and k['flux_checks'] == 16, 'keystep: numbe
 check((k['sigma_paper'], k['primal_coefficient'], k['marked_signed_total'], k['unpaired_objects'], k['marked_objects']) == (18, 9, -9, 9, 43), 'keystep: the three totals changed')
 check(abs(k['sigma_paper']) == 2 * k['product_sum'] and abs(k['primal_coefficient']) == k['product_sum'] == abs(k['marked_signed_total']), 'keystep: the three proofs disagree')
 b = C['blueprint']
-check(b['route_statements'] == 34 and b['counts'] == {'exact': 4, 'form': 25, 'none': 5}, 'blueprint: counts differ from the page text')
-check(b['advisory_recount'] == {'exact': 5, 'form': 27, 'none': 2} and len(b['moved_by_recount']) == 3, 'blueprint: recount differs from the page text')
+check(b['route_statements'] == 34 and b['counts'] == {'exact': 5, 'translation': 17, 'weaker': 10, 'none': 2}, 'blueprint: counts differ from the page text')
+check(b['advisory_recount_three_classes'] == {'exact': 5, 'form': 27, 'none': 2} and b['recount_is_this_count_merged'], 'blueprint: the three-class recount no longer agrees')
+check((len(b['exact']), len(b['translation']), len(b['weaker']), len(b['no_counterpart'])) == (5, 17, 10, 2), 'blueprint: lists differ from the counts')
 u = C['induction']['unrepaired_lifts']
 check(u['rows'] == 466 and u['shape']['two trees, a with v1 and b with v2'] == 466, 'induction: the 466 unrepaired lifts do not share one shape')
 check([p['slug'] for p in P] == pages.ORDER, 'page order differs from pages.ORDER')

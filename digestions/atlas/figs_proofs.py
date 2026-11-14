@@ -242,9 +242,9 @@ BP_SHORT = {
     'lem:reversals': '4.3 two reversals', 'txt:delta': 'local sign $\\delta$', 'lem:sign': '4.4 sign', 'lem:cancel': '4.5 cancellation', 'txt:heights': 'heights on paths',
     'lem:height': '4.6 height jump', 'lem:difference': '4.7 finite difference', 'prop:good': '4.8 pair to good state', 'txt:flow': 'max-flow step',
     'eq:hall': '(5.1) capacity', 'prop:pair': '5.2 a pair exists', 'lem:cap': '6.1 caps', 'thm:T': '6.2 selection with $e_0$'}
-# The fill is the blueprint's own status. The independent rebuild of the later Lean version
-# (research/2026-11-14_astra_lean-check/) left those statuses unchanged and gave an advisory recount;
-# the statements that recount moves are marked with a dot.
+# The fill is the blueprint's own four-way status (exact, translation, weaker, none), set after the independent
+# rebuild of the later Lean version (research/2026-11-14_astra_lean-check/). That rebuild's advisory recount has
+# three classes; its "after translation" must be the union of the blueprint's translation and weaker.
 
 
 @fig('blueprint')
@@ -253,20 +253,20 @@ def blueprint_fig():
     node = {n_['id']: n_ for n_ in bp['nodes']}
     sk = bp['analysis']['skeleton']
     assert len(sk) == 34 and set(sk) == set(BP_SHORT)
-    kind = {'checked-exact': 'exact', 'checked-form': 'form', 'refereed': 'none'}
-    cat = {i: kind[node[i]['status']] for i in sk}
-    assert Counter(cat.values()) == {'exact': 4, 'form': 25, 'none': 5}
-    assert bp['analysis']['status_counts_skeleton'] == {'checked-form': 25, 'refereed': 5, 'checked-exact': 4}
-    assert sorted(i for i in sk if cat[i] == 'none') == sorted(['lem:connected', 'prop:target.2', 'lem:outdegree', 'lem:sign', 'lem:difference'])
+    ORDER4 = ['exact', 'translation', 'weaker', 'none']
+    cat = {i: node[i]['status'] for i in sk}
+    counts = Counter(cat.values())
+    assert set(counts) == set(ORDER4) and [counts[k_] for k_ in ORDER4] == [5, 17, 10, 2]
+    assert bp['analysis']['status_counts_skeleton'] == dict(counts)
+    assert sorted(i for i in sk if cat[i] == 'none') == ['lem:connected', 'prop:target.2']
+    assert all(node[i]['weaker_how'] for i in sk if cat[i] == 'weaker')          # every weaker statement says what is missing
     rc = json.loads((ROOT / 'research/2026-11-14_astra_lean-check/recount.json').read_text(encoding='utf8'))
     rk = {'exact': 'exact', 'after translation': 'form', 'no counterpart': 'none'}
     cat2 = {row['id']: rk[row['category']] for row in rc['rows']}
-    assert set(cat2) == set(sk) and Counter(cat2.values()) == {'exact': 5, 'form': 27, 'none': 2}
-    moved = sorted(i for i in sk if cat2[i] != cat[i])
-    assert moved == ['lem:difference', 'lem:outdegree', 'lem:sign']
-    assert (cat2['lem:difference'], cat2['lem:sign'], cat2['lem:outdegree']) == ('exact', 'form', 'form')
-    assert sorted(i for i in sk if cat2[i] == 'none') == ['lem:connected', 'prop:target.2']
-    counts, counts2 = Counter(cat.values()), Counter(cat2.values())
+    counts2 = Counter(cat2.values())
+    assert set(cat2) == set(sk) and counts2 == {'exact': 5, 'form': 27, 'none': 2}
+    merge = {'exact': 'exact', 'translation': 'form', 'weaker': 'form', 'none': 'none'}
+    assert all(merge[cat[i]] == cat2[i] for i in sk)                               # the recount is the same count with two classes merged
     uses = nx.DiGraph()
     uses.add_nodes_from(sk)
     uses.add_edges_from((e['dst'], e['src']) for e in bp['edges'] if e['type'] == 'uses' and e['src'] in cat and e['dst'] in cat)
@@ -295,37 +295,42 @@ def blueprint_fig():
             L.append(rf'\draw[black!55,line width=.45pt,-{{Stealth[length=3pt,width=2.6pt]}}] ({x1 - nw / 2},{y1}) .. controls ({x1 - nw / 2 - dd},{y1}) and ({x2 - nw / 2 - dd},{y2}) .. ({x2 - nw / 2},{y2});')
         else:
             L.append(rf'\draw[black!55,line width=.45pt,-{{Stealth[length=3pt,width=2.6pt]}}] ({x1 + nw / 2},{y1}) to[out=0,in=180,looseness=.55] ({x2 - nw / 2},{y2});')
-    style = {'exact': 'fill=black!78,text=white,draw=black,line width=.6pt', 'form': 'fill=black!13,draw=black,line width=.6pt',
-             'none': 'fill=white,draw=black,line width=.9pt,dash pattern=on 2.2pt off 1.4pt'}
+    style = {'exact': 'fill=black!78,text=white,draw=black,line width=.6pt', 'translation': 'fill=black!20,draw=black,line width=.6pt',
+             'weaker': 'fill=white,draw=black,line width=1.5pt', 'none': 'fill=white,draw=black,line width=.8pt,dash pattern=on 2.2pt off 1.4pt'}
     for i in sk:
         x, y_ = pos[i]
         L.append(rf'\node[{style[cat[i]]},rounded corners=1.2pt,minimum width={nw}cm,minimum height={nh}cm,inner sep=1pt,font=\footnotesize] at ({x},{y_}) {{{BP_SHORT[i]}}};')
-        if i in moved:
-            L.append(rf'\fill[white,draw=black,line width=.7pt] ({x + nw / 2 - .02},{y_ + nh / 2 - .02}) circle[radius=3.1pt];\fill ({x + nw / 2 - .02},{y_ + nh / 2 - .02}) circle[radius=1.2pt];')
     # legend and count bar under the last column
     ly = -(max(len(c_) for c_ in cols) - 1) * dy - .85
-    lxs = [-nw / 2, 1.1, 5.6, 9.2]
-    leg = [('exact', rf'{counts["exact"]} exact'), ('form', rf'{counts["form"]} after a translation'),
-           ('none', rf'{counts["none"]} no counterpart')]
+    lxs = [-nw / 2, 0.75, 5.1, 9.55]
+    leg = [('exact', rf'{counts["exact"]} exact'), ('translation', rf'{counts["translation"]} after a translation'),
+           ('weaker', rf'{counts["weaker"]} weaker or different'), ('none', rf'{counts["none"]} no counterpart')]
     for j, (k_, txt_) in enumerate(leg):
         L.append(rf'\node[{style[k_]},rounded corners=1.2pt,minimum width=.62cm,minimum height=.36cm,inner sep=0pt] at ({lxs[j] + .31},{ly}) {{}};'
                  rf'\node[font=\footnotesize,anchor=west,inner sep=1pt] at ({lxs[j] + .7},{ly}) {{{txt_}}};')
-    if moved:
-        L.append(rf'\fill[white,draw=black,line width=.7pt] ({lxs[3] + .2},{ly}) circle[radius=3.1pt];\fill ({lxs[3] + .2},{ly}) circle[radius=1.2pt];'
-                 rf'\node[font=\footnotesize,anchor=west,inner sep=1pt] at ({lxs[3] + .42},{ly}) {{better in the recount}};')
     chart = tikz(L)
     tot = len(sk)
     wu = 14.4 / tot
-    B = [rf'\fill[black!78] (0,0) rectangle ({counts["exact"] * wu},.5);', rf'\fill[black!13] ({counts["exact"] * wu},0) rectangle ({(counts["exact"] + counts["form"]) * wu},.5);',
-         rf'\draw[line width=.7pt] (0,0) rectangle ({tot * wu},.5);', rf'\draw[line width=.7pt] ({counts["exact"] * wu},0) -- ++(0,.5) ({(counts["exact"] + counts["form"]) * wu},0) -- ++(0,.5);']
+    edge = [0]
+    for k_ in ORDER4:
+        edge.append(edge[-1] + counts[k_])
+    assert edge[-1] == tot
+    x = [e_ * wu for e_ in edge]
+    B = [rf'\fill[black!78] ({x[0]},0) rectangle ({x[1]},.5);', rf'\fill[black!20] ({x[1]},0) rectangle ({x[2]},.5);']
     for k in range(1, tot):
-        B.append(rf'\draw[line width=.3pt,black!50] ({k * wu},0) -- ({k * wu},.11);')
-    B.append(rf'\node[font=\footnotesize,text=white] at ({counts["exact"] * wu / 2},.25) {{{counts["exact"]}}};')
-    B.append(rf'\node[font=\footnotesize] at ({(counts["exact"] + counts["form"] / 2) * wu},.25) {{{counts["form"]} after a translation that is not machine-checked}};')
-    B.append(rf'\node[font=\footnotesize] at ({(tot - counts["none"] / 2) * wu},.25) {{{counts["none"]}}};')
+        B.append(rf'\draw[line width=.3pt,{"white" if k < edge[1] else "black!50"}] ({k * wu},0) -- ({k * wu},.11);')
+    B.append(rf'\draw[line width=.6pt] ({x[0]},0) rectangle ({x[2]},.5) ({x[1]},0) -- ++(0,.5);')
+    B.append(rf'\draw[line width=1.5pt] ({x[2] + .026},.026) rectangle ({x[3] - .026},.474);')
+    B.append(rf'\draw[line width=.8pt,dash pattern=on 2.2pt off 1.4pt] ({x[3] + .04},.014) rectangle ({x[4]},.486);')
+    lab = {'exact': f'{counts["exact"]} exact', 'translation': f'{counts["translation"]} after an unformalised translation',
+           'weaker': f'{counts["weaker"]} weaker or different', 'none': f'{counts["none"]}'}
+    for j, k_ in enumerate(ORDER4):
+        B.append(rf'\node[font=\footnotesize{",text=white" if k_ == "exact" else ""},inner sep=0pt] at ({(x[j] + x[j + 1]) / 2},.27) {{{lab[k_]}}};')
+    B.append(rf'\node[font=\footnotesize,anchor=north east,inner sep=1pt] at ({x[4]},-.07) {{no counterpart}};')
     bar = tikz(B)
     capa = (r'\begin{minipage}{14.4cm}\centering\footnotesize (a) The ' + str(tot) + r' statements on the main paper\textquotesingle s route to its theorem, by section. An arrow runs from a statement to one that uses it '
-            rf'({red.number_of_edges()} arrows, after dropping those implied by others). Dark: the Lean proof has a declaration that says the same. Grey: it has one after a translation. Dashed: none. Dot: the {len(moved)} statements that a later Lean version covers better, which gives {counts2["exact"]}, {counts2["form"]} and {counts2["none"]}.\end{{minipage}}')
+            rf'({red.number_of_edges()} arrows, after dropping those implied by others). Dark: the Lean proof has a declaration that says the same. Grey: it has one after a translation that nobody formalised. '
+            r'Heavy outline: it has only a weaker or a different statement. Dashed: none.\end{minipage}')
     capb = (r'\begin{minipage}{14.4cm}\centering\footnotesize (b) The same count as one bar, a box for each statement.\end{minipage}')
     led = (r'\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{10.4cm}@{}}\toprule '
            r'\textbf{The paper says} & \textbf{The Lean proof says instead}\\\midrule '
@@ -333,7 +338,7 @@ def blueprint_fig():
            r'a sign $\pm1$, the product of local signs & a power of $i$; the later Lean version works with the sign and relates the two\\'
            r'heights along paths of faces & weights from a flow\\'
            r'a cycle that avoids a given edge & a cycle; avoiding an edge is proved for the algebraic dual and not restated for the drawn graph\\\bottomrule\end{tabular}\end{minipage}')
-    CERT['blueprint'] = dict(route_statements=tot, counts=dict(counts), no_counterpart=sorted(i for i in sk if cat[i] == 'none'), exact=sorted(i for i in sk if cat[i] == 'exact'),
-                             uses=uses.number_of_edges(), drawn_arrows=red.number_of_edges(), advisory_recount=dict(counts2), moved_by_recount=moved,
+    CERT['blueprint'] = dict(route_statements=tot, counts={k_: counts[k_] for k_ in ORDER4}, **{k_ if k_ != 'none' else 'no_counterpart': sorted(i for i in sk if cat[i] == k_) for k_ in ORDER4},
+                             uses=uses.number_of_edges(), drawn_arrows=red.number_of_edges(), advisory_recount_three_classes=dict(counts2), recount_is_this_count_merged=True,
                              source='proofs/blueprint/blueprint.json')
     return (r'\begin{tabular}{@{}c@{}}' + chart + vs('2mm') + capa + vs('4mm') + bar + vs('1.5mm') + capb + vs('4mm') + led + r'\end{tabular}')

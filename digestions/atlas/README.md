@@ -2,9 +2,11 @@
 
 [Read the atlas](atlas.pdf): a contents page with thumbnails, 30 route pages, and a three-page table of sources. Each route page is also a separate vector PDF in `pages/`.
 
-This is the fourth pass, of 2026-11-14. It adds two pages (three written proofs of the key step, and what is machine-checked), fixes the spacing between stacked blocks in one shared macro, reorders the pages, and checks the shape of the 466 unrepaired lifts by computation. Page-by-page inspection notes, the changelog and before and after contact sheets in colour, greyscale and a deuteranopia simulation are in `research/2026-11-14_fable_atlas-finish/`. The third pass (audit integration, naming convention) is in `research/2026-11-14_fable_atlas-final/`, the second in `research/2026-11-14_fable_atlas-review/`.
+A repair pass of 2026-11-14 brought pages 26, 29 and 30 in line with the project's fact table: the four-way Lean status on page 29 (5, 17, 10, 2), the pair-descent ranges on page 30 (20 vertices by a second program, 23 by the author) and the review wording on page 26. Its changelog and before and after renders are in `research/2026-11-14_fable_atlas-repair/`.
 
-The atlas compares readings of one proof. It does not claim 30 independent proofs. One model audited the second pass and its corrections are applied; nobody has audited the third or this fourth pass, and no human mathematician has read any page. Each page says in plain words where its mathematics comes from and who checked it. Nothing in the atlas is checked in Lean.
+The fourth pass, also of 2026-11-14, came before it. The fourth pass adds two pages (three written proofs of the key step, and what is machine-checked), fixes the spacing between stacked blocks in one shared macro, reorders the pages, and checks the shape of the 466 unrepaired lifts by computation. Page-by-page inspection notes, the changelog and before and after contact sheets in colour, greyscale and a deuteranopia simulation are in `research/2026-11-14_fable_atlas-finish/`. The third pass (audit integration, naming convention) is in `research/2026-11-14_fable_atlas-final/`, the second in `research/2026-11-14_fable_atlas-review/`.
+
+The atlas compares readings of one proof. It does not claim 30 independent proofs. One model audited the second pass and its corrections are applied; nobody has audited the third pass, the fourth or the repair, and no human mathematician has read any page. Each page says in plain words where its mathematics comes from and who checked it. Nothing in the atlas is checked in Lean.
 
 ## Build and check
 
@@ -16,7 +18,7 @@ python digestions/atlas/build.py        # about one minute; add a slug such as "
 python digestions/atlas/verify.py       # re-runs every assertion and checks texts, sizes, the TeX log and the PDF
 ```
 
-`build.py` computes every drawn object, writes one standalone TikZ file per figure in `figs/`, compiles the changed ones, writes and compiles `atlas.tex`, splits it into `pages/NN-slug.pdf` and renders `renders/NN-slug.png` at 110 dpi. It writes only inside this directory. `verify.py` writes `audit.json` and exits non-zero on the first failed check. Last run: 30 routes, 34 pages, all checks passed, no overfull box. `verify.py` also checks the numbers the texts quote from the certificates (the three totals of page 10, the blueprint counts of page 29, the 466 of page 23) and that the page order is `pages.ORDER`.
+`build.py` calls `pdflatex` directly and does not use `latexmk`. It computes every drawn object, writes one standalone TikZ file per figure in `figs/`, compiles the changed ones, writes and compiles `atlas.tex`, splits it into `pages/NN-slug.pdf` and renders `renders/NN-slug.png` at 110 dpi. It writes only inside this directory. `verify.py` writes `audit.json` and exits non-zero on the first failed check. Last run (the repair pass): 30 routes, 34 pages, all checks passed, no overfull box. `verify.py` also checks the numbers the texts quote from the certificates (the three totals of page 10, the blueprint counts of page 29, the 466 of page 23) and that the page order is `pages.ORDER`.
 
 ## Files
 
@@ -38,7 +40,7 @@ python digestions/atlas/verify.py       # re-runs every assertion and checks tex
 
 The toolkit's encodings are unchanged: black faces grey, the outer black face as a grey collar, roots hollow, the second state `s` as solid blue wedges, the first state `r` as outlined wedges, `D` as blue arrows, `Q_s` dashed, kept spokes bold and deleted spokes dotted, the white-face tree green dash-dot, the selection `P` black and heavy, cycles of `G` purple, the two tree classes as disks and squares.
 
-The atlas adds: diagonal hatching for white faces that a page counts or highlights, a dot pattern for marked black faces, double lines for spokes shared by two states, dashed bold spokes for weight one half, heavy dashes for a cycle of `Q`, and rings round marked vertices. Every pair of objects that appear together differs in shape, weight or dash as well as colour. The green dash-dot curves of the white-face tree are drawn at 1.5pt on pages 8, 10, 19 and 21 so that they hold in greyscale. Page 29 uses fill and outline only: dark, light grey, dashed outline, and a ringed dot. Contact sheets of all 34 pages in colour, greyscale and a deuteranopia simulation are in `research/2026-11-14_fable_atlas-finish/after/`. In that simulation the orange dashes of the opposite edges and the green dash-dot of the white-face tree come out as the same olive. They never share a panel, and they differ in dash pattern.
+The atlas adds: diagonal hatching for white faces that a page counts or highlights, a dot pattern for marked black faces, double lines for spokes shared by two states, dashed bold spokes for weight one half, heavy dashes for a cycle of `Q`, and rings round marked vertices. Every pair of objects that appear together differs in shape, weight or dash as well as colour. The green dash-dot curves of the white-face tree are drawn at 1.5pt on pages 8, 10, 19 and 21 so that they hold in greyscale. Page 29 uses fill and outline only, one for each of the four statuses: dark fill, grey fill, heavy outline, dashed outline. A greyscale render is in `research/2026-11-14_fable_atlas-repair/after/`. Contact sheets of all 34 pages in colour, greyscale and a deuteranopia simulation are in `research/2026-11-14_fable_atlas-finish/after/`. In that simulation the orange dashes of the opposite edges and the green dash-dot of the white-face tree come out as the same olive. They never share a panel, and they differ in dash pattern.
 
 States are named `s_0` to `s_11` by volume, `s_0` the lowest. The running pair of the paper's figures is `(s_1, s_9)`; its cancelling partner is `(s_2, s_9)`.
 
@@ -70,8 +72,8 @@ The audit left seven proposed figures in `digestions/atlas/proposed/`. All seven
 
 ## What is still schematic or thin
 
-- Page 30: the chart quotes its ranges from project reports and from the second models that repeated them. Nothing on it was recomputed here.
-- Page 29: the statuses are the blueprint's, a hand curation by one model, read from its JSON file and not re-derived. The second count (5, 27, 2) is another model's advisory recount. "Match after a translation" hides five statements where the Lean proves less than the paper says. The table of translations is a summary in my words of four of the blueprint's bridges.
+- Page 30: the chart quotes its ranges from project reports and from the other models that repeated them. Nothing on it was recomputed here. The two contraction bars keep 17 as their two-program range. A referee later replayed a related counting inequality through 18, but I found no second program for these two statements beyond 17.
+- Page 29: the four statuses (5 exact, 17 after a translation, 10 weaker or different, 2 none) are the blueprint's, a hand curation by one model, read from its JSON file and not re-derived. Another model's advisory recount has three classes (5, 27, 2). The figure function asserts that it is the same count with "translation" and "weaker" merged. "No polynomial" on this page means six named upstream lemmas only. The table of translations is a summary in my words of four of the blueprint's bridges.
 - Page 10: one face path, one flow and one unpaired object are drawn. The totals are computed for the running example and one choice of paths (shortest paths in `G`, ties by face index). I did not compare these paths with the ones behind the primal note's own flow figure; other paths give other weights, and the proofs say only the lowest coefficient is independent of the choice. The bijective note's second pairing (which objects cancel which) is not drawn or recomputed: the page checks only that the signed count of all 43 marked objects equals the signed count of the 9 unpaired ones.
 - Page 7: panels (c) and (d) show one move of one mark on rays, and only the case with a reversal.
 - Page 22: the six patterns are those of one 4-cycle of one example. The general list is quoted.
@@ -114,7 +116,7 @@ Route-page numbers below match the current combined PDF. The contents is PDF pag
 | 26 | Two families, counted | [PDF](pages/26-families.pdf) | 14.64 x 14.29 | 149 |
 | 27 | What breaks when a hypothesis is dropped | [PDF](pages/27-hypotheses.pdf) | 14.77 x 18.18 | 149 |
 | 28 | Off the sphere: the Heawood graph on a torus | [PDF](pages/28-pfaffian.pdf) | 14.57 x 15.46 | 147 |
-| 29 | What is machine-checked | [PDF](pages/29-blueprint.pdf) | 14.78 x 16.85 | 149 |
+| 29 | What is machine-checked | [PDF](pages/29-blueprint.pdf) | 14.79 x 17.22 | 150 |
 | 30 | What is still open, and how far it was tested | [PDF](pages/30-open.pdf) | 14.07 x 19.14 | 149 |
 
 The text block is 15.92 cm wide, so every figure is between 0.80 and 0.95 of the text width. Word counts include the status sentence and exclude the short labels under the panels. Provenance for each page is in the Sources table at the end of the atlas and in the `sources` fields of `pages.py` and `pages_more.py`.
