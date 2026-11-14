@@ -63,7 +63,7 @@ Two warnings. The letter $H$ is the spoke graph in OpenAI and the constructive p
 
 | Term | Meaning | Paper | OpenAI | Li | Constructive | Lean |
 | --- | --- | --- | --- | --- | --- | --- |
-| $\delta(v,w)$ | $+1$ if the black face of $vw$ is left of $v \to w$, else $-1$ | $\delta$ | $\delta$ | $\tau = (1+\delta)/2$ | $\delta$ | corner sign |
+| $\delta(v,w)$ | $+1$ if the black face of $vw$ is left of $v \to w$, else $-1$ | $\delta$ | $\delta$ | $\tau = (1+\delta)/2$ | $\delta$ | - |
 | state cycle | directed cycle of chosen sides of a state | cycle of chosen sides | "simple directed cycle in the chosen edges" | alternating cycle of $H$ | same | `StateCycle` |
 | $h, \ell, I, B, W$ | length, edges with black face inside, interior vertices, black and white faces inside | same | $h, l, I, B, W$ | $\lvert C\rvert = 2h$, $t_{C,\mathrm{in}}$ | same | `state_disk_count` |
 | disk identity | $W = B + 1$ and $h = 2\ell + 3$; $\delta$-sum $-3$ counterclockwise, $+3$ clockwise | Lemma 3.8 | Lemma 4.1 | Claim 25 | Lemma 4.1 | `state_disk_count`, `disk_boundary_imbalance` |
