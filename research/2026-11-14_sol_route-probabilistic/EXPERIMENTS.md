@@ -25,7 +25,7 @@ Source limitation. paper/figures/example.json does not exist in this checkout. T
 
 ## Fractional tests and the joint exchange obstruction
 
-code/campaign.py scan checks one root on every plantri triangulation at V=6,...,14, 55 cases. code/half16.py checks roots 0 and 1 at V=16, 370 cases. These are not all roots. For every undirected pair support, all nonempty subsets of white vertices satisfy mass(S)<=|S|-1 for x=1/2 on that support. Cases without pairs are vacuous and must not be counted as positive witnesses. data/scan.json and data/half16.json retain the pair counts.
+code/campaign.py scan checks one root on every plantri triangulation at V=6,...,14, 55 cases. code/half16.py checks roots 0 and 1 at V=16, 370 cases. These are not all roots. For every undirected pair support, all nonempty subsets of white vertices satisfy mass(S)<=|S|-1 for x=1/2 on that support. There are 43 and 235 nonvacuous cases in these batches, respectively, hence 278 positive instances and 147 vacuous instances. Cases without pairs must not be counted as positive witnesses. data/scan.json and data/half16.json retain the pair counts.
 
 code/packing.py finds and checks an explicit partition into two trees in 27 further instances, through dual order 120. Families include width 4,6,8,10 tubes at lengths 2,5,10, two subdivisions, prism chains and ten seeded random recursive sums. Only the maximum-flow pair was tested on each larger instance. These are certificates of fractional target feasibility in the tested cases, not certificates of a doubly rainbow tree.
 

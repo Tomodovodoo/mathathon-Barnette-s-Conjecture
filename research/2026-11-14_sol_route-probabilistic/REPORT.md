@@ -2,7 +2,7 @@
 
 Finite positive UST weights cannot attain the full-H target mean, even on the cube.
 Joint degree support is not M-convex; one-sided Lorentzian theory does not settle the joint event.
-Half a disjoint pair passed 425 small rank-check cases and 27 larger two-tree packing tests.
+Half-pair rank checks passed 278 nonvacuous small cases; 27 larger pair supports packed two trees.
 Exact 12-vertex factors refute general unit-circle and linear real-rootedness shortcuts.
 The signed measure is a difference of moment-matched positive measures; no unsigned existence proof was found.
 
@@ -22,7 +22,7 @@ PROVED-HERE, conditional on the supplied cancellation and height identities, PRO
 
 COMPUTED, code/secondary.py. The first off-unit-circle example in the outer-0 scan through V=14 is at V=12 index 2, with normalized polynomial (z-1)(z^2+3). The first nonreal linear-weight example is V=12 index 0, with x(x+1)(2x+1)(2x^2+5x+4). Exact factors certify both failures. Real-rootedness in z already fails on the eight-prism, V=10, with 1-z^3. Minimality is only in the recorded root and gauge scan.
 
-COMPUTED, code/campaign.py scan and code/half16.py. The white-edge vector equal to 1/2 on any selected pair support satisfies every tree-polytope rank inequality in 55 one-root instances through V=14 and 370 instances at V=16 with roots 0 and 1. Instances without pairs are vacuous. COMPUTED, code/packing.py, 27 larger examples through V=120 have explicit checked partitions of pair supports into two white spanning trees. The saved edge-colour lists certify each positive output. This is the strongest remaining lead.
+COMPUTED, code/campaign.py scan and code/half16.py. The white-edge vector equal to 1/2 on any selected pair support satisfies every tree-polytope rank inequality in 55 one-root instances through V=14 and 370 instances at V=16 with roots 0 and 1. There are 43 nonvacuous cases in the first batch and 235 in the second. The other 147 cases are vacuous. COMPUTED, code/packing.py, 27 larger examples through V=120 have explicit checked partitions of pair supports into two white spanning trees. The saved edge-colour lists certify each positive output. This is the strongest remaining lead.
 
 CONJECTURE. Every pair support decomposes into two white spanning trees. If proved, this gives fractional target feasibility directly from a pair, without first invoking the forest-pair theorem. The separate joint-degree rounding lemma is still missing. NEXT-PREDICTION.md records the larger test before it ran.
 
@@ -61,3 +61,7 @@ The local map and dashboard are in labyrinth/. The frontier is intentionally emp
 ## Leads for others
 
 The exact factors at V=12 are short counterexamples suitable for the route map. The cube's 1/64 UST acceptance against perfect state acceptance is a useful warning that the two sampling spaces are different. The half-pair packing statement is ready to hand to the graph-theory and topology routes, but it is a conjecture rather than an established replacement for cancellation.
+
+## Git handoff
+
+Predictions were committed as 000578f and the main deliverables as f3955b9. The required push to origin/main succeeded. Only this folder was staged. Subsequent clarification adds the nonvacuous case counts and expands the six-cycle proof.
