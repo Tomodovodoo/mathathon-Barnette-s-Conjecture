@@ -2,6 +2,7 @@
 Run from repository root: python research/2026-11-14_astra_manuscript-A/examples.py
 """
 import sys,json
+sys.dont_write_bytecode=True
 from pathlib import Path
 from collections import Counter
 import networkx as nx
@@ -42,5 +43,22 @@ for name in ['octahedron','running']:
   r2,s2=b.reverse_q((r,s),b.qcycles(s)[0]);assert s2==s and b.valid(r2)
   result[name+'_figure'].update(J_reversed=jj(r2,s2),r_reversed=[r2[b.A.index(fmap[t])] for t in mod['A']],Q_cycle=nx.cycle_basis(b.Q(s)))
   assert set(map(tuple,map(sorted,cert['P'])))==set(map(tuple,d['rec']['P']))
+# Independently count the displayed disk by deleting its crossed dual edges.
+  C=[1,2,3,9,10,11,6]; cut={tuple(sorted((u,v))) for u,v in zip(C,C[1:]+C[:1])}
+  dual=b.G.copy();dual.remove_edges_from(b.dual_edges[e] for e in cut)
+  inside=next(set(c) for c in nx.connected_components(dual) if b.outer not in c)
+  Bs=len(inside&set(b.black));Ws=len(inside&set(b.white))
+  vv=set().union(*(set(b.faces[f]) for f in inside));ii=len(vv-set(C))
+  ell=sum(next(f for f in b.dual_edges[e] if f in b.black) in inside for e in cut)
+  assert (Bs,Ws,ii,len(C),ell)==(5,6,3,7,2)
+  for pp in pairs:
+   for qc in b.qcycles(pp[1]):
+    rr,ss=b.reverse_q(pp,qc)
+    assert b.valid(rr) and ss==pp[1] and b.sign(rr,ss)==-b.sign(*pp)
+    assert b.reverse_q((rr,ss),qc)==pp
+  result[name+'_figure']['disk']={'B':Bs,'W':Ws,'I':ii,'h':len(C),'ell':ell}
+  import sympy as sp
+  b1,b2=sp.symbols('b1 b2')
+  assert sp.expand(sum((-1)**(u+v)*(b1+u)*(b2+u+v) for u in [0,1] for v in [0,1]))==1
 (OUT/'examples.json').write_text(json.dumps(result,indent=2))
 for k,v in result.items(): print(k,{a:b for a,b in v.items() if a!='certificate'})

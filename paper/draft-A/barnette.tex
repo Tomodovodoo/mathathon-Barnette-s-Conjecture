@@ -37,9 +37,9 @@ All graphs in the theorem are finite, simple and undirected. A graph is cubic if
 \begin{theorem}[OpenAI \cite{openai2026}]\label{thm:main}
 Let $G$ be a cubic, bipartite, planar, 3-vertex-connected graph. For every edge $e$ of $G$, there is a Hamiltonian cycle avoiding $e$.
 \end{theorem}
-The edge prescription will let solutions on smaller pieces agree when we glue them. The proof below is an exposition of OpenAI's paired-state argument, not an independent discovery of the theorem. Barnette's conjecture was recorded in the 1969 Waterloo proceedings \cite{barnette1969}. Stein's region-partition formulation \cite[Theorem 2.2]{stein1971} led to the two-induced-tree formulation given by Alt, Payne, Schmidt and Wood \cite[Lemma 5]{apsw2016}. The prescribed-edge strengthening and the reduction to graphs without nontrivial three-edge cuts belong to the earlier work of Kelmans, as explained by Hertel and by Alt et al.\ \cite{hertel2005,apsw2016}.
+The edge prescription will let solutions on smaller pieces agree when we glue them. The proof below explains OpenAI's paired-state argument. Barnette's conjecture was recorded in the 1969 Waterloo proceedings \cite{barnette1969}. Stein's region-partition formulation \cite[Theorem 2.2]{stein1971} led to the two-induced-tree formulation given by Alt, Payne, Schmidt and Wood \cite[Lemma 5]{apsw2016}. The prescribed-edge strengthening and the reduction to graphs without nontrivial three-edge cuts belong to the earlier work of Kelmans, as explained by Hertel and by Alt et al.\ \cite{hertel2005,apsw2016}.
 
-Our main change is in the signed count. Li \cite{li2026} replaces OpenAI's exponential sum by involutions on marked crossings. The constructive exposition \cite{constructive2026} uses integer signs and a polynomial. The root-component count below also follows that exposition. We use the product of face heights proposed in the project note \cite[Sections 1--3]{heightnote}, and prove its counting identity here. We also use that note's formulation of the disk identity and its short recovery argument. The product of heights localizes the same cancellation mechanism; it does not give a bound on construction time.
+Our main change is in the signed count. Li \cite{li2026} replaces OpenAI's exponential sum by involutions on marked crossings. The constructive exposition \cite{constructive2026} uses integer signs and a polynomial. The root-component count below also follows that exposition. We use the product of face heights proposed in the project note \cite[Sections 1--3]{heightnote}, and prove its counting identity here. We also use that note's formulation of the disk identity and its short recovery argument. The product of heights uses the same cancellation mechanism, with each factor detecting enclosure of one face.
 
 Fix a sphere embedding of $G$, drawn with piecewise linear edges, and let $T=G^*$ be its dual. This is a simple triangulation. Here are the details needed for simplicity. A cut of one or two edges in $G$ would have at least three vertices on either side: a singleton in a simple cubic graph has three outgoing edges and a pair has at least four. Deleting the at most two cut endpoints on one side would therefore disconnect a nonempty remainder, contrary to 3-connectivity. A loop or a pair of parallel edges in the dual would draw a Jordan curve crossing just one or two primal edges, and would give such a cut. Cubicity now makes every dual facial boundary a closed walk of length three in a simple graph, hence a triangle. Euler's formula gives $|V(T)|=2+|V(G)|/2\geq4$. The bipartition of $G$ colors the faces of $T$ black and white, with opposite colors across every edge.
 
@@ -78,7 +78,7 @@ Make $t_0$ the outer face, and exchange the colors if needed so that it is black
  |A|=|X|=n=k-1,\qquad |V(T)|=n+3.
 \end{equation}
 
-We need a local choice whose acyclicity can eventually be tested. Put a center $c_t$ in each black face and join it to its corners by three spokes. We will delete one spoke at each bounded black center and one at each nonroot. Such deletions are a perfect matching in the bipartite incidence graph $B$ on $A\cup X$, where $t$ and $v$ are adjacent when $v$ is a corner of $t$. Equivalently, a \emph{state} is a bijection $s:A\to X$ with $s(t)\in V(t)$. These are Tutte states \cite{tutte1975,hine-kalman2018}; no clock theorem or vertex coloring theorem will be needed.
+We need a local choice whose acyclicity can eventually be tested. Put a center $c_t$ in each black face and join it to its corners by three spokes. We will delete one spoke at each bounded black center and one at each nonroot. Such deletions are a perfect matching in the bipartite incidence graph $B$ on $A\cup X$, where $t$ and $v$ are adjacent when $v$ is a corner of $t$. Equivalently, a \emph{state} is a bijection $s:A\to X$ with $s(t)\in V(t)$. These are Tutte states \cite{tutte1975,hine-kalman2018}. We prove the state properties used below.
 
 After deleting the spoke to $s(t)$, the two remaining spokes join the other corners. Suppress the center and replace that path by the opposite side of the triangle. Call the resulting spanning graph $Q_s$. It has one edge per face of $A$. Distinct black faces supply distinct edges, since an edge has only one black incident face.
 
@@ -109,7 +109,7 @@ Here $R=\{0,4,5\}$ and $e_0=04$. The edges $18,19,89$ form a cycle in $Q_s$, whe
 
 \fig{09-Q}{1}{The two opposite-edge graphs from~\eqref{eq:running}. The dashed edges on the left contain the triangle $1,8,9$, with no root in its component. On the right, $Q_r$ has three tree components, one at each root. The proof must guarantee a pair with the second behavior.}
 
-We now have two tasks: obtain a pair at all, then find a pair whose second state has forest $Q_s$.
+We now have two tasks: obtain a pair at all, then find a pair whose second state has forest $Q_s$. The following density argument is OpenAI's \cite[Proposition 3.1]{openai2026}.
 \Needspace{8\baselineskip}
 \begin{lemma}\label{lem:pair}
 If $T$ has no separating triangle, then a pair exists.
@@ -162,7 +162,7 @@ The state matches each black face inside to an interior or boundary vertex. Ever
 \end{equation}
 For the middle count, each edge has one black and one white incident face; count the edges by the black faces inside, then add the boundary edges with black outside. The last count is Euler's formula for the disk. Substitution gives $W-B=1$, and the two expressions for $E_d$ give $h-2\ell=3$. Counterclockwise the disk is on the left, so the $\delta$-sum is $\ell-(h-\ell)=-3$; reversing the direction changes its sign.
 \end{proof}
-The matching count $B=I+\ell$ is the reason this holds for state cycles. Euler's formula and face coloring alone do not give the conclusion.
+This is OpenAI's disk identity \cite[Lemma 4.1]{openai2026}, expressed as a face excess. The matching count $B=I+\ell$ is the reason it holds for state cycles. Euler's formula and face coloring alone do not give the conclusion.
 
 \begin{example}[The larger disk]
 Join $r(a_j)$ to $s(a_j)$ in~\eqref{eq:running}. One directed cycle is $1,2,3,9,10,11,6,1$, counterclockwise; the other is $8,7,12,8$, clockwise. The long cycle encloses $B=5$ black faces, $W=6$ white faces and $I=3$ vertices, namely $7,8,12$. It has $h=7$ and $\ell=2$, so all three counts in~\eqref{eq:threecounts} can be seen in Figure~\ref{fig:08-disk}. The smaller cycle encloses the white triangle $7,8,12$.
@@ -264,7 +264,7 @@ This displays why two heights are needed here and why nesting causes no problem.
 \section{From a forest state to the cycle}\label{sec:recover}
 Assume for now that $T$ has no separating triangle. Lemma~\ref{lem:pair} and Proposition~\ref{prop:forest} give a pair $(r,s)$ with forest $Q_s$. By Lemma~\ref{lem:components}, its three components have one root each.
 
-We still need one selected side at every \emph{white} triangle as well as every black triangle. A tree on the white faces will assign those sides. Let $H$ be the sphere graph of all black centers and their spokes, including the center of $t_0$. It is connected: each edge of $T$ can be routed through its black center. Its faces correspond exactly to the white triangles. In fact the spokes split a black triangle into three sectors adjoining its sides; erasing the edges of $T$ joins each white triangle to those three neighboring sectors, and does not merge different white triangles.
+We follow OpenAI's recovery \cite[Section 6]{openai2026}. We still need one selected side at every \emph{white} triangle as well as every black triangle. A tree on the white faces will assign those sides. Let $H$ be the sphere graph of all black centers and their spokes, including the center of $t_0$. It is connected: each edge of $T$ can be routed through its black center. Its faces correspond exactly to the white triangles. In fact the spokes split a black triangle into three sectors adjoining its sides; erasing the edges of $T$ joins each white triangle to those three neighboring sectors, and does not merge different white triangles.
 
 Delete the spokes $(t,s(t))$, $t\in A$. What remains is $Q_s$ with one subdivision vertex on each edge, joined by the three outer spokes to $c_{t_0}$. The roots lie in distinct components, so this is a spanning tree of $H$. By Lemma~\ref{lem:duality}, the duals of the deleted spokes form a tree $W_s$ on the white faces.
 

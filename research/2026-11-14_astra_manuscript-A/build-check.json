@@ -1,0 +1,19 @@
+{
+  "pages": 11,
+  "errors": 0,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "render_scale": 1.5,
+  "sha256": {
+    "paper\\draft-A\\barnette.tex": "f10fa66c86ffff342aee4357e05783e50023faac63cc5a8eeb2acf4e0b7a237f",
+    "paper\\draft-A\\refs.bib": "7ccec012cae5255398ca1a5371de37e57cc0a4aeb169bd8eda4a3a5f42c57a63",
+    "paper\\draft-A\\barnette.pdf": "1453233320e24c328e889d92a40ba7359ab76366c272ec609dd4c93eca2a1746",
+    "paper\\figures\\01-cube.pdf": "b7bde50ac28a2d12477fed08e6e7a1d6fa51d47bba2b4e67585bf4262a5a5a7c",
+    "paper\\figures\\03-dual.pdf": "2898ea27ebf9d3b9e53b91216b04d170e874bfb81ad6a22c7625d4381b14ffbe",
+    "paper\\figures\\09-Q.pdf": "03d844f2241a6b25977249adcf53fef3debbba96403d278278e32b42d90ef1c0",
+    "paper\\figures\\08-disk.pdf": "8f77729226a2a2cc1692f256e08bc3f3987a6b78ae416fff95533a8f3d3f1ced",
+    "paper\\figures\\12-tree-cotree.pdf": "ae33af49b3610ad80b772b94476c611004fad155de642b799b9fc4d76d337505",
+    "paper\\figures\\13-selected.pdf": "25e4f48902bb6c4a84918eef7eb7cf45c977156fa208f02be4c99fba7410f096",
+    "paper\\figures\\14-gluing.pdf": "64477fcec0238fb077d5fe8887062e4c3593dfddd84f2bf0bddf78dea6d475fe"
+  }
+}
