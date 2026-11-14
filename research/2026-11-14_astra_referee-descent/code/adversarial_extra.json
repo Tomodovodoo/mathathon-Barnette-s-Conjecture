@@ -1,0 +1,64 @@
+[
+  {
+    "label": "saved-R2-V33",
+    "states": 2916,
+    "pairs": 400,
+    "good": 144,
+    "sinks": 112,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-4-2",
+    "V": 9,
+    "states": 4,
+    "pairs": 4,
+    "good": 4,
+    "sinks": 0,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-4-3",
+    "V": 12,
+    "states": 8,
+    "pairs": 8,
+    "good": 8,
+    "sinks": 0,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-6-2",
+    "V": 13,
+    "states": 9,
+    "pairs": 4,
+    "good": 4,
+    "sinks": 0,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-6-3",
+    "V": 18,
+    "states": 27,
+    "pairs": 8,
+    "good": 8,
+    "sinks": 0,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-8-2",
+    "V": 17,
+    "states": 16,
+    "pairs": 4,
+    "good": 4,
+    "sinks": 0,
+    "paired": true
+  },
+  {
+    "label": "prism-sum-8-3",
+    "V": 24,
+    "states": 64,
+    "pairs": 8,
+    "good": 8,
+    "sinks": 0,
+    "paired": true
+  }
+]

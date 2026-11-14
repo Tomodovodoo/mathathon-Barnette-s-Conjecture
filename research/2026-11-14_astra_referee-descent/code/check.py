@@ -1,4 +1,4 @@
-﻿import itertools as it, json, subprocess, sys, time, pathlib
+import itertools as it, json, subprocess, sys, time, pathlib
 BASE=pathlib.Path(__file__).resolve().parents[1]
 REPO=BASE.parents[1]
 P=REPO/'workings/barnette_lab/vendor/plantri.exe'
@@ -32,8 +32,8 @@ def faces(rot):
    if b not in color: color[b]=1-color[a]; todo.append(b)
    assert color[b]!=color[a]
  return fs,color
-def states(A,R):
- opts=[set(f)-set(R) for f in A]; s=[None]*len(A); ans=[]
+def states(A,R,forbidden=None):
+ opts=[set(f)-set(R)-({forbidden[i]} if forbidden is not None else set()) for i,f in enumerate(A)]; s=[None]*len(A); ans=[]
  def rec(left,used):
   if not left: ans.append(tuple(s)); return
   i=min(left,key=lambda i:len(opts[i]-used))
@@ -62,7 +62,7 @@ def moves(A,p):
   rr=tuple(u[i] if v in C else v for i,v in enumerate(r)); yield rr,s
 
 def check(A,R):
- ss=states(A,R); pp=[(r,s) for r in ss for s in ss if all(a!=b for a,b in zip(r,s))]
+ ss=states(A,R); pp=[(r,s) for s in ss for r in states(A,R,s)]
  ks={p:len(info(A,p)[1]) for p in pp}; adj={p:list(moves(A,p)) for p in pp}
  good=[p for p in pp if ks[p]==0]; reached=set(good); queue=list(good)
  for p in queue:

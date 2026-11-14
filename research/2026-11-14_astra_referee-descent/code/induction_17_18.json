@@ -1,0 +1,26 @@
+[
+  {
+    "roots": 13980,
+    "good": 48068,
+    "contractions": 227812,
+    "exceptions": 1320,
+    "corner_fail": 0,
+    "half_fail": 0,
+    "bijection_fail": 0,
+    "inequality_fail": 0,
+    "V": 17,
+    "seconds": 86.3119752407074
+  },
+  {
+    "roots": 49376,
+    "good": 178244,
+    "contractions": 857920,
+    "exceptions": 6154,
+    "corner_fail": 0,
+    "half_fail": 0,
+    "bijection_fail": 0,
+    "inequality_fail": 0,
+    "V": 18,
+    "seconds": 425.76993441581726
+  }
+]

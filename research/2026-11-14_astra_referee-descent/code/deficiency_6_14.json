@@ -1,0 +1,74 @@
+[
+  {
+    "V": 6,
+    "graphs": 1,
+    "checks": 46,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.013459920883178711
+  },
+  {
+    "V": 7,
+    "graphs": 0,
+    "checks": 0,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.007615566253662109
+  },
+  {
+    "V": 8,
+    "graphs": 1,
+    "checks": 240,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.019399166107177734
+  },
+  {
+    "V": 9,
+    "graphs": 1,
+    "checks": 500,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.031356096267700195
+  },
+  {
+    "V": 10,
+    "graphs": 2,
+    "checks": 2194,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.12440037727355957
+  },
+  {
+    "V": 11,
+    "graphs": 2,
+    "checks": 4430,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 0.2776308059692383
+  },
+  {
+    "V": 12,
+    "graphs": 8,
+    "checks": 36055,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 2.8885674476623535
+  },
+  {
+    "V": 13,
+    "graphs": 8,
+    "checks": 73035,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 6.368292570114136
+  },
+  {
+    "V": 14,
+    "graphs": 32,
+    "checks": 583166,
+    "merges": 0,
+    "roots": 0,
+    "seconds": 49.30209469795227
+  }
+]
