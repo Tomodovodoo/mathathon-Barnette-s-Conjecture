@@ -1,0 +1,205 @@
+[
+  {
+    "file": "FiniteDifference",
+    "name": "finite_difference",
+    "paper": "4.7",
+    "verdict": "stronger",
+    "reason": "Any finite index set and any commutative ring. Both the below-degree zero and top-degree factorial product are proved. The paper is the real specialisation; no positivity of steps is required."
+  },
+  {
+    "file": "FiniteDifference",
+    "name": "finite_difference_fin",
+    "paper": "4.7",
+    "verdict": "stronger",
+    "reason": "Same two conclusions on Fin c, for any commutative ring. Subsets encode bit strings bijectively. Degenerate rings are allowed but do not weaken the real instance."
+  },
+  {
+    "file": "LocalSign",
+    "name": "prod_sum_of_signs",
+    "paper": "proof of 4.4",
+    "verdict": "stronger",
+    "reason": "For any finite family of integer signs, gives both the product by negative-factor count and the sum/count identity. This is the arithmetic subclaim used in the paper, independent of geometry."
+  },
+  {
+    "file": "LocalSign",
+    "name": "paperSign_reverse",
+    "paper": "4.4 first reversal",
+    "verdict": "faithful",
+    "reason": "A partner r, actual opposite cycle C, and its delta sum \u00b13 imply sign reversal. The disk premise is explicit for arbitrary triangle systems and is discharged in the concrete theorem. Not an unconditional theorem about arbitrary systems."
+  },
+  {
+    "file": "LocalSign",
+    "name": "paperSign_partners_sum",
+    "paper": "4.5 first sentence",
+    "verdict": "stronger",
+    "reason": "Cancels the partners of one state for an arbitrary additive commutative group and constant group-valued weight. Requires the disk identity for all partners on the chosen cycle. The unweighted integer sum is the instance weight=1."
+  },
+  {
+    "file": "LocalSign",
+    "name": "sign_orient",
+    "paper": "4.4 second reversal",
+    "verdict": "faithful",
+    "reason": "All cycle delta sums \u00b13; orient swaps the two corners on exactly the selected permutation orbits. The conclusion counts selected orbits, not faces."
+  },
+  {
+    "file": "LocalSign",
+    "name": "sign_reverse_one",
+    "paper": "4.4 second reversal",
+    "verdict": "faithful",
+    "reason": "Specialises the preceding theorem with a Boolean function true exactly on the specified orbit. Such a Boolean function exists classically on the finite quotient; the condition is not contradictory."
+  },
+  {
+    "file": "LocalSign",
+    "name": "sign_formula",
+    "paper": "4.4 closed formula",
+    "verdict": "faithful",
+    "reason": "Even(n+c) and the stated integer sign exponent; ccwCount is the count of orbits whose delta sum is -3. This equals geometric counterclockwise count only with the aligned orientation convention."
+  },
+  {
+    "file": "LocalSign",
+    "name": "I_zpow_rawIndexSum",
+    "paper": "arithmetic behind 4.10",
+    "verdict": "stronger",
+    "reason": "Every partner pair gives i^(raw sum)=i^n epsilon, without divisibility or disk hypotheses. Uses integer exponent on the left and natural exponent on i^n."
+  },
+  {
+    "file": "LocalSign",
+    "name": "phase_eq_paperSign",
+    "paper": "4.10 phase sentence",
+    "verdict": "faithful",
+    "reason": "Requires 3 divides the raw sum, avoiding the truncating integer division trap in phase. Proves phase=i^(-n)epsilon."
+  },
+  {
+    "file": "LocalSign",
+    "name": "paperSign_eq_I_pow_mul_phase",
+    "paper": "4.10 phase sentence",
+    "verdict": "faithful",
+    "reason": "Equivalent rearrangement epsilon=i^n phase with exactly the same partner and divisibility hypotheses."
+  },
+  {
+    "file": "LocalSign",
+    "name": "three_dvd_rawIndexSum",
+    "paper": "disk input to 4.10",
+    "verdict": "faithful",
+    "reason": "Cycle delta sums \u00b13 imply divisibility of the total by 3, using the actual orbit partition of the state permutation."
+  },
+  {
+    "file": "LocalSign",
+    "name": "sign_eq_I_pow_mul_phase",
+    "paper": "4.10 phase sentence",
+    "verdict": "faithful",
+    "reason": "Combines the two preceding inputs for a Pair. Does not assert a height/flow correspondence or a polynomial identity with different weights."
+  },
+  {
+    "file": "RealSign",
+    "name": "sum_sign_eq_zero_of_no_good",
+    "paper": "4.5 second sentence",
+    "verdict": "weaker",
+    "reason": "Proves only the no-acyclic-partner case: if every pair has cyclic Q_right, the total weighted sum is zero. The paper states the full equality to a sum over good states, with their unique partners. Neither that equality nor partner uniqueness is proved here. README table acknowledges the case used, but its later whole-lemma claim is too broad."
+  },
+  {
+    "file": "RealSign",
+    "name": "weight_orient",
+    "paper": "4.6 additivity used in 4.8",
+    "verdict": "different",
+    "reason": "Exact algebraic additivity for arbitrary real local weights w and step=-cycleSlope. No face paths, per-face heights, positive integer white-face count, or equality to the paper weights occurs. If original delta=-3, slope>0 and reversing gives a negative step; positive steps are from clockwise to counterclockwise, as in the current paper."
+  },
+  {
+    "file": "RealSign",
+    "name": "group_sum",
+    "paper": "4.8 class calculation",
+    "verdict": "faithful",
+    "reason": "On Group defined by fixed third corner at each face, the weighted real-sign sum equals epsilon(P) times the finite difference at the chosen representative. Uses exact orient/groupEquiv, not a newly invented quotient."
+  },
+  {
+    "file": "RealSign",
+    "name": "group_sum_card",
+    "paper": "4.8 minimum-size class calculation",
+    "verdict": "faithful",
+    "reason": "With m equal to this pair orbit count, gives the common sign times m! times the product of absolute slopes. Strict slope signs are explicit. Geometric L and its integrality are not asserted; absolute slopes play that role."
+  },
+  {
+    "file": "RealSign",
+    "name": "group_sum_lt",
+    "paper": "4.8 larger-class calculation",
+    "verdict": "faithful",
+    "reason": "The class contribution vanishes for m less than its orbit count, for arbitrary local real weights. No positivity premise is needed in this case."
+  },
+  {
+    "file": "RealSign",
+    "name": "realSum_ne_zero",
+    "paper": "4.8 nonvanishing",
+    "verdict": "different",
+    "reason": "Nonempty Pair and strict signed slopes imply nonzero realSum at minCycles over chosen class representatives. The formal conclusion is only nonzero, not the full equality advertised in its docstring. Equality appears inside the proof. Identification of this m with the minimum over all pairs remains T1."
+  },
+  {
+    "file": "RealSign",
+    "name": "forest_pair_of_disk_circulation_real",
+    "paper": "4.8 existence",
+    "verdict": "faithful",
+    "reason": "Same abstract hypotheses and conclusion as upstream: nonempty Pair, every opposite disk identity, and a local real weight with the strict cycle-sign condition imply a pair with acyclic opposite graph. Paper good state includes one root per component, so translating the conclusion still uses B4. This does not define good state to make existence automatic."
+  },
+  {
+    "file": "Concrete",
+    "name": "sign_reverse_opposite",
+    "paper": "4.4 first reversal",
+    "verdict": "faithful",
+    "reason": "Specialises to any ColoredDual and partner pair; obtains disk hypotheses from upstream. Unconditional means relative to this substantial structure, not for every arbitrary graph."
+  },
+  {
+    "file": "Concrete",
+    "name": "sign_orient_concrete",
+    "paper": "4.4 second reversal",
+    "verdict": "faithful",
+    "reason": "For a pair of the concrete system and arbitrary Boolean orbit selection. Finite V,E,F and ColoredDual encode the geometric/algebraic setting."
+  },
+  {
+    "file": "Concrete",
+    "name": "sign_formula_concrete",
+    "paper": "4.4 closed formula",
+    "verdict": "faithful",
+    "reason": "Counts nonroot black vertices and permutation cycles. Root need not have an explicit black proof in the binders; a pair is still required. No extra positivity or nonemptiness is hidden in the instance arguments."
+  },
+  {
+    "file": "Concrete",
+    "name": "sign_eq_I_pow_mul_phase_concrete",
+    "paper": "4.10 phase sentence",
+    "verdict": "faithful",
+    "reason": "Every supplied pair satisfies epsilon=i^n phase, with n=card Black(root). The orientation comparison to a drawing is informal; relative to indexDelta this is exact."
+  },
+  {
+    "file": "Concrete",
+    "name": "forest_pair_real",
+    "paper": "4.8 existence",
+    "verdict": "faithful",
+    "reason": "Nonempty concrete Pair implies existence of a pair with acyclic Q_right. Same statement as upstream forest_pair. Finite-type and ColoredDual premises remain; README wording no hypotheses left is only about disk and circulation premises."
+  },
+  {
+    "file": "Concrete",
+    "name": "realSum_ne_zero_concrete",
+    "paper": "4.8 nonvanishing",
+    "verdict": "different",
+    "reason": "Requires Nonempty Pair and a supplied real edge flow alpha with boundary whiteCharge. Its weight is M.weights alpha root. Neither arbitrary zero weights nor paper face-path heights are substituted without proof."
+  },
+  {
+    "file": "Outdegree",
+    "name": "card_edgeSet_add_sinks",
+    "paper": "3.7 edge count",
+    "verdict": "stronger",
+    "reason": "Every finite simple graph with OutOrientation satisfies edges+sinks=vertices, without connectedness. out_adj,covers,one_way ensure exactly one chosen tail per edge."
+  },
+  {
+    "file": "Outdegree",
+    "name": "component_count",
+    "paper": "3.7 component conclusions",
+    "verdict": "weaker",
+    "reason": "For one finite connected graph, gives the count, at most one sink, tree if one sink, and if zero sinks a cycle exists and deleting any nonbridge edge leaves a tree. This faithfully encodes the component conclusions, but omits the lemma first sentence that every cycle is directed, and does not apply the orientation to Q_s."
+  },
+  {
+    "file": "TreeMatching",
+    "name": "perfectMatching_unique",
+    "paper": "Section 7 which cycles arise; also Section 3 prose",
+    "verdict": "faithful",
+    "reason": "Finite graph, acyclic, two perfect-matching subgraphs imply equality. Perfectness includes spanning, so isolated vertices do not create false witnesses. It is a uniqueness theorem, not existence and not the complete recovery/injectivity remark."
+  }
+]

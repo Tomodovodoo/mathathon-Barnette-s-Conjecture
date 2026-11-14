@@ -1,0 +1,179 @@
+{
+  "counts": {
+    "after translation": 27,
+    "no counterpart": 2,
+    "exact": 5
+  },
+  "rows": [
+    {
+      "id": "thm:main",
+      "category": "after translation",
+      "reason": "Unchanged MainStatement rebuilt by replacement; the paper additionally prescribes an avoided edge. B5 remains."
+    },
+    {
+      "id": "lem:dual",
+      "category": "after translation",
+      "reason": "Existing algebraic dual construction; no literal sphere/face translation added."
+    },
+    {
+      "id": "txt:two-faces",
+      "category": "after translation",
+      "reason": "TriangleSystem edge_unique supplies the algebraic condition; drawing correspondence remains."
+    },
+    {
+      "id": "lem:connected",
+      "category": "no counterpart",
+      "reason": "No literal topological connectivity lemma added."
+    },
+    {
+      "id": "eq:counts",
+      "category": "after translation",
+      "reason": "Existing network/dual cardinality theorems; no new dictionary proof."
+    },
+    {
+      "id": "def:selection",
+      "category": "after translation",
+      "reason": "Perfect matching in the primal versus one side per face in the dual."
+    },
+    {
+      "id": "lem:duality.2",
+      "category": "after translation",
+      "reason": "Existing acyclicity-to-connectivity result; full spanning-tree clause still not added."
+    },
+    {
+      "id": "lem:duality.1",
+      "category": "after translation",
+      "reason": "Existing circuit/cut correspondence in the network model."
+    },
+    {
+      "id": "prop:target.1",
+      "category": "after translation",
+      "reason": "Existing matching-complement cycle construction, not a new sphere lemma."
+    },
+    {
+      "id": "prop:target.2",
+      "category": "no counterpart",
+      "reason": "Two induced trees and the paper gluing through them still absent."
+    },
+    {
+      "id": "def:state",
+      "category": "exact",
+      "reason": "Same incidence-constrained bijection; unchanged exact classification."
+    },
+    {
+      "id": "def:good",
+      "category": "after translation",
+      "reason": "Paper requires one root per component. Formal route uses a partner plus acyclic Q; B4 remains."
+    },
+    {
+      "id": "lem:good",
+      "category": "after translation",
+      "reason": "Full iff with S_s a spanning tree still absent; existing one-direction counterpart retained."
+    },
+    {
+      "id": "lem:Y",
+      "category": "after translation",
+      "reason": "Hall constructs a matching; uniqueness of forest matching is now checked, but explicit rooted P_s and identification are not."
+    },
+    {
+      "id": "lem:outdegree",
+      "category": "after translation",
+      "reason": "New component_count covers the component arithmetic and tree/unicycle conclusions. Directed-cycle sentence and restriction to actual Q components still missing. Promote only under existing weaker-but-covered convention."
+    },
+    {
+      "id": "txt:inside",
+      "category": "after translation",
+      "reason": "Existing root-free shore/bond surrogate; no literal disk boundary bridge."
+    },
+    {
+      "id": "lem:disk",
+      "category": "after translation",
+      "reason": "Existing disk delta/count theorems, now used by the real-sign route as well."
+    },
+    {
+      "id": "prop:recover",
+      "category": "after translation",
+      "reason": "Existing selected-forest recovery theorem unchanged."
+    },
+    {
+      "id": "def:pair",
+      "category": "exact",
+      "reason": "Subtype of state pairs differing at each face; exact under existing definition dictionary."
+    },
+    {
+      "id": "lem:partner",
+      "category": "after translation",
+      "reason": "Orientation exists upstream; full component-root characterisation and partner uniqueness not supplied."
+    },
+    {
+      "id": "txt:D",
+      "category": "after translation",
+      "reason": "Permutation orbit decomposition still the algebraic representation of directed chosen-side cycles."
+    },
+    {
+      "id": "lem:reversals",
+      "category": "exact",
+      "reason": "Existing reverse and orient operations; unchanged exact classification."
+    },
+    {
+      "id": "txt:delta",
+      "category": "after translation",
+      "reason": "indexDelta remains cyclic index order; geometric orientation correspondence is informal."
+    },
+    {
+      "id": "lem:sign",
+      "category": "after translation",
+      "reason": "New paperSign reverse/orient/formula, including concrete versions. Product arithmetic checked; geometric ccw interpretation still uses B1. Count as different form conservatively."
+    },
+    {
+      "id": "lem:cancel",
+      "category": "after translation",
+      "reason": "Real-sign fiber cancellation now checked. Full equality over unique good-state partners still missing. Keep different form, explicitly partial."
+    },
+    {
+      "id": "txt:heights",
+      "category": "after translation",
+      "reason": "Face-path local turn signs are not defined in Lean; flow weights remain surrogate."
+    },
+    {
+      "id": "lem:height",
+      "category": "after translation",
+      "reason": "New arbitrary-local-weight additivity; neither pointwise face-height jumps nor B3 implemented."
+    },
+    {
+      "id": "lem:difference",
+      "category": "exact",
+      "reason": "New finite_difference_fin specialises exactly to real numbers and bit-subset indexing; stronger ring theorem supports exact classification."
+    },
+    {
+      "id": "prop:good",
+      "category": "after translation",
+      "reason": "New real-sign finite-difference proof reaches the same forest-pair conclusion. B3/B4 and representative-minimum interpretation remain."
+    },
+    {
+      "id": "txt:flow",
+      "category": "exact",
+      "reason": "Existing two_matchings theorem, unchanged."
+    },
+    {
+      "id": "eq:hall",
+      "category": "after translation",
+      "reason": "Existing capacity theorem in the incidence/network model."
+    },
+    {
+      "id": "prop:pair",
+      "category": "after translation",
+      "reason": "Existing no-three-cut argument and pair existence unchanged."
+    },
+    {
+      "id": "lem:cap",
+      "category": "after translation",
+      "reason": "Existing capped network operations; sphere cap dictionary remains."
+    },
+    {
+      "id": "thm:T",
+      "category": "after translation",
+      "reason": "The route still glues matchings with connected complements, not the paper two-induced-tree construction."
+    }
+  ]
+}

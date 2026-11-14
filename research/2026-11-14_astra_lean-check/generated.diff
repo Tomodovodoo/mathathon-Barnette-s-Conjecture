@@ -1,0 +1,145 @@
+--- upstream/BMatching.lean
++++ PaperRoute/BMatching.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.MinorDuality
++import PaperRoute.MinorDuality
+ 
+ namespace OAI
+ 
+--- upstream/BranchPartition.lean
++++ PaperRoute/BranchPartition.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.MinorModel
++import PaperRoute.MinorModel
+ 
+ namespace OAI
+ 
+--- upstream/CappedDuality.lean
++++ PaperRoute/CappedDuality.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.ThreeCuts
++import PaperRoute.ThreeCuts
+ 
+ namespace OAI
+ 
+--- upstream/Contraction.lean
++++ PaperRoute/Contraction.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Forest
++import PaperRoute.Forest
+ 
+ namespace OAI
+ 
+--- upstream/Corridors.lean
++++ PaperRoute/Corridors.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.SquareGrid
++import PaperRoute.SquareGrid
+ 
+ namespace OAI
+ 
+--- upstream/ExactDual.lean
++++ PaperRoute/ExactDual.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Rectangle
++import PaperRoute.Rectangle
+ 
+ namespace OAI
+ 
+--- upstream/Forest.lean
++++ PaperRoute/Forest.lean
+@@ -1,4 +1,5 @@
+ import OAI.Combinatorics.Hamiltonian.PairPolynomials
++import Devices.RealSign
+ 
+ namespace OAI
+ 
+@@ -235,7 +236,7 @@
+     ∃ P : (M.system root).Pair (M.nonroots root), ((M.system root).oppositeGraph P.right).IsAcyclic := by
+   obtain ⟨α,hα⟩ := N.boundary_of_sum_zero M.duality.connected
+     (whiteCharge M.black root) (whiteCharge_sum M.black root)
+-  exact Pair.forest_pair_of_disk_circulation hex
++  exact Pair.forest_pair_of_disk_circulation_real hex
+     (fun _ C r => M.opposite_disk C r α hα) (M.weights α root)
+     (fun P c => M.paired_sign P c α hα)
+ 
+--- upstream/ForestMatching.lean
++++ PaperRoute/ForestMatching.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Matching
++import PaperRoute.Matching
+ 
+ namespace OAI
+ 
+--- upstream/Gluing.lean
++++ PaperRoute/Gluing.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.CappedDuality
++import PaperRoute.CappedDuality
+ 
+ namespace OAI
+ 
+--- upstream/Main.lean
++++ PaperRoute/Main.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.ExactDual
++import PaperRoute.ExactDual
+ 
+ namespace OAI
+ 
+--- upstream/Matching.lean
++++ PaperRoute/Matching.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.BMatching
++import PaperRoute.BMatching
+ 
+ namespace OAI
+ 
+--- upstream/MinorDuality.lean
++++ PaperRoute/MinorDuality.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Contraction
++import PaperRoute.Contraction
+ 
+ namespace OAI
+ 
+--- upstream/MinorModel.lean
++++ PaperRoute/MinorModel.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Corridors
++import PaperRoute.Corridors
+ 
+ namespace OAI
+ 
+--- upstream/Rectangle.lean
++++ PaperRoute/Rectangle.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.BranchPartition
++import PaperRoute.BranchPartition
+ 
+ namespace OAI
+ 
+--- upstream/SquareGrid.lean
++++ PaperRoute/SquareGrid.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Traces
++import PaperRoute.Traces
+ 
+ namespace OAI
+ 
+--- upstream/ThreeCuts.lean
++++ PaperRoute/ThreeCuts.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.ForestMatching
++import PaperRoute.ForestMatching
+ 
+ namespace OAI
+ 
+--- upstream/Traces.lean
++++ PaperRoute/Traces.lean
+@@ -1,4 +1,4 @@
+-import OAI.Combinatorics.Hamiltonian.Gluing
++import PaperRoute.Gluing
+ 
+ namespace OAI
+ 
