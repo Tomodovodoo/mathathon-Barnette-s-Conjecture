@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "size_name": "vertices of T",
+    "value_name": "minimum cycles, 0 = no pair"
+  },
+  "sizes": [
+    {
+      "size": 6,
+      "lo": 0,
+      "hi": 1,
+      "step": 1,
+      "realized": [
+        [
+          1,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 8,
+      "lo": 0,
+      "hi": 1,
+      "step": 1,
+      "realized": [
+        [
+          1,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 9,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "Sampled witness in data.json; 0 means no pair"
+        ],
+        [
+          2,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 10,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [
+        [
+          1,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 11,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "Sampled witness in data.json; 0 means no pair"
+        ],
+        [
+          2,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 12,
+      "lo": 0,
+      "hi": 3,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "Sampled witness in data.json; 0 means no pair"
+        ],
+        [
+          1,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 13,
+      "lo": 0,
+      "hi": 3,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "Sampled witness in data.json; 0 means no pair"
+        ],
+        [
+          2,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    },
+    {
+      "size": 14,
+      "lo": 0,
+      "hi": 3,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "Sampled witness in data.json; 0 means no pair"
+        ],
+        [
+          1,
+          "Sampled witness in data.json; 0 means no pair"
+        ]
+      ]
+    }
+  ]
+}

@@ -140,3 +140,11 @@ with overall sign (-1)^((n-c(D))/2). Each factor vanishes at zero and has deriva
       = (-1)^((n-m)/2) sum_{D:c(D)=m} product_C A_C != 0.
 
 This is a finite polynomial version of the same proof. It reduces the degree from the possible O(n^2) exponent sum to n. It does not establish a polynomial-time method to compute the mixed determinant coefficient.
+
+## 8. Normalization of the natural doubled complex sum
+
+PROVED-HERE. Extend J to overlapping pairs by summing delta only on unequal choices and dividing by three. This is an integer, since those choices split into the nontrivial relative-permutation cycles of section 1. Define the natural doubled sum Ztilde(x) by i^J exp(x omega(s)) for every ordered pair, with no phase on a shared edge. Then
+
+    Ztilde(x)=(-i)^n F_i(exp(xa)),       Ztilde(0)=number of states.
+
+Proof. If d choices coincide, there are k=n-d nonzero transitions, and the phase calculation of section 2 gives i^J=(-i)^k product delta. Since (-i)^(-d)=i^d, the displayed relation follows from section 3 with lambda=i. Its value at zero follows from F_i(1)=i^n times the number of states. Thus the natural original complex normalization has the same doubled-edge obstruction, not just the real lambda=1 test model.

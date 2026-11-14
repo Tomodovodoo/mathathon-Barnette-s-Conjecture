@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "meta": {
+    "title": "Dimer and determinant routes",
+    "subtitle": "T2 proofs unreviewed; T4 sampled computations"
+  },
+  "nodes": [
+    {
+      "id": "mixed",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Real mixed determinant",
+      "statement": "Real mixed determinant",
+      "review": {
+        "state": "unreviewed"
+      },
+      "where": [
+        "PROOF.md section 2"
+      ],
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "norm",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Positive coefficient norm counts tree matchings",
+      "statement": "Positive coefficient norm counts tree matchings",
+      "review": {
+        "state": "unreviewed"
+      },
+      "where": [
+        "PROOF.md section 4"
+      ],
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "matrix_tree",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Constrained Laplacian coefficient",
+      "statement": "Constrained Laplacian coefficient",
+      "review": {
+        "state": "unreviewed"
+      },
+      "where": [
+        "PROOF.md section 5"
+      ],
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "linear",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Degree-n linear incidence weights suffice",
+      "statement": "Degree-n linear incidence weights suffice",
+      "review": {
+        "state": "unreviewed"
+      },
+      "where": [
+        "PROOF.md section 7"
+      ],
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "raw",
+      "kind": "deadend",
+      "status": "refuted",
+      "title": "Raw determinant is not Z",
+      "statement": "Raw determinant is not Z",
+      "lesson": "Repeated face labels introduce extra configurations",
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "doubling",
+      "kind": "deadend",
+      "status": "refuted",
+      "title": "Doubling nonvanishing does not force trees",
+      "statement": "Doubling nonvanishing does not force trees",
+      "lesson": "Diagonal pairs survive on obstructed examples",
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "ust",
+      "kind": "deadend",
+      "status": "refuted",
+      "title": "Unconstrained tree count is not tree-matching count",
+      "statement": "Unconstrained tree count is not tree-matching count",
+      "lesson": "Two label constraints remain",
+      "evidence": [
+        "data.json"
+      ],
+      "links": []
+    },
+    {
+      "id": "gadget",
+      "kind": "question",
+      "status": "open",
+      "title": "Can a local Pfaffian gadget remove coefficient extraction?",
+      "statement": "Find a verified local signature that enforces distinct matching incidences and turn signs.",
+      "links": []
+    }
+  ]
+}

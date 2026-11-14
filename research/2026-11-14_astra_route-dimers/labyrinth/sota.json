@@ -1,0 +1,60 @@
+{
+  "about": "Agent-local findings only, not coordinator integration",
+  "groups": [
+    "algebra"
+  ],
+  "entries": [
+    {
+      "id": "mixed",
+      "group": "algebra",
+      "cls": "Real mixed determinant",
+      "result": "Real mixed determinant",
+      "status": "T2 unreviewed",
+      "kind": "proved",
+      "refs": [
+        "PROOF.md section 2"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    },
+    {
+      "id": "norm",
+      "group": "algebra",
+      "cls": "Positive coefficient norm counts tree matchings",
+      "result": "Positive coefficient norm counts tree matchings",
+      "status": "T2 unreviewed",
+      "kind": "proved",
+      "refs": [
+        "PROOF.md section 4"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    },
+    {
+      "id": "matrix_tree",
+      "group": "algebra",
+      "cls": "Constrained Laplacian coefficient",
+      "result": "Constrained Laplacian coefficient",
+      "status": "T2 unreviewed",
+      "kind": "proved",
+      "refs": [
+        "PROOF.md section 5"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    },
+    {
+      "id": "linear",
+      "group": "algebra",
+      "cls": "Degree-n linear incidence weights suffice",
+      "result": "Degree-n linear incidence weights suffice",
+      "status": "T2 unreviewed",
+      "kind": "proved",
+      "refs": [
+        "PROOF.md section 7"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    }
+  ]
+}
