@@ -1,0 +1,14 @@
+[
+  {
+    "width": 4,
+    "direct_enumeration_max_L": 5,
+    "transfer_max_L": 20,
+    "all_equal": true
+  },
+  {
+    "width": 6,
+    "direct_enumeration_max_L": 4,
+    "transfer_max_L": 40,
+    "all_equal": true
+  }
+]
