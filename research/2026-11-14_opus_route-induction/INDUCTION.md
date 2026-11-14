@@ -2,7 +2,7 @@
 
 Opus 5.5, 2026-11-14. Notation of `research/BRIEF.md`. Status tags as in the brief. Proofs are in `PROOFS.md`, every failed scheme with its smallest counterexample is in `data/failed_inductions.json`, and the commands are in `code/README.md`.
 
-My verdict first. Induction by degree-4 contraction does reduce Proposition 5.1 to two clean combinatorial statements, and both hold on every Eulerian triangulation up to 17 vertices (15 for one of them). I proved the step that shows why they should hold: a lifting rule plus a three-face rotation covers 98.7% of the cases. The other 1.3% need a second rule I did not find. So the inductive cell of the route map is now "reduced to two conjectures, one of them 98.7% proved locally", not empty.
+My verdict first. Induction by degree-4 contraction does reduce Proposition 5.1 to two clean combinatorial statements, and both hold on every Eulerian triangulation up to 17 vertices. I proved the step that shows why they should hold: a lifting rule plus a three-face rotation covers 98.3% of the cases. The other 1.7% need a second rule I did not find. So the inductive cell of the route map is now "reduced to two conjectures, one of them 98.3% proved locally", not empty.
 
 ## 1. Generation theorems
 
@@ -41,9 +41,9 @@ For each rooted `(T, t0)` and each reduction avoiding `t0` I computed: #states, 
 | Pair existence is preserved | `REFUTED`, simple from `V = 11` (R2) |
 | #TM is even and the signs balance | `PROVED-HERE` (Prop. 4.1); `COMPUTED` 21,848 rooted instances |
 
-### 2.2 Inverse P-operation, `V <= 15`, 7,173 rooted reductions
+### 2.2 Inverse P-operation, `V <= 17`, 58,593 rooted reductions
 
-`#TM(T) >= #TM(T'')` held in all of them (`CONJECTURE`, `COMPUTED`, `data/misc_6_15.jsonl`). The P-reduction loses the pair in 1,865 cases, including every reduction of the octahedron (R13), so it is a worse induction step than `Q^-1`.
+`#TM(T) >= #TM(T'')` held in all of them (`CONJECTURE`, `COMPUTED`, `data/misc_*.jsonl`). The P-reduction loses the pair in 15,226 cases, including every reduction of the octahedron (R13), so it is a worse induction step than `Q^-1`.
 
 ### 2.3 Octahedron insertion (S, gluing at a separating triangle)
 
@@ -65,10 +65,10 @@ Induction on `V` over rooted instances that have a pair.
 
 | Ingredient | Status | Evidence |
 | --- | --- | --- |
-| (G) good contraction exists, no separating triangle, `V > 6` | `CONJECTURE` | `COMPUTED`: 1,154 of 1,154 rooted instances, `8 <= V <= 15`, always with a simple `T/M` (`code/exp_misc.py`). With a separating triangle it can fail (`V = 9`, R12), which is why step 2 comes first. |
+| (G) good contraction exists, no separating triangle, `V > 6` | `CONJECTURE` | `COMPUTED`: 7,386 of 7,386 rooted instances, `8 <= V <= 17`, always with a simple `T/M` (`code/exp_misc.py`, `data/misc_*.jsonl`). With a separating triangle it can fail (`V = 9`, R12), which is why step 2 comes first. |
 | (L) some TM of `T/M` lifts | `CONJECTURE` | `COMPUTED`: all 344,872 contractions, `V <= 17` |
 | (L+) contraction inequality | `CONJECTURE` | same range |
-| (L+) up to an exception set `E` | `PROVED-HERE` | PROOFS Cor. 3.3: lift, else rotate. `E` is 108 of 8,140 failing lifts for `V <= 15` |
+| (L+) up to an exception set `E` | `PROVED-HERE` | PROOFS Cor. 3.3: lift, else rotate. `E` is 466 of 28,189 failing lifts for `V <= 16` |
 
 ### The lift and the rotation
 
@@ -82,11 +82,11 @@ The brief asked for the strongest `H` such that `H(T')` implies `H(T)`. Every tr
 
 | Hypothesis | Holds on census? | Transfers by a local rule? |
 | --- | --- | --- |
-| TM exists (plain) | yes (theorem) | yes iff (G)+(L); local rule = lift or rotate, 98.7% |
-| TM with a prescribed corner `s(t) = u` at a prescribed face (HCs) | **no**, fails at `V = 8`; holds in 13 of 1,794 instances (R11) | n/a |
+| TM exists (plain) | yes (theorem) | yes iff (G)+(L); local rule = lift or rotate, 98.3% |
+| TM with a prescribed corner `s(t) = u` at a prescribed face (HCs) | **no**, fails at `V = 8`; holds in 20 of 13,130 instances, `V <= 17` (R11) | n/a |
 | TM whose mate has `r(t) = u` (HCr) | **no**, `V = 8` (R11) | n/a |
 | TM with a prescribed edge in `Q_s` (HQin) | **no**, same instances as HCs | n/a |
-| No face is frozen: each `t`, `u` has a TM with `s(t) != u` (HQout) | yes, `V <= 15` (`CONJECTURE`) | not tested; too weak to control the lift |
+| No face is frozen: each `t`, `u` has a TM with `s(t) != u` (HQout) | yes, `V <= 17` (`CONJECTURE`) | not tested; too weak to control the lift |
 | TM satisfying the local condition LC at a given split (edge `av ∈ Q`) | **no**, `V = 10` (R5) | LC implies the lift (Lemma 3.1) |
 | TM whose lift at a given split is a TM | yes, `V <= 17` | this is (L); carrying it through the next step needs a two-split version, and so on. The global side condition is the obstacle |
 | lowest coefficient positive and monotone | positive yes (theorem); monotone **no** (R8) | n/a |
@@ -105,4 +105,4 @@ I did not get far here, and I say so. Two observations from the data:
 
 - New `PROVED-HERE`: state deletion-contraction (Prop. 1.1); correct lift criterion (Prop. 2.1); local condition and rotation (Lemma 3.1, Prop. 3.2, Cor. 3.3); TM count even with balanced signs (Prop. 4.1).
 - New `REFUTED`: the "only if" half of route-graph-theory Lemma 6.2(iii) (`V = 6`, simple `V = 11`), and twelve further schemes (R2-R13).
-- `CONJECTURE` upgraded in range: contraction inequality, `V <= 12` (948 cases) to `V <= 17` (344,872 cases); P-reduction inequality, new; (G), new.
+- `CONJECTURE` upgraded in range: contraction inequality, `V <= 12` (948 cases) to `V <= 17` (344,872 cases); P-reduction inequality, new (`V <= 17`); (G), new (`V <= 17`).

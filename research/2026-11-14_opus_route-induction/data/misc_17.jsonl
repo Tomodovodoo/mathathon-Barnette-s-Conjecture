@@ -1,0 +1,1 @@
+{"V": 17, "E2": {"nosep / good simple": 4020, "sep / good simple": 3984, "sep / NONE": 38}, "E3": {"P-reductions": 36712, "non-simple": 8587, "pair lost": 10026}, "E4": {"instances": 8042, "HQout holds": 8042, "HCs holds": 4, "HCr holds": 3, "HQin holds": 4}, "examples": {"HCs": [17, 0, 0, [3, 10, 11], 3], "HCr": [17, 0, 0, [3, 10, 11], 3], "E2 none": [17, 225, 27]}}

@@ -26,6 +26,9 @@ python analyse_contract.py ../data/contract_6_16.jsonl ../data/contract_17.jsonl
 python rho.py 8 15                                      > ../data/rho_8_15.txt
 python probe_injection.py 14 0                          > ../data/probe_injection_14.txt
 python exp_misc.py 6 15                                 > ../data/misc_6_15.jsonl
+python exp_misc.py 16 16                                > ../data/misc_16.jsonl     # 17 s
+python exp_misc.py 17 17                                > ../data/misc_17.jsonl     # ~1 min
+python rho.py 16 16                                     > ../data/rho_16.txt
 python exp_skein.py ../data/contract_6_16.jsonl 13      > ../data/skein_oct.txt
 ```
 

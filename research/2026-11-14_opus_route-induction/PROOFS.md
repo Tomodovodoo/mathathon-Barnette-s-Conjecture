@@ -99,7 +99,7 @@ where `E` counts the TMs of `T/M` with a failing lift and `b ∈ K2'` (or the mi
 
 *Proof.* Lifts are M-type, images of `rho` are of type `(a, x)` and images of `rho'` of type `(x, b)`. These three classes are disjoint. On each class the map is injective: lifting is injective by Prop. 1.1, and `rho` is undone by the reverse rotation `beta1: a -> x, beta2: x -> v2, g: v2 -> a`. ∎
 
-`COMPUTED` (`code/rho.py`, `data/rho_8_15.txt`, all rooted contractions `V <= 15`). Every failing lift has `s(g) = a`, as Lemma 3.1 says. `rho` produces a TM in 8,032 of 8,140 failing lifts. The 108 exceptions start at `V = 13`, where every exception has a root among the neighbours of `x`. The first root-free exception is at `V = 14` (graph #12, root face `(5, 11, 6)`, `x = 2`, merge `9 -> 0`). So the rotation alone does not prove the contraction inequality. A second rule is needed for `b ∈ K2'`. In every exception some injection still exists (Section 5, `C >= b`).
+`COMPUTED` (`code/rho.py`, `data/rho_8_15.txt`, `data/rho_16.txt`, all rooted contractions `V <= 16`). Every failing lift has `s(g) = a`, as Lemma 3.1 says. `rho` produces a TM in 27,723 of 28,189 failing lifts. The 466 exceptions start at `V = 13`, where every exception has a root among the neighbours of `x`. The first root-free exception is at `V = 14` (graph #12, root face `(5, 11, 6)`, `x = 2`, merge `9 -> 0`). So the rotation alone does not prove the contraction inequality. A second rule is needed for `b ∈ K2'`. In every exception some injection still exists (Section 5, `C >= b`).
 
 *Adversarial check.* "Is `rho(s)` perhaps the lift of another TM, so that `Phi` collides?" No, it is N-type and lifts are M-type. "Is `c` distinct from `x, v1, b`?" `c != x` because `g` is not a face at `x`. `c != v1` because `v1 !~ v2`. `c = b` can happen. The proof does not use `c != b`: then `a c = a b`, and the component argument is unchanged.
 
@@ -119,7 +119,7 @@ Consequence for induction. Any inductive count of tree matchings must produce ev
 
 The inductive scheme of INDUCTION.md §4 needs two statements that I could not prove:
 
-- (G) for a rooted `T` with a pair, no separating triangle and `V > 6`, some degree-4 non-root `x`, with faces avoiding `t0`, has a simple contraction `T/M` that still has a pair (`CONJECTURE`, `COMPUTED` `V <= 15`, `code/exp_misc.py`);
+- (G) for a rooted `T` with a pair, no separating triangle and `V > 6`, some degree-4 non-root `x`, with faces avoiding `t0`, has a simple contraction `T/M` that still has a pair (`CONJECTURE`, `COMPUTED` `8 <= V <= 17`, `code/exp_misc.py`);
 - (L) the contraction inequality `#TM(T) >= #TM(T/M)` (`CONJECTURE`, `COMPUTED` on 344,872 contractions, `V <= 17`), or the weaker "some TM of `T/M` lifts" (`COMPUTED`, same range).
 
 Corollary 3.3 proves (L) up to the exception set `E`.
