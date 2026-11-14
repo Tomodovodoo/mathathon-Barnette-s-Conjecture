@@ -6,7 +6,7 @@
    "slug": "chain",
    "title": "The chain, and where the routes branch",
    "figure_cm": [
-    15.15,
+    15.05,
     14.82
    ],
    "words": 139
@@ -37,7 +37,7 @@
    "title": "Eight terms, grouped twice",
    "figure_cm": [
     12.75,
-    17.01
+    17.13
    ],
    "words": 124
   },
@@ -189,10 +189,20 @@
     14.64,
     17.08
    ],
-   "words": 151
+   "words": 150
   },
   {
    "n": 20,
+   "slug": "random",
+   "title": "A random spanning tree with the right degrees",
+   "figure_cm": [
+    14.64,
+    16.33
+   ],
+   "words": 149
+  },
+  {
+   "n": 21,
    "slug": "trinity",
    "title": "Three graphs inside one triangulation",
    "figure_cm": [
@@ -202,17 +212,17 @@
    "words": 150
   },
   {
-   "n": 21,
+   "n": 22,
    "slug": "cuts",
    "title": "What a small cut has to remember",
    "figure_cm": [
     15.11,
-    16.55
+    16.42
    ],
    "words": 150
   },
   {
-   "n": 22,
+   "n": 23,
    "slug": "induction",
    "title": "Induction by removing a vertex of degree four",
    "figure_cm": [
@@ -222,7 +232,7 @@
    "words": 149
   },
   {
-   "n": 23,
+   "n": 24,
    "slug": "earlier",
    "title": "Where the older methods meet this proof",
    "figure_cm": [
@@ -232,17 +242,17 @@
    "words": 150
   },
   {
-   "n": 24,
+   "n": 25,
    "slug": "produced",
    "title": "Which Hamiltonian cycles the proof can produce",
    "figure_cm": [
     14.82,
-    14.24
+    14.1
    ],
    "words": 141
   },
   {
-   "n": 25,
+   "n": 26,
    "slug": "hypotheses",
    "title": "What breaks when a hypothesis is dropped",
    "figure_cm": [
@@ -252,7 +262,7 @@
    "words": 149
   },
   {
-   "n": 26,
+   "n": 27,
    "slug": "families",
    "title": "Two families, counted",
    "figure_cm": [
@@ -262,7 +272,7 @@
    "words": 139
   },
   {
-   "n": 27,
+   "n": 28,
    "slug": "open",
    "title": "What is still open, and how far it was tested",
    "figure_cm": [
@@ -272,5 +282,5 @@
    "words": 147
   }
  ],
- "pdf_pages": 30
+ "pdf_pages": 31
 }

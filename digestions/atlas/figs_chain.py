@@ -55,7 +55,7 @@ def chain():
            'disk': r'the cycles of $D$\\bound disks', 'forest': r'a state whose\\opposite edges are a forest',
            'wtree': r'a tree on\\the white faces', 'trees': r'two induced trees',
            'cycle': r'a Hamiltonian cycle\\avoiding $e$'}
-    dx, dy = 4.55, 5.2
+    dx, dy = 4.5, 5.2
     pos = {'G': (0, 0), 'T': (dx, 0), 'state': (2 * dx, 0), 'pair': (2 * dx, -dy), 'disk': (dx, -dy), 'forest': (0, -dy),
            'wtree': (0, -2 * dy), 'trees': (dx, -2 * dy), 'cycle': (2 * dx, -2 * dy)}
     h = 1.36
@@ -85,8 +85,8 @@ def chain():
         L.append(rf'\draw[{free}] ({x1 - h},{y}) -- ({x2 + h},{y});')
         L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.2pt] at ({(x1 + x2) / 2},{y}) {{{name} {pg(slug)}}};')
     seg('forest', 'wtree', main, rf'delete the chosen\\spokes, page {pg("recovery")}')
-    seg('wtree', 'trees', main, r'one side of each\\black face')
-    seg('trees', 'cycle', main, r'the curve between\\the two trees')
+    seg('wtree', 'trees', main, r'one side per\\black face')
+    seg('trees', 'cycle', main, r'the curve\\between them')
     # the primal reading runs beside the last three steps
     y = pos['wtree'][1] - h - 1.45
     L.append(rf'\draw[line width=1.2pt,draw=black] ({pos["wtree"][0]},{y + .3}) |- ({pos["cycle"][0]},{y}) -- ({pos["cycle"][0]},{y + .3});')
@@ -227,11 +227,12 @@ def disk_fig():
     p.arrows(DARCS)
     for f in k['faces']:
         for v in m.F[f]:
-            q = p.xy[v] + 0.36 * (p.cen[f] - p.xy[v]) if f in m.white else p.xy[v] + 0.62 * (p.cen[f] - p.xy[v])
-            if f in m.white or rr[f] != v:
-                p.add(rf'\node[font=\scriptsize,inner sep=0pt] at {pt(q)} {{${angle(f, v)}$}};')
+            if f in m.white:
+                continue                                  # white corners are all 1 and are not written
+            if rr[f] != v:
+                p.add(rf'\node[font=\footnotesize,inner sep=0pt] at {pt(p.xy[v] + 0.6 * (p.cen[f] - p.xy[v]))} {{$-1$}};')
             else:
-                p.add(rf'\node[font=\scriptsize,inner sep=0pt,text=white] at {pt(p.xy[v] + 0.3 * (p.cen[f] - p.xy[v]))} {{$5$}};')
+                p.add(rf'\node[font=\footnotesize,inner sep=0pt,text=white] at {pt(p.xy[v] + 0.3 * (p.cen[f] - p.xy[v]))} {{$\mathbf 5$}};')
     cen = sum(p.xy[v] for v in k['cycle']) / len(k['cycle'])
     for v in k['cycle']:
         d = p.xy[v] - cen
@@ -286,7 +287,7 @@ def sum_fig():
     brace = (r'\multicolumn{2}{c}{\footnotesize$\underbrace{\hspace{' + f'{2 * w:.2f}' + r'cm}}_{\text{same }s,\ Q_s\text{ has a cycle (shaded): the two terms cancel}}$} & '
              r'\multicolumn{2}{c}{\footnotesize $Q_s$ is a forest: nothing to cancel with}\\[1mm]')
     body = (rf'\begin{{tabular}}{{{cols}}}' + hd('Grouped by the second state $s$ (solid wedges), with its opposite edges $Q_s$ dashed')
-            + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + r'\\[3.2mm]'
+            + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + r'\\[6mm]'
             + hd('Grouped by the cycle cover $D$ (arrows from the corner of $r$ to the corner of $s$)')
             + ' & '.join(bottom[:4]) + r'\\[.5mm]' + note(notes[0]) + ' & '.join(bottom[4:]) + r'\\[.5mm]' + note(notes[1]).replace(r'\\[2.2mm]', '')
             + r'\end{tabular}')

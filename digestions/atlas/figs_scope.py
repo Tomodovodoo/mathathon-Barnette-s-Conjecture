@@ -188,12 +188,12 @@ def cuts_fig():
         p.vertices(classes=ps)
         bot.append(cell(small(p.tex()), rf'{len(lst)} of {len(rparts)}', 4.0))
     assert len(bot) <= 8
-    hd = lambda t: r'\begin{minipage}{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
+    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
     CERT['cuts'] = dict(triangle=cap, triangle_patterns={str(k): len(v) for k, v in by3.items()}, four_cycle=c4,
                         four_patterns={str(k): len(v) for k, v in by4.items()}, hamiltonian_cycles=len(rparts))
-    return (r'\begin{tabular}{@{}c@{}}' + hd(rf'A separating triangle (heavy dashes) in a 9-vertex triangulation: the {len(by3)} ways two trees can meet it')
+    return (r'\begin{tabular}{@{}c@{}}' + hd(rf'A separating triangle (heavy dashes), 9 vertices: the {len(by3)} ways two trees can meet it')
             + grid(top, 3, colsep='3mm') + r'\\[7mm]'
-            + hd(rf'A separating cycle of length four in the running example: the {len(by4)} ways that occur among its {len(rparts)} Hamiltonian cycles')
+            + hd(rf'A separating cycle of length four in the running example: the {len(by4)} ways that occur among {len(rparts)} cycles')
             + grid(bot, 3, colsep='3mm', rowsep='2mm') + r'\end{tabular}')
 
 
@@ -426,7 +426,7 @@ def produced_fig():
             bot.append(cell(small(p.vertices().tex()), 'tree matching' if pr else why, 3.4))
             reasons.append(None if pr else why)
         info.append(dict(avoids=av, produced=pr))
-    hd = lambda t: r'\begin{minipage}{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
+    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
     CERT['produced'] = dict(cycles=info, reasons=reasons, faces=hm.F, t0=hm.t0, e0=hm.e0)
     return (r'\begin{tabular}{@{}c@{}}' + hd('The hexagonal prism, drawn inside its dual triangulation: all eight Hamiltonian cycles (purple). The prescribed edge $e$ is the dashed one.')
             + grid(top, 4, colsep='2mm', rowsep='3mm') + r'\\[7mm]'
@@ -681,3 +681,111 @@ def open_fig():
     CERT['open'] = dict(bars=bars, refuted=dead, quoted_not_recomputed=True, mechanism_face=y_)
     return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]{\footnotesize (a) How far each open statement was tested, and where each refuted one first fails. Logarithmic scale.}\\[5mm]'
             + side + r'\end{tabular}')
+
+
+# ---------------------------------------------------------------------------
+@fig('random')
+def random_fig():
+    H = m.spoke_graph()
+    nodes = list(H)
+    Lap = sp.Matrix(len(nodes), len(nodes), lambda i, j: H.degree(nodes[i]) if i == j else -int(H.has_edge(nodes[i], nodes[j])))
+    tau = int(Lap[1:, 1:].det())
+    target = {}
+    for x in nodes:
+        fixed = (x[0] == 't' and x[1] == m.t0) or (x[0] == 'v' and x[1] in m.roots)
+        target[x] = H.degree(x) - (0 if fixed else 1)
+    good = []
+    for z in states:
+        Hz = H.copy()
+        Hz.remove_edges_from((('t', t), ('v', v)) for t, v in zip(m.A, z))
+        if nx.is_tree(Hz):
+            assert all(Hz.degree(x) == target[x] for x in nodes)
+            good.append(z)
+    assert sorted(good) == sorted(tree_states)
+    M = len(good)
+    assert sum(target.values()) == 2 * (len(nodes) - 1)
+    # uniform spanning trees by Wilson's algorithm, fixed seed
+    rng = np.random.default_rng(2026)
+    nbr = {x: list(H[x]) for x in nodes}
+
+    def wilson():
+        root = nodes[0]
+        intree = {root}
+        par = {}
+        for x in nodes:
+            u = x
+            while u not in intree:
+                par[u] = nbr[u][rng.integers(len(nbr[u]))]
+                u = par[u]
+            u = x
+            while u not in intree:
+                intree.add(u)
+                u = par[u]
+        return [(x, par[x]) for x in nodes if x != root]
+    N = 4000
+    miss = Counter()
+    first = None
+    for _ in range(N):
+        tr = wilson()
+        deg = Counter(x for e in tr for x in e)
+        k = sum(deg[x] != target[x] for x in nodes)
+        miss[k] += 1
+        if first is None and k >= 6:
+            first = (tr, deg)
+
+    def draw(tree_edges, deg=None):
+        p = P(U2).base()
+        rr_ = R + draw_ring
+        for a_, b_ in H.edges():
+            t, v = (a_[1], b_[1]) if a_[0] == 't' else (b_[1], a_[1])
+            on = (a_, b_) in tree_edges or (b_, a_) in tree_edges
+            st = 'bf kept' if on else 'bf cut'
+            if t == m.t0:
+                th = ang(xy[v])
+                d = (-90 - th + 180) % 360 - 180
+                p.add(rf'\draw[{st}] {pt(xy[v])} -- ({th:.2f}:{rr_}) arc[start angle={th:.2f},end angle={th + d:.2f},radius={rr_}];')
+            else:
+                p.add(rf'\draw[{st}] {pt(p.cen[t])} -- {pt(xy[v])};')
+        for t in m.black:
+            p.add(rf'\fill {pt(p.cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
+        p.vertices()
+        if deg is not None:
+            for x in nodes:
+                if deg[x] != target[x]:
+                    q = p.cen[x[1]] if x[0] == 't' else xy[x[1]]
+                    p.add(rf'\draw[line width=1.1pt] {pt(q)} circle[radius=5pt];')
+        return p
+    from draw import RING as draw_ring
+    z = r
+    tz = [e for e in H.edges() if not (e[0][0] == 't' and e[0][1] in m.A and z[m.A.index(e[0][1])] == e[1][1])
+          and not (e[1][0] == 't' and e[1][1] in m.A and z[m.A.index(e[1][1])] == e[0][1])]
+    assert len(tz) == len(nodes) - 1
+    a = cell(draw(set(tz)).tex(), rf'(a) A tree matching as a spanning tree of the spoke graph (bold). Every black centre keeps two of its three spokes and every non-root vertex loses exactly one. The outer centre and the roots keep all.', 7.1)
+    tr, deg = first
+    nbad = sum(deg[x] != target[x] for x in nodes)
+    b = cell(draw(set(tr), deg).tex(), rf'(b) A spanning tree drawn at random. The {nbad} ringed points have the wrong number of spokes.', 7.1)
+    # (c) histogram of the number of wrong points
+    ks = list(range(0, max(miss) + 1))
+    w, h = 5.4, 3.4
+    top = max(miss.values())
+    L = [rf'\draw[line width=.5pt] (0,{h}) -- (0,0) -- ({w},0);']
+    bw = w / len(ks)
+    for i, k in enumerate(ks):
+        hh_ = h * miss[k] / top
+        L.append(rf'\fill[black!{78 if k == 0 else 45}] ({i * bw + .06},0) rectangle ({(i + 1) * bw - .06},{hh_:.3f});')
+        if k % 2 == 0:
+            L.append(rf'\node[font=\footnotesize,anchor=north] at ({(i + .5) * bw},-.03) {{${k}$}};')
+    L.append(rf'\node[font=\footnotesize,anchor=north] at ({w / 2},-.5) {{points with the wrong number of spokes}};')
+    L.append(rf'\node[font=\footnotesize,anchor=south east] at ({w},{h + .05}) {{{N} random spanning trees}};')
+    L.append(rf'\node[font=\footnotesize,anchor=south west,inner sep=1pt] at (.0,{h * miss[0] / top + .08}) {{{miss[0]} exact}};')
+    c = cell(r'\begin{minipage}[c][6.9cm][c]{7.1cm}\centering ' + tikz(L) + r'\end{minipage}',
+             rf'(c) How far random trees fall from the target. Exact hits: {miss[0]} of {N}; the expected number is {N * M / tau:.3f}.', 7.1)
+    led = (r'\begin{minipage}[c][6.9cm][c]{7.1cm}\footnotesize\renewcommand{\arraystretch}{1.5}\begin{tabular}{@{}lr@{}}\toprule '
+           r'\textbf{Running example} & \\\midrule '
+           rf'points of the spoke graph & {len(nodes)}\\ spokes & {H.number_of_edges()}\\ '
+           rf'spanning trees & ${tau}$\\ '
+           rf'with the prescribed degrees & {M}\\\midrule '
+           rf'chance for a random tree & about $1/{round(tau / M)}$\\ '
+           rf'chance for a random state & ${M}/{len(states)}$\\\bottomrule\end{{tabular}}\end{{minipage}}')
+    CERT['random'] = dict(spanning_trees=tau, prescribed=M, sample=N, seed=2026, wrong_points_histogram=dict(sorted(miss.items())))
+    return grid([a, b, c, led], 2)

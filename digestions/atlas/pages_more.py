@@ -109,11 +109,23 @@ page('rainbow', 'rainbow tree', 'A tree that uses every black face once', G4, r'
 Give each black face its own colour. Deleting a spoke of a face opens a passage between two white regions, in the colour of that face.
 A tree matching is then a spanning tree on the white faces that uses every colour once, with one passage at every non-root vertex.
 So the proof splits in two. First find a spanning tree with one passage per vertex. Rado's theorem does that with no signed sum.
-Then repair the colours by exchanges. One exchange is shown in (a) and (b). It keeps the tree and the vertices but repeats one colour and loses another.
+Then repair the colours by exchanges. One exchange is shown in (a) and (b). It keeps the tree and the vertices, repeats one colour and loses another.
 It is open whether exchanges that never increase the colour error always reach a tree matching.''',
      r'''The first step was proved in this project and is unrefereed. The descent survived all 34.8 million such trees up to 16 vertices and remains a conjecture. Not read by a human.''',
      ['recovery', 'matroids', 'trinity', 'open'],
      [RS + 'fable_referee-topology/RAINBOW.md', RS + 'fable_referee-topology/REPORT.md', RS + 'opus_route-topology/TOPOLOGY.md', HERE])
+
+page('random', 'random trees', 'A random spanning tree with the right degrees', G4, r'''
+Delete one spoke at each bounded black centre and one at each non-root vertex.
+If the rest of the spoke graph is a spanning tree, the deleted spokes are a tree matching, and conversely.
+So a tree matching is a spanning tree with a prescribed degree at every point.
+A spanning tree chosen uniformly at random has those degrees with probability six in 6,670,188 here.
+The hope was to tune edge weights until the prescribed degrees are the average, then show that the exact degrees have positive probability.
+The first half fails. The roots and the outer centre must keep every spoke, and no positive weights make that the average.
+Writing the signed sum as a difference of two positive measures restates the proof and does not replace it.''',
+     r'''From an unrefereed report. The tree count and the random sample are computed here. Not read by a human.''',
+     ['rainbow', 'recovery', 'lp', 'open'],
+     [RS + 'sol_route-probabilistic/REPORT.md', RS + 'sol_route-probabilistic/PROOFS.md', HERE + ' (figs_scope.py: random_fig, seed 2026)'])
 
 page('trinity', 'three graphs', 'Three graphs inside one triangulation', G4, r'''
 Mark a centre in every face of $T$, black and white, and join each centre to its three corners and to the centres across its three sides.
