@@ -325,7 +325,7 @@ def draw(detail, stem):
     xk, yk = pos["K"]
     seg_bundle((xm + 0.98, ym - hh + 0.02), (xk - 0.5, yk + hh + 0.02), strands("K"))
     xf, yf = pos["FP"]
-    thin((xk - nw / 2, yk - 0.1), (xf + 0.75, yf + hh + 0.02), "only forest pairs\nsurvive", tpos=0.5, dx=0.12)
+    thin((xk - nw / 2, yk - 0.1), (xf + 0.75, yf + hh + 0.02), "only good pairs\nsurvive", tpos=0.5, dx=0.12)
     xn, yn = pos["N"]
     if detail:
         rows("K", xk - 0.55, yk - hh - 0.42)
@@ -370,13 +370,13 @@ def draw(detail, stem):
     # ---- nodes on top
     node("G")
     node("T", "rooted at a black face t0, edge e0")
-    node("S", "perfect matchings of B")
+    node("S", "perfect matchings of the incidence graph")
     node("P", "two states, different at every face")
     node("DI", "2l - h = -3; one more white face than black")
     node("M", "a sign that both reversals flip")
     node("K", "sum with s fixed")
     node("N", "sum with D fixed")
-    node("FP", "Q_s a forest; exactly one partner")
+    node("FP", "Q_s a forest, one root per tree")
     node("IT", "spanning tree of the spoke graph")
     node("WT", "duals of the deleted spokes")
     node("SE", "one side of every face of T")

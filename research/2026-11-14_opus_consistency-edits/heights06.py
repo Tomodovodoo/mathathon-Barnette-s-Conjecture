@@ -6,7 +6,7 @@ import re
 p = "digestions/steps/06-nonvanishing.md"
 L = open(p, encoding="utf-8", newline="").read().split("\n")
 reps = [
-    (r"h_s\(", r"\eta_s("), (r"h_\{s_", r"\eta_{s_"), (r"\kappa_w", r"\kappa_y"), (r"\gamma_w", r"\gamma_y"),
+    ("h_s(", r"\eta_s("), ("h_{s_", r"\eta_{s_"), (r"\kappa_w", r"\kappa_y"), (r"\gamma_w", r"\gamma_y"),
     (r"\sum_w", r"\sum_y"), ("$w$", "$y$"), ("(w)", "(y)"), (r"w \text", r"y \text"),
     ("The selected white faces", "The chosen white faces"),
 ]

@@ -1,0 +1,3 @@
+digestions/SYNTHESIS.md:3: ../research/2026-11-14_fable_synthesis-audit/FACT-CHECK.md  [missing]
+digestions/SYNTHESIS.md:3: ../research/2026-11-14_fable_synthesis-audit/CHANGELOG.md  [missing]
+checked 323 links, 2 broken

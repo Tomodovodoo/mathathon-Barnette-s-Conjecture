@@ -1026,7 +1026,7 @@
     "state": "unreviewed"
    },
    "status": "source waypoint; unrefereed preprint, not a peer-review claim",
-   "title": "Selected edges P",
+   "title": "Selection P",
    "statement": "Root the white tree at y0, the white face across e0. Each tree edge selects one side of its black face. With e0 this is one edge in every face of T, a perfect matching of G.",
    "links": [
     {
@@ -3839,7 +3839,7 @@
   {
    "id": "x.N.x3",
    "title": "good pair among the fewest-cycle pairs",
-   "statement": "Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.",
+   "statement": "Among the pairs with the fewest D-cycles one has Q_s a forest; or every cover D has an orientation that is a good pair.",
    "where": [
     "research/2026-11-14_fable_dependency-graph/skeleton.md D2; research/2026-11-14_fable_route-combinatorics/ROUTES.md 7 (E2d, E3); research/2026-11-14_astra_referee-combinatorics/REFEREE.md; research/2026-11-14_opus_route-graph-theory/ROUTES.md O3 (a 40-vertex one-cycle cover with no good pair)"
    ],
@@ -3851,7 +3851,7 @@
    "kind": "deadend",
    "tier": null,
    "status": "refuted",
-   "lesson": "Reversals inside one fixed cycle cover cannot be guaranteed to reach a good pair, so a proof must move between covers. The leading coefficient is nonzero because of the fewest-cycle covers, but the surviving pairs can live in other covers. A statement that held on 1794 cases failed at the next size. (Scope as corrected by the referee.)",
+   "lesson": "Reversals inside one fixed cover cannot be guaranteed to reach a good pair, so a proof must move between covers. The leading coefficient is nonzero because of the fewest-cycle covers, but the surviving pairs can live in other covers. A statement that held on 1794 cases failed at the next size. (Scope as corrected by the referee.)",
    "note": "Smallest known counterexample: 16 vertices, class 158, t0 = (2,7,3): a single 13-cycle whose two orientations both have a triangle in Q_s; its 12 good states lie in two other covers. Also the octahedron with every face split in four (n = 15).",
    "links": [
     {
@@ -4435,7 +4435,7 @@
   {
    "id": "k.N.9",
    "title": "a test function with one sign on all covers",
-   "statement": "There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.",
+   "statement": "There is a test function of s for which every cover contributes with the same sign, so that no minimum over the number of cycles is taken.",
    "where": [
     "research/2026-11-14_fable_route-combinatorics/REPORT.md, open question 2"
    ],
@@ -7866,7 +7866,7 @@
    "title": "Li two-mark involutions on running example",
    "statement": "213 marked objects; iota1 fixes 141, iota2 fixes 9 of one sign; signed count -9. Closure, involutivity and sign reversal checked exhaustively on this instance. The involution note counts 279 objects on the same running.json with the same Tutte recipe, roots 4 and 5 sent to each other's anchor points (a reflection). Both counts are right: the object count depends on the drawing (69 drawings, 35 values from 103 to 363), the signed sum -9 and the nine second-fixed objects do not (research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md).",
    "where": [
-    "research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json"
+    "research/2026-11-14_astra_audit-digestions/code/verify.py; research/2026-11-14_astra_audit-digestions/outputs/verification.json; research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md"
    ],
    "tags": [
     "step N"
@@ -7877,7 +7877,7 @@
    "tier": "T4",
    "status": "computed",
    "evidence": [
-    "research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json"
+    "research/2026-11-14_astra_audit-digestions/code/verify.py; research/2026-11-14_astra_audit-digestions/outputs/verification.json; research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md"
    ],
    "review": {
     "state": "unreviewed"

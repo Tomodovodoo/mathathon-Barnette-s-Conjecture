@@ -96,7 +96,7 @@ WAYPOINTS = [
               "every black centre keeps two spokes, t0 keeps three."),
     dict(id="WT", name="White-face tree",
          what="The duals of the n deleted spokes form a spanning tree on the white faces (tree-cotree duality in the plane)."),
-    dict(id="SE", name="Selected edges P",
+    dict(id="SE", name="Selection P",
          what="Root the white tree at y0, the white face across e0. Each tree edge selects one side of its black face. "
               "With e0 this is one edge in every face of T, a perfect matching of G."),
     dict(id="JC", name="Jordan curve",
@@ -426,7 +426,7 @@ route("N.x2", "N", "parity or mod p count without weights", "REFUTED", "comb,dep
       cex="Octahedron: 2 good states, signed count 0.")
 route("N.x3", "N", "good pair among the fewest-cycle pairs", "REFUTED", "dep,comb",
       "dep/skeleton.md D2; comb/ROUTES.md 7 (E2d, E3)",
-      "Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.",
+      "Among the pairs with the fewest D-cycles one has Q_s a forest; or every cover D has an orientation that is a good pair.",
       lesson="The leading coefficient is nonzero because of the fewest-cycle covers, but the pairs that survive cancellation can live in "
              "other covers. No proof can work inside one D. A statement that held on 1794 cases failed at the next size.",
       cex="16 vertices, class 158, t0 = (2,7,3): a single 13-cycle whose two orientations both have a triangle in Q_s; "
@@ -505,7 +505,7 @@ route("N.8", "N", "abstract valuation theorem", "HUNCH", "mach", "mach/ROUTE-IDE
       "Axiomatise: a finite signed cycle system, two involutions, a positive circulation.",
       vivid="Would say which planar hypotheses do the work.", test="List the axioms and find the first one that fails on a torus or a disk with four roots.")
 route("N.9", "N", "a test function with one sign on all covers", "CONJECTURE", "comb", "comb/REPORT.md, open question 2",
-      "There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.",
+      "There is a test function of s for which every cover contributes with the same sign, so that no minimum over the number of cycles is taken.",
       test="On the 479 cases with more than 2^m good states (comb/data/rows_v16.json), search low-degree polynomials in the heights.")
 route("N.10", "N", "flux on a small set of faces", "HUNCH", "dim", "dim/ROUTES.md (economical weights)",
       "Put positive flux only on a set of faces that meets the interior of every feasible D-cycle.",
@@ -711,7 +711,7 @@ _upd("N.x4", cex="12 vertices, class 6, t0 = (2,7,3) for the highest state, and 
      where="+; refc/REFEREE.md; gt/ROUTES.md O1 (extremes of the whole matching lattice fail at 10 vertices)")
 _upd("N.x5", cex="12 vertices, class 6, t0 = (2,7,3) for counterclockwise, and its mirror image for clockwise "
                  "(referee's correction; the author reported 13).", where="+; refc/REFEREE.md")
-_upd("N.x3", lesson="Reversals inside one fixed cycle cover cannot be guaranteed to reach a good pair, so a proof must move "
+_upd("N.x3", lesson="Reversals inside one fixed cover cannot be guaranteed to reach a good pair, so a proof must move "
                     "between covers. The leading coefficient is nonzero because of the fewest-cycle covers, but the surviving pairs "
                     "can live in other covers. A statement that held on 1794 cases failed at the next size. (Scope as corrected by the referee.)",
      where="+; refc/REFEREE.md; gt/ROUTES.md O3 (a 40-vertex one-cycle cover with no good pair)", src="dep,comb,gt")
@@ -1090,7 +1090,8 @@ FOLDERS.update(pack='research/2026-11-14_opus_two-tree-packing', xa='research/20
                bp='research/2026-11-14_opus_blueprint', il='research/2026-11-14_astra_induction-lemmas')
 for tag in ('pack', 'xa', 'bp', 'il'):
     REVIEW[tag] = {'state': 'unreviewed'}
-_upd('N.li-check', text='+ The involution note counts 279 objects on the same running.json with the same Tutte recipe, roots 4 and 5 '
+_upd('N.li-check', where='research/2026-11-14_astra_audit-digestions/code/verify.py; research/2026-11-14_astra_audit-digestions/outputs/verification.json; '
+     'research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md', text='+ The involution note counts 279 objects on the same running.json with the same Tutte recipe, roots 4 and 5 '
      'sent to each other\'s anchor points (a reflection). Both counts are right: the object count depends on the drawing '
      '(69 drawings, 35 values from 103 to 363), the signed sum -9 and the nine second-fixed objects do not '
      '(research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md).')

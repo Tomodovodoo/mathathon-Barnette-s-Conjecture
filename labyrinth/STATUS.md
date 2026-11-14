@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T13:08:03Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T13:10:49Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -32,7 +32,7 @@ Generated 2026-11-14T13:08:03Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **nodal domains of eigenvectors** [`k.TG.h2`, open] Sign patterns of Laplacian eigenvectors of T almost never give two induced trees (predicted below 5 per cent).
 - **roots not on a common face** [`k.A.2`, open] For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states. The categorical agent tested the two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2).
 - **Gauss-Bonnet form for any cycle** [`k.B.5`, open] For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.
-- **a test function with one sign on all covers** [`k.N.9`, open] There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.
+- **a test function with one sign on all covers** [`k.N.9`, open] There is a test function of s for which every cover contributes with the same sign, so that no minimum over the number of cycles is taken.
 - **at least 2^m good states** [`k.D.3`, open] C1: every feasible root has #TM >= 2^m. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.
 - **a canonical good pair** [`k.D.6`, open] Under a bijection from states to trinity arborescences, good states have a tree description that singles one out.
 - **order-theoretic position in the state lattice** [`k.U.5h`, open] Outcome (topo): the good states are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often good states. No order-theoretic pattern was found.
@@ -105,7 +105,7 @@ Generated 2026-11-14T13:08:03Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **choose the cycle using r** [`x.K.x1`, refuted] Let the reversed cycle depend on the partner.
 - **zero, vertex-only or face-only weights** [`x.N.x1`, refuted] Use weights alpha_t + beta_v, or none.
 - **parity or mod p count without weights** [`x.N.x2`, refuted] Show the number of good states is odd, or nonzero mod p.
-- **good pair among the fewest-cycle pairs** [`x.N.x3`, refuted] Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.
+- **good pair among the fewest-cycle pairs** [`x.N.x3`, refuted] Among the pairs with the fewest D-cycles one has Q_s a forest; or every cover D has an orientation that is a good pair.
 - **highest or lowest partnered state** [`x.N.x4`, refuted] The top (bottom) partnered state of the lattice is a good state.
 - **minimal cover, all cycles one way** [`x.N.x5`, refuted] Take D with m cycles and orient all of them counterclockwise (or clockwise).
 - **largest rank difference** [`x.N.x6`, refuted] The pair maximising omega(s) - omega(r) is a good pair.

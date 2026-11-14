@@ -13,7 +13,7 @@ digraph routemap {
   "FP" [label="Good pair / good state"];
   "IT" [label="Incidence tree H - s"];
   "WT" [label="White-face tree"];
-  "SE" [label="Selected edges P"];
+  "SE" [label="Selection P"];
   "JC" [label="Jordan curve"];
   "GL" [label="Gluing"];
   "HC" [label="Hamiltonian cycle"];
