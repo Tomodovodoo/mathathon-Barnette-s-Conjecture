@@ -88,4 +88,4 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | done | Process residue removed; no mathematical change. Label defects in four figures listed in `PROBLEMS.md`. |
 | `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | done | Every proved result follows. One false sentence and stale ranges corrected. Counts reproduced with own code. |
 | `fable_notes-figures/` | Fable 5.2 | Label defects in the companion notes' figures | done | Nine defects fixed; page counts unchanged. |
-| `fable_sign-free-figure/` | Fable 5.2 | Figure 5 of the sign-free note redrawn | running | |
+| `fable_sign-free-figure/` | Fable 5.2 | Figure 5 of the sign-free note redrawn | done | Planar layout; 76 figure assertions pass. Reports that the note's Figures 1 to 4 draw the outer triangle's sides across inner edges. |
