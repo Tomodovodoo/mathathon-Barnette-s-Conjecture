@@ -1,0 +1,69 @@
+{
+  "symbolic_residual": "0",
+  "per_V": {
+    "6": {
+      "graphs": 1,
+      "eligible_colour_subsets": 46,
+      "regions": 44,
+      "repeated_boundary_regions": 0,
+      "failures": 0,
+      "seconds": 0.01
+    },
+    "7": {
+      "graphs": 0,
+      "eligible_colour_subsets": 0,
+      "regions": 0,
+      "repeated_boundary_regions": 0,
+      "failures": 0,
+      "seconds": 0.01
+    },
+    "8": {
+      "graphs": 1,
+      "eligible_colour_subsets": 240,
+      "regions": 280,
+      "repeated_boundary_regions": 60,
+      "failures": 0,
+      "seconds": 0.01
+    },
+    "9": {
+      "graphs": 1,
+      "eligible_colour_subsets": 500,
+      "regions": 630,
+      "repeated_boundary_regions": 180,
+      "failures": 0,
+      "seconds": 0.01
+    },
+    "10": {
+      "graphs": 2,
+      "eligible_colour_subsets": 2194,
+      "regions": 2924,
+      "repeated_boundary_regions": 956,
+      "failures": 0,
+      "seconds": 0.04
+    },
+    "11": {
+      "graphs": 2,
+      "eligible_colour_subsets": 4430,
+      "regions": 6167,
+      "repeated_boundary_regions": 2135,
+      "failures": 0,
+      "seconds": 0.09
+    },
+    "12": {
+      "graphs": 8,
+      "eligible_colour_subsets": 36055,
+      "regions": 53428,
+      "repeated_boundary_regions": 20209,
+      "failures": 0,
+      "seconds": 0.73
+    },
+    "13": {
+      "graphs": 8,
+      "eligible_colour_subsets": 73035,
+      "regions": 113348,
+      "repeated_boundary_regions": 43751,
+      "failures": 0,
+      "seconds": 1.56
+    }
+  }
+}
