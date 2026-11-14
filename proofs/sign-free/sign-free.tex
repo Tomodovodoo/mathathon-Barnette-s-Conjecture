@@ -126,7 +126,7 @@ A forest with $n$ edges on $n+3$ vertices has three components, so this says tha
 By Lemmas~\ref{lem:dual} and~\ref{lem:good}, a good state is a spanning tree of $W$ that satisfies two conditions.
 The \emph{face condition} asks for exactly one edge $e(t,\cdot)$ for every black face $t\in A$.
 The \emph{vertex condition} asks for exactly one edge $e(\cdot,x)$ for every $x\in X$.
-A spanning tree of $W$ has $n$ edges, so either condition forbids the edges at $t_0$ and at the roots.
+The face condition excludes $t_0$; the vertex condition excludes the roots.
 A rainbow tree is a spanning tree of $W$ with the vertex condition (Figure~\ref{fig:rainbow}).
 A spanning tree with the face condition is, by the proof of Lemma~\ref{lem:good}, a choice of one corner in every $t\in A$, not necessarily a bijection onto $X$, whose opposite sides form a forest with one root in each component.
 
@@ -578,7 +578,7 @@ Two other attempts at Theorem~\ref{thm:key} without signs stop at statements of 
 For a pair $(r,s)$ let $q$ be the number of cycles of $Q_s$, so that $s$ is good when $q=0$.
 Two moves are available, reversing a cycle of $D(r,s)$ and reversing a cycle of $Q_s$.
 The conjecture is that from every pair a good pair can be reached by such moves without ever raising $q$.
-It was confirmed for all pairs up to $16$ vertices by two independent programs, and one of them reports all pairs up to $22$ vertices.
+It was confirmed for all pairs up to $20$ vertices by two independent programs; the original program reports $193\,623\,384$ pairs up to $23$ vertices.
 A move that lowers $q$ need not exist, first at $16$ vertices, and examples with $21$ and $40$ vertices need three and four moves before $q$ falls.
 Paths that never raise the number of cycles of the cover fail at $16$ vertices, so again the cover has to change.
 

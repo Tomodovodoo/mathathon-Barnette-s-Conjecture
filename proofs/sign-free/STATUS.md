@@ -27,7 +27,7 @@ Fable 5.2, 2026-11-14. Tags are those of `research/BRIEF.md`. "Referee" means th
 | --- | --- | --- |
 | Rado's theorem | Rado 1942; Schrijver, *A Course in Combinatorial Optimization*, Exercise 10.26 | The referee opened Schrijver's course notes and quotes the exercise. I did not open either. |
 | Nash-Williams | Nash-Williams 1964; Schrijver's course notes, Exercise 10.29 via 10.28 | Same. The multigraph form is argued in `REFEREE-packing.md`. |
-| Edmonds, disjoint branchings | Edmonds 1973 (Academic Press, as the referee corrected); Schrijver, *Polyhedral combinatorics*, pp. 1674 and 1685-1686 | The referee opened the handbook chapter. The year 1995, the editors and the page range 1649-1704 of the handbook are from my memory, not from an opened source. `papers/barnette.bib` lists the chapter without a year. |
+| Edmonds, disjoint branchings | Edmonds 1973; Schrijver, *Polyhedral combinatorics*, pp. 1674 and 1685-1686 | Sol independently opened https://ir.cwi.nl/pub/2216/2216D.pdf and https://ir.cwi.nl/pub/2216. Title page confirms Chapter 30, editors Graham, Grotschel and Lovasz, and 1995. Catalog confirms pages 1649-1704. The remembered fields were correct. |
 | Tree and cotree duality | exposition, Lemma 2.5 | numbering read from `paper/main/barnette.aux` on 2026-11-14 |
 
 ## Computed and conjectured statements (Section 7)
@@ -41,7 +41,7 @@ Fable 5.2, 2026-11-14. Tags are those of `research/BRIEF.md`. "Referee" means th
 | 7, deterministic walk | periodic at 38 vertices (periods 48, 68, 68) and 40 (period 60); none up to 15 | REFUTED strengthening, COMPUTED | Fable; four examples replayed by the referee (`data/periodic.json`). Not recomputed here. |
 | 7, convexity of loads | exchange axiom fails at 12 vertices, plantri index 2, outer face {0,1,6} | REFUTED strengthening, COMPUTED | Fable and the referee. Not recomputed here. |
 | 7, `ι_t` not transitive | 24 of 672 instances with 13 and 14 vertices | COMPUTED | Fable (`RAINBOW.md` line 223). Not recomputed here and not checked by the referee. |
-| 7, descent on pairs (C3) | conjecture; all pairs to 16 vertices by two programs, to 22 by one; strict descent fails at 16; three and four moves needed at 21 and 40; paths with non-increasing `c` fail at 16 | CONJECTURE and REFUTED variants | `research/2026-11-14_astra_referee-descent/INTEGRATION.md`, whose wording I follow. Not recomputed here. |
+| 7, descent on pairs (C3) | conjecture; independent replay through 20 vertices, original census through 23; strict descent fails at 16; three and four moves needed at 21 and 40; paths with non-increasing `c` fail at 16 | CONJECTURE and REFUTED variants | Sol reconciled FACTS.md, Astra final referee report and Fable descent REPORT.md. Independent: 3,373,400 pairs through 20. Original: 193,623,384 through 23. Not recomputed here. |
 | 7, contraction induction | two missing lemmas; second one confirmed in the half-exception form to 18 vertices; fixed-cover repair fails at 18 | CONJECTURE | same file, section "State of contraction induction". Not recomputed here. The note says "no counterexample is known" for the first lemma because I found no explicit range for it. |
 | 8, plateau depth | at most 7 in the exhaustive range, at most 27 in samples to 120 | COMPUTED | Fable (`RAINBOW.md` line 229). Not recomputed here. |
 | 8, last paragraph | a proof of Step X has to use the disk identity | HUNCH | mine and Opus's (`PACKING.md` line 78) |
