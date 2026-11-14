@@ -1,0 +1,146 @@
+[
+  {
+    "family": "tube",
+    "p": 4,
+    "k": 0,
+    "vertices": 6,
+    "m": 1,
+    "fixed_starts": 1,
+    "ray_hist": {
+      "0": 1
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "tube",
+    "p": 4,
+    "k": 1,
+    "vertices": 10,
+    "m": 1,
+    "fixed_starts": 3,
+    "ray_hist": {
+      "0": 3
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "tube",
+    "p": 4,
+    "k": 2,
+    "vertices": 14,
+    "m": 1,
+    "fixed_starts": 5,
+    "ray_hist": {
+      "0": 5
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "tube",
+    "p": 6,
+    "k": 0,
+    "vertices": 8,
+    "m": 1,
+    "fixed_starts": 2,
+    "ray_hist": {
+      "0": 2
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "tube",
+    "p": 6,
+    "k": 1,
+    "vertices": 14,
+    "m": 1,
+    "fixed_starts": 10,
+    "ray_hist": {
+      "0": 10
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "tube",
+    "p": 6,
+    "k": 2,
+    "vertices": 20,
+    "m": 1,
+    "fixed_starts": 32,
+    "ray_hist": {
+      "0": 25,
+      "2": 7
+    },
+    "trees_walk_max": 2,
+    "trees_restarts": 0
+  },
+  {
+    "family": "stack",
+    "p": 4,
+    "k": 2,
+    "vertices": 9,
+    "m": 2,
+    "fixed_starts": 4,
+    "ray_hist": {
+      "0": 4
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "stack",
+    "p": 4,
+    "k": 3,
+    "vertices": 12,
+    "m": 3,
+    "fixed_starts": 28,
+    "ray_hist": {
+      "0": 28
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "stack",
+    "p": 6,
+    "k": 2,
+    "vertices": 13,
+    "m": 2,
+    "fixed_starts": 14,
+    "ray_hist": {
+      "0": 14
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "stack",
+    "p": 6,
+    "k": 3,
+    "vertices": 18,
+    "m": 3,
+    "fixed_starts": 168,
+    "ray_hist": {
+      "0": 168
+    },
+    "trees_walk_max": 0,
+    "trees_restarts": 0
+  },
+  {
+    "family": "subdivided",
+    "p": 4,
+    "k": 0,
+    "vertices": 18,
+    "m": 1,
+    "fixed_starts": 14,
+    "ray_hist": {
+      "2": 14
+    },
+    "trees_walk_max": 3,
+    "trees_restarts": 8
+  }
+]

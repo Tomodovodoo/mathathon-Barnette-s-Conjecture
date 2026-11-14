@@ -1,0 +1,34 @@
+{
+ "ray": {
+  "roots": 1206,
+  "paired": 880,
+  "objects": 221050,
+  "fixed": 4658,
+  "max_walk": 2,
+  "above_zero": 78
+ },
+ "tree": {
+  "roots": 1206,
+  "paired": 880,
+  "objects": 17832,
+  "fixed": 4658,
+  "max_walk": 4,
+  "above_zero": 123
+ },
+ "reverse-tree": {
+  "roots": 1206,
+  "paired": 880,
+  "objects": 18362,
+  "fixed": 4658,
+  "max_walk": 4,
+  "above_zero": 125
+ },
+ "drawings": {
+  "rows": 69,
+  "counts": 35,
+  "min": 103,
+  "max": 363,
+  "max_walk": 6
+ },
+ "command": "python research/2026-11-14_sol_involutions-revision/code/summary.py"
+}
