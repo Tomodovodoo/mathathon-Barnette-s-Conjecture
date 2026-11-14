@@ -85,5 +85,5 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | done | 63 cite commands, 23 keys, none missing; numbered citations match their sources. Kelmans and the 1969 Waterloo page are known only through secondary sources. `PDF-RIGHTS.md`. |
 | `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | done | `verify.py` passes; pages 26, 29, 30 corrected; evidence chart redrawn. Not audited. |
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | running | |
-| `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | running | |
+| `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | done | Process residue removed; no mathematical change. Label defects in four figures listed in `PROBLEMS.md`. |
 | `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | running | |
