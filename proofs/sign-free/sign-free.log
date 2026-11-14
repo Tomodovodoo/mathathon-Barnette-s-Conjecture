@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 15:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 15:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ Package rerunfilecheck Info: File `sign-free.out' has not changed.
 Here is how much of TeX's memory you used:
  25384 strings out of 467870
  473941 string characters out of 5419323
- 1009880 words of memory out of 5000000
+ 1006156 words of memory out of 5000000
  53323 multiletter control sequences out of 15000+600000
  694611 words of font info for 221 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -969,7 +969,7 @@ X/fonts/type1/public/lm/lmsy7.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/lm/lmtt10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/lm/lmtt8.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/symbols/msam10.pfb>
-Output written on sign-free.pdf (11 pages, 496954 bytes).
+Output written on sign-free.pdf (11 pages, 496923 bytes).
 PDF statistics:
  402 PDF objects out of 1000 (max. 8388607)
  67 named destinations out of 1000 (max. 500000)

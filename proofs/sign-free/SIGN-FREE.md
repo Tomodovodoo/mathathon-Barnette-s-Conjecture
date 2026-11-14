@@ -250,8 +250,6 @@ Let $F$ be the $2$-factor of $\sigma$.
 If giving $x$ its other face in $F$ closes no directed cycle in $G_u$, the result is a rainbow tree, so it is the exchange, and the exchange stays in $F$.
 Otherwise the exchange leads to a rainbow tree in another $2$-factor.
 
-> **Figure 3** (drawn in `sign-free.pdf`; source `figures/`). An exchange at the ringed vertex $x=8$. Thin lines are the spokes of $F_\sigma$, the three spokes of $t_0$ being omitted, and solid wedges mark the removed spokes. (a) The rainbow tree of Figure 1(a). Adding the removed spoke at $8$, dotted, closes the cycle $\Gamma$, drawn bold, through the centres of $\{8,11,12\}$, $\{4,10,11\}$, $\{3,4,9\}$ and $\{8,9,10\}$. (b) Removing the other spoke of $\Gamma$ at $8$ moves $8$ from $\{8,9,10\}$ to $\{8,11,12\}$. Both faces have load $1$ before the move, so the excess rises from $2$ to $4$.
-
 A *walk state* is a triple $(\sigma,t,a)$ of a rainbow tree $\sigma$, a face $t$ of load $2$ and one of the two vertices of $\sigma^{-1}(t)$, the *arrival* $a$.
 The other vertex $y$ is the *resident*.
 A *step* moves the resident to $t'=\operatorname{alt}_\sigma(y)$.
@@ -269,6 +267,8 @@ In $\operatorname{mir}(S')$ the resident is $y$.
 By Lemma 5.1 its exchange in $\sigma'$ leads back to $t$, which has load $1$ in $\sigma'$.
 So the step produces $(\sigma,t,y)=\operatorname{mir}(S)$.
  ∎
+
+> **Figure 3** (drawn in `sign-free.pdf`; source `figures/`). An exchange at the ringed vertex $x=8$. Thin lines are the spokes of $F_\sigma$, the three spokes of $t_0$ being omitted, and solid wedges mark the removed spokes. (a) The rainbow tree of Figure 1(a). Adding the removed spoke at $8$, dotted, closes the cycle $\Gamma$, drawn bold, through the centres of $\{8,11,12\}$, $\{4,10,11\}$, $\{3,4,9\}$ and $\{8,9,10\}$. (b) Removing the other spoke of $\Gamma$ at $8$ moves $8$ from $\{8,9,10\}$ to $\{8,11,12\}$. Both faces have load $1$ before the move, so the excess rises from $2$ to $4$.
 
 **Theorem 5.3.** 
 Let $n\ge1$, let $t\in A$, and let $s$ be a good state with inverse $\sigma$.

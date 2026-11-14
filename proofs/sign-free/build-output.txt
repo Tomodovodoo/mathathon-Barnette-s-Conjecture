@@ -4,17 +4,9 @@ Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
 Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex':  Reasons for rerun
 Changed files or newly in use/created:
-  figures/fig-badcover.tex
-  figures/fig-digraph.tex
-  figures/fig-exchange.tex
-  figures/fig-orbit.tex
-  figures/fig-rainbow.tex
+  sign-free.tex
 Category 'changed_user':
-  figures/fig-badcover.tex
-  figures/fig-digraph.tex
-  figures/fig-exchange.tex
-  figures/fig-orbit.tex
-  figures/fig-rainbow.tex
+  sign-free.tex
 
 ------------
 Run number 1 of rule 'pdflatex'
@@ -282,7 +274,7 @@ sy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7
 fb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msam10.pfb>
-Output written on sign-free.pdf (11 pages, 496954 bytes).
+Output written on sign-free.pdf (11 pages, 496923 bytes).
 Transcript written on sign-free.log.
 pdflatex: major issue: So far, you have not checked for MiKTeX updates.
 Latexmk: Getting log file 'sign-free.log'
@@ -557,7 +549,7 @@ sy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7
 fb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt8.pfb>
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols
 /msam10.pfb>
-Output written on sign-free.pdf (11 pages, 496954 bytes).
+Output written on sign-free.pdf (11 pages, 496923 bytes).
 Transcript written on sign-free.log.
 pdflatex: major issue: So far, you have not checked for MiKTeX updates.
 Latexmk: Getting log file 'sign-free.log'
