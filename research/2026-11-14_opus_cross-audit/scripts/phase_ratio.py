@@ -224,7 +224,6 @@ def analyse(faces, rng, label):
                 "graph": label, "colour": colour, "root": root, "n": n,
                 "states": len(S), "pairs": npairs,
                 "circuit_counts": sorted(cset),
-                "Z_note": Znote,
             })
     return results
 
@@ -251,7 +250,7 @@ def main():
             sum(1 for r in all_res if r["pairs"] == 0 and r["separating_triangle"]),
         "failures": 0,
     }
-    json.dump({"summary": summary, "instances": all_res}, sys.stdout, indent=1)
+    json.dump({"summary": summary, "instances": all_res}, sys.stdout, separators=(",", ":"))
 
 
 if __name__ == "__main__":
