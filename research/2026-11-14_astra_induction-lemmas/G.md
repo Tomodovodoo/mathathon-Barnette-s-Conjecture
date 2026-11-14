@@ -120,7 +120,17 @@ REFUTED, same graph. The merge {6,4} at x=5 is simple and loses the pair. Its ob
 
 PROVED-HERE. For any non-root degree-4 vertex z, f({z})=deg(z)/2-2=0. Therefore if an inclusion-minimal nonempty tight set contains a degree-4 vertex, it is that singleton. Its boundary is the link four-cycle, and z is an apex at every boundary edge. The proposed step "a minimal tight set contains a degree-4 vertex which is not a boundary apex" cannot be true. Fable's Proposition D merely says that such a singleton vertex has two consecutive neighbours outside the singleton, which is automatic. The proposition is not false; its proposed use supplies no contradiction.
 
-## 6. A proved restricted form of G
+## 6. Two stronger inward-selection rules also fail
+
+Minimality here means minimality under strict inclusion of the sets of interior vertices, as tested by the script. No stronger ordering of regions is silently assumed.
+
+REFUTED. Selecting only innermost bad five-cycles does not fix the descent. At V=13, graph 4, root {0,2,3}, the black-heavy five-cycle 0,4,11,10,7 encloses {5,6,12}. Its two interior degree-4 vertices are 6 and 12; both have both merges blocked. The cycle is inclusion-minimal among bad five-cycle interiors. Its boundary source vertex 4 already has a good alternative merge, so this example does not address a rule that first requires the source itself to be blocked.
+
+REFUTED. That extra source restriction also fails. At V=14, graph 22, root {0,1,2}, the black-heavy five-cycle 0,5,10,9,8 encloses {6,7,13}. Its interior degree-4 vertices 6 and 13 have both merges blocked. Boundary vertices 8 and 9 also have both merges blocked. The disk is inclusion-minimal even among the bad five-cycles sourced at blocked vertices. Good merges occur elsewhere, at vertices 4,11,12. Thus a proof cannot simply choose an innermost five-cycle from a blocked vertex and assert that its interior supplies a good vertex.
+
+COMPUTED, with independent flow replay. `code/g_five_certificates.py` verifies both examples, checks that every triangle is facial, identifies the interior component, counts the one white boundary incidence, and independently computes all relevant flow values. The full input and checks are in `data/g_five_certificates.json`. The complete census finds no earlier example for either refined rule.
+
+## 7. A proved restricted form of G
 
 PROVED-HERE. If T has more than six vertices, no separating triangle, and no chordless five-cycle, every non-root degree-4 vertex has a simple contraction with a pair.
 

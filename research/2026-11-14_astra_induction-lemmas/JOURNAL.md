@@ -18,3 +18,15 @@ The requested four-cycle-only picture conflicts with the supplied source, MISSIN
 - X: all feasible patterns is false at V=8. Mate repair of exceptions fails from V=16. Every single D-cycle repair can fail from V=17, graph 451, root 7,1,8, x=2, merge 0,9. The two reversals give a non-tree state and another exception. Through V=18 there are 222 such exceptions in total.
 - Saturation change of parameter: replace a single reversal by the entire direction cube of the fixed cover, then by the graph of tree matchings joined by D-cycle reversals with the mate recomputed after each move. Prediction: some fixed cubes contain only exceptional tree states, but a larger tree-state component may still escape. This tests the actual distinction between keeping a cover and changing it.
 - The inherited no-frozen-face conjecture was already tested by Opus as S7. It was not a new untried hypothesis. Our new test extends it through V=18.
+
+## Second G descent test
+
+Before testing: the failure above involves a four-cycle, while a bad five-cycle contains at least two interior degree-4 vertices by coloured curvature. Test the sharper prediction that every black-heavy bad five-cycle, or at least every innermost such five-cycle, encloses a good degree-4 vertex. This would repair the choice of region in the proposed proof, although an arbitrary-size argument would still be needed.
+
+Result: even the innermost-five-cycle version fails at V=13, graph 4. Before the next test, restrict the source vertex of the five-cycle to one whose two merges are both bad. This removes the V=13 example, whose boundary source already has a good alternative. Prediction: this restriction may rescue the descent claim. Test all such regions and their inclusion-minimal members through V=19.
+
+Result: the blocked-source refinement fails too, at V=14 graph 22. Boundary sources 8 and 9 and interior degree-4 vertices 6 and 13 all have both merges blocked. The cycle is 0,5,10,9,8; its interior is 6,7,13. Added an independent flow replay. No inward-selection rule tested here survives.
+
+## Saturation and scope at handoff
+
+The escalation ladder was used within this sub-agent's scope: algebraic elimination, embedded census, extremal witnesses, weaker local hypotheses, whole-cover direction cubes, the directed-cycle formulation, and read-only consultation of the referee and primal files. New delegation was prohibited, so no broad agent campaign was launched. The four-cycle descent, two refinements of it, mate repair, one-cycle repair, and whole-cover repair are now closed routes. The surviving global selection and cover-changing exchange questions need different arguments. No claim of exhaustive proof search is made.

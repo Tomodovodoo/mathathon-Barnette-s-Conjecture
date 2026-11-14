@@ -34,10 +34,14 @@
       "merges": 168,
       "bad_merges": 120,
       "simple_bad_merges": 36,
+      "five_regions_from_blocked_vertices": 18,
+      "minimal_blocked_source_five": 18,
       "bad_regions": 102,
       "bad_region_no_good_inside": 36,
       "minimal_bad_regions": 72,
       "minimal_bad_region_no_good_inside": 36,
+      "bad_five_regions": 18,
+      "minimal_bad_five_regions": 18,
       "seconds": 0.02
     },
     "12": {
@@ -50,7 +54,9 @@
       "bad_regions": 1522,
       "minimal_bad_regions": 540,
       "disks_5": 12,
-      "seconds": 0.08
+      "bad_five_regions": 42,
+      "minimal_bad_five_regions": 24,
+      "seconds": 0.09
     },
     "13": {
       "graphs": 3,
@@ -61,10 +67,16 @@
       "merges": 756,
       "bad_merges": 438,
       "simple_bad_merges": 96,
+      "five_regions_from_blocked_vertices": 40,
+      "minimal_blocked_source_five": 40,
       "bad_regions": 572,
       "bad_region_no_good_inside": 68,
       "minimal_bad_regions": 310,
       "minimal_bad_region_no_good_inside": 64,
+      "bad_five_regions": 88,
+      "minimal_bad_five_regions": 62,
+      "bad_five_region_no_good_inside": 4,
+      "minimal_bad_five_region_no_good_inside": 4,
       "seconds": 0.06
     },
     "14": {
@@ -77,10 +89,18 @@
       "bad_regions": 6538,
       "minimal_bad_regions": 2460,
       "disks_5": 74,
+      "bad_five_regions": 270,
+      "minimal_bad_five_regions": 148,
       "simple_bad_merges": 140,
+      "five_regions_from_blocked_vertices": 72,
+      "minimal_blocked_source_five": 48,
+      "blocked_source_five_no_good_inside": 24,
+      "minimal_blocked_source_five_no_good_inside": 24,
+      "bad_five_region_no_good_inside": 24,
+      "minimal_bad_five_region_no_good_inside": 24,
       "bad_region_no_good_inside": 120,
       "minimal_bad_region_no_good_inside": 96,
-      "seconds": 0.46
+      "seconds": 0.47
     },
     "15": {
       "graphs": 19,
@@ -91,10 +111,16 @@
       "merges": 6600,
       "bad_merges": 3584,
       "simple_bad_merges": 570,
+      "five_regions_from_blocked_vertices": 220,
+      "minimal_blocked_source_five": 220,
       "bad_regions": 5464,
       "bad_region_no_good_inside": 390,
       "minimal_bad_regions": 2754,
       "minimal_bad_region_no_good_inside": 360,
+      "bad_five_regions": 750,
+      "minimal_bad_five_regions": 438,
+      "bad_five_region_no_good_inside": 30,
+      "minimal_bad_five_region_no_good_inside": 30,
       "seconds": 0.54
     },
     "16": {
@@ -107,10 +133,18 @@
       "bad_regions": 34009,
       "minimal_bad_regions": 14100,
       "disks_5": 604,
+      "bad_five_regions": 2365,
+      "minimal_bad_five_regions": 1137,
       "simple_bad_merges": 904,
+      "five_regions_from_blocked_vertices": 310,
+      "minimal_blocked_source_five": 226,
       "bad_region_no_good_inside": 540,
       "minimal_bad_region_no_good_inside": 484,
-      "seconds": 2.96
+      "blocked_source_five_no_good_inside": 36,
+      "minimal_blocked_source_five_no_good_inside": 36,
+      "bad_five_region_no_good_inside": 56,
+      "minimal_bad_five_region_no_good_inside": 52,
+      "seconds": 2.95
     },
     "17": {
       "graphs": 134,
@@ -121,11 +155,65 @@
       "bad_merges": 32076,
       "disks_5": 1738,
       "simple_bad_merges": 4412,
+      "five_regions_from_blocked_vertices": 1608,
+      "minimal_blocked_source_five": 1518,
       "bad_regions": 51524,
       "bad_region_no_good_inside": 2682,
       "minimal_bad_regions": 25222,
       "minimal_bad_region_no_good_inside": 2412,
-      "seconds": 5.72
+      "bad_five_regions": 6948,
+      "minimal_bad_five_regions": 3710,
+      "bad_five_region_no_good_inside": 270,
+      "minimal_bad_five_region_no_good_inside": 240,
+      "blocked_source_five_no_good_inside": 90,
+      "minimal_blocked_source_five_no_good_inside": 60,
+      "seconds": 5.78
+    },
+    "18": {
+      "graphs": 501,
+      "disks_4": 22058,
+      "all_degree4_vertices_are_apices": 9069,
+      "rooted": 16032,
+      "merges": 267736,
+      "bad_merges": 132682,
+      "bad_regions": 248029,
+      "minimal_bad_regions": 110285,
+      "disks_5": 5642,
+      "bad_five_regions": 23205,
+      "minimal_bad_five_regions": 10885,
+      "simple_bad_merges": 9426,
+      "five_regions_from_blocked_vertices": 2824,
+      "minimal_blocked_source_five": 2213,
+      "bad_region_no_good_inside": 4746,
+      "minimal_bad_region_no_good_inside": 4236,
+      "bad_five_region_no_good_inside": 510,
+      "minimal_bad_five_region_no_good_inside": 480,
+      "blocked_source_five_no_good_inside": 210,
+      "minimal_blocked_source_five_no_good_inside": 210,
+      "seconds": 26.62
+    },
+    "19": {
+      "graphs": 1147,
+      "disks_4": 47066,
+      "all_degree4_vertices_are_apices": 21726,
+      "rooted": 38998,
+      "merges": 672180,
+      "bad_merges": 340545,
+      "bad_regions": 555112,
+      "minimal_bad_regions": 272701,
+      "disks_5": 17340,
+      "simple_bad_merges": 40515,
+      "five_regions_from_blocked_vertices": 12898,
+      "minimal_blocked_source_five": 12512,
+      "bad_region_no_good_inside": 21614,
+      "minimal_bad_region_no_good_inside": 19768,
+      "bad_five_regions": 73556,
+      "minimal_bad_five_regions": 36776,
+      "bad_five_region_no_good_inside": 1846,
+      "minimal_bad_five_region_no_good_inside": 1790,
+      "blocked_source_five_no_good_inside": 242,
+      "minimal_blocked_source_five_no_good_inside": 206,
+      "seconds": 71.11
     }
   },
   "first": {
@@ -539,6 +627,586 @@
           9,
           8,
           7
+        ]
+      ]
+    },
+    "bad_five_region_no_good_inside": {
+      "V": 13,
+      "gid": 4,
+      "root": [
+        2,
+        0,
+        3
+      ],
+      "cycle": [
+        0,
+        4,
+        11,
+        10,
+        7
+      ],
+      "inside": [
+        5,
+        6,
+        12
+      ],
+      "good": {
+        "4": [
+          true,
+          false
+        ],
+        "6": [
+          false,
+          false
+        ],
+        "8": [
+          false,
+          true
+        ],
+        "9": [
+          true,
+          false
+        ],
+        "12": [
+          false,
+          false
+        ]
+      },
+      "rot": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          8,
+          9,
+          10,
+          11,
+          2
+        ],
+        [
+          0,
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          2,
+          11,
+          4
+        ],
+        [
+          0,
+          3,
+          11,
+          5
+        ],
+        [
+          0,
+          4,
+          11,
+          10,
+          12,
+          6
+        ],
+        [
+          0,
+          5,
+          12,
+          7
+        ],
+        [
+          0,
+          6,
+          12,
+          10,
+          9,
+          8
+        ],
+        [
+          0,
+          7,
+          9,
+          1
+        ],
+        [
+          1,
+          8,
+          7,
+          10
+        ],
+        [
+          1,
+          9,
+          7,
+          12,
+          5,
+          11
+        ],
+        [
+          1,
+          10,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          5,
+          10,
+          7,
+          6
+        ]
+      ]
+    },
+    "minimal_bad_five_region_no_good_inside": {
+      "V": 13,
+      "gid": 4,
+      "root": [
+        2,
+        0,
+        3
+      ],
+      "cycle": [
+        0,
+        4,
+        11,
+        10,
+        7
+      ],
+      "inside": [
+        5,
+        6,
+        12
+      ],
+      "good": {
+        "4": [
+          true,
+          false
+        ],
+        "6": [
+          false,
+          false
+        ],
+        "8": [
+          false,
+          true
+        ],
+        "9": [
+          true,
+          false
+        ],
+        "12": [
+          false,
+          false
+        ]
+      },
+      "rot": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          8,
+          9,
+          10,
+          11,
+          2
+        ],
+        [
+          0,
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          2,
+          11,
+          4
+        ],
+        [
+          0,
+          3,
+          11,
+          5
+        ],
+        [
+          0,
+          4,
+          11,
+          10,
+          12,
+          6
+        ],
+        [
+          0,
+          5,
+          12,
+          7
+        ],
+        [
+          0,
+          6,
+          12,
+          10,
+          9,
+          8
+        ],
+        [
+          0,
+          7,
+          9,
+          1
+        ],
+        [
+          1,
+          8,
+          7,
+          10
+        ],
+        [
+          1,
+          9,
+          7,
+          12,
+          5,
+          11
+        ],
+        [
+          1,
+          10,
+          5,
+          4,
+          3,
+          2
+        ],
+        [
+          5,
+          10,
+          7,
+          6
+        ]
+      ]
+    },
+    "blocked_source_five_no_good_inside": {
+      "V": 14,
+      "gid": 22,
+      "root": [
+        1,
+        0,
+        2
+      ],
+      "cycle": [
+        0,
+        5,
+        10,
+        9,
+        8
+      ],
+      "inside": [
+        6,
+        7,
+        13
+      ],
+      "good": {
+        "4": [
+          true,
+          false
+        ],
+        "6": [
+          false,
+          false
+        ],
+        "8": [
+          false,
+          false
+        ],
+        "9": [
+          false,
+          false
+        ],
+        "11": [
+          false,
+          true
+        ],
+        "12": [
+          false,
+          true
+        ],
+        "13": [
+          false,
+          false
+        ]
+      },
+      "rot": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          8,
+          9,
+          10,
+          11,
+          2
+        ],
+        [
+          0,
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          2,
+          11,
+          10,
+          12,
+          4
+        ],
+        [
+          0,
+          3,
+          12,
+          5
+        ],
+        [
+          0,
+          4,
+          12,
+          10,
+          13,
+          6
+        ],
+        [
+          0,
+          5,
+          13,
+          7
+        ],
+        [
+          0,
+          6,
+          13,
+          10,
+          9,
+          8
+        ],
+        [
+          0,
+          7,
+          9,
+          1
+        ],
+        [
+          1,
+          8,
+          7,
+          10
+        ],
+        [
+          1,
+          9,
+          7,
+          13,
+          5,
+          12,
+          3,
+          11
+        ],
+        [
+          1,
+          10,
+          3,
+          2
+        ],
+        [
+          3,
+          10,
+          5,
+          4
+        ],
+        [
+          5,
+          10,
+          7,
+          6
+        ]
+      ]
+    },
+    "minimal_blocked_source_five_no_good_inside": {
+      "V": 14,
+      "gid": 22,
+      "root": [
+        1,
+        0,
+        2
+      ],
+      "cycle": [
+        0,
+        5,
+        10,
+        9,
+        8
+      ],
+      "inside": [
+        6,
+        7,
+        13
+      ],
+      "good": {
+        "4": [
+          true,
+          false
+        ],
+        "6": [
+          false,
+          false
+        ],
+        "8": [
+          false,
+          false
+        ],
+        "9": [
+          false,
+          false
+        ],
+        "11": [
+          false,
+          true
+        ],
+        "12": [
+          false,
+          true
+        ],
+        "13": [
+          false,
+          false
+        ]
+      },
+      "rot": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          0,
+          8,
+          9,
+          10,
+          11,
+          2
+        ],
+        [
+          0,
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          2,
+          11,
+          10,
+          12,
+          4
+        ],
+        [
+          0,
+          3,
+          12,
+          5
+        ],
+        [
+          0,
+          4,
+          12,
+          10,
+          13,
+          6
+        ],
+        [
+          0,
+          5,
+          13,
+          7
+        ],
+        [
+          0,
+          6,
+          13,
+          10,
+          9,
+          8
+        ],
+        [
+          0,
+          7,
+          9,
+          1
+        ],
+        [
+          1,
+          8,
+          7,
+          10
+        ],
+        [
+          1,
+          9,
+          7,
+          13,
+          5,
+          12,
+          3,
+          11
+        ],
+        [
+          1,
+          10,
+          3,
+          2
+        ],
+        [
+          3,
+          10,
+          5,
+          4
+        ],
+        [
+          5,
+          10,
+          7,
+          6
         ]
       ]
     }

@@ -1,0 +1,33 @@
+{
+  "about": "Local handoff snapshot; canonical coordinator table unchanged.",
+  "groups": [
+    "G",
+    "X"
+  ],
+  "entries": [
+    {
+      "id": "G",
+      "group": "G",
+      "cls": "separator-free rooted triangulations",
+      "result": "Exact obstruction classification; restricted theorem; general selection remains open.",
+      "status": "partial T2 unreviewed",
+      "refs": [
+        "G.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    },
+    {
+      "id": "X",
+      "group": "X",
+      "cls": "two-sided contractions",
+      "result": "Fixed-cover repairs refuted at V=18; global half bound tested through V=18.",
+      "status": "partial, computed T4",
+      "refs": [
+        "X.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14"
+    }
+  ]
+}

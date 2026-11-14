@@ -90,9 +90,31 @@ for nv in range(int(sys.argv[1]),int(sys.argv[2])+1):
                     witnesses[(x,keep,drop)]=ws
             if nv>6:assert any(any(v) for v in good.values())
             badregions=set(i for ws in witnesses.values() for i in ws)
+            badsource5={i for (xx,pp,qq),ws in witnesses.items() if not any(good[xx]) for i in ws if len(ds[i]['cycle'])==5}
+            for i in badsource5:
+                ins=ds[i]['inside'];hasgood=any(any(good.get(v,[])) for v in ins)
+                C['five_regions_from_blocked_vertices']+=1
+                if not hasgood:
+                    C['blocked_source_five_no_good_inside']+=1
+                    first('blocked_source_five_no_good_inside',V=nv,gid=gid,root=t0,cycle=ds[i]['cycle'],inside=sorted(ins),good=good,rot=rot)
+                if not any(ds[j]['inside']<ins for j in badsource5):
+                    C['minimal_blocked_source_five']+=1
+                    if not hasgood:
+                        C['minimal_blocked_source_five_no_good_inside']+=1
+                        first('minimal_blocked_source_five_no_good_inside',V=nv,gid=gid,root=t0,cycle=ds[i]['cycle'],inside=sorted(ins),good=good,rot=rot)
             for i in badregions:
                 d=ds[i]; ins=d['inside']; hasgood=any(any(good.get(v,[])) for v in ins)
                 C['bad_regions']+=1
+                if len(d['cycle'])==5:
+                    C['bad_five_regions']+=1
+                    minimal5=not any(len(ds[j]['cycle'])==5 and ds[j]['inside']<ins for j in badregions)
+                    if minimal5:C['minimal_bad_five_regions']+=1
+                    if not hasgood:
+                        C['bad_five_region_no_good_inside']+=1
+                        first('bad_five_region_no_good_inside',V=nv,gid=gid,root=t0,cycle=d['cycle'],inside=sorted(ins),good=good,rot=rot)
+                        if minimal5:
+                            C['minimal_bad_five_region_no_good_inside']+=1
+                            first('minimal_bad_five_region_no_good_inside',V=nv,gid=gid,root=t0,cycle=d['cycle'],inside=sorted(ins),good=good,rot=rot)
                 if not hasgood:
                     C['bad_region_no_good_inside']+=1
                     first('bad_region_no_good_inside',V=nv,gid=gid,root=t0,cycle=d['cycle'],inside=sorted(ins),good=good,rot=rot)

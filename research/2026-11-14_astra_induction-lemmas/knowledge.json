@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "meta": {
+    "title": "Induction lemmas: two open steps"
+  },
+  "nodes": [
+    {
+      "id": "k.G",
+      "kind": "conjecture",
+      "tier": "T5",
+      "status": "open",
+      "title": "Good contraction G",
+      "statement": "Some degree-4 nonroot has a simple contraction retaining a pair.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "test": "Extend the stated census or supply an arbitrary-size proof."
+    },
+    {
+      "id": "k.X",
+      "kind": "conjecture",
+      "tier": "T5",
+      "status": "open",
+      "title": "Two-sided lifting X",
+      "statement": "A two-sided vertex has a nonexceptional tree matching in some contraction.",
+      "where": [
+        "X.md"
+      ],
+      "links": [],
+      "test": "Extend the stated census or supply an arbitrary-size proof."
+    },
+    {
+      "id": "th.hall",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Exact Hall formulas",
+      "statement": "Connected-complement deficiency G1 and contraction formulas G2,G3.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "review": {
+        "state": "unreviewed",
+        "by": []
+      }
+    },
+    {
+      "id": "th.short",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Four- and five-cycle obstruction",
+      "statement": "Bad merges are exactly the stated four- or black-heavy five-cycle obstructions.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "review": {
+        "state": "unreviewed",
+        "by": []
+      }
+    },
+    {
+      "id": "th.curvature",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Coloured disk curvature",
+      "statement": "2 n4 >= 6 minus the number of boundary colour changes.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "review": {
+        "state": "unreviewed",
+        "by": []
+      }
+    },
+    {
+      "id": "th.restricted",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "G without chordless five-cycles",
+      "statement": "No separating triangle and no chordless five-cycle imply G.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "review": {
+        "state": "unreviewed",
+        "by": []
+      }
+    },
+    {
+      "id": "x.descent",
+      "kind": "deadend",
+      "tier": null,
+      "status": "refuted",
+      "title": "Innermost descent fails",
+      "statement": "Bad disks defeat inward descent at V=11; five-cycle and blocked-source refinements fail at V=13 and V=14.",
+      "where": [
+        "G.md"
+      ],
+      "links": [],
+      "lesson": "Retain the witness and replace the refuted step, not the theorem."
+    },
+    {
+      "id": "x.cube",
+      "kind": "deadend",
+      "tier": null,
+      "status": "refuted",
+      "title": "Fixed-cover repair fails",
+      "statement": "A fixed cover can contain a single tree matching, exceptional; V=18.",
+      "where": [
+        "X.md"
+      ],
+      "links": [],
+      "lesson": "Retain the witness and replace the refuted step, not the theorem."
+    },
+    {
+      "id": "k.avoid",
+      "kind": "conjecture",
+      "tier": "T5",
+      "status": "open",
+      "title": "Corner avoidance",
+      "statement": "Every bounded black face has at least two values across the tree matchings.",
+      "where": [
+        "X.md"
+      ],
+      "links": [],
+      "test": "Extend the stated census or supply an arbitrary-size proof."
+    },
+    {
+      "id": "ev.census",
+      "kind": "evidence",
+      "tier": "T4",
+      "status": "computed",
+      "title": "New census",
+      "statement": "Hall formulas through V=14; short-cycle structure through V=19; X probes through V=18.",
+      "where": [
+        "code/README.md"
+      ],
+      "links": []
+    }
+  ]
+}

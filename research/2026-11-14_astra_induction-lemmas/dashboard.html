@@ -1,0 +1,67 @@
+<!doctype html><meta charset="utf-8"><title>Induction lemma handoff</title><style>body{font:16px Georgia;max-width:1100px;margin:40px auto;padding:0 20px}td,th{padding:10px;border-bottom:1px solid #ccc;text-align:left}table{border-collapse:collapse}pre{white-space:pre-wrap}</style><h1>Induction lemma handoff</h1><p>G and X are open. The Hall identities pass; innermost descent and fixed-cover repair fail. New proofs are unreviewed.</p><p><a href="REPORT.md">Report</a> | <a href="AUDIT.md">Audit</a> | <a href="code/README.md">Commands</a></p><table><tr><th>Statement</th><th>Status</th><th>Result</th><th>Evidence</th></tr><tr><td>Good contraction G</td><td>T5 open</td><td>Some degree-4 nonroot has a simple contraction retaining a pair.</td><td><a href="G.md">Source</a></td></tr><tr><td>Two-sided lifting X</td><td>T5 open</td><td>A two-sided vertex has a nonexceptional tree matching in some contraction.</td><td><a href="X.md">Source</a></td></tr><tr><td>Exact Hall formulas</td><td>T2 established</td><td>Connected-complement deficiency G1 and contraction formulas G2,G3.</td><td><a href="G.md">Source</a></td></tr><tr><td>Four- and five-cycle obstruction</td><td>T2 established</td><td>Bad merges are exactly the stated four- or black-heavy five-cycle obstructions.</td><td><a href="G.md">Source</a></td></tr><tr><td>Coloured disk curvature</td><td>T2 established</td><td>2 n4 &gt;= 6 minus the number of boundary colour changes.</td><td><a href="G.md">Source</a></td></tr><tr><td>G without chordless five-cycles</td><td>T2 established</td><td>No separating triangle and no chordless five-cycle imply G.</td><td><a href="G.md">Source</a></td></tr><tr><td>Innermost descent fails</td><td> refuted</td><td>Bad disks defeat inward descent at V=11; five-cycle and blocked-source refinements fail at V=13 and V=14.</td><td><a href="G.md">Source</a></td></tr><tr><td>Fixed-cover repair fails</td><td> refuted</td><td>A fixed cover can contain a single tree matching, exceptional; V=18.</td><td><a href="X.md">Source</a></td></tr><tr><td>Corner avoidance</td><td>T5 open</td><td>Every bounded black face has at least two values across the tree matchings.</td><td><a href="X.md">Source</a></td></tr><tr><td>New census</td><td>T4 computed</td><td>Hall formulas through V=14; short-cycle structure through V=19; X probes through V=18.</td><td><a href="code/README.md">Source</a></td></tr></table><h2>Census totals</h2><pre>{
+  &quot;G&quot;: {
+    &quot;graphs&quot;: 1910,
+    &quot;disks_4&quot;: 79038,
+    &quot;all_degree4_vertices_are_apices&quot;: 35281,
+    &quot;rooted&quot;: 62416,
+    &quot;merges&quot;: 1050032,
+    &quot;bad_merges&quot;: 529853,
+    &quot;bad_regions&quot;: 903428,
+    &quot;minimal_bad_regions&quot;: 428652,
+    &quot;disks_5&quot;: 25652,
+    &quot;simple_bad_merges&quot;: 56099,
+    &quot;five_regions_from_blocked_vertices&quot;: 17990,
+    &quot;minimal_blocked_source_five&quot;: 16795,
+    &quot;bad_region_no_good_inside&quot;: 30196,
+    &quot;minimal_bad_region_no_good_inside&quot;: 27456,
+    &quot;bad_five_regions&quot;: 107242,
+    &quot;minimal_bad_five_regions&quot;: 53198,
+    &quot;bad_five_region_no_good_inside&quot;: 2740,
+    &quot;minimal_bad_five_region_no_good_inside&quot;: 2620,
+    &quot;blocked_source_five_no_good_inside&quot;: 602,
+    &quot;minimal_blocked_source_five_no_good_inside&quot;: 536
+  },
+  &quot;X&quot;: {
+    &quot;graphs&quot;: 2306,
+    &quot;rooted_with_TM&quot;: 41102,
+    &quot;black_faces&quot;: 594884,
+    &quot;TMs&quot;: 250402,
+    &quot;vertices&quot;: 342016,
+    &quot;minimum_patterns_2&quot;: 323533,
+    &quot;not_all_feasible_patterns&quot;: 277821,
+    &quot;mate_not_TM&quot;: 10320,
+    &quot;minimum_patterns_3&quot;: 16722,
+    &quot;minimum_patterns_4&quot;: 1761,
+    &quot;exceptions&quot;: 7940,
+    &quot;exception_mate_L&quot;: 7292,
+    &quot;merged_vertex_cycle_L&quot;: 4576,
+    &quot;merged_vertex_cycle_R&quot;: 505,
+    &quot;exception_mate_not_TM&quot;: 646,
+    &quot;merged_vertex_cycle_not_TM&quot;: 232,
+    &quot;merged_vertex_cycle_E&quot;: 154,
+    &quot;no_single_D_cycle_repair&quot;: 222,
+    &quot;exception_mate_R&quot;: 2
+  },
+  &quot;deficiency&quot;: {
+    &quot;graphs&quot;: 55,
+    &quot;eligible_colour_subsets&quot;: 699666,
+    &quot;regions&quot;: 1126192,
+    &quot;repeated_boundary_regions&quot;: 443092,
+    &quot;failures&quot;: 0
+  },
+  &quot;contraction_formula&quot;: {
+    &quot;merges&quot;: 15496,
+    &quot;merged_not_in_S&quot;: 4388992,
+    &quot;merged_in_S&quot;: 1813344
+  },
+  &quot;cube&quot;: {
+    &quot;contractions&quot;: 6212,
+    &quot;exceptions&quot;: 7940,
+    &quot;exception_cubes&quot;: 6543,
+    &quot;exception_components&quot;: 6543,
+    &quot;half_bound_fails_per_cube&quot;: 222,
+    &quot;all_TM_in_cube_exceptional&quot;: 220,
+    &quot;all_component_exceptional&quot;: 220
+  },
+  &quot;max_exception_fraction&quot;: 0.5
+}</pre>

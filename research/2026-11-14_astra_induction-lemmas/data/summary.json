@@ -1,0 +1,67 @@
+{
+  "G": {
+    "graphs": 1910,
+    "disks_4": 79038,
+    "all_degree4_vertices_are_apices": 35281,
+    "rooted": 62416,
+    "merges": 1050032,
+    "bad_merges": 529853,
+    "bad_regions": 903428,
+    "minimal_bad_regions": 428652,
+    "disks_5": 25652,
+    "simple_bad_merges": 56099,
+    "five_regions_from_blocked_vertices": 17990,
+    "minimal_blocked_source_five": 16795,
+    "bad_region_no_good_inside": 30196,
+    "minimal_bad_region_no_good_inside": 27456,
+    "bad_five_regions": 107242,
+    "minimal_bad_five_regions": 53198,
+    "bad_five_region_no_good_inside": 2740,
+    "minimal_bad_five_region_no_good_inside": 2620,
+    "blocked_source_five_no_good_inside": 602,
+    "minimal_blocked_source_five_no_good_inside": 536
+  },
+  "X": {
+    "graphs": 2306,
+    "rooted_with_TM": 41102,
+    "black_faces": 594884,
+    "TMs": 250402,
+    "vertices": 342016,
+    "minimum_patterns_2": 323533,
+    "not_all_feasible_patterns": 277821,
+    "mate_not_TM": 10320,
+    "minimum_patterns_3": 16722,
+    "minimum_patterns_4": 1761,
+    "exceptions": 7940,
+    "exception_mate_L": 7292,
+    "merged_vertex_cycle_L": 4576,
+    "merged_vertex_cycle_R": 505,
+    "exception_mate_not_TM": 646,
+    "merged_vertex_cycle_not_TM": 232,
+    "merged_vertex_cycle_E": 154,
+    "no_single_D_cycle_repair": 222,
+    "exception_mate_R": 2
+  },
+  "deficiency": {
+    "graphs": 55,
+    "eligible_colour_subsets": 699666,
+    "regions": 1126192,
+    "repeated_boundary_regions": 443092,
+    "failures": 0
+  },
+  "contraction_formula": {
+    "merges": 15496,
+    "merged_not_in_S": 4388992,
+    "merged_in_S": 1813344
+  },
+  "cube": {
+    "contractions": 6212,
+    "exceptions": 7940,
+    "exception_cubes": 6543,
+    "exception_components": 6543,
+    "half_bound_fails_per_cube": 222,
+    "all_TM_in_cube_exceptional": 220,
+    "all_component_exceptional": 220
+  },
+  "max_exception_fraction": 0.5
+}

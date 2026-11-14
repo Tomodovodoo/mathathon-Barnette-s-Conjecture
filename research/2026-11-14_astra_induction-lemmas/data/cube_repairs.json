@@ -2,32 +2,44 @@
   "per_V": {
     "13": {
       "contractions": 8,
+      "exceptions": 8,
+      "max_exception_fraction": 0.25,
       "exception_cubes": 8,
       "exception_components": 8
     },
     "14": {
       "contractions": 20,
+      "exceptions": 20,
+      "max_exception_fraction": 0.5,
       "exception_cubes": 20,
       "exception_components": 20
     },
     "15": {
       "contractions": 80,
+      "exceptions": 80,
+      "max_exception_fraction": 0.25,
       "exception_cubes": 80,
       "exception_components": 80
     },
     "16": {
       "contractions": 314,
+      "exceptions": 358,
+      "max_exception_fraction": 0.5,
       "exception_cubes": 314,
       "exception_components": 314
     },
     "17": {
       "contractions": 1146,
+      "exceptions": 1320,
+      "max_exception_fraction": 0.5,
       "exception_cubes": 1152,
       "exception_components": 1152,
       "half_bound_fails_per_cube": 2
     },
     "18": {
       "contractions": 4644,
+      "exceptions": 6154,
+      "max_exception_fraction": 0.5,
       "exception_cubes": 4969,
       "exception_components": 4969,
       "half_bound_fails_per_cube": 220,
@@ -754,5 +766,5 @@
       ]
     }
   },
-  "seconds": 3.25
+  "seconds": 3.99
 }
