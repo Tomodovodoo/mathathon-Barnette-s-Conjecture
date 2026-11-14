@@ -48,4 +48,4 @@ Fable 5.2, 2026-11-14. Tags are those of `research/BRIEF.md`. "Referee" means th
 
 ## Review state
 
-Sections 2 to 6: refereed by one independent AI referee for the mathematics; this write-up audited by me from each theorem backward (`research/2026-11-14_fable_sign-free-note/AUDIT.md`); human check pending. The note itself has not been read by a second model.
+Sections 2 to 6: refereed by Opus for the mathematics and self-audited by the author (`research/2026-11-14_fable_sign-free-note/AUDIT.md`). Sol has now independently audited this write-up, checked the named theorem sources, reproduced the requested counts and inspected all eleven PDF pages. See `research/2026-11-14_sol_referee-sign-free/REFEREE.md`, `RESULTS.md` and `REPORT.md`. Human check is pending. Figure 5 needs a layout repair because vertices 4 and 5 coincide; its numerical witness is confirmed.

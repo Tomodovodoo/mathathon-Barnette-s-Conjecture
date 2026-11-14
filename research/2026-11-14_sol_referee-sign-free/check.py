@@ -1,7 +1,7 @@
 """Independent referee census. No imports from author or lab.
 Run from repository root: python research/2026-11-14_sol_referee-sign-free/check.py
 """
-import collections, itertools, json, pathlib, subprocess, time
+import collections, itertools, json, pathlib, subprocess, time, random, sys
 BASE = pathlib.Path(__file__).resolve().parent
 ROOT = BASE.parent.parent
 COUNTS = collections.Counter()
@@ -69,6 +69,7 @@ def split_forests(edges,n):
             if prev[i] is None:break
             j,l=prev[i];parts[l].remove(i);i,k=j,l
     assert all(forest([edges[i] for i in part],n) for part in parts)
+    assert not(parts[0]&parts[1]) and parts[0]|parts[1]==set(range(len(edges)))
     return True
 
 def instance(rot,faces,t0,heavy=True):
@@ -172,22 +173,41 @@ def instance(rot,faces,t0,heavy=True):
     # Cover membership and S(2),(3), Edmonds, face condition by exhaustive choices.
     for F in covers:
         choices=[[t for t in opts[i] if (t,x) in F] for i,x in enumerate(X)]
-        local=[]
+        local=[];cyclic_choice=False
         for s in itertools.product(*choices):
             other=tuple(next(t for t in choices[i] if t!=s[i]) for i in range(n))
             arcs=[(x,next(y for y in faces[t] if (t,y) not in F)) for x,t in zip(X,other)]
             acyclic=forest([(a if a in X else v,b if b in X else v) for a,b in arcs],v+1)
             assert acyclic==(s in trees)
+            cyclic_choice |= not acyclic
             if acyclic:local.append(s)
             if len(covers)==1:assert acyclic
+        assert cyclic_choice==(len(covers)>1)
         assert any(tuple(next(t for t in choices[i] if t!=s[i]) for i in range(n)) in trees for s in local)
-        assert any(len(set(s))==n and forest([WE[t,x] for x,t in zip(X,s)],n+1) for s in itertools.product(*choices))
+        face_choices=[[x for x in faces[t] if (t,x) in F] for t in A]
+        assert any(forest([WE[t,x] for t,x in zip(A,s)],n+1) for s in itertools.product(*face_choices))
         if heavy:assert any(s in good for s in local)
     # All rainbow trees: unique cover, exchange, reversal, Step X.
     alternatives={}; no_decrease=0
     for s,e in trees.items():
+        assert max(collections.Counter(s).values())<=2
         membership=[F for F in covers if all((t,x) in F for x,t in zip(X,s))]
         assert len(membership)==1
+        # Recover the claimed cover formula directly in the complementary H-tree.
+        centres={t:v+i for i,t in enumerate(blacks)}
+        adj=[[] for _ in range(v+len(blacks))]
+        removed=set(zip(s,X))
+        for t in blacks:
+            for x in faces[t]:
+                if (t,x) not in removed:adj[x].append(centres[t]);adj[centres[t]].append(x)
+        par={centres[t0]:None};q=list(par)
+        for z in q:
+            for y in adj[z]:
+                if y not in par:par[y]=z;q.append(y)
+        assert len(par)==len(adj)
+        inverse_centres={z:t for t,z in centres.items()}
+        parent_edges={(inverse_centres[par[x]],x) for x in X}
+        assert removed|parent_edges==membership[0]
         al=[]
         for i,x in enumerate(X):
             candidates=[s[:i]+(t,)+s[i+1:] for t in opts[i] if t!=s[i] and s[:i]+(t,)+s[i+1:] in trees]
@@ -221,9 +241,11 @@ def instance(rot,faces,t0,heavy=True):
         for z in alternatives[s]:
             if trees[z]>=trees[s] and z not in reached:reached.add(z);q.append(z)
     assert len(reached)==len(trees)
-    # Exact two-forest packing for every deleted-corner map at <=12 vertices.
+    # Exact two-forest packing on every map at n<=7; 20 reproducible maps otherwise.
     if trees and heavy:
-        for u in itertools.product(*(faces[t] for t in A)):
+        rng=random.Random(1000*v+100*t0)
+        maps=itertools.product(*(faces[t] for t in A)) if n<=7 or '--all-maps' in sys.argv else [tuple(rng.choice(faces[t]) for t in A) for j in range(20)]
+        for u in maps:
             whiteedges=[WE[t,x] for t,y in zip(A,u) for x in faces[t] if x!=y]
             primal=[(x if x in X else v,y if y in X else v) for t,y in zip(A,u) for x in faces[t] if x!=y]
             assert split_forests(whiteedges,n+1)
@@ -241,7 +263,8 @@ if __name__=='__main__':
         for gi,(rot,faces) in enumerate(graphs(v)):
             for t0 in range(len(faces)):rows.append(dict(index=gi,**instance(rot,faces,t0)))
         print(v,dict(COUNTS),round(time.time()-begin,2),flush=True)
-    (BASE/'census.json').write_text(json.dumps(dict(command='python research/2026-11-14_sol_referee-sign-free/check.py',counts=dict(COUNTS),rows=rows),indent=2))
+    filename='census-exhaustive.json' if '--all-maps' in sys.argv else 'census.json'
+    (BASE/filename).write_text(json.dumps(dict(command='python '+' '.join(sys.argv),counts=dict(COUNTS),rows=rows),indent=2))
     for gi,(rot,faces) in enumerate(graphs(16)):
         if gi==27:
             t0=next(i for i,f in enumerate(faces) if set(f)=={0,1,2})

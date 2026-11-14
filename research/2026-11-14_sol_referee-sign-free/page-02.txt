@@ -1,0 +1,66 @@
+2
+GOOD STATES WITHOUT SIGNS
+Lemma 2.1 (duality). W is the plane dual of H, the edge e(t, v) being dual to the spoke (t, v). So for a
+set S of spokes, H −S is a spanning tree of H if and only if {e(t, v) : (t, v) ∈S} is a spanning tree of W.
+Proof. Let w be a white face with corners v1, v2, v3, and let ti be the black face across the side vivi+1.
+The closed curve v1, c(t1), v2, c(t2), v3, c(t3) in H bounds w together with three thirds of black faces. This
+region contains no vertex and no spoke, so it is a face of H. Different white faces give different faces, and
+by Euler’s formula H has (3n + 3) −(2n + 4) + 2 = n + 1 faces, so these are all. The spoke (t, v) lies
+between the two thirds of t at v, which belong to the faces around the white faces across the two sides of
+t at v. The second sentence is the duality between spanning trees of a connected plane graph and of its
+dual [3, Lemma 2.5].
+□
+Definition 2.2. A rainbow tree is a map σ: X →A with x a corner of σ(x) such that Fσ = H −
+{(σ(x), x) : x ∈X} is a spanning tree of H. The load of t ∈A is cσ(t) = |σ−1(t)|, and the excess is
+exc(σ) = P
+t∈A |cσ(t) −1|.
+In Fσ the centre of t keeps 3 −cσ(t) spokes and is not isolated, so every load is 0, 1 or 2. The excess is
+even, and it is zero exactly when σ is a bijection.
+Lemma 2.3. A state s is good if and only if its inverse σ = s−1 is a rainbow tree. So the good states are
+the rainbow trees of excess 0.
+Proof. In Fσ the centre of each t ∈A has degree two, and its neighbours are the ends of the side of t in
+Qs. The centre of t0 is joined to the three roots. So Fσ is Qs with every edge subdivided once, plus one
+new vertex joined to the roots. It has 2n + 3 edges on 2n + 4 vertices, so it is a spanning tree exactly
+when it has no cycle, that is, when Qs is a forest in which no two roots share a component. A forest with
+n edges on n + 3 vertices has three components, so this says that s is good.
+□
+By Lemmas 2.1 and 2.3, a good state is a spanning tree of W that satisfies two conditions. The face
+condition asks for exactly one edge e(t, ·) for every black face t ∈A. The vertex condition asks for exactly
+one edge e(·, x) for every x ∈X. A spanning tree of W has n edges, so either condition forbids the edges
+at t0 and at the roots. A rainbow tree is a spanning tree of W with the vertex condition (Figure 1). A
+spanning tree with the face condition is, by the proof of Lemma 2.3, a choice of one corner in every t ∈A,
+not necessarily a bijection onto X, whose opposite sides form a forest with one root in each component.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(b)
+Figure 1. Two rainbow trees on the example of [3], with 13 vertices and roots 0, 4, 5.
+Black faces are shaded and the grey collar is the outer face t0. A solid wedge in the
+face σ(x) at x marks each removed spoke, and the dash-dotted edges e(σ(x), x) form a
+spanning tree on the 11 white faces, drawn as small circles. (a) Excess 2: the dark face
+{1, 2, 9} has load 2 and the face {0, 2, 3} with the dashed outline has load 0. (b) Excess
+0, a good state. The example has 1792 rainbow trees, six of them good states.

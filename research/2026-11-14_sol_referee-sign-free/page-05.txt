@@ -1,0 +1,44 @@
+GOOD STATES WITHOUT SIGNS
+5
+For a pair (r, s) and σ = s−1 the arcs of Theorem 4.2(2) are r(t) →u(t). This is the orientation of Qs
+in [3, Lemma 4.2], and the statement that s is good exactly when Qs has no cycle is the case of excess 0.
+Corollary 4.3. The following are equivalent: T has a pair; T has a rainbow tree; no separating triangle
+of T has black inner boundary.
+Proof. A rainbow tree lies in a 2-factor by Theorem 4.2(1), and alternate edges along its cycles form a
+pair. By Theorem 3.1 it remains to show that a separating triangle ∆with black inner boundary excludes
+a 2-factor. Let I vertices lie inside ∆. All their faces lie inside, and there are I + 1 black faces inside by
+the proof of Theorem 3.1. The three black faces along the sides of ∆have one corner inside each, and
+every face has degree two in a 2-factor. So at most 3 + 2(I −2) = 2I −1 edges of a 2-factor meet the I
+inner vertices, and 2I are needed.
+□
+The equivalence of the first and the third statement is [1, Theorem 1.2]. The exposition proves one
+direction, for triangulations without separating triangles, by a flow [3, Proposition 5.2]. There the
+max-flow min-cut theorem reduces the existence of a pair to the inequality e(U) −b(U) ≤2|U| −4 for
+all sets U of vertices that contain the roots, and Euler’s formula proves it component by component.
+Here Rado’s theorem reduces it to (3.2), which concerns only complements of connected sets and follows
+from the exact identity (3.3). Both arguments use planarity through one Euler count, and both are
+constructive. The route through Rado gives more than a pair. One half of the cover it produces is a
+rainbow tree, a selection whose arcs in Gu have no directed cycle. This already has the acyclicity that a
+good state needs and lacks only the face condition.
+5. The exchange and the parity of the number of good states
+Lemma 5.1 (exchange). For a rainbow tree σ and x ∈X there is exactly one face t′ ̸= σ(x) at x such
+that σ[x := t′], the map that sends x to t′ and agrees with σ elsewhere, is a rainbow tree. Applying the
+exchange at x to σ[x := t′] returns σ.
+Proof. The graph Fσ + (σ(x), x) has exactly one cycle Γ. It passes through x and uses two spokes there,
+(σ(x), x) and one other, (t′, x). Deleting a spoke at x leaves a spanning tree exactly when the spoke lies
+on Γ. The second exchange sees the same graph and the same cycle.
+□
+Write altσ(x) for t′ (Figure 3). The exchange lowers the load of σ(x) by one and raises the load of
+t′, which was at most 1, by one. So an exchange out of a face of load 2 lowers the excess by 2 if t′ was
+empty and leaves it unchanged otherwise. Let F be the 2-factor of σ. If giving x its other face in F closes
+no directed cycle in Gu, the result is a rainbow tree, so it is the exchange, and the exchange stays in F.
+Otherwise the exchange leads to a rainbow tree in another 2-factor.
+A walk state is a triple (σ, t, a) of a rainbow tree σ, a face t of load 2 and one of the two vertices of
+σ−1(t), the arrival a. The other vertex y is the resident. A step moves the resident to t′ = altσ(y). If t′
+was empty, the step stops with the rainbow tree σ[y := t′]. Otherwise t′ had load 1, and the step produces
+the walk state step(σ, t, a) = (σ[y := t′], t′, y). The mirror of (σ, t, a) is mir(σ, t, a) = (σ, t, y).
+Lemma 5.2 (reversal). If step(S) = S′, then step(mir(S′)) = mir(S). In particular step is injective.
+Proof. Let S = (σ, t, a) with resident y, so S′ = (σ′, t′, y) with σ′ = σ[y := t′]. In mir(S′) the resident
+is y. By Lemma 5.1 its exchange in σ′ leads back to t, which has load 1 in σ′. So the step produces
+(σ, t, y) = mir(S).
+□

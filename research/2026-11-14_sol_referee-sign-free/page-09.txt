@@ -1,0 +1,61 @@
+GOOD STATES WITHOUT SIGNS
+9
+Proof. The first is Theorem 6.9. For the second, the 2n edges of F in W are two forests by Theorem 6.5,
+so every subset Y of them has rank at least |Y |/2. The n sets {e(t, v) : v ̸= u(t)} are disjoint and have
+two elements each, so the union of any j of them has rank at least j. Rado’s theorem gives an independent
+transversal, which is a spanning tree with the face condition.
+□
+7. Where it stops
+A cover with no good state. A good state inside a 2-factor F is a spanning tree made of edges of F
+that meets both conditions. Corollary 6.10 meets each of them alone. Both together can fail.
+Proposition 7.1. Let T be the Eulerian triangulation with 16 vertices of Figure 5, with outer face
+{0, 1, 2}. It has no separating triangle with black inner boundary, three 2-factors and 12 good states. One
+of the 2-factors is a single cycle through all 13 vertices of X, and neither of its two states is good. It
+contains 6144 rainbow trees, all of positive excess.
+This is a finite computation. The triangulation is number 27, counted from 0, in the list of Eulerian trian-
+gulations with 16 vertices produced by plantri -b -a 16; its faces are listed in figures/figdata.json.
+For each of the two states, Qs contains a directed triangle, drawn bold in the figure. No cover without a
+good state exists up to 12 vertices.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+(a)
+(b)
+(c)
+Figure 5. The cover of Proposition 7.1. (a) The triangulation, with outer face {0, 1, 2}
+as the grey collar, and the cover: one side in every face of A, forming a single cycle
+through the 13 inner vertices. (b) One of its two states, as solid wedges, with Qs directed
+from r(t) to u(t) in dashed arrows; the directed triangle 5 →13 →14 →5 is bold. (c)
+The other state; the directed triangle is 9 →12 →14 →9. Theorems 6.5 to 6.9 hold for
+this cover.
+So no argument that works inside one cover can prove Theorem 1.1. Theorems 6.5 to 6.9 hold for every
+deleted-corner map or every cover, the bad one included, and therefore cannot tell a cover that contains
+a good state from one that does not. The signed proof moves between covers as well. Its cancellation
+reverses a cycle of Qs, which changes the cover, and its second evaluation sums over all covers with the
+fewest cycles. Here the move between covers is the exchange of Lemma 5.1 at a vertex whose other arc
+would close a directed cycle in Gu.
+The missing step.
+Conjecture 7.2 (Step X). Let T have no separating triangle with black inner boundary. Then for every
+rainbow tree σ there are rainbow trees σ = σ0, σ1, . . . , σk such that σi+1 arises from σi by one exchange,
+exc(σi+1) ≤exc(σi) for all i, and exc(σk) = 0.
+With Theorem 3.1 and Lemma 2.3 this implies Theorem 1.1. The conjecture has been checked by
+exhaustive enumeration of all rainbow trees for every choice of t0 in every Eulerian triangulation with
+at most 17 vertices, and in 1492 of the 1543 triangulations with 18 vertices; the other 51 exceeded the
+time limit of the runs. In samples of larger triangulations, up to 120 vertices, every rainbow tree tried
+could be brought to excess 0 by such a sequence. When B has only one 2-factor the conjecture holds by
+Theorem 4.2(3): all choices inside the 2-factor are rainbow trees, and moving the second vertex of a face
+of load 2 onwards along its cycle, face after face, reaches an empty face without raising the excess.
+Three stronger statements would give a proof or an algorithm at once, and all three fail.

@@ -1,0 +1,59 @@
+6
+GOOD STATES WITHOUT SIGNS
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(b)
+Figure 3. An exchange at the ringed vertex x = 8. Thin lines are the spokes of Fσ, the
+three spokes of t0 being omitted, and solid wedges mark the removed spokes. (a) The
+rainbow tree of Figure 1(a). Adding the removed spoke at 8, dotted, closes the cycle
+Γ, drawn bold, through the centres of {8, 11, 12}, {4, 10, 11}, {3, 4, 9} and {8, 9, 10}. (b)
+Removing the other spoke of Γ at 8 moves 8 from {8, 9, 10} to {8, 11, 12}. Both faces
+have load 1 before the move, so the excess rises from 2 to 4.
+Theorem 5.3. Let n ≥1, let t ∈A, and let s be a good state with inverse σ. Move x0 = s(t) to
+t1 = altσ(x0) and take steps from the walk state S1 = (σ[x0 := t1], t1, x0). The walk stops, at the inverse
+of a good state ιt(s). The map ιt is an involution on the set of good states and has no fixed point. So the
+number of good states is even.
+Proof. In S1 the excess is 2, the face t is empty and t1 has load 2. A step that does not stop keeps the
+excess, so in every walk state reached t is the only empty face. The walk therefore stops exactly when it
+moves a vertex into t, and then the excess is 0 and the result is a good state by Lemma 2.3.
+The walk stops. Suppose S1 = step(S) for a walk state S. By Lemma 5.2, step(mir(S1)) = mir(S) is a
+walk state. But the resident of mir(S1) is x0, and its exchange leads back into the empty face t, so this
+step stops. Hence S1 is not in the image of step. An injective map on a finite set cannot return to an
+earlier element of the forward orbit of an element outside its image. So the walk S1, S2, . . . ends at some
+Sm whose step stops, with a good state s′.
+Involution. Start from s′ at t. The vertex s′(t) is the resident of Sm, and its exchange returns
+it to the face of Sm, so the first walk state is mir(Sm).
+By Lemma 5.2 the walk continues with
+mir(Sm−1), . . . , mir(S1), and the step from mir(S1) puts x0 into t and stops at s. So ιt(s′) = s.
+No fixed point. If s′ = s, the two walks are the same, so Si = mir(Sm+1−i) for all i. For odd m the
+middle state would equal its mirror, but the arrival and the resident differ. For even m the states Sm/2
+and Sm/2+1 would have the same tree, but every step changes the tree.
+□
+Figure 4 shows one orbit. The proof uses no sign, no weight and no planarity beyond Lemma 5.1. It
+does not give existence: if there is no good state, the statement is empty. With Theorem 1.1 it shows
+that a triangulation with a pair has at least two good states.

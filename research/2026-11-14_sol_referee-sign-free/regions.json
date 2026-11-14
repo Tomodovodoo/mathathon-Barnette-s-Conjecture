@@ -1,0 +1,8 @@
+{
+  "command": "python research/2026-11-14_sol_referee-sign-free/regions.py",
+  "counts": {
+    "duality_sets": 524000,
+    "regions": 793254,
+    "identity_6_2_sets": 557586
+  }
+}

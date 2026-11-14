@@ -1,0 +1,24 @@
+GOOD STATES WITHOUT SIGNS
+11
+trees and 620 good states. The program checks Lemma 2.1 on 440 000 sets of spokes, Lemma 2.3 on all
+1706 states, the identity (3.3) on all 57 901 connected sets J, Theorem 4.2 for every rainbow tree and
+every 2-factor, Lemma 5.1 at every vertex of every rainbow tree, Lemma 5.2 on all 325 536 walk states,
+Theorem 5.3 in 5052 evaluations of ιt, Lemma 6.3 on every set of vertices, and Theorems 6.5 to 6.9 and
+Corollary 6.10 on all 210 covers and 82 118 deleted-corner maps. It also confirms Conjecture 7.2 and the
+count for strict descent in this range. The counts agree with those of two earlier independent programs.
+Proposition 7.1 is recomputed by the script that draws the figures. The statements about more than 12
+vertices in Section 7, other than Proposition 7.1, are quoted from the project’s earlier runs and were not
+recomputed here; the file STATUS.md next to this note names the program and the range for each.
+References
+[1] A constructive proof of Barnette’s conjecture, unsigned manuscript, dated 18 October 2026.
+[2] J. Edmonds, Edge-disjoint branchings, in: Combinatorial Algorithms (R. Rustin, ed.), Academic Press, New York, 1973,
+pp. 91–96.
+[3] The proof of Barnette’s conjecture: an exposition, manuscript, 14 November 2026, in the same repository as this note
+(paper/main/barnette.pdf).
+[4] Z. Li, A note on the proof of Barnette’s conjecture, arXiv:2610.30490v1, 2026.
+[5] C. St. J. A. Nash-Williams, Decomposition of finite graphs into forests, J. London Math. Soc. 39 (1964), 12.
+[6] OpenAI, Paired states and Hamiltonian cycles in cubic bipartite planar graphs, preprint, 24 September 2026.
+[7] R. Rado, A theorem on independence relations, Quart. J. Math. Oxford Ser. 13 (1942), 83–89.
+[8] A. Schrijver, A course in combinatorial optimization, lecture notes, CWI, Amsterdam, version of 23 March 2017.
+[9] A. Schrijver, Polyhedral combinatorics, in: Handbook of Combinatorics (R. L. Graham, M. Grötschel, L. Lovász, eds.),
+Elsevier, Amsterdam, 1995, Chapter 30, pp. 1649–1704.

@@ -1,0 +1,67 @@
+4
+GOOD STATES WITHOUT SIGNS
+Proof. Direct the spoke (σ′(x), x) from x to the centre, the spoke (t, u(t)) from the centre of t ∈A to
+u(t), and the three spokes of t0 from the roots to the centre of t0. A spoke (t, v) with t ∈A that is not in
+F has v = u(t), so these are all 2n + 3 spokes of Fσ and each has one direction. Every vertex of H except
+the centre of t0 has outdegree one. A graph with |V (H)| −1 edges directed in this way is a spanning tree
+if and only if it has no directed cycle, and its edges then point to the parents. A directed cycle avoids the
+roots, so it alternates x →c(σ′(x)) →u(σ′(x)).
+□
+For a rainbow tree σ, let parσ(x) be the black face whose centre is the parent of x in Fσ rooted at the
+centre of t0.
+Theorem 4.2.
+(1) Every rainbow tree σ lies in exactly one 2-factor of B, namely σ ∪parσ.
+(2) Inside a 2-factor F, the rainbow trees correspond to the sets of arcs of Gu that contain one arc
+out of every vertex of X and no directed cycle; σ corresponds to the arcs x →u(σ′(x)). Such a
+set is a spanning forest of Gu directed towards the roots. The good states inside F correspond to
+the sets that contain exactly one of the two arcs of every face.
+(3) Gu has a directed cycle if and only if B has a 2-factor other than F. If F is the only 2-factor, all
+2n choices of σ inside F are rainbow trees and all states inside F are good.
+Proof. (1) In Fσ the neighbours of x ∈X are the centres of its faces other than σ(x), all in A. So
+parσ(x) ∈A and parσ(x) ̸= σ(x). The centre of t ∈A has 3 −cσ(t) neighbours, one of them its parent, so
+t is the parent of 2 −cσ(t) vertices, none of them a root. Hence every t has degree cσ(t) + 2 −cσ(t) = 2
+in σ ∪parσ, which is a 2-factor. If σ ∪σ′ is any 2-factor, Lemma 4.1 gives σ′ = parσ.
+(2) The first sentence is Lemma 4.1. A set of n arcs with one arc out of every vertex of X and no
+directed cycle leads from every vertex to a root. The arc from v through t is chosen exactly when σ′(v) = t,
+so one arc in every face means that σ′ is a bijection, and then so is σ.
+(3) Let v1 →v2 →· · · →vk →v1 be a directed cycle, the arc vi →vi+1 running through ti. Then
+u(ti) = vi+1, so the ti are distinct, and replacing every edge (vi, ti) of F by (vi+1, ti) gives another 2-factor.
+Conversely let F ′ ̸= F be a 2-factor. Every vertex meets as many edges of F \ F ′ as of F ′ \ F, so the
+symmetric difference splits into closed trails that alternate between the two. An edge (v, t) of F ′ \ F has
+v = u(t), so each trail is a closed directed walk in Gu, which contains a directed cycle. The last sentence
+follows from (2).
+□
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(a)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+(b)
+Figure 2. (a) The digraph Gu of the 2-factor that contains the rainbow tree σ of
+Figure 1(a). Each face of A carries two arcs, along its two sides at u(t). Gu has a directed
+cycle, 1 →8 →9 →1, and the example has two 2-factors. (b) The forest of σ in dashed
+arrows: one arc x →u(parσ(x)) out of each of the ten vertices that are not roots. The
+solid wedges mark σ. The face {0, 2, 3} of load 0 has both its arcs in the forest, and the
+face {1, 2, 9} of load 2 has none.

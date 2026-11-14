@@ -1,0 +1,26 @@
+{
+  "vertices": 16,
+  "root": [
+    0,
+    2,
+    1
+  ],
+  "rainbow": 19968,
+  "good": 12,
+  "covers": 3,
+  "no_decrease": 734,
+  "cover_counts": [
+    {
+      "rainbow": 6144,
+      "good": 0
+    },
+    {
+      "rainbow": 6912,
+      "good": 6
+    },
+    {
+      "rainbow": 6912,
+      "good": 6
+    }
+  ]
+}
