@@ -385,3 +385,94 @@ if __name__ == '__main__':
         exp_random(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), float(sys.argv[5]) if len(sys.argv) > 5 else 0.0)
     elif cmd == 'saved':
         exp_saved()
+
+
+# ------------------------------------------------------------------ exhaustive search restricted to instances with >= 2 two-factors
+def has_unique_two_factor(I, rb, sigma):
+    """Theorem S and Proposition U of RAINBOW.md: the 2-factor of sigma is sigma + parent map of H - sigma;
+    it is the only 2-factor of B iff the digraph v -> u(t) is acyclic."""
+    adj = {}
+    for t in range(len(I.faces)):
+        if not I.black[t]:
+            continue
+        for v in I.faces[t]:
+            if sigma.get(v) == t:
+                continue
+            adj.setdefault(('t', t), []).append(('v', v))
+            adj.setdefault(('v', v), []).append(('t', t))
+    root = ('t', I.f0)
+    par = {root: None}
+    dq = deque([root])
+    while dq:
+        a = dq.popleft()
+        for b in adj[a]:
+            if b not in par:
+                par[b] = a
+                dq.append(b)
+    assert len(par) == 2 * I.n + 4
+    u = {t: par[('t', t)][1] for t in I.A}
+    out = {v: [] for v in range(I.nv)}
+    indeg = {v: 0 for v in range(I.nv)}
+    for t in I.A:
+        for v in I.faces[t]:
+            if v != u[t]:
+                out[v].append(u[t])
+                indeg[u[t]] += 1
+    assert all(len(out[x]) == 2 for x in I.X)
+    dq = deque(v for v in range(I.nv) if indeg[v] == 0)
+    seen = 0
+    while dq:
+        a = dq.popleft()
+        seen += 1
+        for b in out[a]:
+            indeg[b] -= 1
+            if indeg[b] == 0:
+                dq.append(b)
+    return seen == I.nv
+
+
+def exp_traps_multi(V, lo, hi):
+    cnt = Counter()
+    hist_depth = Counter()
+    trap_examples = []
+    t0 = time.time()
+    rots = etri.plantri(V)
+    cnt['triangulations_total'] = len(rots)
+    last = None
+    for idx in range(lo, min(hi, len(rots))):
+        tri = etri.Tri(rots[idx])
+        for f0 in range(len(tri.faces)):
+            I = etri.Inst(tri, f0)
+            rb = RB(I)
+            cnt['rooted'] += 1
+            sig = rb.point_rainbow_tree()
+            if sig is None:
+                cnt['no_rainbow_tree'] += 1
+                continue
+            if has_unique_two_factor(I, rb, sig):
+                cnt['one_two_factor_skipped'] += 1
+                continue
+            trees = rb.all_trees()
+            res = analyse(I, rb, trees)
+            cnt['several_two_factors'] += 1
+            cnt['rainbow_trees'] += res['N']
+            cnt['N_is_power_of_two'] += (res['N'] == 2 ** I.n)
+            cnt['unique_move_violations'] += res['bad_unique']
+            cnt['instances_with_trap'] += (len(res['traps']) > 0)
+            cnt['plateau_points_without_immediate_descent'] += res['no_immediate_descent']
+            hist_depth[res['maxdepth']] += 1
+            if res['traps'] and len(trap_examples) < 10:
+                tr, e, sz = res['traps'][0]
+                trap_examples.append({'V': V, 'plantri_index': idx, 'outer_face_vertices': list(I.R), 'rot': tri.rot,
+                                      'X': rb.X, 'sigma_faces': [list(I.faces[t]) for t in tr], 'excess': e, 'plateau_size': sz})
+        last = idx
+        if time.time() - t0 > 540:
+            cnt['TIMED_OUT'] = 1
+            break
+    save('traps_multi_%d_%d_%d' % (V, lo, hi), {'V': V, 'index_range': [lo, hi], 'last_index_done': last, 'counts': dict(cnt),
+                                                'maxdepth_histogram': dict(hist_depth), 'trap_examples': trap_examples,
+                                                'seconds': round(time.time() - t0, 1)})
+
+
+if __name__ == '__main__' and sys.argv[1] == 'traps_multi':
+    exp_traps_multi(int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]))

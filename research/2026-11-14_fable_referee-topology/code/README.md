@@ -39,6 +39,7 @@ The code is independent of `research/2026-11-14_opus_route-topology/code/topo.py
 | `python P/exp_rainbow.py traps 13 14 all` | same | 17 s | `traps_13_14_all.json` |
 | `python P/exp_rainbow.py traps 15 15 all` | same | 59 s | `traps_15_15_all.json` |
 | `python P/exp_rainbow.py traps 16 16 all` | same, 29.4 million trees | 467 s | `traps_16_16_all.json` |
+| `python P/exp_rainbow.py traps_multi 17 0 233`, `traps_multi 17 233 466` (also `14 0 32`, `15 0 57`, `16 0 185` as validation) | plantri index range; every rooting; instances with one 2-factor are skipped by Proposition U, the others enumerated completely | 155 s, 478 s | `traps_multi_*.json` |
 | `python P/exp_walk.py exhaust 6 12 all`, `exhaust 13 14 all`, `exhaust 15 15 all`, `exhaust 16 16 two` | every walk state: paths, cycles, involutions | 1, 18, 63, 40 s | `walk_exhaust_*.json` |
 | `python P/exp_walk.py sample 18 4 1`, `sample 20 40 1`, `sample 22 400 1` | every 4th, 40th, 400th plantri triangulation, 2 random roots, 3 starts | 3 to 7 s | `walk_sample_*.json` |
 | `python P/exp_walk.py random 40 60 1`, `random 60 30 2`, `random 80 20 3`, `random 120 8 4`, `random 45 30 5 0.15` | random triangulations, last one with glued octahedra | 1 to 3 s | `walk_random_*.json` |
