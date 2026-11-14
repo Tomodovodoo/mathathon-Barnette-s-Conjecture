@@ -1,0 +1,682 @@
+{
+ "nodes": {
+  "main": {
+   "label": "main",
+   "paper": "Thm 1.1",
+   "file": "Main",
+   "line": 47,
+   "lines": 36
+  },
+  "PlaneEmbedding.exists_exact_dual": {
+   "label": "exists_exact_dual",
+   "paper": "none (sphere dual)",
+   "file": "ExactDual",
+   "line": 116,
+   "lines": 6
+  },
+  "PlaneEmbedding.exists_lattice_minor_model": {
+   "label": "lattice minor model",
+   "paper": "none",
+   "file": "MinorModel",
+   "line": 271,
+   "lines": 5
+  },
+  "PlaneEmbedding.exists_lattice_corridor_model": {
+   "label": "corridor model",
+   "paper": "none",
+   "file": "Corridors",
+   "line": 61,
+   "lines": 30
+  },
+  "RectangularDual.lattice_minor_in_rectangle": {
+   "label": "minor in rectangle",
+   "paper": "none",
+   "file": "Rectangle",
+   "line": 303,
+   "lines": 9
+  },
+  "RectangularDual.grid_duality": {
+   "label": "grid duality",
+   "paper": "none",
+   "file": "Rectangle",
+   "line": 180,
+   "lines": 7
+  },
+  "Network.Duality.graphMinor": {
+   "label": "duality of a minor",
+   "paper": "none",
+   "file": "ExactDual",
+   "line": 96,
+   "lines": 11
+  },
+  "Network.Duality.minor": {
+   "label": "Duality.minor",
+   "paper": "none (Whitney)",
+   "file": "CappedDuality",
+   "line": 62,
+   "lines": 76
+  },
+  "Network.Duality.hamiltonian": {
+   "label": "Duality.hamiltonian",
+   "paper": "Thm 1.1 last para",
+   "file": "Main",
+   "line": 13,
+   "lines": 20
+  },
+  "Network.cut_card_three": {
+   "label": "cuts >= 3",
+   "paper": "Thm 1.1 proof",
+   "file": "CutSpaces",
+   "line": 51,
+   "lines": 12
+  },
+  "cubic_bipartite_order": {
+   "label": "|V| >= 6",
+   "paper": "Thm 1.1 proof",
+   "file": "Network",
+   "line": 210,
+   "lines": 28
+  },
+  "Network.Duality.connected_complement_matching": {
+   "label": "H- form",
+   "paper": "Thm 2.2 / Cor 7.1",
+   "file": "Gluing",
+   "line": 294,
+   "lines": 6
+  },
+  "SimpleCycle.cycle_at_of_connected_two": {
+   "label": "2-factor connected => cycle",
+   "paper": "Thm 1.1 last para",
+   "file": "CappedDuality",
+   "line": 187,
+   "lines": 24
+  },
+  "Network.matching_strong": {
+   "label": "induction on |V|",
+   "paper": "Thm 2.2 (Sec 7)",
+   "file": "Gluing",
+   "line": 244,
+   "lines": 47
+  },
+  "Network.cap_duality": {
+   "label": "cap has a dual",
+   "paper": "Sec 7 capping",
+   "file": "CappedDuality",
+   "line": 148,
+   "lines": 13
+  },
+  "Network.cap_coloring": {
+   "label": "cap colouring",
+   "paper": "Sec 7 cap colour",
+   "file": "ThreeCuts",
+   "line": 381,
+   "lines": 31
+  },
+  "Network.cap_glue_connected": {
+   "label": "glue: connected",
+   "paper": "Sec 7 gluing",
+   "file": "Gluing",
+   "line": 167,
+   "lines": 48
+  },
+  "Network.cap_glue_matching": {
+   "label": "glue: matching",
+   "paper": "Sec 7 gluing",
+   "file": "Gluing",
+   "line": 94,
+   "lines": 23
+  },
+  "Network.cap_simple": {
+   "label": "cap simple",
+   "paper": "Sec 7",
+   "file": "ThreeCuts",
+   "line": 352,
+   "lines": 7
+  },
+  "Network.make_coloredDual": {
+   "label": "colored dual",
+   "paper": "Thm 1.1: T simple Eulerian triang.",
+   "file": "ThreeCuts",
+   "line": 101,
+   "lines": 7
+  },
+  "Network.Duality.simple_dual_edge": {
+   "label": "T simple",
+   "paper": "Thm 1.1 proof",
+   "file": "ThreeCuts",
+   "line": 37,
+   "lines": 43
+  },
+  "Network.Duality.cubic_face_triangles_edge": {
+   "label": "faces are triangles",
+   "paper": "Thm 1.1 proof",
+   "file": "ThreeCuts",
+   "line": 82,
+   "lines": 9
+  },
+  "Network.oriented_face": {
+   "label": "orient black triangles",
+   "paper": "delta convention",
+   "file": "Circulation",
+   "line": 100,
+   "lines": 45
+  },
+  "Network.irreducible_matching": {
+   "label": "no sep. triangle case",
+   "paper": "Thm 2.2, Secs 3-6",
+   "file": "ThreeCuts",
+   "line": 109,
+   "lines": 10
+  },
+  "Network.ColoredDual.pair_nonempty": {
+   "label": "a pair exists",
+   "paper": "Prop 3.1",
+   "file": "BMatching",
+   "line": 403,
+   "lines": 25
+  },
+  "BMatching.two_matchings": {
+   "label": "two disjoint matchings",
+   "paper": "Prop 3.1 flow",
+   "file": "BMatching",
+   "line": 286,
+   "lines": 28
+  },
+  "Network.capacity_full": {
+   "label": "capacity (3.1)",
+   "paper": "(3.1)",
+   "file": "MinorDuality",
+   "line": 220,
+   "lines": 16
+  },
+  "Network.induced_density": {
+   "label": "density (3.2)",
+   "paper": "(3.2)-(3.4)",
+   "file": "MinorDuality",
+   "line": 87,
+   "lines": 18
+  },
+  "Network.induced_euler_bound": {
+   "label": "Euler for T[U]",
+   "paper": "(3.4)",
+   "file": "Contraction",
+   "line": 121,
+   "lines": 10
+  },
+  "Network.region_density": {
+   "label": "region bound",
+   "paper": "(3.3)",
+   "file": "MinorDuality",
+   "line": 55,
+   "lines": 31
+  },
+  "Network.ColoredDual.forest_pair": {
+   "label": "forest pair",
+   "paper": "Prop 5.1",
+   "file": "Forest",
+   "line": 234,
+   "lines": 7
+  },
+  "TriangleSystem.Pair.forest_pair_of_disk_circulation": {
+   "label": "abstract Prop 5.1",
+   "paper": "Prop 5.1",
+   "file": "PairPolynomials",
+   "line": 423,
+   "lines": 23
+  },
+  "TriangleSystem.OppositeCycle.fixed_second_state_cancels": {
+   "label": "fixed-s cancellation",
+   "paper": "Lemma 5.2",
+   "file": "PairPhases",
+   "line": 91,
+   "lines": 15
+  },
+  "TriangleSystem.OppositeCycle.reverse_phase": {
+   "label": "reversal flips phase",
+   "paper": "Lemma 5.2",
+   "file": "PairPhases",
+   "line": 81,
+   "lines": 9
+  },
+  "TriangleSystem.Pair.total_sum_ne_zero": {
+   "label": "sum nonzero",
+   "paper": "Sec 5.3",
+   "file": "PairPolynomials",
+   "line": 348,
+   "lines": 37
+  },
+  "TriangleSystem.Pair.group_sum_product": {
+   "label": "group = product",
+   "paper": "(5.4)",
+   "file": "PairPolynomials",
+   "line": 238,
+   "lines": 26
+  },
+  "TriangleSystem.Pair.groupEquiv": {
+   "label": "group = orientations",
+   "paper": "Sec 5.3 regrouping",
+   "file": "PairPhases",
+   "line": 359,
+   "lines": 6
+  },
+  "common_phase_sum_ne_zero": {
+   "label": "lowest coefficient",
+   "paper": "(5.5)",
+   "file": "PairPolynomials",
+   "line": 12,
+   "lines": 38
+  },
+  "Network.ColoredDual.opposite_disk": {
+   "label": "Q_s-cycle: delta = +-3",
+   "paper": "Lemma 4.1 in 5.2",
+   "file": "Forest",
+   "line": 200,
+   "lines": 33
+  },
+  "Network.ColoredDual.paired_sign": {
+   "label": "D-cycle: sign coupling",
+   "paper": "(5.3) + Lemma 4.1",
+   "file": "Forest",
+   "line": 156,
+   "lines": 8
+  },
+  "Network.ColoredDual.StateCycle.signed": {
+   "label": "delta and slope signs",
+   "paper": "(5.3)",
+   "file": "ColoredDual",
+   "line": 183,
+   "lines": 21
+  },
+  "Network.boundary_of_sum_zero": {
+   "label": "white-charge flow",
+   "paper": "Lemma 5.3 (replaced)",
+   "file": "Circulation",
+   "line": 154,
+   "lines": 28
+  },
+  "Network.white_positive_of_boundary": {
+   "label": "a white face inside",
+   "paper": "Lemma 5.3 (replaced)",
+   "file": "Circulation",
+   "line": 227,
+   "lines": 22
+  },
+  "Network.ColoredDual.cycle_disk": {
+   "label": "disk of a state cycle",
+   "paper": "Lemma 4.1",
+   "file": "ColoredDual",
+   "line": 83,
+   "lines": 18
+  },
+  "Network.state_disk_delta": {
+   "label": "disk identity",
+   "paper": "Lemma 4.1",
+   "file": "StateDisk",
+   "line": 442,
+   "lines": 37
+  },
+  "Network.state_disk_count": {
+   "label": "B = I + l",
+   "paper": "(4.2)",
+   "file": "StateDisk",
+   "line": 260,
+   "lines": 114
+  },
+  "Network.disk_boundary_imbalance": {
+   "label": "h = 2l + 3",
+   "paper": "(4.1)+(4.2)",
+   "file": "StateDisk",
+   "line": 428,
+   "lines": 13
+  },
+  "Network.region_euler": {
+   "label": "disk Euler",
+   "paper": "(4.1)",
+   "file": "DiskRegions",
+   "line": 252,
+   "lines": 7
+  },
+  "Network.Duality.circuit_cut": {
+   "label": "cycle = bond",
+   "paper": "none (Jordan)",
+   "file": "FlowCircuits",
+   "line": 71,
+   "lines": 53
+  },
+  "Network.Bond.connected_shore": {
+   "label": "bond shores connected",
+   "paper": "none (Jordan)",
+   "file": "Bonds",
+   "line": 163,
+   "lines": 36
+  },
+  "Network.mixed_corner_on_boundary": {
+   "label": "no pinch vertex",
+   "paper": "none (disk)",
+   "file": "StateDisk",
+   "line": 129,
+   "lines": 29
+  },
+  "Network.ColoredDual.recover_connected_complement": {
+   "label": "recovery",
+   "paper": "Sec 6",
+   "file": "ForestMatching",
+   "line": 375,
+   "lines": 17
+  },
+  "Network.ColoredDual.recovery_matching": {
+   "label": "one edge per face",
+   "paper": "Sec 6.1",
+   "file": "ForestMatching",
+   "line": 226,
+   "lines": 5
+  },
+  "Network.tree_matching": {
+   "label": "tree -> matching",
+   "paper": "Sec 6.1 rooting",
+   "file": "ForestMatching",
+   "line": 51,
+   "lines": 98
+  },
+  "Network.ColoredDual.remainder_independent": {
+   "label": "complement is a tree",
+   "paper": "Sec 6.1 + Lemma 2.1",
+   "file": "Matching",
+   "line": 487,
+   "lines": 10
+  },
+  "Network.ColoredDual.removed_acyclic": {
+   "label": "Q_s + 2 root sides acyclic",
+   "paper": "Lemma 6.1",
+   "file": "Matching",
+   "line": 330,
+   "lines": 11
+  },
+  "Network.addSink_acyclic": {
+   "label": "outdegree <= 1 argument",
+   "paper": "Lemma 6.1",
+   "file": "Matching",
+   "line": 114,
+   "lines": 36
+  },
+  "Network.ColoredDual.selected_forest": {
+   "label": "P is a forest",
+   "paper": "Lemma 6.2",
+   "file": "ForestMatching",
+   "line": 338,
+   "lines": 36
+  },
+  "Network.matching_cut_balance": {
+   "label": "(6.1) count",
+   "paper": "(6.1)",
+   "file": "ForestMatching",
+   "line": 176,
+   "lines": 34
+  },
+  "Network.Duality.complement_connected": {
+   "label": "forest^c connected",
+   "paper": "Lemma 2.1",
+   "file": "Matching",
+   "line": 79,
+   "lines": 13
+  }
+ },
+ "edges": [
+  [
+   "Network.ColoredDual.StateCycle.signed",
+   "Network.ColoredDual.cycle_disk"
+  ],
+  [
+   "Network.ColoredDual.StateCycle.signed",
+   "Network.white_positive_of_boundary"
+  ],
+  [
+   "Network.ColoredDual.cycle_disk",
+   "Network.state_disk_delta"
+  ],
+  [
+   "Network.ColoredDual.forest_pair",
+   "Network.ColoredDual.opposite_disk"
+  ],
+  [
+   "Network.ColoredDual.forest_pair",
+   "Network.ColoredDual.paired_sign"
+  ],
+  [
+   "Network.ColoredDual.forest_pair",
+   "Network.boundary_of_sum_zero"
+  ],
+  [
+   "Network.ColoredDual.forest_pair",
+   "TriangleSystem.Pair.forest_pair_of_disk_circulation"
+  ],
+  [
+   "Network.ColoredDual.opposite_disk",
+   "Network.ColoredDual.StateCycle.signed"
+  ],
+  [
+   "Network.ColoredDual.pair_nonempty",
+   "BMatching.two_matchings"
+  ],
+  [
+   "Network.ColoredDual.pair_nonempty",
+   "Network.capacity_full"
+  ],
+  [
+   "Network.ColoredDual.paired_sign",
+   "Network.ColoredDual.StateCycle.signed"
+  ],
+  [
+   "Network.ColoredDual.recover_connected_complement",
+   "Network.ColoredDual.recovery_matching"
+  ],
+  [
+   "Network.ColoredDual.recover_connected_complement",
+   "Network.ColoredDual.selected_forest"
+  ],
+  [
+   "Network.ColoredDual.recovery_matching",
+   "Network.ColoredDual.remainder_independent"
+  ],
+  [
+   "Network.ColoredDual.recovery_matching",
+   "Network.tree_matching"
+  ],
+  [
+   "Network.ColoredDual.remainder_independent",
+   "Network.ColoredDual.removed_acyclic"
+  ],
+  [
+   "Network.ColoredDual.remainder_independent",
+   "Network.Duality.complement_connected"
+  ],
+  [
+   "Network.ColoredDual.removed_acyclic",
+   "Network.addSink_acyclic"
+  ],
+  [
+   "Network.ColoredDual.selected_forest",
+   "Network.ColoredDual.cycle_disk"
+  ],
+  [
+   "Network.ColoredDual.selected_forest",
+   "Network.addSink_acyclic"
+  ],
+  [
+   "Network.ColoredDual.selected_forest",
+   "Network.matching_cut_balance"
+  ],
+  [
+   "Network.Duality.connected_complement_matching",
+   "Network.matching_strong"
+  ],
+  [
+   "Network.Duality.cubic_face_triangles_edge",
+   "Network.Duality.simple_dual_edge"
+  ],
+  [
+   "Network.Duality.graphMinor",
+   "Network.Duality.minor"
+  ],
+  [
+   "Network.Duality.hamiltonian",
+   "Network.Duality.connected_complement_matching"
+  ],
+  [
+   "Network.cap_duality",
+   "Network.Bond.connected_shore"
+  ],
+  [
+   "Network.cap_duality",
+   "Network.Duality.minor"
+  ],
+  [
+   "Network.cap_glue_connected",
+   "Network.cap_simple"
+  ],
+  [
+   "Network.cap_glue_connected",
+   "SimpleCycle.cycle_at_of_connected_two"
+  ],
+  [
+   "Network.capacity_full",
+   "Network.induced_density"
+  ],
+  [
+   "Network.disk_boundary_imbalance",
+   "Network.region_euler"
+  ],
+  [
+   "Network.induced_density",
+   "Network.induced_euler_bound"
+  ],
+  [
+   "Network.induced_density",
+   "Network.region_density"
+  ],
+  [
+   "Network.irreducible_matching",
+   "Network.ColoredDual.forest_pair"
+  ],
+  [
+   "Network.irreducible_matching",
+   "Network.ColoredDual.pair_nonempty"
+  ],
+  [
+   "Network.irreducible_matching",
+   "Network.ColoredDual.recover_connected_complement"
+  ],
+  [
+   "Network.make_coloredDual",
+   "Network.Duality.cubic_face_triangles_edge"
+  ],
+  [
+   "Network.make_coloredDual",
+   "Network.oriented_face"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.cap_coloring"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.cap_duality"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.cap_glue_connected"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.cap_glue_matching"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.irreducible_matching"
+  ],
+  [
+   "Network.matching_strong",
+   "Network.make_coloredDual"
+  ],
+  [
+   "Network.state_disk_count",
+   "Network.mixed_corner_on_boundary"
+  ],
+  [
+   "Network.state_disk_delta",
+   "Network.Bond.connected_shore"
+  ],
+  [
+   "Network.state_disk_delta",
+   "Network.Duality.circuit_cut"
+  ],
+  [
+   "Network.state_disk_delta",
+   "Network.disk_boundary_imbalance"
+  ],
+  [
+   "Network.state_disk_delta",
+   "Network.state_disk_count"
+  ],
+  [
+   "PlaneEmbedding.exists_exact_dual",
+   "Network.Duality.graphMinor"
+  ],
+  [
+   "PlaneEmbedding.exists_exact_dual",
+   "PlaneEmbedding.exists_lattice_minor_model"
+  ],
+  [
+   "PlaneEmbedding.exists_exact_dual",
+   "RectangularDual.grid_duality"
+  ],
+  [
+   "PlaneEmbedding.exists_exact_dual",
+   "RectangularDual.lattice_minor_in_rectangle"
+  ],
+  [
+   "PlaneEmbedding.exists_lattice_minor_model",
+   "PlaneEmbedding.exists_lattice_corridor_model"
+  ],
+  [
+   "TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+   "TriangleSystem.OppositeCycle.reverse_phase"
+  ],
+  [
+   "TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "TriangleSystem.OppositeCycle.fixed_second_state_cancels"
+  ],
+  [
+   "TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "TriangleSystem.Pair.total_sum_ne_zero"
+  ],
+  [
+   "TriangleSystem.Pair.group_sum_product",
+   "TriangleSystem.Pair.groupEquiv"
+  ],
+  [
+   "TriangleSystem.Pair.total_sum_ne_zero",
+   "TriangleSystem.Pair.group_sum_product"
+  ],
+  [
+   "TriangleSystem.Pair.total_sum_ne_zero",
+   "common_phase_sum_ne_zero"
+  ],
+  [
+   "main",
+   "Network.Duality.hamiltonian"
+  ],
+  [
+   "main",
+   "Network.cut_card_three"
+  ],
+  [
+   "main",
+   "PlaneEmbedding.exists_exact_dual"
+  ],
+  [
+   "main",
+   "cubic_bipartite_order"
+  ]
+ ]
+}

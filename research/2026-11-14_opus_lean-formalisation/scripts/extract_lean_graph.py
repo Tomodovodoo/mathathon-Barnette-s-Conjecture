@@ -12,9 +12,10 @@ Approximations (also stated in LEAN-STRUCTURE.md):
     namespace/section/end/variable line at column 0.
   * Names are qualified by the open `namespace` stack only (sections ignored).
   * A dependency edge X -> Y is recorded when an identifier token in X's text
-    resolves to project declaration Y.  Resolution: a token a.b.c is matched
-    against full names that end with a.b.c, then b.c, then c (dot notation such as
-    `h.hamiltonian` therefore resolves through its last component).  If the last
+    resolves to project declaration Y.  Resolution: every contiguous sub-path of a
+    dotted token a.b.c is tried, longest first, against the suffixes of full names
+    (so `h.hamiltonian` resolves through `hamiltonian`, `C.delta_eq.trans` through
+    `delta_eq`).  If the last
     component alone is used and several declarations share it, an edge is added to
     every candidate that is earlier in the import order and the edge is marked
     ambiguous.  Structure fields resolve to their structure.
@@ -43,6 +44,14 @@ END_RE = re.compile(r"^end(?:\s+(\S+))?\s*$")
 SEC_RE = re.compile(r"^(?:noncomputable\s+)?section(?:\s+(\S+))?\s*$")
 BOUNDARY_RE = re.compile(r"^(namespace|end|section|noncomputable section|variable|open|omit|include|local|attribute|universe|/-!|#)")
 IDENT_RE = re.compile(r"[A-Za-z_α-ωΑ-Ω][A-Za-z0-9_'α-ωΑ-Ω!?₀-₉]*(?:\.[A-Za-z_][A-Za-z0-9_'!?₀-₉]*)*")
+# Last components that are also common Mathlib/Lean names (Path.symm, Finset.card, ...).
+# A match on one of these through its last component alone is marked ambiguous.
+GENERIC = set("""symm trans ext card edge compl restrict reverse graph map mk val property nonempty
+connected simple euler minor cycle face side value left right next third partner flip term bits
+coordinates potential star cut boundary gradient incidence constant push pull internal region regions
+rim branch core curve trace cell cells point arc apart extension connection dual primal lower upper
+quotient extend corner vertex delta slope orient weights system state pair group n step range_eq
+loopless adjacent support support_subset walk start finish isPath toEquiv""".split())
 FIELD_RE = re.compile(r"^  ([a-z_][A-Za-z0-9_']*)\s*:")
 
 
@@ -80,7 +89,7 @@ def parse_file(path, module):
             if cur is not None:
                 cur["stop"] = i
                 close()
-            kind, name = m.group(1), m.group(2) or "(anon)"
+            kind, name = m.group(1), m.group(2) or f"(anon@{module}:{i+1})"
             ns = ".".join(n for k, n in stack if k == "ns")
             full = (ns + "." + name) if ns and not name.startswith("_root_") else name
             cur = {"name": full, "short": name, "kind": kind, "module": module,
@@ -157,20 +166,25 @@ def main():
         # drop the declaration's own name token
         toks = set(IDENT_RE.findall(body))
         deps = {}
+        why = {}
         for t in toks:
             if len(t) <= 1:
                 continue
             parts = t.split(".")
             found = None
             amb = False
-            for k in range(len(parts)):
-                s = ".".join(parts[k:])
-                if re.fullmatch(r"h[A-Z0-9]?\w{0,3}|h", s):
-                    break
+            # try every contiguous sub-path parts[k:j], longest first, so that
+            # `C.delta_eq.trans` resolves to `delta_eq` and `N.cut_card_three` to `cut_card_three`
+            subs = sorted(((k, j) for j in range(len(parts), 0, -1) for k in range(j)),
+                          key=lambda kj: (-(kj[1] - kj[0]), -kj[1]))
+            for k, j in subs:
+                s = ".".join(parts[k:j])
+                if re.fullmatch(r"h[A-Z0-9]?\w{0,3}|h", s) or len(s) <= 1:
+                    continue
                 cands = suffix_index.get(s)
                 if cands:
                     found = cands
-                    amb = (k == len(parts) - 1 and len(cands) > 1)
+                    amb = (j - k == 1 and (len(cands) > 1 or s in GENERIC))
                     break
             if not found:
                 continue
@@ -180,13 +194,16 @@ def main():
                 if order_of[c] >= order_of[d["name"]]:
                     continue  # Lean forbids forward references
                 deps[c] = deps.get(c, True) and amb
+                why.setdefault(c, set()).add(t)
         edges[d["name"]] = deps
+        d["why"] = {c: sorted(v) for c, v in why.items()}
     nodes = []
     for d in all_decls:
         nodes.append({k: d[k] for k in ("name", "kind", "module", "file", "start_line",
                                          "end_line", "lines", "doc", "private")}
                      | {"uses": sorted(edges[d["name"]]),
-                        "ambiguous_uses": sorted(c for c, a in edges[d["name"]].items() if a)})
+                        "ambiguous_uses": sorted(c for c, a in edges[d["name"]].items() if a),
+                        "tokens": d["why"]})
     used_by = {}
     for n in nodes:
         for u in n["uses"]:
