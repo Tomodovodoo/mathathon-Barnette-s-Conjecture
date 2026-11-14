@@ -1,0 +1,27 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_structure.py identity 12",
+ "result": {
+  "vmax": 12,
+  "counts": {
+   "W-B=-1,tin=0,t2in=1": 112,
+   "W-B=-1,tin=1,t2in=0": 112,
+   "W-B=-1,tin=1,t2in=1": 3648,
+   "W-B=0,tin=0,t2in=0": 592,
+   "W-B=0,tin=0,t2in=1": 16768,
+   "W-B=0,tin=1,t2in=0": 16768,
+   "W-B=0,tin=1,t2in=1": 3904,
+   "W-B=1,tin=0,t2in=0": 56112,
+   "W-B=1,tin=0,t2in=1": 2304,
+   "W-B=1,tin=1,t2in=0": 2304,
+   "W-B=2,tin=0,t2in=0": 352,
+   "identity_ok": 102976,
+   "instances": 208,
+   "move_kind_1_0": 26096,
+   "move_kind_1_1": 24368,
+   "move_kind_2_0": 26416,
+   "move_kind_2_1": 26096,
+   "moves": 102976,
+   "primal_dual_target_agree": 102976
+  }
+ }
+}

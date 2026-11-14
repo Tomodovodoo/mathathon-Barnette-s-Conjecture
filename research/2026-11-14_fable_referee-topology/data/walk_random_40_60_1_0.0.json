@@ -1,0 +1,24 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_walk.py random 40 60 1",
+ "result": {
+  "V": 40,
+  "count": 60,
+  "seed": 1,
+  "glue_prob": 0.0,
+  "counts": {
+   "rooted": 60,
+   "starts": 180,
+   "reached": 180,
+   "max_start_excess": 36,
+   "max_total_steps": 156,
+   "max_single_walk": 58,
+   "sum_total_steps": 10254
+  },
+  "longest_walk_over_n_histogram": {
+   "0": 175,
+   "1": 5
+  },
+  "failures": [],
+  "seconds": 2.1
+ }
+}

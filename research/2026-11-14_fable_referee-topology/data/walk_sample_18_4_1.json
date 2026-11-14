@@ -1,0 +1,26 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_walk.py sample 18 4 1",
+ "result": {
+  "V": 18,
+  "every": 4,
+  "seed": 1,
+  "counts": {
+   "triangulations_total": 1543,
+   "triangulations_used": 386,
+   "rooted": 772,
+   "starts": 1287,
+   "reached": 1287,
+   "max_start_excess": 14,
+   "max_total_steps": 43,
+   "max_single_walk": 18,
+   "sum_total_steps": 18139,
+   "no_rainbow_tree": 343
+  },
+  "longest_walk_over_n_histogram": {
+   "0": 1280,
+   "1": 7
+  },
+  "failures": [],
+  "seconds": 2.9
+ }
+}
