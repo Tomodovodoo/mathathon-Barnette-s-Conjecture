@@ -1136,9 +1136,9 @@
  },
  "label_clearance_pt": {
   "fig-rainbow.tex": 1.22,
-  "fig-digraph.tex": 1.22,
-  "fig-exchange.tex": 1.22,
-  "fig-orbit.tex": 1.28,
-  "fig-badcover.tex": 1.24
+  "fig-digraph.tex": 1.21,
+  "fig-exchange.tex": 1.21,
+  "fig-orbit.tex": 1.23,
+  "fig-badcover.tex": 0.66
  }
 }

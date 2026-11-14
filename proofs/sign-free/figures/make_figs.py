@@ -82,7 +82,9 @@ class Panel:
         self.upt = TEXTWIDTH_PT * self.unit      # points per layout unit
         self.obs = []                            # drawn objects as (end, end, half width in pt), ends in layout units
         self.want = []                           # labels to place: (vertex, text)
+        self.inside = False                      # True: the label of an inner vertex must lie in a face at that vertex
         self.clear = None
+        self.low = float('inf')                  # lowest edge of a label, in layout units
         self.layers = {k: [] for k in ('back', 'mid', 'top', 'lab')}
         I = inst
         r = sorted(I.R)
@@ -148,21 +150,29 @@ class Panel:
             vx, vy = P[v][0] * u, P[v][1] * u
             near = [o for o in obs if seg_dist((vx, vy), o[0], o[1]) - o[2] < 26]
             out = math.atan2(P[v][1] - rc[1], P[v][0] - rc[0])
-            angs = [out + math.radians(k) for k in range(-50, 51, 10)] if v in I.R else [math.radians(k) for k in range(0, 360, 10)]
+            angs = [out + math.radians(k) for k in range(-50, 51, 10)] if v in I.R else [math.radians(k) for k in range(0, 360, 5 if self.inside else 10)]
             best = None
-            for step in range(8, 37):
-                dd = step * 0.5
+            home = [f for f in I.faces if v in f and set(f) != I.R] if self.inside and v not in I.R else None
+            for step in range(16, 73):
+                dd = step * 0.25
                 for ang in angs:
                     cx, cy = vx + dd * math.cos(ang), vy + dd * math.sin(ang)
+                    if home is not None:
+                        # keep the label of an inner vertex inside one of the faces at that vertex
+                        q = (cx / u, cy / u)
+                        if not any(abs(orient(P[f[0]], P[f[1]], q)) + abs(orient(P[f[1]], P[f[2]], q)) + abs(orient(P[f[2]], P[f[0]], q))
+                                   <= abs(orient(P[f[0]], P[f[1]], P[f[2]])) * (1 + 1e-9) for f in home):
+                            continue
                     cl = min(rect_seg_dist(cx, cy, hw, hh, o[0], o[1]) - o[2] for o in near)
                     for (px, py, pw, ph) in placed:
                         cl = min(cl, math.hypot(max(abs(px - cx) - pw - hw, 0.0), max(abs(py - cy) - ph - hh, 0.0)))
                     if best is None or cl > best[0] + 1e-9:
                         best = (cl, cx, cy)
-                if best[0] >= LABEL_GAP_PT:
+                if best is not None and best[0] >= LABEL_GAP_PT:
                     break
             cl, cx, cy = best
             placed.append((cx, cy, hw, hh))
+            self.low = min(self.low, (cy - hh) / u)
             self.clear = cl if self.clear is None else min(self.clear, cl)
             self.layers['lab'].append(BS + 'node[fill=white,fill opacity=.8,text opacity=1,inner sep=.5pt,rounded corners=1pt] at %s {%s};' % (c((cx / u, cy / u)), text))
         self.want = []
@@ -205,7 +215,7 @@ class Panel:
         if tag:
             ys = [p[1] for p in self.P.values()]
             xs = [p[0] for p in self.P.values()]
-            body.append('\\node[anchor=north] at (%.3f,%.3f) {%s};' % ((min(xs) + max(xs)) / 2, min(ys) - 0.95, tag))
+            body.append('\\node[anchor=north] at (%.3f,%.3f) {%s};' % ((min(xs) + max(xs)) / 2, min(min(ys) - 0.95, self.low - 3.0 / self.upt), tag))
         body.append('\\end{tikzpicture}')
         return '\n'.join(body)
 
@@ -522,6 +532,7 @@ panels = []
 qc = []
 # (a) the cover: one edge r(t)s(t) in every face, and both states
 p = Panel(J, P16, W16A, wedge=0.42, vr=1.0)
+p.inside = True
 for i, f in enumerate(J.A):
     a, b = st[0][i], st[1][i]
     p.add('\\draw[bfS,line width=1.1pt] %s--%s;' % (c(P16[a]), c(P16[b])))

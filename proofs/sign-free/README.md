@@ -11,7 +11,7 @@ The project's fourth proof note. Read `sign-free.pdf` (11 pages, five computed f
 | `barnette-figs.sty` | the paper's figure style, copied from `paper/figures/` with two arrow styles added |
 | `figures/sf.py` | the graph objects, written for this note |
 | `figures/make_figs.py` | computes and draws the five figures, writes `fig-*.tex` and `figdata.json` |
-| `figures/check.py` | asserts 61 facts shown in the figures and captions from `figdata.json`; output in `figures/check-output.txt` |
+| `figures/check.py` | asserts 76 facts from `figdata.json`: 61 shown in the figures and captions, 15 about the two layouts and the labels; output in `figures/check-output.txt` |
 | `figures/running.json`, `layout-running.json` | the paper's example and its layout, copied from `paper/figures/` |
 
 ## Build
@@ -26,10 +26,13 @@ python check.py
 From `proofs/sign-free/`:
 
 ```
-latexmk -pdf -interaction=nonstopmode -halt-on-error sign-free.tex
+pdflatex -interaction=nonstopmode -halt-on-error sign-free.tex
+pdflatex -interaction=nonstopmode -halt-on-error sign-free.tex
 ```
 
-The last build is logged in `build-output.txt`: no errors, no undefined references, no overfull boxes. Figures are `[H]` floats placed between paragraphs, none inside a statement or proof.
+The second run of the last build is logged in `build-output.txt`: no errors, no undefined references, no overfull boxes. The bibliography is inline, so there is no bibtex run. LaTeX build files are ignored by the local `.gitignore`.
+
+Figure 5 is drawn from a planar straight-line layout computed in `make_figs.py` (Tutte's barycentric embedding, then a repulsion step that keeps every face's orientation). Labels in all five figures are placed by a search that keeps each label box clear of every drawn object. Figures 1 to 4 use the paper's layout of the example, in which the three faces next to `t0` are folded outwards and the sides of `t0` cross ten inner edges; `check.py` records this. Figures are `[H]` floats placed between paragraphs, none inside a statement or proof.
 
 ## Verification
 
