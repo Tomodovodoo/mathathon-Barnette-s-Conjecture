@@ -1,0 +1,3 @@
+13 states with k>0: 4 traps (no decreasing move): 0 strict: 0
+14 states with k>0: 14 traps (no decreasing move): 0 strict: 0
+15 states with k>0: 72 traps (no decreasing move): 0 strict: 0

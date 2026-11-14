@@ -1,0 +1,1 @@
+V=50: sampled 628, deep traps 0, of which also m-traps 0
