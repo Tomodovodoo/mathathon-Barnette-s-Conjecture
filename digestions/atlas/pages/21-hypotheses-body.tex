@@ -1,0 +1,16 @@
+\section*{21. Four places a hypothesis enters}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (0.0,0.0) {\textbf{without bipartiteness}\\[6pt]alternating black and white faces disappear};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (5.5,0.0) {\textbf{without 3-connectivity}\\[6pt]the simple dual and cut control fail};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (0.0,-2.2) {\textbf{on the torus}\\[6pt]a noncontractible cycle bounds no disk};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (5.5,-2.2) {\textbf{without bijectivity}\\[6pt]$B=I+l$ loses its once-only count};
+\end{tikzpicture}
+\end{minipage}\end{center}
+Read the four panels as failed proof obligations, not as four counterexamples to Hamiltonicity. Bipartiteness supplies alternating face colours and the local signed-side count. Removing it breaks that count, even on a Hamiltonian graph. Three-connectivity ensures the simple dual triangulation and controls small cuts; a two-connected cubic graph can fail the stronger edge-avoidance conclusion. The sphere supplies a disk away from the roots for every relevant cycle. On a torus, a noncontractible cycle has no such disk, so Euler counting cannot force the same surplus. Finally, bijectivity makes every nonroot chosen exactly once. Repeating a chosen vertex destroys the count B equals I plus l. The schematic lists the exact missing object in each case. It deliberately avoids drawing an unchecked toroidal state or presenting failure of this proof as failure of the original conjecture.
+
+\textbf{Status.} PROVED-HERE failure analyses independently AI-refereed in the limits report. Schematic obligations only; no claim of four newly computed graph counterexamples.
+
+\textbf{Connects to.} 6 matching census; 8 turning; 11 doubled edges; 18 cut side.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_astra\_limits/\allowbreak{}REPORT.md;\allowbreak{} research/\allowbreak{}2026-11-14\_sol\_referee-structure/\allowbreak{}REFEREE-limits.md.\par}

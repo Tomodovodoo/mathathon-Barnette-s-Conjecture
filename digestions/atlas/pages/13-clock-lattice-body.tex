@@ -1,0 +1,59 @@
+\section*{13. The twelve states under clock moves}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tabular}{@{}c@{\hspace{7mm}}c@{}}
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\draw[bf edge] (-0.725,6.600) -- (0.000,7.700);
+\draw[bf edge] (-0.725,5.500) -- (-0.725,6.600);
+\draw[bf edge] (-0.725,4.400) -- (-0.725,5.500);
+\draw[bf edge] (0.725,6.600) -- (0.000,7.700);
+\draw[bf edge] (0.725,5.500) -- (-0.725,6.600);
+\draw[bf edge] (0.725,5.500) -- (0.725,6.600);
+\draw[bf edge] (0.725,4.400) -- (-0.725,5.500);
+\draw[bf edge] (0.725,4.400) -- (0.725,5.500);
+\draw[bf edge] (-0.725,3.300) -- (-0.725,4.400);
+\draw[bf edge] (-0.725,3.300) -- (0.725,4.400);
+\draw[bf edge] (0.725,3.300) -- (-0.725,4.400);
+\draw[bf edge] (0.000,2.200) -- (-0.725,3.300);
+\draw[bf edge] (0.000,2.200) -- (0.725,3.300);
+\draw[bf edge] (0.000,1.100) -- (0.000,2.200);
+\draw[bf edge] (0.000,0.000) -- (0.000,1.100);
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.000,7.700) {$ 0 $};
+\draw[line width=.7pt] (0.000,7.700) circle[radius=.47];
+\node[draw=black,fill=white,minimum size=6mm,circle] at (-0.725,6.600) {$ 1 $};
+\node[draw=black,fill=white,minimum size=6mm,circle] at (0.725,6.600) {$ 4 $};
+\node[draw=black,fill=white,minimum size=6mm,circle] at (-0.725,5.500) {$ 2 $};
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.725,5.500) {$ 5 $};
+\node[draw=black,fill=white,minimum size=6mm,circle] at (-0.725,4.400) {$ 3 $};
+\node[draw=black,fill=white,minimum size=6mm,circle] at (0.725,4.400) {$ 6 $};
+\node[draw=black,fill=white,minimum size=6mm,circle] at (-0.725,3.300) {$ 7 $};
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.725,3.300) {$ 8 $};
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.000,2.200) {$ 9 $};
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.000,1.100) {$ 10 $};
+\node[draw=bfW,fill=white,minimum size=6mm,rectangle,line width=1pt] at (0.000,0.000) {$ 11 $};
+\draw[line width=.7pt] (0.000,0.000) circle[radius=.47];
+\end{tikzpicture} &
+\begin{tabular}{cc}\hline
+state & choices in face order\\\hline
+0 & $1,3,8,2,9,11,6,7,12,10$\\
+1 & $1,3,7,2,9,11,6,12,8,10$\\
+2 & $1,3,7,2,9,10,6,12,11,8$\\
+3 & $1,3,7,2,9,10,11,6,12,8$\\
+4 & $1,2,8,9,3,11,6,7,12,10$\\
+5 & $1,2,7,9,3,11,6,12,8,10$\\
+6 & $1,2,7,9,3,10,6,12,11,8$\\
+7 & $1,2,7,9,3,10,11,6,12,8$\\
+8 & $6,3,1,2,9,10,11,7,12,8$\\
+9 & $6,2,1,9,3,10,11,7,12,8$\\
+10 & $6,2,8,1,3,10,11,7,12,9$\\
+11 & $6,2,7,1,3,10,11,12,8,9$\\
+\hline\end{tabular}\\[0.5mm]
+\footnotesize clock order & \footnotesize face order 0,2,7,9,11,13,15,17,19,21
+\end{tabular}\par Green squares: tree matchings. Rings: extrema.
+\end{minipage}\end{center}
+Here every node is a single state. Its number is used in the pair table on page 2. The vertical direction increases the sum of the normalized white-face potentials. Edges are covers in their componentwise order, computed by exact boundary equations and transitive reduction. Green squares mark the six tree matchings that occur as second states of forest pairs. Ordinary circles include states with no disjoint mate, so a state lattice is not the pair lattice on the previous page. Rings mark extremal elements. A clock move changes an alternating boundary around a spoke region; the lattice records how local changes compare globally. It does not make acyclicity of the opposite-edge graph monotone. The smallest reviewed counterexample to selecting the highest partnered state has twelve vertices, and reflection reverses the direction. A canonical state requires an additional argument.
+
+\textbf{Status.} COMPUTED complete order on all 12 states and tree markers here. General height reading independently AI-refereed; canonical-extreme shortcuts REFUTED in the combinatorics referee.
+
+\textbf{Connects to.} 2 state numbers; 5 height labels; 12 pair lattice; 23 counterexample.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_astra\_referee-combinatorics/\allowbreak{}REFEREE.md;\allowbreak{} build.py;\allowbreak{} computed.json.\par}

@@ -1,0 +1,28 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{10. A determinant needs coefficient extraction}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{minipage}{.97\linewidth}\centering
+    $\displaystyle F(w)=[\prod_{t\in A}y_t]\det N(y,w)$
+    \par\bigskip Extracting the coefficient uses each triangle once.
+    \par\bigskip $\displaystyle\det M(y,1)=\frac{5y_0y_1y_4}{64}
+    (-4y_0y_3-5y_1y_2+9y_2y_3)$
+    \par\bigskip Hexagonal prism, number-field normalization from the source.
+    \par $\det M(1,1)=0$, although two tree matchings exist.
+    \end{minipage}
+\end{minipage}\end{center}
+The hexagonal prism is a useful warning. Its dual has three states and two tree matchings. The desired integer polynomial is a coefficient of a determinant whose matrix entries combine local triangle contributions. Each triangle receives its own auxiliary variable. Extracting their squarefree product forces every triangle to be used exactly once. Evaluating all those variables at one discards that condition. Terms that repeat a triangle survive, so the resulting number need not count tree matchings or prove their existence. The displayed counterexample formula was reproduced independently by the determinant referee. Even the valid coefficient norm counts surviving monomials only after nonvanishing has been proved. The running example's fixed-state matrix on page 9 is a different determinant with a different job. These two uses of determinant should not be conflated merely because both involve incidence signs.
+
+\textbf{Status.} PROVED-HERE formulas independently AI-refereed in fable\_referee-determinants. REFUTED shortcut: one raw evaluation counts tree matchings. The prism formula is independently reproduced there.
+
+\textbf{Connects to.} 4 polynomial; 9 fixed-state matrix; 14 relaxations; 25 Berezin.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_fable\_referee-determinants/\allowbreak{}REFEREE-dimers.md;\allowbreak{} SIGNIFICANCE.md, Sections 1 and 3.\par}
+
+\end{document}

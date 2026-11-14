@@ -1,0 +1,21 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{09. Cancellation is a row dependence}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+$\displaystyle d_s=\left[\begin{matrix}0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0\\0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\-1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\1 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 & 0\\0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 0\\0 & 0 & 0 & -1 & 1 & 0 & 0 & 0 & 0 & 0\\0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 & 1\\0 & 0 & 0 & 0 & 0 & -1 & 1 & 0 & 0 & 0\end{matrix}\right]$\par\medskip $\displaystyle c=\left[\begin{matrix}0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 1\end{matrix}\right],\qquad c d_s=0.$
+\end{minipage}\end{center}
+Fix the cyclic second state from the running example. Each row of this matrix belongs to a bounded black face; its two possible nonzero entries belong to the endpoints of the opposite edge, after root columns are removed. The entries carry the local orientation sign. The vector below the matrix gives an exact nonzero dependence among its rows. It runs around the opposite-edge cycle. Consequently the determinant vanishes. Expanding that determinant chooses one endpoint per row and one occurrence of each nonroot column, precisely the possible mates of the fixed state, with the appropriate signs up to a global factor. The geometric cancellation involution is therefore visible in linear algebra. This reformulation explains why cyclic states vanish, but it does not by itself produce a nonzero determinant for some other state. That is still the positivity step.
+
+\textbf{Status.} PROVED-HERE in the combinatorics referee, exact global-factor correction included. Independently AI-refereed; COMPUTED matrix and null vector here.
+
+\textbf{Connects to.} 3 first involution; 10 global determinant; 14 matroids.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_astra\_referee-combinatorics/\allowbreak{}REPORT.md;\allowbreak{} build.py;\allowbreak{} incidence.json.\par}
+
+\end{document}

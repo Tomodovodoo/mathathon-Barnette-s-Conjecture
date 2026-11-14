@@ -1,0 +1,155 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{18. Keep the construction inside G}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1.05cm,y=1.05cm]
+\path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
+\fill[bfblack] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;
+\fill[bfblack] (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;
+\fill[bfblack] (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;
+\fill[bfblack] (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;
+\draw[bf edge] (0,0) circle[radius=5.0];
+\draw[bf edge] (-4.330,-2.500) -- (-2.133,-0.405);
+\draw[bf edge] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf edge] (-4.330,-2.500) -- (-0.344,-4.394);
+\draw[bf edge] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-1.614,-2.366);
+\draw[bf edge] (-2.133,-0.405) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-0.963,1.243);
+\draw[bf edge] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf edge] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf edge] (-1.614,-2.366) -- (-0.344,-4.394);
+\draw[bf edge] (-1.614,-2.366) -- (0.900,-2.302);
+\draw[bf edge] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf edge] (-0.344,-4.394) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf edge] (4.330,-2.500) -- (2.799,2.992);
+\draw[bf edge] (0.000,5.000) -- (-2.200,3.528);
+\draw[bf edge] (0.000,5.000) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf edge] (-2.200,3.528) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (0.610,2.065);
+\draw[bf edge] (-0.963,1.243) -- (0.764,-0.167);
+\draw[bf edge] (-0.963,1.243) -- (0.610,2.065);
+\draw[bf edge] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf edge] (0.764,-0.167) -- (2.506,-0.651);
+\draw[bf edge] (0.764,-0.167) -- (2.799,2.992);
+\draw[bf edge] (0.764,-0.167) -- (0.610,2.065);
+\draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
+\draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
+\draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\draw[bf G] (-2.888,0.208) .. controls (-3.008,-0.373) and (-3.419,-1.256) .. (-3.232,-1.453) .. controls (-3.044,-1.649) and (-2.758,-1.624) .. (-2.503,-1.716);
+\draw[bf G] (-2.888,0.208) .. controls (-3.020,0.315) and (-3.105,0.457) .. (-3.265,0.514) .. controls (-3.425,0.571) and (-2.801,2.650) .. (-2.551,3.801);
+\draw[bf G] (-2.888,0.208) .. controls (-2.635,0.682) and (-2.384,1.558) .. (-2.167,1.562) .. controls (-1.949,1.565) and (-1.805,1.380) .. (-1.611,1.282);
+\draw[bf G] (-2.503,-1.716) .. controls (-2.667,-1.967) and (-2.987,-2.133) .. (-2.972,-2.433) .. controls (-2.957,-2.733) and (-2.403,-2.858) .. (-2.096,-3.087);
+\draw[bf G] (-2.503,-1.716) .. controls (-2.283,-1.600) and (-2.114,-1.449) .. (-1.873,-1.385) .. controls (-1.633,-1.322) and (-1.273,-1.584) .. (-0.949,-1.691);
+\draw[bf G] (-2.096,-3.087) .. controls (-2.180,-3.213) and (-2.272,-3.310) .. (-2.337,-3.447) .. controls (-2.402,-3.584) and (-1.047,-4.264) .. (-0.353,-4.703);
+\draw[bf G] (-2.096,-3.087) .. controls (-1.705,-3.189) and (-1.189,-3.511) .. (-0.979,-3.380) .. controls (-0.769,-3.249) and (-0.576,-3.159) .. (-0.360,-3.040);
+\draw[bf G] (-0.353,-4.703) .. controls (-0.229,-4.807) and (0.000,-4.902) .. (0.000,-5.000) .. controls (0.000,-5.098) and (0.000,-5.182) .. (0.000,-5.280);
+\draw[bf G] (-0.353,-4.703) .. controls (0.468,-4.264) and (2.062,-3.618) .. (1.993,-3.447) .. controls (1.924,-3.276) and (1.756,-3.199) .. (1.629,-3.065);
+\draw[bf G] (-2.551,3.801) .. controls (-3.174,3.346) and (-4.245,2.451) .. (-4.330,2.500) .. controls (-4.415,2.549) and (-4.488,2.591) .. (-4.573,2.640) arc[start angle=150.00,end angle=270.00,radius=5.28];
+\draw[bf G] (3.184,3.261) .. controls (3.585,2.995) and (4.245,2.451) .. (4.330,2.500) .. controls (4.415,2.549) and (4.488,2.591) .. (4.573,2.640) arc[start angle=30.00,end angle=-90.00,radius=5.28];
+\draw[bf G] (-2.551,3.801) .. controls (-2.043,3.963) and (-1.366,4.662) .. (-1.100,4.264) .. controls (-0.834,3.866) and (-0.255,3.988) .. (0.200,3.840);
+\draw[bf G] (-1.611,1.282) .. controls (-1.589,0.980) and (-1.775,0.580) .. (-1.548,0.419) .. controls (-1.321,0.258) and (-1.047,0.292) .. (-0.777,0.224);
+\draw[bf G] (-1.611,1.282) .. controls (-1.601,1.668) and (-1.809,2.262) .. (-1.582,2.385) .. controls (-1.354,2.509) and (-1.107,2.316) .. (-0.851,2.279);
+\draw[bf G] (-0.777,0.224) .. controls (-0.745,0.045) and (-0.699,-0.105) .. (-0.684,-0.286) .. controls (-0.670,-0.467) and (-0.180,-0.715) .. (0.091,-0.946);
+\draw[bf G] (-0.777,0.224) .. controls (-0.540,0.334) and (-0.238,0.368) .. (-0.099,0.538) .. controls (0.039,0.708) and (0.024,0.926) .. (0.090,1.136);
+\draw[bf G] (0.091,-0.946) .. controls (-0.157,-1.088) and (-0.529,-1.213) .. (-0.617,-1.353) .. controls (-0.704,-1.494) and (-0.833,-1.573) .. (-0.949,-1.691);
+\draw[bf G] (0.091,-0.946) .. controls (0.350,-1.047) and (0.626,-1.248) .. (0.832,-1.234) .. controls (1.038,-1.221) and (1.195,-1.108) .. (1.390,-1.040);
+\draw[bf G] (-0.949,-1.691) .. controls (-0.742,-1.916) and (-0.363,-2.087) .. (-0.357,-2.334) .. controls (-0.351,-2.581) and (-0.359,-2.793) .. (-0.360,-3.040);
+\draw[bf G] (-0.360,-3.040) .. controls (-0.136,-3.148) and (0.065,-3.221) .. (0.278,-3.348) .. controls (0.491,-3.475) and (1.156,-3.164) .. (1.629,-3.065);
+\draw[bf G] (1.629,-3.065) .. controls (1.974,-2.833) and (2.600,-2.657) .. (2.615,-2.401) .. controls (2.630,-2.145) and (2.546,-1.930) .. (2.510,-1.676);
+\draw[bf G] (2.510,-1.676) .. controls (2.828,-1.641) and (3.190,-1.800) .. (3.418,-1.575) .. controls (3.646,-1.351) and (3.284,-0.586) .. (3.212,-0.053);
+\draw[bf G] (2.510,-1.676) .. controls (2.227,-1.606) and (1.838,-1.608) .. (1.703,-1.477) .. controls (1.568,-1.345) and (1.500,-1.193) .. (1.390,-1.040);
+\draw[bf G] (3.212,-0.053) .. controls (3.335,0.052) and (3.409,0.203) .. (3.564,0.246) .. controls (3.720,0.289) and (3.317,2.206) .. (3.184,3.261);
+\draw[bf G] (3.212,-0.053) .. controls (3.016,0.375) and (3.072,1.137) .. (2.652,1.171) .. controls (2.233,1.204) and (2.146,0.576) .. (1.873,0.255);
+\draw[bf G] (3.184,3.261) .. controls (2.559,3.518) and (1.646,4.340) .. (1.399,3.996) .. controls (1.153,3.652) and (0.620,3.895) .. (0.200,3.840);
+\draw[bf G] (0.200,3.840) .. controls (0.235,3.637) and (0.321,3.465) .. (0.299,3.260) .. controls (0.278,3.055) and (0.517,2.878) .. (0.634,2.672);
+\draw[bf G] (0.634,2.672) .. controls (0.134,2.715) and (-0.711,2.958) .. (-0.795,2.796) .. controls (-0.879,2.635) and (-0.831,2.460) .. (-0.851,2.279);
+\draw[bf G] (0.634,2.672) .. controls (1.009,2.622) and (1.575,2.835) .. (1.704,2.529) .. controls (1.834,2.222) and (1.501,1.944) .. (1.391,1.630);
+\draw[bf G] (-0.851,2.279) .. controls (-0.615,2.060) and (-0.271,1.835) .. (-0.176,1.654) .. controls (-0.082,1.473) and (-0.003,1.317) .. (0.090,1.136);
+\draw[bf G] (0.090,1.136) .. controls (0.299,1.070) and (0.469,0.934) .. (0.687,0.949) .. controls (0.905,0.964) and (1.145,1.392) .. (1.391,1.630);
+\draw[bf G] (1.391,1.630) .. controls (1.528,1.554) and (1.650,1.497) .. (1.781,1.413) .. controls (1.913,1.328) and (1.841,0.660) .. (1.873,0.255);
+\draw[bf G] (1.873,0.255) .. controls (1.790,0.023) and (1.698,-0.181) .. (1.635,-0.409) .. controls (1.572,-0.637) and (1.476,-0.819) .. (1.390,-1.040);
+\draw[bf cycle] (-2.888,0.208) .. controls (-3.008,-0.373) and (-3.419,-1.256) .. (-3.232,-1.453) .. controls (-3.044,-1.649) and (-2.758,-1.624) .. (-2.503,-1.716);
+\draw[bf cycle] (-2.888,0.208) .. controls (-2.635,0.682) and (-2.384,1.558) .. (-2.167,1.562) .. controls (-1.949,1.565) and (-1.805,1.380) .. (-1.611,1.282);
+\draw[bf cycle] (-2.503,-1.716) .. controls (-2.283,-1.600) and (-2.114,-1.449) .. (-1.873,-1.385) .. controls (-1.633,-1.322) and (-1.273,-1.584) .. (-0.949,-1.691);
+\draw[bf cycle] (-2.096,-3.087) .. controls (-2.180,-3.213) and (-2.272,-3.310) .. (-2.337,-3.447) .. controls (-2.402,-3.584) and (-1.047,-4.264) .. (-0.353,-4.703);
+\draw[bf cycle] (-2.096,-3.087) .. controls (-1.705,-3.189) and (-1.189,-3.511) .. (-0.979,-3.380) .. controls (-0.769,-3.249) and (-0.576,-3.159) .. (-0.360,-3.040);
+\draw[bf cycle] (-0.353,-4.703) .. controls (0.468,-4.264) and (2.062,-3.618) .. (1.993,-3.447) .. controls (1.924,-3.276) and (1.756,-3.199) .. (1.629,-3.065);
+\draw[bf cycle] (-2.551,3.801) .. controls (-3.174,3.346) and (-4.245,2.451) .. (-4.330,2.500) .. controls (-4.415,2.549) and (-4.488,2.591) .. (-4.573,2.640) arc[start angle=150.00,end angle=270.00,radius=5.28];
+\draw[bf cycle] (3.184,3.261) .. controls (3.585,2.995) and (4.245,2.451) .. (4.330,2.500) .. controls (4.415,2.549) and (4.488,2.591) .. (4.573,2.640) arc[start angle=30.00,end angle=-90.00,radius=5.28];
+\draw[bf cycle] (-2.551,3.801) .. controls (-2.043,3.963) and (-1.366,4.662) .. (-1.100,4.264) .. controls (-0.834,3.866) and (-0.255,3.988) .. (0.200,3.840);
+\draw[bf cycle] (-1.611,1.282) .. controls (-1.589,0.980) and (-1.775,0.580) .. (-1.548,0.419) .. controls (-1.321,0.258) and (-1.047,0.292) .. (-0.777,0.224);
+\draw[bf cycle] (-0.777,0.224) .. controls (-0.745,0.045) and (-0.699,-0.105) .. (-0.684,-0.286) .. controls (-0.670,-0.467) and (-0.180,-0.715) .. (0.091,-0.946);
+\draw[bf cycle] (0.091,-0.946) .. controls (0.350,-1.047) and (0.626,-1.248) .. (0.832,-1.234) .. controls (1.038,-1.221) and (1.195,-1.108) .. (1.390,-1.040);
+\draw[bf cycle] (-0.949,-1.691) .. controls (-0.742,-1.916) and (-0.363,-2.087) .. (-0.357,-2.334) .. controls (-0.351,-2.581) and (-0.359,-2.793) .. (-0.360,-3.040);
+\draw[bf cycle] (1.629,-3.065) .. controls (1.974,-2.833) and (2.600,-2.657) .. (2.615,-2.401) .. controls (2.630,-2.145) and (2.546,-1.930) .. (2.510,-1.676);
+\draw[bf cycle] (2.510,-1.676) .. controls (2.828,-1.641) and (3.190,-1.800) .. (3.418,-1.575) .. controls (3.646,-1.351) and (3.284,-0.586) .. (3.212,-0.053);
+\draw[bf cycle] (3.212,-0.053) .. controls (3.335,0.052) and (3.409,0.203) .. (3.564,0.246) .. controls (3.720,0.289) and (3.317,2.206) .. (3.184,3.261);
+\draw[bf cycle] (0.200,3.840) .. controls (0.235,3.637) and (0.321,3.465) .. (0.299,3.260) .. controls (0.278,3.055) and (0.517,2.878) .. (0.634,2.672);
+\draw[bf cycle] (0.634,2.672) .. controls (0.134,2.715) and (-0.711,2.958) .. (-0.795,2.796) .. controls (-0.879,2.635) and (-0.831,2.460) .. (-0.851,2.279);
+\draw[bf cycle] (-0.851,2.279) .. controls (-0.615,2.060) and (-0.271,1.835) .. (-0.176,1.654) .. controls (-0.082,1.473) and (-0.003,1.317) .. (0.090,1.136);
+\draw[bf cycle] (0.090,1.136) .. controls (0.299,1.070) and (0.469,0.934) .. (0.687,0.949) .. controls (0.905,0.964) and (1.145,1.392) .. (1.391,1.630);
+\draw[bf cycle] (1.391,1.630) .. controls (1.528,1.554) and (1.650,1.497) .. (1.781,1.413) .. controls (1.913,1.328) and (1.841,0.660) .. (1.873,0.255);
+\draw[bf cycle] (1.873,0.255) .. controls (1.790,0.023) and (1.698,-0.181) .. (1.635,-0.409) .. controls (1.572,-0.637) and (1.476,-0.819) .. (1.390,-1.040);
+\draw[line width=.5pt,fill=black] (-2.888,0.208) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (-2.503,-1.716) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (-2.096,-3.087) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (-0.353,-4.703) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (0.000,-5.280) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (-2.551,3.801) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (-1.611,1.282) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (-0.777,0.224) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (0.091,-0.946) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (-0.949,-1.691) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (-0.360,-3.040) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (1.629,-3.065) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (2.510,-1.676) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (3.212,-0.053) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (3.184,3.261) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (0.200,3.840) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (0.634,2.672) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (-0.851,2.279) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (0.090,1.136) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (1.391,1.630) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=white] (1.873,0.255) circle[radius=1.5pt];
+\draw[line width=.5pt,fill=black] (1.390,-1.040) circle[radius=1.5pt];
+\draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\fill[bf vertex] (-2.133,-0.405) circle[radius=1.4pt];
+\fill[bf vertex] (-1.614,-2.366) circle[radius=1.4pt];
+\fill[bf vertex] (-0.344,-4.394) circle[radius=1.4pt];
+\draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\fill[bf vertex] (-2.200,3.528) circle[radius=1.4pt];
+\fill[bf vertex] (-0.963,1.243) circle[radius=1.4pt];
+\fill[bf vertex] (0.764,-0.167) circle[radius=1.4pt];
+\fill[bf vertex] (0.900,-2.302) circle[radius=1.4pt];
+\fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
+\fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
+\fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
+\end{tikzpicture}
+\end{minipage}\end{center}
+The picture places the final cycle directly in the cubic graph G. Its vertices sit at triangle centres only so that the example stays recognizable. The primal formalization reads the root as a black vertex and reads a dual disk as the shore of an edge cut away from that vertex. This fixes what inside means without a picture-dependent choice. Face potentials provide one flow on G, and the signed pair argument uses that flow rather than a new weight choice for every cycle. Recovery also takes place in G, turning the selected incidence data into a cycle that avoids the prescribed edge. The Lean dependency report is useful here because it records exactly which planar and cut-side lemmas the proof imports. This page illustrates the recovered object; it does not claim to have independently rebuilt the formalization.
+
+\textbf{Status.} LIT supplied proof; formal dependency description from opus\_lean-formalisation is unrefereed research. COMPUTED recovered cycle checked by toolkit and barnette\_lab here.
+
+\textbf{Connects to.} 6 disk side; 17 cut patterns; 19 recovery.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_opus\_lean-formalisation/\allowbreak{}REPORT.md;\allowbreak{} proofs/\allowbreak{}primal/\allowbreak{};\allowbreak{} build.py;\allowbreak{} paper/\allowbreak{}figures/\allowbreak{}model.py, recover.\par}
+
+\end{document}

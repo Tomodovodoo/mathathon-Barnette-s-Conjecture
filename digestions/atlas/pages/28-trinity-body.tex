@@ -1,0 +1,62 @@
+\section*{28. Three incidence graphs in one triangulation}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\draw[bf edge] (-5.973,-2.486) -- (5.627,-2.486);
+\draw[bf edge] (-5.973,-2.486) -- (-0.173,2.831);
+\draw[bf edge] (-5.973,-2.486) -- (-3.556,-1.519);
+\draw[bf edge] (-5.973,-2.486) -- (-2.589,-2.002);
+\draw[bf edge] (-5.973,-2.486) -- (-0.173,3.314);
+\draw[bf edge] (-5.973,-2.486) -- (-0.173,2.348);
+\draw[bf edge] (5.627,-2.486) -- (-2.589,-2.002);
+\draw[bf edge] (5.627,-2.486) -- (-0.173,3.314);
+\draw[bf edge] (5.627,-2.486) -- (4.177,-1.519);
+\draw[bf edge] (-0.173,2.831) -- (-0.173,2.348);
+\draw[bf edge] (-0.173,2.831) -- (-0.173,3.314);
+\draw[bf edge] (-0.173,2.831) -- (2.244,0.414);
+\draw[bf edge] (-3.556,-1.519) -- (-2.589,-2.002);
+\draw[bf edge] (-3.556,-1.519) -- (-0.173,2.348);
+\draw[bf edge] (-3.556,-1.519) -- (-0.173,1.864);
+\draw[bf edge] (-2.589,-2.002) -- (-1.623,-1.036);
+\draw[bf edge] (-2.589,-2.002) -- (4.177,-1.519);
+\draw[bf edge] (-2.589,-2.002) -- (-0.173,1.864);
+\draw[bf edge] (-1.623,-1.036) -- (-0.173,1.864);
+\draw[bf edge] (-1.623,-1.036) -- (4.177,-1.519);
+\draw[bf edge] (-1.623,-1.036) -- (-1.139,-0.552);
+\draw[bf edge] (-0.173,2.348) -- (0.794,0.898);
+\draw[bf edge] (-0.173,2.348) -- (-0.173,1.864);
+\draw[bf edge] (-0.173,2.348) -- (2.244,0.414);
+\draw[bf edge] (0.794,0.898) -- (-0.173,1.864);
+\draw[bf edge] (0.794,0.898) -- (2.244,0.414);
+\draw[bf edge] (0.794,0.898) -- (-1.139,-0.552);
+\draw[bf edge] (-0.173,3.314) -- (2.727,-0.069);
+\draw[bf edge] (-0.173,3.314) -- (4.177,-1.519);
+\draw[bf edge] (-0.173,3.314) -- (2.244,0.414);
+\draw[bf edge] (2.727,-0.069) -- (2.244,0.414);
+\draw[bf edge] (2.727,-0.069) -- (4.177,-1.519);
+\draw[bf edge] (2.727,-0.069) -- (-1.139,-0.552);
+\draw[bf edge] (-0.173,1.864) -- (-1.139,-0.552);
+\draw[bf edge] (2.244,0.414) -- (-1.139,-0.552);
+\draw[bf edge] (4.177,-1.519) -- (-1.139,-0.552);
+\fill (-5.973,-2.486) ++(-2pt,-2pt) rectangle ++(4pt,4pt);
+\draw[bf root] (5.627,-2.486) circle[radius=2.3pt];
+\draw[bf root] (-0.173,2.831) circle[radius=2.3pt];
+\draw[bf root] (-3.556,-1.519) circle[radius=2.3pt];
+\draw[draw=bfW,fill=white,line width=.9pt] (-2.589,-2.002) circle[radius=2.5pt];
+\fill (-1.623,-1.036) circle[radius=1.5pt];
+\draw[draw=bfW,fill=white,line width=.9pt] (-0.173,2.348) circle[radius=2.5pt];
+\fill (0.794,0.898) circle[radius=1.5pt];
+\draw[draw=bfW,fill=white,line width=.9pt] (-0.173,3.314) circle[radius=2.5pt];
+\fill (2.727,-0.069) circle[radius=1.5pt];
+\fill (-0.173,1.864) ++(-2pt,-2pt) rectangle ++(4pt,4pt);
+\fill (2.244,0.414) ++(-2pt,-2pt) rectangle ++(4pt,4pt);
+\fill (4.177,-1.519) ++(-2pt,-2pt) rectangle ++(4pt,4pt);
+\draw[draw=bfW,fill=white,line width=.9pt] (-1.139,-0.552) circle[radius=2.5pt];
+\end{tikzpicture}\par A separate checked plane layout of the cube objects.\par Delete green circles: $H$. Delete black squares: $H\prime$. Delete old vertices: $G$.
+\end{minipage}\end{center}
+Use the cube's octahedral dual to keep this picture readable. Add a black square at each black face centre and a hollow green circle at each white face centre. Join every centre to its three corners, and join adjacent black and white centres across each original side. These are the edges of the second trinity K; the old triangulation edges are omitted. Deleting white centres leaves the black spoke graph, deleting black centres leaves its white counterpart, and deleting original vertices leaves G. The build checks this fourteen-vertex triangulation and all three projections. The categorical report packages Hamiltonian cycles as acyclic triangle factors here, but that equivalence remains unrefereed. The related Floer dictionary reads a rooted degree vector as a supported hypertree. It supplies no new positivity theorem for the simultaneous matching constraints.
+
+\textbf{Status.} COMPUTED K on the cube, with 14 vertices, 36 edges and 24 triangular faces. Triangle-factor reformulation is unrefereed. Floer dictionary independently AI-refereed as a dictionary only.
+
+\textbf{Connects to.} 11 incidence matchings; 16 white tree; 19 recovery; 25 algebraic dictionaries.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_fable\_route-categorical/\allowbreak{}CATEGORICAL.md, Section 2;\allowbreak{} research/\allowbreak{}2026-11-14\_fable\_referee-topology/\allowbreak{}REFEREE.md, part e;\allowbreak{} build.py.\par}

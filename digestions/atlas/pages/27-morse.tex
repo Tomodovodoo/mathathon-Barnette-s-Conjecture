@@ -1,0 +1,98 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{27. Morse cancellation pairs the bad orientations}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1.05cm,y=1.05cm]
+\path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
+\fill[bfblack] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;
+\fill[bfblack] (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;
+\fill[bfblack] (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;
+\fill[bfblack] (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;
+\draw[bf edge] (0,0) circle[radius=5.0];
+\draw[bf edge] (-4.330,-2.500) -- (-2.133,-0.405);
+\draw[bf edge] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf edge] (-4.330,-2.500) -- (-0.344,-4.394);
+\draw[bf edge] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-1.614,-2.366);
+\draw[bf edge] (-2.133,-0.405) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-0.963,1.243);
+\draw[bf edge] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf edge] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf edge] (-1.614,-2.366) -- (-0.344,-4.394);
+\draw[bf edge] (-1.614,-2.366) -- (0.900,-2.302);
+\draw[bf edge] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf edge] (-0.344,-4.394) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf edge] (4.330,-2.500) -- (2.799,2.992);
+\draw[bf edge] (0.000,5.000) -- (-2.200,3.528);
+\draw[bf edge] (0.000,5.000) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf edge] (-2.200,3.528) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (0.610,2.065);
+\draw[bf edge] (-0.963,1.243) -- (0.764,-0.167);
+\draw[bf edge] (-0.963,1.243) -- (0.610,2.065);
+\draw[bf edge] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf edge] (0.764,-0.167) -- (2.506,-0.651);
+\draw[bf edge] (0.764,-0.167) -- (2.799,2.992);
+\draw[bf edge] (0.764,-0.167) -- (0.610,2.065);
+\draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
+\draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
+\draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[bf s] (-2.133,-0.405) -- ++(90.98:0.572) arc[start angle=90.98,end angle=223.64,radius=0.572] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[bf s] (-0.344,-4.394) -- ++(122.06:0.957) arc[start angle=122.06,end angle=154.58,radius=0.957] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf s] (-0.963,1.243) -- ++(-125.37:0.709) arc[start angle=-125.37,end angle=-39.23,radius=0.709] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf s] (-1.614,-2.366) -- ++(1.46:0.648) arc[start angle=1.46,end angle=104.82,radius=0.648] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[bf s] (0.900,-2.302) -- ++(-120.74:0.608) arc[start angle=-120.74,end angle=-3.30,radius=0.608] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[bf s] (2.799,2.992) -- ++(-94.60:1.462) arc[start angle=-94.60,end angle=-74.42,radius=1.462] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[bf s] (-2.200,3.528) -- ++(-6.12:1.042) arc[start angle=-6.12,end angle=33.79,radius=1.042] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[bf s] (0.610,2.065) -- ++(152.50:0.710) arc[start angle=152.50,end angle=207.59,radius=0.710] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[bf s] (0.764,-0.167) -- ++(57.21:0.895) arc[start angle=57.21,end angle=93.95,radius=0.895] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf s] (2.506,-0.651) -- ++(164.47:0.723) arc[start angle=164.47,end angle=225.79,radius=0.723] -- cycle;\end{scope}
+\draw[bf Q] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf Q] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf Q] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf Q] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf Q] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf Q] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf Q] (0.000,5.000) -- (2.799,2.992);
+\draw[bf Q] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf Q] (2.799,2.992) -- (0.610,2.065);
+\draw[bf Q] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\fill[bf vertex] (-2.133,-0.405) circle[radius=1.4pt];
+\fill[bf vertex] (-1.614,-2.366) circle[radius=1.4pt];
+\fill[bf vertex] (-0.344,-4.394) circle[radius=1.4pt];
+\draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\fill[bf vertex] (-2.200,3.528) circle[radius=1.4pt];
+\fill[bf vertex] (-0.963,1.243) circle[radius=1.4pt];
+\fill[bf vertex] (0.764,-0.167) circle[radius=1.4pt];
+\fill[bf vertex] (0.900,-2.302) circle[radius=1.4pt];
+\fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
+\fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
+\fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
+\end{tikzpicture}\par\medskip $r_{10},\ \epsilon=-1\quad\longleftrightarrow\quad r_{9},\ \epsilon=1$\par The one-dimensional Boolean cube has no unmatched vertex.
+\end{minipage}\end{center}
+Fix the cyclic second state again. Its opposite-edge graph has one rootless cycle, so it has exactly two possible mates, corresponding to the two orientations of that cycle. The diagram pairs these two signed terms. More generally, k rootless cycles give a Boolean cube of mates, and reversing the first cycle pairs its vertices without fixed points. The empty cube at k equal to zero contributes a surviving tree state. This is the discrete Morse reading of fixed-state cancellation. It explains which terms disappear, but does not establish that a critical state exists somewhere. That requires the other regrouping and positive circulation. A separate Forman interpretation of the incidence collapse must leave the roots unpaired. The topology referee corrected that point and the direction of the J shift. The running example checks only a one-dimensional cube.
+
+\textbf{Status.} PROVED-HERE dictionary independently AI-refereed after sign and root corrections. COMPUTED complete two-mate cube here. This is not an independent existence proof.
+
+\textbf{Connects to.} 3 first involution; 9 row dependence; 13 clock moves; 28 trinity.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_fable\_referee-topology/\allowbreak{}REFEREE.md, part d;\allowbreak{} papers/\allowbreak{}barnette\_trees.pdf, Proposition 2.1.\par}
+
+\end{document}

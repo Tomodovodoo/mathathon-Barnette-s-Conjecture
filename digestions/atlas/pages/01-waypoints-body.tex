@@ -1,0 +1,29 @@
+\section*{01. One proof, several readings}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (0,5.0) {};\node[anchor=west] at (0.2,5.0) {cut criterion};
+\draw[draw=bfS,line width=1.5pt] (0,5.0)--(0,3.95);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (0,3.95) {};\node[anchor=west] at (0.2,3.95) {disjoint states};
+\draw[draw=bfS,line width=1.5pt] (0,3.95)--(0,2.9);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (0,2.9) {};\node[anchor=west] at (0.2,2.9) {disk identity};
+\draw[draw=bfS,line width=1.5pt] (0,2.8999999999999995)--(0,1.8499999999999996);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (0,1.8499999999999996) {};\node[anchor=west] at (0.2,1.8499999999999996) {cyclic terms cancel};
+\draw[draw=bfS,line width=1.5pt] (0,1.8499999999999999)--(0,0.7999999999999998);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (0,0.7999999999999998) {};\node[anchor=west] at (0.2,0.7999999999999998) {positive lowest term};
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (6.8,0.8) {};\node[anchor=west] at (7.0,0.8) {forest state};
+\draw[draw=bfS,line width=1.5pt] (6.8,0.8)--(6.8,1.85);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (6.8,1.85) {};\node[anchor=west] at (7.0,1.85) {white-face tree};
+\draw[draw=bfS,line width=1.5pt] (6.8,1.8500000000000003)--(6.8,2.9000000000000004);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (6.8,2.9000000000000004) {};\node[anchor=west] at (7.0,2.9000000000000004) {two induced trees};
+\draw[draw=bfS,line width=1.5pt] (6.8,2.9000000000000004)--(6.8,3.95);
+\node[draw=bfS,circle,fill=white,minimum size=5pt,inner sep=0pt] at (6.8,3.95) {};\node[anchor=west] at (7.0,3.95) {Hamiltonian cycle};
+\draw[draw=bfS,line width=1.5pt,->] (0,.8)--(0,.2)--(6.8,.2)--(6.8,.8);
+\end{tikzpicture}
+\end{minipage}\end{center}
+Read down the left track, then up the right track. The combinatorial objects change, but the hard implication stays in the same place. A cut inequality first supplies two disjoint states. The disk identity then makes two regroupings of their signed sum compatible. Fixing the second state cancels every cyclic opposite-edge graph. Grouping by the undirected cycles instead proves that the sum cannot vanish. A surviving forest state supplies a white-face tree, two induced trees, and finally one Hamiltonian cycle. The alternate readings in this atlas explain these stations with heights, integer polynomials, involutions, or turning angles. They are not twenty-eight independent existence proofs. The running example has thirteen vertices in the triangulation and twenty-two in its cubic dual. Pages that change examples say so explicitly.
+
+\textbf{Status.} LIT for the supplied OpenAI proof, Sections 3 to 7. The alternative research routes have mixed review status, recorded on their pages.
+
+\textbf{Connects to.} 2 exponential sum; 4 polynomial; 5 heights; 18 primal; 19 recovery.
+
+{\footnotesize\raggedright Sources: papers/\allowbreak{}OpenAI-Barnette.pdf, Sections 3 to 7;\allowbreak{} digestions/\allowbreak{}route-map/\allowbreak{}ROUTE-MAP.md.\par}

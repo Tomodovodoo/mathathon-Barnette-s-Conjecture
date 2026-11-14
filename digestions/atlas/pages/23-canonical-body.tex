@@ -1,0 +1,93 @@
+\section*{23. The tempting highest state can be cyclic}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1.12cm,y=1.12cm]
+\path[use as bounding box] (-5.30,-5.30) rectangle (5.30,5.30);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.05] (0,0) circle[radius=4.5];
+\fill[bfblack] (1.461,0.703) -- (1.583,-0.352) -- (3.897,-2.250) -- (1.461,0.703) -- cycle;
+\fill[bfblack] (1.461,0.703) -- (0.000,4.500) -- (0.365,0.914) -- (1.461,0.703) -- cycle;
+\fill[bfblack] (1.583,-0.352) -- (0.365,0.914) -- (0.609,-0.773) -- (1.583,-0.352) -- cycle;
+\fill[bfblack] (3.897,-2.250) -- (0.609,-0.773) -- (-0.122,-1.617) -- (3.897,-2.250) -- cycle;
+\fill[bfblack] (0.000,4.500) -- (-1.340,0.914) -- (-0.487,1.547) -- (0.000,4.500) -- cycle;
+\fill[bfblack] (0.365,0.914) -- (-0.487,1.547) -- (-0.974,-0.141) -- (0.365,0.914) -- cycle;
+\fill[bfblack] (0.609,-0.773) -- (-0.974,-0.141) -- (-1.096,-1.195) -- (0.609,-0.773) -- cycle;
+\fill[bfblack] (-0.122,-1.617) -- (-1.096,-1.195) -- (-3.897,-2.250) -- (-0.122,-1.617) -- cycle;
+\fill[bfblack] (-3.897,-2.250) -- (-0.974,-0.141) -- (-1.340,0.914) -- (-3.897,-2.250) -- cycle;
+\draw[bf edge] (0,0) circle[radius=4.5];
+\draw[bf edge] (1.461,0.703) -- (1.583,-0.352);
+\draw[bf edge] (1.461,0.703) -- (3.897,-2.250);
+\draw[bf edge] (1.461,0.703) -- (0.000,4.500);
+\draw[bf edge] (1.461,0.703) -- (0.365,0.914);
+\draw[bf edge] (1.583,-0.352) -- (3.897,-2.250);
+\draw[bf edge] (1.583,-0.352) -- (0.365,0.914);
+\draw[bf edge] (1.583,-0.352) -- (0.609,-0.773);
+\draw[bf edge] (3.897,-2.250) -- (0.609,-0.773);
+\draw[bf edge] (3.897,-2.250) -- (-0.122,-1.617);
+\draw[bf edge] (0.000,4.500) -- (0.365,0.914);
+\draw[bf edge] (0.000,4.500) -- (-1.340,0.914);
+\draw[bf edge] (0.000,4.500) -- (-0.487,1.547);
+\draw[bf edge] (0.365,0.914) -- (0.609,-0.773);
+\draw[bf edge] (0.365,0.914) -- (-0.487,1.547);
+\draw[bf edge] (0.365,0.914) -- (-0.974,-0.141);
+\draw[bf edge] (0.609,-0.773) -- (-0.122,-1.617);
+\draw[bf edge] (0.609,-0.773) -- (-0.974,-0.141);
+\draw[bf edge] (0.609,-0.773) -- (-1.096,-1.195);
+\draw[bf edge] (-0.122,-1.617) -- (-3.897,-2.250);
+\draw[bf edge] (-0.122,-1.617) -- (-1.096,-1.195);
+\draw[bf edge] (-3.897,-2.250) -- (-1.340,0.914);
+\draw[bf edge] (-3.897,-2.250) -- (-0.974,-0.141);
+\draw[bf edge] (-3.897,-2.250) -- (-1.096,-1.195);
+\draw[bf edge] (-1.340,0.914) -- (-0.487,1.547);
+\draw[bf edge] (-1.340,0.914) -- (-0.974,-0.141);
+\draw[bf edge] (-0.487,1.547) -- (-0.974,-0.141);
+\draw[bf edge] (-0.974,-0.141) -- (-1.096,-1.195);
+\begin{scope}\clip (1.461,0.703) -- (1.583,-0.352) -- (3.897,-2.250) -- (1.461,0.703) -- cycle;\path[bf s] (1.461,0.703) -- ++(-83.41:0.425) arc[start angle=-83.41,end angle=-50.48,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (1.461,0.703) -- (0.000,4.500) -- (0.365,0.914) -- (1.461,0.703) -- cycle;\path[bf s] (0.365,0.914) -- ++(-10.89:0.446) arc[start angle=-10.89,end angle=95.82,radius=0.446] -- cycle;\end{scope}
+\begin{scope}\clip (1.583,-0.352) -- (0.365,0.914) -- (0.609,-0.773) -- (1.583,-0.352) -- cycle;\path[bf s] (1.583,-0.352) -- ++(133.90:0.425) arc[start angle=133.90,end angle=203.41,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (3.897,-2.250) -- (0.609,-0.773) -- (-0.122,-1.617) -- (3.897,-2.250) -- cycle;\path[bf s] (0.609,-0.773) -- ++(-130.89:0.446) arc[start angle=-130.89,end angle=-24.18,radius=0.446] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,4.500) -- (-1.340,0.914) -- (-0.487,1.547) -- (0.000,4.500) -- cycle;\path[bf s] (-1.340,0.914) -- ++(36.59:0.425) arc[start angle=36.59,end angle=69.52,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (0.365,0.914) -- (-0.487,1.547) -- (-0.974,-0.141) -- (0.365,0.914) -- cycle;\path[bf s] (-0.487,1.547) -- ++(-106.10:0.425) arc[start angle=-106.10,end angle=-36.59,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (0.609,-0.773) -- (-0.974,-0.141) -- (-1.096,-1.195) -- (0.609,-0.773) -- cycle;\path[bf s] (-1.096,-1.195) -- ++(13.90:0.425) arc[start angle=13.90,end angle=83.41,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (-0.122,-1.617) -- (-1.096,-1.195) -- (-3.897,-2.250) -- (-0.122,-1.617) -- cycle;\path[bf s] (-0.122,-1.617) -- ++(156.59:0.425) arc[start angle=156.59,end angle=189.52,radius=0.425] -- cycle;\end{scope}
+\begin{scope}\clip (-3.897,-2.250) -- (-0.974,-0.141) -- (-1.340,0.914) -- (-3.897,-2.250) -- cycle;\path[bf s] (-0.974,-0.141) -- ++(109.11:0.446) arc[start angle=109.11,end angle=215.82,radius=0.446] -- cycle;\end{scope}
+\draw[bf Q] (1.583,-0.352) -- (3.897,-2.250);
+\draw[bf Q] (1.461,0.703) -- (0.000,4.500);
+\draw[bf Q] (0.365,0.914) -- (0.609,-0.773);
+\draw[bf Q] (3.897,-2.250) -- (-0.122,-1.617);
+\draw[bf Q] (0.000,4.500) -- (-0.487,1.547);
+\draw[bf Q] (0.365,0.914) -- (-0.974,-0.141);
+\draw[bf Q] (0.609,-0.773) -- (-0.974,-0.141);
+\draw[bf Q] (-1.096,-1.195) -- (-3.897,-2.250);
+\draw[bf Q] (-3.897,-2.250) -- (-1.340,0.914);
+\fill[bf vertex] (1.461,0.703) circle[radius=1.4pt];
+\node at (1.912,0.920) {$0$};
+\fill[bf vertex] (1.583,-0.352) circle[radius=1.4pt];
+\node at (2.071,-0.460) {$1$};
+\draw[bf root] (3.897,-2.250) circle[radius=2.3pt];
+\node at (4.434,-2.560) {$2$};
+\draw[bf root] (0.000,4.500) circle[radius=2.3pt];
+\node at (0.000,5.120) {$3$};
+\fill[bf vertex] (0.365,0.914) circle[radius=1.4pt];
+\node at (0.765,1.234) {$4$};
+\fill[bf vertex] (0.609,-0.773) circle[radius=1.4pt];
+\node at (1.029,-0.973) {$5$};
+\fill[bf vertex] (-0.122,-1.617) circle[radius=1.4pt];
+\node at (-0.159,-2.116) {$6$};
+\draw[bf root] (-3.897,-2.250) circle[radius=2.3pt];
+\node at (-4.434,-2.560) {$7$};
+\fill[bf vertex] (-1.340,0.914) circle[radius=1.4pt];
+\node at (-1.753,1.196) {$8$};
+\fill[bf vertex] (-0.487,1.547) circle[radius=1.4pt];
+\node at (-0.637,2.024) {$9$};
+\fill[bf vertex] (-0.974,-0.141) circle[radius=1.4pt];
+\node at (-1.424,-0.091) {$10$};
+\fill[bf vertex] (-1.096,-1.195) circle[radius=1.4pt];
+\node at (-1.434,-1.564) {$11$};
+\end{tikzpicture}
+\end{minipage}\end{center}
+The twelve-vertex witness above is the smallest counterexample reported and corrected by the combinatorics referee for selecting a highest partnered state. It is a different triangulation from the thirteen-vertex running example. Its displayed state is a valid bijection and has a disjoint mate, but the opposite-edge graph contains the dashed cycle on vertices four, five, and ten. A matching extremum therefore does not certify a forest. Reflecting the embedding reverses the orientation-sensitive height direction and supplies the corresponding failure for the lowest choice. The original submission reported a larger first failure for that version; the referee corrected it. This lesson also applies to pair lattices, where specified individual extremes fail on other examples. The picture isolates one obstruction rather than claiming that every conceivable canonical selection rule is impossible. A more informed rule might still work.
+
+\textbf{Status.} REFUTED canonical highest/lowest guarantees, independently AI-refereed with reflection correction. COMPUTED validity and cyclic Q of this 12-vertex witness here.
+
+\textbf{Connects to.} 12 pair extremes; 13 state lattice; 26 open canonical rules.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_fable\_route-combinatorics/\allowbreak{}data/\allowbreak{}counterexamples.txt;\allowbreak{} research/\allowbreak{}2026-11-14\_astra\_referee-combinatorics/\allowbreak{}REPORT.md;\allowbreak{} build.py.\par}

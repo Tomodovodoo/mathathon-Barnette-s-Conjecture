@@ -1,0 +1,7 @@
+{
+  "command": "python digestions/atlas/build.py",
+  "objects": 3,
+  "iota1_fixed": 3,
+  "iota2_fixed": 1,
+  "all_involutions_and_signs_checked": true
+}

@@ -1,0 +1,189 @@
+\section*{03. Li turns the sum into paired objects}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tabular}{@{}c@{\hspace{7mm}}c@{}}
+\begin{tikzpicture}[bf,x=0.42cm,y=0.42cm]
+\path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
+\fill[bfblack] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;
+\fill[bfblack] (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;
+\fill[bfblack] (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;
+\fill[bfblack] (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;
+\draw[bf edge] (0,0) circle[radius=5.0];
+\draw[bf edge] (-4.330,-2.500) -- (-2.133,-0.405);
+\draw[bf edge] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf edge] (-4.330,-2.500) -- (-0.344,-4.394);
+\draw[bf edge] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-1.614,-2.366);
+\draw[bf edge] (-2.133,-0.405) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-0.963,1.243);
+\draw[bf edge] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf edge] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf edge] (-1.614,-2.366) -- (-0.344,-4.394);
+\draw[bf edge] (-1.614,-2.366) -- (0.900,-2.302);
+\draw[bf edge] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf edge] (-0.344,-4.394) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf edge] (4.330,-2.500) -- (2.799,2.992);
+\draw[bf edge] (0.000,5.000) -- (-2.200,3.528);
+\draw[bf edge] (0.000,5.000) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf edge] (-2.200,3.528) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (0.610,2.065);
+\draw[bf edge] (-0.963,1.243) -- (0.764,-0.167);
+\draw[bf edge] (-0.963,1.243) -- (0.610,2.065);
+\draw[bf edge] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf edge] (0.764,-0.167) -- (2.506,-0.651);
+\draw[bf edge] (0.764,-0.167) -- (2.799,2.992);
+\draw[bf edge] (0.764,-0.167) -- (0.610,2.065);
+\draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
+\draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
+\draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[bf r] (-2.200,3.528) -- ++(-109.46:1.456) arc[start angle=-109.46,end angle=-89.02,radius=1.456] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[bf r] (-1.614,-2.366) -- ++(-177.18:0.603) arc[start angle=-177.18,end angle=-57.94,radius=0.603] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf r] (0.764,-0.167) -- ++(140.77:0.892) arc[start angle=140.77,end angle=184.70,radius=0.892] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf r] (-2.133,-0.405) -- ++(-75.18:0.811) arc[start angle=-75.18,end angle=-32.02,radius=0.811] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[bf r] (-0.344,-4.394) -- ++(22.06:0.974) arc[start angle=22.06,end angle=59.26,radius=0.974] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[bf r] (2.506,-0.651) -- ++(-45.39:0.576) arc[start angle=-45.39,end angle=85.40,radius=0.576] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[bf r] (2.799,2.992) -- ++(144.34:1.211) arc[start angle=144.34,end angle=173.88,radius=1.211] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[bf r] (-0.963,1.243) -- ++(27.59:0.691) arc[start angle=27.59,end angle=118.43,radius=0.691] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[bf r] (0.610,2.065) -- ++(-86.05:0.631) arc[start angle=-86.05,end angle=22.95,radius=0.631] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf r] (0.900,-2.302) -- ++(45.79:0.856) arc[start angle=45.79,end angle=93.64,radius=0.856] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[bf s] (-2.133,-0.405) -- ++(90.98:0.572) arc[start angle=90.98,end angle=223.64,radius=0.572] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[bf s] (-0.344,-4.394) -- ++(122.06:0.957) arc[start angle=122.06,end angle=154.58,radius=0.957] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf s] (-0.963,1.243) -- ++(-125.37:0.709) arc[start angle=-125.37,end angle=-39.23,radius=0.709] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf s] (-1.614,-2.366) -- ++(1.46:0.648) arc[start angle=1.46,end angle=104.82,radius=0.648] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[bf s] (0.900,-2.302) -- ++(-120.74:0.608) arc[start angle=-120.74,end angle=-3.30,radius=0.608] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[bf s] (2.799,2.992) -- ++(-94.60:1.462) arc[start angle=-94.60,end angle=-74.42,radius=1.462] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[bf s] (-2.200,3.528) -- ++(-6.12:1.042) arc[start angle=-6.12,end angle=33.79,radius=1.042] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[bf s] (0.610,2.065) -- ++(152.50:0.710) arc[start angle=152.50,end angle=207.59,radius=0.710] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[bf s] (0.764,-0.167) -- ++(57.21:0.895) arc[start angle=57.21,end angle=93.95,radius=0.895] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf s] (2.506,-0.651) -- ++(164.47:0.723) arc[start angle=164.47,end angle=225.79,radius=0.723] -- cycle;\end{scope}
+\draw[bf Q] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf Q] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf Q] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf Q] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf Q] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf Q] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf Q] (0.000,5.000) -- (2.799,2.992);
+\draw[bf Q] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf Q] (2.799,2.992) -- (0.610,2.065);
+\draw[bf Q] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\fill[bf vertex] (-2.133,-0.405) circle[radius=1.4pt];
+\fill[bf vertex] (-1.614,-2.366) circle[radius=1.4pt];
+\fill[bf vertex] (-0.344,-4.394) circle[radius=1.4pt];
+\draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\fill[bf vertex] (-2.200,3.528) circle[radius=1.4pt];
+\fill[bf vertex] (-0.963,1.243) circle[radius=1.4pt];
+\fill[bf vertex] (0.764,-0.167) circle[radius=1.4pt];
+\fill[bf vertex] (0.900,-2.302) circle[radius=1.4pt];
+\fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
+\fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
+\fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
+\end{tikzpicture} &
+\begin{tikzpicture}[bf,x=0.42cm,y=0.42cm]
+\path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
+\fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
+\fill[bfblack] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
+\fill[bfblack] (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;
+\fill[bfblack] (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;
+\fill[bfblack] (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;
+\fill[bfblack] (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;
+\fill[bfblack] (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;
+\draw[bf edge] (0,0) circle[radius=5.0];
+\draw[bf edge] (-4.330,-2.500) -- (-2.133,-0.405);
+\draw[bf edge] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf edge] (-4.330,-2.500) -- (-0.344,-4.394);
+\draw[bf edge] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-1.614,-2.366);
+\draw[bf edge] (-2.133,-0.405) -- (-2.200,3.528);
+\draw[bf edge] (-2.133,-0.405) -- (-0.963,1.243);
+\draw[bf edge] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf edge] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf edge] (-1.614,-2.366) -- (-0.344,-4.394);
+\draw[bf edge] (-1.614,-2.366) -- (0.900,-2.302);
+\draw[bf edge] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf edge] (-0.344,-4.394) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (0.900,-2.302);
+\draw[bf edge] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf edge] (4.330,-2.500) -- (2.799,2.992);
+\draw[bf edge] (0.000,5.000) -- (-2.200,3.528);
+\draw[bf edge] (0.000,5.000) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf edge] (-2.200,3.528) -- (2.799,2.992);
+\draw[bf edge] (-2.200,3.528) -- (0.610,2.065);
+\draw[bf edge] (-0.963,1.243) -- (0.764,-0.167);
+\draw[bf edge] (-0.963,1.243) -- (0.610,2.065);
+\draw[bf edge] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf edge] (0.764,-0.167) -- (2.506,-0.651);
+\draw[bf edge] (0.764,-0.167) -- (2.799,2.992);
+\draw[bf edge] (0.764,-0.167) -- (0.610,2.065);
+\draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
+\draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
+\draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[bf r] (-2.200,3.528) -- ++(-109.46:1.456) arc[start angle=-109.46,end angle=-89.02,radius=1.456] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[bf r] (-1.614,-2.366) -- ++(-177.18:0.603) arc[start angle=-177.18,end angle=-57.94,radius=0.603] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf r] (-2.133,-0.405) -- ++(4.70:0.808) arc[start angle=4.70,end angle=54.63,radius=0.808] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf r] (0.900,-2.302) -- ++(147.98:1.006) arc[start angle=147.98,end angle=181.46,radius=1.006] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[bf r] (-0.344,-4.394) -- ++(22.06:0.974) arc[start angle=22.06,end angle=59.26,radius=0.974] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[bf r] (2.506,-0.651) -- ++(-45.39:0.576) arc[start angle=-45.39,end angle=85.40,radius=0.576] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[bf r] (2.799,2.992) -- ++(144.34:1.211) arc[start angle=144.34,end angle=173.88,radius=1.211] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[bf r] (-0.963,1.243) -- ++(27.59:0.691) arc[start angle=27.59,end angle=118.43,radius=0.691] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[bf r] (0.610,2.065) -- ++(-86.05:0.631) arc[start angle=-86.05,end angle=22.95,radius=0.631] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf r] (0.764,-0.167) -- ++(-86.36:0.723) arc[start angle=-86.36,end angle=-15.53,radius=0.723] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;\path[bf s] (-2.133,-0.405) -- ++(90.98:0.572) arc[start angle=90.98,end angle=223.64,radius=0.572] -- cycle;\end{scope}
+\begin{scope}\clip (-4.330,-2.500) -- (-0.344,-4.394) -- (-1.614,-2.366) -- (-4.330,-2.500) -- cycle;\path[bf s] (-0.344,-4.394) -- ++(122.06:0.957) arc[start angle=122.06,end angle=154.58,radius=0.957] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (0.764,-0.167) -- (-0.963,1.243) -- (-2.133,-0.405) -- cycle;\path[bf s] (-0.963,1.243) -- ++(-125.37:0.709) arc[start angle=-125.37,end angle=-39.23,radius=0.709] -- cycle;\end{scope}
+\begin{scope}\clip (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;\path[bf s] (-1.614,-2.366) -- ++(1.46:0.648) arc[start angle=1.46,end angle=104.82,radius=0.648] -- cycle;\end{scope}
+\begin{scope}\clip (-0.344,-4.394) -- (4.330,-2.500) -- (0.900,-2.302) -- (-0.344,-4.394) -- cycle;\path[bf s] (0.900,-2.302) -- ++(-120.74:0.608) arc[start angle=-120.74,end angle=-3.30,radius=0.608] -- cycle;\end{scope}
+\begin{scope}\clip (4.330,-2.500) -- (2.799,2.992) -- (2.506,-0.651) -- (4.330,-2.500) -- cycle;\path[bf s] (2.799,2.992) -- ++(-94.60:1.462) arc[start angle=-94.60,end angle=-74.42,radius=1.462] -- cycle;\end{scope}
+\begin{scope}\clip (0.000,5.000) -- (-2.200,3.528) -- (2.799,2.992) -- (0.000,5.000) -- cycle;\path[bf s] (-2.200,3.528) -- ++(-6.12:1.042) arc[start angle=-6.12,end angle=33.79,radius=1.042] -- cycle;\end{scope}
+\begin{scope}\clip (-2.200,3.528) -- (-0.963,1.243) -- (0.610,2.065) -- (-2.200,3.528) -- cycle;\path[bf s] (0.610,2.065) -- ++(152.50:0.710) arc[start angle=152.50,end angle=207.59,radius=0.710] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (2.799,2.992) -- (0.610,2.065) -- (0.764,-0.167) -- cycle;\path[bf s] (0.764,-0.167) -- ++(57.21:0.895) arc[start angle=57.21,end angle=93.95,radius=0.895] -- cycle;\end{scope}
+\begin{scope}\clip (0.764,-0.167) -- (0.900,-2.302) -- (2.506,-0.651) -- (0.764,-0.167) -- cycle;\path[bf s] (2.506,-0.651) -- ++(164.47:0.723) arc[start angle=164.47,end angle=225.79,radius=0.723] -- cycle;\end{scope}
+\draw[bf Q] (-4.330,-2.500) -- (-2.200,3.528);
+\draw[bf Q] (-4.330,-2.500) -- (-1.614,-2.366);
+\draw[bf Q] (-2.133,-0.405) -- (0.764,-0.167);
+\draw[bf Q] (-2.133,-0.405) -- (0.900,-2.302);
+\draw[bf Q] (-0.344,-4.394) -- (4.330,-2.500);
+\draw[bf Q] (4.330,-2.500) -- (2.506,-0.651);
+\draw[bf Q] (0.000,5.000) -- (2.799,2.992);
+\draw[bf Q] (-2.200,3.528) -- (-0.963,1.243);
+\draw[bf Q] (2.799,2.992) -- (0.610,2.065);
+\draw[bf Q] (0.764,-0.167) -- (0.900,-2.302);
+\draw[bf root] (-4.330,-2.500) circle[radius=2.3pt];
+\fill[bf vertex] (-2.133,-0.405) circle[radius=1.4pt];
+\fill[bf vertex] (-1.614,-2.366) circle[radius=1.4pt];
+\fill[bf vertex] (-0.344,-4.394) circle[radius=1.4pt];
+\draw[bf root] (4.330,-2.500) circle[radius=2.3pt];
+\draw[bf root] (0.000,5.000) circle[radius=2.3pt];
+\fill[bf vertex] (-2.200,3.528) circle[radius=1.4pt];
+\fill[bf vertex] (-0.963,1.243) circle[radius=1.4pt];
+\fill[bf vertex] (0.764,-0.167) circle[radius=1.4pt];
+\fill[bf vertex] (0.900,-2.302) circle[radius=1.4pt];
+\fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
+\fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
+\fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
+\end{tikzpicture}\\[0.5mm]
+\footnotesize $(r,s)$ & \footnotesize $(\widetilde r,s)$
+\end{tabular}\par First involution: the second state stays fixed.\par\medskip Cube second involution, exact ray-intersection marks:\par $p_{0},\ (y_{1},t_{2}),\ \mathrm{sign}=-1$$\quad\longleftrightarrow\quad$$p_{1},\ (y_{1},t_{2}),\ \mathrm{sign}=1$\par 3 marked objects, 1 second-involution fixed objects.
+\end{minipage}\end{center}
+Li replaces the analytic sum by signed objects carrying marked intersections. The first involution changes the mate along an opposite-edge cycle while leaving the second state fixed. Its fixed objects are the useful forest states. The second involution follows a different rule: reverse an unmarked D-cycle, or pair successive intersections on a ray from a white face. The remaining objects have a common sign. The picture shows a checked first-involution pair on our running triangulation. The second-involution marks below are computed by exact ray intersections on the cube. On the running triangulation the minimum D-cycle count is two, so the one-mark implementation is insufficient. The laboratory contains a multi-mark extension, but the determinant referee explicitly excluded that implementation from review. The conceptual second involution is in Li's supplied paper; the cube calculation checks the one-mark involution and every sign change.
+
+\textbf{Status.} LIT: Li, Definitions 13 to 23 and Appendix B. COMPUTED: first involution here. COMPUTED cube one-mark involution and signs; multi-mark implementation has not been independently refereed.
+
+\textbf{Connects to.} 2 exponential terms; 4 linear weights; 26 open doors.
+
+{\footnotesize\raggedright Sources: papers/\allowbreak{}A-Note-On-Barnette.pdf;\allowbreak{} workings/\allowbreak{}barnette\_lab/\allowbreak{}barnette\_lab/\allowbreak{}li.py;\allowbreak{} fable\_referee-determinants/\allowbreak{}REPORT.md.\par}

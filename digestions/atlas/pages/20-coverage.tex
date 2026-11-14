@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{20. Two produced cycles, six missed cycles}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\draw[bf G] (2.000,0.000) -- (1.000,1.732);
+\draw[bf G] (2.000,0.000) -- (1.000,0.000);
+\draw[bf G] (2.000,0.000) -- (1.000,-1.732);
+\draw[bf G] (1.000,1.732) -- (-1.000,1.732);
+\draw[bf G] (1.000,1.732) -- (0.500,0.866);
+\draw[bf G] (-1.000,1.732) -- (-2.000,0.000);
+\draw[bf G] (-1.000,1.732) -- (-0.500,0.866);
+\draw[bf G] (-2.000,0.000) -- (-1.000,-1.732);
+\draw[bf G] (-2.000,0.000) -- (-1.000,0.000);
+\draw[bf G] (-1.000,-1.732) -- (1.000,-1.732);
+\draw[bf G] (-1.000,-1.732) -- (-0.500,-0.866);
+\draw[bf G] (1.000,-1.732) -- (0.500,-0.866);
+\draw[bf G] (1.000,0.000) -- (0.500,0.866);
+\draw[bf G] (1.000,0.000) -- (0.500,-0.866);
+\draw[bf G] (0.500,0.866) -- (-0.500,0.866);
+\draw[bf G] (-0.500,0.866) -- (-1.000,0.000);
+\draw[bf G] (-1.000,0.000) -- (-0.500,-0.866);
+\draw[bf G] (-0.500,-0.866) -- (0.500,-0.866);
+\draw[bf cycle] (-0.500,0.866) -- (-1.000,0.000);
+\draw[bf cycle] (1.000,1.732) -- (-1.000,1.732);
+\draw[bf cycle] (-2.000,0.000) -- (-1.000,-1.732);
+\draw[bf cycle] (1.000,0.000) -- (0.500,0.866);
+\draw[bf cycle] (1.000,1.732) -- (0.500,0.866);
+\draw[bf cycle] (-2.000,0.000) -- (-1.000,0.000);
+\draw[bf cycle] (1.000,-1.732) -- (0.500,-0.866);
+\draw[bf cycle] (2.000,0.000) -- (1.000,0.000);
+\draw[bf cycle] (-1.000,1.732) -- (-0.500,0.866);
+\draw[bf cycle] (2.000,0.000) -- (1.000,-1.732);
+\draw[bf cycle] (-1.000,-1.732) -- (-0.500,-0.866);
+\draw[bf cycle] (0.500,-0.866) -- (-0.500,-0.866);
+\draw[fill=black] (2.000,0.000) circle[radius=1.5pt];
+\draw[fill=white] (1.000,1.732) circle[radius=1.5pt];
+\draw[fill=black] (-1.000,1.732) circle[radius=1.5pt];
+\draw[fill=white] (-2.000,0.000) circle[radius=1.5pt];
+\draw[fill=black] (-1.000,-1.732) circle[radius=1.5pt];
+\draw[fill=white] (1.000,-1.732) circle[radius=1.5pt];
+\draw[fill=white] (1.000,0.000) circle[radius=1.5pt];
+\draw[fill=black] (0.500,0.866) circle[radius=1.5pt];
+\draw[fill=white] (-0.500,0.866) circle[radius=1.5pt];
+\draw[fill=black] (-1.000,0.000) circle[radius=1.5pt];
+\draw[fill=white] (-0.500,-0.866) circle[radius=1.5pt];
+\draw[fill=black] (0.500,-0.866) circle[radius=1.5pt];
+\node at (0.0,-2.5) {produced};
+\draw[bf G] (7.700,0.000) -- (6.700,1.732);
+\draw[bf G] (7.700,0.000) -- (6.700,0.000);
+\draw[bf G] (7.700,0.000) -- (6.700,-1.732);
+\draw[bf G] (6.700,1.732) -- (4.700,1.732);
+\draw[bf G] (6.700,1.732) -- (6.200,0.866);
+\draw[bf G] (4.700,1.732) -- (3.700,0.000);
+\draw[bf G] (4.700,1.732) -- (5.200,0.866);
+\draw[bf G] (3.700,0.000) -- (4.700,-1.732);
+\draw[bf G] (3.700,0.000) -- (4.700,0.000);
+\draw[bf G] (4.700,-1.732) -- (6.700,-1.732);
+\draw[bf G] (4.700,-1.732) -- (5.200,-0.866);
+\draw[bf G] (6.700,-1.732) -- (6.200,-0.866);
+\draw[bf G] (6.700,0.000) -- (6.200,0.866);
+\draw[bf G] (6.700,0.000) -- (6.200,-0.866);
+\draw[bf G] (6.200,0.866) -- (5.200,0.866);
+\draw[bf G] (5.200,0.866) -- (4.700,0.000);
+\draw[bf G] (4.700,0.000) -- (5.200,-0.866);
+\draw[bf G] (5.200,-0.866) -- (6.200,-0.866);
+\draw[bf cycle] (7.700,0.000) -- (6.700,1.732);
+\draw[bf cycle] (4.700,0.000) -- (5.200,-0.866);
+\draw[bf cycle] (6.700,1.732) -- (6.200,0.866);
+\draw[bf cycle] (3.700,0.000) -- (4.700,0.000);
+\draw[bf cycle] (6.700,-1.732) -- (6.200,-0.866);
+\draw[bf cycle] (7.700,0.000) -- (6.700,0.000);
+\draw[bf cycle] (4.700,1.732) -- (3.700,0.000);
+\draw[bf cycle] (4.700,1.732) -- (5.200,0.866);
+\draw[bf cycle] (4.700,-1.732) -- (6.700,-1.732);
+\draw[bf cycle] (6.700,0.000) -- (6.200,-0.866);
+\draw[bf cycle] (6.200,0.866) -- (5.200,0.866);
+\draw[bf cycle] (4.700,-1.732) -- (5.200,-0.866);
+\draw[fill=black] (7.700,0.000) circle[radius=1.5pt];
+\draw[fill=white] (6.700,1.732) circle[radius=1.5pt];
+\draw[fill=black] (4.700,1.732) circle[radius=1.5pt];
+\draw[fill=white] (3.700,0.000) circle[radius=1.5pt];
+\draw[fill=black] (4.700,-1.732) circle[radius=1.5pt];
+\draw[fill=white] (6.700,-1.732) circle[radius=1.5pt];
+\draw[fill=white] (6.700,0.000) circle[radius=1.5pt];
+\draw[fill=black] (6.200,0.866) circle[radius=1.5pt];
+\draw[fill=white] (5.200,0.866) circle[radius=1.5pt];
+\draw[fill=black] (4.700,0.000) circle[radius=1.5pt];
+\draw[fill=white] (5.200,-0.866) circle[radius=1.5pt];
+\draw[fill=black] (6.200,-0.866) circle[radius=1.5pt];
+\node at (5.7,-2.5) {missed};
+\end{tikzpicture}
+\end{minipage}\end{center}
+Both panels show the same hexagonal prism, drawn as two hexagons with corresponding rungs. Purple edges form a Hamiltonian cycle in each panel. For the fixed root face and prescribed edge, recovery from the two tree matchings produces exactly two of the prism's eight Hamiltonian cycles. The left cycle is produced; the right cycle is absent from that image. Missing an image does not mean missing a Hamiltonian cycle of the graph. It means that this rooted state construction is not surjective. The build enumerates every primal perfect matching, tests which complements are connected, and compares their edge sets with every recovered cycle. This distinction matters when interpreting counts or proposing a uniform Hamiltonian-cycle sampler. A uniform sampler of tree matchings would sample only this rooted image, even if its self-reduction implementation were exact.
+
+\textbf{Status.} COMPUTED all 8 prism cycles and both recovery images here. Injectivity and failure of surjectivity independently AI-refereed in sol\_referee-structure/REFEREE-limits.md.
+
+\textbf{Connects to.} 10 prism determinant; 19 recovery; 22 family counts.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_sol\_referee-structure/\allowbreak{}REFEREE-limits.md;\allowbreak{} build.py;\allowbreak{} computed.json, hex\_prism.\par}
+
+\end{document}

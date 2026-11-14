@@ -1,0 +1,26 @@
+\documentclass[10pt,a4paper]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{barnette-figs}
+\usepackage{graphicx,amssymb}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\pagestyle{plain}
+\begin{document}
+\section*{25. Grassmann variables package the same coefficient}
+\begin{center}\begin{minipage}{.86\textwidth}\centering
+\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (0.0,0.0) {\textbf{face variables}\\[6pt]nilpotence enforces one use per triangle};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (5.5,0.0) {\textbf{vertex variables}\\[6pt]integration enforces one use per nonroot};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (0.0,-2.2) {\textbf{local signs}\\[6pt]anticommutation records determinant signs};
+\node[draw=black!40,minimum width=5cm,minimum height=1.6cm,align=center,text width=4.5cm] at (5.5,-2.2) {\textbf{still required}\\[6pt]positive circulation proves nonvanishing};
+\end{tikzpicture}
+\end{minipage}\end{center}
+An anticommuting variable can force a label to appear exactly once: its square is zero, and integration extracts the term containing every required variable. This packages the face and vertex constraints of the determinant formula. The displayed diagram lists the three filters and points back to the same pair polynomial. It is an algebraic reading of the existing cancellation, not an independent source of positivity. The algebra report also tests whether signs can be removed by changing local gauges. Its counterexamples rule out the proposed universal sign gauge. Likewise, positive squares in a coefficient norm establish nonnegativity, but cannot establish that there is a term to square. The missing step remains nonvanishing in a positive circulation direction. This page includes no invented fermionic state diagram because the supplied route provides a dictionary and obstruction tests, not a new geometric construction on this triangulation.
+
+\textbf{Status.} PROVED-HERE identities and REFUTED gauge shortcuts in sol\_route-algebra, unrefereed. The overlapping determinant identity is independently AI-refereed elsewhere.
+
+\textbf{Connects to.} 4 polynomial; 9 incidence determinant; 10 coefficient extraction.
+
+{\footnotesize\raggedright Sources: research/\allowbreak{}2026-11-14\_sol\_route-algebra/\allowbreak{}REPORT.md;\allowbreak{} research/\allowbreak{}2026-11-14\_fable\_referee-determinants/\allowbreak{}SIGNIFICANCE.md.\par}
+
+\end{document}
