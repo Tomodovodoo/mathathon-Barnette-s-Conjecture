@@ -1,0 +1,932 @@
+== double wheel rim 4
+   n                                      3
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            2
+   states                                 2
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      0
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== double wheel rim 6
+   n                                      5
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            3
+   states                                 3
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      1
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== double wheel rim 8
+   n                                      7
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            4
+   states                                 4
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      2
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== double wheel rim 10
+   n                                      9
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            5
+   states                                 5
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      3
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== double wheel rim 12
+   n                                      11
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            6
+   states                                 6
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      4
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== barycentric K4 (dual truncated octahedron)
+   n                                      11
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            16
+   states                                 16
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         4
+   acyclicB_not_tree                      12
+   recovery_ok                            True
+   pairs                                  4
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    2
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      2 of 2
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 4)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== DW6 + octahedron in a white face (white inner)
+   n                                      8
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        1
+   abs_det_K_B                            6
+   states                                 6
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         4
+   acyclicB_not_tree                      2
+   recovery_ok                            True
+   pairs                                  4
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            2
+   max_cycles                             2
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== DW6 + octahedron in a black face, t0 outside (black inner)
+   n                                      8
+   euler                                  True
+   sep_black_inner                        1
+   sep_white_inner                        0
+   abs_det_K_B                            6
+   states                                 6
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         0
+   acyclicB_not_tree                      6
+   recovery_ok                            True
+   pairs                                  0
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+== same triangulation, t0 inside the cap
+   n                                      8
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        1
+   abs_det_K_B                            6
+   states                                 6
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         4
+   acyclicB_not_tree                      2
+   recovery_ok                            True
+   pairs                                  4
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            2
+   max_cycles                             2
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== DW8 + octahedron in a white face
+   n                                      10
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        1
+   abs_det_K_B                            8
+   states                                 8
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         4
+   acyclicB_not_tree                      4
+   recovery_ok                            True
+   pairs                                  4
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            2
+   max_cycles                             2
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {2: (0, 4)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== DW8 + two white octahedra
+   n                                      13
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        2
+   abs_det_K_B                            16
+   states                                 16
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         8
+   acyclicB_not_tree                      8
+   recovery_ok                            True
+   pairs                                  8
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            3
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {3: (0, 8)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== barycentric octahedron
+   n                                      23
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            384
+   states                                 384
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         22
+   acyclicB_not_tree                      358
+   recovery_ok                            True
+   pairs                                  22
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    11
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      11 of 11
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 22)}
+== octahedron, each face split in four, t0=0
+   n                                      15
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            54
+   states                                 54
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         12
+   acyclicB_not_tree                      34
+   recovery_ok                            True
+   pairs                                  20
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   8
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      0 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== octahedron, each face split in four, t0=1
+   n                                      15
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            54
+   states                                 54
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         12
+   acyclicB_not_tree                      34
+   recovery_ok                            True
+   pairs                                  20
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   8
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      0 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== octahedron, each face split in four, t0=2
+   n                                      15
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            54
+   states                                 54
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         12
+   acyclicB_not_tree                      34
+   recovery_ok                            True
+   pairs                                  20
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   8
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      0 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (4, 0), 3: (4, 12)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== DW6, each face split in four
+   n                                      23
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            576
+   states                                 576
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         56
+   acyclicB_not_tree                      344
+   recovery_ok                            True
+   pairs                                  112
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   56
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    3
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      0 of 3
+   pairs_by_cycle_count_(cyclic,tree)     {1: (16, 0), 3: (40, 56)}
+== random vertex splits seed=1 steps=3 t0=0
+   n                                      9
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            9
+   states                                 9
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      7
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=1 steps=3 t0=3
+   n                                      9
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            9
+   states                                 9
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         8
+   acyclicB_not_tree                      0
+   recovery_ok                            True
+   pairs                                  10
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   2
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (1, 1), 3: (1, 7)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=2 steps=4 t0=0
+   n                                      11
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            11
+   states                                 11
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      9
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=2 steps=4 t0=3
+   n                                      11
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            11
+   states                                 11
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      9
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=3 steps=5 t0=0
+   n                                      13
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            17
+   states                                 17
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      15
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=3 steps=5 t0=3
+   n                                      13
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            17
+   states                                 17
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      15
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=4 steps=6 t0=0
+   n                                      15
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            17
+   states                                 17
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      15
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=4 steps=6 t0=3
+   n                                      15
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            17
+   states                                 17
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      15
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+   multilinear_det_identity               True
+   cancellation_leaves_tree_pairs         True
+== random vertex splits seed=5 steps=7 t0=0
+   n                                      17
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            41
+   states                                 41
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      35
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=5 steps=7 t0=3
+   n                                      17
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            41
+   states                                 41
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      36
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=6 steps=8 t0=0
+   n                                      19
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            23
+   states                                 23
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      21
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=6 steps=8 t0=3
+   n                                      19
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            23
+   states                                 23
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      21
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=7 steps=8 t0=0
+   n                                      19
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            90
+   states                                 90
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         8
+   acyclicB_not_tree                      70
+   recovery_ok                            True
+   pairs                                  10
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   2
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             3
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (1, 1), 3: (1, 7)}
+== random vertex splits seed=7 steps=8 t0=3
+   n                                      19
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            90
+   states                                 90
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      80
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=8 steps=9 t0=0
+   n                                      21
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            97
+   states                                 97
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      93
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=8 steps=9 t0=3
+   n                                      21
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            97
+   states                                 97
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      91
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=9 steps=9 t0=0
+   n                                      21
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            109
+   states                                 109
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      78
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=9 steps=9 t0=3
+   n                                      21
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            109
+   states                                 109
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      88
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=10 steps=10 t0=0
+   n                                      23
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            148
+   states                                 148
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      146
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
+== random vertex splits seed=10 steps=10 t0=3
+   n                                      23
+   euler                                  True
+   sep_black_inner                        0
+   sep_white_inner                        0
+   abs_det_K_B                            148
+   states                                 148
+   det_ok                                 True
+   sign_const                             True
+   tree_matchings                         2
+   acyclicB_not_tree                      126
+   recovery_ok                            True
+   pairs                                  2
+   iff_ii_iii                             True
+   mates_2^k_and_unique_mate              True
+   pairs_with_cyclic_Qs                   0
+   disk_identity_on_D_and_Qs_cycles       True
+   J=cw-ccw_and_J=n_mod_2                 True
+   both_moves_change_J_by_2               True
+   exchange_components                    1
+   trees_5.2_tree_pair_in_each_component_signs_balanced True
+   cmin_global                            1
+   max_cycles                             1
+   components_with_tree_pair_at_cmin      1 of 1
+   pairs_by_cycle_count_(cyclic,tree)     {1: (0, 2)}
