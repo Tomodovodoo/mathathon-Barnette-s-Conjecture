@@ -2,7 +2,7 @@
 \usepackage{amsmath,amssymb,booktabs}
 \usepackage{atlas-figs}
 \begin{document}%
-\begin{tabular}{@{}c@{\hspace{3mm}}c@{}}
+\begin{tabular}{@{}c@{}}\begin{tabular}{@{}c@{\hspace{3mm}}c@{}}
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,x=0.615cm,y=0.615cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -455,6 +455,6 @@
 \node[font=\footnotesize,inner sep=0pt,text=black!45] at (4.760000000000001,-5.32) {$\cdot$};
 \node[font=\footnotesize,inner sep=0pt,text=black!45] at (5.32,-5.32) {$\cdot$};
 \draw[line width=.5pt] (-.05,0) rectangle (5.65,-5.6000000000000005);
-\end{tikzpicture}\\[1mm]\begin{minipage}{7.1cm}\centering\footnotesize (b) The state $s_{1}$. Its opposite edges form a forest, no rows are dependent, and the determinant is $-1$, a single term.\end{minipage}\end{tabular}
-\end{tabular}%
+\end{tikzpicture}\\[1mm]\begin{minipage}{7.1cm}\centering\footnotesize (b) The state $s_{1}$. It is good: its opposite edges form three trees, one at each root. No rows are dependent, and the determinant is $-1$, a single term.\end{minipage}\end{tabular}
+\end{tabular}\\[3mm]\begin{minipage}{14.4cm}\centering\footnotesize (c) All twelve states. Determinant $\pm1$: the six good states $s_{0}, s_{1}, s_{2}, s_{4}, s_{8}, s_{11}$. Determinant $0$ because of a cycle: $s_{9}$. Determinant $0$ with no cycle, because one tree of opposite edges holds two roots and its rows outnumber its columns: $s_{3}, s_{5}, s_{6}, s_{7}, s_{10}$.\end{minipage}\end{tabular}%
 \end{document}

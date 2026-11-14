@@ -499,7 +499,7 @@
 \draw[line width=.5pt,fill=black] (0.000,-0.259) circle[radius=1.3pt];
 \draw[line width=.5pt,fill=white] (-1.643,-0.193) circle[radius=1.3pt];
 \end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize uses $e$\end{minipage}\end{tabular}
-\end{tabular}\\[7mm]\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{The four cycles that avoid $e$, run backwards: the state each one comes from, with its opposite edges dashed}\end{minipage}\\[2.5mm]\begin{tabular}{@{}c@{\hspace{2mm}}c@{\hspace{2mm}}c@{\hspace{2mm}}c@{}}
+\end{tabular}\\[5mm]\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{The four cycles that avoid $e$, run backwards: the state each one comes from, with its opposite edges dashed}\end{minipage}\\[2.5mm]\begin{tabular}{@{}c@{\hspace{2mm}}c@{\hspace{2mm}}c@{\hspace{2mm}}c@{}}
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,bf small,x=0.305cm,y=0.305cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -542,7 +542,7 @@
 \fill[bf vertex] (-1.083,0.827) circle[radius=.8pt];
 \fill[bf vertex] (-3.627,0.188) circle[radius=.8pt];
 \fill[bf vertex] (0.000,-2.430) circle[radius=.8pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize tree matching\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize good state\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,bf small,x=0.305cm,y=0.305cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -585,7 +585,7 @@
 \fill[bf vertex] (-1.083,0.827) circle[radius=.8pt];
 \fill[bf vertex] (-3.627,0.188) circle[radius=.8pt];
 \fill[bf vertex] (0.000,-2.430) circle[radius=.8pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize tree matching\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize good state\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,bf small,x=0.305cm,y=0.305cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -620,6 +620,10 @@
 \draw[bf Q] (-4.330,-2.500) -- (0.000,-2.430);
 \draw[bf Q] (4.330,-2.500) -- (0.000,-2.430);
 \draw[bf Q] (1.083,0.827) -- (-1.083,0.827);
+\draw[af halo,line width=3.4pt] (4.330,-2.500) -- (0.000,-2.430);
+\draw[af halo,line width=3.4pt] (0.000,-2.430) -- (-4.330,-2.500);
+\draw[bf Q,line width=2.2pt] (4.330,-2.500) -- (0.000,-2.430);
+\draw[bf Q,line width=2.2pt] (0.000,-2.430) -- (-4.330,-2.500);
 \draw[bf root] (0.000,5.000) circle[radius=1.4pt];
 \draw[bf root] (-4.330,-2.500) circle[radius=1.4pt];
 \draw[bf root] (4.330,-2.500) circle[radius=1.4pt];
@@ -628,7 +632,7 @@
 \fill[bf vertex] (-1.083,0.827) circle[radius=.8pt];
 \fill[bf vertex] (-3.627,0.188) circle[radius=.8pt];
 \fill[bf vertex] (0.000,-2.430) circle[radius=.8pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize opposite edges join two roots\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize a path of opposite edges (heavy) joins two roots\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,bf small,x=0.305cm,y=0.305cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -663,6 +667,10 @@
 \draw[bf Q] (-4.330,-2.500) -- (0.000,-2.430);
 \draw[bf Q] (4.330,-2.500) -- (0.000,-2.430);
 \draw[bf Q] (1.083,0.827) -- (-1.083,0.827);
+\draw[af halo,line width=3.4pt] (4.330,-2.500) -- (0.000,-2.430);
+\draw[af halo,line width=3.4pt] (0.000,-2.430) -- (-4.330,-2.500);
+\draw[bf Q,line width=2.2pt] (4.330,-2.500) -- (0.000,-2.430);
+\draw[bf Q,line width=2.2pt] (0.000,-2.430) -- (-4.330,-2.500);
 \draw[bf root] (0.000,5.000) circle[radius=1.4pt];
 \draw[bf root] (-4.330,-2.500) circle[radius=1.4pt];
 \draw[bf root] (4.330,-2.500) circle[radius=1.4pt];
@@ -671,6 +679,21 @@
 \fill[bf vertex] (-1.083,0.827) circle[radius=.8pt];
 \fill[bf vertex] (-3.627,0.188) circle[radius=.8pt];
 \fill[bf vertex] (0.000,-2.430) circle[radius=.8pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize opposite edges join two roots\end{minipage}\end{tabular}
-\end{tabular}\end{tabular}%
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{3.4cm}\centering\footnotesize a path of opposite edges (heavy) joins two roots\end{minipage}\end{tabular}
+\end{tabular}\\[5mm]\begin{tikzpicture}[bf,x=1cm,y=1cm]
+\fill[pattern=north east lines,pattern color=black!42] (3.5,0) rectangle (7.0,.75);
+\fill[black!78] (0,0) rectangle (3.5,.75);
+\draw[line width=.8pt] (0,0) rectangle (14,.75);
+\draw[line width=.3pt,black!50] (1.75,0) -- (1.75,.75);
+\draw[line width=.8pt] (3.5,0) -- (3.5,.75);
+\draw[line width=.3pt,black!50] (5.25,0) -- (5.25,.75);
+\draw[line width=.8pt] (7.0,0) -- (7.0,.75);
+\draw[line width=.3pt,black!50] (8.75,0) -- (8.75,.75);
+\draw[line width=.3pt,black!50] (10.5,0) -- (10.5,.75);
+\draw[line width=.3pt,black!50] (12.25,0) -- (12.25,.75);
+\node[font=\footnotesize,text=white] at (1.75,.375) {2 produced};
+\node[font=\footnotesize,fill=white,inner sep=1.5pt] at (5.25,.375) {2 avoid $e$, not produced};
+\node[font=\footnotesize] at (10.5,.375) {4 use $e$};
+\node[font=\footnotesize,anchor=north] at (7,-.12) {The 8 Hamiltonian cycles of the hexagonal prism, one box each. The proof reaches the 2 dark ones.};
+\end{tikzpicture}\end{tabular}%
 \end{document}

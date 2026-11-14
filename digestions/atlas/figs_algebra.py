@@ -79,7 +79,7 @@ def rowdep_fig():
                    rf'shaded in the matrix, add up to zero with suitable signs. Determinant $0$, from {terms} terms that cancel.')
         else:
             assert abs(det) == 1 and not rows
-            cap = rf'({tag}) The state $s_{{{nm[z]}}}$. Its opposite edges form a forest, no rows are dependent, and the determinant is ${int(det):+d}$, a single term.'
+            cap = rf'({tag}) The state $s_{{{nm[z]}}}$. It is good: its opposite edges form three trees, one at each root. No rows are dependent, and the determinant is ${int(det):+d}$, a single term.'
         cells.append(r'\begin{tabular}[t]{@{}c@{}}' + p.tex() + r'\\[1mm]' + M + r'\\[1mm]\begin{minipage}{7.1cm}\centering\footnotesize ' + cap + r'\end{minipage}\end{tabular}')
         out[tag] = dict(state=nm[z], det=int(det), dependent_rows=[FL[i] for i in rows], terms=terms)
     # all twelve states
@@ -87,8 +87,18 @@ def rowdep_fig():
         _, det, _, _ = matrix_tex(z)
         assert (det == 0) == (not is_tree_matching(m, z) or not mates[z]) or True
         assert abs(det) == (1 if z in tree_states else 0)
+    # acyclic is not enough: a forest with a tree that holds two roots also has determinant zero
+    joined = [z for z in states if m.Q_is_forest(z) and not is_tree_matching(m, z)]
+    assert len(joined) == 5 and all(matrix_tex(z)[1] == 0 and root_path(m, z) and not mates[z] for z in joined)
+    cyc_states = [z for z in states if not m.Q_is_forest(z)]
+    assert len(cyc_states) == 1 and len(tree_states) + len(joined) + len(cyc_states) == len(states)
+    names = lambda zs: ', '.join(rf's_{{{k}}}' for k in sorted(nm[z] for z in zs))
+    strip = (r'\begin{minipage}{14.4cm}\centering\footnotesize (c) All twelve states. Determinant $\pm1$: the six good states $' + names(tree_states)
+             + r'$. Determinant $0$ because of a cycle: $' + names(cyc_states) + r'$. Determinant $0$ with no cycle, because one tree of opposite edges holds two roots and its rows outnumber its columns: $'
+             + names(joined) + r'$.\end{minipage}')
+    out['all'] = dict(good=sorted(nm[z] for z in tree_states), cyclic=sorted(nm[z] for z in cyc_states), root_joining_forest=sorted(nm[z] for z in joined))
     CERT['rowdep'] = out
-    return grid(cells, 2)
+    return r'\begin{tabular}{@{}c@{}}' + grid(cells, 2) + r'\\[3mm]' + strip + r'\end{tabular}'
 
 
 # ---------------------------------------------------------------------------
@@ -126,9 +136,11 @@ def determinant_fig():
         p.state(z).lines(hm.Q(z), 'bf Q')
         for c in cyc:
             p.lines(list(zip(c, c[1:] + c[:1])), 'bf Q,line width=2pt')
-        p.vertices()
+        for k, t in enumerate(hm.A):
+            p.add(rf'\node[font=\footnotesize\itshape,inner sep=0pt] at {pt(p.cen[t] + 0.28 * (p.cen[t] - p.xy[z[k]]))} {{{FL[k]}}};')
+        p.vertices(labels=(i == 0))
         if z in tms:
-            lab = rf'tree matching, sign ${"+" if sign[z] > 0 else "-"}1$'
+            lab = rf'good state, sign ${"+" if sign[z] > 0 else "-"}1$'
         else:
             lab = 'no partner' + (', and a cycle' if cyc else '')
         cells.append(cell(p.tex(), rf'({"abc"[i]}) {lab}', 4.8))
@@ -136,23 +148,56 @@ def determinant_fig():
     plus = sum(eps(a_, b_) > 0 for a_, b_ in pairs if b_ in tree_states)
     minus = sum(eps(a_, b_) < 0 for a_, b_ in pairs if b_ in tree_states)
     assert plus == minus == 3
-    led = (r'\begin{minipage}{14.6cm}\footnotesize\renewcommand{\arraystretch}{1.55}\begin{tabular}{@{}p{14.4cm}@{}}\toprule '
-           r'\textbf{The dual of the hexagonal prism}: 8 vertices, 3 states, 2 tree matchings, drawn with their opposite edges dashed.\\\midrule '
-           r'Polynomial: $F(w)=\prod_t w_{t,s_a(t)}-\prod_t w_{t,s_b(t)}$, one monomial for each tree matching, with opposite signs.\\'
-           r'One evaluation, all weights $1$: $F=1-1=0$. The number has forgotten that two tree matchings exist.\\'
-           rf'The running example behaves the same way: its 6 tree matchings carry signs ${plus}$ plus and ${minus}$ minus.\\\midrule '
-           r'With the weights kept as variables, $F(w)=\bigl[\prod_t y_t\bigr]\det N(y,w)$: the coefficient that uses each black face $t$ exactly once. '
-           r'Terms of the determinant that use a face twice are discarded by taking this coefficient, not by evaluating.\\\bottomrule\end{tabular}\end{minipage}')
+    # the matrix N(y, w): rows and columns are the non-root vertices; the entry at (u, v) belongs to the black face on the edge uv
+    Y = [sp.Symbol(f'y_{FL[k]}') for k in range(len(hm.A))]
+    W = {(t, v): sp.Symbol(f'w_{{{FL[k]}{v}}}') for k, t in enumerate(hm.A) for v in hm.F[t]}
+    NN = sp.zeros(len(hm.X))
+    entry = {}
+    for k, t in enumerate(hm.A):
+        for a_, b_ in it.permutations([v for v in hm.F[t] if v in hm.X], 2):
+            assert (a_, b_) not in entry                                   # an edge lies in one black face
+            NN[hm.X.index(a_), hm.X.index(b_)] += hm.delta(a_, b_) * Y[k] * W[t, b_]
+            entry[a_, b_] = (hm.delta(a_, b_), k, b_)
+    det = sp.expand(NN.det())
+    coef = sp.Poly(det, *Y).coeff_monomial(sp.prod(Y))
+    Fpair = sp.expand(sum(eps(a_, b_, hm) * sp.prod([W[t, v] for t, v in zip(hm.A, b_)]) for a_, b_ in prs))
+    assert sp.expand(coef - Fpair) == 0 and len(Fpair.args) == 2          # the coefficient is the pair polynomial: one monomial per good state
+    nterms = len(det.args)
+    cw, chh = 2.05, 0.62
+    L = []
+    for j, v in enumerate(hm.X):
+        L.append(rf'\node[font=\footnotesize] at ({(j + .5) * cw},.3) {{${v}$}};\node[font=\footnotesize] at (-.3,{-(j + .5) * chh}) {{${v}$}};')
+    for i_, a_ in enumerate(hm.X):
+        for j, b_ in enumerate(hm.X):
+            if (a_, b_) in entry:
+                sg, k, v = entry[a_, b_]
+                txt = rf'${"+" if sg > 0 else "-"}\,y_{{{FL[k]}}}\,w_{{{FL[k]}{v}}}$'
+            else:
+                txt = r'$\cdot$'
+            L.append(rf'\node[font=\footnotesize,inner sep=0pt{"" if (a_, b_) in entry else ",text=black!45"}] at ({(j + .5) * cw},{-(i_ + .5) * chh}) {{{txt}}};')
+    L.append(rf'\draw[line width=.5pt] (0,0) rectangle ({len(hm.X) * cw},{-len(hm.X) * chh});')
+    mono = lambda z: ''.join(rf'w_{{{FL[k]}{v}}}' for k, v in enumerate(z))
+    Ftex = ''.join(('+' if sign[z] > 0 else '-') + mono(z) for z in tms).lstrip('+')
+    assert sp.expand(sum(sign[z] * sp.prod([W[t, v] for t, v in zip(hm.A, z)]) for z in tms) - coef) == 0
+    mat = (r'\begin{tabular}{@{}c@{}}' + tikz(L) + r'\\[1.5mm]\begin{minipage}{14.4cm}\centering\footnotesize (d) The matrix $N(y,w)$ of this triangulation. Rows and columns are the non-root vertices '
+           + ', '.join(map(str, hm.X)) + r' of (a). The entry at $(u,v)$ is $\pm y_t\,w_{t,v}$ for the black face $t$ on the edge $uv$. '
+           + rf'Its determinant has {nterms} terms. The ones that use every black face once add up to '
+           + r'$\bigl[y_ay_by_cy_dy_e\bigr]\det N=' + Ftex + r'$, one monomial for each good state.\end{minipage}\end{tabular}')
+    led = (r'\begin{minipage}{14.6cm}\footnotesize\renewcommand{\arraystretch}{1.45}\begin{tabular}{@{}p{14.4cm}@{}}\toprule '
+           r'\textbf{The dual of the hexagonal prism}: 8 vertices, 3 states, 2 good states, drawn with their opposite edges dashed. Black faces \textit{a} to \textit{e}.\\\midrule '
+           r'One evaluation, all weights $1$: $F=1-1=0$. The number has forgotten that two good states exist.\\'
+           rf'The running example behaves the same way: its 6 good states carry signs ${plus}$ plus and ${minus}$ minus.\\\bottomrule\end{{tabular}}\end{{minipage}}')
     six = []
     for z in sorted(tree_states, key=lambda z: nm[z]):
         e_ = eps(mates[z][0], z)
         pp = P(0.2).base().state(z).lines(m.Q(z), 'bf Q').vertices()
         six.append(cell(small(pp.tex()), rf'$s_{{{nm[z]}}}$: ${"+" if e_ > 0 else "-"}1$'))
-    sixrow = (r'\begin{minipage}{14.6cm}\centering\footnotesize\textbf{The six tree matchings of the running example and their signs}\end{minipage}\\[1mm]'
+    sixrow = (r'\begin{minipage}{14.6cm}\centering\footnotesize\textbf{The six good states of the running example and their signs}\end{minipage}\\[1mm]'
               + grid(six, 6, colsep='1.2mm'))
-    CERT['determinant'] = dict(prism=dict(faces=hm.F, t0=hm.t0, states=sts, tree_matchings=tms, signs=[sign[z] for z in tms]), running_signs=[plus, minus])
-    return r'\begin{tabular}{@{}c@{}}' + grid(cells, 3, colsep='2mm') + r'\\[3mm]' + led + r'\\[3mm]' + sixrow + r'\end{tabular}'
-
+    CERT['determinant'] = dict(prism=dict(faces=hm.F, t0=hm.t0, states=sts, tree_matchings=tms, signs=[sign[z] for z in tms]), running_signs=[plus, minus],
+                               matrix=dict(rows=hm.X, entries={f'{a_},{b_}': str(NN[hm.X.index(a_), hm.X.index(b_)]) for a_, b_ in entry},
+                                           determinant_terms=nterms, coefficient=str(coef), equals_pair_polynomial=True))
+    return (r'\begin{tabular}{@{}c@{}}' + grid(cells, 3, colsep='2mm') + r'\\[2mm]' + led + r'\\[3mm]' + mat + r'\\[3mm]' + sixrow + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
 @fig('dimers')

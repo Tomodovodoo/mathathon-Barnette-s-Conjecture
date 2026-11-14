@@ -64,7 +64,7 @@ for a_, b_ in pairs:
     mates[b_].append(a_)
 tree_states = [z for z in states if m.Q_is_forest(z) and mates[z]]
 assert all(is_tree_matching(m, z) for z in tree_states)
-assert all(len(mates[z]) == 1 for z in tree_states)          # a tree matching has a unique mate
+assert all(len(mates[z]) == 1 for z in tree_states)          # a good state has a unique mate
 cyclic_pairs = [(a_, b_) for a_, b_ in pairs if not m.Q_is_forest(b_)]
 assert (len(states), len(pairs), len(cyclic_pairs), len(tree_states)) == (12, 8, 2, 6)
 
@@ -169,7 +169,7 @@ assert sp.series(Zred, xs, 0, 3).removeO().coeff(xs, 2) == lead_coeff and sp.ser
 Fpoly = sp.expand(sum(eps(u, v) * sp.prod([1 + xs * aa[t, z] for t, z in zip(m.A, v)]) for u, v in pairs))
 Fp = sp.Poly(Fpoly, xs)
 assert Fp.nth(0) == 0 and Fp.nth(1) == 0 and abs(Fp.nth(2)) == abs(lead_coeff)
-assert sum(eps(u, v) for u, v in pairs) == 0                 # F(1) = 0: the signs of the tree matchings balance
+assert sum(eps(u, v) for u, v in pairs) == 0                 # F(1) = 0: the signs of the good states balance
 
 CERT['running'] = dict(counts=run['counts'], tree_matchings=len(tree_states), lab_agrees=True,
                        states=states, inner_white=inner, heights=hs, volume=vol,
@@ -212,6 +212,38 @@ def auto_layout(name, mod, rounds=150):
         _lay[name] = {str(k): [round(float(v[0]), 3), round(float(v[1]), 3)] for k, v in q.items()}
         LAYFILE.write_text(json.dumps(_lay, indent=0))
         q = {int(k): np.array(v, float) for k, v in _lay[name].items()}
+    check.check_layout(mod, q, layout.R)
+    return q, layout.R
+
+
+def aligned_layout(name, mod, start, frac=0.55):
+    """Coordinates for `mod` that stay as close as possible (least squares) to the positions `start`
+    of another drawing, with the roots fixed and every bounded face keeping at least `frac` of the
+    smallest face area of a relaxed drawing. Cached like the other layouts."""
+    if name not in _lay:
+        from scipy.optimize import minimize
+        free = list(mod.X)
+        fixed = {v: np.array(start[v], float) for v in mod.roots}
+        base = np.concatenate([start[v] for v in free])
+        faces = [f for i, f in enumerate(mod.F) if i != mod.t0 and sum(v in mod.roots for v in f) < 2]   # a face on an outer arc is bounded by the arc
+        unpack = lambda z: {**fixed, **{v: z[2 * i:2 * i + 2] for i, v in enumerate(free)}}
+
+        def areas(z):
+            q = unpack(z)
+            return np.array([layout.cross(q[f[1]] - q[f[0]], q[f[2]] - q[f[0]]) / 2 for f in faces])
+        q0, _ = layout.relax(mod, layout.tutte(mod, fixed), rounds=120)
+        z0 = np.concatenate([q0[v] for v in free])
+        sgn = 1 if areas(z0)[0] > 0 else -1
+        assert min(sgn * areas(z0)) > 0
+        amin = frac * min(sgn * areas(z0))
+        sol = minimize(lambda z: float(np.sum((z - base) ** 2)), z0, jac=lambda z: 2 * (z - base),
+                       constraints=[{'type': 'ineq', 'fun': lambda z: sgn * areas(z) - amin},
+                                    {'type': 'ineq', 'fun': lambda z: (0.93 * layout.R) ** 2 - z[0::2] ** 2 - z[1::2] ** 2}], method='SLSQP', options={'maxiter': 800, 'ftol': 1e-10})
+        assert sol.success and min(sgn * areas(sol.x)) > 0.98 * amin
+        q = unpack(sol.x)
+        _lay[name] = {str(k): [round(float(v[0]), 3), round(float(v[1]), 3)] for k, v in q.items()}
+        LAYFILE.write_text(json.dumps(_lay, indent=0))
+    q = {int(k): np.array(v, float) for k, v in _lay[name].items()}
     check.check_layout(mod, q, layout.R)
     return q, layout.R
 
@@ -271,6 +303,19 @@ def facelabel(p, f, text, opts='af lab'):
 
 def signtex(v):
     return '+' if v > 0 else '-'
+
+
+WT_HEAVY = r'\tikzset{bf wtree/.append style={line width=1.5pt}}'      # greyscale: the green dash-dot curves need weight
+
+
+def root_path(mod, z):
+    """A path of opposite edges of z that joins two roots, or None."""
+    Q = mod.Q_graph(z)
+    for a_, b_ in it.combinations(mod.roots, 2):
+        if nx.has_path(Q, a_, b_):
+            pth = nx.shortest_path(Q, a_, b_)
+            return list(zip(pth, pth[1:]))
+    return None
 
 
 FIGS = {}

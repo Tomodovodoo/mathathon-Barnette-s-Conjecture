@@ -80,7 +80,7 @@
 \fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
 \fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
 \fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (a) Cycle cover $D_{1}$, the lower node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. 3 of its 4 orientations are tree pairs.\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (a) Cover $D_{1}$, the lower node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. 3 of its 4 orientations are good pairs.\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,x=0.615cm,y=0.615cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -158,7 +158,7 @@
 \fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
 \fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
 \fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (b) Cycle cover $D_{2}$, the upper node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. 3 of its 4 orientations are tree pairs.\end{minipage}\end{tabular}\\[3mm]
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (b) Cover $D_{2}$, the upper node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. 3 of its 4 orientations are good pairs.\end{minipage}\end{tabular}\\[3mm]
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,x=0.615cm,y=0.615cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -269,9 +269,9 @@
 \node[draw,line width=1.6pt,circle,minimum size=1.5cm,font=\footnotesize] (hi) at (0,2.6) {$D_{2}$};
 \node[draw,line width=1.6pt,circle,minimum size=1.5cm,font=\footnotesize] (lo) at (0,0) {$D_{1}$};
 \draw[line width=1.1pt,black!75] (lo) -- (hi);
-\node[af note,anchor=west] at (1.1,2.6) {highest cover\\3 tree pairs};
-\node[af note,anchor=west] at (1.1,0) {lowest cover\\3 tree pairs};
-\node[af note,anchor=north west,text width=6.7cm] at (-2.6,-1.25) {(d) The whole lattice of this example has two nodes, each with four orientations. A bold ring means that some orientation is a tree pair. On larger triangulations the lattice is large and the two extreme nodes can both lack a tree pair. The smallest such example found has 18 vertices.};
+\node[af note,anchor=west] at (1.1,2.6) {highest cover\\3 good pairs};
+\node[af note,anchor=west] at (1.1,0) {lowest cover\\3 good pairs};
+\node[af note,anchor=north west,text width=6.7cm] at (-2.6,-1.25) {(d) The whole lattice of this example has two nodes, each with four orientations. A bold ring means that some orientation is a good pair. On larger triangulations the lattice is large and the two extreme nodes can both lack a good pair. The smallest such example has 18 vertices.};
 \end{tikzpicture}\end{minipage}
 \end{tabular}%
 \end{document}

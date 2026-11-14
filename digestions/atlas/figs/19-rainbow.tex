@@ -47,6 +47,7 @@
 \draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
 \draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
 \draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\tikzset{bf wtree/.append style={line width=1.5pt}}
 \draw[bf wtree] (-2.551,3.801) .. controls (-2.548,2.989) and (-2.997,1.962) .. (-2.544,1.868) .. controls (-2.091,1.774) and (-2.003,1.528) .. (-1.611,1.282);
 \draw[bf cut] (-2.888,0.208) -- (-2.200,3.528);
 \draw[bf wtree] (-2.503,-1.716) .. controls (-2.231,-2.140) and (-2.274,-2.446) .. (-1.855,-2.726) .. controls (-1.436,-3.007) and (-0.988,-2.908) .. (-0.360,-3.040);
@@ -101,7 +102,7 @@
 \fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
 \fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
 \fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (a) A tree matching as a tree on the white faces (small circles). Each green curve crosses one deleted spoke (dotted), inside a black face. The ten black faces \textit{a} to \textit{j} are each crossed once.\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (a) A good state as a tree on the white faces (small circles). Each green curve crosses one deleted spoke (dotted), inside a black face. The ten black faces \textit{a} to \textit{j} are each crossed once.\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,x=0.615cm,y=0.615cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];
@@ -146,6 +147,7 @@
 \draw[bf edge] (0.900,-2.302) -- (2.506,-0.651);
 \draw[bf edge] (2.506,-0.651) -- (2.799,2.992);
 \draw[bf edge] (2.799,2.992) -- (0.610,2.065);
+\tikzset{bf wtree/.append style={line width=1.5pt}}
 \fill[af tint] (-4.330,-2.500) -- (-2.133,-0.405) -- (-2.200,3.528) -- (-4.330,-2.500) -- cycle;
 \fill[af tintb] (-2.133,-0.405) -- (-1.614,-2.366) -- (0.900,-2.302) -- (-2.133,-0.405) -- cycle;
 \draw[bf wtree] (-2.503,-1.716) .. controls (-2.506,-1.037) and (-2.938,-0.626) .. (-2.510,-0.099) .. controls (-2.082,0.429) and (-1.989,0.702) .. (-1.611,1.282);
@@ -304,7 +306,7 @@
 \fill[bf vertex] (2.506,-0.651) circle[radius=1.4pt];
 \fill[bf vertex] (2.799,2.992) circle[radius=1.4pt];
 \fill[bf vertex] (0.610,2.065) circle[radius=1.4pt];
-\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (c) The same tree matching on the spokes. Delete the dotted spokes and the bold rest is a spanning tree: each black centre has lost one spoke.\end{minipage}\end{tabular} &
+\end{tikzpicture}\\[.6mm]\begin{minipage}[t]{7.1cm}\centering\footnotesize (c) The same good state on the spokes. Delete the dotted spokes and the bold rest is a spanning tree: each black centre has lost one spoke.\end{minipage}\end{tabular} &
 \begin{tabular}[t]{@{}c@{}}\begin{tikzpicture}[bf,x=0.615cm,y=0.615cm]
 \path[use as bounding box] (-5.80,-5.80) rectangle (5.80,5.80);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5.0];

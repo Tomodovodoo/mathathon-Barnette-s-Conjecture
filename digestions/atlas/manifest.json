@@ -6,7 +6,7 @@
    "slug": "chain",
    "title": "The chain, and where the routes branch",
    "figure_cm": [
-    15.05,
+    14.97,
     14.82
    ],
    "words": 145
@@ -36,7 +36,7 @@
    "slug": "sum",
    "title": "Eight terms, grouped twice",
    "figure_cm": [
-    12.75,
+    16.67,
     17.13
    ],
    "words": 122
@@ -56,8 +56,8 @@
    "slug": "involutions",
    "title": "Cancellation as a pairing of objects",
    "figure_cm": [
-    14.71,
-    16.68
+    14.64,
+    17.75
    ],
    "words": 149
   },
@@ -97,7 +97,7 @@
    "title": "Cancellation is a dependent set of rows",
    "figure_cm": [
     14.64,
-    15.25
+    16.18
    ],
    "words": 145
   },
@@ -107,7 +107,7 @@
    "title": "One determinant is not enough",
    "figure_cm": [
     15.09,
-    13.16
+    16.26
    ],
    "words": 144
   },
@@ -157,7 +157,7 @@
    "title": "The extreme state can have a cycle",
    "figure_cm": [
     14.64,
-    11.92
+    16.76
    ],
    "words": 143
   },
@@ -167,7 +167,7 @@
    "title": "Three conditions, and any two are easy",
    "figure_cm": [
     14.64,
-    19.24
+    19.57
    ],
    "words": 145
   },
@@ -217,7 +217,7 @@
    "title": "What a small cut has to remember",
    "figure_cm": [
     15.11,
-    16.42
+    17.94
    ],
    "words": 150
   },
@@ -227,7 +227,7 @@
    "title": "Induction by removing a vertex of degree four",
    "figure_cm": [
     14.64,
-    17.1
+    17.11
    ],
    "words": 149
   },
@@ -236,8 +236,8 @@
    "slug": "earlier",
    "title": "Where the older methods meet this proof",
    "figure_cm": [
-    14.64,
-    19.24
+    14.57,
+    19.6
    ],
    "words": 150
   },
@@ -247,7 +247,7 @@
    "title": "Which Hamiltonian cycles the proof can produce",
    "figure_cm": [
     14.82,
-    14.1
+    15.52
    ],
    "words": 146
   },
@@ -266,7 +266,7 @@
    "slug": "families",
    "title": "Two families, counted",
    "figure_cm": [
-    14.89,
+    14.64,
     13.59
    ],
    "words": 139
@@ -276,8 +276,8 @@
    "slug": "open",
    "title": "What is still open, and how far it was tested",
    "figure_cm": [
-    15.11,
-    17.55
+    16.19,
+    17.67
    ],
    "words": 147
   }

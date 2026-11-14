@@ -52,7 +52,7 @@ def chain():
     pre = ''.join(rf'\newsavebox\cb{chr(97 + i)}\sbox\cb{chr(97 + i)}{{{small(th[k].tex())}}}' for i, k in enumerate(names))
     cap = {'G': r'cubic graph $G$,\\root face, edge $e$', 'T': r'its dual $T$,\\faces two-coloured',
            'state': r'a state: one corner\\per black face', 'pair': r'a pair: two states,\\different everywhere',
-           'disk': r'the cycles of $D$\\bound disks', 'forest': r'a state whose\\opposite edges are a forest',
+           'disk': r'the cycles of $D$\\bound disks', 'forest': r'a good state: opposite\\edges in three trees',
            'wtree': r'a tree on\\the white faces', 'trees': r'two induced trees',
            'cycle': r'a Hamiltonian cycle\\avoiding $e$'}
     dx, dy = 4.5, 5.2
@@ -91,7 +91,7 @@ def chain():
     y = pos['wtree'][1] - h - 1.45
     L.append(rf'\draw[line width=1.2pt,draw=black] ({pos["wtree"][0]},{y + .3}) |- ({pos["cycle"][0]},{y}) -- ({pos["cycle"][0]},{y + .3});')
     L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.5pt] at ({dx},{y}) {{the same steps read inside $G$, page {pg("primal")}}};')
-    # open routes from a pair to a forest state: dotted, above the second row
+    # open routes from a pair to a good state: dotted, above the second row
     y = pos['pair'][1] + h + .45
     L.append(rf'\draw[line width=1.2pt,draw=black,dash pattern=on 1.2pt off 2pt] ({pos["pair"][0] - .6},{pos["pair"][1] + h}) |- ({pos["forest"][0] + .0},{y}) -- ({pos["forest"][0]},{pos["forest"][1] + h});')
     L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1.5pt] at ({dx - .3},{y}) {{not proved: exchange moves {pg("rainbow")}, contraction {pg("induction")}}};')
@@ -280,15 +280,15 @@ def sum_fig():
         fac = ''.join(rf'(1-{"e^{x}" if w_ == 1 else "e^{%dx}" % w_})' for w_ in sorted(d['W'], reverse=True))
         lead = term[g[0]]['sign']
         pre = ('-' if lead < 0 else '') + ('' if d['base'] == 0 else ('e^{x}' if d['base'] == 1 else 'e^{%dx}' % d['base']))
-        notes.append(rf'cycle cover $D_{{{i + 1}}}$, its four orientations: the terms add up to ${pre}{fac}$')
+        notes.append(rf'cover $D_{{{i + 1}}}$, its four orientations: the terms add up to ${pre}{fac}$')
     cols = '@{}' + 'c@{\\hspace{2.5mm}}' * 3 + 'c@{}'
     hd = lambda t: r'\multicolumn{4}{@{}l}{\footnotesize\textbf{' + t + r'}}\\[.8mm]'
     note = lambda t: r'\multicolumn{4}{c}{\footnotesize ' + t + r'}\\[2.2mm]'
     brace = (r'\multicolumn{2}{c}{\footnotesize$\underbrace{\hspace{' + f'{2 * w:.2f}' + r'cm}}_{\text{same }s,\ Q_s\text{ has a cycle (shaded): the two terms cancel}}$} & '
-             r'\multicolumn{2}{c}{\footnotesize $Q_s$ is a forest: nothing to cancel with}\\[1mm]')
+             r'\multicolumn{2}{c}{\footnotesize $s$ is good: nothing to cancel with}\\[1mm]')
     body = (rf'\begin{{tabular}}{{{cols}}}' + hd('Grouped by the second state $s$ (solid wedges), with its opposite edges $Q_s$ dashed')
             + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + r'\\[6mm]'
-            + hd('Grouped by the cycle cover $D$ (arrows from the corner of $r$ to the corner of $s$)')
+            + hd('Grouped by the cover, the cycles of $D$ without direction (arrows run from the corner of $r$ to the corner of $s$)')
             + ' & '.join(bottom[:4]) + r'\\[.5mm]' + note(notes[0]) + ' & '.join(bottom[4:]) + r'\\[.5mm]' + note(notes[1]).replace(r'\\[2.2mm]', '')
             + r'\end{tabular}')
     return body
@@ -310,7 +310,7 @@ def polynomial_fig():
                 facelabel(p, f, rf'${j + 1}$')
         p.vertices()
         ws = sorted(d['W'], reverse=True)
-        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cycle cover $D_{{{i + 1}}}$. Its two cycles enclose ${ws[0]}$ and ${ws[1]}$ white faces: product ${ws[0] * ws[1]}$.', 7.1))
+        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cover $D_{{{i + 1}}}$. Its two cycles enclose ${ws[0]}$ and ${ws[1]}$ white faces: product ${ws[0] * ws[1]}$.', 7.1))
     # (c) the long cycle slid onto spokes
     k = run['D_cycles'][0]
     cyc = k['ccw_cycle']
@@ -356,42 +356,87 @@ def involutions_fig():
     changed = run['changed']
     a = cell(qp(r, s).tex(), rf'(a) The pair $(s_{{{nm[r]}}},s_{{{nm[s]}}})$, term ${expo(term[r, s]["sign"], term[r, s]["vol"])}$. Dashed arrows: the cycle of $Q_s$, from the corner of $r$ to the third corner.', 7.1)
     b = cell(qp(r2, s).tex(), rf'(b) Move $r$ to the third corner in the {len(changed)} faces on that cycle. The new pair $(s_{{{nm[r2]}}},s_{{{nm[s]}}})$ has the same $s$, the cycle reversed, and term ${expo(term[r2, s]["sign"], term[r2, s]["vol"])}$.', 7.1)
-    top = grid([a, b], 2)
-    # the two squares of orientations
-    sq = []
-    for i, d in enumerate(group_data):
-        ks = d['cycles']
-        g = d['pairs']
-        base = min(g, key=lambda p_: term[p_]['vol'])
-        def flip(pair_, k):
-            a_, b_ = pair_
-            on = set(k['cycle'])
-            arcs = dict(m.D(a_, b_))
-            na = tuple(b0 if a0 in on else a0 for a0, b0 in zip(a_, b_))
-            nb = tuple(a0 if a0 in on else b0 for a0, b0 in zip(a_, b_))
-            assert (na, nb) in term
-            return na, nb
-        k_long, k_short = sorted(ks, key=lambda k: -k['h'])
-        p00 = base
-        p10 = flip(p00, k_long)
-        p01 = flip(p00, k_short)
-        p11 = flip(p10, k_short)
-        assert {p00, p10, p01, p11} == set(g)
-        assert term[p00]['sign'] == -term[p10]['sign'] == -term[p01]['sign'] == term[p11]['sign']
-        def th(pr):
-            a_, b_ = pr
-            pp = P(U4).base().state(b_).arrows(m.D(a_, b_)).vertices()
-            mark = r'\ \ tree' if m.Q_is_forest(b_) else r'\ \ cyclic'
-            return cell(small(pp.tex()), rf'${expo(term[pr]["sign"], term[pr]["vol"])}$' + mark)
-        h = r'\footnotesize$\leftrightarrow$'
-        v = r'\footnotesize$\updownarrow$'
-        sq.append(r'\begin{tabular}{@{}c@{\,}c@{\,}c@{}}' + th(p00) + ' & ' + r'\raisebox{1.6cm}{' + h + '}' + ' & ' + th(p10) + r'\\[-.5mm]' + v + ' & & ' + v + r'\\[-.5mm]'
-                  + th(p01) + ' & ' + r'\raisebox{1.6cm}{' + h + '}' + ' & ' + th(p11) + r'\\[1mm]\multicolumn{3}{c}{\footnotesize\begin{minipage}{6.6cm}\centering '
-                  + rf'({"cd"[i]}) Cover $D_{{{i + 1}}}$. $\leftrightarrow$ reverses the long cycle (exponent changes by {k_long["W"]}), $\updownarrow$ the short one (by {k_short["W"]}). Each reversal flips the sign.'
-                  + r'\end{minipage}}\end{tabular}')
-    CERT['involutions'] = dict(first=[[nm[r], nm[s]], [nm[r2], nm[s]]], changed_faces=changed)
-    return r'\begin{tabular}{@{}c@{}}' + top + r'\\[3mm]' + grid(sq, 2, colsep='6mm') + r'\end{tabular}'
+    # (c), (d) one move of the second pairing: a mark where a fixed ray from a white face crosses a spoke
+    dv = np.array([1.0, 7.0]) / math.hypot(1, 7)                 # one fixed generic direction for every ray
+    base_panel = P(U2)
+    cen = base_panel.cen
 
+    def crossings(a_, b_, faces_on, w):
+        """Crossings of the ray from white face w with the spokes of r and s in the faces of one cycle, nearest first."""
+        o = cen[w]
+        out = []
+        for i in faces_on:
+            for kind, z in ((0, a_), (1, b_)):
+                c0, e = cen[m.A[i]], xy[z[i]] - cen[m.A[i]]
+                den = dv[0] * e[1] - dv[1] * e[0]
+                assert abs(den) > 1e-6                          # the direction is parallel to no spoke
+                lam = ((c0 - o)[0] * e[1] - (c0 - o)[1] * e[0]) / den
+                mu = ((c0 - o)[0] * dv[1] - (c0 - o)[1] * dv[0]) / den
+                assert min(abs(mu), abs(mu - 1)) > 1e-6          # and passes through no vertex or centre
+                if lam > 0 and 0 < mu < 1:
+                    out.append((lam, i, kind))
+        return sorted(out)
+
+    def partner(k, n_):
+        return k ^ 1 if n_ % 2 == 0 else (((k - 1) ^ 1) + 1 if k else None)
+
+    cand, checked = [], 0
+    for a_, b_ in pairs:
+        for cyc in m.directed_cycles(m.D(a_, b_)):
+            on = set(cyc)
+            faces_on = [i for i in range(n) if a_[i] in on]
+            assert len(faces_on) == len(cyc)
+            dk = m.disk(cyc)
+            for w in m.white:
+                cr = crossings(a_, b_, faces_on, w)
+                assert (len(cr) % 2 == 1) == (w in dk['white'])     # odd exactly for the white faces inside the cycle
+                checked += 1
+                for k, (lam, i, kind) in enumerate(cr):
+                    q_ = partner(k, len(cr))
+                    if kind == 1 and q_ is not None and cr[q_][2] == 0 and (a_, b_) == (r, s):
+                        cand.append((len(cr), -len(cyc), w, k, q_, cyc, faces_on, cr))
+    assert cand
+    ncr, _, w0, k0, q0, cyc0, faces0, cr0 = min(cand, key=lambda c: c[:5])
+    on0 = set(cyc0)
+    r3 = tuple(b0 if a0 in on0 else a0 for a0, b0 in zip(r, s))
+    s3 = tuple(a0 if a0 in on0 else b0 for a0, b0 in zip(r, s))
+    assert (r3, s3) in term and term[r3, s3]['sign'] == -term[r, s]['sign']
+    cr1 = crossings(r3, s3, faces0, w0)
+    assert [(i, 1 - kd) for _, i, kd in cr0] == [(i, kd) for _, i, kd in cr1]       # same crossings, r and s exchanged
+    assert cr1[q0][2] == 1 and partner(q0, len(cr1)) == k0 and cr1[k0][2] == 0        # the move back returns to (c)
+
+    def ray_panel(a_, b_, cr, mark):
+        p = P(U2).base()
+        shade_faces(p, [w0], 'af tint')
+        for i in faces0:
+            t = m.A[i]
+            p.add(rf'\draw[draw=bfR,line width=1.5pt,dash pattern=on 3pt off 1.6pt] {pt(cen[t])} -- {pt(xy[a_[i]])};')
+            p.add(rf'\draw[draw=bfS,line width=1.5pt] {pt(cen[t])} -- {pt(xy[b_[i]])};')
+            p.add(rf'\draw[bf D,line width=.8pt,draw=black!70] {pt(xy[a_[i]])} -- {pt(xy[b_[i]])};')
+            p.add(rf'\fill {pt(cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
+        p.vertices()
+        o = cen[w0]
+        end = o + dv * (cr[-1][0] + 0.9)
+        p.add(rf'\draw[line width=1pt,dash pattern=on 5pt off 2pt on 1pt off 2pt,-{{Stealth[length=5pt]}}] {pt(o)} -- {pt(end)};')
+        p.add(rf'\fill {pt(o)} circle[radius=2pt];')
+        for j, (lam, i, kind) in enumerate(cr):
+            q_ = o + lam * dv
+            p.add(rf'\draw[fill=white,line width={1.6 if j == mark else .7}pt] {pt(q_)} circle[radius={4.4 if j == mark else 2.2}pt];')
+            p.label(q_ + np.array([.55 if j % 2 else -.55, .0]), rf'${j + 1}$', 'af lab')
+        return p
+    kinds = lambda cr: ', '.join('$s$' if kd else '$r$' for _, _, kd in cr)
+    where = 'outside' if ncr % 2 == 0 else 'inside'
+    c = cell(ray_panel(r, s, cr0, k0).tex(),
+             rf'(c) The second pairing, one mark. One cycle of $D$ (grey arrows) with its spokes: $s$ solid, $r$ dashed. A fixed ray leaves the hatched white face, which lies {where} the cycle, '
+             rf'and crosses {ncr} of these spokes ({kinds(cr0)}). The mark (large ring) sits on crossing {k0 + 1}, a spoke of $s$. Crossings pair off along the ray, here {k0 + 1} with {q0 + 1}.', 7.1)
+    d = cell(ray_panel(r3, s3, cr1, q0).tex(),
+             rf'(d) Move the mark to crossing {q0 + 1}. That spoke belonged to $r$, so $r$ and $s$ trade places along the cycle, which reverses it, and the mark is on a spoke of $s$ again. '
+             rf'The pair is now $(s_{{{nm[r3]}}},s_{{{nm[s3]}}})$ with term ${expo(term[r3, s3]["sign"], term[r3, s3]["vol"])}$. The same rule leads back to (c).', 7.1)
+    CERT['involutions'] = dict(first=[[nm[r], nm[s]], [nm[r2], nm[s]]], changed_faces=changed,
+                               ray=dict(direction=[1, 7], white_face=w0, cycle=cyc0, crossings=[[round(float(l_), 4), m.A[i], 's' if kd else 'r'] for l_, i, kd in cr0],
+                                        mark=k0 + 1, partner=q0 + 1, image=[nm[r3], nm[s3]], involutive=True,
+                                        parity_checked_on=checked))
+    return grid([a, b, c, d], 2)
 
 # ---------------------------------------------------------------------------
 @fig('heights')
@@ -426,12 +471,12 @@ def heights_fig():
 @fig('recovery')
 def recovery_fig():
     a = cell(P(U2).base().state(r).lines(m.Q(r), 'bf Q').vertices().tex(),
-             rf'(a) The state $s_{{{nm[r]}}}$. Its opposite edges (dashed) form a forest: three trees, one hanging from each root.', 7.1)
-    b = cell(P(U2).base().spokes(deleted=list(zip(m.A, r)), outer=True).white_tree(rec, r).vertices().tex(),
+             rf'(a) The state $s_{{{nm[r]}}}$. It is good: its opposite edges (dashed) form three trees, one hanging from each root.', 7.1)
+    b = cell(P(U2).base().spokes(deleted=list(zip(m.A, r)), outer=True).add(WT_HEAVY).white_tree(rec, r).vertices().tex(),
              r'(b) Delete the chosen spoke in each black face (dotted). The other spokes form a spanning tree (bold), so the curves crossing the deleted spokes form a tree on the white faces. The ringed white face touches $e$.', 7.1)
     p = P(U2).base()
     for t, ch in rec['chosen'].items():
-        p.add(r'\draw[bf wtree,line width=.7pt] ' + p.curve_tex(p.white_curves(rec, t, ch['corner'])) + ';')
+        p.add(r'\draw[bf wtree,line width=1.5pt] ' + p.curve_tex(p.white_curves(rec, t, ch['corner'])) + ';')
     p.lines(rec['P'], 'bf P').vertices()
     assert len(rec['P']) == len(m.A) + 1
     c = cell(p.tex(), rf'(c) Each tree edge passes two sides of its black face. Select the side nearer the leaves, and add $e$: {len(rec["P"])} selected edges, one on every face.', 7.1)

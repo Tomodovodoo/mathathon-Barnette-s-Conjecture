@@ -1,0 +1,5 @@
+figs_chain.py {'forest state': 1}
+figs_algebra.py {'tree matchings': 4, 'tree matching': 2}
+figs_order.py {'tree matchings': 1, 'tree matching': 4, 'tree pairs': 3, 'tree pair': 2}
+figs_scope.py {'tree matchings': 7, 'tree matching': 10, 'tree pair': 1, 'forest state': 1}
+lib.py {'tree matchings': 1, 'tree matching': 1}

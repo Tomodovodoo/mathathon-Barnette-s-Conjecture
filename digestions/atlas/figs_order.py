@@ -76,7 +76,7 @@ def lattice_fig():
         elif k == 'cyclic':
             L.append(rf'\draw[line width=1.8pt,dash pattern=on 4pt off 3pt] ({x},{y}) circle[radius={d / 2 - .02}];')
         right = side[z] == 1 or (len(ranks[vol[sid[z]]]) == 1 and x > 2 * px)
-        tag = {'tree': 'tree matching', 'cyclic': r'partner, $Q$ has a cycle', 'alone': 'no partner'}[k]
+        tag = {'tree': 'good state', 'cyclic': r'partner, $Q$ has a cycle', 'alone': 'no partner'}[k]
         ext = r'\\lowest' if nm[z] == 0 else (r'\\highest' if nm[z] == len(states) - 1 else '')
         ext = ext.replace(r'\\', ', ')
         L.append(rf'\node[font=\footnotesize,anchor=north,align=center,inner sep=1.2pt,fill=white] at ({x},{y - d / 2 - .04}) {{$s_{{{nm[z]}}}$, volume {vol[sid[z]]}{ext}\\{tag}}};')
@@ -106,7 +106,7 @@ def pairlattice_fig():
         nt = sum(m.Q_is_forest(q) for _, q in d['pairs'])
         trees.append(nt)
         where = 'upper' if i == hi else 'lower'
-        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cycle cover $D_{{{i + 1}}}$, the {where} node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. {nt} of its 4 orientations are tree pairs.', 7.1))
+        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cover $D_{{{i + 1}}}$, the {where} node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. {nt} of its 4 orientations are good pairs.', 7.1))
     # (c) what changes between the two covers
     sym = [e for e, x1, x2 in zip(spokes, vecs[0], vecs[1]) if x1 != x2]
     p = P(U2).base()
@@ -127,11 +127,11 @@ def pairlattice_fig():
     L = [r'\node[draw,line width=1.6pt,circle,minimum size=1.5cm,font=\footnotesize] (hi) at (0,2.6) {$D_{' + str(hi + 1) + r'}$};',
          r'\node[draw,line width=1.6pt,circle,minimum size=1.5cm,font=\footnotesize] (lo) at (0,0) {$D_{' + str(lo + 1) + r'}$};',
          r'\draw[line width=1.1pt,black!75] (lo) -- (hi);',
-         rf'\node[af note,anchor=west] at (1.1,2.6) {{highest cover\\{trees[hi]} tree pairs}};',
-         rf'\node[af note,anchor=west] at (1.1,0) {{lowest cover\\{trees[lo]} tree pairs}};',
+         rf'\node[af note,anchor=west] at (1.1,2.6) {{highest cover\\{trees[hi]} good pairs}};',
+         rf'\node[af note,anchor=west] at (1.1,0) {{lowest cover\\{trees[lo]} good pairs}};',
          r'\node[af note,anchor=north west,text width=6.7cm] at (-2.6,-1.25) {(d) The whole lattice of this example has two nodes, each with four orientations. '
-         r'A bold ring means that some orientation is a tree pair. On larger triangulations the lattice is large and the two extreme nodes can both lack a tree pair. '
-         r'The smallest such example found has 18 vertices.};']
+         r'A bold ring means that some orientation is a good pair. On larger triangulations the lattice is large and the two extreme nodes can both lack a good pair. '
+         r'The smallest such example has 18 vertices.};']
     CERT['pairlattice'] = dict(upper=hi + 1, lower=lo + 1, height_difference=hh, tree_orientations=trees)
     return grid(cells + [c, r'\begin{minipage}[c][6.9cm][c]{7.1cm}\centering ' + tikz(L) + r'\end{minipage}'], 2)
 
@@ -173,25 +173,31 @@ def canonical_fig():
         return cell(p.vertices().tex(), lab, 7.1)
     near = max(tms, key=lambda z: v[z]) if which == 'highest' else min(tms, key=lambda z: v[z])
     ncyc = len(nx.cycle_basis(cm.Q_graph(cs))[0])
+    assert ncyc == 3 and any(set(cm.F[f]) == set(nx.cycle_basis(cm.Q_graph(cs))[0]) for f in cm.white)     # the cycle is the boundary of a white face
     a = panel(cs, rf'(a) A 12-vertex triangulation, different from the running example. This is its {which} state that has a partner. Bold numbers are heights, volume {v[cs]}. Its opposite edges contain a cycle of length {ncyc} (heavy dashes).')
-    b = panel(near, rf'(b) The nearest tree matching, volume {v[near]}. The rule had to pass over it.')
-    # (c) all nine states in volume order
+    b = panel(near, rf'(b) The nearest good state, volume {v[near]}. The rule had to pass over it.')
+    # (c) all nine states in volume order, each drawn
     order = sorted(sts, key=lambda z: (v[z], sts.index(z)))
-    L = []
-    for i, z in enumerate(order):
-        x = i * 1.62
-        k = 'tree' if z in tms else ('cyclic' if z in partnered else 'alone')
-        st = {'tree': 'draw,line width=1.6pt', 'cyclic': 'draw,line width=1.6pt,dash pattern=on 3pt off 2pt', 'alone': 'draw=black!60,line width=.5pt'}[k]
-        L.append(rf'\node[{st},circle,minimum size=1.05cm,font=\footnotesize] (n{i}) at ({x},0) {{${v[z]}$}};')
-        if z == cs:
-            L.append(rf'\node[font=\footnotesize,anchor=south] at ({x},.62) {{(a)}};')
-        if z == near:
-            L.append(rf'\node[font=\footnotesize,anchor=south] at ({x},.62) {{(b)}};')
-    L.append(r'\node[font=\footnotesize,anchor=north west,text width=14.4cm,inner sep=1pt] at (-.55,-.75) {(c) All nine states of this triangulation by volume. Bold ring: tree matching. Dashed ring: has a partner but $Q$ contains a cycle. Thin ring: no partner. '
-             r'The same triangulation mirrored gives a failure of the lowest state.};')
-    CERT['canonical'] = dict(faces=cm.F, t0=cm.t0, state=cs, extreme=which, volumes=[v[z] for z in order], tree_matchings=len(tms), cycle_length=ncyc)
-    return r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + r'\\[3mm]' + tikz(L) + r'\end{tabular}'
-
+    kinds = ['good' if z in tms else ('cycle' if z in partnered else 'alone') for z in order]
+    assert kinds.count('good') == 8 and kinds.count('cycle') == 1 and kinds.count('alone') == 0
+    assert all(is_tree_matching(cm, z) for z in tms)
+    thumbs = []
+    for z, k in zip(order, kinds):
+        p = P(0.238, cm, q, rad).base()
+        cyc = nx.cycle_basis(cm.Q_graph(z))
+        for c in cyc:
+            shade_faces(p, [f for f in cm.white if set(cm.F[f]) == set(c)], 'af tint')
+        p.state(z).lines(cm.Q(z), 'bf Q')
+        for c in cyc:
+            p.lines(list(zip(c, c[1:] + c[:1])), 'bf Q,line width=2pt')
+        tag = ' (a)' if z == cs else (' (b)' if z == near else '')
+        thumbs.append(cell(small(p.vertices().tex()), rf'volume {v[z]}, ' + ('good' if k == 'good' else r'\textbf{cycle}') + tag))
+    strip = (r'\begin{minipage}{14.4cm}\centering\footnotesize (c) All nine states of this triangulation by volume, with their opposite edges dashed. '
+             rf'Every state has a partner. Eight are good and one has a cycle, and that one is the {which}. '
+             r'Mirror the triangulation and the order turns over, so the same state defeats the other extreme.\end{minipage}')
+    CERT['canonical'] = dict(faces=cm.F, t0=cm.t0, state=cs, extreme=which, volumes=[v[z] for z in order], kinds=kinds, tree_matchings=len(tms), cycle_length=ncyc)
+    return (r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + r'\\[3mm]' + grid(thumbs[:5], 5, colsep='1.5mm') + r'\\[2mm]' + grid(thumbs[5:], 4, colsep='1.5mm')
+            + r'\\[2mm]' + strip + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
 def rooted_forest(mod, edges):
@@ -232,14 +238,16 @@ def matroids_fig():
         ring(p, v, '5pt', 'line width=1.3pt')
     for v in mis:
         ring(p, v, '5pt', 'line width=1.1pt,dash pattern=on 2pt off 1.5pt')
-    a = cell(p.tex(), rf'(a) Drop \emph{{every vertex once}}. One wedge per black face and the dashed edges form a forest, but the ringed vertex carries {Counter(w1)[rep[0]]} wedges and the dashed-ringed vertex none. There are {len(bad1)} such choices.', 7.1)
+    a = cell(p.tex(), rf'(a) Drop \emph{{every vertex once}}. One wedge per black face, and the dashed edges form three trees at the roots, but the ringed vertex carries {Counter(w1)[rep[0]]} wedges and the dashed-ringed vertex none. There are {len(bad1)} such choices.', 7.1)
     # (b)
     p = P(U2).base()
     cyc = nx.cycle_basis(m.Q_graph(s))[0]
     shade_faces(p, [i for i in m.white if set(m.F[i]) == set(cyc)], 'af tint')
     p.state(s).lines(m.Q(s), 'bf Q').lines(list(zip(cyc, cyc[1:] + cyc[:1])), 'bf Q,line width=2pt').vertices()
     nb = sum(not m.Q_is_forest(z) for z in states)
-    b = cell(p.tex(), rf'(b) Drop \emph{{forest}}. A true state, one wedge per face and per vertex, whose dashed edges close up round the shaded face. Among the 12 states, the number that fail this way is {nb}.', 7.1)
+    nj = sum(m.Q_is_forest(z) and not is_tree_matching(m, z) for z in states)
+    assert (nb, nj) == (1, 5) and len(states) - nb - nj == len(tree_states)
+    b = cell(p.tex(), rf'(b) Drop \emph{{trees at the roots}}. A true state, one wedge per face and per vertex, whose dashed edges close up round the shaded face. Among the 12 states, {nb} has such a cycle. In {nj} more a tree of dashed edges holds two roots, so only {len(tree_states)} pass.', 7.1)
     # (c)
     p = P(U2).base()
     cnt = Counter(w3)
@@ -247,14 +255,14 @@ def matroids_fig():
     for t, v in zip(w3, m.X):
         p.wedge(t, v, 'bf s')
     p.lines([opp(t, v) for t, v in zip(w3, m.X)], 'bf Q').vertices()
-    c = cell(p.tex(), rf'(c) Drop \emph{{one wedge per face}}. Every vertex has its wedge and the dashed edges form a forest, but one black face holds two wedges and the dotted face none. There are {len(bad3)} such choices.', 7.1)
+    c = cell(p.tex(), rf'(c) Drop \emph{{one wedge per face}}. Every vertex has its wedge and the dashed edges form three trees at the roots, but one black face holds two wedges and the dotted face none. There are {len(bad3)} such choices.', 7.1)
     led = (r'\begin{minipage}[c][6.9cm][c]{7.1cm}\centering\footnotesize\renewcommand{\arraystretch}{1.5}\begin{tabular}{@{}lr@{}}\toprule '
            r'\textbf{Conditions kept, running example} & \textbf{choices}\\\midrule '
-           rf'one wedge per face, forest & {len(ff)}\\'
+           rf'one wedge per face, trees at the roots & {len(ff)}\\'
            rf'one wedge per face, every vertex once & {len(states)}\\'
-           rf'every vertex once, forest & {len(vf)}\\\midrule '
-           rf'all three: tree matchings & {len(tree_states)}\\\bottomrule\end{{tabular}}\par\medskip '
-           r'\begin{minipage}{6.8cm}\footnotesize Any two of the conditions can be met together by a fast, standard algorithm. No such algorithm is known for all three.\end{minipage}\end{minipage}')
+           rf'every vertex once, trees at the roots & {len(vf)}\\\midrule '
+           rf'all three: good states & {len(tree_states)}\\\bottomrule\end{{tabular}}\par\medskip '
+           r'\begin{minipage}{6.8cm}\footnotesize \emph{Trees at the roots}: the opposite edges form three trees, one at each root. Merge the three roots into one vertex and this says that the edges form a spanning tree. Any two of the conditions can be met together by a fast, standard algorithm. No such algorithm is known for all three.\end{minipage}\end{minipage}')
     CERT['matroids'] = dict(face_forest=len(ff), states=len(states), vertex_forest=len(vf), all_three=len(tree_states),
                             witness_a=w1, witness_c=w3)
     return grid([a, b, c, led], 2)
@@ -304,7 +312,6 @@ def lp_fig():
         p.add(rf'\draw[af bold] {pt(p.cen[t])} -- {pt(p.xy[v])};')
     for t, v in half:
         p.add(rf'\draw[af half] {pt(p.cen[t])} -- {pt(p.xy[v])};')
-        p.label(0.5 * (p.cen[t] + p.xy[v]), r'$\tfrac12$', 'af lab,inner sep=.5pt')
     for t in m.A:
         p.add(rf'\fill {pt(p.cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
     a = cell(p.vertices().tex(), rf'(a) A corner point of the relaxed problem. Bold spokes have weight $1$, dashed spokes weight $\tfrac12$, thin spokes $0$. Every centre and every vertex still receives total weight $1$. The {len(half)} half spokes form one closed curve.', 7.1)
@@ -324,7 +331,7 @@ def lp_fig():
            r'\textbf{The relaxed problem}\\\midrule '
            rf'{len(choices)} weights between $0$ and $1$, one per black face and non-root corner.\\'
            r'Each face and each vertex gets total weight $1$.\\'
-           rf'For every set of vertices, the opposite edges inside it weigh at most its size minus one ({len(Aub)} conditions, all checked exactly).\\\midrule '
-           rf'The point in (a) meets all of them and is a corner of the feasible region, yet it is not a state. So rounding the relaxed problem does not find a tree matching.\\\bottomrule\end{{tabular}}\end{{minipage}}')
+           rf'Merge the three roots into one vertex. For every set of the resulting vertices, the opposite edges inside it weigh at most its size minus one ({len(Aub)} conditions, all checked exactly).\\\midrule '
+           rf'The point in (a) meets all of them and is a corner of the feasible region, yet it is not a state. So an optimal solution of the relaxed problem need not be a state, and any rounding rule needs a further argument.\\\bottomrule\end{{tabular}}\end{{minipage}}')
     CERT['lp'] = dict(choices=choices, x=exact, half=half, averaged_states=[nm[z] for z in z1], cycles=ncy, inequalities=len(Aub), trial=trial + 1)
     return grid(cells + [led], 2)
