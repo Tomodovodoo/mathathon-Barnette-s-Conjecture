@@ -1,0 +1,17 @@
+6 1 graphs {'roots': 8, 'roots_with_pair': 8} 0.0
+7 0 graphs {'roots': 8, 'roots_with_pair': 8} 0.0
+8 1 graphs {'roots': 20, 'roots_with_pair': 20} 0.0
+9 1 graphs {'roots': 34, 'roots_with_pair': 28, 'roots_m>=2': 8} 0.0
+10 2 graphs {'roots': 66, 'roots_with_pair': 60, 'roots_m>=2': 8} 0.1
+11 2 graphs {'roots': 102, 'roots_with_pair': 88, 'roots_m>=2': 36} 0.1
+12 8 graphs {'roots': 262, 'roots_with_pair': 208, 'roots_m>=2': 56, 'roots_m>=3': 20} 0.3
+13 8 graphs {'roots': 438, 'roots_with_pair': 334, 'roots_m>=2': 182, 'roots_m>=3': 20, 'gauge_s_inconsistent': 4} 0.4
+14 32 graphs {'roots': 1206, 'roots_with_pair': 880, 'roots_m>=2': 320, 'roots_m>=3': 158, 'gauge_s_inconsistent': 4} 1.1
+15 57 graphs {'roots': 2688, 'roots_with_pair': 1794, 'roots_m>=2': 1234, 'roots_m>=3': 214, 'gauge_s_inconsistent': 40} 3.0
+16 185 graphs {'roots': 7868, 'roots_with_pair': 5088, 'roots_m>=2': 2484, 'roots_m>=3': 1464, 'gauge_s_inconsistent': 68} 9.6
+first witnesses {'nonreal': ('plantri_9_0', [1, 2, 7], (1, -1, 0, 0, -1, 1)), 'lin_nonreal': ('plantri_10_1', [0, 3, 4], [0, -3, 3, -1]), 'offcircle': ('plantri_12_2', [0, 1, 6], (-3, 3, -1, 1))}
+residue witnesses {2: ('plantri_6_0', [0, 1, 4], 2), 4: ('plantri_9_0', [0, 1, 6], 4), 3: ('plantri_13_7', [0, 4, 5], 6), 5: ('plantri_14_7', [0, 2, 3], 10), 7: ('plantri_16_27', [5, 13, 14], 14)}
+gauge-inconsistent roots (s-gauge): 68 [('plantri_13_7', [0, 4, 5], 6), ('plantri_13_7', [4, 9, 10], 6), ('plantri_13_7', [5, 6, 11], 6), ('plantri_13_7', [8, 10, 11], 6), ('plantri_15_30', [3, 9, 10], 6)]
+(z-1)(z^2+3) occurs at V=12: True
+(z-1)^2(z^2+z+1)(z^3+z+1) occurs at V=13: True
+(z-1)(z+1)(z^2+z+1) occurs at V=16: True
