@@ -1,0 +1,763 @@
+                               SYMMETRIC FLOATING BODIES
+
+       Abstract. We construct nonspherical, centrally symmetric, strictly convex bodies of revolu-
+       tion in four dimensions that have real-analytic boundaries and float in equilibrium in every
+       orientation at a homogeneous relative density different from one half. Their densities approach
+       an explicitly specified value near 0.218294 as the bodies approach the unit ball. The proof com-
+       bines an all-degree arithmetic estimate for a spherical cap operator with an exact differential
+       reduction and an analytic iteration on a set of admissible chord angles. The scalar volume and
+       density conditions are included in the inverse, and estimates for actual operator increments
+       preserve a positive width of analyticity throughout the iteration.
+
+
+
+
+                            1. Statement and analytic conventions
+    A body of uniform relative density ρ ∈ (0, 1) floats in equilibrium in a direction n if a
+hyperplane normal to n cuts off the volume ρ vol K and the line joining the centroids of K
+and the submerged part is parallel to n. This is the customary geometric formulation of Ulam’s
+floating-body problem; see [5]. Ryabogin constructed nonspherical bodies at density one half [4],
+whereas central symmetry at that density entails rigidity [2]. Formal perturbation constructions
+for other densities were developed by Wegner [6]. Here we construct exact analytic bodies with
+central symmetry at densities separated from one half.
+    Let Ul be the Chebyshev polynomial of the second kind, normalized by Ul (cos x) = sin((l +
+1)x)/ sin x, and let Clλ denote the Gegenbauer polynomial with generating function (1 − 2zt +
+t2 )−λ . These are the conventions of [1, Chapter 18]. Write Zl = Ul /(l + 1) and set
+                                                                                     √
+                                                               π2
+                            √︃
+                1              7                                             a∗ 19 7
+(1)       h= √ ,        σ=       ,    a∗ = arccos h,    V0 =      ,    ρ∗ =     −      .
+                 8             8                               2             π     96π
+The parameter ε below is the coefficient of Z4 in the radial function, after the volume has been
+fixed.
+Theorem 1.1. There exist nonspherical, origin-symmetric, strictly convex bodies of revolution
+K ⊂ R4 with real-analytic boundary that float in equilibrium in every orientation at a homo-
+geneous relative density different from 1/2. Such bodies occur arbitrarily close to the unit ball.
+They can be chosen with volume V0 and, for arbitrarily small positive ε, with
+                                                                   √
+                                                 2               49 7
+(2)                 R(ω) = 1 + εZ4 (ω1 ) + O(ε ),       ρ = ρ∗ −       ε + O(ε2 ).
+                                                                 1200π
+The remainders are bounded in a fixed positive analytic width. More precisely, if 0 < c1 < c2
+are fixed, admissible chord half-angles form subsets Gt √of It = [a∗ + c1 t, a∗ + c2 t] such that
+|Gt |/|It | → 1 as t ↓ 0, and their bodies satisfy a − a∗ = ( 7/50)ε + O(ε2 ).
+   For a 2π-periodic function u = k uk eikx put ∥u∥r = k |uk |er|k| , and denote the resulting
+                                            ∑︁                         ∑︁
+
+analytic Wiener algebra by Ar . Its real, even, odd, periodic and antiperiodic subspaces will
+always be specified. Products obey ∥uv∥r ≤ ∥u∥r ∥v∥r , real translations Ta u(x) = u(x + a) are
+isometries, and ∥∂xm u∥r−δ ≤ m!δ −m ∥u∥r . On odd Fourier indices let D = −i∂x , so D−j is well
+defined. For Fourier matrices define
+                     ∑︂                                           4   ∑︂
+(3) ∥B∥Br = sup           er|j−k| |Bjk |,        ∥R∥♯r,c = sup ecℓk        er|j−k| |Rjk |,   ℓk = log(2 + |k|).
+                 k   j                                        k       j
+
+The first norm is a Banach algebra norm and controls As → As for s ≤ r. Direct        convolution
+gives ∥BR∥♯r,c ≤ ∥B∥Br ∥R∥♯r,c . A symbol b(x, k) denotes the operator u ↦→ k b(x, k)uk eikx ;
+                                                                                 ∑︁
+
+its coefficient norm supk ∥b(·, k)∥r equals its Br norm. For a family on It , write ∥u∥1r,t =
+supIt ∥u∥r + t supIt ∥∂a u∥r . The first parameter jet means the pair (u, ∂a u). This global norm
+bounds the corresponding difference quotients on every closed subset of It .
+                                                          1
+2                                         SYMMETRIC FLOATING BODIES
+                                                                                  ∫︁
+   For K = −K, set V (n, d) = vol(K ∩{n·z > d}) and J(n, d) = K (n·z −d)+ dz. At prescribed
+                                                                                                 3
+                   ∫︁ E(n) = J(n, d(n)) + νd(n). Since ∂d J = −V , differentiation tangent to S
+cap volume ν, define
+gives DE(n)[e] = n·z>d(n) e · z dz for e ⊥ n. Thus E is constant exactly when the cap centroid
+is parallel to n. This proves the equilibrium criterion used below and fixes all normalizations.
+
+                 2. The spherical operator and formal approximation
+Lemma 2.1. For l ≥ 2, the multipliers of the spherical cap-volume operator Ch and the operator
+Th with kernel (n · ω − h)+ are
+                                        2 (h)
+                        8π(1 − h2 )3/2 Cl−1                                               3 (h)
+                                                                         32π(1 − h2 )5/2 Cl−2
+(4)          cl (h) =                         ,            tl (h) =                                 .
+                           l(l + 1)(l + 2)                            (l − 1)l(l + 1)(l + 2)(l + 3)
+At the value in (1), Cn3 (h) = 0 if and only if n = 2. For some positive constants c, C, τ∗ ,
+                                      2
+(5)   |Cn3 (h)| ≥ c(n + 1)2 e−C log (n+2)        (n ̸= 2),  |2 sin(ma∗ )| ≥ c(1 + |m|)−τ∗ (m ̸= 0).
+                                                                               √
+Proof. The Funk–Hecke formula has normalization 4π h1 (t − h)Zl (t) 1 − t2 dt for tl . Twice
+                                                                ∫︁
+
+integrate the Gegenbauer differential identity ((1 − t2 )λ+1/2 (Clλ )′ )′ = −l(l + 2λ)(1 − t2 )λ−1/2 Clλ ,
+                    λ+1
+using (Clλ )′ = 2λCl−1    . This gives (4) and t′l = −cl .
+                   √                        √
+   Put α = (1 + i 7)/2, β = ᾱ, ∆ = i 7, An = 7n2 + 45n + 62, Bn = 6n + 18 and Qn (X) =
+−An + Bn X. Partial fractions give
+                                               √                αn+3 Qn (β) − β n+3 Qn (α)
+(6)            an = [z n ](1 − z + 2z 2 )−3 = ( 2)n Cn3 (h) =                              .
+                                                                           2∆5
+                                            √
+The coprime ideals (α), (β) in Z[(1 + i 7)/2] have norm two, so an = 0 implies 2n+3 | M (n),
+where M (n) = Qn (α)Qn (β) = 49n4 +588n3 +2569n2 +4830n+3376. Now M (21) = 16212772 <
+224 and M (n + 1)/M (n) ≤ ((n + 1)/n)4 < 2 for n ≥ 6, excluding all n ≥ 21. For 0 ≤ n ≤ 20,
+the values of v2 (M (n)) are
+                            4, 2, 7, 5, 3, 2, 3, 5, 5, 2, 4, 7, 3, 2, 3, 10, 4, 2, 5, 5, 3.
+Only n = 0, 2 satisfy the divisibility, and a0 = 1, a2 = 0. The finite calculation is also obtained
+from (n + 1)an+1 = (n + 3)a  √ n − (2n + 10)an−1 , a−1 = 0, a0 = 1.
+    Let Γ = α/β = (−3 + i 7)/4 and ωn = Qn (β)/Qn (α). Both belong to the fixed quadratic
+field. Here h is the absolute logarithmic Weil height. The equation M (n)X 2 − ((2An − Bn )2 −
+2M (n))X+M (n) = 0 has roots ωn , ω̄n of modulus one. Its primitive  √ leading coefficient is at most
+M (n), hence h(ωn ) ≤ 21 log M (n). Formula (6) gives |Cn3 (h)| = ( 2/75/2 )|Qn (α)||Γn+3 ωn − 1|,
+with |Qn (α)| ≥ 7(n + 1)2 .
+    We use the following consequence of Matveev’s complex logarithmic-form theorem   ∑︁
+                                                                                            [3, Corol-
+lary 2.3]: in fixed degree and  with  a fixed number  of logarithms, a nonzero  Λ =     bj log  ξj sat-
+isfies log |Λ| ≥ −C j Hj log(eB), where Hj ≥ max{d h(ξj ), | log ξj |, 0.16} and B ≥ max(1, |bj |).
+                    ∏︁
+
+Apply it to (n + 3) Log Γ + Log ωn − 2k Log(−1), choosing k so its imaginary part lies in [−π, π].
+Nonvanishing follows from the preceding argument, its one varying height is O(log(n + 2)), and
+|k| = O(n); this proves the first bound. Since Γ = e2ia∗ is not a root of unity (its trace is −3/2,
+so it is not an algebraic integer), the fixed-height form m Log Γ − 2k Log(−1) proves the second
+bound.                                                                                               □
+  Throughout this section radial∑︁perturbations are origin-symmetric        and axisymmetric about
+                       R               ε n r , ρ = ρ + ∑︁        ε n ρ , c = c + ∑︁        n
+the first axis. Write   ε =  1 +   n≥1      n   ε     ∗      n≥1      n   ε     ∗     n≥1 ε cn , and
+            ∑︁      n
+Hε = h + n≥1 ε Hn for the prescribed-volume height. Here cε is the constant spherical
+projection of the reduced cap energy. This last scalar is recovered uniquely after the nonconstant
+equation is solved and introduces no additional solvability condition.
+Lemma 2.2. Within the origin-symmetric, axisymmetric class about the fixed first axis, there
+is a unique formal solution with R0 = 1, ρ0 = ρ∗ , leading radial term εZ4 , volume V0 , and
+degree-four coefficient exactly ε. Its coefficients satisfy, on a fixed complex angular strip,
+                                                                                              2
+(7)           deg rn , deg Hn ≤ 4n,            ∥rn ∥r + ∥Hn ∥r + |ρn | + |cn | ≤ eCn log (n+2) .
+                                     SYMMETRIC FLOATING BODIES                                            3
+
+Writing f = Z4 , its first terms are
+                                             3    69        161         27
+        R = 1 + εf + ε2 g + · · · ,   g=− −          Z2 −        Z6 +       Z8 ,
+                  √                         50 250          250       1750
+(8)
+                49 7                                                       7h      2h
+        ρ1 = −        ,    H(n) = h + ε{h1 + bf (n1 )} + · · · ,     h1 =     , b=− .
+               1200π                                                       50       5
+                                                  √               2
+Its endpoint rotation has half-angle a(ε) = a∗ + ( 7/50)ε + O(ε ).
+Proof. The prescribed-volume height has nonzero derivative −A, A = 4πσ 3 /3. Write R =
+1 + ε(f + w) with [w]4 = 0, divide the nonconstant energy and volume equations by ε, and
+expand at zero. The linear terms are Th on noncritical nonconstant modes, the nonzero volume
+row on constants, and the critical density column (V0 c4 /A)f . Lemma 2.1 makes this finite-jet
+system invertible at every order. Rotation equivariance bounds the degree of an output by the
+sum of input degrees, proving the grading.
+   For clarity, the Taylor estimates can be obtained directly from radial integration. With
+t = n · ω,
+                            (︄         )︄                                (︄                    )︄
+                1               H4                                            tR5 HR4   H5
+                    ∫︂                                           ∫︂
+                                 4
+  V (R, H; n) =              R − 4          dω,   J(R, H; n) =                   −    +             dω.
+                4    tR>H        t                                tR>H         5   4    20t4
+Only a neighborhood of t = h > 0 contributes moving-boundary derivatives. A Taylor derivative
+of arity k is a sum of latitude integrals and derivatives of delta distributions at t = h, of order
+O(k), applied to products of inputs and analytic weights. The latitude average of a harmonic
+of degree l is its value at n times 4πZl (t). For total polynomial degree N , Markov’s inequality
+bounds its jth latitude derivative by N 2j times a polynomial norm; the analytic weights cost
+C k k!. The latitude operators are diagonal on spherical harmonics, so these multiplier estimates
+act in the standard Sobolev space H s (S 3 ), which is an algebra for s > 3/2. Thus a normal-
+ized k-linear coefficient is bounded by Csk (1 + N + k)Cs k ∥ui ∥H s , s > 3/2. Pointwise height
+                                                              ∏︁
+
+elimination, having constant inverse −A−1 , preserves this bound by finite substitution trees.
+   After the amplitude blow-up, a vertex εa U b has neither (a, b) = (0, 0) nor (0, 1). In a grade-n
+tree, leaves and unary vertices consume positive amplitude; branching vertices number at most
+the
+∑︁
+     leaves minus one. There are at most 2n − 1 vertices, and the total original arity is at most
+   (a + b + 1) = O(n). To see the arity inequality explicitly, every nonconstant energy monomial
+has radial arity q ≥ 1, since every ball solves that equation at every density. If its density arity
+is d and j radial factors are chosen from w, then after blow-up a = q − 1, b = j + d, and its
+original arity k = q + d ≤ a + b + 1. The volume monomials have the same bound with d = 0.
+                                          2
+Every vertex inverse costs at most eC log (n+2) by Lemma 2.1; all nonlinear costs and tree counts
+cost eO(n log n) . Their product proves (7) in a fixed Sobolev norm. Polynomial degree 4n adds
+only an exponential in n on a fixed complex neighborhood, proving the asserted strip bound.
+   For the coefficients, U42 = U0 + U2 + U4 + U6 + U8 , and at l = 2, 4, 6, 8 the ratios cl /(πhσ)
+are 7/6, −7/15, 7/48, 7/720, while tl /(πσ) are 49/240, 0, −49/5760, 343/63360. The quadratic
+nonconstant energy is Th g + (4Th + hCh )(f 2 )/2 − (Ch f )2 /(2A) + ρ1 ∂ρ Th f . Its cancellation and
+4⟨g⟩ + 6⟨f 2 ⟩ = 0 give (8). In particular the critical quadratic coefficient and density coefficient
+are
+                                 49πσ               π2h
+(9)                       βc = −      ,     κρ = −       ,    βc + κρ ρ1 = 0.
+                                 6000                5
+The endpoint equations R(B± ) cos(B± − θ) = H(θ) have base derivatives ∓σ.        √ Averaging their
+first variations gives the full rotation derivative 2σ −1 ((h − b)/5 − h1 ) = 7/25, proving the
+half-angle assertion.                                                                                □
+  Formal endpoint inversion and the normalized conjugacy of the reversible endpoint map
+to translation by 2a(ε) use only the homogeneous divisors in (5). The conjugacy is odd by
+uniqueness. They preserve (7), as does scalar reversion of a(ε): their grade-n trees have O(n)
+operations, the additional polynomial divisors and derivatives cost eO(n log n) , and the weights
+              2
+Mn = eCn log (n+2) satisfy Mk i Mji ≤ C1n Mn for i ji = n. To verify the last inequality,
+                               ∏︁                    ∑︁
+4                                  SYMMETRIC FLOATING BODIES
+
+convexity maximizes the inner sum at (n − k + 1, 1, . . . , 1) and then maximizes in k at an
+endpoint. The formal solution can therefore be written directly with fixed shifts ±a and external
+variable s = a − a∗ , with coefficients bounded by (7).                                   √
+   On It , put Λ = log(1/t) and truncate this formal solution at one order N = ⌊eb0 Λ ⌋, with b0
+fixed small. It is an actual analytic seed z (0) , equal to its first-order expansion plus O(t2 ), with
+                                                                           2
+first parameter-derivative remainder O(t). On |s| < RN = e−C4 log (N +2) it remains in a fixed
+holomorphic cap neighborhood. Its exact residual has zero coefficients through order N , and
+hence
+                                                                               √
+(10)                 ∥F (z (0) , a)∥1r,t ≤ C(Ct/RN )N +1 ≤ e−S ,        S ≥ ec0 Λ ,
+
+provided C4 b20 < 1/2. The factor from one parameter derivative is absorbed by enlarging C.
+The fixed-chord cap map and its holomorphy, used in this estimate, are established next. The
+formal change of variables is performed before truncation; no analytic conjugacy of a truncated
+body is assumed.
+
+
+                     3. Fixed chords and the physical linearization
+  Let γ(x) = (X(x), Y (x)) be a counterclockwise analytic meridian near (cos x, sin x), with
+X even, Y odd and γ(x + π) = −γ(x). Revolve its upper half about the first axis. Its
+parametrization is an unknown. At external half-angle a, write γ± = γ(x ± a) and define
+ℓ = |γ+ − γ− |, n = ((γ+ − γ− )2 , −(γ+ − γ− )1 )/ℓ, e = (−n2 , n1 ), d = n · γ+ and r(u, x) =
+n(x) · γ(u) − d(x). All square roots are analytically continued from the circle. The normal has
+an odd lift n = (cos θ, sin θ), with θ(x + π) = θ(x) + π and θ′ > 0. Close to the circle the cap
+arc is exactly (x − a, x + a).
+  Transverse three-ball integration gives the exact identities
+                2π 2π 3 ′
+                     ∫︂
+                                                           π    x+a∫︂
+         VK = −         Y X du,                     V =− 3          r2 (3n2 Y − r)X ′ du,
+                 3 0                                      3n2 x−a
+(11)                 ∫︂ x+a
+                  π                                       π x+a
+                                                             ∫︂
+                                              ′
+          J =−              r 3
+                                (4n 2 Y − r)X   du, A = −         r(2n2 Y − r)X ′ du.
+                12n32 x−a                                 n32 x−a
+
+For n2 > 0, integrate π(Y 2 − z 2 ) and πn2 (z − z0 )(Y 2 − z 2 ) from z0 = (d − n1 X)/n2 to Y . The
+signed lower meridian subtracts the lower primitive when a whole transverse ball lies in the cap.
+This proves the formulas also when the cap arc crosses an axis pole; reflection handles n2 < 0.
+
+Lemma 3.1. The expressions (11), including at n2 = 0, define analytic maps on the symmetric
+analytic scales. Their first three joint differentials in the curve, scalar unknowns, and chord
+angle have finite powers of the analytic-width loss. Their constants are uniform when the required
+finitely many geometric derivatives are bounded and the nonremovable geometric denominators
+stay away from zero on the complex strip.
+
+Proof. Each cap numerator is odd in x and antiperiodic under x ↦→ x + π. At x = 0, symmetry
+gives n′1 = d′ = 0 and rx = n′2 Y . Therefore the first derivatives of 3n2 r2 Y − r3 , 4n2 r3 Y − r4
+and 2n2 rY − r2 vanish pointwise. Endpoint terms vanish because r = 0. Each numerator has
+a zero of order at least three at 0 and π, while n2 / sin x is an invertible even periodic analytic
+function.
+   Division by sin x costs one derivative, from sin(kx)/ sin x = Uk−1 (cos x). In the intermediate
+even parity class, use (cos(2kx) − 1)/ sin x = −2 sin(kx)Uk−1 (cos x). Thus division by sin3 x
+costs three derivatives. The cancellations are identities for every symmetric curve, so all their
+differentials inherit them. After u = x + v the intervals are fixed at [−a, a]. All remaining
+operations are finite differentiation, multiplication, fixed real shifts, integration, and inversion
+of nonvanishing analytic functions. Their estimates and the product rule prove the claim. The
+same construction for complex a in a smaller fixed neighborhood proves the holomorphy used
+in (10).                                                                                           □
+                                        SYMMETRIC FLOATING BODIES                                         5
+
+   For z = (γ, ν, c) put F = (FV , FE , F0 ) = (V − ν, J + νd − c, VK − V0 ). It takes values in
+two even π-periodic function spaces and a scalar. At F = 0 its cap energy is constant, so the
+criterion in Section 1 gives equilibrium at relative density ν/V0 .
+   For a variation write δγ = ψN + wγ ′ , with N = (Y ′ , −X ′ )/s, s = |γ ′ |, ψ even periodic and
+w odd periodic. Define dθ = d′ /θ′ , τ± = e · γ± − dθ , L = τ+ − τ− = ℓ, P = τ+ τ− < 0, ξ = δθ
+and ζ = δd − dθ ξ. The incidence equations give
+                              n · (δγ+ − δγ− )        τ+ n · δγ− − τ− n · δγ+
+                        ξ=−                    , ζ=                           ,
+(12)                                  L                            L
+                           θ′ P                           τ+ w+ − τ− w−
+                     ζw =       (w+ − w− ),      ξw = θ ′                .
+                            L                                    L
+With p = 2Y sψ, the fixed-plane shape derivatives, integrated over the cap arc, are
+                                    π                        π
+                                       ∫︂                       ∫︂
+                          Cψ =            pr du,   Tψ =            pr2 du.
+                                    n2                      2n2
+Differentiating the cap volume and the cap integral yields
+                                          FV′                               F′
+(13)         δFV = Cψ − Aζ − δν +            ′
+                                               ξ,   δFE = T ψ + d δν − δc + E′ ξ − FV ζ.
+                                           θ                                 θ
+For example the plane derivative of J + νd has height coefficient −FV , and FE′ = θ′ cap e ·
+                                                                                             ∫︁
+
+z dz − d′ FV ; this proves its row. Denote by Az the approximate linearization obtained by
+omitting the last residual-proportional terms. Then DF (z) = Az + Bz [F (z)], where Bz [f ] is
+linear in fV , fV′ , fE′ and has zero total-volume row. The tangential equation in Az has coefficient
+cV = −Aθ′ P/L > 0 multiplying ∆a w = w+ − w− . Its necessary scalar condition is
+                                   ∫︂             ∫︂
+(14)                          δν        c−1
+                                         V dx =        (Cψ − Aζψ − fV )c−1
+                                                                        V dx.
+
+We keep this equation in the finite-dimensional system.
+Lemma 3.2. On a neighborhood of the formal branch, with nonzero amplitude and controlled
+first-order expansion in sufficiently many derivatives, the normal equation has an exact reduction
+to two fourth-order differential operators followed by the fixed translations T±a . Its reconstruc-
+tion is equivalent to the physical normal equation with one scalar density variable. All formulas
+and their increments have only finite derivative losses and powers of t−1 when ε ≍ t.
+Proof. For this
+            ∫︁ calculation primes mean ∂ = d/dθ. Put κ = d + d′′ and S = τ+ + τ− . For
+                j
+Bj = Kj p = pr du, differentiation, using rθθ = −r − κ, gives
+                                                         B0′ = p+ t′+ − p− t′− ,
+(15)                                    B1′′ + B1 + κB0 = p+ τ+ t′+ − p− τ− t′− ,
+                        B2′′′ + 4B2′ + 6κB1′ + 2κ′ B1 = 2(p+ τ+2 t′+ − p− τ−2 t′− ).
+Eliminate the endpoint values, and set aloc = κS/P , bloc = S/P , cloc = −3κ/P , eloc = cloc −
+b′loc + aloc bloc , q = (S − κ′ )/P − e′loc + aloc eloc , M = bloc ∂ + eloc and f0 = −(B2′′′ + 4B2′ )/(2P ).
+Then (∂ − aloc )(B0 − M B1 ) = qB1 + f0 .
+    Define ∆ = (q ′ )2 + 16q 2 , H = q ′′ − 2aloc q ′ + 16q, ϖ = Hq ′ /∆ and υ = 16 + ϖ′ + a′loc − aloc ϖ −
+a2loc − 16Hq/∆. The differential operators P = ∂ 2 + ϖ∂ + υ and Q = q∂ + q(ϖ + aloc ) − q ′ obey
+the exact coefficient identity (∂ − aloc )Q = qP. From (8), the first variations are
+                     28h                                 77    14          7
+               S1 =      (sin 4θ − 2 sin 2θ),     P1 = −    +     cos 2θ −    cos 4θ,
+(16)                  25                                 200 25            50
+                     3h 12h               12h                 192h
+              κ1 =       +      cos 2θ +      cos 4θ,    q=ε       sin 4θ + O(ε2 ).
+                     50     25             5                    5
+These follow by differentiating the endpoint incidence equations and d = h + ε(h1 + bf ). For an
+explicit check, linearization of the defining expression for q gives q1 = −(S1 + S1′′ + 2κ′1 )/σ 2 −
+(3hP1′ + 3h2 S1 )/σ 4 = (192h/5) sin 4θ. In particular ∆/ε2 = 16(192h/5)2 + O(ε), H = O(ε2 ),
+ϖ = O(ε) and υ = 16 + O(ε) on the complex strip. No division by q is used. The fixed-chord
+6                                      SYMMETRIC FLOATING BODIES
+
+pullback does not change the displayed first coefficients, since q0 = 0 and the base height is
+constant.
+  On odd antiperiodic functions the reference operator ∂ 2 + 16 has eigenvalues 16 − k 2 , k odd,
+with modulus at least seven. Its small perturbation P is invertible with two derivatives in the
+domain norm. The coefficient aloc is odd periodic, so ∂ − aloc has a periodic integrating factor
+and an invertible antiperiodic boundary condition. Thus every solution is uniquely B1 = Pu,
+B0 = Wu + z0 , where W = M P + Q and z0 = (∂ − aloc )−1 f0 . Endpoint agreement is
+                                                       (∂ 2 + 1)P + (κ − τ∓ ∂)W                  κz0 − τ∓ z0′
+(17) A+ u+g+ = (A− u+g− )◦(t−1
+                            − ◦t+ ),            A± =                            ,         g± =                .
+                                                                  Lt′±                              Lt′±
+All denominators multiply on the left. Its principal coefficients are −τ∓ /(τ± Lt′± ) > 0.
+   Agreement reconstructs an odd antiperiodic p. Division by 2Y s gives an analytic ψ, since
+Y / sin x is invertible; at a pole its even Taylor series gives a single-valued analytic variation.
+Comparing (15) with the actual transforms, parity and the kernels of ∂, ∂ 2 + 1, and ∂ 3 + 4∂
+give exactly
+(18)               B0 = K0 p,         B1 = K1 p + C sin θ,      B2 = K2 p − 2Cd sin θ.
+The last equality follows from (∂ 3 + 4∂)(d sin θ)    =       κ′ sin θ + 3κ cos θ.
+                                                                              Consequently B2 =
+(2 sin θ/π)(f + c1 ) is equivalent to T ψ + dν1 = f + c1 , with ν1 = −πC.
+   Pull back every formula using ∂θ = (θ′ )−1 ∂x ; then t′± = (θ′ )−1 and the two endpoint recon-
+structions use shifts ∓a. Neither an inverse coordinate map nor a new conjugacy is evaluated.
+All auxiliary inverses just proved are small perturbations of constant elliptic operators in x.
+The rational formulas have finite differential order, and their only small denominator is ∆ ≍ t2 .
+This proves the claimed bounds and increment estimates.                                        □
+  Write the compatibility equation in x as Lu ˆ︁ + GB2 = 0, with L = T−a A+ − Ta A− . If
+     +    −
+H = p − p is its defect, changing variables in the two reconstructions gives
+             ∫︂             ∫︂
+                                  − sin θ(B1′′ + B1 + κB0 ) + (d cos θ − d′ sin θ)B0′ dθ = 0.
+                                 [︁                                                  ]︁
+(19)              XH du =
+
+This uses integration by parts and (d cos θ − d′ sin θ)′ = −κ sin θ. It holds separately for Lu      ˆ︁ and
+GB2 , for every source in the parity class. The analogous Y row is automatic by parity. Add
+λX to compatibility; (19) forces λ = 0.
+                    off compatibility use po = (p+ + p− )/2, ψo = po /(2Y s) and Co = sin θ(B1 −
+                                                                                             ∫︁
+           ∫︁ rows
+   For scalar
+K1 po )dθ/ sin2 θ dθ. The prescribed-density shape complement is obtained by setting B2 =
+(2 sin θ/π)(f + c1 + η1 Z4 ), adding λX and imposing δVK (ψo ) = 0, λ4 (ψo ) = 0, Co = 0. Here
+                   5 π                                                 1 π
+                     ∫︂                                                  ∫︂
+(20)      λ4 (v) =        v(x)(cos 4x − cos 6x) dx,          λ0 (v) =       v(x)(1 − cos 2x) dx.
+                   π 0                                                 π 0
+At the sphere, for odd k, the compatibility and reconstruction multipliers are
+                             16 − k 2 [︂ 2                             √            ]︂
+                     Λk =               (k − 10/7) sin(ka∗ ) + (3k/ 7) cos(ka∗ ) ,
+(21)                            σ
+                             16 − k 2 [︂                                √           ]︂
+                     Rk =               (10/7 − k 2 ) cos(ka∗ ) + (3k/ 7) sin(ka∗ ) .
+                               2σ
+For a source bk sin(kx)
+                     √   its compatibility  √coefficient is (4−k 2 )[k cos(ka∗ )−(h/σ) sin(ka∗ )]bk /(2σ 2 ).
+Thus R1 = 180/(7 7), R5 = 2160/(7 7), and the η1 column has coefficient −336h/(5π) at
+mode five. The X column removes output mode one and the amplitude row removes input
+mode five. For the remaining scale/constant block, po = (R1 u1 + 2s1 c1 /π) sin x, s1 = 3/(4σ 3 ),
+and Co = 15u1 − (a∗ − hσ)(R1 u1 + 2s1 c1 /π). The actual volume row is π 2 p1 and the amplitude
+row is (5/2)p5 , where pk denotes the reconstructed sine coefficient. The determinant of the nor-
+malized rows p1 , Co is −45/(2πσ 3 ) ̸= 0. This explicitly verifies the entire finite augmentation;
+the constant-energy source is not substituted for the missing moment column.
+   These scalar rows and counterterm columns have analytic tails of size O(t) away        ∫︁    from their
+finite reference support on fixed inner strips. For the volume row, δVK = π Y po . For the
+amplitude row, its weight in po at the sphere is a multiple of sin 5x; the apparent pole is
+                                     SYMMETRIC FLOATING BODIES                                                 7
+
+                                                             a    ∫︁        ∫︁
+removable nearby. For Co , ∫︁changing the order in w(x) −a     po (x + v)r(x + v, x) dv dx gives
+                              a
+the analytic adjoint weight −a w(u − v)r(u, u − v) dv. Finite differential operators and shifts
+preserve such analytic tails. This assertion excludes the mean row (14), whose complementary
+action is generally O(1) and is retained separately below.
+
+            4. Reduction and inversion of the complementary operator
+  In x, the leading coefficients in (17) are α± = −τ∓ /(τ± L(θ′ )3 ). Change the sign of L and
+write L˜︁ = Ta A− − T−a A+ = B+ Ta − B− T−a . Its leading coefficients are β+ = α− (x + a) and
+β− = α+ (x − a), with β+ (−x) = β− (x). Choose τ > τ∗ + 1 and a fixed small γ0 > 0, and impose
+(22)                       |2 sin(ma)| ≥ γ0 (1 + |m|)−τ                (m ̸= 0 even).
+Solve b(x + a) − b(x − a) = log β− − log β+ with zero mean. The forcing is odd, so b is real and
+even. Set w = eb and e0 = β+ w(x + a) = β− w(x − a). Ordered multiplication gives an exact
+finite identity
+                                                                                     4
+                 e−1      −4
+                                                                                          p±,j (x)D−j .
+                                                                                    ∑︂
+(23)              0 LMw D    = P+ Ta − P− T−a ,                    P± = I +
+                     ˜︁
+                                                                                    j=1
+
+                                                                       is e−1
+                   ∑︁4                                                        ∑︁4    (︁ j )︁
+Indeed, if B± = j=0 b±,j     Dj , the coefficient of D−l                   0    j=4−l 4−l b±,j D
+                                                                                                 j−4+l w(x ± a);
+
+for l = 0 it is one. Thus no infinite expansion is used here. The homogeneous inverse costs
+Cγ0−1 δ −τ , and its parameter derivative costs a fixed further power of δ −1 . The coefficients obey
+p±,j (x) = (−1)j p±,j (x) and p−,j (x) = (−1)j p+,j (−x).
+Lemma 4.1. Consider L = P+ Ta − P− T−a on antiperiodic functions, with the finite sums in
+(23) extended to a fixed upper limit J. Assume the coefficients are bounded by M in Ar and (22)
+holds. Let p0±,j be constant reference coefficients with the same reality and reflection symmetries,
+and set η = max ∥p±,j − p0±,j ∥r . There are canonically specified operators Q, E and constant
+symbols M± (k) satisfying
+(24)                     LQ = ED + R,              D = M+ (D)Ta − M− (D)T−a ,
+with the following estimates, where 0 < δ < r/C∗ and r′ = r − C∗ δ:
+                                                            ∑︂                                       4
+             ∥Q − I∥Br′ + ∥E − I∥Br′ + sup |k|                   |M± (k) − P±0 (k)| ≤ ηeC log (e/δ) ,
+                                               k             ±
+(25)
+                                                                                                     4
+                                                                                 ∥R∥♯r′ ,c ≤ ηeC log (e/δ) .
+Here c > 0 is independent of δ. The same estimates hold for differences of two inputs. In
+first parameter norms, replace the input distance by its corresponding first parameter norm
+and enlarge the fixed constants and intermediate coefficient exponents. If the normalizers have
+bounded B inverses, their normalized remainder has, across further margins,
+                                                       4                                  4   4
+(26)                     |(E −1 R)jk | ≤ ηeC log (e/δ) e−(r−C∗ δ)|j−k|−c1 (ℓj +ℓk )
+for a fixed c1 > 0. The construction uses the same frequency cutoff at every analytic width.
+Moreover M− (k) = M+ (k); under a uniform positive lower bound for |M+ (k)|, its diagonal has
+the form dk = 2iAk sin(ka + ϕk ), with ϕk = O(k −1 ) and ∂a ϕk = O(k −1 ) under bounded first
+parameter input derivatives.
+Proof. Seek formal symbols Q = 1 + n≥1 qn k −n , E = 1 + n≥1 en k −n and M± = 1 +
+                                             ∑︁                                       ∑︁
+
+            k −n , with qn , en of mean zero, satisfying P± #Q±a = EM± . The formal product
+∑︁
+   n≥1 m±,n
+is p#q = α≥0 (∂kα p)Dxα q/α!. With p±,n = 0 for n > J, the known order-n expression is
+         ∑︁
+
+                                                                                       n−1
+                                                       (︄              )︄
+                                ∑︂
+                                                   α       j+α−1                       ∑︂
+(27)      f±,n = p±,n +                   (−1)                   p±,j Dxα ql (x ± a) −     eb m±,n−b .
+                          1≤j≤J, l≥1, α≥0
+                                                             α                         b=1
+                             j+l+α=n
+
+Then m±,n = ⟨f±,n ⟩, ∆a qn = −Π0 (f+,n − f−,n ) and en = qn (x + a) + f+,n − m+,n . This is a
+unique normalized recursion using only homogeneous divisors.
+8                                       SYMMETRIC FLOATING BODIES
+
+  Every leaf in its expression trees has positive grade j, products add grades, and a derivative of
+order α adds grade α. A grade-n tree has at most n leaves, 2n−1 normalization blocks and total
+derivative order at most n. Binary tree choices and distributions of grade and derivative labels
+have an exponential bound. Allocate δ/(6n) to every operation along a branch. Derivatives
+cost α!(6n/δ)α and homogeneous inverses cost Cγ0−1 (6n/δ)τ . Enlarging fixed B, κ, C gives
+                                                      |m±,n − p0±,n | ≤ η(Cδ −B )n (n!)κ .
+                                                 ∑︂
+(28)                     ∥qn ∥r−δ + ∥en ∥r−δ +
+                                                 ±
+
+For instance B = 2τ + 2, κ = 2τ + 3 suffice for values. Marking one leaf proves the difference
+estimate. The reference solution is qn = en = 0, m±,n = p0±,n , giving the factor η. Differentiating
+a homogeneous divisor gives only a fixed polynomial multiplier, so larger B, κ prove the first-
+derivative estimates.
+   For odd k fix N (k) = ⌊ℓ3k ⌋. Define actual Q, E by these sums through N (k) and M± (k) =
+P± (k) + n≤N (k) (m±,n − p0±,n )k −n , retaining the reference polynomial exactly. For A ≥ 1,
+  0      ∑︁
+
+(29)
+N (k)
+                                            4                                                          4    4
+          An (n!)κ |k|−n ≤ |k|−1 eC(1+log A) ,       AN (k)+1 ((N (k) + 1)!)κ |k|−N (k)−1 ≤ eC(1+log A) −cℓk .
+    ∑︂
+
+    n=1
+
+For ℓk ≥ Cκ (1 + log A) the ratio is below 1/2 through N (k) and the last logarithm is negative
+of order ℓ4k . On the remaining range N (k) = O((1 + log A)3 ), and all positive logarithms are
+O((1 + log A)4 ).
+   The exact Fourier product of one input term with Q contains (k +ν)−j Qν (k); k +ν is odd and
+never zero. If |ν| < |k|/2 and j +l ≤ N (k), Taylor-expand the reciprocal up to total grade N (k).
+The remainder from ql is bounded by C s+j |k|−j−s−l δ −s s!∥ql ∥r−δ , with j + l + s = N (k) + 1,
+and is controlled by (28)–(29). Terms with j + l > N (k) need no Taylor expansion: use
+|(k + ν)−j | ≤ 2J |k|−j and their first missing grade. For |ν| ≥ |k|/2, the exact reciprocals have
+modulus at most one. Both these terms and the Taylor polynomial terms are controlled, across
+a separate margin, by e−δ|ν| |ν|α ≤ e−δ|k|/4 α!(2/δ)α . The remaining factorial sums obey (29);
+                       4       4
+also e−δ|k|/4 ≤ eC log (e/δ)−cℓk . The products EM± have grades at most 2N (k) + J and their
+grades above N (k) have the same bound. Formal cancellation therefore proves the exact identity
+(24) and the raw remainder estimate in (25). Subtraction or parameter differentiation gives the
+stated identical estimates for increments and jets.
+                                              4                    4
+   The raw estimate gives |Rjk | ≤ CηeC log (e/δ) e−(r−Cδ)|j−k|−cℓk . The inequality ℓ4j ≤ C(ℓ4k +
+log4 (2 + |j − k|)), followed by absorbing a fixed multiple of log4 (2 + |j − k|) into δ|j − k| +
+C log4 (e/δ), gives the two-index estimate with a fixed exponent. Left multiplication by E −1
+preserves the raw exponent by (3); a further margin gives (26).
+   The recursion and input symmetries give q̄n = (−1)n qn , qn (−x) = (−1)n qn (x), and the same
+identities for en , together with m−,n = (−1)n m+,n = m̄+,n . The even cutoff in k preserves
+them. Thus M− = M̄+ , and the asserted real phase follows. The multiplier and its parameter
+derivative are of order k −1 relative to the reference by (28)–(29), proving the phase bounds
+whenever the moduli are bounded below.                                                           □
+
+   At the reference sphere, the constants in (23) give
+(30)                                      √
+     0        (k 2 − 16)(k 2 − 10/7 + (3i/ 7)k)        0
+                                                                      2
+                                                                   3 k − 16 3
+  M+ (k) =                                      ,     dk = −16iσ           Ck−3 (h) (k ≥ 3 odd).
+                                k4                                      k4
+The second identity follows by differentiating Uk−1 (cos a) = sin(ka)/ sin a twice. Direct sub-
+stitution gives d01 = 0; Lemma 2.1 shows that the other exceptional positive index is five.
+The reference multiplier modulus is nonzero at every odd index: for      √ k ≥ 5 its
+                                                                                  √ lower bound is
+(1 − 16/k 2 )(1 − 10/(7k 2 )) ≥ 297/875, while its values at 1, 3 are 90 2/7 and 3376/81. Thus,
+                              2
+off |k| = 1, 5, |d0k | ≥ ce−Cℓk .
+   Let F = {−5, −1, 1, 5} and H = (2Z + 1) \ F, with the associated Fourier projections and
+                                             3
+block subscripts F, H; impose |dk | ≥ γe−ℓk for these complementary indices, with γ > 0 fixed.
+                                   SYMMETRIC FLOATING BODIES                                         9
+
+                                                                                               3    4
+If the remainder has size O(t) in (26), then ∥DH   RHH ∥Bs ≤ Ct/γ on the same width: eℓj −c1 ℓj
+                                                 −1 ˆ︁
+          4
+and e−c1 ℓk are summable. Hence the Neumann series gives a complementary inverse, and across
+                                        3
+a margin δ it costs at most Cγ −1 eC log (e/δ) .
+   The uniformly invertible endpoint augmentation of Section 3 is eliminated before this high
+inverse. Its transformed high rows and columns are analytic and O(t), by the adjoint-weight
+calculations there and the B bounds on the normalizers. Their Schur products are O(t2 ) with
+exponential decay in both high indices. For example, writing the transformed input gauge as
+uF = −GuH and the output columns as Ξ, the high operator is
+                    DH + R       ˆ︁ HF G − ΞH Ξ−1 {R
+                         ˆ︁ HH − R                 ˆ︁ F H − (DF + R
+                                                                  ˆ︁ F F )G}.
+                                               F
+Here G, ΞH = O(t) and ΞF is uniformly invertible. The additional scale/constant block has the
+nonzero pivot already computed and the same analytic tails. The resulting physical comple-
+mentary inverse consequently has the same bound. Its added finite-rank terms depend only on
+geometry and the normalizers; their actual increments, rather than changes of diagonal cutoffs,
+are used in the next section.
+   Reserve a chain of fixed positive widths below r∞ for scalar pairings. The exact cap integrals
+imply Tε − Th = O(ε) across these fixed gaps. Since Th Z4 = 0 and λ4 Th = 0, the amplitude
+column into the complement and the critical row on it are O(ε). The nonconstant density
+column is V0 (d − λ0 d) = εκρ f + O(ε2 ), so its complementary part is O(ε2 ). Correcting the exact
+volume gauge changes these orders only at second order, since Th 1 is constant.
+   The critical quadratic equation is βc τ 2 + κρ τ (ρ − ρ∗ ) + O((|τ | + |ρ − ρ∗ |)3 ). At the first-
+order branch its amplitude derivative is εβc + O(ε2 ). A first-order change from radial to chord
+coordinates adds Th v to the input correction, whose critical projection is zero, and changes the
+output parametrization by acting on Th f = 0. Hence the same coefficient applies to the normal
+displacement f in chord coordinates. The mean row (14), normalized to density derivative one,
+has leading form −2ρ1 δτ + δρ = (49/(24π))δa + forcing: indeed ⟨f ⟩x = 1/5, (c4 − Ah)/(5V0 ) =
+2ρ1 , and Aσ/V0 = 49/(24π). Thus the finite matrix is
+                                       εβc + O(ε2 ) εκρ + O(ε2 )
+                                  (︃                                )︃
+(31)                                                             .
+                                       −2ρ1 + O(ε)   1 + O(ε)
+Its complement columns have sizes O(ε), O(ε2 ) and rows have sizes O(ε), O(1). Pairing them
+through the reserved fixed widths, the Schur correction has top row O(ε2 ), O(ε3 ) and bottom row
+O(ε), O(ε2 ). Its determinant is therefore ε(βc + 2κρ ρ1 ) + O(ε2 ) = −εβc + O(ε2 ), bounded below
+by c|ε|. The inverse costs O(t−1 ); only these scalar pairings use fixed gaps, while reconstruction
+pays the current strip loss.
+   After this scalar system is solved, (14) makes the tangential forcing have mean zero, and
+(22) solves for the odd w. For arbitrary total-volume forcing f0 , first take a constant normal
+displacement ψ0 with δVK (ψ0 ) = f0 ; its volume derivative is uniformly nonzero. Subtract its
+known two function forcings, and use the preceding zero-volume construction. This proves a
+right inverse of Az on every parity-compatible residual triple, not only on actual residuals:
+                                                            P
+(32)                           ∥Nz f ∥1r−Cδ,t ≤ t−P eC log (e/δ) ∥f ∥1r,t .
+The finite P includes reconstruction and first parameter derivatives. The singular den-
+sity/amplitude matrix (31) is solved after the complementary inverse; it is not incorporated
+into the canonical remainder or its increment estimates.
+
+                    5. Analytic iteration and admissible parameters
+   Fix the constants in the following order: the bounds in Lemma 2.1; τ > τ∗ + 1 and γ0 ;
+positive initial and limiting widths and fixed initial margins; the constants of Lemma 4.1; a
+positive diagonal constant γ; and the fixed widths for scalar pairings. Only then decrease t.
+Constants may be large, but are independent of t and the iteration index.
+   We describe global parameter extensions, so no differentiation of identities merely holding on
+a closed set is needed. Replace a scalar reciprocal 1/d at threshold κ by χ(|d|2 /κ2 )/d, where χ is
+smooth, equals one on [1, ∞) and vanishes on a neighborhood of zero. Choose it flat at the two
+10                                       SYMMETRIC FLOATING BODIES
+
+endpoints. Its value and first derivative agree with 1/d at and above threshold. Homogeneous
+reciprocals and their derivatives have polynomial Fourier bounds; diagonal reciprocals and their
+                                3
+derivatives have bounds CeCℓk times fixed powers of k. They preserve all symmetries.
+   Outside the homogeneous admissible set, √︁    apply the regularized homogeneous inverse to
+log β− − log β+ , put w = eb and use e0,ext = β+ w(x + a)β− w(x − a). Compute every lower
+coefficient of e−1          −4
+                 0,ext LMw D , and replace only the two leading coefficients by one. It agrees
+                       ˜︁
+with (23) through first parameter jets on the homogeneous good set and preserves reality and
+reflection globally. In the exact Fourier Taylor formula of Lemma 4.1, subtract the finite formal
+mismatch off that set. The remaining Taylor-tail expression has the global smoothing bounds
+and agrees, through first jets, with the true remainder on that set. These are explicitly speci-
+fied extensions; physical operator identities are used only where the cutoffs are exact. A cutoff
+adjugate-over-determinant formula extends the finite inverse if needed. The regularized diago-
+nal and its smoothing Neumann series therefore give a global C 1 operator Nzreg obeying (32),
+equal to the right inverse of Az through first jets on admissible parameters.
+   Choose δj = cr (j + 1)−2 and a fixed integer ∑︁  L large enough to allocate the finitely many
+margins in one step, with rj+1 = rj − Lδj and        Lδj < r0 − r∞ . At the beginning of a step
+store on rj the curve and required finite derivatives, the balancing function, Qj , Ej and their
+B inverses, the raw remainder in (25), its converted remainder, and the finite-rank endpoint
+factors. Initially these are constructed from the seed on a larger fixed strip.
+   Use a first group of margins for (32) and reconstruction, producing the correction on an
+intermediate width r˜︁j ≥ rj+1 + δj , a second for new geometric coefficients and the balancing
+increment, and a third for the new finite input in (23). Lemma 4.1 then supplies the actual
+increments of Q, E, M± , R on the next intermediate strips. A small ∆E grants the new inverse
+on an intermediate width larger than the final output width, by restricting the old inverse and
+using a Neumann series. Form the exact difference
+                    −1
+(33)               Ej+1                   −1
+                        Rj+1 − Ej−1 Rj = Ej+1                  −1
+                                              (Rj+1 − Rj ) + (Ej+1 − Ej−1 )Rj .
+The product estimate following (3) preserves the same raw exponent in both terms. Convert
+this increment once to (26) across a fresh margin and restrict to rj+1 . Keep the raw remain-
+der separately, so no exponent is repeatedly decreased. For finite-rank terms use ∆(U V ) =
+(∆U )V + Uj+1 ∆V and the analogous inverse identity; analytic row and column tails give the
+                                    4        4
+same bound because supn e−δ|n|+cℓn ≤ eC log (e/δ) . Only the actual increment is charged this
+growing cost. The endpoint factors here are those eliminated before the high inverse; the later
+density/amplitude inverse is not among them. This specifies a finite staggered strip induction.
+All finite derivative orders cost powers of the allocated margins; the infinitely many formal
+orders have already been summed inside Lemma 4.1.
+   Start with the true small seed residual f0 = F (z (0) , a) globally on It . Maintain global C 1
+iterates and define
+(34)   ∆zj = −Nzreg
+                 j
+                    fj ,         fj+1 = Bzj [fj ]∆zj + F (zj + ∆zj , a) − F (zj , a) − Dz F (zj , a)∆zj .
+On admissible parameters, (13) and the identity Azj Nzj = I show that this is exactly F (zj +
+∆zj , a), with the same first parameter jet. This holds also at threshold points because all recip-
+rocal cutoffs agree through first jets there. Globally the Taylor difference in (34) is quadratic;
+its parameter derivative is bounded by the first three joint differentials in (z, a) of the cap map,
+including Dz2 ∂a F . The other term is bilinear with finite spatial losses. Lemma 3.1 therefore
+yields, after enlarging fixed P, C,
+                             P                                            P
+(35)      Ej+1 ≤ t−P eC log (e/δj ) Ej2 ,       ∥∆zj ∥˜︁r1 ,t ≤ t−P eC log (e/δj ) Ej ,    Ej = ∥fj ∥1rj ,t .
+                                                         j
+
+No smallness of the actual residual outside the admissible set is assumed; its extension (34) is
+globally quadratic and hence controls all difference quotients across gaps.
+   For any fixed 1 < χ < 2, (10) and (35) imply
+                                     j                             j
+(36)                   Ej ≤ e−S1 χ ,         ∥∆zj ∥˜︁r1 ,t ≤ e−S2 χ ,      S1 , S2 ≥ cS.
+                                                     j
+                                   SYMMETRIC FLOATING BODIES                                         11
+
+Indeed the logarithm of each step cost is O(Λ + logP (j + 2)), while supj χ−j logP (j + 2) < ∞;
+                                                                                                 √
+choose S1 a small fixed fraction of S and use (2−χ)S1 χj to absorb that cost. Since S ≥ ec0 Λ ≫
+Λ, this works for all sufficiently small t. The correction estimate then follows with a smaller
+fraction S2 .
+   This closes all neighborhood assumptions inductively. Choose a fixed integer M larger
+than every derivative order in the finite geometric formulas and their required joint differ-
+entials. Cauchy estimates bound the accumulated change of each of the first M derivatives
+                                                                               P
+by CM j δj−M ∥∆zj ∥˜︁r1 ,t . The analogous sums with the update cost t−P eC log (e/δj ) are smaller
+         ∑︁
+                        j
+than every fixed power of t. Thus the controlled first-order branch expansion, chord transver-
+sality, complex geometric denominators and ∆/t2 persist. The initial coefficient differences are
+O(t) and their unweighted first parameter derivatives are O(1): in the rational expressions for
+ϖ, υ the powers of the amplitude cancel along the seed. Later differences have only finite powers
+of t−1 multiplying the flat corrections. The balancing function and its inverse obey the same
+cumulative bounds.
+   Initially Q, E are close to identity across fixed margins. The sum of their B increments is
+small, so their inverses remain uniformly bounded. The raw remainder increments have the
+fixed exponent of (25); (33) and the actual finite-rank increments retain one fixed exponent
+in (26) and total size O(t). The complementary inverse and the fixed-width scalar Schur es-
+timates therefore remain uniform. Decrease S2 by a fixed factor to absorb all coefficient and
+multiplier update costs in (36). On one reserved fixed strip below r∞ , the inputs have uni-
+formly bounded unweighted first parameter derivatives. The width-independent realization of
+Lemma 4.1 consequently gives, globally on It ,
+                                                                                     j
+(37)     0 < A− ≤ Aj,k ≤ A+ ,         |∂a ϕj,k | ≤ C/|k|,   |dj+1,k − dj,k | ≤ e−S2 χ (1 + |k|)P .
+The fixed strip used here does not shrink with j.
+    It remains to show that the inverse conditions survive on a nonempty set. From (5), all even
+|m| ≤ Mt , Mt ≍ t−1/(τ∗ +1) with a small fixed coefficient, satisfy (22) on It when γ0 is sufficiently
+small. For larger modes, the number of possible resonant intervals is O(t|m|+1) and their lengths
+are O(γ0 |m|−τ −1 ). Hence the total homogeneous exclusion is at most Cγ0 (tMt1−τ +Mt−τ ) = o(t).
+                                                                                          3
+    Choose γ > 0 so that   √
+                              all reference complementary modes satisfy |d0k | ≥ 4γe−ℓk , possible
+by (30). Set K = ⌊eκ0 Λ ⌋, with C0 κ20 < 1. The seed change is at most Ct(1 + |k|)P , so all
+                                           3
+nonexceptional |k| ≤ K exceed 2γe−ℓk . For |k| > K, (37) gives |∂a (ka + ϕk )| ≥ |k|/2. The
+                                                         3
+bad length for mode k is√at most Cγ(t + |k|−1 )e−ℓk . Its tail, divided by t, is bounded by
+Cγ exp(Λ − cκ30 Λ3/2 + O( Λ)) = o(1).
+    Let Ht be the closed set defined by (22), and put Γj = γ(1 + 2−j ). Define G0 = Ht ∩
+                      −ℓ3                                                       −ℓ3
+   k∈H {|d0,k | ≥ Γ0 e k } and recursively Gj+1 = Gj ∩ k∈H {|dj+1,k | ≥ Γj+1 e k }. At step j the
+⋂︁                                                      ⋂︁
+
+inverse is exact through first jets on Gj , so (34) agrees with the actual next residual through
+                                                                                        j
+first jets there and hence on Gj+1 . Set Nj = ⌊exp((S2 χj /4)1/3 )⌋. For S large, e−S2 χ (1+Nj )P ≤
+        −ℓ3
+γ2−j−1 e Nj . Thus previously good modes through Nj stay good and only higher modes are
+tested again. By the same phase argument their newly excluded lengths sum to⋂︁O(e−cS ) = o(t).
+Each good set is closed, the sets are nested, and their intersection Gt = j≥0 Gj satisfies
+|Gt |/|It | → 1. In particular Gt ̸= ∅ for every sufficiently small t, and the limiting lower
+diagonal constant is the positive number γ.
+
+Proof of Theorem 1.1. Fix a ∈ Gt . Equations (36) give convergence on a positive analytic
+width. On a slightly smaller positive width, continuity of the cap map implies F (z∞ , a) = 0.
+The total change from the seed is smaller than every power of t, so the nonzero amplitude, (2)
+and the angle relation persist, with ε > 0 comparable to t. Volume is exactly V0 .
+    The symmetries persist, and the principal curvatures of the revolved meridian are (X ′ Y ′′ −
+Y ′ X ′′ )/|γ ′ |3 and −X ′ /(Y |γ ′ |), the latter with multiplicity two. They remain positive by C 2
+proximity to the circle, with their common positive limiting value at the poles. To verify
+ambient analyticity there, write locally Y = uα(u2 ) and X = X0 + u2 β(u2 ) with α(0)β(0) ̸= 0.
+12                                    SYMMETRIC FLOATING BODIES
+
+Inverting Y 2 = u2 α(u2 )2 gives X = χ(Y 2 ) analytically, so revolution is X = χ(|z|2 ). The
+boundary is therefore real analytic also at the axis. Its degree-four radial coefficient excludes a
+ball, and antipodal symmetry gives K = −K.
+   Finally the exact equations give constant cap volume and cap energy in every orientation;
+θ′ > 0 ensures that all normals occur. The equilibrium criterion proves flotation at homoge-
+neous relative density ν∞ /V0 . This approaches ρ∗ = 0.2182940305101909 . . . ∈ (0, 1/2) and is
+consequently different from 1/2. Taking t ↓ 0 proves the assertion.                              □
+
+                                                References
+[1] F. W. J. Olver et al., eds., NIST Digital Library of Mathematical Functions, Chapter 18, https://dlmf.
+    nist.gov/18; in particular (18.5.2), (18.9.19), and (18.12.4).
+[2] D. I. Florentin, C. Schütt, E. M. Werner, and N. Zhang, Convex floating bodies of equilibrium, Proc. Amer.
+    Math. Soc. 150 (2022), 3037–3048, https://doi.org/10.1090/proc/15697.
+[3] E. M. Matveev, An explicit lower bound for a homogeneous rational linear form in the logarithms of algebraic
+    numbers. II, Izv. Math. 64 (2000), 1217–1269, https://doi.org/10.1070/IM2000v064n06ABEH000314.
+[4] D. Ryabogin, A negative answer to Ulam’s Problem 19 from the Scottish Book, Ann. of Math. (2) 195 (2022),
+    1111–1150, https://doi.org/10.4007/annals.2022.195.3.5.
+[5] D. Ryabogin, On bodies floating in equilibrium in every orientation, Geom. Dedicata 217 (2023), Article 70,
+    https://doi.org/10.1007/s10711-023-00807-w.
+[6] F. Wegner, Floating bodies of equilibrium in three dimensions. The central symmetric case, arXiv:0803.1043,
+    revised 2009, https://arxiv.org/abs/0803.1043.
+
