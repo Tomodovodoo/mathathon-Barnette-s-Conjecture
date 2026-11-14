@@ -79,12 +79,13 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_referee-rainbow/` | Opus 5.5 | Referee of the rainbow route and two-tree packing | done | Step R, Theorem S and the sign-free evenness of good states correct. Packing referee is the author's model. |
 | `fable_referee-families/` | Fable 5.2 | Different-model referee of counting, probabilistic and algebra reports | done | Numbers agree. Prism-chain count holds only for a mixed gluing rule. Sign gauge exists on incidences of both states. |
 | `astra_referee-descent/` | GPT-6 Astra | Referee of the descent study and induction partial results | done | C3 confirmed on 3,373,400 pairs through 20 vertices. 27 alternative potentials refuted. 7,940 induction exceptions reproduced. C3, G and X open. |
-| `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | done, referee running | 11 pages, five figures; statements checked by own code through 12 vertices. |
+| `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | done, refereed | 11 pages, five figures; statements checked by own code through 12 vertices. |
 | `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | done | `FACTS.md`. Four documents agree; atlas repaired in `fable_atlas-repair/`. |
 | `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | done | Every document builds from a fresh clone; 14 tests and 1,209 rooted runs pass. Two editorial gates red (synthesis length, one gallery caption). `requirements.txt` added. |
 | `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | done | 63 cite commands, 23 keys, none missing; numbered citations match their sources. Kelmans and the 1969 Waterloo page are known only through secondary sources. `PDF-RIGHTS.md`. |
 | `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | done | `verify.py` passes; pages 26, 29, 30 corrected; evidence chart redrawn. Not audited. |
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | done | No proof gap. Seven wording edits and a bibliography clean-up, applied by the coordinator. |
 | `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | done | Process residue removed; no mathematical change. Label defects in four figures listed in `PROBLEMS.md`. |
-| `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | running | |
+| `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | done | Every proved result follows. One false sentence and stale ranges corrected. Counts reproduced with own code. |
 | `fable_notes-figures/` | Fable 5.2 | Label defects in the companion notes' figures | done | Nine defects fixed; page counts unchanged. |
+| `fable_sign-free-figure/` | Fable 5.2 | Figure 5 of the sign-free note redrawn | running | |
