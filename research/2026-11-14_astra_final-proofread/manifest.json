@@ -1,0 +1,10 @@
+{
+  "command": "python research/2026-11-14_astra_final-proofread/render.py",
+  "pages": 20,
+  "sha256": {
+    "paper\\main\\barnette.pdf": "7fb6b7b2f810c489dacaa59411be7441fd35ba2aadfb6875261f369a166a0535",
+    "paper\\main\\barnette.tex": "9f10fb5f24dbe663c2603abe8d91dcb315dcc76d40f06534f08cd6b4286c47db"
+  },
+  "head": null,
+  "render_bytes": 1610271
+}
