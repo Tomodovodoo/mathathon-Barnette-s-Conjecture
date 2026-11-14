@@ -86,12 +86,13 @@ static int nearestLower(const string& start, string& target) {
     return -2;   // component exhausted without improvement (cannot happen by the component theorem)
 }
 // C3: non-increasing path to k = 0. returns monotone distance, -1 capped, -2 trapped (closed set exhausted)
-static int monotone(const string& start, ll& visited) {
+static int monotone(const string& start, ll& visited, int e = 0) {
     unordered_map<string,int> d; deque<string> q; d[start] = 0; q.push_back(start);
     while (!q.empty()) {
         string a = q.front(); q.pop_front(); int da = d[a]; LNode nd = expand(a);
-        for (auto &b : nd.nb) if (!d.count(b)) {
+        for (size_t jj = 0; jj < nd.nb.size(); jj++) { const string& b = nd.nb[jj]; if (d.count(b)) continue;
             int kb = kOf(b); if (kb > nd.k) continue;
+            if (e && kb == nd.k && nd.ty[jj] == 0 && e * nd.dv[jj] > 0) continue;   // D-swap on the plateau must lower e*om
             d[b] = da + 1; if (kb == 0) { visited = d.size(); return da + 1; }
             q.push_back(b);
             if ((ll)d.size() > ncap) { visited = d.size(); return -1; }
@@ -136,7 +137,7 @@ int main(int argc, char** argv) {
     }
     rng.seed(seed);
     ll inst = 0, samples = 0, sinks = 0, c3fail = 0, c3cap = 0, rhocap = 0; ll rhoHist[12] = {0}; int maxRho = 0, maxMono = 0, maxLen = 0, maxK = 0, maxLenK = 0; ll maxVisited = 0;
-    ll lenSum = 0, lenCnt = 0; int wit = 0; ll sgHist[8][8] = {{0}}; int swit = 0;
+    ll lenSum = 0, lenCnt = 0; int wit = 0; ll omFail[2] = {0,0}, omCap[2] = {0,0}; int omMax[2] = {0,0}; ll sgHist[8][8] = {{0}}; int swit = 0;
     string line; curGraph = -1;
     while (getline(cin, line)) {
         if (line.empty()) continue;
@@ -174,6 +175,9 @@ int main(int argc, char** argv) {
                     if (m == -2) { c3fail++; printf("W C3FAIL V=%d graph=%d t0=%d,%d,%d k=%d closed_set=%lld | %s | pair", V, curGraph, faces[I.t0][0], faces[I.t0][1], faces[I.t0][2], k0, vis2, curLine.c_str()); for (int i = 0; i < I.n; i++) printf(" %d>%d", I.fc[i][cur[i]/3], I.fc[i][cur[i]%3]); printf("\n"); }
                     else if (m == -1) c3cap++; else maxMono = max(maxMono, m);
                 }
+                if (wantSigned && !strict) for (int z = 0; z < 2; z++) { ll v3 = 0; int m = monotone(cur, v3, z ? -1 : 1);
+                    if (m == -2) { omFail[z]++; if (omFail[z] <= 3) { printf("W C3OMFAIL V=%d graph=%d t0=%d,%d,%d k=%d sign=%d closed_set=%lld | %s | pair", V, curGraph, faces[I.t0][0], faces[I.t0][1], faces[I.t0][2], k0, z ? -1 : 1, v3, curLine.c_str()); for (int i = 0; i < I.n; i++) printf(" %d>%d", I.fc[i][cur[i]/3], I.fc[i][cur[i]%3]); printf("\n"); } }
+                    else if (m == -1) omCap[z]++; else omMax[z] = max(omMax[z], m); }
                 if (wantSigned) { int rr[8]; signedRadii(cur, rr);
                     for (int z = 0; z < 8; z++) { int v = rr[z] < 0 ? 7 : min(rr[z], 6); sgHist[z][v]++;
                         if ((rr[z] < 0 || rr[z] >= 3) && swit < 12) { swit++; printf("W SIGNEDRHO V=%d graph=%d t0=%d,%d,%d k=%d pot=%d rho=%d | %s | pair", V, curGraph, faces[I.t0][0], faces[I.t0][1], faces[I.t0][2], k0, z, rr[z], curLine.c_str()); for (int i = 0; i < I.n; i++) printf(" %d>%d", I.fc[i][cur[i]/3], I.fc[i][cur[i]%3]); printf("\n"); } } }
@@ -188,6 +192,7 @@ int main(int argc, char** argv) {
            V, inst, samples, maxK, sinks, rhocap, maxRho, c3fail, c3cap, maxMono, maxVisited, maxLen, maxLenK, lenCnt ? (double)lenSum / lenCnt : 0.0);
     for (int j = 1; j < 12; j++) if (rhoHist[j]) printf(" %d:%lld", j, rhoHist[j]);
     printf("\n");
+    if (wantSigned) printf("C3OM V=%d (k,+om): fail=%lld capped=%lld maxmono=%d   (k,-om): fail=%lld capped=%lld maxmono=%d\n", V, omFail[0], omCap[0], omMax[0], omFail[1], omCap[1], omMax[1]);
     if (wantSigned) {
         const char* nm[8] = {"(k,+psi,+om)","(k,+psi,-om)","(k,-psi,+om)","(k,-psi,-om)","(k,+om,+psi)","(k,+om,-psi)","(k,-om,+psi)","(k,-om,-psi)"};
         for (int z = 0; z < 8; z++) {

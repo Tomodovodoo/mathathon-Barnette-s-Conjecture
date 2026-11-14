@@ -4,7 +4,7 @@ Status tags as in `research/BRIEF.md`. Nothing here is refereed. The citations t
 
 ## The paragraph for the exposition
 
-> The proof is constructive only in a weak sense. For a Barnette graph on `N` vertices the known algorithms are exhaustive: a search over the incidence matchings, of which there are at most `3^{N/4}`, and a walk driven by two involutions whose length is only bounded by `2^{O(N log N)}`. Both use polynomial space. No polynomial-time algorithm is known, and no hardness result is known either. Hardness in the usual sense is not to be expected: the cycle always exists and is easy to check, so the search problem is total, and a total search problem cannot be NP-hard unless NP = coNP. The involutions do place the problem in a recognised class of total problems. Following the walk is an instance of "given a source of a directed graph of paths and cycles, find a sink", so the problem lies in PPADS, a subclass of PPP. We do not know whether it lies in PPAD, in PPA or in PLS. In practice local search is fast. On every instance we tried, a few exchange moves that never increase the number of cycles of `Q_s` reach a tree matching. We could not prove that such moves always exist, and we show that the simplest rules for choosing them fail: a single move can be stuck from 16 vertices on, two moves from 21, three moves from 60.
+> The proof is constructive only in a weak sense. For a Barnette graph on `N` vertices the known algorithms are exhaustive: a search over the incidence matchings, of which there are at most `3^{N/4}`, and a walk driven by two involutions whose length is only bounded by `2^{O(N log N)}`. Both use polynomial space. No polynomial-time algorithm is known, and no hardness result is known either. Hardness in the usual sense is not to be expected: the cycle always exists and is easy to check, so the search problem is total, and a total search problem cannot be NP-hard unless NP = coNP. The involutions do place the problem in a recognised class of total problems. Following the walk is an instance of "given a source of a directed graph of paths and cycles, find a sink", so the problem lies in PPADS, a subclass of PPP. We do not know whether it lies in PPAD, in PPA or in PLS. In practice local search is fast. On every instance we tried, a few exchange moves that never increase the number of cycles of `Q_s` reach a tree matching. We could not prove that such moves always exist, and we show that the simplest rules for choosing them fail: a single move can be stuck from 16 vertices on, two moves from 21, three moves at 40.
 
 Each sentence is justified below.
 
@@ -24,7 +24,7 @@ Each sentence is justified below.
 | Marked walk (two involutions, restarts) | `2^{O(n log n)}` moves, polynomial space | `LIT`, trees paper, Theorem 5.3 |
 | Breadth-first search in the exchange graph | exponential time and space | `LIT`, trees paper, Theorem 5.2 |
 
-All three are preprints. `COMPUTED` here: the exchange graph always contained a tree pair in every component (49,331,840 pairs, all rooted instances with `V <= 22`, `code/descent.exe` aborts otherwise).
+All three are preprints. `COMPUTED` here: the exchange graph always contained a tree pair in every component (49,325,864 pairs, all rooted instances with `V <= 22`, `code/descent.exe` aborts otherwise).
 
 ## 3. The class given by the involutions: PPADS
 
@@ -64,9 +64,9 @@ Three points that are easy to get wrong.
 
 1. **C3 does not put TREE-PAIR in PLS.** C3 allows moves that keep `k`. A pair on a plateau with no strictly better neighbour is a local optimum in the sense of PLS. Turning C3 into a PLS formulation needs a rule that breaks the ties, which is the same as a second potential that strictly decreases along the plateau.
 2. **With these potentials, "in PLS with good local optima" already means "in P".** `k` takes at most `n/3 + 1` values, and the plateau-free potentials of Corollary B1 take `O(n^5)` values. A PLS problem whose cost has polynomially many values is solved by plain local search in polynomial time. So for the potentials studied here there is no intermediate outcome: either the local optima are tree pairs and the problem is in P, or the formulation does not solve the problem. A PLS statement with content would need a potential with exponentially many values, such as the position along the marked walk, which nobody knows how to compute.
-3. **What the data say** (`DESCENT.md`, Section 3). `COMPUTED`: `k` has non-tree local optima for `L = 1` from `V = 16`, for `L = 2` from `V = 21` (exhaustive, so 21 is the least order), and for `L = 3` on random instances with `V = 60` (not known to be least). The plateau-free potentials have non-tree local optima for `L = 1` from `V = 16` or `18`, and for `L = 2` and `L = 3` at `V = 60`. Potentials that involve the number of `D`-cycles are stuck for good at `V = 16`.
+3. **What the data say** (`DESCENT.md`, Section 3). `COMPUTED`: `k` has non-tree local optima for `L = 1` from `V = 16`, for `L = 2` from `V = 21` (exhaustive, so 21 is the least order), and for `L = 3` on random instances with `V = 40` (not known to be least). The plateau-free potentials have non-tree local optima for `L = 1` from `V = 16` or `18`, for `L = 2` at `V = 40` and for `L = 3` at `V = 60`. Potentials that involve the number of `D`-cycles are stuck for good at `V = 16`.
 
-`CONJECTURE` (C3, unchanged): there is no closed plateau. Evidence: exhaustive for `V <= 22`, sampled to `V = 200`. `HUNCH`: the escape radius of `k` is unbounded, growing slowly with `V` (observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 60`). If so, no local search with a fixed lookahead on `k` solves TREE-PAIR, and a polynomial algorithm along these lines needs a plateau rule.
+`CONJECTURE` (C3, unchanged): there is no closed plateau. Evidence: all pairs for `V <= 22`, all pairs of 230 random triangulations with `V = 26..80`, sampled to `V = 200`. `HUNCH`: the escape radius of `k` is unbounded, growing slowly with `V` (observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 40`). If so, no local search with a fixed lookahead on `k` solves TREE-PAIR, and a polynomial algorithm along these lines needs a plateau rule.
 
 ## 5. Summary table
 
@@ -78,6 +78,6 @@ Three points that are easy to get wrong.
 | TREE-PAIR in PPAD, PPA or PLS | open; the obvious reductions fail for the stated reasons |
 | TREE-PAIR in P | open |
 | Not FNP-hard unless NP = coNP | `LIT` (general fact about TFNP, from memory) |
-| C3 (non-increasing path to a tree pair) | `CONJECTURE`; `COMPUTED` for all pairs with `V <= 22` |
-| Bounded lookahead on `k` with radius 1, 2, 3 | `REFUTED` at `V = 16`, `21`, `60` |
+| C3 (non-increasing path to a tree pair) | `CONJECTURE`; `COMPUTED` for all pairs with `V <= 22` and on random instances to `V = 80` |
+| Bounded lookahead on `k` with radius 1, 2, 3 | `REFUTED` at `V = 16`, `21`, `40` |
 | Descent on any potential that never lets `c` grow | `REFUTED` at `V = 16` |

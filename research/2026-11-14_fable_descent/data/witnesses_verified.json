@@ -1,0 +1,65 @@
+[
+ {
+  "kind": "SINK",
+  "V": 16,
+  "t0": [
+   0,
+   1,
+   2
+  ],
+  "k": 1,
+  "c": 1,
+  "rho_lab": 2,
+  "ok": true,
+  "c3_from_here": true,
+  "c3_pairs_visited": 4
+ },
+ {
+  "kind": "RHO",
+  "V": 21,
+  "t0": [
+   0,
+   1,
+   2
+  ],
+  "k": 1,
+  "c": 2,
+  "rho_lab": 3,
+  "rho_claimed": 3,
+  "ok": true,
+  "c3_from_here": true,
+  "c3_pairs_visited": 10
+ },
+ {
+  "kind": "RHO",
+  "V": 60,
+  "t0": [
+   13,
+   46,
+   58
+  ],
+  "k": 1,
+  "c": 3,
+  "rho_lab": 4,
+  "rho_claimed": 4,
+  "ok": true,
+  "c3_from_here": true,
+  "c3_pairs_visited": 41
+ },
+ {
+  "kind": "RHO",
+  "V": 40,
+  "t0": [
+   10,
+   14,
+   34
+  ],
+  "k": 1,
+  "c": 5,
+  "rho_lab": 3,
+  "rho_claimed": 3,
+  "ok": true,
+  "c3_from_here": true,
+  "c3_pairs_visited": 33
+ }
+]

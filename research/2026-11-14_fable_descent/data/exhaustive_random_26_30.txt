@@ -1,0 +1,32 @@
+== ins V=26 graphs=30 seed=3 all roots, exhaustive
+T V=26 rooted_with_pair=1440 factors=1843 pairs=6200 tree_pairs=5598 components=1604 max_free_dist=2 skipped=0
+K V=26 khist 0:5598 1:602
+S V=26 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=18(inst 8) maxrho=2 maxmono=2 maxstrictlen=1  1:584 2:18 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,+psi,-om) trap1=6(inst 3) trap2=0(inst 0) sinks=3(inst 3) maxrho=2 maxmono=3 maxstrictlen=6  1:599 2:3 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=8(inst 8) maxrho=2 maxmono=2 maxstrictlen=6  1:594 2:8 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=8(inst 8) maxrho=2 maxmono=2 maxstrictlen=6  1:594 2:8 3:0 4:0 5:0 6:0 7:0
+real	0m0.165s
+== skew V=26 graphs=30 seed=3 all roots, exhaustive
+T V=26 rooted_with_pair=1440 factors=3798 pairs=19416 tree_pairs=15476 components=2511 max_free_dist=2 skipped=0
+K V=26 khist 0:15476 1:3780 2:160
+S V=26 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=178(inst 59) maxrho=2 maxmono=2 maxstrictlen=2  1:3762 2:178 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,+psi,-om) trap1=19(inst 12) trap2=0(inst 0) sinks=13(inst 12) maxrho=2 maxmono=3 maxstrictlen=7  1:3927 2:13 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=62(inst 51) maxrho=2 maxmono=2 maxstrictlen=7  1:3878 2:62 3:0 4:0 5:0 6:0 7:0
+S V=26 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=61(inst 53) maxrho=2 maxmono=2 maxstrictlen=7  1:3879 2:61 3:0 4:0 5:0 6:0 7:0
+real	0m0.303s
+== ins V=30 graphs=20 seed=4 all roots, exhaustive
+T V=30 rooted_with_pair=1120 factors=1725 pairs=7128 tree_pairs=6276 components=1374 max_free_dist=2 skipped=0
+K V=30 khist 0:6276 1:840 2:12
+S V=30 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=18(inst 8) maxrho=2 maxmono=2 maxstrictlen=2  1:834 2:18 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,+psi,-om) trap1=3(inst 2) trap2=0(inst 0) sinks=2(inst 2) maxrho=2 maxmono=3 maxstrictlen=6  1:850 2:2 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=8(inst 8) maxrho=2 maxmono=2 maxstrictlen=6  1:844 2:8 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=8(inst 8) maxrho=2 maxmono=2 maxstrictlen=6  1:844 2:8 3:0 4:0 5:0 6:0 7:0
+real	0m0.179s
+== skew V=30 graphs=20 seed=4 all roots, exhaustive
+T V=30 rooted_with_pair=1120 factors=3535 pairs=23408 tree_pairs=16618 components=1999 max_free_dist=3 skipped=0
+K V=30 khist 0:16618 1:6154 2:636
+S V=30 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=634(inst 131) maxrho=2 maxmono=3 maxstrictlen=2  1:6156 2:634 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,+psi,-om) trap1=101(inst 58) trap2=0(inst 0) sinks=77(inst 58) maxrho=2 maxmono=3 maxstrictlen=9  1:6713 2:77 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=191(inst 129) maxrho=2 maxmono=3 maxstrictlen=8  1:6599 2:191 3:0 4:0 5:0 6:0 7:0
+S V=30 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=203(inst 127) maxrho=2 maxmono=3 maxstrictlen=8  1:6587 2:203 3:0 4:0 5:0 6:0 7:0
+real	0m0.398s

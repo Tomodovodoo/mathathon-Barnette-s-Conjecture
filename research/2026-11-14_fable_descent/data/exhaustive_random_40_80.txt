@@ -1,0 +1,40 @@
+== skew V=40 graphs=20 seed=5 all roots, exhaustive, cap 300000 pairs
+T V=40 rooted_with_pair=1520 factors=20904 pairs=284592 tree_pairs=156790 components=5568 max_free_dist=4 skipped=0
+K V=40 khist 0:156790 1:99518 2:24900 3:3048 4:336
+S V=40 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=14701(inst 590) maxrho=3 maxmono=4 maxstrictlen=4  1:113101 2:14587 3:114 4:0 5:0 6:0 7:0
+S V=40 pot=(k,+psi,-om) trap1=3848(inst 363) trap2=21(inst 10) sinks=1526(inst 363) maxrho=3 maxmono=6 maxstrictlen=13  1:126276 2:1512 3:14 4:0 5:0 6:0 7:0
+S V=40 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=3344(inst 531) maxrho=2 maxmono=4 maxstrictlen=11  1:124458 2:3344 3:0 4:0 5:0 6:0 7:0
+S V=40 pot=(k,-om) trap1=52(inst 16) trap2=2(inst 1) sinks=3350(inst 539) maxrho=3 maxmono=5 maxstrictlen=11  1:124452 2:3343 3:7 4:0 5:0 6:0 7:0
+real	0m5.415s
+== ins V=40 graphs=20 seed=5 all roots, exhaustive, cap 300000 pairs
+T V=40 rooted_with_pair=1520 factors=2541 pairs=11160 tree_pairs=9296 components=1918 max_free_dist=3 skipped=0
+K V=40 khist 0:9296 1:1640 2:224
+S V=40 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=51(inst 20) maxrho=2 maxmono=3 maxstrictlen=2  1:1813 2:51 3:0 4:0 5:0 6:0 7:0
+S V=40 pot=(k,+psi,-om) trap1=8(inst 6) trap2=0(inst 0) sinks=8(inst 6) maxrho=2 maxmono=3 maxstrictlen=9  1:1856 2:8 3:0 4:0 5:0 6:0 7:0
+S V=40 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=22(inst 19) maxrho=2 maxmono=3 maxstrictlen=8  1:1842 2:22 3:0 4:0 5:0 6:0 7:0
+S V=40 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=23(inst 19) maxrho=2 maxmono=3 maxstrictlen=8  1:1841 2:23 3:0 4:0 5:0 6:0 7:0
+real	0m0.320s
+== skew V=50 graphs=12 seed=6 all roots, exhaustive, cap 300000 pairs
+T V=50 rooted_with_pair=1152 factors=58269 pairs=1273008 tree_pairs=549940 components=8685 max_free_dist=5 skipped=0
+K V=50 khist 0:549940 1:511848 2:178172 3:31112 4:1936
+S V=50 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=97208(inst 789) maxrho=4 maxmono=5 maxstrictlen=4  1:625860 2:96027 3:1164 4:17 5:0 6:0 7:0
+S V=50 pot=(k,+psi,-om) trap1=31178(inst 601) trap2=131(inst 46) sinks=8927(inst 601) maxrho=3 maxmono=7 maxstrictlen=15  1:714141 2:8818 3:109 4:0 5:0 6:0 7:0
+S V=50 pot=(k,+om) trap1=232(inst 27) trap2=14(inst 4) sinks=18068(inst 741) maxrho=4 maxmono=5 maxstrictlen=14  1:705000 2:18013 3:54 4:1 5:0 6:0 7:0
+S V=50 pot=(k,-om) trap1=160(inst 31) trap2=18(inst 7) sinks=17499(inst 757) maxrho=4 maxmono=6 maxstrictlen=13  1:705569 2:17457 3:37 4:5 5:0 6:0 7:0
+real	0m33.424s
+== ins V=60 graphs=12 seed=6 all roots, exhaustive, cap 300000 pairs
+T V=60 rooted_with_pair=1392 factors=5878 pairs=58592 tree_pairs=40666 components=3163 max_free_dist=4 skipped=0
+K V=60 khist 0:40666 1:16546 2:1380
+S V=60 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=2101(inst 204) maxrho=3 maxmono=4 maxstrictlen=2  1:15825 2:2099 3:2 4:0 5:0 6:0 7:0
+S V=60 pot=(k,+psi,-om) trap1=445(inst 109) trap2=0(inst 0) sinks=206(inst 109) maxrho=2 maxmono=5 maxstrictlen=10  1:17720 2:206 3:0 4:0 5:0 6:0 7:0
+S V=60 pot=(k,+om) trap1=2(inst 1) trap2=0(inst 0) sinks=403(inst 174) maxrho=3 maxmono=4 maxstrictlen=9  1:17523 2:402 3:1 4:0 5:0 6:0 7:0
+S V=60 pot=(k,-om) trap1=2(inst 1) trap2=0(inst 0) sinks=515(inst 202) maxrho=3 maxmono=4 maxstrictlen=9  1:17411 2:514 3:1 4:0 5:0 6:0 7:0
+real	0m1.953s
+== ins V=80 graphs=8 seed=7 all roots, exhaustive, cap 300000 pairs
+T V=80 rooted_with_pair=1248 factors=11158 pairs=233696 tree_pairs=139258 components=3983 max_free_dist=3 skipped=0
+K V=80 khist 0:139258 1:78810 2:14740 3:888
+S V=80 pot=k trap1=0(inst 0) trap2=0(inst 0) sinks=9903(inst 272) maxrho=3 maxmono=4 maxstrictlen=3  1:84535 2:9894 3:9 4:0 5:0 6:0 7:0
+S V=80 pot=(k,+psi,-om) trap1=2461(inst 190) trap2=1(inst 1) sinks=640(inst 190) maxrho=3 maxmono=5 maxstrictlen=12  1:93798 2:639 3:1 4:0 5:0 6:0 7:0
+S V=80 pot=(k,+om) trap1=0(inst 0) trap2=0(inst 0) sinks=1179(inst 271) maxrho=2 maxmono=4 maxstrictlen=11  1:93259 2:1179 3:0 4:0 5:0 6:0 7:0
+S V=80 pot=(k,-om) trap1=0(inst 0) trap2=0(inst 0) sinks=1356(inst 270) maxrho=2 maxmono=4 maxstrictlen=11  1:93082 2:1356 3:0 4:0 5:0 6:0 7:0
+real	0m19.930s
