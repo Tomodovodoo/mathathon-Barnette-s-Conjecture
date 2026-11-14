@@ -115,7 +115,7 @@ Theorem 1.1 there reads: for a plane bipartite graph `G` with colour classes `E,
 
 **COMPUTED (mine).**
 
-- Same instance set, rebuilt through the lab's face numbering (`exp_structure.py replicate`): see the table in `data/replicate.json` and the summary in "Reproduction of the exact counts" below.
+- Same instance set, rebuilt through the lab's face numbering (`exp_structure.py replicate`): 826 instances, 580 with a pair and with a point-rainbow tree, 246 with neither, face-rainbow tree in all 826. See "Reproduction of the exact counts" below.
 - All rootings with `V <= 16` (`exp_rainbow.py exist 16`): 7,868 rooted instances, 5,088 with a pair. A point-rainbow tree exists in exactly those 5,088. A pair exists iff no separating triangle has black inner boundary, 7,868 of 7,868. A face-rainbow tree exists in all 7,868. Output: `data/exist_16.json`.
 - The Rado condition by brute force (`exp_rainbow.py rado 12`): 57,901 connected vertex sets over 262 rootings; see `RAINBOW.md` §2.
 
@@ -125,7 +125,7 @@ My matroid intersection is a from-scratch augmenting-path implementation in `rai
 
 **Verdict: CORRECT.** The refutation stands.
 
-**COMPUTED (mine).** `referee.py mate 14`, all 1,206 rootings with `V <= 14`: 3,240 tree matchings in 880 instances. For 40 of them, in 20 instances, the unique mate is not a tree matching. All 40 occur in triangulations without separating triangles, and in all 40 the mate has exactly one cycle in its `Q` (`k = 1`). The first example in my enumeration is `V = 12`, plantri index 2, the same triangulation as the report's. Twelve examples with rotation systems are in `data/ref_mate.json`. The count on the report's own 166 instances is in the reproduction section below.
+**COMPUTED (mine).** `referee.py mate 14`, all 1,206 rootings with `V <= 14`: 3,240 tree matchings in 880 instances. For 40 of them, in 20 instances, the unique mate is not a tree matching. All 40 occur in triangulations without separating triangles, and in all 40 the mate has exactly one cycle in its `Q` (`k = 1`). The first example in my enumeration is `V = 12`, plantri index 2, the same triangulation as the report's. Twelve examples with rotation systems are in `data/ref_mate.json`. On the report's own 166 instances I get its numbers exactly: 442 tree matchings, 6 with a mate that is not a tree matching.
 
 The report's explanation is right: evenness of the number of tree matchings is a signed cancellation, not a fixed-point-free involution. The 40 failures come in pairs inside an instance (20 instances, two each), which agrees with "two tree matchings share one mate". I did not check that the cycle of the common mate has length 3.
 
@@ -149,7 +149,21 @@ Claims 4.3 and 4.4 (root polytope, position of tree matchings in the lattice) I 
 
 ## Reproduction of the exact counts
 
-`exp_structure.py replicate` rebuilds the report's instance sets (every face as root up to `V = 12`, respectively `V = 10`, and the lab's faces "0 and first face of the other colour" above). Results are in `data/replicate.json` and are summarised in `REPORT.md` of this folder. The report's numbers are 826 instances with 580 and 246, and 166 instances with 442 tree matchings, 6 bad mates and 445 states with a mate.
+`exp_structure.py replicate` rebuilds the report's instance sets: every face as root up to `V = 12` (respectively `V = 10`), and above that the lab's faces "0 and the first face of the other colour". Output `data/replicate.json`.
+
+| Quantity | Report | My run |
+| --- | --- | --- |
+| rooted instances, rainbow experiment | 826 | 826 |
+| with a pair, and with a point-rainbow tree | 580 and 580 | 580 and 580, agreeing instance by instance |
+| without either | 246 | 246 |
+| face-rainbow tree exists | 826 | 826 |
+| rooted instances, mate experiment | 166 | 166 |
+| instances with a tree matching | 135 | 135 |
+| states with a mate | 445 | 445 |
+| tree matchings | 442 | 442 |
+| tree matchings whose mate is not a tree matching | 6 | 6 |
+
+Every number agrees.
 
 ## Dependency table (reverse-Lamport format, bounded to the claims refereed)
 
