@@ -73,19 +73,20 @@ We seek such an acyclic selection containing the side $e_0$ that crosses $e$.
 \item \emph{Corner choices.} Fix a black triangle $t_0$ at $e_0$.
 Removing $e_0$ from the desired selection leaves three trees, each containing one corner of $t_0$.
 Direct them towards these corners.
-The selected side in each other black triangle leaves one corner, and uses every vertex off $t_0$ once as a tail.
+In each other black triangle the selected side then points away from one corner, its tail, and every vertex off $t_0$ is a tail exactly once.
 Such a choice of corners is a \emph{state} (Section~\ref{sec:corners}).
 \item \emph{From a state back to a selection.} The side we take must touch the chosen corner, so it must avoid the opposite side.
 Call a state \emph{good} when these opposite sides form three trees, each containing one corner of $t_0$ (Figure~\ref{fig:cube}(c)).
-They give a tree joining the triangles, which forces a selection (panels (d)--(e)).
+The sides that are not avoided then join the triangles into a tree, and this tree forces a selection (panels (d)--(e)).
 A count called the \emph{disk identity} proves that this selection has no cycle.
 \item \emph{Two states.} Another state, different in every triangle, orients the opposite sides with one edge leaving every vertex off $t_0$.
 This makes a state good as soon as its opposite sides contain no cycle (Section~\ref{sec:pairs}).
 \item \emph{One count, two groupings.} Give each pair a sign and a weight depending only on its second state.
 A reversal pairs off pairs whose second state is unsuitable, with opposite signs and equal weights.
 The arrows between the two chosen corners form cycles (Figure~\ref{fig:cube}(f)).
-Grouping by these cycles, with weight increments counting enclosed white triangles, proves that the sum is nonzero.
-Thus a good state survives.
+Reversing one of these cycles flips the sign and raises the weight by the number of white triangles inside the cycle, which is at least one.
+Grouped by these cycles, with the weight raised to a suitable power, the sum becomes a sum of products of these numbers, all of one sign.
+So the sum is not zero, and a good state survives.
 \item \emph{The first pair and the induction.} A flow gives a pair when every $3$-cycle bounds a face (Section~\ref{sec:flow}).
 Otherwise a \emph{separating triangle}, with vertices on both sides, cuts $\T$ into smaller triangulations.
 The first selection prescribes a side for the second, and their union finishes the induction (Section~\ref{sec:glue}).
@@ -99,10 +100,11 @@ The first selection prescribes a side for the second, and their union finishes t
 \end{figure}
 
 \subsection*{History and sources}
-Tait conjectured in 1884 that cubic $3$-connected planar graphs are Hamiltonian, as explained by Hertel \cite{Hertel2005}, and Tutte disproved this in 1946 with a non-bipartite example \cite{Tutte1946}.
-Barnette asked whether bipartiteness rescues the statement, as recounted by Hertel \cite{Hertel2005}.
-Before 2026 the conjecture was known when all faces have four or six sides, as explained by Hertel \cite{Hertel2005}, under conditions on two of the three face colour classes \cite{Feder2006}, and when all faces have at most eight sides \cite{Schnieders2025}.
-Computer checks reached 64 vertices in work of Holton, Manvel and McKay, as explained by Hertel \cite{Hertel2005}, and 90 vertices in Brinkmann, Goedgebeur and McKay \cite{Brinkmann2022}.
+We follow Hertel's survey \cite{Hertel2005} for the older history.
+Tait conjectured in 1884 that cubic $3$-connected planar graphs are Hamiltonian, and Tutte disproved this in 1946 with a non-bipartite example \cite{Tutte1946}.
+Barnette asked whether bipartiteness rescues the statement.
+Before 2026 the conjecture was known when all faces have four or six sides \cite{Hertel2005}, under conditions on two of the three face colour classes \cite{Feder2006}, and when all faces have at most eight sides \cite{Schnieders2025}.
+Computer checks reached 64 vertices in work of Holton, Manvel and McKay \cite{Hertel2005}, and 90 vertices in work of Brinkmann, Goedgebeur and McKay \cite{Brinkmann2022}.
 In a preprint dated 24 September 2026, OpenAI proved Theorem~\ref{thm:main} \cite{OpenAI2026}.
 The paired-state argument, disk identity, flow argument and induction are theirs.
 States are the corner choices of Tutte's theory of trinity, as explained by Hine and K\'alm\'an \cite{Hine2018}.
@@ -153,8 +155,8 @@ The two faces at an edge of $\T$ contain the two ends of an edge of $G$, so they
 
 From now on $\T$ is a \emph{coloured triangulation}: a simple graph with at least four vertices, embedded in the sphere so that every face is bounded by a triangle, with a black and white colouring of its faces in which every edge has one face of each colour.
 Two faces share at most one side, since two faces with two common sides would have the same three corners, and that triangle would bound both of them, leaving no room for a fourth vertex.
-The next lemma shows that $\T$ is connected.
-We use it again for the inside of a cycle and for the pieces of Section~\ref{sec:glue}.
+Euler's formula needs a connected graph.
+The next lemma supplies connectivity for $\T$, for the inside of a cycle in Section~\ref{sec:corners} and for the pieces of Section~\ref{sec:glue}.
 
 \begin{lemma}\label{lem:connected}
 Let $R$ be a finite graph embedded in the sphere such that every face of $R$ is bounded by a cycle of $R$.
@@ -236,7 +238,7 @@ The Hamiltonian cycle of (1) meets this cut in exactly one edge, the one crossin
 But a cycle meets every edge cut in an even number of edges.
 \end{proof}
 
-Part (1) says why the target has two conditions with two different reasons: one side per face gives degree two, and acyclicity gives connectivity.
+Part (1) shows that the two conditions on the target do different jobs: one side per face gives degree two, and acyclicity gives connectivity.
 Part (2) is the two-induced-trees form \cite{Stein1971,Alt2016}, and we use it in Lemma~\ref{lem:selections-give-states} and in the gluing.
 An acyclic selection containing an edge $e_0$ of $\T$ gives a Hamiltonian cycle of $G$ that avoids the edge crossing $e_0$, so Theorem~\ref{thm:main} asks for an acyclic selection containing a prescribed edge.
 
@@ -322,12 +324,15 @@ It pairs each face with the face across its selected side, and these two faces a
 So consider the graph $Y_s=\T^*-S_s^*$, whose nodes are the faces of $\T$, two faces being adjacent when they share a side not in $S_s$; it is a subgraph of $G$.
 A tree has at most one perfect matching, found by matching a leaf to its neighbour, removing both and repeating.
 So if $Y_s$ is a tree, at most one selection of this kind exists and no choice is left.
+
 For $Y_s$ to be a tree we need the following condition on $s$.
 The condition is sufficient for what follows and it is not necessary: the state that Lemma~\ref{lem:selections-give-states} reads off an acyclic selection need not satisfy it (Section~\ref{sec:remarks}).
 
 \begin{definition}
 A state $s$ is \emph{good} if $Q_s$ is a forest in which each component contains exactly one root.
 \end{definition}
+
+The unsigned manuscript \cite{Anonymous2026} calls a good state a \emph{tree matching}.
 
 \begin{lemma}\label{lem:good}
 A state $s$ is good if and only if $S_s$ is a spanning tree of $\T$.
@@ -376,6 +381,7 @@ A cycle in $P_s\setminus\{e_0\}$ would be made of sides leaving chosen corners, 
 Throughout the paper, the cycles we need are made of sides leaving corners chosen by a state.
 Let $r$ be a state, and suppose that in every face $t\in A$ one of the two sides at $r(t)$ has been chosen and directed out of $r(t)$.
 We call these the \emph{chosen sides}.
+The state is called $r$ here because Section~\ref{sec:pairs} applies these facts to the first state of a pair.
 
 \begin{lemma}[outdegree]\label{lem:outdegree}
 Let $\vec E$ be a set of edges of $\T$, each directed, such that every vertex has at most one outgoing edge in $\vec E$.
@@ -473,7 +479,7 @@ In words: a cycle of chosen sides encloses one more white face than black, but a
 The state $\beta$ of Example~\ref{ex:states} is good.
 Its selection $P_\beta$ has eleven edges forming two trees, on $\{0,2,4,6,7,8\}$ and $\{1,3,5,9,10,11,12\}$, and Figure~\ref{fig:selected} shows it with the Hamiltonian cycle of $G$ that crosses the other $22$ edges.
 The example has six good states, and they give six different Hamiltonian cycles avoiding the edge of $G$ that crosses $e_0$. These are all such cycles of this $G$.
-On the cube (Figure~\ref{fig:cube}), with $t_0=\{0,1,2\}$ and $e_0=\{0,1\}$, both states are good; for $s$ the tree $Y_s$ makes the black faces $135$, $234$, $045$ select $35$, $23$, $04$, and with $e_0$ these form the trees on $\{0,1,4\}$ and $\{2,3,5\}$.
+On the cube (Figure~\ref{fig:cube}), with $t_0=\{0,1,2\}$ and $e_0=\{0,1\}$, the cube has exactly two states, those of Figure~\ref{fig:cube}(f), and both are good. For the solid one, $s$, the tree $Y_s$ makes the black faces $135$, $234$, $045$ select $35$, $23$, $04$, and with $e_0$ these form the trees on $\{0,1,4\}$ and $\{2,3,5\}$.
 \end{example}
 
 So Theorem~\ref{thm:main} follows once we find a good state, and once we can deal with triangulations that have none.
@@ -491,7 +497,7 @@ The second computation shows that the sum is not zero (Proposition~\ref{prop:goo
 \subsection*{Why two states}
 Goodness asks two things of $Q_s$, no cycle and one root per component.
 The second condition concerns whole components.
-Another state $r$ that differs from $s$ in every face turns it into the first.
+Another state $r$ that differs from $s$ in every face reduces the second condition to the first.
 It gives every vertex of $X$ exactly one outgoing edge of $Q_s$, and then a component without a cycle contains exactly one root.
 
 \begin{definition}
@@ -641,7 +647,7 @@ For the second statement group the pairs by $s$: the states with a partner and a
 \end{proof}
 
 The cycle $K_s$ must be chosen from $s$ alone. A rule that looked at $r$ might pick a different cycle after the reversal, and the map would not be an involution.
-In the example only $\alpha$ has a cycle in $Q_\alpha$, and its two partners are $\beta$ and the state $\tilde\beta$ obtained by reversing the triangle $8,1,9$, which changes $\beta$ in the faces $1{\cdot}7{\cdot}8$, $1{\cdot}2{\cdot}9$, $8{\cdot}9{\cdot}10$ from $8,1,9$ to $1,9,8$ (Figure~\ref{fig:cancel}).
+In the example $\alpha$ is the only second state of a pair whose opposite sides contain a cycle, and its two partners are $\beta$ and the state $\tilde\beta$ obtained by reversing the triangle $8,1,9$, which changes $\beta$ in the faces $1{\cdot}7{\cdot}8$, $1{\cdot}2{\cdot}9$, $8{\cdot}9{\cdot}10$ from $8,1,9$ to $1,9,8$ (Figure~\ref{fig:cancel}).
 
 \begin{figure}[H]
 \centering
@@ -913,7 +919,7 @@ Figure~\ref{fig:glue} shows the two pieces of a small example and the gluing of 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{\FIG 14-gluing.pdf}
-\caption{Gluing across the separating triangle $\{3,4,5\}$ of an octahedron with a second octahedron inside one face ($9$ vertices). (a) The outer piece, cap tinted; its acyclic selection (bold) puts $3$ and $5$ in one tree. (b) The inner piece with the cap as outer face and $\{3,5\}$ prescribed. (c) The union is an acyclic selection of the whole triangulation; its trees meet those of the pieces in the edge $\{3,5\}$ or in the vertex $4$. Disks and squares mark the two trees.}
+\caption{Gluing across the separating triangle $\{3,4,5\}$ of an octahedron with a second octahedron inside one face ($9$ vertices). (a) The outer piece, cap tinted; its acyclic selection (bold) puts $3$ and $5$ in one tree. (b) The inner piece with the cap as outer face and $\{3,5\}$ prescribed. (c) The union is an acyclic selection of the whole triangulation. Disks and squares mark its two trees. Each is a tree of (a) joined to a tree of (b): the square trees share the edge $\{3,5\}$, and the disk trees share the vertex $4$.}
 \label{fig:glue}
 \end{figure}
 
@@ -1016,7 +1022,7 @@ Grouping by the undirected cycles of $D$ as in Proposition~\ref{prop:good},
 where $w^{C\pm}$ is the product of $w_{t,v}$ over the faces of $C$, with $v$ the head of the edge of $C$ in $t$ when $C$ runs counterclockwise $(+)$ or clockwise $(-)$.
 When a pair exists, Proposition~\ref{prop:good} proves $\Pi\neq0$.
 This can also be read off at $w_{t,v}=1+\xi\kappa(t,v)$ with $\kappa=\sum_y\kappa_y$: each factor is then $\xi L(C)+O(\xi^2)$, and the classes with the fewest cycles have a common leading sign.
-OpenAI's exponential sum is, up to the factor $i^{-n}$, the substitution $w_{t,v}=e^{\xi \mathfrak a(t,v)}$ with their spoke weights $\mathfrak a$.
+OpenAI's exponential sum is, up to the factor $i^{-n}$, the substitution $w_{t,v}=e^{\xi \mathfrak a(t,v)}$ with the spoke weights $\mathfrak a$ of \cite[Lemma~5.3]{OpenAI2026}.
 
 \subsection*{No polynomial-time construction is known}
 The proof shows that a good state exists but gives no efficient way to find one.
