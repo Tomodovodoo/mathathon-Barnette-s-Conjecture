@@ -1,0 +1,17 @@
+# Build artefacts (added by research/2026-11-14_opus_cross-audit, see HYGIENE.md there).
+# LaTeX auxiliary files
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+texput.log
+latex-*.log
+# Python bytecode
+__pycache__/
+*.pyc
+# *.log and *.out are NOT ignored globally: many research folders keep computation
+# transcripts (*.log) and Lean outputs (*.out) as provenance. Folders that build LaTeX
+# ignore their own *.log and *.out locally (for example proofs/primal/.gitignore).
