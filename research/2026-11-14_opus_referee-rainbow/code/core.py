@@ -123,6 +123,7 @@ class Rooted:
             for v in tri.faces[f]:
                 self.bat[v].append(f)
         self.widx = {w: i for i, w in enumerate(self.white)}
+        self.A_index = {t: i for i, t in enumerate(self.A)}
         self.cidx = {t: V + i for i, t in enumerate(self.black)}  # spoke graph node of a centre
         self.NH = V + len(self.black)
 
@@ -267,7 +268,27 @@ class Rooted:
         deg = {x: 0 for x in self.X}
         res = []
         u = {}
-        order = list(range(len(A)))
+        # BFS order of faces through shared points, and pruning when a point is closed
+        order = []
+        seenf = set()
+        for s0 in range(len(A)):
+            if s0 in seenf:
+                continue
+            q = [s0]; seenf.add(s0)
+            while q:
+                i = q.pop(0); order.append(i)
+                for v in self.T.faces[A[i]]:
+                    for t2 in self.bat[v]:
+                        if t2 in self.A_index and self.A_index[t2] not in seenf:
+                            seenf.add(self.A_index[t2]); q.append(self.A_index[t2])
+        last = {}
+        for pos_, i in enumerate(order):
+            for v in self.T.faces[A[i]]:
+                if v in deg:
+                    last[v] = pos_
+        closes = {}
+        for v, p_ in last.items():
+            closes.setdefault(p_, []).append(v)
 
         def rec(i):
             if limit is not None and len(res) >= limit:
@@ -285,7 +306,8 @@ class Rooted:
                     for v in others:
                         deg[v] += 1
                     u[t] = c
-                    rec(i + 1)
+                    if all(deg[v] == 2 for v in closes.get(i, [])):
+                        rec(i + 1)
                     for v in others:
                         deg[v] -= 1
             u.pop(t, None)

@@ -1,0 +1,26 @@
+{
+ "counts": {
+  "V=6,black_inner=False,min_slack=0": 8,
+  "black_inner=False,min_slack_32=0": 880,
+  "V=8,black_inner=False,min_slack=0": 12,
+  "V=9,black_inner=True,min_slack=-1": 6,
+  "black_inner=True,min_slack_32=-1": 308,
+  "bi_violating_sets": 5165,
+  "bi_violating_sets_that_are_triangle_outsides": 404,
+  "V=9,black_inner=False,min_slack=0": 8,
+  "V=10,black_inner=False,min_slack=0": 32,
+  "V=11,black_inner=True,min_slack=-1": 8,
+  "V=11,black_inner=False,min_slack=0": 28,
+  "V=12,black_inner=False,min_slack=0": 120,
+  "V=12,black_inner=True,min_slack=-1": 38,
+  "V=12,black_inner=True,min_slack=-2": 2,
+  "black_inner=True,min_slack_32=-2": 18,
+  "V=13,black_inner=True,min_slack=-1": 50,
+  "V=13,black_inner=False,min_slack=0": 126,
+  "V=14,black_inner=False,min_slack=0": 546,
+  "V=14,black_inner=True,min_slack=-1": 206,
+  "V=14,black_inner=True,min_slack=-2": 16
+ },
+ "command": "python check_packing.py L12 6 14",
+ "seconds": 0.9
+}

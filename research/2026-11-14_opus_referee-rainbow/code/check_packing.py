@@ -176,22 +176,18 @@ def states_in_support(R, u):
     for t in R.A:
         for v in R.T.faces[t]:
             if v != u[t]:
-                nb.setdefault(t, []).append(v)
-                nb.setdefault(v, []).append(t)
+                nb.setdefault(('f', t), []).append(('v', v))
+                nb.setdefault(('v', v), []).append(('f', t))
     seen = set(); cycles = []
     for t in R.A:
-        if t in seen:
+        if ('f', t) in seen:
             continue
-        # walk the cycle t, x, t', x', ...
-        cyc = []; a = t; prev = None
+        cyc = []; a = ('f', t); prev = None
         while True:
             seen.add(a); cyc.append(a)
             nx = [b for b in nb[a] if b != prev]
-            if len(nb[a]) == 2 and nb[a][0] == nb[a][1]:
-                nx = [nb[a][0]]
-            b = nx[0] if prev is None else nx[0]
-            prev, a = a, b
-            if a == t:
+            prev, a = a, nx[0]
+            if a == ('f', t):
                 break
         cycles.append(cyc)
     res = []
@@ -200,8 +196,7 @@ def states_in_support(R, u):
         for cyc, o in zip(cycles, ori):
             L = len(cyc)
             for i in range(0, L, 2):
-                t = cyc[i]
-                s[t] = cyc[(i + 1) % L] if o == 0 else cyc[(i - 1) % L]
+                s[cyc[i][1]] = cyc[(i + 1) % L][1] if o == 0 else cyc[(i - 1) % L][1]
         res.append(s)
     return res, len(cycles)
 

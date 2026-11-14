@@ -1,0 +1,19 @@
+{
+ "counts": {
+  "cor2.6_pair=True_ok=True": 880,
+  "pair_pair=True_W2trees=True_TR2trees=True": 932,
+  "rand_pair=True_W2trees=True_TR2trees=True": 8800,
+  "explicit_W_split": 932,
+  "thm3.3_split_exists=True": 932,
+  "cor3.2b_point_rainbow_exists=True": 932,
+  "cor3.2a_face_rainbow_exists=True": 932,
+  "cor2.6_pair=False_ok=True": 326,
+  "rand_pair=False_W2trees=True_TR2trees=True": 2167,
+  "rand_bi_fail=False_triangle_pattern=False": 2167,
+  "rand_pair=False_W2trees=False_TR2trees=False": 1093,
+  "rand_bi_fail=True_triangle_pattern=True": 1093,
+  "prop2.3_pair=False_W2trees=False_TR2trees=False": 1212
+ },
+ "command": "python check_packing.py PACK 6 14",
+ "seconds": 83.0
+}
