@@ -1,0 +1,10 @@
+\begin{tikzpicture}[x=1cm,y=1cm]
+\tikzset{box/.style={draw,rounded corners=0pt,text width=10cm,align=center,minimum height=9mm}}
+\node[box] (a) at (0,0) {Rooted triangulation $T$ and incidence matchings};
+\node[box] (b) at (0,-1.5) {Disjoint pair $(r,s)$ and directed cycles $D$};
+\node[box] (c) at (0,-3) {Cancellation + positive spoke circulation $\Rightarrow$ forest $Q_s$};
+\node[box] (d) at (0,-4.5) {Retained spoke tree $\longleftrightarrow$ white-face cotree};
+\node[box] (e) at (0,-6) {Selected edges $P$: one side of every face, no cycles};
+\node[box] (f) at (0,-7.5) {Two induced trees $\longleftrightarrow$ Hamiltonian cycle in $G$};
+\foreach \u/\v in {a/b,b/c,c/d,d/e,e/f} \draw[-{Stealth}] (\u)--(\v);
+\end{tikzpicture}

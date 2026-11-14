@@ -1,0 +1,9 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{barnette-figs}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,shapes.geometric}
+\definecolor{stateblue}{HTML}{0072B2}
+\definecolor{pairorange}{HTML}{D55E00}
+\definecolor{treegreen}{HTML}{009E73}
+\definecolor{cyclepurple}{HTML}{CC79A7}
+\tikzset{base/.style={draw=black!45,line width=.35pt},qedge/.style={draw=pairorange,line width=1pt,dash pattern=on 3pt off 1.5pt},dedge/.style={draw=stateblue,line width=1pt,-{Stealth[length=3pt]}},pedge/.style={draw=black,line width=1.3pt},ham/.style={draw=stateblue,line width=1.3pt},wt/.style={draw=treegreen,line width=1pt,dash pattern=on 4pt off 1pt on 1pt off 1pt},spoke/.style={draw=black!55,line width=.4pt},markS/.style={circle,fill=stateblue,inner sep=1.7pt},markR/.style={rectangle,fill=pairorange,inner sep=1.5pt},every node/.style={font=\footnotesize}}
