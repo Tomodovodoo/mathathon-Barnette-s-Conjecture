@@ -6,3 +6,140 @@
 # T14_5: |V|=24 nontrivial 3-cuts=0 time=12.4s
 # T14_6: |V|=24 nontrivial 3-cuts=0 time=12.4s
 # T14_7: |V|=24 nontrivial 3-cuts=0 time=15.7s
+# T14_8: |V|=24 nontrivial 3-cuts=0 time=14.1s
+# T14_9: |V|=24 nontrivial 3-cuts=0 time=11.2s
+# T14_10: |V|=24 nontrivial 3-cuts=0 time=11.9s
+# T14_11: |V|=24 nontrivial 3-cuts=0 time=12.6s
+# T14_12: |V|=24 nontrivial 3-cuts=0 time=14.4s
+# T14_13: |V|=24 nontrivial 3-cuts=0 time=14.1s
+# T14_14: |V|=24 nontrivial 3-cuts=0 time=12.6s
+# T14_15: |V|=24 nontrivial 3-cuts=0 time=14.6s
+# T14_16: |V|=24 nontrivial 3-cuts=2 time=14.8s
+# T14_17: |V|=24 nontrivial 3-cuts=2 time=14.0s
+# T14_18: |V|=24 nontrivial 3-cuts=2 time=13.6s
+# T14_19: |V|=24 nontrivial 3-cuts=2 time=13.6s
+# T14_20: |V|=24 nontrivial 3-cuts=2 time=14.1s
+# T14_21: |V|=24 nontrivial 3-cuts=2 time=13.9s
+# T14_22: |V|=24 nontrivial 3-cuts=0 time=13.3s
+# T14_23: |V|=24 nontrivial 3-cuts=2 time=14.2s
+# T14_24: |V|=24 nontrivial 3-cuts=2 time=14.2s
+# T14_25: |V|=24 nontrivial 3-cuts=2 time=14.4s
+# T14_26: |V|=24 nontrivial 3-cuts=1 time=14.6s
+# T14_27: |V|=24 nontrivial 3-cuts=2 time=15.0s
+# T14_28: |V|=24 nontrivial 3-cuts=2 time=13.9s
+# T14_29: |V|=24 nontrivial 3-cuts=1 time=16.3s
+# T14_30: |V|=24 nontrivial 3-cuts=2 time=15.2s
+# T14_31: |V|=24 nontrivial 3-cuts=0 time=15.7s
+{
+ "range": [
+  14,
+  14
+ ],
+ "light": false,
+ "seconds": 429.8,
+ "checks": {
+  "L1 counts": 32,
+  "L1 face boundary is a cycle": 32,
+  "L1 three distinct faces at each vertex": 32,
+  "L1 two faces share at most one edge": 32,
+  "L1 |R|=3 and |X|=|A|": 768,
+  "L10 P edge at b lies on s(b)": 6300,
+  "L10 P is a perfect matching in K containing e0": 6300,
+  "L11 h = 2 ell": 58056,
+  "L12 G-P is a Hamiltonian cycle avoiding e0": 6300,
+  "L12 P minus e0 is a face forest, P has no face circuit": 6300,
+  "L12 general: matching compatible with some state has connected complement": 26304,
+  "L13 cap planar (one rotation at the new vertex has genus 0)": 52,
+  "L13 cap simple cubic bipartite 3-edge-connected smaller": 52,
+  "L13 ell in {0,3}": 26,
+  "L13 glued cycles form a Hamiltonian cycle": 848,
+  "L13 shores connected": 26,
+  "L13 three distinct ends": 52,
+  "L2a face circuit is a bond": 895169,
+  "L2a no root face meets the cut side": 66944,
+  "L2a number of bonds = number of face circuits": 32,
+  "L2a shore connected": 1790338,
+  "L2b Euler |S|+|U_S|=|E_S|+1": 1790338,
+  "L2b mixed face has a cut edge": 1790338,
+  "L2b mixed faces = circuit faces": 1790338,
+  "L3 common sigma": 3580676,
+  "L3 common sigma on state circuit": 66944,
+  "L4 capacity condition (3.1) holds iff a pair exists": 768,
+  "L4 irreducible graph has a pair for this root": 432,
+  "L4 minimal deficient set gives a nontrivial 3-cut with black inner ends": 238,
+  "L5 U = r(B_S) union C": 66944,
+  "L5 count 1: 3|S|+h=2|E_S|": 66944,
+  "L5 count 2: 3|B_S|+h=|E_S|+ell": 66944,
+  "L5 count 3: |S|+|U|=|E_S|+1": 66944,
+  "L5 count 4: |B_S|+h=|U|+ell": 66944,
+  "L5 delta sum = -3 sigma": 66944,
+  "L5 h=2ell+3": 66944,
+  "L5 state circuit is a bond": 66944,
+  "L5 |W_S|=|B_S|+1": 66944,
+  "L6 divergences": 768,
+  "L6 local potentials consistent": 8448,
+  "L6 second flow has the same divergences": 768,
+  "L6 slope = sigma |W_S| (path flow)": 66944,
+  "L6 slope = sigma |W_S| (second flow)": 66944,
+  "L7 circuit of Q_s is odd and avoids R": 14,
+  "L7 partner signs cancel": 14,
+  "L7 reversal is a sign-reversing involution on partners": 28,
+  "L7+L8 Z equals the sum over forest second states": 546,
+  "L8 Z nonzero": 546,
+  "L8 a pair with circuit-free Q_s exists": 546,
+  "L8 circuits of D are odd, length >= 3, cover X": 590,
+  "L8 difference has zero constant term and slope |W_S|>0": 906,
+  "L8 group has 2^c pairs": 590,
+  "L8 group sum equals (6.3)": 590,
+  "L8 lowest coefficient (6.4)": 546,
+  "L8 positive orientation has (h+3)/2 negative signs": 906,
+  "L9 K is a spanning tree": 6300,
+  "L9 degrees": 6300,
+  "L9 removed links form a face tree": 6300,
+  "Q_s has n distinct edges": 9480,
+  "T brute force: Hamiltonian cycle avoiding each edge": 1152,
+  "T: recursive construction gives a matching through e0 with connected complement": 2304,
+  "forest test agrees with union-find": 9480,
+  "input simple cubic bipartite genus 0 3-edge-connected": 32
+ },
+ "stats": {
+  "3-edge cuts": 794,
+  "Hamiltonian cycles": 1096,
+  "L13 rotations at cap vertex with genus 0: 1": 52,
+  "L9 for a forest state WITHOUT partner: K is not a tree": 19026,
+  "bonds by subset enumeration": 895169,
+  "cyclic second states with partners": 14,
+  "cyclic second states without partners": 1024,
+  "face circuits": 895169,
+  "forest second states with 1 partner(s)": 2100,
+  "forest states without partner": 6342,
+  "graphs": 32,
+  "graphs with 24 vertices": 32,
+  "graphs without nontrivial 3-edge cut": 18,
+  "matchings: compatible state False, complement connected False": 118992,
+  "matchings: compatible state True, complement connected True": 26304,
+  "minimum circuit number m=1": 408,
+  "minimum circuit number m=3": 138,
+  "nontrivial 3-edge cuts": 26,
+  "ordered pairs": 2128,
+  "perfect matchings": 6054,
+  "recoveries (forest state with partner, root edge)": 6300,
+  "rootings (b0, e0) solved by the recursion": 2304,
+  "rootings (vertex b0)": 768,
+  "rootings where (3.1) fails": 222,
+  "rootings with a pair": 546,
+  "solve: glue at depth 0": 1008,
+  "solve: glue at depth 1": 864,
+  "solve: main case at depth 0": 1296,
+  "solve: main case at depth 1": 1152,
+  "solve: main case at depth 2": 1728,
+  "state circuit length 11": 864,
+  "state circuit length 3": 25926,
+  "state circuit length 5": 19554,
+  "state circuit length 7": 14402,
+  "state circuit length 9": 6198,
+  "state circuits (all choices)": 66944,
+  "states": 9480
+ },
+ "failures": []
+}
