@@ -1,0 +1,14 @@
+[
+  {
+    "header": "W SIGNEDRHO V=60 graph=8 t0=13,58,46 k=1 pot=1 rho=3",
+    "potential": "(k,+psi,-om)",
+    "radius": 3,
+    "visited": 27
+  },
+  {
+    "header": "W SIGNEDRHO V=60 graph=8 t0=13,58,46 k=1 pot=4 rho=4",
+    "potential": "(k,+om,+psi)",
+    "radius": 4,
+    "visited": 115
+  }
+]

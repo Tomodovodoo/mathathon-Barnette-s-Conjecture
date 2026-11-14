@@ -31,12 +31,6 @@ def onecover(m):
   x,y,z=2+3*i,3+3*i,4+3*i;yp=3+3*((i-1)%m)
   g.add_edges_from([(0,x),(0,y),(x,y),(x,yp),(1,y),(1,z),(z,y),(z,yp),(z,x)])
  return rotation(g)
-def expand(rot,rng):
- # split an edge into a degree-four vertex; two inserted subdivisions preserve parity
- g=graph(rot);fs,_=faces(rot);u,v=rng.choice(list(g.edges()));opp=[next(x for x in f if x not in (u,v)) for f in fs if u in f and v in f]
- # splitting two incident edges at u with the same opposite pair is not general.
- # use white-face octahedral insertion instead; valid and deliberately product-biased.
- return rot
 if __name__=='__main__':
  out=[];rng=random.Random(20261114)
  def run(label,rot,R=None):

@@ -1,0 +1,120 @@
+{
+  "counts": [
+    {
+      "V": 8,
+      "four": 0,
+      "five": 0,
+      "blocked_five": 0
+    },
+    {
+      "V": 9,
+      "four": 0,
+      "five": 0,
+      "blocked_five": 0
+    },
+    {
+      "V": 10,
+      "four": 0,
+      "five": 0,
+      "blocked_five": 0
+    },
+    {
+      "V": 11,
+      "four": 36,
+      "five": 0,
+      "blocked_five": 0
+    },
+    {
+      "V": 12,
+      "four": 0,
+      "five": 0,
+      "blocked_five": 0
+    },
+    {
+      "V": 13,
+      "four": 64,
+      "five": 4,
+      "blocked_five": 0
+    },
+    {
+      "V": 14,
+      "four": 96,
+      "five": 48,
+      "blocked_five": 48
+    },
+    {
+      "V": 15,
+      "four": 360,
+      "five": 30,
+      "blocked_five": 0
+    },
+    {
+      "V": 16,
+      "four": 484,
+      "five": 84,
+      "blocked_five": 68
+    }
+  ],
+  "first": {
+    "four": {
+      "V": 11,
+      "gid": 1,
+      "root": [
+        0,
+        1,
+        6
+      ],
+      "cycle": [
+        2,
+        0,
+        4,
+        9
+      ],
+      "inside": [
+        3
+      ]
+    },
+    "five": {
+      "V": 13,
+      "gid": 4,
+      "root": [
+        0,
+        3,
+        2
+      ],
+      "cycle": [
+        4,
+        0,
+        7,
+        10,
+        11
+      ],
+      "inside": [
+        5,
+        6,
+        12
+      ]
+    },
+    "blocked_five": {
+      "V": 14,
+      "gid": 22,
+      "root": [
+        0,
+        1,
+        8
+      ],
+      "cycle": [
+        2,
+        0,
+        5,
+        10,
+        11
+      ],
+      "inside": [
+        3,
+        4,
+        12
+      ]
+    }
+  }
+}

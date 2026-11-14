@@ -6,6 +6,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -14,6 +16,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -22,6 +26,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -30,6 +36,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -38,6 +46,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -46,6 +56,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -54,6 +66,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -62,6 +76,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -70,6 +86,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -78,6 +96,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -86,6 +106,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -94,6 +116,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -102,6 +126,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -110,6 +136,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -118,6 +146,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -126,6 +156,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -134,6 +166,8 @@
       "reachable": 4,
       "good_reachable": 2,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -142,6 +176,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -150,6 +186,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -158,6 +196,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -166,6 +206,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -174,6 +216,8 @@
       "reachable": 10,
       "good_reachable": 6,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -182,6 +226,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -190,6 +236,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -198,6 +246,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -206,6 +256,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -214,6 +266,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -222,6 +276,8 @@
       "reachable": 4,
       "good_reachable": 2,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -230,6 +286,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -238,6 +296,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -246,6 +306,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -254,6 +316,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -262,6 +326,8 @@
       "reachable": 10,
       "good_reachable": 6,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -270,6 +336,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -278,6 +346,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -286,6 +356,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -294,6 +366,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -302,6 +376,8 @@
       "reachable": 1,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -310,6 +386,8 @@
       "reachable": 8,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -318,6 +396,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -326,6 +406,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -334,6 +416,8 @@
       "reachable": 4,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -342,6 +426,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -350,6 +436,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -358,6 +446,8 @@
       "reachable": 4,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -366,6 +456,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -374,6 +466,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -382,6 +476,8 @@
       "reachable": 6,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -390,6 +486,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -398,6 +496,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -406,6 +506,8 @@
       "reachable": 34,
       "good_reachable": 24,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -414,6 +516,8 @@
       "reachable": 16,
       "good_reachable": 12,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -422,6 +526,8 @@
       "reachable": 34,
       "good_reachable": 24,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -430,6 +536,8 @@
       "reachable": 16,
       "good_reachable": 12,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -438,6 +546,8 @@
       "reachable": 3,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -446,6 +556,8 @@
       "reachable": 4,
       "good_reachable": 1,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_17.txt"
     },
     {
@@ -454,6 +566,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -462,6 +576,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -470,6 +586,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -478,6 +596,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -486,6 +606,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -494,6 +616,8 @@
       "reachable": 34,
       "good_reachable": 24,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -502,6 +626,8 @@
       "reachable": 16,
       "good_reachable": 12,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -510,6 +636,8 @@
       "reachable": 34,
       "good_reachable": 24,
       "strict_lower": 0,
+      "escape_radius": 3,
+      "certificate_holds": true,
       "source": "census_21.txt"
     },
     {
@@ -518,6 +646,8 @@
       "reachable": 16,
       "good_reachable": 12,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_16.txt"
     },
     {
@@ -526,6 +656,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -534,6 +666,8 @@
       "reachable": 4,
       "good_reachable": 1,
       "strict_lower": 0,
+      "escape_radius": 2,
+      "certificate_holds": true,
       "source": "census_17.txt"
     },
     {
@@ -542,6 +676,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_18.txt"
     },
     {
@@ -550,6 +686,8 @@
       "reachable": 2,
       "good_reachable": 0,
       "strict_lower": 0,
+      "escape_radius": null,
+      "certificate_holds": true,
       "source": "census_18.txt"
     }
   ],

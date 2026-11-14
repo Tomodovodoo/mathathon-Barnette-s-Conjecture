@@ -1,6 +1,5 @@
 from check import *
 import re,collections
-exec((BASE/'code/witnesses.py').read_text().split('out=[]')[0].split('import re')[0]) if False else None
 
 def geometry(rot,R):
  fs,col=faces(rot); ri=next(i for i,f in enumerate(fs) if set(f)==set(R)); owner={}
@@ -53,7 +52,15 @@ def run(line):
  for z in todo:
   for w in near[z]:
    if w not in reached and cost[w]<=cost[z]:reached.add(w);todo.append(w)
- return dict(header=head,component=len(adj),reachable=len(reached),good_reachable=sum(vals[z][0]==0 for z in reached),strict_lower=sum(cost[w]<cost[p] for w in near[p]))
+ distances={p:0};queue=[p];rho=None
+ for z in queue:
+  if cost[z]<cost[p]:rho=distances[z];break
+  for w in adj[z]:
+   if w not in distances:distances[w]=distances[z]+1;queue.append(w)
+ strict_lower=sum(cost[w]<cost[p] for w in near[p]);good_reachable=sum(vals[z][0]==0 for z in reached)
+ valid=(good_reachable==0) if 'TRAP' in head else (strict_lower==0) if 'SINK' in head else (rho if rho is not None else 99)==int(re.search(r'extra=(\d+)',head)[1])
+ assert valid,head
+ return dict(header=head,component=len(adj),reachable=len(reached),good_reachable=good_reachable,strict_lower=strict_lower,escape_radius=rho,certificate_holds=valid)
 if __name__=='__main__':
  out=[]
  for line in (REPO/'research/2026-11-14_fable_descent/data/witnesses.txt').read_text().splitlines():

@@ -1,4 +1,4 @@
-﻿# Independent referee computations
+# Independent referee computations
 
 Run commands from the repository root with Python 3.14. All outputs are written beside these scripts, inside the assigned referee directory. No author verification code is imported. Plantri 4.5 is the only census generator. NetworkX is used for ordinary planarity/connectedness in selected geometry and family scripts.
 
@@ -31,3 +31,23 @@ Implementation details relevant to independence:
 `potentials.py` computes enclosed white-face counts by flood fill across nonboundary edges. It integrates the signed increments over each exchange component and checks consistency at every edge. Its face-walk orientation is opposite the labels used by the report; both om and psi are negated once when evaluating those labels. This convention is fixed for all inputs. Reversing the embedding exchanges both height signs. The method checks increment integrability and the named potential traps, not a separate solution of the spoke-weight linear system.
 
 All heavy runs were sequential. No run was intentionally allowed beyond ten minutes. JSON outputs report counts or exact certificates, not a proof of an unbounded claim. See the referee reports for unreplayed ranges and source limitations.
+
+Additional completed checks and commands:
+
+- `python research/2026-11-14_astra_referee-descent/code/covers.py` validates a second, cover-first enumerator against all incidence-bijection pairs through V=16; output `covers_validation.json`.
+- `python research/2026-11-14_astra_referee-descent/code/recover40.py 0 40` performs a complete independent C3 replay on all roots of the 40-graph batch, writes `summary40_0_40.json`, and preserves complete replacement certificates in `recovered40_0_40.json`. It takes about 63 seconds with the cover-first enumerator. The earlier graph-21 run used matching-first enumeration and took about 162 seconds.
+- `python research/2026-11-14_astra_referee-descent/code/signed_radii.py` produces `signed_radii.json` by bounded BFS with geometry-derived increments.
+- `python research/2026-11-14_astra_referee-descent/code/height_minimality.py` produces `height_minimality.json`, complete through V=17.
+- `python research/2026-11-14_astra_referee-descent/code/c3_census.py 6 19` and `.../c3_census.py 20 20` produce the extended C3 census and two-step escape checks.
+
+The first minimal-region test included the octahedron, which is outside G's V>6 domain. The final script and output start at V=8. An attempted author-executable locator was abandoned because the shared executable had disappeared; it supplied no evidence. The radius-four witness was found by the new cover-first enumerator instead. The regenerated raw input is fully saved, so subsequent verification does not require that external generator.
+
+Final certificate extensions:
+
+- `python research/2026-11-14_astra_referee-descent/code/recover50.py` regenerates skew/50/12/6 graph 11 and checks the selected root's complete exchange components. `recovered50.json` replaces the truncated V=50 two-move size/area certificates.
+- `python research/2026-11-14_astra_referee-descent/code/macro40.py` searches the saved 40-vertex raw batch for radius-two local optima of the eight signed three-entry potentials. Seven are found directly. It then calls `finalize_macro.py`, which reflects the eighth from its both-signs-reversed partner and verifies all eight radius-two balls; `macro40.json` contains full certificates. Running `finalize_macro.py` alone rechecks the saved certificates.
+- `python research/2026-11-14_astra_referee-descent/code/cover_obstructions.py` uses the saved exception census only as an input index, reconstructs every listed contraction, independently enumerates all cover orientations, and records `cover_obstructions.json`. The complete independent induction census already validates the exception totals through V=18.
+- `python research/2026-11-14_astra_referee-descent/code/outer_scope.py` searches for a state whose augmented outer graph is cyclic, recording `outer_scope_counterexample.json` for the qualification to RESIDUAL-CASES Proposition 2.
+- `python research/2026-11-14_astra_referee-descent/code/random_separator_free.py` generates 20 new graphs at V=26,30,34,40 with eight random roots each, seed 714993, rejecting degree-four splits that create separating triangles. Output `random_separator_free.json` records all rotations and 1,160 checked pairs. This distribution is biased and has no strict-descent sinks.
+- `python research/2026-11-14_astra_referee-descent/code/recover40.py 0 10` was the earlier partial search that produced `recovered40_0_10.json`; the complete 0-to-40 output supersedes it.
+- `python research/2026-11-14_astra_referee-descent/code/final_checks.py` checks script syntax, parses every JSON, checks saved verification flags, aggregates the independent counts in `verification_summary.json`, and compares current source hashes with the checkpoint in `source-changes.json`. The final comparison reports no changed source files. This script does not rerun the expensive enumerations.

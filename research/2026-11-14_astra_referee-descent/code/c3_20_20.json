@@ -1,0 +1,13 @@
+[
+  {
+    "V": 20,
+    "graphs": 15374,
+    "roots": 553464,
+    "paired_roots": 287110,
+    "pairs": 2468888,
+    "good": 2310964,
+    "strict_sinks": 2717,
+    "radius_over_two": 0,
+    "seconds": 350.386474609375
+  }
+]

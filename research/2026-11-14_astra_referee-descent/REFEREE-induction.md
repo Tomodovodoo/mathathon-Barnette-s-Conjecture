@@ -1,4 +1,4 @@
-﻿# Induction referee
+# Induction referee
 
 ## Audit boundary and exact statements
 
@@ -50,15 +50,25 @@ With e=|E_M|=|E_N| this proves #good(T)>=#good(T/M)+#good(T/N)-2e. In particular
 
 WRONG as an inference, corrected in Astra X.md. Theorem 4(c) says that absence of good states upstairs forces all contracted good states to be exceptional. It does not prove the converse. Thus the claim in MISSING-LEMMA.md that ML2 is equivalent to existence upstairs does not follow. Nor does equality |E_M|=|E_N| make the separate assertions 'some nonexception in M' and 'some nonexception in N' equivalent, since the two total counts may differ. Use the symmetric sufficient condition that at least one side has a nonexception. Astra's formulation uses that condition correctly.
 
+CORRECT AFTER FIX, scope of RESIDUAL-CASES Proposition 2. Its sentence that all states of T correspond to outer states is stronger than its definition permits: an outer state is required to have acyclic augmented outer Q. Only states satisfying that outer-forest condition have this correspondence. Good states of T and lifts of contracted good states do satisfy it, which is exactly the domain needed by the table and Theorems 3 and 4. Restrict that sentence; do not silently drop the acyclicity requirement.
+
+COMPUTED counterexample, with a directly checkable cycle. At V=8, root (0,1,4), x=6, take bounded black faces (0,3,2), (1,6,5), (1,2,7), (3,6,7), (3,4,5) and state (2,6,7,3,5). Its augmented outer graph contains the cycle 0-3-4-1-0. The full rotation is in code/outer_scope_counterexample.json. Thus the unrestricted state correspondence is false, while the forest-restricted correspondence used in the counting proof survives.
+
 ## Numerical verification and counterexample scope
 
-COMPUTED. code/induction.py enumerates states from incidence constraints, tests good states with a disjoint-set forest and separate roots, constructs contractions by face substitution, and finds the three-face rotation by testing the two cyclic permutations at each possible third face. It imports no author implementation. It compares actual exception image sets, not merely their cardinalities. Through V=17, the exception counts by V=13,14,15,16,17 are 8,20,80,358,1320. All tests of the rotation bijection, counting inequality, global half-exception bound and corner avoidance pass. The final output files specify any larger completed range.
+COMPUTED. code/induction.py enumerates states from incidence constraints, tests good states with a disjoint-set forest and separate roots, constructs contractions by face substitution, and finds the three-face rotation by testing the two cyclic permutations at each possible third face. It imports no author implementation. It compares actual exception image sets, not merely their cardinalities. Through V=18, the exception counts by V=13,14,15,16,17,18 are 8,20,80,358,1320,6154. All tests of the rotation bijection, counting inequality, global half-exception bound and corner avoidance pass. This is a full independent replay of all 7,940 exceptions and 1,202,792 rooted contractions through V=18.
 
 Corner avoidance means: if good states exist, then for every bounded black face and each specified corner, some good state avoids that corner. Equivalently each face assumes at least two values over the good states. It does not mean that every feasible local contraction type occurs. The half bound means 2|E_M|<=#good(T/M) separately for each contraction; it is not a bound within each cover. Both remain CONJECTURE beyond their computational ranges.
 
-The requested negative claims are logically distinct. At V=11 a singleton interior already proves inclusion-minimality of the bad four-cycle disk, but its only interior degree-four vertex has neither usable merge. At V=13 the bad pentagon interior has no usable degree-four vertex, but the source need not be blocked. At V=14 the stronger blocked-source rule fails. A local obstruction inside one such disk does not refute G because good vertices can lie outside. Claimed least orders above the independently enumerated region-minimality tests must remain author-reported.
+The requested negative claims are logically distinct. At V=11 a singleton interior already proves inclusion-minimality of the bad four-cycle disk, but its only interior degree-four vertex has neither usable merge. At V=13 the bad pentagon interior has no usable degree-four vertex, but the source need not be blocked. At V=14 the stronger blocked-source rule fails. A local obstruction inside one such disk does not refute G because good vertices can lie outside. COMPUTED. code/minimal_regions.json independently scans all roots and all obstruction regions through V=16, in the V>6 domain of G. It confirms first failures at V=11,13,14, respectively. Its minimality order is strict inclusion of interior vertex sets, matching the source.
 
 PROVED-HERE, fixed-cover obstruction mechanism CORRECT. D reversals preserve u and therefore the cover. A good state has a unique partner, by orienting its three rooted Q-trees. Recomputing the partner at a good state cannot change the cover. Consequently an exceptional good state in a cover with no nonexceptional good orientation admits no repair by any sequence of D reversals that stays good, or by any simultaneous subset reversal. The V=18 example asserts one 13-cycle, so only two orientations need be checked. This is stronger than the V=17 failure of one reversal; the latter has a two-reversal good repair. Neither statement rules out changing covers through nongood intermediate states.
+
+COMPUTED, decisive witness replay. code/induction_witnesses.json gives 22 states, 10 pairs and eight good states for the V=18 contraction, with classes six directly lifting and two exceptional. Its 13-cycle cover has exactly the bad/E orientations. The V=17 contraction has 18 states, eight pairs and six good states, three lifting and three exceptional. Its two covers separately have L,E,bad,L and E,E,L,bad classes. The saved V=13 and V=14 pentagon disks have interiors {5,6,12} and {6,7,13}, respectively, one white boundary incidence, and no usable interior degree-four vertex. Both are inclusion-minimal among all bad-pentagon interiors in their rooted graphs. The V=11 disk has singleton interior {6} and neither merge there is usable.
+
+COMPUTED, exhaustive exceptional-cover replay. code/cover_obstructions.py uses the saved exception rows as an input index, then independently reconstructs each contraction and enumerates all cover orientations. Its output agrees with the independent complete exception census. No cover has only exceptional good orientations below V=18; there are 220 such rooted contraction-cover records at V=18. The per-cover half bound fails in two records at V=17 and 220 at V=18, while the global half bound never fails through V=18. These are counts of rooted records, not counts up to graph isomorphism. The least-order fixed-cover obstruction is therefore independently confirmed as V=18.
+
+COMPUTED. The region deficiency identity was independently checked for every connected induced complement containing a facial root, with both eligible color choices, through V=14; see code/deficiency_6_14.json. Root choices with the same complement and color give the same identity and are not repeatedly counted. G2/G3 were checked on every contracted nonroot subset, both merges, every degree-four nonroot and root through V=14; see code/contraction_formula.json. The exact short-cycle criterion was checked at every merge of every separator-free rooted input through V=16 by direct pair enumeration; see code/structure_6_16.json.
 
 ## Dependency graph and remaining obligations
 
@@ -96,5 +106,19 @@ No alternative proof through signed existence is silently inserted into I0. The 
 | X4 | existence upstairs implies nonexception downstairs | claimed equivalence | AND | too strong | no reverse implication supplied | failing |
 
 ## Verdict
+
+| Claim and scope | Verdict | Status and independent evidence |
+| --- | --- | --- |
+| Connected-complement deficiency identity | CORRECT | PROVED-HERE derivation above; COMPUTED 699,666 checks through V=14 |
+| Contraction deficiency identities G2/G3 | CORRECT | PROVED-HERE local contribution calculation; COMPUTED 6,202,336 checks through V=14 |
+| Exact four-/five-cycle obstruction criterion | CORRECT | PROVED-HERE with imported pair criterion; COMPUTED 48,388 merge checks through V=16 |
+| G without chordless pentagons, V>6 | CORRECT | PROVED-HERE crossing-path proof above |
+| Inward-selection failures first at V=11,13,14 | CORRECT | REFUTED strategies; COMPUTED exhaustive region test through V=16 |
+| Fixed-cover repair first fails at V=18 | CORRECT | REFUTED strategy; COMPUTED all exception records and cover orientations through V=18 |
+| Corner avoidance and global half bound through V=18 | CORRECT | COMPUTED complete contraction census; CONJECTURE in general |
+| Rotation bijection and two-sided counting inequality | CORRECT | PROVED-HERE forest proof; COMPUTED all 7,940 exceptions through V=18 |
+| All states have the asserted outer-state correspondence | CORRECT AFTER FIX | REFUTED unrestricted wording at V=8; retain the outer-forest domain |
+| Claimed equivalence between upstairs existence and a downstairs nonexception | GAP | The necessary reverse implication is absent; retain only sufficiency |
+| General cancellation-free contraction induction | GAP | CONJECTURE G and X remain the two missing obligations |
 
 Deficiency, exact obstruction classification, restricted G, rotation bijection and counting bound: CORRECT. The asserted equivalence in MISSING-LEMMA.md: GAP, with Astra's sufficient-condition correction CORRECT AFTER FIX. General G and X: GAP as a cancellation-free proof, not refuted. Finite corner avoidance and the half bound must remain COMPUTED, not general lemmas. The fixed-cover repair strategy is REFUTED once its two orientations are checked; it does not refute X.

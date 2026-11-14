@@ -1,0 +1,206 @@
+[
+  {
+    "V": 6,
+    "pairs": 16,
+    "good": 16,
+    "paired_roots": 8,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.009172677993774414
+  },
+  {
+    "V": 7,
+    "pairs": 0,
+    "good": 0,
+    "paired_roots": 0,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.00576019287109375
+  },
+  {
+    "V": 8,
+    "pairs": 24,
+    "good": 24,
+    "paired_roots": 12,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.0067479610443115234
+  },
+  {
+    "V": 9,
+    "pairs": 32,
+    "good": 32,
+    "paired_roots": 8,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.00713038444519043
+  },
+  {
+    "V": 10,
+    "pairs": 64,
+    "good": 64,
+    "paired_roots": 32,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.00951385498046875
+  },
+  {
+    "V": 11,
+    "pairs": 112,
+    "good": 112,
+    "paired_roots": 28,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.01109004020690918
+  },
+  {
+    "V": 12,
+    "pairs": 376,
+    "good": 372,
+    "paired_roots": 120,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.03716325759887695
+  },
+  {
+    "V": 13,
+    "pairs": 528,
+    "good": 520,
+    "paired_roots": 126,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.05081439018249512
+  },
+  {
+    "V": 14,
+    "pairs": 2128,
+    "good": 2100,
+    "paired_roots": 546,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.22051668167114258
+  },
+  {
+    "V": 15,
+    "pairs": 4816,
+    "good": 4672,
+    "paired_roots": 914,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 0,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 0
+    },
+    "seconds": 0.5553953647613525
+  },
+  {
+    "V": 16,
+    "pairs": 16648,
+    "good": 16178,
+    "paired_roots": 3294,
+    "strict_sinks": {
+      "(k,+om,+psi)": 1,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 1,
+      "(k,+psi,+om)": 1,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 1
+    },
+    "seconds": 2.189687490463257
+  },
+  {
+    "V": 17,
+    "pairs": 50024,
+    "good": 48068,
+    "paired_roots": 8042,
+    "strict_sinks": {
+      "(k,+om,+psi)": 0,
+      "(k,+om,-psi)": 0,
+      "(k,-om,+psi)": 0,
+      "(k,-om,-psi)": 3,
+      "(k,+psi,+om)": 0,
+      "(k,+psi,-om)": 0,
+      "(k,-psi,+om)": 0,
+      "(k,-psi,-om)": 3
+    },
+    "seconds": 7.449582576751709
+  }
+]

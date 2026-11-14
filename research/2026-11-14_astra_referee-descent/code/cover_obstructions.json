@@ -1,0 +1,50 @@
+{
+  "13": {
+    "contractions": 8,
+    "exceptions": 8,
+    "exception_covers": 8,
+    "all_exception_covers": 0,
+    "per_cover_half_fail": 0,
+    "global_half_fail": 0
+  },
+  "14": {
+    "contractions": 20,
+    "exceptions": 20,
+    "exception_covers": 20,
+    "all_exception_covers": 0,
+    "per_cover_half_fail": 0,
+    "global_half_fail": 0
+  },
+  "15": {
+    "contractions": 80,
+    "exceptions": 80,
+    "exception_covers": 80,
+    "all_exception_covers": 0,
+    "per_cover_half_fail": 0,
+    "global_half_fail": 0
+  },
+  "16": {
+    "contractions": 314,
+    "exceptions": 358,
+    "exception_covers": 314,
+    "all_exception_covers": 0,
+    "per_cover_half_fail": 0,
+    "global_half_fail": 0
+  },
+  "17": {
+    "contractions": 1146,
+    "exceptions": 1320,
+    "exception_covers": 1152,
+    "all_exception_covers": 0,
+    "per_cover_half_fail": 2,
+    "global_half_fail": 0
+  },
+  "18": {
+    "contractions": 4644,
+    "exceptions": 6154,
+    "exception_covers": 4969,
+    "all_exception_covers": 220,
+    "per_cover_half_fail": 220,
+    "global_half_fail": 0
+  }
+}

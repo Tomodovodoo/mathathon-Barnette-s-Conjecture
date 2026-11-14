@@ -1,6 +1,6 @@
-﻿from structure import *
+from structure import *
 out=[];first={}
-for v in range(6,17):
+for v in range(8,17):
  counts=dict(four=0,five=0,blocked_five=0)
  for gid,line in enumerate(subprocess.run([str(P),'-ba',str(v)],capture_output=True,check=True).stdout.decode().splitlines()):
   rot=parse(line);result=structure(rot)
