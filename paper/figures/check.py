@@ -273,7 +273,7 @@ def running():
         return (xrow[e[0]] - xrow[f[0]]) * (trow[e[1]] - trow[f[1]]) < 0
     ue = sorted((v[1], t[1]) for v, t in used)
     crossings = sum(crosses(e, f) for e, f in it.combinations(ue, 2))
-    assert crossings == sum(len(c) - 1 for c in cycles) == 8     # the least possible for these cycles on two columns
+    assert crossings == sum(len(c) - 1 for c in cycles) == 8     # h - 1 crossings for a cycle of 2h incidences
     out['flow'] = dict(value=value, cut=cut, S=sorted(S), tight_faces=tight_faces, xrow=xrow, trow=trow,
                        noflow=noflow, crossings=crossings, noflow_span=cost[0],
                        first=[(v, t) for t, v in zip(m.A, r)], second=[(v, t) for t, v in zip(m.A, s)])

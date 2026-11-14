@@ -155,3 +155,17 @@ COMPUTED: `research/2026-11-14_astra_main-revision/verify_final.py` checks the
 main paper's final figure scales and reruns the example and toolkit assertions.
 The same folder contains all before/after page renders and selected grey print
 proofs. Existing filenames and the checked mathematical data are unchanged.
+
+## Final polish, 14 November 2026
+
+**Vertex labels are placed by computation.** Every layer of `Panel` registers what it draws as sample disks (`ob_disc`, `ob_seg`, `ob_edge`, `ob_curve`), and `vertices(labels=...)` places each number against them. A label keeps its default offset (`LBL` or the radial one) when its box is on white and at least 1pt from every registered object. Otherwise `place_label` searches offsets from 0.20cm to 0.70cm in steps of 5 degrees and takes the best one, preferring white ground, then nearness to the vertex. A label on a shaded face is a fallback and shows its white halo. Root labels sit outside the collar. Call `vertices` after every other layer, and register hand-drawn objects with `ob_disc` or `ob_seg` first, as `08-disk` and `17-heights` do.
+
+COMPUTED (`draw.py`, written to `label-placement.json`): all 129 placed labels of the eighteen figures, root labels aside, are at least 0.5pt from every registered object, and `draw.py` fails if one is not. All but four are at least 0.95pt away. The four are vertex 2 in `13-selected`(a) at 0.86pt, vertex 7 in `13-selected`(b) at 0.88pt, and vertices 7 and 8 in `14-gluing`(c) at 0.56pt and 0.92pt. Line widths and marker radii in the registry are entered by hand from `barnette-figs.sty`, so this is a check of the stated geometry and not of the rendered pixels. Every figure used in the main paper was also rendered at 200 dpi and inspected.
+
+`03-dual` is drawn at unit 0.9 (10.9cm wide) to give its labels room among the edges of G. The main paper sets it at `0.69\textwidth`.
+
+**`06-flow` is redrawn** in four columns: source, vertices, black triangles, sink. Vertices are circles with their number and triangles are grey boxes with their corners, so no label lies on an edge. Capacities are stated once under the three gaps. Incidences of the first state are double vermilion lines, those of the second state solid blue, and incidences without flow thin and light. The tight set `S = {2}` is ringed.
+
+COMPUTED (`check.running`, record `flow`): the displayed pair gives a feasible integral flow, conserved at every node, of value `2|X| = 20`. That is the maximum flow (NetworkX) and the capacity of the cut with source side `{source, 2}`. The rows fold each cycle of used incidences, down on the even rows and back on the odd ones, so every used incidence joins equal or neighbouring rows. The used incidences then cross 8 times, which is `h - 1` for each cycle of `2h` incidences. Among the 168 folds and block orders, the drawn one has the least total row span of the incidences without flow.
+
+The gallery now has ten pages, because `03-dual` and `06-flow` are larger.
