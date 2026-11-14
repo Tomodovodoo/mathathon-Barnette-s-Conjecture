@@ -1,0 +1,8 @@
+plantri_6_0 {'factors': 54, 'black projection is a tree matching': 54, 'white projection is a tree matching': 54, 'both': 54, 'neither': 0}
+plantri_8_0 {'factors': 122, 'black projection is a tree matching': 122, 'white projection is a tree matching': 122, 'both': 122, 'neither': 0}
+plantri_9_0 {'factors': 240, 'black projection is a tree matching': 216, 'white projection is a tree matching': 216, 'both': 192, 'neither': 0}
+plantri_10_0 {'factors': 218, 'black projection is a tree matching': 218, 'white projection is a tree matching': 218, 'both': 218, 'neither': 0}
+plantri_10_1 {'factors': 346, 'black projection is a tree matching': 297, 'white projection is a tree matching': 297, 'both': 261, 'neither': 13}
+plantri_11_0 {'factors': 472, 'black projection is a tree matching': 384, 'white projection is a tree matching': 420, 'both': 334, 'neither': 2}
+plantri_11_1 {'factors': 596, 'black projection is a tree matching': 548, 'white projection is a tree matching': 548, 'both': 500, 'neither': 0}
+TOTAL {'factors': 2048, 'black projection is a tree matching': 1839, 'white projection is a tree matching': 1875, 'both': 1681, 'neither': 15}

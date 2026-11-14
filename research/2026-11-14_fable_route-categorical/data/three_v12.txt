@@ -1,0 +1,2 @@
+sides of separating triangles with an interior vertex: 278
+  realised label words ('001', '010', '011') : 278

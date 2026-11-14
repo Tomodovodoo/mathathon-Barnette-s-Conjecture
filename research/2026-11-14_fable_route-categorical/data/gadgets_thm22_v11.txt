@@ -1,0 +1,18 @@
+disks D with signs ++--
+  A0: no forcing cap found
+  A1: no forcing cap found
+  A2: no forcing cap found
+  A3: no forcing cap found
+  P01: no forcing cap found
+  P12: no forcing cap found
+  X02: no forcing cap found
+  X13: 660 forcing (cap, face, edge) triples; smallest chordless or first: interior=0 faces=2 plantri_6_0 cycle=(0, 1, 4, 3) face=(0, 4, 1) edge=(0, 4) cap chords in D frame=[(0, 2)]
+disks D with signs +-+-
+  A0: no forcing cap found
+  A1: no forcing cap found
+  A2: no forcing cap found
+  A3: no forcing cap found
+  P01: no forcing cap found
+  P12: no forcing cap found
+  X02: no forcing cap found
+  X13: no forcing cap found
