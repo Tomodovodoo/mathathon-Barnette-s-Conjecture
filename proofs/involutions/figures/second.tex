@@ -1,5 +1,5 @@
-\begin{tikzpicture}[baseline=(current bounding box.center),bf,x=1.45cm,y=1.45cm]
-\path[use as bounding box] (-2.6,-2.2) rectangle (1.0,2.3);\clip (-2.6,-2.2) rectangle (1.0,2.3);
+\begin{tikzpicture}[baseline=(current bounding box.center),bf,x=1.4cm,y=1.4cm]
+\path[use as bounding box] (-2.6,-2.25) rectangle (1.0,2.75);\clip (-2.6,-2.25) rectangle (1.0,2.75);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5];
 \fill[bfblack] (-0.335,-0.716) -- (-1.535,-0.215) -- (-4.330,-2.500) -- (-0.335,-0.716) -- cycle;
 \fill[bfblack] (-2.215,-0.099) -- (-1.908,0.944) -- (-4.330,-2.500) -- (-2.215,-0.099) -- cycle;
@@ -75,16 +75,20 @@
 \draw[bf spoke] (-0.429,-0.188) -- (-0.677,-0.021);
 \draw[bf spoke] (-0.121,0.537) -- (-0.275,0.175);
 \draw[bf spoke] (-0.648,1.334) -- (-0.565,0.672);
+\draw[bfW,densely dashed,line width=.7pt] (-0.112,-1.905) -- (-3.612,4.157);
+\draw[bfW,densely dashed,line width=.7pt] (-0.044,0.074) -- (-3.544,6.136);
 \draw[bf kept] (-2.067,-1.144) -- (-0.335,-0.716);
-\draw[bfW,densely dashed,thin] (-0.112,-1.905) -- (-3.353,3.709);
-\draw[bfW,densely dashed,thin] (-0.849,-0.317) -- (-3.234,3.813);
+\draw[bf kept] (-0.998,2.440) -- (-1.086,1.376);
+\draw[black,line width=.6pt,fill=black] (-0.741,-0.816) circle[radius=2.2pt];
+\draw[black,line width=.6pt,fill=white] (-1.201,-0.018) circle[radius=2.2pt];
+\draw[black,line width=.6pt,fill=black] (-1.050,1.816) circle[radius=2.2pt];
 \node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.112,-1.905) {$w_{5}$};
-\node[fill=white,font=\footnotesize,inner sep=.3pt] at (-1.201,-0.930) {$t_{0}$};
-\draw[bf kept] (-0.926,0.145) -- (-1.535,-0.215);
-\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.849,-0.317) {$w_{6}$};
-\node[fill=white,font=\footnotesize,inner sep=.3pt] at (-1.230,-0.035) {$t_{7}$};
-\end{tikzpicture}\quad$\longleftrightarrow$\quad\begin{tikzpicture}[baseline=(current bounding box.center),bf,x=1.45cm,y=1.45cm]
-\path[use as bounding box] (-2.6,-2.2) rectangle (1.0,2.3);\clip (-2.6,-2.2) rectangle (1.0,2.3);
+\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.044,0.074) {$w_{16}$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-1.750,-1.320) {$t_0$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-1.020,0.380) {$t_7$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-0.720,2.500) {$t_{11}$};
+\end{tikzpicture}\quad$\longleftrightarrow$\quad\begin{tikzpicture}[baseline=(current bounding box.center),bf,x=1.4cm,y=1.4cm]
+\path[use as bounding box] (-2.6,-2.25) rectangle (1.0,2.75);\clip (-2.6,-2.25) rectangle (1.0,2.75);
 \fill[bfblack,even odd rule] (0,0) circle[radius=5.55] (0,0) circle[radius=5];
 \fill[bfblack] (-0.335,-0.716) -- (-1.535,-0.215) -- (-4.330,-2.500) -- (-0.335,-0.716) -- cycle;
 \fill[bfblack] (-2.215,-0.099) -- (-1.908,0.944) -- (-4.330,-2.500) -- (-2.215,-0.099) -- cycle;
@@ -128,10 +132,10 @@
 \draw[bf edge] (-0.293,1.953) -- (0.477,0.764);
 \draw[bf edge] (0.477,0.764) -- (-0.275,0.175);
 \draw[bf D] (-1.535,-0.215) -- (-0.335,-0.716);
-\draw[bf D] (-1.908,0.944) -- (-2.215,-0.099);
+\draw[bf D] (-2.215,-0.099) -- (-1.908,0.944);
 \draw[bf D] (-0.677,-0.021) -- (-1.535,-0.215);
-\draw[bf D] (-2.215,-0.099) -- (-1.086,1.376);
-\draw[bf D] (-1.086,1.376) -- (-1.908,0.944);
+\draw[bf D] (-1.086,1.376) -- (-2.215,-0.099);
+\draw[bf D] (-1.908,0.944) -- (-1.086,1.376);
 \draw[bf D] (0.477,0.764) -- (-0.293,1.953);
 \draw[bf D] (-0.335,-0.716) -- (0.477,0.764);
 \draw[bf D] (-0.275,0.175) -- (-0.677,-0.021);
@@ -151,21 +155,25 @@
 \fill[bf vertex] (0.477,0.764) circle[radius=1.4pt];
 \fill[bf vertex] (-0.275,0.175) circle[radius=1.4pt];
 \draw[bf spoke] (-2.067,-1.144) -- (-0.335,-0.716);
-\draw[bf spoke] (-2.817,-0.551) -- (-2.215,-0.099);
+\draw[bf spoke] (-2.817,-0.551) -- (-1.908,0.944);
 \draw[bf spoke] (-0.926,0.145) -- (-1.535,-0.215);
-\draw[bf spoke] (-1.612,0.354) -- (-1.086,1.376);
-\draw[bf spoke] (-0.998,2.440) -- (-1.908,0.944);
+\draw[bf spoke] (-1.612,0.354) -- (-2.215,-0.099);
+\draw[bf spoke] (-0.998,2.440) -- (-1.086,1.376);
 \draw[bf spoke] (0.061,2.572) -- (-0.293,1.953);
 \draw[bf spoke] (1.491,-0.817) -- (0.477,0.764);
 \draw[bf spoke] (-0.429,-0.188) -- (-0.677,-0.021);
 \draw[bf spoke] (-0.121,0.537) -- (-0.275,0.175);
 \draw[bf spoke] (-0.648,1.334) -- (-0.565,0.672);
-\draw[bf kept] (-2.067,-1.144) -- (-0.335,-0.716);
-\draw[bfW,densely dashed,thin] (-0.112,-1.905) -- (-3.353,3.709);
-\draw[bfW,densely dashed,thin] (-0.849,-0.317) -- (-3.234,3.813);
-\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.112,-1.905) {$w_{5}$};
-\node[fill=white,font=\footnotesize,inner sep=.3pt] at (-1.201,-0.930) {$t_{0}$};
+\draw[bfW,densely dashed,line width=.7pt] (-0.112,-1.905) -- (-3.612,4.157);
+\draw[bfW,densely dashed,line width=.7pt] (-0.044,0.074) -- (-3.544,6.136);
 \draw[bf kept] (-0.926,0.145) -- (-1.535,-0.215);
-\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.849,-0.317) {$w_{6}$};
-\node[fill=white,font=\footnotesize,inner sep=.3pt] at (-1.230,-0.035) {$t_{7}$};
+\draw[bf kept] (-0.998,2.440) -- (-1.086,1.376);
+\draw[black,line width=.6pt,fill=white] (-0.741,-0.816) circle[radius=2.2pt];
+\draw[black,line width=.6pt,fill=black] (-1.201,-0.018) circle[radius=2.2pt];
+\draw[black,line width=.6pt,fill=black] (-1.050,1.816) circle[radius=2.2pt];
+\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.112,-1.905) {$w_{5}$};
+\node[draw=bfW,circle,fill=white,inner sep=1pt,font=\footnotesize] at (-0.044,0.074) {$w_{16}$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-1.750,-1.320) {$t_0$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-1.020,0.380) {$t_7$};
+\node[fill=white,font=\footnotesize,inner sep=.6pt] at (-0.720,2.500) {$t_{11}$};
 \end{tikzpicture}

@@ -276,9 +276,13 @@ $\iota_1$ exists, and its underlying pair has $Q_s$ a forest.
 \section{Marks without a drawing}\label{paths}
 The following version uses only the oriented sphere map, its face incidences,
 and a fixed tree in the dual graph rooted at $t_0$. No coordinates, rays,
-or general-position choices enter its definitions. For each white face $w$
-let $w=f_0,f_1,\ldots,f_j=t_0$ be its tree path. At each bounded black
-face $t=f_i$, the entering and leaving sides meet in a corner $v$.
+or general-position choices enter its definitions. A side of a simple
+cycle is inside when it does not contain $t_0$, and the cycle is
+counterclockwise when its inside lies to its left; with this reading
+Lemma~\ref{disk} and $J$ need no drawing. For each white face $w$
+let $w=f_0,f_1,\ldots,f_j=t_0$ be its tree path. Its faces are distinct,
+and only the last is $t_0$. At each black
+face $t=f_i$ with $0<i<j$, the entering and leaving sides meet in a corner $v$.
 Set $\kappa_w(i)=1$ if this turn has $v$ on its left and $-1$ if
 it has $v$ on its right, using the orientation of the sphere map.
 This is the turn convention of the main paper, Section 4.
@@ -294,25 +298,44 @@ A spoke here means the formal incidence of a triangle with a corner.
 Such incidences have their cyclic order from the sphere map.
 
 \begin{lemma}\label{path-crossings}
-These lists have the same parity, alternation, and first-exit sign rules
-as the ray lists. With these lists and direction bits, both involutions,
-the fixed-set formula, and the alternating constructor hold unchanged.
+Let $C$ be a spoke cycle of a pair and $w$ a white face.
+\begin{enumerate}
+\item The list of $C$ at $w$ has odd length exactly when $w$ is inside $C$.
+\item At consecutive entries of the list, $C$ crosses the path in opposite
+directions.
+\item If $w$ is inside $C$, then at the first entry $C$ crosses the path
+from right to left when $C$ is counterclockwise, and from left to right
+when it is clockwise.
+\end{enumerate}
+Consequently Lemmas~\ref{one}, \ref{two}, \ref{fixed} and \ref{walk} and
+the proof of Theorem~\ref{main} hold for path tokens, with these lists in
+place of the ray lists and with the same number $F$.
 \end{lemma}
 \begin{proof}
-Subdivide every black triangle into its three corner sectors by its formal
-centre-to-corner incidences. Passing through $t$ between two sides cuts off
-exactly their common corner $v$. It crosses the incidence at $v$ once and
-neither of the other two. Its local signed crossing with the incidence
-directed away from the centre is $-\kappa_w(i)$. Reversing the incidence
-changes this sign. This is a check of the two cyclic orders of the entering
-and leaving sides, so it uses no lengths or angles.
+Subdivide every black triangle of $A$ into three sectors by its formal
+centre-to-corner incidences. Each sector contains one side of the
+triangle, and the sectors on two sides share the incidence at their
+common corner. A step that enters $t$ by one side and leaves by another
+therefore passes from one sector to the next. It crosses the incidence
+at their common corner $v$ once and neither of the other two. If $v$ is
+on the left of the step, the incidence directed away from the centre
+points to the left, so it crosses the path from right to left. With left
+to right counted positive, its signed crossing is $-\kappa_w(i)$.
+Reversing the incidence changes this sign. This is a check of the two
+cyclic orders of the entering and leaving sides, so it uses no lengths
+or angles.
 
-Cut the subdivided sphere map along the simple incidence cycle $C$.
-The two components are its inside disk and its outside disk. The face path
-changes components exactly at the listed steps: in a triangle on $C$,
-the route $r(t),t,s(t)$ separates precisely the corner sectors at $r(t)$
-and $s(t)$ from each other, and the third turn crosses neither incidence.
-Successive listed steps therefore alternate exit and entry. The path ends
+The incidence cycle $C$ is simple, since its corners and its centres are
+distinct. Cut the subdivided sphere map along it. The two components are
+its inside disk and its outside disk. They contain the same white faces as
+the two sides of the side cycle, because the two cycles differ only by
+the sectors on the sides $r(t)s(t)$. The refined face path changes
+components exactly when it crosses an incidence of $C$. In a triangle
+$t$ on $C$ these are the incidences at $r(t)$ and $s(t)$, crossed by the
+turns around $r(t)$ and $s(t)$; a turn around $u(t)$ crosses neither.
+In white faces, in $t_0$ and in triangles off $C$ the path crosses no
+incidence of $C$. So the path changes components exactly at the listed
+steps, and successive listed steps alternate exit and entry. The path ends
 in $t_0$ on the outside, so its list is odd exactly when $w$ is inside.
 At a first exit, a counterclockwise cycle traverses the incidence from
 right to left relative to the path, and a clockwise cycle from left to
@@ -342,13 +365,15 @@ The counting proof and the finite alternating-path proof now apply without
 any further change.
 \end{proof}
 
-The marked-set size, first-fixed count, and path lengths depend on the
-chosen tree of face paths, even though they require no drawing. The
+The tree is a convenience. The proof uses only that each path is simple
+and ends at $t_0$, so any fixed family of such paths serves, as in the
+main paper. The marked-set size, first-fixed count, and path lengths depend on the
+chosen paths, even though they require no drawing. The
 minimum $m$, the enclosed-face counts, $F$, the common fixed sign and the
 signed sum depend only on the rooted oriented triangulation. The identities
 of fixed marked objects depend on the paths; their number does not.
 For this version $H(s)=-\sum_w\eta_s(w)=-\omega(s)$ exactly, with the
-main paper's turn heights. For rays the same cycle-reversal increments
+main paper's turn heights for the same paths and the same orientation of the sphere. For rays the same cycle-reversal increments
 hold; an additive constant may differ between unoriented-cover classes.
 This is a term-by-term bijective unpacking of the height proof for this
 particular height. The first involution is its cancellation lemma on
@@ -397,7 +422,7 @@ minimum search. A bound on the subsequent path is $|\Omega|-1$ moves.
 \section{What Li's note leaves unwritten}
 Li's Definitions 13--23 and Lemmas 34--35 give exactly the one-token
 version. Claim 25 is the disk count and Lemma 17 is our first sign change.
-Appendix B states the set convention, the rule for an unmarked cycle,
+Definition 14 states the set convention. Appendix B states the rule for an unmarked cycle,
 the case of exactly $c_{\min}$ cycles with one mark each, the priority
 rule (using the total order on cycles fixed in Li's Section 4.3), the
 reversal along a single cycle in the exterior case, the fixed set and
@@ -499,6 +524,11 @@ object, all fixed starts, the turn-sign rules, the corrected coefficient,
 and agreement of $F$ and the signed sum across both trees and the rays.
 The code and raw outputs are in
 \texttt{research/2026-11-14\_sol\_involutions-revision/}.
+A second referee's code, written from the text alone, reproduces every
+count in this paragraph in the same encoding. It repeats all checks of
+the face-path version with a depth-first tree, a random spanning tree,
+and independent random simple paths that form no tree; see
+\texttt{research/2026-11-14\_fable\_referee-involutions-v2/}.
 These are bounds in triangulation vertices; the corresponding cubic
 graphs have at most 24 vertices.
 An additional comparison computes the existing integer-weight polynomial's
@@ -525,6 +555,12 @@ solve the uniform Dirichlet equations at nonroots with root positions
 $(0,0),(100,0),(0,100)$ for roots $0,5,4$, respectively, in stored face order, then take the first positive
 integer shear making all crossings generic. Centres are barycentres.
 The listing uses that geometry, not the manuscript's optimized disk layout.
+In it the stored triples of \texttt{running.json} run clockwise. The main
+paper draws them counterclockwise, so our pictures of this example are
+mirror images of the main paper's, and each turn sign $\kappa$ in
+Figure~\ref{fig:paths} is the negative of the sign that the main paper's
+height figure shows at the same turn. The signed sum is the same in
+both orientations.
 The project's Li replay (\texttt{workings/barnette\_lab}) uses the same
 recipe with roots $4$ and $5$ interchanged. That drawing is the mirror
 image of ours, its rays cross other spokes, and it has $213$ objects,

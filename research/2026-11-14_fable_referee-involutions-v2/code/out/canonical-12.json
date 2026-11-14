@@ -1,0 +1,60 @@
+{
+ "command": "canonical.py 12 12",
+ "totals": {
+  "classes": 15,
+  "roots": 262,
+  "paired": 208,
+  "bfs+:objects": 1726,
+  "bfs+:fix2": 742,
+  "bfs+:fix1": 1714,
+  "bfs+:mplus1_zero": 61,
+  "bfs+:maxwalk": 2,
+  "bfs-:objects": 1774,
+  "bfs-:fix2": 742,
+  "bfs-:fix1": 1770,
+  "bfs-:mplus1_zero": 71,
+  "bfs-:maxwalk": 2,
+  "m=1": 152,
+  "ray:objects": 18770,
+  "ray:fix2": 742,
+  "ray:fix1": 18722,
+  "ray:mplus1_zero": 25,
+  "ray:walk0": 734,
+  "m=2": 36,
+  "m=3": 20,
+  "ray:walk2": 8
+ },
+ "witnesses": {
+  "9-vertex class 0 root 0": {
+   "m": 2,
+   "objects": 40,
+   "fix2": 4,
+   "branch": {
+    "unmarked": 22,
+    "move+reverse": 14
+   },
+   "separating_triangle": true
+  },
+  "11-vertex class 1 root 0": {
+   "m": 2,
+   "objects": 69,
+   "fix2": 5,
+   "branch": {
+    "unmarked": 42,
+    "move+reverse": 8,
+    "move": 14
+   },
+   "separating_triangle": false
+  },
+  "12-vertex class 0 root 0": {
+   "m": 3,
+   "objects": 1200,
+   "fix2": 28,
+   "branch": {
+    "unmarked": 1038,
+    "move+reverse": 134
+   },
+   "separating_triangle": true
+  }
+ }
+}

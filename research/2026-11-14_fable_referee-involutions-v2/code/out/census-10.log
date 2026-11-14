@@ -1,0 +1,65 @@
+v<=6: classes 1 roots 8 paired 8 F-total 8 m {1: 8} [0s]
+v<=7: classes 1 roots 8 paired 8 F-total 8 m {1: 8} [0s]
+v<=8: classes 2 roots 20 paired 20 F-total 32 m {1: 20} [0s]
+v<=9: classes 3 roots 34 paired 28 F-total 46 m {1: 20, 2: 8} [0s]
+v<=10: classes 5 roots 66 paired 60 F-total 142 m {1: 52, 2: 8} [1s]
+F 142
+bfs+:fix1 162
+bfs+:fix2 142
+bfs+:lists 1168
+bfs+:maxwalk 0
+bfs+:move 10
+bfs+:mplus1_zero 27
+bfs+:objects 162
+bfs+:unmarked 10
+bfs-:fix1 164
+bfs-:fix2 142
+bfs-:lists 1168
+bfs-:maxwalk 0
+bfs-:move 8
+bfs-:move+reverse 2
+bfs-:mplus1_zero 23
+bfs-:objects 164
+bfs-:unmarked 12
+dfs:fix1 938
+dfs:fix2 142
+dfs:lists 1168
+dfs:maxwalk 0
+dfs:move 394
+dfs:move+reverse 54
+dfs:mplus1_zero 6
+dfs:objects 938
+dfs:unmarked 348
+paired 60
+rand:fix1 246
+rand:fix2 142
+rand:lists 1168
+rand:maxwalk 0
+rand:move 58
+rand:move+reverse 22
+rand:mplus1_zero 20
+rand:objects 246
+rand:unmarked 24
+ray1:fix1 584
+ray1:fix2 142
+ray1:lists 1168
+ray1:maxwalk 0
+ray1:objects 584
+ray1:roots 60
+ray2:fix1 660
+ray2:fix2 142
+ray2:lists 1168
+ray2:maxwalk 0
+ray2:objects 660
+ray2:roots 60
+roots 66
+walk:fix1 430
+walk:fix2 142
+walk:lists 1168
+walk:maxwalk 0
+walk:move 160
+walk:move+reverse 80
+walk:mplus1_zero 19
+walk:objects 430
+walk:unmarked 48
+kappa geometry checks 892

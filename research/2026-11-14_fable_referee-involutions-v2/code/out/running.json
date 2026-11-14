@@ -1,0 +1,534 @@
+{
+ "note layout": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 279,
+  "fix1": 273,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 9
+  },
+  "branch": {
+   "unmarked": 172,
+   "move": 68,
+   "move+reverse": 30
+  },
+  "mplus1": 15
+ },
+ "table": "all 279 rows agree: object, sign, iota1, iota2; 12 states and 8 pairs agree",
+ "figure 2": {
+  "object": 1,
+  "tokens": [
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    7
+   ]
+  ],
+  "image id": 18,
+  "branch": "unmarked",
+  "tokens of image": [
+   [
+    5,
+    0
+   ],
+   [
+    6,
+    7
+   ]
+  ],
+  "cycles": [
+   [
+    0,
+    15,
+    13,
+    21,
+    19,
+    17,
+    7
+   ],
+   [
+    2,
+    11,
+    9
+   ]
+  ]
+ },
+ "token moves": {
+  "move": 68,
+  "move+reverse": 30
+ },
+ "token move examples": [
+  [
+   "move",
+   16,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     9
+    ]
+   ]
+  ],
+  [
+   "move",
+   17,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   19,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     9
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     9
+    ]
+   ]
+  ],
+  [
+   "move",
+   20,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   21,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     8,
+     9
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     8,
+     9
+    ]
+   ]
+  ],
+  [
+   "move",
+   22,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     8,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     8,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   23,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     10,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   24,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     16,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     16,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   27,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     18,
+     9
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     18,
+     9
+    ]
+   ]
+  ],
+  [
+   "move",
+   28,
+   [
+    [
+     5,
+     0
+    ],
+    [
+     18,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     7
+    ],
+    [
+     18,
+     11
+    ]
+   ]
+  ],
+  [
+   "move",
+   29,
+   [
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   [
+    [
+     5,
+     0
+    ],
+    [
+     5,
+     9
+    ]
+   ]
+  ],
+  [
+   "move",
+   30,
+   [
+    [
+     5,
+     7
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   [
+    [
+     5,
+     0
+    ],
+    [
+     5,
+     11
+    ]
+   ]
+  ]
+ ],
+ "figure 3": {
+  "6": {
+   "path": [
+    6,
+    0,
+    5,
+    4
+   ],
+   "turns": [
+    [
+     0,
+     6,
+     1
+    ]
+   ]
+  },
+  "18": {
+   "path": [
+    18,
+    7,
+    6,
+    0,
+    5,
+    4
+   ],
+   "turns": [
+    [
+     7,
+     7,
+     1
+    ],
+    [
+     0,
+     6,
+     1
+    ]
+   ]
+  }
+ },
+ "paths bfs+": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 31,
+  "fix1": 19,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 4,
+   "2": 5
+  },
+  "branch": {
+   "unmarked": 20,
+   "move+reverse": 2
+  },
+  "mplus1": 2
+ },
+ "paths bfs-": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 49,
+  "fix1": 47,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 9
+  },
+  "branch": {
+   "unmarked": 36,
+   "move+reverse": 2,
+   "move": 2
+  },
+  "mplus1": 2
+ },
+ "paths dfs": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 161,
+  "fix1": 131,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 9
+  },
+  "branch": {
+   "move+reverse": 30,
+   "unmarked": 100,
+   "move": 22
+  },
+  "mplus1": -28
+ },
+ "paths rand": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 33,
+  "fix1": 31,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 9
+  },
+  "branch": {
+   "unmarked": 22,
+   "move": 2
+  },
+  "mplus1": 3
+ },
+ "paths walk": {
+  "lists": 176,
+  "m": 2,
+  "F": 9,
+  "objects": 85,
+  "fix1": 79,
+  "fix2": 9,
+  "signed": -9,
+  "walks": {
+   "0": 7,
+   "2": 2
+  },
+  "branch": {
+   "unmarked": 54,
+   "move": 22
+  },
+  "mplus1": 2
+ },
+ "main paper orientation": {
+  "pair (beta, alpha) in stored orientation: (length, counterclockwise)": [
+   [
+    3,
+    false
+   ],
+   [
+    7,
+    true
+   ]
+  ]
+ },
+ "main paper (eps, omega), bfs+ paths": [
+  [
+   -1,
+   -3
+  ],
+  [
+   -1,
+   -1
+  ],
+  [
+   -1,
+   1
+  ],
+  [
+   -1,
+   2
+  ],
+  [
+   1,
+   -4
+  ],
+  [
+   1,
+   -2
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   3
+  ]
+ ],
+ "kappa at (f0, corner 6) on the path of w6: note layout, main paper drawing": [
+  1,
+  -1
+ ]
+}

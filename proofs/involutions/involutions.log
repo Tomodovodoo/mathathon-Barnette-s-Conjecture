@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 13:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 14:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,14 +791,12 @@ Package hyperref Info: Link coloring OFF on input line 13.
 \openout4 = `involutions.out'.
 
  [1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4]
- [5] [6] (figures/panels.tex [7]
-(figures/marked.tex) (figures/second.tex) [8] (figures/paths.tex)
-(figures/first.tex) [9]) (example-table.tex [10
+ [5] [6] [7] (figures/panels.tex [8]
+(figures/marked.tex) (figures/second.tex) [9] (figures/paths.tex)
+(figures/first.tex) [10]) (example-table.tex [11
 
 
 
-
-] [11
 
 ] [12
 
@@ -808,10 +806,12 @@ Package hyperref Info: Link coloring OFF on input line 13.
 
 ] [15
 
-]
-[16
+] [16
 
-]) [17
+]
+[17
+
+]) [18
 
 ] (involutions.aux)
  ***********
@@ -822,13 +822,13 @@ Package rerunfilecheck Info: File `involutions.out' has not changed.
 (rerunfilecheck)             Checksum: B0FA2E6D890B377A548B8BF7486572C4;2222.
  ) 
 Here is how much of TeX's memory you used:
- 22461 strings out of 467870
- 422697 string characters out of 5419323
- 858474 words of memory out of 5000000
- 50755 multiletter control sequences out of 15000+600000
+ 22479 strings out of 467870
+ 422952 string characters out of 5419323
+ 871158 words of memory out of 5000000
+ 50769 multiletter control sequences out of 15000+600000
  638250 words of font info for 81 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 99i,9n,118p,602b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,118p,886b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmcsc10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -853,9 +853,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Tom/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Tom/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Tom/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on involutions.pdf (17 pages, 366806 bytes).
+Output written on involutions.pdf (18 pages, 376277 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 47 named destinations out of 1000 (max. 500000)
+ 295 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

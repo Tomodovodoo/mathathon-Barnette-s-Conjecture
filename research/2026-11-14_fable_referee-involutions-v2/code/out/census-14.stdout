@@ -1,0 +1,70 @@
+v<=6: classes 1 roots 8 paired 8 F-total 8 m {1: 8} [0s]
+v<=7: classes 1 roots 8 paired 8 F-total 8 m {1: 8} [0s]
+v<=8: classes 2 roots 20 paired 20 F-total 32 m {1: 20} [0s]
+v<=9: classes 3 roots 34 paired 28 F-total 46 m {1: 20, 2: 8} [0s]
+v<=10: classes 5 roots 66 paired 60 F-total 142 m {1: 52, 2: 8} [1s]
+v<=11: classes 7 roots 102 paired 88 F-total 232 m {1: 52, 2: 36} [2s]
+v<=12: classes 15 roots 262 paired 208 F-total 742 m {1: 152, 2: 36, 3: 20} [8s]
+v<=13: classes 23 roots 438 paired 334 F-total 1490 m {1: 152, 2: 162, 3: 20} [13s]
+v<=14: classes 55 roots 1206 paired 880 F-total 4658 m {1: 560, 2: 162, 3: 158} [62s]
+F 4658
+bfs+:fix1 16448
+bfs+:fix2 4658
+bfs+:lists 77952
+bfs+:maxwalk 4
+bfs+:move 1032
+bfs+:move+reverse 428
+bfs+:mplus1_zero 150
+bfs+:objects 16586
+bfs+:unmarked 10468
+bfs-:fix1 17714
+bfs-:fix2 4658
+bfs-:lists 77952
+bfs-:maxwalk 4
+bfs-:move 1040
+bfs-:move+reverse 684
+bfs-:mplus1_zero 130
+bfs-:objects 17882
+bfs-:unmarked 11500
+dfs:fix1 716786
+dfs:fix2 4658
+dfs:lists 77952
+dfs:maxwalk 2
+dfs:move 33166
+dfs:move+reverse 9990
+dfs:mplus1_zero 36
+dfs:objects 717994
+dfs:unmarked 670180
+paired 880
+rand:fix1 49216
+rand:fix2 4658
+rand:lists 77952
+rand:maxwalk 2
+rand:move 3146
+rand:move+reverse 2190
+rand:mplus1_zero 87
+rand:objects 49436
+rand:unmarked 39442
+ray1:fix1 16638
+ray1:fix2 742
+ray1:lists 10464
+ray1:maxwalk 2
+ray1:objects 16662
+ray1:roots 208
+ray2:fix1 25048
+ray2:fix2 742
+ray2:lists 10464
+ray2:maxwalk 2
+ray2:objects 25060
+ray2:roots 208
+roots 1206
+walk:fix1 138654
+walk:fix2 4658
+walk:lists 77952
+walk:maxwalk 6
+walk:move 17128
+walk:move+reverse 11930
+walk:mplus1_zero 68
+walk:objects 139262
+walk:unmarked 105546
+kappa geometry checks 5064
