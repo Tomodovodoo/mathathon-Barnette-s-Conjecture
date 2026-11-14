@@ -1,0 +1,745 @@
+                                          WSAA 10
+
+
+
+
+László Lovász; András Recski
+Selected topics of matroid theory and its applications
+
+
+In: Zdeněk Frolík (ed.): Proceedings of the 10th Winter School on Abstract Analysis. Circolo
+Matematico di Palermo, Palermo, 1982. Rendiconti del Circolo Matematico di Palermo, Serie II,
+Supplemento No. 2. pp. [171]–185.
+
+Persistent URL: http://dml.cz/dmlcz/701272
+
+
+
+
+Terms of use:
+© Circolo Matematico di Palermo, 1982
+
+Institute of Mathematics of the Czech Academy of Sciences provides access to digitized documents
+strictly for personal use. Each copy of any part of this document must contain these Terms of use.
+
+
+                    This document has been digitized, optimized for electronic delivery and
+                    stamped with digital signature within the project DML-CZ: The Czech Digital
+                    Mathematics Library http://dml.cz
+            SELECTED TOPICS OP MATROID THEORY AND ITS APPLICATIONS
+
+
+                             Laszld LOVASZ - Andras RECSKI
+
+
+
+1/   Some "classical" algorithms
+2/   Matroid oracles
+3/   Submodular functions
+4/   Some further results
+5/   On the engineering applications of matroids
+
+
+           The present paper       summarizes some results in matroid theory*
+     The authors have chosen the topics in a subjective way, nevertheless,
+     the algorithmic aspects dominate throughout. Basic concepts and results
+     of matroid theory are supposed; Chapters 1 and 4 of [Welsh] are suffi-
+     cient for most parts of the paper#
+
+
+
+     1/ Some "classical" algorithms
+
+
+     The classical algorithms of CBoruvka] and p-^uskal] to find a spanning
+forest of maximal weight in a graph can be generalized as follows:
+
+                                                                                  CJ
+
+Input:   (S,xlV)   is a matroid. where      S   is the underlying set, M £ 2           is
+the collection of independent subsets* w:S —*-lR         is a weight function, which
+associates nonnegative real weight        w(s)    to every   s£ S#
+Output: A base     B --- S   of the matroid, with maximum weight     w(B) =
+=2. |w(x) , x 6 B J among all the possible bases.
+Description: Start from the empty set, i # e # let       B = 0 # In every step put
+B «= B U {x } where      x     has maximal weight among those elements        x   for which
+B U lx^e/i# If no such        x   exists, stop.
+
+     The algorithm is called greedy since it increases the weight of the in-
+dependent set with the maximal possible amount in every step#
+
+
+     Theorem 1 CRado] The greedy algorithm gives a maximum weight base for
+172                                                 1-. LOVASZ - A # RECSKI
+
+
+every matroid and for an arbitrary weight-function* On the other hand, if
+Ma2            does not satisfy the exchange axiom of matroid theory, one can always
+find a weight-function                     w^       so that the greedy algorithm gives a wrong answer
+(i # e # a subset whose weight is not maximum)*
+
+
+        Sketch of proof: a/ Suppose that the greedy algorithm gives
+B = jx., x 2 , # # # , x }               where the elements were given in this order, and
+suppose there were a base                       B      with        w(B ) > w(B) # If there were several
+bases with maximum weight, choose one with                                   J B H B | maximal# Let           x   be
+the maximum weight element of                          B     - B     and consider        B U (x J# This contains
+a unique circuit                  C# Let     x.      be an element of            C-{x;    with maximal subscript*
+Since      ( B U l x l ) - {x.}             is a base, w(x) > w(x i )               would contradict the choice
+of    x.       during the greedy algorithm, while                           w(x.) ^ w(x)     would contradict
+the choice of             B       since      (B      - [x])U ix.3            is also a base#
+        b/ IfM violates the exchange axiom, there are subsets                                    X,Y     so that
+X ±M , Y£ M , |X | > I YI                    yet      Y U {x ] 4 M          f or every    x € X# Let us define a
+weight function               w     so that         w(y) = 1        for     y G Y, w(x) = 1 - £         for
+x 6 X - Y           and    w(z) = 0          for      z ^ X U Y # Then the greedy algorithm leads to
+Y (plus perhaps some elements from                               S - (X U Y))       which is certainly not of
+maximum weight if                 z<      1-(|YI/(X|J#
+
+
+        Another basic tool of matroid theory is the matroid partition algorithm
+[Edmonds 1 ] # First we present an essentially equivalent alternative, the
+matroid intersection algorithm.
+
+
+Input: (S,»Af1)               and      (S,I/Y 2 )    are two matroids on the same underlying set.
+Output: A subset                  X? S      with maximum cardinality satisfying                   X Cs/^J^lM 2 #
+Description: Start with                     X =- 0 # In every step define a directed graph                        G    with
+vertex set           S    as follows* For every                    x 4- X     and   lUJxjf A           draw an edge
+(x, y)         if    y    belongs to the unique circuit of vAf f contained in                              xU{x}#
+Furthermore, for every                     x ^ X       and       X U ^x}f-i.AL           draw an edge      (y, x)
+if    y    belongs to the unique circuit of iAL                               contained in     X U {x]#
+          If    G    has no sink (i # e # no vertex with outdegree zero) then                              X      is a
+base of M-,              and we can stop. If                 G     has no source (i # e # no vertex with in-
+degree zero) then X                     is a base of J7p                and we can stop# Similarly, we can
+stop if there is no directed path in                                G   from a source to a sink: then X
+is of maximum cardinality in J^LCiJ^-j*
+          If there are source-to-sink directed paths in                               G, consider a minimal one
+(v., v 2 , # # # , v ) , i # e # one with no shortcuts. Observe that if                                t = 1, i # e #
+when       v, £ S - X             is isolated in             G (which is certainly a minimal source-sink
+path) then           X U Iv,} £ >M 0 M                #The    source      v.,   is certainly not in           X   and in
+                                                             MATROID THEORY                                                                   173
+
+
+general            v. € x               if and only if              i        is even# In particular, the sink                            v.    is
+not in          X        and            t   is odd# Then            (X - { v 2 , v . , v^, # # # ])(j{v 1 , v«, v-, # # # }
+is taken for                        X   and start the procedure from the beginning, with a new graph#
+
+
+        Theorem_2 [Krogdahl, Lawler] This algorithm always solves the matroid
+intersection problem*
+
+
+        We do not give detailed proof here* The minimality of the source-sink
+path should be applied and induction is used on the length of such a (so
+called augmenting) path# On the other hand observe that if                                                                 V.C S      is the
+set of those vertices which can be reached via a directed path form a source
+then      -^(V.,) = 1 ^ 0 x|                        and      r2(S - V.,) =- |x - V-jl Hence, when the algorithm
+stops, we have a subset                             X £ J/l-.C\M-                    with cardinality             r
+                                                                                                                      i( v n) + r o ( s " V T )
+which proves the non-trivial part of the following theorem:
+
+
+        Theorem^ [Edmonds 1]                              max£(Bj;                   BC^HSt^            - min{p1(V) + r2(S - V);
+VC s} #
+
+        Once we have these results, a number of equivalent statements can easily
+be obtained*
+
+
+        Theorem 4 [Edmonds 1] The union                                              (S,»//- ) V (S,</?0)              of two matroids
+        25 SS 8 SS SS S3 SS SS SS                             -»»-»•>••----•-»              J^            £
+
+(S,/?,)             and             (S,»A7p)       on the same set                     S    equals the free matroid, i # e #                  S
+can be partitioned into                              S.. U S            so that             S..C «^-     and          S^'-^, if and
+only if             r ^ X ) + r 2 (X) > \x\                  for every                  X 9 S#
+
+        Proof; The "only if" part is trivial. If the condition holds, i # e # if
+minJr1(X) + r 0 (X) - [x| ; X S S^ > 0                                           then minjr^X) + r*(S - X ) ; X 9 S ) ^
+2. r 2 (s), by the well known rank function formula                                                    r*(S - X) = |s - x| +
++ r (X) - r 2 (S)                       for dual matroids# This latter minimum is
+max{|B|; B Ci/ty-fli/'Z* J                          by the previous theorem, and is therefore obviously
+at most             r*(S) # The equality means that the maximum is attained at such a
+B^     which is a base                        of -/**„ Then               B eM               and   S - B € ft
+  O                                 — —               d                          O      ±                     0           2
+
+        SS22--!I2«.1 [Nash-Williams] Let                                     (f : S-->T          and for a matroid                 (S,./Y), let
+/*/-!<?(*); A€A}0                           Then    (if(S),iA^) is a matroid with rank function
+r^(X) = min{p(<p"1(Y)) + |x - Y| ; Y <-- x } #
+
+
+        Sketch of proof; Consider the partition (] ^ on                                                       S       defined by tf , i # e #
+s..^   and          s         are in the same subset of fly                                  if and only if               <f (s 1 ) ==<^(s2)#
+Define a partition matroid                                (St\r)             so that a subset of                      S   is independent
+174                                   L. LOVASZ - A# RECSKI
+
+
+InP       if and only if it intersects any subset of //L            in at most one element.
+Then          the independent subsets of KM^ are just those corresponding to the
+common independent subsets of \M             and fi . Since the rank of such a subset           W
+in the matroid !P             is just |^ (w)| , the nontrivial part of the statement
+follows from Theorem 3.
+
+
+          Theorem_6 [Nash-Williams] The rank function           R   of the union of the
+matroids          (S,^. ), i = 1, 2, ..., k     is   R(X) =- m i n f s r » ( Y ) + |x - YJ; Y S x } .
+                       1
+                                                                    i=l X
+
+             Proof; Let Jtf    be the direct sum of the matroids       (S,i/V ), constructed
+on       k     disjoint copies of     S, and let <f be the natural homomorphism,           identi-
+fying the          k   copies of each element of     S. Apply Theorem 5.
+
+
+
+          2/ Matroid oracles
+
+
+          Both of the algorithms in Section 1 are usually very effective if imple-
+mented for various practical purpose*, If, for example, the input matroids
+are graphic and are actually represented by graphs then the number of steps
+for these algorithms is a polynomial of the number of vertices of the graphs.
+Similarly, if the matroids are represented by matrices (as column space mat-
+roids), the complexity of the algorithms is again a polynomial function of
+the size of the input. But how is a matroid stored "in general"?
+             Since the number of different matroids on an n-element set is almost
+    2n
+2        , any "general" description would require exponentially large storage
+space. Hence, instead of the usual requirement of "being polynomial in the
+size of the input" we would prefer being polynomial in                  n. A usual way to
+formalize this is to assume that our matroid is described by an oracle (sub-
+routine) which somehow can tell us whether a given subset is independent or
+not. (We are not interested in how.this oracle is realized by a program.)
+Then a lower bound on efficiency can be obtained from the number of questions
+posed to this oracle. (Roughly speaking, the calls of a certain subroutine
+are counted as single steps, no matter how complex the interior structure of
+the subroutine may be.)
+             This oracle is called an independence-oracle. Some other, more or less
+usual oracles are the following.
+                                        MATROID THEORY                                                  175
+       Name             Input                                          Output
+Base-oracle           a subset X       "yes" if      X         is a base and "no" otherwis
+Circuit-oracle        a subset X       "yes" if      X         is a circuit and "no" otherwise
+Rank-oracle           a subs t X       the rank       r(x)        of   X
+Girth-oracle          a subset X       the length of the shortest circuit contained
+                                       in   X (and, say, oo                if    X    is independent)
+
+
+       Unlike in case of graphs, where the various storages (incidence matrix,
+adjacency matrix, adjacency lists etc) are in a sense equivalent (no matter
+which one is used, the complexity of a certain algorithm is either always
+polynomial - the exponent may vary, of course - or never polynomial), in case
+of matroids the complexity highly depends on the actual oracle. The interested
+reader is referred to [Hausmann-Korte] for a detailed analysis. In what fol-
+lows only some typical results are presented.
+
+
+       TheorenV7 The rank-oracle and the independence-oracle are polynomially
+equivalent.
+
+
+       Proof: If one has a rank-oracle         0.. , it can be used to build an inde-
+pendence-oracle       Op   as follows: If      X     is the input of             0 , one simply in-
+puts    X     to   0,; if the output    r(X)    of       0..     equals [x| then one outputs
+"yes" for      0 , while if      r(x) < |x|    then the output for                   02   is "no".
+       On the other hand, r(x)         can be determined applying                    0?   only, since
+this is exactly what the greedy algorithm does, with a constant weight func
+tion.
+
+
+       Theorem_8 The base-oracle and the circuit-oracle are less powerful then
+the independence oracle.
+
+
+        Proof: Let     (S,,/? ) be defined on an           |s| = 2n -element set so that the
+only bAse of .A?-,      is a certain n-element subset X c s. Any algorithm, using
+                                  k
+the base-oracle only in        0(n ) times, might get a "no" answer for every
+question. Since the number of n-element subsets of                         S    grows exponentially,
+several n-element subsets were not asked at all, and we cannot deduce which
+one of them is the base. Thus even the independence of the singletons cannot
+be determined. For a similar proof of the "weakness" of the circuit-oracle
+apply       (S,/4 )   where the above set      X     is the only circuit. On the other
+hand, the independence oracle is at least as powerful as these latter two,
+as can be proved in a straightforward way.
+        However, the reader should verify that the base- and the independence-
+oracles are polynomially equivalent if one knows one base in advance.
+176                                 L. LOVASZ - A. RECSKI
+
+
+       Theorem__9 The girth-oracle is more powerful than the other four oracles.
+
+
+       Proof: It is enough to prove that the girth-oracle cannot be realized
+using the independence-oracle a polynomial number of times only* Define
+(S,«/*£.) and    (S,/7.)    on the same set as above          ( |s | = 2n)     and let every
+subset of cardinality       n   be a base in ./?«       and all except one be bases in
+J\„   Of course, the girth of vAc. is       n+1     while that of ,/?.         is   n. But one
+cannot tell the difference using the independence-oracle, unless asking the
+independence of all the n-element subsets of             S.
+
+
+
+       3/ Submodular functions
+
+
+       A function    b : 2 -» IR is submodular if, for any pair               X, Y    of sub-
+sets of     S, the relation     b(x) + b(Y) >, b(X U Y) +t>(X D Y)            holds. If the
+relation always holds with equality, the function is modular. The sum of two
+submodular functions (or that of a submodular and a modular function) is sub-
+modular again. The rank function of a malroid is a special submodular func-
+tion.
+
+
+        •?_-§2£f!?L.!:2 CGrotschel, Lovasz, Schijver] Suppose that a submodular
+function     b   is given by an oracle, which gives           b(x)    for every      X _ S.
+Then    b   can be minimized on the underlying set by a polynomial algorithm.
+
+
+       The proof applies the celebrated ellipsoid method [Khachiyan], [Shor]
+and is therefore of a significantly different character. However, some
+special cases have "traditional" solution (without real arithmetic with
+approximative results etc), e.g. if the submodular function is                      r^Vj+r^S-V)
+or     C_S r -( v )3 - |v|f where   r.   are rank functions of matroids (see Theorems
+        i-1 1                       1
+
+
+3 and 6 respectively). Similarly, the max-flow-min-cut theorem of Ford and
+Fulkerson can be considered as such a special case.
+                                                              Q
+
+        If a non-negative submodular function           b : 2 -* (R is integer-valued,
+with     b(0) = 0, then the only reason why         b    is not the rank function of a
+matroid can be that there are subsets          X£ S       with      b(x)> (x|. This
+emphasizes the usefulness of the following theorem.
+
+       Theorem 11 [Edmonds 33 Those subsets          YQ S         for which
+min\b(X) - |x|; X Q Yj ^ 0, form the independent subsets of a matroid.
+                                MATROID THEORY                            177
+
+     If b happens to be the rank function of a matroid then this "new"
+matroid is just the original one# The reader should verify by Theorem 4 that
+if b is the sum of the rank functions of some matroids \K f « / l , ### then
+this "new" matroid is just their union v^-V*A?PV ... .
+     We close this section with a more recent result. A function p : 2S-» JR
+is called supermodular if -p is submodular.
+
+     Theorem 12 [Frank] Let p and b be supermodular and submodular func-
+tions, respectively, both integer valued, on the same set S # Let p ^ b
+hold for every subset of S # Then there always exists an integer valued
+modular function m so that p £ m £ b #
+
+     As an application let us deduce Theorem 3 from Theorem 12 # Suppose that
+k = minlr^X) + r2(S - X ) ; X £ s] and we have to show that tA-fl J^
+contains a k-element subset. We may assume that r.(S) = r 2 (s) = k by
+truncating \M-> and M~ if necessary. By the definition of k we have
+k - r2(S - X) ^ r ^ X ) f o r ©very X ^ S # Since k - r2(S - X) is super-
+modular and r_(x) is submodular, there exists a modular function m(x)
+between them. Since m(\xj) =- 0 or 1 for every x £ S, it is very easy to
+show that the set B = { x ; m(|x]) -. 1) is just the requested k-element sub-
+set#
+
+
+
+     4/ Some further results
+
+      Let ( S f j ^ ) be a matroid and \a-f b.} f {a2, b A, ### be disjoint
+pairs from the elements of S # Find a maximal number of such pairs {a. , b.^
+so that their union be independent in (S,H) 9 This is the matroid parity or
+matroid matching problem. The corresponding problem for disjoint n-tuples
+(n ^ 3) is known to be NP-hard, while several advanced results of the class
+P are shown (e # g # [Lawlerj) to be special cases of this problem, e # g #
+finding a maximal matching in a (not necessarily bipartite) graph, or the
+whole first section of the present paper#
+     The matroid parity problem is of exponential complexity £Jensen-KorteJ,
+[Lovasz 2] but a very important special case is polynomially solvable [Lo-
+vasz 1] f namely when v.Af is linear, i.e# represented over the field of the
+reals. In this case the above pairs can be imagined as a set H of lines in
+the real projective space fP and one should find k lines so that their
+union spans a sub space of dimension 2k # Their maximal number *v can be
+expressed by the following formula:
+178                               --•• LOVASZ - A # RECSKI
+                                                    k r(H ± + A) - r(A) -,
+      T.heorem^l.3 [Lovasz 1,2]    V = min <r(A) + Z. L       ?        * i where
+
+A ranges over all flats of P        and   {H.,, Hp, ### , H,}   over all partitions of
+H#
+
+     Example: Consider the set H -- ^ e,f e 2 , e«} of lines where e., = {l, 2 J,
+Q S ^3, 4j and e« = \ 5f 6 J in the matroid yH, shown by its affine represen-
+tation on Pig# 1 # Since the rank of >A? is four, one cannot find more than
+two lines with the required properties but one set {e,, e. j of two lines
+will be appropriate* Hence v -» 2 and the above minimum can really be
+attained by A = ^3] and by almost any partition of H #
+     Another important result in the past few years was a new characteriza-
+tion of regular matroids [Seymour 1 ] # We recollect that [Tutte] has already
+given an excluded minor type characterization of them# This imples that non-
+regularity is an NP-property, i # e # one could prove (in polynomial time) that
+the matroid is not regular, provided he/she has already found a forbidden
+minor (after a no matter how long search)* But a proof of regularity (in
+polynomial time) was an open problem*
+     Let us refer to direct sum as 1-sum and introduce the concepts of 2-
+and 3-sums# These are amalgamations of two matroids along a common element
+and along a common circuit of length 3t respectively* Instead of formal
+definitions we offer the intuitive drawings (Fig# 2) for graphic matroids.
+These operations preserve regularity.
+
+     2&.§2r®5^1i [Seymour 1] Any regular matroid can be obtained by 1-, 2-
+and 3-sums from graphic matroids, cographic matroids, and from several copies
+of a further regular matroid R,     which can be described in the simplest way
+by the following binary representation:
+
+           1   1   1   1   1   1 0 0 0 0
+           1   1   1   0   0   0 1 1 1 0
+           1   0   0   1   1   0 1 1 0 1
+           0   1   0   1   0   1 1 0 1 1
+           0   0   1   0   1   1 0 1 1 1
+
+     Before finishing the pure mathematical part of the paper, it might be
+instructive to recollect some famous problems of matroid theory from the
+point of view of computational complexity*
+                                 MATROID THEORY                             179
+
+
+      Polynomially solvable problems
+
+
+Base of maximal weight in a matroid (Theorem 1)
+Subset of maximal cardinality, simultaneously independent in two matroids
+     (Theorem 3)
+Subset of maximal weight, simultaneously independent in two matroids
+     [Edmonds 5]» [Lawler]
+Rank of a subset in the union of matroids (Theorem 6)
+Minimum of an arbitrary submodular function (Theorem 10)
+The matroid parity problem for linearly represented matroids [Lovasz 1]
+Test of graphicity of a matroid [Seymour 2]
+Test of regularity of a matroid [Seymour 1]
+
+
+       Non-polynomial problems
+
+
+Length of a shortest circuit of the matroid (Theorem 9)
+Length of a longest circuit of the matroid
+Maximum of an arbitrary submodular function
+The matroid matching problem for arbitrary matroids [Jensen-Korte], [Lovasz 2]
+Test of binarity of a matroid [Seymour 2]
+Test of linearity of a matroid
+
+
+       NP-hard problems
+
+
+Find a maximal cardinality subset, which is simultaneously independent in
+       more than two graphic matroids
+Generalize the matroid matching problem (with n-tuples, n ^ 3)» but
+       restricted for linearly represented matroids (or even to graphic
+       matroids)
+Find the length of a shortest/longest circuit of a lineary represented matroic
+
+
+
+       5/ On the engineering applications of matroids
+
+
+       Since finiteness and linearity are perhaps the most usual assumptions
+when modelling physical phenomena, matroids can certainly be very well applied
+to decide qualitative problems in science, engineering, operations research
+etc. Examples for such problems are
+a/     Decide whether a linear electric network is uniquely solvable,
+b/     Decide whether a framework (constructed from rods and joints) is rigid,
+c/     Decide whether a 2-dimensional drawing correctly represents a polyhedron.
+180                                                        L # LOVASZ - A # RECSKI
+
+
+All these problem could theoretically be solved by classical methods of linear
+algebra but roufki-off errors in arithmetic operations among real numbers
+(which are represented by decimals of a finite length in a computer) can cause
+qualitative mistakes, especially in case of large systems*
+      Let us associate a matroid (simply the column space matroid of a matrix)
+to the objects under consideration* E # g # if an electric device is modelled as
+a multiport » say an ideal transformer (Fig # 3a) by the system of equations
+
+
+                                                           -,          U
+                                                                            l                       -       -1
+
+                                 1        k       0       0"           U
+                                                                            2                           0
+                                                                                           rs
+                                 0        0       k       1.
+                                                                       4                            .0.
+
+
+
+or if a framework is described by the usual rigidity conditions, e # g # the
+four-rods planar framework (Fig # 3c) by the system
+                                                                                                                         x
+                                                                                                                             l
+                                                                                                                         x
+                                                                                                                     л   г           г       i
+      X
+          ГX2
+                 X
+                     2-Xl        0                         y
+                                                               l"y2
+           0                                                    0                 "У-i У->""Уp                           x
+                                                                                                                             4   =       °
+           0                X        X
+                                3 " 4 4" 3    X       X         0                      y        y
+                                                                                           3"" 4 4*"
+                                                                                                        y        y
+                                                                                                                     3 Һ                °
+      x
+          l"x4
+                                  0   x^-x^ У
+                                                               ГУ4
+                                                                                            o    y 4 -y.
+                                                                                                                     1 Һ                °
+                                                                                                                      -I ý 3           LJ
+then the circuit matroid of the graph of Fig. 3b represents the matroidal                                                Л.
+model of the above 2-port and the affine representation on Fig # 3d visualizes
+the matroidal model of the above framework*
+      Now, the answer to some simple questions can directly be obtained from
+these matroidal models. E # g # if one terminates the first port of the trans­
+former by a voltage source and the second port by a current source (Fig # 4a)
+then the network is uniquely solvable (the other voltages and currents can
+uniquely be expressed by them) while the network is singular if both ports
+are terminated by voltage sources (Fig* 4 b ) # These answers can also be obtained
+by checking that the set                          ji-,i u 2 )         i s
+                                                                                  independent while                          {i.,i2}      is
+dependent in the matroid of the transformer (cf # Fig # 3 b ) # Similarly, if we
+pin down the first and the third joints of the planar framework of Fig # 3c
+then the whole system becomes rigid, which is certainly not the                                                                          case if the
+first and second joints are pinned down (see Figs # 4c # and 4d respectively)•
+These answers can also be obtained by checking that the set                                                                      {-^tX/t^pty*}
+                                                                            i s
+is independent while                     {*-\'*-A*^-X^AS                            dependent in the matroid of the
+framework (cf # Fig # 3 d ) #
+      However, if one wishes to answer some more complicated qualitative prob-
+                               MATROID THEORY                                181
+
+lerns, some of the advanced matroidal results of the previous sections are re-
+                              Kas,
+
+quired* For example, an n-port a hybrid immittance description if its ports
+can be terminated by voltage and current sources to ensure unique solvability.
+
+     2&®2£§?Ll5 CM.-Tomizawa] An n-port has (at least one) hybrid immittance
+description if and only if its matroid has a common base with the partition
+matroid S , defined so that X C £u.., u^, ###f u . L, L, 9 # ( f i } is a
+base of *2> if and only if )x 0 *u., i.}| = 1 for every j = l f 2 f ###f n #
+
+     Theorem 16 CLaman] If a planar framework with n joints and e = 2n - 3
+rods is rigid then e* .£ 2n* - 3 for every "subgraph" of the framework with
+n f joints and ef rods# This condition is also sufficient for rigidity if
+the framework is generic» i # e # if its joints are in general position#
+
+     Theorem 17 CLovasz-Yeraini] Generic rigidity of the planar framework
+with graph G is equivalent to the condition that iAL(G) V A ? (G) is the free
+matroid for every e € E(G), where iA7 (G) is the circuit matroid of the graph,
+obtained from G by doubling the edge e #
+
+     Theorem_18 CRosenberg]f CRecski 3], CWhite-Whiteley] The subdeterminants
+of the describing matrix of the frameworks can be expressed as sums over the
+possible decompositions of the graph of the framework into two trees#
+
+     This result is analogous to the so called topological formulae of linear
+active networks. In case of certain frameworks (the so called simple trusses
+CTiraoshenko and Young] f see e # g # the frameworks on Fig# 5) an electric network
+model can directly be established CRecski 3]•
+
+     Theorem_19 CRecski 2, 3] If some genericity-type condition is
+prescribed, the matroidal model of the interconnection of several multiports
+or several frameworks can be obtained from the matroids of the original
+objects by the union of the matroids#
+
+     The basic tool in these investigations is a result of CEdmonds 2 ] #
+     Essentially in the same way, matroid partition algorithms can be used
+for checking the solvability of complex interconnected electric networks
+CIri-Tomizawa], CRecski 1 ] , CP©tersen]#
+
+     Theorem 20 CLovasz 1] The minimal number of pins required to fix a frame-
+work to the plane can be obtained by the matroid matching algorithm.
+182                            --. LOVASZ - A # RECSKI
+
+
+      Finally we present a somewhat less recent (!) result which relates prob-
+lem c/ (see the beginning of this section) to the rigidity problem*
+
+
+      ?k®2£!§5_?l CMa-xwel-L] A framework with   n   joints and   e = 2n - 3   rods is
+rigid in the plane if and only if it does not contain the projection of a 3-
+dimensional polyhedron.
+
+
+      For example, it is intuitively clear that only the first framework on
+Pig# 6 is rigid* Por further results related to problem c/ the reader is re-
+ferred to CSugihara]#
+
+
+
+                                   REPERENCES
+
+
+BORUVKA 0 # "0 jistem problemu minimalnim", Prace Mor# Prirodeved# Spol# v
+            Brne, 3(1926) 37-58#
+EDMONDS J# 1 # "Minimum partition of a matroid into independent sets", J# Res#
+                Nat. Bureau Stand# 69B (1965) 67-72#
+            2 # "Systems of distinct representatives and linear algebra", J#
+                Res# Nat. Bureau Stand. 71B (1967) 241-245.
+             3. "Submodular functions, matroids and certain polyhedra", Combin#
+                Structures and their Appl # , Gordon and Breach, N # Y # 1970# 69-87.
+             4. "Matroids and the greedy algorithm", Math# Prog# 1 (1971)
+                127-136.
+             5. "Matroid intersection", Annals of Discrete Math. 4 (1979) 39-49.
+FRANK A. "An algorithm for submodular functions on graphs", Annals of Discrete
+             Math. 16 (1982) 189-212.
+GROTSCHEL M. - LOVASZ L. - SCHRIJVER L. "The ellipsoid method and its con-
+             sequences in combinatorial optimization", Combinatorica 1 (1981)
+             169-197.
+HAUSMANN D. - KORTE B. "Algorithmic versus axiomatic definitions of matroids",W
+             Programming Study ljj. (1981) 98-111.
+ IRI M. - TOMIZAWA N. "A unifying approach to fundamental problems in network
+             theory by means of matroids", Trans. IECEJ 58-A (1975) 33-40.
+ JENSEN P.M. - KORTE B. "Complexity of matroid property algorithms", SIAM J.
+             on Computing
+ KHACHIYAN L.G. "A polynomial algorithm in linear programming", Doklady Akade-
+             mii Nauk SSSR 244 (1979) 1093-1096; English translation: Soviet
+             Math. Dokl. 20 191-194.
+ KROGDAHL S. "A combinatorial base for some optimal matroid intersection
+             algorithms", Report Stan-CS-74-468, Stanford University, 1974#
+                                MATROID THEORY                                 183
+
+
+KRUSKAL 3.B. "On the shortest-spanning subgraph of a graph and the travelling
+           salesman problem, Proc. AMS, 7 (1956) 48-49.
+LAMAN G# "On graphs and rigidity of plane skeletal structures", J# Engineering
+           Mat. 4 (1970) 331-340#
+LAWLER E # L # "Combinatorial optimization: Networks and matroids", Holt, Rine-
+           hart and Winston, New York, 1976#
+LOVASZ L # 1 # sPolymatroid matching and some applications", J# Combinatorial
+             Theory B 28 (1980) 208-236#
+          2 # "Selecting independent lines from a family of lines in a space".
+             Acta Sci. Math. Szeged 42 (1980) 121-131.
+LOVASZ L. - YEMINI Y. "On generic rigidity in the plane", SIAM J# Algebraic
+           and Discrete Methods,
+MAXWELL J # C # "On reciprocal figures and diagrams of forces" Phil# Mag# 4,
+           22 (1864) 250-26l#
+NASH - WILLIAMS C.St#J#A# "On applications of matroids to graph theory",
+           Theory of graphs, I # C # C # Rome, 1967 (Dunod, 1968), 263-265.
+PETERSEN B. "Investigating solvability and complexity of linear active net-
+           works by means of matroids", IEEE Trans. Circuits and Systems
+           CAS-26 (1979) 330-342.
+RADO R. "A note on independence functions", Proc. London Math. Soc. 2 (1957)
+           300-320.
+RECSKI A # 1 # "Contributions to the n-port interconnection problem by means of
+             matroids", Coll# Math. Soc. J. Bolyai 18 (1978) II. 877-892.
+          2. "Matroids and network synthesis", Proc# 1980 European Conference
+             on Circuit Theory and Design, 192-197.
+          3. "A network theory approach to the rigidity of skeletal strucutes"
+             Parts I-II submitted to Discrete Applied Math., Part III to
+             appear*
+ROSENBERG I # "Structural rigidity in the plane", preprint CRM-510, Universite
+           de Montreal, 1975.
+SEYMOUR P# 1 # "Decomposition of regular matroids", J# Comb# Theory B 28 (1980)
+               305-359.
+            2. "Recognizing graphic matroids", Corabinatorica 1 (1981) 75-78#
+SHOR N # Z # "Convergence rate of the gradient descent method with dilatation of
+            the space", Kibernetika 2 (1970) 80-85; English translation:
+            Cybernetics 6 (1970) 102-108#
+SUGIHARA K. "A step toward man-machine communication by means of line
+            drawings of polyhedra, Bull. Electrotechn. Lab. of Japan, 42
+            (1978) 20-43.
+TIMOSHENKO S # - YOUNG D # H # "Theory of structures", McOraw Hill, N # Y # 1945.
+184                             L # LOVASZ - A# RECSKI
+
+
+TUTTE W # T # "Lectures on matroids", . J# Res. Nat# Bureau Stand# 69 B (1965) 1-47.
+WELSH D # J # A # "Matroid theory", Academic Press, London, 1976#
+WHITE N # L # -- WHITELEY W# "The algebraic geometry of stresses in frameworks",
+            preprint
+
+
+
+L # LOVASZ, Bolyai Institute                             A# RECSKI, Research Institute
+József Attila University                                 for Telecommunication
+H-6720 Szeged, Hungary                                   H-1026 Budapest, Hungary
+
+
+
+
+                                                                          Ff9. з
+
+
+
+
+                                                                  0                 0)
+
+
+
+
+                       Ftg. 2
+                                                                                                                         185
+
+
+
+
+ Ф_0         Cö
+         ©          ©                                            © ^8                                      &
+r/ў. k
+
+
+
+
+                    j-Ш чMfи-
+                                                          Ш f f i f f i тгтттr щ     Fïï ЩW
+                                                                                            ř
+
+                                                                                         fШІІi
+                                                                                               tггtt                   -Ңзiвib
+             ËìiT                         Жffi+P-fŕ
+                                                          Щ | Җttr                   ІЇЩ жfe                           Шш
+                                             l|]ţ±
+                                                                              щ                      ыkШ
+                                                                                                                       S-B
+                                                                       ш 1Fщ
+                       Ищ\                                                           Pтît
+                                                                                     ггht ІLІЦ4І fclîfiІІ
+
+                                                                          iШ-Щ
+                                                                              ĄЩ
+                                    ЗЯШтtңïa
+                       TIІT î ґпłгtг Щ Щ T L Ш I тîiтłчt Һт                   44-н   Шr
+                                iìłtШth                   Д Ш І й щ.
+                                                                         m#                          щE г Ţ Î
+                                                                               тí rrjîт Ш
+                                                                                     иfн
+                       яttF               --ffflтllЭД                  Г T Г J47
+                                                                             тtГ        Щi ЩЙÏ -rŕтт ±j±tii
+                                                                       fffil й ti
+                                                                                                                       4ІULШ-
+%. 5                                       iттtпт гtłтт
+                       lï     Jìт iîV
+                                          Ш ш                                           sщ
+                                                                                     ľTГ"
+
+                                          І&B
+                                          TTTтTTi TІTІ'
+                                                                         Шi pp
+                                                                                        jДffiì
+                                                                                               ж ffi#
+                       Шrî                                                    Йt ;
+
+
+                                          åтшiiтtттг
+                                                          щşşţц
+                                                                       ffiй
+                                                                                            líв S* даffi
+                                                                                                   шiłl
+                                                                                            ттSffi í j t ш i i t т l
+
+
+
+
+% .6
+

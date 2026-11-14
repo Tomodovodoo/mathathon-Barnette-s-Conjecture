@@ -1,5 +1,54 @@
 [
   {
+    "key": "bernardi-kalman-postnikov",
+    "url": "https://arxiv.org/pdf/2004.00683",
+    "bytes": 1075978,
+    "sha256": "f1c1bbf19a30d03fa18d66085a26d20fcade154ab730b0a07dcc4e9565a49b81",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "bernardi-orientations",
+    "url": "https://arxiv.org/pdf/math/0612003",
+    "bytes": 718768,
+    "sha256": "ec5ac3a75bd903be0e4530c42e0be33c2f7f53ecf0f3e6a5c665c62b679b7f5d",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "penrose-embedded",
+    "url": "https://arxiv.org/pdf/1106.5279",
+    "bytes": 1012151,
+    "sha256": "46cbd20f4a14673f2b31a9c6bcc8650c96a36d96c91fa8d548e0f4780df9c798",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "hopf-tutte",
+    "url": "https://arxiv.org/pdf/1508.00814",
+    "bytes": 3061265,
+    "sha256": "f1742df661741df8307f3b0b610181643db42c3c82fdb9af35602e279b6acbe4",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "fps-dissections",
+    "url": "https://arxiv.org/pdf/0810.2608",
+    "bytes": 1089617,
+    "sha256": "405600d8f55cdc3d3bdc5a2b109da0ef3140aca940b8ff30bbab4d387ba57b06",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "schrijver-matroid-intersection",
+    "url": "https://ir.cwi.nl/pub/2216/2216D.pdf",
+    "bytes": 7088770,
+    "sha256": "e71b33756e83edc01c4114eb25d93feb0b5e79fb810bbd3256d52d3c38adb1f9",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "lovasz-recski",
+    "url": "https://dml.cz/bitstream/handle/10338.dmlcz/701272/WSAA_10-1982-1_18.pdf",
+    "bytes": 1608987,
+    "sha256": "f5c492d495d547f3dbe7966e799463997dd249a80bd621c7aee6b181d830aead",
+    "status": "downloaded and text extracted"
+  },
+  {
     "key": "hine-kalman",
     "url": "https://arxiv.org/pdf/1808.06091",
     "bytes": 315703,

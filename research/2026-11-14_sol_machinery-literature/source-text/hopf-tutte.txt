@@ -1,0 +1,2388 @@
+                                                                HOPF ALGEBRAS AND TUTTE POLYNOMIALS
+
+                                                               THOMAS KRAJEWSKI∗ , IAIN MOFFATT∗ , AND ADRIAN TANASA‡
+
+
+                                                   Abstract. By considering Tutte polynomials of Hopf algebras, we show how a Tutte polynomial
+                                                   can be canonically associated with combinatorial objects that have some notions of deletion and con-
+                                                   traction. We show that several graph polynomials from the literature arise from this framework.
+arXiv:1508.00814v3 [math.CO] 18 Dec 2017
+
+
+
+
+                                                   These polynomials include the classical Tutte polynomial of graphs and matroids, Las Vergnas’
+                                                   Tutte polynomial of the morphism of matroids and his Tutte polynomial for embedded graphs,
+                                                   Bollobás and Riordan’s ribbon graph polynomial, the Krushkal polynomial, and the Penrose poly-
+                                                   nomial.
+                                                      We show that our Tutte polynomials of Hopf algebras share common properties with the classical
+                                                   Tutte polynomial, including deletion-contraction definitions, universality properties, convolution
+                                                   formulas, and duality relations. New results for graph polynomials from the literature are then
+                                                   obtained as examples of the general results.
+                                                      Our results offer a framework for the study of the Tutte polynomial and its analogues in other
+                                                   settings, offering the means to determine the properties and connections between a wide class of
+                                                   polynomial invariants.
+
+
+
+
+                                                                                1. Introduction and overview
+                                              The Tutte polynomial is arguably the most important graph polynomial, and unquestionably
+                                           the most studied. It encodes a substantial amount of the combinatorial information of a graph,
+                                           specialises to a myriad of other polynomials (including the chromatic and flow polynomials). It
+                                           appears in knot theory as the Jones and homfly-pt polynomials, and in statistical mechanics as the
+                                           Ising and Potts model partition functions.
+                                              Given the pervasiveness of the Tutte polynomial, it is unsurprising that attention has been given
+                                           to finding analogues or extensions of the Tutte polynomial from graphs to other types of combi-
+                                           natorial object. These analogues can mostly be fit in to three broad types. Some analogues, such
+                                           as W.T. Tutte and H. Crapo’s extension to matroids [15, 45], uncontroversially should be called a
+                                           Tutte polynomial. Some analogues, such as M. Las Vergnas’ Tutte polynomial for morphisms of
+                                           matroids [36, 37], offer entirely satisfactory candidates for a Tutte polynomial, but without an ex-
+                                           planation of why we should use that particular polynomial and no other. Finally, some polynomials,
+                                           such as the Bollobás-Riordan polynomial [13] or G. Farr’s polynomials of alternating dimaps [26],
+                                           offer polynomials that have some of the properties we would expect of a Tutte polynomial, but do
+                                           not have some of the other properties we would expect (for example, a “full” deletion-contraction
+                                           definition in the case of the Bollobás-Riordan polynomial).
+
+                                              Date: This version November 5, 2018.
+                                              2010 Mathematics Subject Classification. 05C31.
+                                              Key words and phrases. Graph polynomial, Tutte polynomial, Hopf algebra, Las Vergnas polynomial, Penrose
+                                           polynomial, Bollobás-Riordan polynomial, Krushkal polynomial.
+                                              T.K. was partially supported by the ANR JCJC CombPhysMat2Tens grant. A.T. was partially supported by the
+                                           PN 09370102 and ANR JCJC CombPhysMat2Tens grants. This work was initiated while the authors were visiting
+                                           the Erwin Schrödinger International Institute for Mathematical Physics (ESI) in Vienna during their 2014 programme
+                                           on Combinatorics, Geometry and Physics. All three authors would like to thank the ESI for their support and for
+                                           providing a productive working environment.
+                                                                                                    1
+   Thus we arrive at the fundamental problem of what we mean when we say that a polynomial
+invariant is a “Tutte polynomial” of some class of objects? It is exactly this problem that we are
+interested in here.
+   As an answer to this problem, we propose a Hopf algebraic framework for Tutte-like graph
+polynomials. This framework offers a canonical construction of a “Tutte polynomial” of a (suitable)
+set of combinatorial objects that is equipped with some notions of “deletion” and “contraction”.
+(We emphasise that these need not be the usual notions of deletion and contraction for the given
+objects. In fact, different “Tutte polynomials” arise when using different notions of deletion and
+contraction for the same type of object.) The resulting polynomials satisfy what we can reasonably
+expect an analogue of the Tutte polynomial to:
+     • Have a natural, canonical definition that arises from the class.
+     • Have a “full” recursive deletion-contraction-type definition terminating in trivial objects.
+     • Have a state-sum (rank-nullity-type) formulation.
+     • Have a universality property.
+     • Share standard properties of the Tutte polynomial such as duality relations, and convolution
+       formula when possible.
+   The overall aim of this theory is to study graph polynomials en masse, rather than individually,
+and we must question whether the framework offered here is useful for doing this. Any general
+theory should: (i) absorb examples from the literature, and (ii) resolve problems. The bulk of this
+paper is taken up verifying that the theory does indeed do this.
+   We show that various graph polynomials, including the classical Tutte polynomials of graphs,
+matroids, and morphisms of matroids, arise as canonical Tutte polynomials. We also show that
+other graph polynomials, such as the Bollobás-Riordan polynomial [7], the Krushkal [30] and the
+surprisingly Penrose polynomial [1, 41], arise as restricted versions of canonical Tutte polynomials.
+   As for resolving problems, we illustrate that the theory does this by considering topological
+Tutte polynomials. Over the last few years there has been considerable interest in extensions of
+the Tutte polynomial to graphs embedded in surfaces. The study of topological Tutte polynomials
+began, as far as the authors are aware, with M. Las Vergnas’ Tutte polynomial of the morphism of
+a matroid. By considering matroid perspectives associated with embedded graphs, in [36, 37] (see
+also [35, 38]), he introduced a polynomial LG (x, y, z), since named the Las Vergnas polynomial, that
+extends the classical Tutte polynomial to cellularly embedded graphs. Unfortunately Las Vergnas’
+polynomial did not gain much attention and it took several years for topological Tutte polynomials
+to attract the serious attention of the community. This attention was instigated by B. Bollobás and
+O. Riordan’s papers [7] and [6] where they introduced a topological Tutte polynomial RG (x, y, z).
+This polynomial, which is usually described in the language of ribbon graphs, has attracted much
+attention and has found applications in knot theory and quantum field theory (see, for example,
+[16, 20, 31] and the references therein). Most recently, motivated by the algebra and combinatorics
+of statistical mechanics, S. Krushkal introduced in [30] a polynomial KG (x, y, a, b) that extends
+the Tutte polynomial (and the Bollobás-Riordan polynomial) to graphs that are (not necessarily
+cellularly) embedded in a surface.
+   There are three problematic aspects to the theory of topological Tutte polynomials as it stands.
+This first is simply why are there three different “Tutte polynomials” for graphs in surfaces? Which
+can claim to be the Tutte polynomial? Secondly, why do the polynomials not have full recursive
+deletion-contraction relations that terminate in trivial graphs in surfaces? Thirdly, why are almost
+all results about topological graph polynomials in the literature restricted to the 2-variable spe-
+                                                                        √
+cialisation of the Bollobás-Riordan polynomial xγ(G)/2 RG (x + 1, y, 1/ xy)? Answering these three
+questions was the motivation behind this work. An answer given by the Hopf algebraic framework
+is offered in Remark 62.
+                                                  2
+   This paper is structured as follows. Section 2 introduces the Tutte polynomial of a Hopf alge-
+bra, canonical Tutte polynomials, and lists some examples of these. Section 3 proves that these
+polynomials have desirable properties, including full deletion contraction-definitions, state sum for-
+mulations, universality properties, convolution formulae, and that specialisation and duality results
+arise from maps at the Hopf algebra level. Section 4 provides full details for the canonical Tutte
+polynomials that was summarised Section 2.
+
+
+               2. The definition of a Tutte polynomial of a Hopf algebra
+                                                        L
+2.1. The general case of Hopf algebras. Let H = i≥0 Hi be a graded connected commutative
+Hopf algebra (i.e., H is graded Hopf algebra with H0 of dimension 1), where each Hi is a vector
+space over Q. (We work here over Q for simplicity, although it is possible to work in a more
+general setting.) All Hopf algebras here are commutative. An element S ∈ H is said to be
+of graded dimension i if it is in Hi . If f and g are mappings from H into some commutative
+algebra with product m, then their convolution product, f ∗ g, is the mapping from H defined by
+f ∗ g := m ◦ (f ⊗ g) ◦ ∆.
+   Let {Si }i∈I be a basis for H1 . For each i ∈ I we define the mapping δi : H → Q to be the linear
+extension of
+                                                  (
+                                                   1 if S = Si ,
+(1)                                     δi (S) :=
+                                                   0 otherwise.
+
+Let {xj }j∈J be a set of indeterminates, ai ∈ Q[{xj }j∈J ] for each i ∈ I, and a = {ai }i∈I . We define
+the selector δa : H → Q[{xj }j∈J ] by
+                                                  X
+(2)                                         δa :=    ai δi .
+                                                     i∈I
+
+
+      P for a set of indeterminates {yj }j∈J , set b = {bi }i∈I with each bi ∈ Q[{yj }j∈J ], we define
+Similarly,
+δb := i∈I bi δi .
+  With this choice of δa (or δb ) we can consider its ∗-exponential:
+                                        X δa ∗m            1
+(3)                      exp∗ (δa ) =            =  + δa + (δa ∗ δa ) + · · · ,
+                                              m!           2
+                                        m≥0
+
+where  is the Hopf algebra counit.
+  We now introduce the Tutte polynomial of a Hopf algebra.
+
+Definition 1. Let H, δa and δb be as above. Then we define the Tutte polynomial of H, α(a, b) :
+H → Q[{xj , yj }j∈J ] by
+                                   α(a, b) := exp∗ (δa ) ∗ exp∗ (δb ).
+
+  At this point the reader may find it instructive to look forward to Example 23, which shows a
+computation of Tutte polynomial of a Hopf algebra of graphs.
+  Before we continue (and, in particular, justify why we name α the Tutte polynomial) we say a
+few words about notation. In our examples, H1 will have a small dimension (of 2 to 5 elements) so
+we will usually fix an order of the basis and specify a and b as vectors, and the pair a, b as a list in
+α(a, b). We will also use a similar notation to specify δa . This will both reduce clutter and make
+better contact with standard graph polynomial notation. Furthermore, we will often only define δa
+with the understanding that δb is defined similarly. Its exact definition will be clear from context.
+                                                     3
+2.2. Deletion, contraction, and canonical Tutte polynomials. Our aim here is to show that
+the general definition of the Tutte polynomial of a Hopf algebra, α(a, b), provides a framework
+for studying a large class of graph polynomials. To this end we now work towards identifying
+how a variety of graph polynomials arise canonically as the Tutte polynomial of a Hopf algebra.
+More strongly, we show that given a set of combinatorial objects with some notion of deletion and
+contraction, we can use Definition 1 to obtain a natural and canonical Tutte polynomial for that
+class of objects. We will go on to identify numerous graph polynomials as the canonical Tutte
+polynomial of an appropriate class.
+Definition 2. A minor system consists of the following.
+                           S
+   (1) A graded set S = n≥0 Sn of finite combinatorial objects such that each S ∈ Sn has a
+       finite set E(S) of exactly n sub-objects associated with it, and such that there is a unique
+       element 1 ∈ S0 .
+   (2) Two minor operations, called deletion and called contraction, that associate elements
+       S e and S e, respectively, to each pair (S ∈ Sn , e ∈ E(S)), where E(S e) = E(S e) =
+       E(S) \ e, and such that for e 6= f
+        (S   e)   f = (S    f)   e,    (S   e)   f = (S      f)    e,   (S    e)   f = (S   f)    e.
+   An example of a minor system is the set of matroids, with E(S) the cardinality of the ground
+set of a matroid S, and with the usual deletion and contraction of matroids. Other examples can
+be found in Section 4.
+   We say that S 0 is a minor of S, if S 0 can be obtained from S by a sequence of applications of
+the minor operations. By definition, if S is in a minor system, then so are all of its minors. Since
+the order of the application of the minor operations to distinct elements of E(S) does not matter,
+we can use the notation S A and S A to mean we apply the appropriate minor operation to all
+of the elements in A ⊆ E(S) in some order.
+   It is a fairly routine exercise to verify that minor systems have a natural Hopf algebra structure:
+Proposition 3. The vector space H of formal Q-linear combinations of elements of a minor system
+S forms a coalgebra with counit under
+                                                              (
+                           X
+                                      c                         1 if S ∈ S0 ,
+                 ∆(S) =         (S A ) ⊗ (S A),        ε(S) =
+                                                                0 otherwise.
+                           A⊆E(S)
+
+If, in addition, the vector space forms a commutative algebra with multiplication m and unit η such
+that η(1) ∈ S0 ; for all S1 , S2 ∈ S
+                                 E(m(S1 ⊗ S2 )) = E(S1 ) t E(S2 ),
+and for each Ai ⊆ E(Si )
+m(S1   A1 ⊗ S 2   A2 ) = m(S1 ⊗ S2 )    (A1 t A2 ),       m(S1    A1 ⊗ S2    A2 ) = m(S1 ⊗ S2 )   (A1 t A2 ),
+then it is a graded connected Hopf algebra.
+   Hopf algebras have a long history in combinatorics, starting with G.-C. Rota [42], and S. Joni
+and G.-C. Rota [27]. We do not attempt to give a comprehensive survey of their use here, but
+do make a few comments. Various instances of the Hopf algebras defined in Proposition 3 are
+very well-known and well-studied. Of particular relevance here is that the deletion-contraction
+Hopf algebras of Proposition 3 (which includes deletion-restriction Hopf algebras upon choosing
+contraction to be deletion) are much studied in matroid theory. They appear in W. Schmitt’s
+article [43], and have been used to study graph polynomials (see, for example, [18, 32, 33, 34] for
+a selection of applications). It is also worth noting that the Hopf algebras for ribbon graphs are
+closely related to those arising in the theory of Vassiliev invariants [5].
+                                                      4
+  We call a Hopf algebra of the type described in Proposition 3 the Hopf algebras of the minor
+system S.
+
+   We say that a selector δa is uniform if, for each S ∈ H, the evaluations of δ ⊗m for each summand
+of ∆(m−1) (S) are equal. (Equivalently, δa is uniform if δ ⊗m is a well-defined map on the symmetric
+algebra Sm (H1 ) for each m.)
+Definition 4. Let H be a Hopf algebra of a minor system S, and δa and δb be uniform selectors,
+where the δi are determined by the elements of S1 . Then we say that α(a, b), as given in Definition 1,
+is a canonical Tutte polynomial of the minor systems S.
+2.3. A summary of examples of canonical Tutte polynomials. In this section we give an
+overview of how various polynomials arise as canonical Tutte polynomials. The level of detail we
+give in this summary is just enough to understand the applications and properties given in the
+next section. Full details are given in Section 4. Of course some of the polynomials that arise are
+generalisations of others, however recall that the aim here is to find the correct notion of a Tutte
+polynomial for a given setting rather than to construct the most general polynomial possible.
+
+Matroids, Hm . (See Section 4.1 for details.)
+     • Objects: Matroids with their usual deletion and contraction. (See Definition 15.)
+     • Selector: δa = x1 δc + x2 δl , δb = y1 δc + y2 δl where δc detects U1,1 and δl detects U0,1 . (See
+       (24).)
+     • Canonical Tutte polynomial: (See Theorem 16)
+                                                                              
+                                        r(M ) |E(M )|−r(M )      y1      x2
+                     α(a, b)(M ) = x1 y2                    TM      + 1,    +1 ,
+                                                                 x1      y2
+       where TM (x, y) is the classical Tutte polynomial of a matroid, (22).
+
+Matroid Perspectives, Hmp . (See Section 4.3 for details.)
+     • Objects: Matroid Perspectives with their usual deletion and contraction. (See Definition 15.)
+     • Selector: δa = x1 δcc + x2 δll + x3 δcl , δb = y1 δcc + y2 δll + y3 δcl where δcc , δll , δcl detect,
+       respectively, U0,1 → U0,1 , U1,1 → U1,1 , and U1,1 → U0,1 (See (32).)
+     • Canonical Tutte polynomial: (See Theorem 26.)
+                                                                                         
+                              r0 (M 0 ) |E|−r(M ) r(M )−r0 (M 0 )      y1      x2      y3
+              α(a, b)(M) = x1          y2        x3               TM      + 1,    + 1,      ,
+                                                                       x1      y2      x3
+       where TM (x, y, z) is Las Vergnas’ Tutte polynomial of matroid perspectives, (31).
+
+Delta-matroids, Hdm . (See Section 4.5 for details.)
+     • Objects: Delta-matroids with their usual deletion and contraction. (See Definition 37.)
+                                     √                                √
+     • Selector: δa = x1 δc + x2 δo + x1 x2 δn , δb = y1 δc + y2 δo + y1 y2 δn , where δc , δo and δn
+       detect, respectively, Dc := ({e}, {{e}}), Do := ({e}, {∅}), and Dn := ({e}, {∅, {e}}) (See
+       (43).)
+     • Canonical Tutte polynomial: (See Theorem 38.)
+                                                                       
+                                      ρ(D) |E|−ρ(D)       y1       x2
+                        α(a, b)(D) = x1 y2          R̃D      + 1,     +1 ,
+                                                          x1       y2
+       where R̃D (x, y) is the (2-variable) Bollobás-Riordan polynomial, (41).
+                                                    5
+Delta-matroids, Hpe . (See Section 4.9 for details.)
+     • Objects: Delta-matroids with the operations D/e and (D +e)/e as deletion and contraction.
+       See Definition 65. (Note that using operations D \ e and (D + e)/e results in an equivalent
+       polynomial, as in Theorem 71.)
+     • Selector: Same as that above for Hdm .
+     • Canonical Tutte polynomial: (See Theorem 69.)
+                                                                      
+                                      ξ(D) |E|−ξ(D)       y1      x2
+                        α(a, b)(D) = x1 y2          P̃D      + 1,    +1 .
+                                                          x1      y2
+
+       where P̃D (x, y) is the 2-variable Penrose polynomial, (66).
+
+Graphs, Hg . (See Section 4.2.)
+     • Objects: A quotient space of graphs with their usual deletion and contraction. (See Defini-
+       tion 19.)
+     • Selector: δa = x1 δb + x2 δl , δb = y1 δb + y2 δl , where δb and δl detect a one-edge bridge and
+       loop, respectively. (See (28).)
+     • Canonical Tutte polynomial: (See Theorem 21.)
+                                            r(G) |E(G)|−r(G)
+                           α(a, b)(G) = x1      y2           TG ( xy11 + 1, xy22 + 1),
+
+       where TG (x, y) is the classical Tutte polynomial of a graph, (27).
+
+Graphs in pseudo-surfaces, Hps . (See Section 4.4 for details.)
+     • Objects: A quotient space of graphs in pseudo-surfaces (see Definition 30), deletion deletes
+       edges, contraction forms topological quotient space. (See Definition 32.)
+     • Selector: δa = x1 δcc + x2 δll + x3 δcl , δb = y1 δcc + y2 δll + y3 δcl , where δcc , δll and δcl , detect
+       a 1-path in the sphere, a loop in the sphere, and a loop that is a meridian of a torus,
+       respectively. (See (40).)
+     • Canonical Tutte polynomial: (See Theorem 29.)
+                                      r(G) κ(G) n(G)−κ(G)
+                     α(a, b)(G) = x1      y2 x3           LG⊂Σ ( xy11 + 1, xy22 + 1, xy33 ),
+
+       where LG⊂Σ (x, y, z) is the Las Vergnas polynomial, (38).
+
+Ribbon graphs, Hrg . (See Section 4.6 for details.)
+     • Objects: A quotient space of ribbon graphs, with the usual deletion and contraction of
+       ribbon graphs. (See Definition 43.)
+                                     √                                 √
+     • Selector: δa = x1 δb + x2 δo + x1 x2 δn , δb = y1 δb + y2 δo + y1 y2 δn , where δb , δo , and δn ,
+       detect a one-edge bridge, orientable loop and non-orientable loop, respectively. (See (50).)
+     • Canonical Tutte polynomial: (See Theorem 44.)
+                                                                        
+                                       ρ(G) |E|−ρ(G)       y1       x2
+                       α(a, b)(G) = x1 y2            R̃G      + 1,     +1 ,
+                                                           x1       y2
+
+       where R eG (x, y) is the 2-variable Bollobás-Riordan polynomial, (47). Note that this equals
+                       p
+       RG (x, y −1, 1/ x(y − 1)), where RG (x, y, z) is the Bollobás-Riordan polynomial, as in (46).
+                                                       6
+Ribbon graphs, Hper . (See Section 4.10 for details.)
+     • Objects: A quotient space of ribbon graphs, with ribbon graph contraction as deletion, and
+       twist-contract as contraction. (See Definition 73.)
+     • Selector: Same as for Hrg above. (See (50).)
+     • Canonical Tutte polynomial: (See Theorem 74.)
+                                                                       
+                                       ξ(D) |E|−ξ(D)       y1      x2
+                        α(a, b)(G) = x1 y2           P̃D      + 1,    +1 ,
+                                                           x1      y2
+       where P̃G (x, y) is the 2-variable Penrose polynomial of (72).
+
+Vertex partitioned ribbon graphs Hvrg . (See Section 4.7 for details.)
+     • Objects: A quotient space of ribbon graphs equipped with a partition of their vertex set.
+       (See Definition 49.)
+                                     √                                         √
+     • Selector: δa = x1 δb + x2 δo + x2 x3 3 δn + x3 δl , δb = y1 δb + y2 δo + y2 y3 3 δn + y3 δl where the
+       δi are as in (54)).
+     • Canonical Tutte polynomial: (See Theorem 50.)
+                                                        r(A/P )  |A|−ρ(A)  ρ(A)−r(A/P )
+                     r(G ) |E|−ρ(G) ρ(G)−r(G/P ) X         x1           x2               x3
+  α(a, b)(G, P) = y1 /P y2          y3                                                                   .
+                                                           y1           y2               y3
+                                                     A⊆E
+
+       This is an extension of the Bollobás-Riordan polynomial to vertex partitioned graphs. It
+       coincides with the Bollobás-Riordan polynomial RG (x, y, z) when the blocks of the partition
+       are of size one.
+
+Vertex partitioned graphs in surfaces, Hvgs . (See Section 4.8 for details.)
+     • Objects: A quotient space of graphs in surfaces equipped with a partition of their vertex
+       sets (Definition 54). (See Definition 56.)
+                                             √                                               √
+     • Selector: δa = x1 δ1 + x2 δ2 + x3 δ3 + x3 x4 δ4 + x4 δ5 , δb = y1 δ1 + y2 δ2 + y3 δ3 + y3 y4 δ4 + y4 δ5 ,
+       where the δi are as in (62)).
+     • Canonical Tutte polynomial: (See Theorem 58.)
+                          r(G/P ) κ(G⊂Σ,P) ρ(G⊂Σ,P)−r(G/P ) |E|−ρ(G⊂Σ,P)−κ(G⊂Σ,P)
+  α(a, b)(G ⊂ Σ, P) = y1         y2       y3               y4
+
+
+                                   X  x1 r(A/P )  x2 κ(A)  x3 ρ(A)−r(A/P )  x4 |A|−ρ(A)−κ(A)
+                                                                                                            .
+                                          y1              y2         y3                  y4
+                                   A⊆E
+
+       This is an extension of the Krushkal polynomial to vertex partitioned graphs in surfaces.
+       It coincides with the Krushkal polynomial KG⊂Σ (a, b, x, y) when the blocks of the partition
+       are of size one.
+
+                       3. Properties of canonical Tutte polynomials
+   Throughout this section we work primarily with Hopf algebras of a minor system. We will show
+that canonical Tutte polynomials of minor systems, in general, have many of the desirable properties
+of the classical Tutte polynomial of a graph or matroid. The summary given in Section 2.3 provides
+enough information to interpret the applications of the general results to those examples. However,
+in order to bring the general results ‘up front’, at times we refer forward to later sections for full
+details.
+                                                      7
+3.1. State sum formulations. The following theorem provides state sum formulations for canon-
+ical Tutte polynomials.
+                                                                                       P
+Theorem 5. Let H be a Hopf algebra of a minor system S with coproduct ∆(S) = A⊆E(S) (S
+Ac ) ⊗ (S A). Suppose that a set I indexes the elements of H1 , and that the functions δi are defined
+by Equation (1). Suppose also that for each j in some indexing set J there is a function rj : H → Q
+such that
+(4)                          rj (S) = rj (S     e) + mij          when δi (S      ec ) = 1,
+where S ∈ H, e ∈ S and mij ∈ Q; and such that rj (S) = 0 when S ∈ H0 .
+   For a set of indeterminates {xj }j∈J define
+                                     X                     Y mij
+(5)                            δa :=     ai δi where ai :=  xj .
+                                         i∈I                              j∈J
+                                               P                            Q        mij
+Then δa is uniform. Moreover, if δb :=               i∈I bi δi with bi :=       j∈J yj , the Tutte polynomial of H
+satisfies
+                                               Y       r (S)
+                                                                 X Y  xj rj (A)
+(6)                           α(a, b)(S) =            yj j                               ,
+                                                                            yj
+                                               j∈J             A⊆E(S) j∈J
+
+where ri (A) := (S   Ac ).
+Proof. The proof of the theorem has four main steps: (1) showing δa is uniform, (2) finding a closed
+form for exp∗ (δa )(S), (3) showing that for each j, rj (S) = rj (S Ac ) + rj (D A), and (4) proving
+the given form of α(a, b)(S).
+   We start by showing δa is uniform. For this we set up some notation. For S ∈ S ⊂ H we use
+Pl (S), where l = 1, . . . |E(S)|!, to denote the summands of ∆(|E(S)|−1) (S) that consist of the tensor
+product of |E(S)| objects each of which is of graded dimension 1. In addition let #i (Pl (S)) denote
+the number of tensor factors in Pl (S) which δi maps to 1.
+   To prove the uniformity of δa we need to show that for each l and S, δa⊗l takes the same value
+on each summand of ∆(l−1) (S). If any tensor factor in the summand is not of graded dimension
+1 then δa will evaluate to zero on that summand, thus we need only consider summands in which
+each tensor factor is of graded dimension 1. That is, we need to show that for each S ∈ S, δ ∗|E(S)|
+takes the same value on Pl (S), for each l. To do this we show
+                                                              Y rj (S)
+(7)                                      δ ∗|E(S)| (Pl (S)) =  xj      .
+                                                                  j∈J
+
+By definition we have
+                                               Y # (P (S)) Y P mij ·#i (Pl (S))
+(8)                     δ ∗|E(S)| (Pl (S)) =    ai i l    = xj i∈I              .
+                                               i∈I                  j∈J
+
+So we need to show for each j ∈ J that
+                                                      X
+(9)                                    rj (S) =             mij · #i (Pl (S)).
+                                                      i∈I
+
+We will do this by induction on |E(S)|. If |E(S)| = 0 the result P holds since both sides of (9) are
+trivial. |E(S)| = 1 then for exactly one k ∈ I, δk (S) = 1 and so i∈I mij ·#i (Pl (S)) = mkj = rj (S).
+   Now suppose that S ∈ S with |E(S)| ≥ 2, and that (9) holds for all S 0 ∈ S with |E(S 0 )| < |E(S)|.
+We can write
+(10)                             Pl (S) = Q1 ⊗ Q2 ⊗ Q3 ⊗ · · · ⊗ Q|E(S)| ,
+                                                             8
+where each Qk is of graded dimension 1. Observe that we can write
+
+(11)                          Pn (S      e1 ) = Q2 ⊗ Q3 ⊗ · · · ⊗ Q|E(S)| ,
+
+for some n and that Q1 = S     e1 c . By the inductive hypothesis
+                                                 X
+(12)                           rj (S    e1 ) =         mij · #i (Pn (S          e1 )),
+                                                 i∈I
+
+for each j ∈ J.
+   We know that δp (S e1 c ) = 1 for some p and is zero otherwise. Using Equation (11) for the first
+equality, the inductive hypothesis for the second, and Equation (4) for the third, we have
+                                                             !
+         X                           X
+             mij · #i (Pl (S))mpj +     mij · #i (Pn (S e1 )) = mpj + rj (S e1 ) = rj (S).
+        i∈I                            i∈I
+
+Thus we have shown δa is uniform.
+
+  Next we find a closed form for exp∗ (δa )(S). Using the definition of the ∗-exponential,
+                                             ∞     P           ∗p !
+                                                     i∈I ai δi
+                                             X
+(13)                        exp∗ (δa (S)) =                          (S).
+                                                        p!
+                                                 p=0
+
+All the terms in this sum vanish except the ones for which p = |E(S)| (as otherwise some δi will
+evaluate to zero). Furthermore, the non-vanishing terms arise exactly from the |E(S)|! terms of
+∆(|E(S)|−1) (S) that consist of the tensor product of |E(S)| elements of graded dimension 1. Thus
+
+                                                      |E(S)|!
+                                                 1     X
+(14)                       exp∗ (δa (S)) =                    δ ∗|E(S)| (Pl (S)).
+                                              |E(S)|!
+                                                            l=1
+
+Equation (7) then gives
+                                                                   r (S)
+                                                            Y
+(15)                                    exp∗ (δa (S)) =           xj j     .
+                                                            j∈J
+
+
+
+   Next, to show that α(a, b)(S) can be written on the form of Equation (6) we prove the following
+identity. For each A ⊆ E(S), and for each j ∈ J,
+
+(16)                              rj (S) = rj (S        Ac ) + rj (S           A).
+
+To prove (16) we start with the observation that since ∆ is a cocommutative and (S           e)   f =
+(S f ) e for e 6= f ,
+
+(17)                              ∆(S) = ∆(S            Ac ) ⊗ ∆(S             A).
+
+Using the notation from Equation (10), let
+
+(18)                          Pl (S) = Q1 ⊗ Q2 ⊗ Q3 ⊗ · · · ⊗ Q|E(S)|
+                                                        9
+be one of the |E(S)|! summands of ∆(|E(S)|−1) (S) in which each Qk is of graded dimension 1. Then
+since δa is uniform and since δi is zero on all elements except for those of graded dimension 1,
+                               ∞     P              ∗p     !    n
+                                                                                      !
+                              X
+                                       i∈I ai · δ i     (S)     Y   X
+              exp∗ (δa )(S) =                                 =         ai · δi (Qk )
+                                             p!
+                              p=0                               k=1 i∈I
+                                                       ! |E(S)|−|A|                     !
+                                |A|
+                                Y    X                            Y      X
+                            =           ai · δi (Qk )  ·                   ai · δi (Qk ) 
+                                          k=1    i∈I                                k=|A|+1         i∈I
+                                                             c
+                               = exp∗ (δa )(S              A ) · exp∗ (δa )(S         A),
+where the last equality follows since Q1 ⊗ · · · ⊗ Q|E(S)| is a summand of ∆(|E(S)|−1) (S) so by
+                                                       c
+Equation (17) Q1 ⊗ · · · ⊗ Q|A| is a summand of ∆(|S A |−1) (S Ac ), and Q|A|+1 ⊗ · · · ⊗ Q|E(S)| is a
+summand of ∆|S A|−1 (S A). But then, by (15), we have
+                                                                   
+                            Y rj (S)      Y rj (S Ac )    Y rj (S A)
+                                x      =  jx               x  j
+                                                                      
+                                                                                          j
+                                    j∈J                   j∈J                       j∈J
+
+from which (16) immediately follows.
+  Finally we prove Equation (6).
+                                                                                                                                          
+                                                                                                           r (S   Ac )                r (S A) 
+                X                                                                     X             Y                          Y
+α(a, b)(S) =             exp∗ (δa )(S           Ac ) · exp∗ (δb )(S       A) =                           xj j                     yj j
+               A⊆E(S)                                                                A⊆E(S)        j∈J                         j∈J
+                                                                                                                                     
+               X         Y    r (S    Ac )
+                                                    Y      r (S)−rj (S   Ac )
+                                                                                          Y      r (S) 
+                                                                                                                 X       Y  xj rj (A)
+           =                xj j                       yj j                  =             yj j                                       ,
+                                                                                                                                yj
+               A⊆E   j∈J                            j∈J                                   j∈J                 A⊆E        j∈J
+
+completing the proof of the theorem.                                                                                                            
+   The reader will undoubtedly recognise Equation (6) as being of a similar formPto the span-
+ning subgraph expansion of the classical Tutte polynomial of a graph TG (x, y) = A⊆E(G) (x −
+1)r(G)−r(A) (y − 1)n(A) . (In fact it is its universal form.)
+3.2. Deletion-contraction definitions. The motivation behind our consideration of Hopf alge-
+bras generated by concepts of deletion and contraction was to construct graph polynomials that
+satisfy a recursive deletion-contraction definition that is independent of order of edges to which
+it is applied, and that reduces the computation of a polynomial to that of a unique trivial object
+(equivalently, it generates a 1-dimensional skein module). That is we want our polynomials to
+satisfy a recursive definition analogous to that for the classical Tutte polynomial of a matroid. The
+following theorem tells us that they do.
+Theorem 6. Let H be a Hopf algebra of a minor system, and δa and δb be a uniform selectors.
+Then the canonical Tutte polynomial α(a, b) is a recursively defined by
+                        (
+                         δb (S ec ) · α(S e) + δa (S ec ) · α(S e) if S ∈    / S0 ,
+               α(S) =
+                         1                                              if S ∈ S0 .
+Proof. Suppose that δa and δb are uniform. For each S ∈ S, we can write fS (a) for exp∗ (δa )(S).
+Then                                      X
+                            α(a, b)(S) =       fS Ac (a) · fS A (b).
+                                                             A⊆E(S)
+                                                                  10
+Suppose that |E(S)| ≥ 2, and e ∈ E(S). Then
+               X                           X                        X
+ α(a, b)(S) =       fS Ac (a) · fS A (b) =   fS Ac (a) · fS A (b) +   fS Ac (a) · fS A (b)
+              A⊆E(S)                             A⊆E(S)                                A⊆E(S)
+                                                  e∈A
+                                                   /                                    e∈A
+                                                                                                        
+                    X                                              X
+            =               f(S e) Ac (a) · fS A (b) +                   fS Ac (a) · f(S e) A (b) .
+                  A⊆E(S e)                                       A⊆E(S A)
+
+Consider the computation of one of the terms of the form fS A (b) in the above. Recall fS A (b) =
+exp∗ (δb )(S A). If m = |E(S A)|, then we can write
+                                                  m
+                                             1 X
+                     exp∗ (δb )(S    A) =        δb (Uj,1 ) · δb (Uj,2 ) · · · · · δb (Uj,m )
+                                             m!
+                                                 j=1
+
+where each Ui,j ∈ S1 . (The Uj,1 ⊗ · · · ⊗ Uj,m are exactly the terms of ∆(m) (S                       A) in which each
+tensor factor is in S1 .) Since δb is uniform,
+                   fS A (b) = exp∗ (δb )(S      A) = δb (Uj,1 ) · δb (Uj,2 ) · · · · · δb (Uj,m ),
+for each j, and we can choose the summand exp∗ (δb )(S A) is calculated from. Writing ∆(m) as
+(∆(m−1) ⊗id)◦∆, we can choose a summand that arises as a term of ∆(m−1) ((S A) e)⊗((S A) ec ),
+and so fS A (b) = f(S A) e (b) · δb ((S A) ec ) = f(S e) A (b) · δb (S ec ).
+   For fS Ac (a) we proceed similarly. We have fS Ac (a) = exp∗ (δa )(S Ac ). If m = |E(S Ac )|,
+then by the definition of δa , we can write
+                                                  m!
+                                             1 X
+                     exp∗ (δa )(S   Ac ) =       δa (Uj,1 ) · δa (Uj,2 ) · · · · · δa (Uj,m )
+                                             m!
+                                                 j=1
+
+where, again, each Ui,j ∈ S1 . Since δa is uniform,
+                  fS Ac (a) = exp∗ (δa )(S      Ac ) = δa (Uj,1 ) · δa (Uj,2 ) · · · · · δa (Uj,m ),
+for each j, and so we can choose the summand exp∗ (δa )(S Ac ) is calculated from. So writing
+∆(m) as (id ⊗ ∆(m−1) ) ◦ ∆, we can choose a summand that arises as a term of ((S A) ec ) ⊗
+∆(m−1) ((S A)/e) , and so fS A (a) = δa ((S A) ec ) · f(S A) e (a) = δa (S ec ) · f(S e) A (a) =
+δa (S ec ) · f(S e) A (a). Thus we have that
+               α(a, b)(S) = δb (S      ec ) · α(a, b)(S      e) + δa (S      ec ) · α(a, b)(S        e).
+It is easily checked that this identity also holds when |E(S)| = 1, and that α(a, b)(S) = 1 when
+|E(S)| = 0.                                                                                   
+  Theorem 6 gives recursive deletion-contraction definitions for each of the graph polynomials in
+Section 2.3. Some of these relations are known:
+   (1) Theorems 6 and 16 give the standard deletion-contraction relations for the Tutte polynomial
+       of a matroid.
+   (2) Theorems 6 and 21 give the standard deletion-contraction relations for the Tutte polynomial
+       of a graph.
+   (3) Theorems 6 and 26 give the deletion-contraction relations for TM →M 0 from [39].
+   (4) Theorems 6 and 29 give the deletion-contraction relations for LG⊂Σ from [22].
+   (5) Theorems 38, 44 and 6 give deletion-contraction relations for R̃ that are equivalent to those
+                                                         √
+       for the Bollobás-Riordan polynomial along z = 1/ xy of a ribbon graph from [20], and of
+       a delta-matroid from [14].
+                                                       11
+However, the deletion-contraction definition relations for the remaining polynomials are new to the
+literature. Specifically, our work here gives new deletion-contraction definitions (that terminate in
+their evaluations on trivial objects) for the
+     (1) 3-variable Bollobás-Riordan polynomial,
+     (2) Krushkal polynomial,
+     (3) 2-variable Penrose polynomial.
+One thing we emphasise is that to obtain the full deletion-contraction relations for the 3-variable
+Bollobás-Riordan polynomial and the Krushkal polynomial we had to extend the class of objects
+on which the polynomials had been defined.
+   In the interests of brevity we will not explicitly write down the deletion-contraction definitions for
+all of the above polynomials. Instead we will illustrate the application of Theorem 6 to R̃D (x, y).
+For the deletion-contraction definition, the definitions for ribbon loops can be found just above
+Lemma 39, and for ribbon dual-loops, just above Lemma 66.
+Theorem 7. R̃D (x, y) is recursively defined by R̃(∅,∅) (x, y) = 1 and
+                           R̃D (x, y) = f (e) · R̃D\e (x, y) + g(e) · R̃D/e (x, y),
+where
+                           
+                           y − 1
+                                     if e is not a ribbon dual-loop,
+                    f (e) = 1         if e is an orientable ribbon dual-loop,
+                           √
+                           
+                               y − 1 if e is a non-orientable ribbon dual-loop;
+                           
+                           x − 1
+                                     if e is not a ribbon loop,
+                    g(e) = 1          if e is an orientable ribbon loop,
+                           √
+                           
+                               x − 1 if e is a non-orientable ribbon loop.
+                                                        √                 √
+Proof. Theorem 38 gives that R̃D (x, y) = α(1, y − 1, y − 1, x − 1, 1, x − 1). The result then
+follows by an application of Theorem 6 using Lemmas 39 and 66 to recognise the values of δ(D/ec )
+and δ(D\ec ).                                                                                 
+3.3. Universal forms. The well-known universality property of the Tutte polynomial of a ma-
+troid can be formulated as saying that there exists a unique, well-defined, matroid polynomial
+fM (x, y, a, b) given by
+                              
+                              
+                              1                            if M = U0,0 ,
+                              
+                              yf
+                                 M \e (x, y)                if e is a loop,
+(19)                     fM =
+                              
+                              xfM \e (x, y)                if e is a coloop,
+                              
+                               afM \e (x, y) + bfM/e (x, y) otherwise,
+                              
+
+and that
+                                  fM = br(M ) a|E(M )|−r(M ) TM ( xb , ay ).
+   The two key features of this universality property are (1) that the recursion relations in Equa-
+tion (19) give a well-defined polynomial, and (2) that this polynomial can be obtained from a
+particular distinguished specialisation, namely TM . In the present context of canonical Tutte poly-
+nomials α, Theorem 6 provides a recursion relation for a polynomial, the question becomes one
+of determining what particular distinguished specialisation can play the role of TM in the general
+setting. This is answered by the following theorem.
+Theorem 8. Let H, J, δa , and δb be defined as in Theorem 5. Suppose that JX , JY , JZ ⊆ J
+partition J, and that δa0 and δb0 are obtained from δa and δb , respectively, by setting xj = 1 when
+                                                     12
+j ∈ JX and yj = 1 when j ∈ JY . Then there is a unique, well-defined polynomial invariant α of H
+given by               (
+                         δb (S ec ) · α(S e) + δa (S ec ) · α(S e) if S ∈   / S0 ,
+               α(S) =
+                         1                                             if S ∈ S0 .
+Moreover,
+                                                                                                            !
+                                     r (S)                 r (S) 
+                             Y                      Y
+               α(S) =              xj j                    yj j        α0 (a0 , b0 )(S) yj 7→yj /xj for j∈JX       ,
+                             j∈JX                  j∈JY                                 xj 7→xj /yj for j∈JY
+
+where α0 (a0 , b0 )(S) is the canonical Tutte polynomial of H defined by δa0 and δb0 .
+Proof. It follows from Theorems 5 and 6 that the recursion relations define the polynomial
+                                           Y rj (S) X Y  xj rj (A)
+                       α(S) = α(a, b)(S) =    yj                           .
+                                                                  yj
+                                                             j∈J        A⊆E(S) j∈J
+
+Also by Theorem 5,
+                                                          
+                              r (S)                r (S) 
+                         Y                   Y
+  α0 (a0 , b0 )(S) =        yj j                   yj j
+                     j∈JX                   j∈JZ
+                                                                                                                        
+                                            X              Y  1 rj (A)          Y                       Y  xj rj (A)
+                                                                                     (xj )rj (A)                        .
+                                                                   yj                                                   yj
+                                           A⊆E(S)      j∈JX                      j∈JY                   j∈JZ
+
+The theorem is readily seen to hold upon comparing these state sums for α and α0 .                                                
+   Conceptually Theorem 8 says that in the definition α(a, b) via Theorem 5, half of the variables
+are redundant. Although α(a, b) is in variables {xj , yj }j∈J , for each j ∈ J we can set either xj or
+yj to 1 without losing any information from the polynomial.
+   Theorem 8 applies to all of the invariants in Section 4. In particular, it shows that each of TM ,
+TG , TM , LG⊂Σ , R     eG , R(G,P) , K
+                  eD , R             e G⊂Σ , PeD , and PeG is a universal object for the relevant class of
+polynomials. We will not write down explicit universality statements for each of these polynomials,
+but will note, as an example, that for matroids, the two universality statements for TM in this
+section coincide.
+3.4. Specialisation as a Hopf algebra morphism. Although fairly straightforward, the follow-
+ing theorem provides a formal definition of what it means for one graph polynomial to generalise or
+to contain another. We will use it to show that many known relations between graph polynomials
+result from natural maps on the Hopf algebra level.
+Theorem 9. Let H and H0 be graded connected commutative Hopf algebras and φ : H → H0 be a
+Hopf algebra morphism. Suppose that δH,a and δH0 ,x are selectors for H and H0 , respectively, such
+that δH,a = δH0 ,x ◦ φ. Then
+                                   αH (a, b) = αH0 (x, y) ◦ φ,
+where the α’s are defined using δH and δH0 , respectively. Moreover, if δH0 is uniform, then so is
+δH .
+Proof. We write δH for δH,a , and δH0 for δH0 ,x . Let S ∈ H. Using Sweedler notation we can write
+                                   (k)
+                                             X (1)               (k)
+                                  ∆H (S) =         Sj ⊗ · · · ⊗ Sj .
+                                                               j
+                                                                   13
+Since φ is a Hopf algebra morphism
+                                              X                       
+                        (k)              (k)        (1)                (k)
+                       ∆H0 (φ(S)) = φ⊗k ∆H (S) = φ Sj     ⊗ · · · ⊗ φ Sj     .
+                                                                   j
+
+
+These two expressions and that δH = δH0 ◦ φ give
+
+                            (1)                 (k)                      (1)               (k)
+                   X                                   X
+        ∗k                                                                                           ∗k
+       δH  (S) =       δH (Sj ) · · · · · δH (Sj ) =          δH0 (φ(Sj )) · · · · · δH0 (φ(Sj )) = δH 0 (φ(S)).
+
+                   j                                      j
+
+
+It follows that exp∗ (δH )(S) = exp∗ (δH0 )(φ(S)), and so αH (S) = αH0 (φ(S)), as required.
+     To see that δH is uniform when δH0 is, let σ be an element of the symmetric group on k elements.
+          ⊗k                                                         ⊗k
+Then δH      (S1 ⊗· · ·⊗Sk ) = δH0 (φ(S1 ))⊗· · ·⊗δH0 (φ(Sk ))) and δH  (Sσ(1) ⊗· · ·⊗Sσ(k) ) = δH0 (φ(Sσ(1) ))⊗
+· · · ⊗ δH (φ(Sσ(k) ))). Since δH is uniform these two expressions are equal, and so δH is uniform. 
+           0                       0
+
+
+
+
+  The point of Theorem 9 is that it can be used to show that the fact that one graph polynomial
+can be obtained as a specialisation of another follows from the fact that there is a Hopf algebra
+morphism (usually projection) between the corresponding Hopf algebras. Figure 1 summarise
+some of the Hopf algebra morphisms given in the paper. These descend to relations between graph
+polynomials on the level of canonical Tutte polynomials (See Section 2.3 for the corresponding
+polynomials, and follow the references for the exact specialisation).
+
+
+                          Cor. 28                Cor. 41
+                Hmp                    Hm                          Hdm
+
+
+        Lem. 33                Cor. 20                Lem. 20
+
+
+                          Cor. 35                 plane                   Cor. 53           Cor. 60
+                Hps                    Hg                          Hrg              Hvrg                Hvgs
+                                                 Cor. 47
+
+
+                                                              Cor. 60
+
+
+
+        Figure 1. Hopf algebra morphisms inducing relations between graph polynomials.
+
+
+
+
+3.5. Convolution formulas. The convolution formula for the Tutte polynomial, which appears
+in W. Kook, V. Reiner and D. Stanton’s paper [28], and implicitly in G. Etienne and M. Las
+Vergnas’ paper [25], expresses the Tutte polynomial of a graph or matroid M in terms of 1-variable
+specialisations:
+                                                  X
+(20)                              TM (x, y) =             TM \Ac (0, y) · TM/A (x, 0).
+                                                A⊆E(M )
+                                                              14
+It follows easily from the writing of TM (x, y) in terms of exponentials in Corrolary 17. To see this,
+start with the following rewriting of α:
+                 α(a, b)(S) = [exp∗ (δa ) ∗ exp∗ (δb )](S)
+                             = [exp∗ (δa ) ∗ exp∗ (δc ) ∗ exp∗ (δ−c ) ∗ exp∗ (δb )](G)
+(21)                         = [exp∗ (δa ) ∗ exp∗ (δc )] ⊗ [exp∗ (δ−c ) ∗ exp∗ (δb )](∆(S))
+                                X
+                             =     α(a, c)(S Ac ) · α(−c, b)(S Ac ).
+                                A⊆E
+
+An application of Theorem 17 with a = (1, y − 1), b = (x − 1, 1) and c = (−1, 1) then gives (20).
+This derivation of the convolution formula was first observed in [17].
+   Equation (21) is not specific to TM and can be used to obtain new convolution formulae for
+other canonical Tutte polynomials. There is a slight subtlety in the derivation of such formula,
+however. For a given canonical Tutte polynomial α(a, b), the variables in each of a or b may depend
+upon each other (for example, this may be forced by uniformity of δ). We need to ensure that in
+both −a and −b the variables satisfy the same dependence, and ensuring this may require some
+specialisation of the variables or classes of object considered. For example, the 2-variable Bollobás-
+                                                            √                           √
+Riordan polynomial needs a to be of the form a = (x, y, xy), but −a = (−x, −y, − xy) is not of
+                     √
+this form ((−x, −y, xy) is) and so we can not write the final equality in (21) in this instance. As
+we will see below, we can work around this issue for the the 2-variable Bollobás-Riordan polynomial
+by restricting to orientable ribbon graphs or even delta-matroids.
+Theorem 10. The following identities hold.
+  (1) If M is a matroid perspective and TM the Tutte polynomial of a morphism of a matroid,
+                                    X
+                      TM (x, y) =        TM\Ac (0, y, −1) · TM/A (x, 0, z).
+                                      A⊆E(M)
+
+   (2) If D is an even delta-matroid and R̃ the 2-variable Bollobás-Riordan polynomial,
+                                       X
+                           R
+                           eD (x, y) =        eD\Ac (0, y) · R
+                                              R              eD/A (x, 0).
+                                          A⊆E(D)
+
+   (3) If (G, P) is a vertex partitioned ribbon graph and R(G,P) (x, y, z) the Bollobás-Riordan poly-
+       nomial,
+                                       X
+                R(G,P) (x, y, yz 2 ) =      R(G,P)\Ac (0, y, yz 2 ) · R(G,P)/A (x, −1, 1).
+                                      A⊆E(G)
+
+   (4) If (G ⊂ Σ, P) is a vertex partitioned graph in a surface and K    e (G⊂Σ,P) (x, y, a, b) the Krushkal
+       polynomial,
+                                  X
+      e (G⊂Σ,P) (x, y, a, ab2 ) =
+      K                                Ke (G⊂Σ,P)\Ac (−1, y, a, ab2 ) · K
+                                                                        e (G⊂Σ,P)/A (x, −1, −1, −1).
+                                A⊆E(G)
+
+Proof. Item 1 follows by Corollary 27 and Equation (21) with a = (1, y − 1, 1), b = (x − 1, 1, z) and
+c = (−1, 1, −1).
+   For Item 2 start by considering Equation (43). Since D is even and contraction and deletion
+preserve the parity of delta-matroids, Dn = ({e}, {∅, {e}}) will never appear in any ∆n (D), where
+n ∈ N. Thus we can ignore the δn term in Equation (43), giving that α(a, b) of Equation (44)
+equals exp∗ (x1 δb + x2 δo ) ∗ exp∗ (y1 δb + y2 δo ). We can now apply Equation (21) to this expression
+for α with a = (1, y − 1), b = (x − 1, 1) and c = (−1, 1). Applying Theorem 38 then gives the
+convolution formula.
+                                                     15
+  Item 3 follows from the expression of R in terms of α in Definition 52 and Equation (21) with
+a = (1, y, yz, yz 2 ), b = (x − 1, 1, 1, 1) and c = (−1, 1, 1, 1).
+  Item 4 follows from the expression of K      e in terms of α in Definition 61 and Equation (21) with
+                     2
+a = (1, y, a, ab, ab ), b = (x, 1, 1, 1, 1) and c = (−1, 1, 1, 1, 1).                               
+   By the discussions in Sections 4.4 and 4.6, Item 1 in Theorem 10 can be expressed in terms
+of the Las Vergnas polynomial of graphs in pseudo-surfaces, and Item 2 in terms of orientable
+ribbon graphs (since D(G) is even when G is orientable by [8, 13]). Note that while Corollary 53
+gives RG (x, y) as an evaluation of R(G,P) (x, y, z), this result with Item 3 of Theorem 10 does not
+give a convolution formula for RG (x, y) since the R(G,P)/A (x, −1, 1) is not of the form required by
+Corollary 53 to specialise to RG/A (x, y).
+3.6. Duality. It is well-known that the Tutte polynomial of a matroid satisfies the duality rela-
+tion TM (x, y) = TM ∗ (y, x). We will now show how such duality relations fit in our Hopf algebra
+framework, and, moreover, result from Hopf algebra morphisms.
+Definition 11. Let H be a Hopf algebra of a minor system, as described in Proposition 3. By
+a combinatorial duality for H we mean an involutionary grading preserving algebra morphism
+∗ : H → H, where we denote ∗(S) by S ∗ and call it the dual of S, such that for each S ∈ H and
+each e ∈ E(S), we have (S e)∗ = S ∗ e and (S e)∗ = S ∗ e.
+  We can now state a general duality theorem, which is a variation of Theorem 9.
+Theorem
+    P     12. Let H beP a Hopf algebra of a minor system with a combinatorial duality ∗. Let
+δa = i∈I ai δi and δb = i∈I bi δi be selectors for H. Then for all S ∈ H,
+                                      α(a, b)(S) = α(b∗ , a∗ )(S ∗ ),
+where α(b∗ , a∗ ) is defined by the selectors δa∗ := δa ◦ ∗ and δb∗ := δb ◦ ∗.
+Proof. The proof is very similar to the proof of Theorem 9, and so we only provide a sketch. First
+observe thatP∆(S ∗ ) = (τ ◦ ∆(S))∗ where τP: H → H : S ⊗ S 0 7→ S 0 ⊗ S is the flip. This is since
+∆(S ∗ ) =       (S ∗ Ac ) ⊗ (S ∗ A) =           (S Ac )∗ ⊗ (S A)∗ = (τ ◦ ∆(S))∗ , where the last
+         A⊆E(S ∗ )                         A⊆E(S)
+equality follows since the sum is over all subsets of E(S).
+  The result can then be obtained by following the proof of Theorem 9, but replacing τ ◦ ∗ for φ
+and noting that the presence of the flip τ reverses the order of the tensor factors.          
+Corollary 13. The following duality identities hold.
+  (1) [Crapo [15],Tutte [44]] For a matroid M , TM (x, y) = TM ∗ (y, x).
+  (2) [Las Vergnas [37]] For a matroid perspective M = M → M 0 ,
+                                                         0
+                               TM (x, y, z) = z r(E)−r (E) TM∗ (y, x, 1/z).
+   (3) [Las Vergnas [38]] For a graph in a pseudo-surface G ⊂ Σ,
+                             LG⊂Σ (x, y, z) = z n(G)−κ(G) LG∗ ⊂Σ (y, x, 1/z).
+                                                eD (x, y) = R
+   (4) [Chun et al [13]] For a delta-matroid D, R           eD∗ (y, x).
+                                                                               eG (x, y) =
+   (5) [Ellis-Monaghan and Sarmiento [24], Moffatt [40]] For a ribbon graph G, R
+       ReG∗ (y, x).
+
+Proof. Each identity follows by an application of Theorem 12.
+                ∗ = U
+  For Item 1, U1,1     0,1 and so for δa = x1 δc + x2 δl from (23), δa∗ = δa ◦ ∗ = x2 δc + x1 δl . Thus
+by Corollary 17 and Theorem 12
+            TM (x, y) = α(1, y − 1, x − 1, 1)(M ) = α(1, x − 1, 1, y − 1)(M ∗ ) = TM ∗ (y, x).
+                                                    16
+  For Item 2, (U0,1 → U0,1 )∗ = (U1,1 → U1,1 ), (U1,1 → U1,1 )∗ = (U0,1 → U0,1 ), and (U1,1 →
+U0,1 )∗ = (U1,1 → U0,1 ). For δa = x1 δcc + x2 δll + x3 δcl , from (32), δa∗ = δa ◦ ∗ = x2 δcc + x1 δll + x3 δcl ,
+and so by Theorems 33 and 12,
+                                                                                            0
+TM (x, y, z) = α(1, y − 1, 1, x − 1, 1, z)(M) = α(1, x − 1, z, y − 1, 11)(M∗ ) = z r(E)−r (E) TM∗ (y, x, 1/z).
+   Item 3 can be obtained by proceeding as above but using the constructions in Section 4.4, or by
+using Item 2 and Equations (36) and (37).
+   Item 4 follows similarly. With δa = a1 δb + a2 δo + a3 δn from (43), δa∗ = a2 δb + a1 δo + a3 δn . Then
+by Theorems 38 and 12,
+             eD (x, y) = α(1, y − 1, x − 1, 1)(D) = α(1, x − 1, 1, y − 1)(D∗ ) = R
+             R                                                                   eD∗ (x, y).
+
+   Item 5 can be obtained by proceeding as above by using the constructions in Section 4.6, or by
+using Item 4 and that R     eD(G) from Equation (52).
+                       eG = R                                                                   
+
+                                          4. Examples in detail
+  In this section we give a large number of examples of minor systems and their canonical Tutte
+polynomials. In particular we identify the classical Tutte polynomial of a graph or matroid, and
+a number of its extensions to graphs in surfaces as canonical Tutte polynomials. Because of the
+wide variety of examples, this section is fairly long. However, each subsection deals with a different
+polynomial and the subsections are largely independent of each other.
+  As mentioned previously, we will often specify a, b δaP   , δb , and α(a, b) as follows. We fix some
+basis of H1 and some order of it. Then we specify δa = ni=1 ai δi by writing δ(a1 , a2 , . . . , an ). We
+do similarly for δb . Finally, we specify α(a, b) by writing α(a1 , . . . , an , b1 , . . . , bn ).
+
+4.1. The classical Tutte polynomial of a matroid. The Tutte polynomial of a matroid M on
+a ground set E with rank function r is
+                                     X
+(22)                    TM (x, y) =    (x − 1)r(G)−r(A) (y − 1)|A|−r(A) .
+                                           A⊆E
+
+  The following result is readily seen to hold.
+Lemma 14. The set of isomorphism classes of matroids forms a minor system where the grading
+is given by the cardinality of the ground set, deletion and contraction are given by the usual matroid
+deletion and contraction, and multiplication is given by direct sum.
+  For convenience we will henceforth identify a matroid with its isomorphism class. The minor
+system gives rise to a well-known deletion-contraction Hopf algebra of matroids.
+Definition 15. We let Hm denote the Hopf algebra  Passociated with matroids via Lemma 14 and
+Proposition 3. Its coproduct is given by ∆m (M ) = A⊆E(M ) M \Ac ⊗ M/A.
+   There are exactly two elements in H1m , namely the uniform matroids U1,1 and U0,1 . The selector
+associated with Hm is
+(23)                                    δa = δ(x1 , x2 ) = x1 δc + x2 δl ,
+where
+                               (                                      (
+                                1 if M = U1,1 ,                        1       if M = U0,1 ,
+(24)                δc (M ) :=                         and δl (M ) :=
+                                0 otherwise;                           0       otherwise.
+(In the notation of Theorem 5, a = (x1 , x2 ) with ordering U1,1 , U0,1 of a basis of H1m .)
+                                                       17
+Theorem 16. The Tutte polynomial of a matroid arises as the canonical Tutte polynomial of the
+Hopf algebra Hm :
+                                                                                   
+                                              r(M ) |E(M )|−r(M )      y1      x2
+(25)             α(x1 , x2 , y1 , y2 )(M ) = x1 y2                TM      + 1,    +1 .
+                                                                       x1      y2
+Proof. For a matroid M on E, upon taking r1 (M ) := r(M ) to be the rank function of M , and
+r2 := |E| − r(M ) to be its nullity, and recalling that r(M ) = r(M/e) if e is a loop, and is equal to
+r(M/e) + 1 otherwise, Theorem 5 gives
+                                         r(M ) |E|−r(M )
+                                                         X  x1 r(A)  x2 |A|−r(A)
+            α(x1 , x2 , y1 , y2 )(M ) = y1 y2
+                                                             y1         y2
+                                                      A⊆E(S)
+
+                                    r(M ) |E|−r(M )
+                                                       X  y1 r(M )−r(A)  x2 |A|−r(A)
+                                = x 1 y2                                                 .
+                                                           x1               y2
+                                                      A⊆E(S)
+
+The result follows by comparing this with Equation (22).                                            
+Corollary 17. With α(x1 , x2 , y1 , y2 ) defined as in Theorem 16,
+(26)                            TM (x, y) = α(1, y − 1, x − 1, 1)(M ).
+   In Theorem 16 we have recovered a result of Duchamp et. al from [17], which was the inspiration
+for this work.
+4.2. The classical Tutte polynomial of a graph. The classical Tutte polynomial of a graph G
+is
+                                   X
+(27)                   TG (x, y) =    (x − 1)r(G)−r(A) (y − 1)|A|−r(A) ,
+                                     A⊆E(G)
+
+where r(A) := v(A) − c(A), and v(A) and c(A) denote the numbers of vertices and components,
+respectively, of the spanning subgraph of G on A.
+   For a graded connected Hopf algebra we require a single element of graded dimension zero. For
+this we consider graphs up to 1-sums. Recall G and H are graphs, and v is a vertex of G and u a
+vertex of H, then a 1-sum, G ⊕1 H is the graph obtained by identifying the vertices u and v.
+   The following is easily seen.
+Lemma 18. The set of equivalence classes of graphs considered up to 1-sums and isomorphism
+forms a minor system where the grading is given by the cardinality of the edge set, deletion and
+contraction are given by the usual graph deletion and contraction, and multiplication is given by
+disjoint union.
+   We now identify a graph with its equivalence class. The above minor system gives rise to a Hopf
+algebra:
+Definition 19. We let Hg denote the Hopf algebra  Passociated with graphs via Lemma 18 and
+Proposition 3. Its coproduct is given by ∆g (G) =     G\Ac ⊗ G/A.
+                                                       A⊆E(G)
+
+Lemma 20. There is a natural Hopf algebra morphism φ : Hg → Hm given by φ : G → C(G),
+where C(G) is the cycle matroid of G.
+Proof. Since C(G ⊕1 H) = C(G) ⊕ C(H), φ is well-defined. It is easily seen that φ is multi-
+                                                                 P in matroid theory is that
+plicative, and sends the (co)unit to the (co)unit. A standard result
+C(G)/A = C(G/A) and C(G)\A = C(G\A), giving C(∆g (G)) = A⊆E C(G\Ac ) ⊗ C(G/A) =
+               c
+P
+   A⊆E C(G)\A ⊗ C(G)/A = ∆m (C(G)).                                                       
+                                                  18
+     We will use φ to identify the Tutte polynomial of Hg .
+     H1g has two elements, a bridge and a loop which giving rise to a selector
+                                               δ(x1 , x2 ) = x1 δb + x2 δl ,
+where
+                       (                                                       (
+                        1 if G = ({u, v}, {(u, v)}),                            1 if G = ({v}, {(v, v)}),
+(28)         δb (G) :=                                           and δl (G) :=
+                        0 otherwise;                                            0 otherwise.
+Theorem 21. The Tutte polynomial of a graph arises as the Tutte polynomial of the Hopf algebra
+Hg :
+                                                      r(G) |E(G)|−r(G)
+(29)                     α(x1 , x2 , y1 , y2 )(G) = x1    y2           TG ( xy11 + 1, xy22 + 1).
+Proof. Upon verifying that δb (G) = δc0 (C(G)) and δl (G) = δl0 (C(G)), where the primed δ’s are those
+of Equation (24), the result follows immediately from Theorems 9 and 16.                            
+   Note that Theorem 21 can also be proven via Theorem 5 giving a proof almost identical to that
+of Theorem 16.
+Corollary 22.
+(30)                                   TG (x, y) = α(1, y − 1, x − 1, 1)(G).
+  Graphs provide a convenient setting to illustrate a direct computation of a canonical Tutte
+polynomial α(a, b).
+Example 23. Let Hg be the Hopf algebra of formal Q-linear combinations of graphs considered
+                              P and isomorphism,
+up to the one point join operation               with multiplication given by disjoint union,
+                                        c
+and coproduct given ∆(G) = A⊆E(G) G\A ⊗ G/A. Let δa = x1 δb + x2 δl and δb = y1 δb + y2 δl ,
+where δb and δl are given by (28). Then
+                           ∆(     )=      ⊗       +3       ⊗        +3    ⊗      +      ⊗     ,
+so
+     α(a, b) (   ) = exp∗ (δa )∗exp∗ (δb ) (     ) = exp∗ (δa ) (    )·exp∗ (δb ) (   )+3 exp∗ (δa ) (      )·exp∗ (δb ) (   )
+                                       + 3 exp∗ (δa ) (     ) · exp∗ (δb ) (   ) + exp∗ (δa ) (    ) · exp∗ (δb ) (   ).
+Now exp∗ (δa ) ( ) = 1. The only non-zero terms of exp∗ (δb ) ( ) come from the terms of ∆(2)
+in which all tensor factors are in H1g . Direct computation gives ∆(2) ( ) = (id ⊗ ∆) ◦ ∆ =
+··· + 6 ⊗        ⊗     + · · · where no other summands are in (H1g )⊗3 . Thus exp∗ (δb ) ( ) = y12 y2 .
+By computing the other exponentials similarly we see that α(a, b) ( ) = y12 y2 + 3x1 y1 y2 + 3x22 y2 +
+          r(G) |E(G)|−r(G)
+x21 x2 = x1 y2             T ( xy11 + 1, xy22 + 1).
+4.3. The Tutte polynomial of a morphism of a matroid. As defined by Las Vergnas in
+[36, 37], the Tutte polynomial of the matroid perspective M = M → M 0 , where M has rank
+function r, M 0 has rank function r0 and both matroids have ground set E is
+                                       0     0                                    0     0
+                            X
+(31)         TM (x, y, z) =    (x − 1)r (E)−r (A) (y − 1)|A|−r(A) z (r(E)−r(A))−(r (E)−r (A)) .
+                                A⊆E
+
+     The following lemma is easily seen to hold.
+Lemma 24. The set of isomorphism classes of matroid perspectives forms a minor system where
+the grading is given by the cardinality of the ground set, deletion and contraction are given by
+matroid perspective deletion and contraction, and multiplication is given by direct sum.
+                                                            19
+Definition 25. We let Hmp denote the Hopf algebra   P associated with matroid perspectives via
+Proposition 3. Its coproduct is given by ∆mp (M) = A⊆E M\Ac ⊗ M/A, where M = M → M 0 ,
+E is its ground set, and the deletion and contraction are the usual matroid perspective deletion
+and contraction.
+  We will show that Las Vergnas’ Tutte polynomial of a matroid perspective is the canonical Tutte
+polynomial of Hmp .
+  Up to isomorphism, there are exactly three matroid perspective over one element: U0,1 → U0,1 ,
+U1,1 → U1,1 , and U1,1 → U0,1 . Set
+                       (                                       (
+                        1 if M = U1,1 → U1,1 ,                  1 if M = U0,1 → U0,1 ,
+           δcc (M) :=                               δll (M) :=
+                        0 otherwise;                            0 otherwise;
+                                            (
+                                             1 if M = U1,1 → U0,1 ,
+                                 δcl (M) :=
+                                             0 otherwise.
+(The subscripts of the δ’s record, in order, if each matroid in M contains a loop or a coloop.) Let
+(32)                           δa = δ(x1 , x2 , x3 ) := x1 δcc + x2 δll + x3 δcl .
+Theorem 26. Las Vergnas’ Tutte polynomial of a matroid perspective arises as the canonical Tutte
+polynomial of the Hopf algebra Hmp :
+                                                                                         
+                              r0 (M 0 ) |E|−r(M ) r(M )−r0 (M 0 )      y1      x2      y3
+(33)           α(a, b)(M) = x1         y2        x3               TM      + 1,    + 1,      ,
+                                                                       x1      y2      x3
+where a = (x1 , x2 , x3 ), b = (y1 , y2 , y3 ), E is the ground set of the matroid perspective M = M →
+M 0 , r is the rank function of M , and r0 the rank function of M 0 .
+Proof. Set r1 (M) := r0 (M 0 ), r2 (M) := |E| − r(M ), and r3 (M) := r(M ) − r0 (M 0 ). Then r1 (M) =
+r1 (M/e) + 1, if δcc (M|e ) = 1; r2 (M) = r2 (M/e) + 1, if δll (M|e ) = 1; r3 (M) = r3 (M/e) + 1, if
+δcl (M|e ) = 1; and otherwise rj (M) = rj (M/e). An application of Theorem 5 then gives
+                      r0 (M 0 ) |E|−r(M ) r(M )−r0 (M 0 )
+                                                          X  x1 r0 (A)  x2 |A|−r(A)  x3 r(A)−r0 (A)
+      α(a, b)(M) = y1          y2        y3                                                               ,
+                                                              y1           y2             y3
+                                                      A⊆E
+
+which, remembering the definition of TM from (31), is readily written as (33).                           
+Corollary 27. With α(a, b) defined as in Theorem 26,
+(34)                             TM →M 0 (x, y, z) = α(a, b)(M → M 0 ),
+where a = (1, y − 1, 1), b = (x − 1, 1, z).
+   The following corollary provides a good illustration of how Hopf algebra maps give rise to re-
+lationships between polynomials. The following identities for the Tutte polynomial of matroid
+perspectives first appeared in [37].
+Corollary 28. Let Hmp be the Hopf algebra of matroid perspectives from Definition 25, and Hm
+be the Hopf algebra of matroids from Definition 15. Then the following hold.
+    (1) The inclusion φ1 : Hm → Hmp defined by φ1 (M ) = (M → M ) is a Hopf algebra morphism.
+        Furthermore it naturally induces the identity TM (x, y) = TM →M (x, y, z).
+    (2) The projection φ2 : Hmp → Hm defined by φ2 (M → M 0 ) = M is a Hopf algebra morphism.
+        Furthermore it naturally induces the identity TM (x, y) = TM →M 0 (x, y, x − 1).
+    (3) The projection φ3 : Hmp → Hm defined by φ3 (M → M 0 ) = M 0 is a Hopf algebra morphism.
+                                                                                  0
+        Furthermore it naturally induces the identity TM 0 (x, y) = (y−1)r(M )−r(M ) TM →M 0 (x, y, 1/(y−
+        1)).
+                                                       20
+Proof. It is readily verified that each of the three maps is a Hopf algebra morphism. To obtain the
+polynomial identities we apply Theorem 9 to Theorems 16 and 26.
+  For φ1 , in Theorem 9 let H = Hm , H0 = Hmp , δH be the selector used in Theorem 16, and δH0
+be the selector used in Theorem 26. We then have δH (x1 , x2 )(M ) = δH (x1 , x2 , x3 )(M → M ). By
+Theorem 9, it follows that
+                      αH (x1 , x2 , y1 , y2 )(M ) = αH0 (x1 , x2 , x3 , y1 , y2 , y3 )(M → M ).
+Theorems 16 and 26 give
+                                                                                             
+  r(M ) |E|−r(M )      y1      x2        r(M ) |E|−r(M ) r(M )−r(M )         y1      x2      y3
+ x1 y2            TM      + 1,    + 1 = x1 y2           x3           TM →M      + 1,    + 1,
+                       x1      y2                                            x1      y2      x3
+from which the result follows.
+    For φ2 , in Theorem 9 let H = Hmp , H0 = Hm , δH be the selector used in Theorem 26, and δH0
+be the selector used in Theorem 16. We then have δH (x1 , x2 , x1 )(M → M 0 ) = δH (x1 , x2 )(M ). By
+Theorem 9, it follows that αH (x1 , x2 , x1 , y1 , y2 , y1 )(M → M 0 ) = αH0 (x1 , x2 , y1 , y2 )(M ).
+    Theorems 16 and 26 give
+                                                                                                           
+  r0 (M 0 ) |E|−r(M ) r(M )−r0 (M 0 )           y1      x2      y1       r(M ) |E|−r(M )         y1      x2
+x1         y2        x1               TM →M 0      + 1,    + 1,      = x 1 y2            TM         + 1,    +1 ,
+                                                x1      y2      x1                               x1      y2
+from which the result follows.
+    The argument for φ3 is similar. In Theorem 9 let H = Hmp , H0 = Hm , δH be the selector used in
+Theorem 26, and δH0 be the selector used in Theorem 16. We then have δH (x1 , x2 , x2 )(M →
+M 0 ) = δH (x1 , x2 )(M 0 ). By Theorem 9, it follows that αH (x1 , x2 , x2 , y1 , y2 , y2 )(M → M 0 ) =
+αH0 (x1 , x2 , y1 , y2 )(M 0 ). Theorems 16 and 26 give
+                                                                                                             
+  r0 (M 0 ) |E|−r(M ) r(M )−r0 (M 0 )           y1      x2      y2      r(M 0 ) |E|−r(M 0 )        y1      x2
+x1         y2        x2               TM →M 0      + 1,    + 1,      = x1      y2           TM 0      + 1,    +1 ,
+                                                x1      y2      x2                                 x1      y2
+and the result follows.                                                                                       
+
+4.4. Las Vergnas’ topological Tutte polynomial. Here a graph in a pseudo-surface, G ⊂ Σ,
+consists of a graph G = (V, E) and a drawing of G on a pseudo-surface Σ (i.e., a surface with pinch
+points, also known as a pinched surface) such that the edges only intersect at their ends and such
+that any pinch points are vertices of the graph. The components of Σ\G are called the regions of
+G, and G ⊂ Σ is a cellularly embedded graph if Σ is a surface (so there are no pinch points) and
+each of its regions is homeomorphic to a disc.
+   We define
+(35)                           κ(A) := #cpts(Σ\(V ∪ A)) − #cpts(Σ\V ).
+Let G ⊂ Σ be a graph in a pseudo-surface, and e ∈ E(G). Then we say that e is a quasi-loop if
+κ(e) = 1, a quasi-bridge if it is adjacent to exactly one region of G ⊂ Σ, and a bridge (respectively,
+loop) if it is a bridge (respectively, loop) of the underlying graph G. Note that a quasi-loop
+is necessarily a loop; a bridge is necessarily a quasi-bridge; and a quasi-bridge could be a loop, a
+bridge, or neither. If e ∈ E(G) then G\e ⊂ Σ is the graph in a pseudo-surface obtained by removing
+the edge e from the drawing of G ⊂ Σ (without removing the points of e from Σ, or its incident
+vertices). Edge contraction is defined by forming a quotient space of the surface: G/e ⊂ Σ/e is
+the graph in a pseudo-surface obtained by identifying the edge e to a point. This point becomes a
+vertex of G/e. If e is a loop, then contraction can create pinch points with the new vertex lying on
+it (see Figure 2(a)–2(b)).
+   The dual, G∗ , of a graph in a pseudo-surface G ⊂ Σ is the abstract graph with vertex set corre-
+sponding to the regions of Σ\G and an edge between (not necessarily distinct) vertices whenever
+                                                         21
+           (a) G ⊂ Σ.                             (b) G/e ⊂ Σ/e.                   (c) Resolving the pinch point.
+
+
+                             Figure 2. Actions on graphs in pseudo-surfaces.
+
+the corresponding regions share an edge of G on their boundaries. There is natural identification
+between the edges of G∗ and G.
+   The cycle matroid, C(G), of G ⊂ Σ is the cycle matroid of its underlying graph. Its bond matroid
+is B(G) := (C(G))∗ . It is worth emphasising that although when G is a plane graph B(G∗ ) = C(G),
+this does not hold, in general, for non-plane graphs.
+   When G ⊂ Σ is a graph in a pseudo-surface (B(G∗ ) → C(G)) is a matroid perspective (see
+[22, 38]). Its Las Vergnas polynomial, LG⊂Σ , is then defined by
+(36)                                LG⊂Σ (x, y, z) := T(B(G∗ )→C(G)) (x, y, z).
+In [22] it was shown that when G ⊂ Σ is a graph in the pseudo-surface and A ⊆ E(G), then
+(37)                                         rB(G∗ ) (A) = |A| − κ(A).
+Then writing κ(G) for κ(E) and using (37),
+                              X
+(38)         LG⊂Σ (x, y, z) =   (x − 1)r(G)−c(A) (y − 1)κ(A) z [n(G)−κ(G)]−[n(A)−κ(A)] .
+                                     A⊆E
+
+  We will show that the Las Vergnas polynomial is the canonical Tutte polynomial associated with
+graphs in pseudo-surfaces and their minors. We will state the result before describing the relevant
+Hopf algebra Hps , and selectors.
+Theorem 29. The Las Vergnas polynomial is the canonical Tutte polynomial of the Hopf algebra
+Hps associated with pseudo-surface minors:
+                                          r(G) κ(G) n(G)−κ(G)
+(39)                    α(a, b)(G) = x1       y2 x3           LG⊂Σ ( xy11 + 1, xy22 + 1, xy33 ),
+where a = (x1 , x2 , x3 ), b = (y1 , y2 , y3 ).
+  We will prove the theorem after describing the Hopf algebra Hps .
+  There are infinitely many edgeless graphs in pseudo-surfaces so, as with graphs, we need to
+consider a quotient space of graphs in pseudo-surfaces.
+Definition 30. We will say that two graphs in pseudo-surfaces G1 ⊂ Σ1 and Gk ⊂ Σk are LV-
+equivalent if there is a sequence of graphs in pseudo-surfaces G1 ⊂ Σ1 , G2 ⊂ Σ2 , . . . , Gk ⊂ Σk such
+that Gi ⊂ Σi is obtained from Gi−1 ⊂ Σi−1 , or vice versa, by one of the following moves.
+    (1) Deleting an isolated vertex, that is not a pinch point, from a graph.
+    (2) Deleting a component of the pseudo-surface that contains no edges of the graph.
+    (3) Connect summing two pseudo-surface components (away from any graph components), or
+        identifying a vertex in each of them to form a pinch point.
+    (4) Replacing a region, with another pseudo-surface with boundary (so that it forms a region
+        of a new graph in a pseudo-surface).
+   It is clear that LV-equivalence gives rise to an equivalence relation, and we let G ps denote the set
+of all equivalence classes of graphs in pseudo-surfaces considered up to LV-equivalence. It is easily
+seen that G ps forms a minor system:
+                                                           22
+Lemma 31. The set G ps forms a minor system where the grading is given by the cardinality of
+the edge set, deletion and contraction are given by pseudo-surface deletion and contraction, and
+multiplication is given by disjoint union.
+Definition 32. We let Hps denote the Hopf algebra associated with G ps via Lemma 31 and Propo-
+                                                               c
+                                                   P
+sition 3. Its coproduct is given by ∆ps (G ⊂ Σ) =    A⊆E (G\A ⊂ Σ) ⊗ (G/A ⊂ Σ/A), where
+pseudo-surface deletion and contraction are used.
+Lemma 33. There is a natural Hopf algebra morphism φ : Hps → Hmp given by φ : G → M(G),
+where M(G) is the matroid perspective (B(G∗ ) → C(G)).
+Proof. First observe that if G ⊂ Σ and H ⊂ Σ0 are related by LV-equivalence then, up to the
+numbers of isolated vertices, their underlying graphs G and H, and also the dual graphs G∗ and
+H ∗ , have the same maximal 2-connected components. Thus M (G) = M (H), and M (G∗ ) = M (H ∗ ).
+It follows that M(G) = M(H), and so φ is well-defined. It is easily seen that φ is multiplicative,
+and sends the (co)unit to the (co)unit. For the coproduct, in Section 4.2 of [22] it was shown
+that M(G ⊂ Σ)/A    P= M(G/A ⊂ Σ/A) and M(G ⊂ Σ)\A = M(G\A             ⊂ Σ). Using this we have
+M(∆ps (G ⊂ Σ)) A⊆E M(G\Ac ⊂ Σ) ⊗ M(G/A ⊂ Σ/A) =                             ⊂ Σ)\Ac ⊗ M(G ⊂
+                                                              P
+                                                                 A⊆E  M(G
+Σ)/A = ∆ps (M(G ⊂ Σ)).                                                                          
+  We now determine the Tutte polynomial of the Hopf algebra Hps .
+Lemma 34. G1ps has a basis consisting of exactly three elements represented by
+  (1) a 1-path in the sphere,
+  (2) a loop in the sphere,
+  (3) a loop that forms the meridian of a torus.
+Proof. Let G ⊂ Σ be a graph in a pseudo-surface with exactly one edge e. This edge is either a
+bridge, a loop that is a quasi-loop, or a loop that is a quasi-bridge. In all three cases, resolve each
+pinch point as in Figures 2(b)–2(c), delete any isolated vertices, then remove any empty surface
+components. If e is a bridge then the resulting graph in a pseudo-surface has exactly one region
+which can be replaced with a disc to give a 1-path in the sphere. If e is a loop that is a quasi-loop
+then there are two regions each of which can be replaced with a disc to give a loop in the sphere.
+Finally, if e is a loop that is a quasi-bridge then there is one region with two boundary components.
+The region can be replaced with an annulus to give a loop that forms the meridian of a torus. 
+  We identify a graph in a pseudo-surface with its LV-equivalence class. We set
+                              (
+                               1 if G ⊂ Σ is a 1-path in the sphere,
+              δbr (G ⊂ Σ) :=
+                               0 otherwise;
+                              (
+                               1 if G ⊂ Σ is a loop in the sphere,
+               δql (G ⊂ Σ) :=
+                               0 otherwise;
+                              (
+                               1 if G ⊂ Σ is a loop that is a meridian of a torus,
+              δqb (G ⊂ Σ) :=
+                               0 otherwise.
+Let
+(40)                         δa = δ(x1 , x2 , x3 ) := x1 δbr + x2 δql + x3 δqb .
+Proof of Theorem 29. Upon verifying that δ(G ⊂ Σ) = δ 0 (M(G ⊂ Σ)), where δ is from Equa-
+tion (40) and δ 0 is from Equation (32), the result follows by applying Theorems 9 and 26 using the
+Hopf algebra morphism from Lemma 33 then reinterpreting the matroid parameters of Theorem 26
+in terms of graphs in pseudo-surfaces.                                                           
+                                                     23
+  Analogously to Corollary 28, identities between the Tutte polynomial of a graph and the Las Vergnas
+polynomial can be seen to be consequences of Hopf algebra maps.
+Corollary 35. Let Hps be the Hopf algebra of graphs in pseudo-surfaces from Definition 32, and
+Hg be the Hopf algebra of graphs from Definition 19. Furthermore let Hpg be the Hopf subalgebra
+of Hps generated by plane graphs. Then the following hold.
+   (1) The projection φ1 : Hpg → Hg that takes a graph in a pseudo-surface to its underlying graph
+       is a Hopf algebra morphism. Furthermore it naturally induces the identity that for a plane
+       graph G, TG (x, y) = LG⊂R2 (x, y, z).
+   (2) The projection φ2 : Hps → Hg defined by φ2 (G ⊂ Σ) = G is a Hopf algebra morphism.
+       Furthermore it naturally induces the identity TG (x, y) = (y − 1)n(G)−κ(G) LG⊂Σ (x, y, 1/(y −
+       1)).
+Proof. It is readily verified that each of the three maps is a Hopf algebra morphism. To obtain the
+polynomial identities we apply Theorem 9 to Theorems 21 and 29.
+  For φ1 , in Theorem 9 let H = Hpg , H0 = Hg , δH be the selector used in Theorem 29, and δH0
+be the selector used in Theorem 21. Since δqb (G ⊂ R2 ) is always zero, we have δH (x1 , x2 , x3 )(G ⊂
+R2 ) = δH0 (x1 , x2 )(G). By Theorems 9, 21 and 29,
+        r(G) |E(G)|−r(G)                             r(G) κ(G) n(G)−κ(G)
+       x1   y2           TG ( xy11 + 1, xy22 + 1) = x1 y2 x3             LG⊂R2 ( xy11 + 1, xy22 + 1, xy33 )
+from which the result follows. This argument holds if G ⊂ Σ is, more generally, in Hpg .
+   For φ2 , in Theorem 9 let H = Hps , H0 = Hg , δH be the selector used in Theorem 29, and
+δH0 be the selector used in Theorem 21. We have δH (x1 , x2 , x2 )(G ⊂ Σ) = δH0 (x1 , x2 )(G) (since
+δH (x1 , x2 , x2 ) no longer distinguishes how a loop lies in the pseudo-surface). By Theorems 9, 21
+and 29,
+        r(G) |E(G)|−r(G)                             r(G) κ(G) n(G)−κ(G)
+       x1   y2           TG ( xy11 + 1, xy22 + 1) = x1 y2 x2             LG⊂R2 ( xy11 + 1, xy22 + 1, xy22 )
+from which the result follows.                                                                                
+4.5. Delta-matroids and the Bollobás-Riordan polynomial. Our notation for delta-matroids
+follows [13, 14] and we refer the reader to these references for background on them.
+   Let D = (E, F) be a delta-matroid and A ⊆ E. The twist of D = (E, F) with respect to A is
+D ∗ A := (E, {A4X | X ∈ F}). The dual of D, written D∗ , is equal to D ∗ E. The feasible sets of
+D are graded by cardinality. Let Fmax (D) and Fmin (D) be the set of feasible sets of maximum and
+minimum cardinality, respectively. We will usually omit D when the context is clear. If the sets
+in Fmin (respectively, Fmax ) are of cardinality m and k ∈ Z, then Fmin +k (respectively, Fmax +k )
+denotes the set of feasible sets in F of cardinality m + k.
+   Let Dmax := (E, Fmax ) and Dmin := (E, Fmin ). Then Dmax is the upper matroid and Dmin is
+the lower matroid for D. Let rmax and rmin , respectively, denote the rank functions of these two
+matroids. We define a function ρ on delta-matroids by
+                                             1
+                                    ρ(D) := (rmax (D) + rmin (D)),
+                                             2
+and for A ⊆ E,
+                                          ρ(A) := ρ(D\Ac ).
+Observe that if D is a matroid then Dmax = Dmin and ρ is precisely its rank function. It is
+important to notice that in general ρD (A) 6= 21 (rDmax (A) + rDmin (A)).
+   Defined in [13], the (2-variable) Bollobás-Riordan polynomial, R̃D (x, y) is
+                                         X
+(41)                       R̃D (x, y) :=    (x − 1)ρ(E)−ρ(A) (y − 1)|A|−ρ(A) .
+                                           A⊆E
+                                                       24
+Note that (41) is obtained by replacing r for ρ in the definition of the Tutte polynomial. It is
+the extension of the 2-variable version of Bollobás and Riordan’s ribbon graph polynomial [6, 7] to
+delta-matroids.
+   We will show that the 2-variable Bollobás-Riordan polynomial is the canonical Tutte polynomial
+of delta-matroids with their usual deletion and contraction.
+   The following result is easily verified.
+Lemma 36. The set of isomorphism classes of delta-matroids form a minor system where the
+grading is given by the cardinality of the ground set, deletion and contraction are given by delta-
+matroid deletion and contraction, and multiplication is given by direct sum.
+  For convenience we will henceforth identify a delta-matroid with its isomorphism class.
+Definition 37. We let Hdm denote the Hopf algebra associated   with delta-matroids via Lemma 36
+and Proposition 3. Its coproduct is given by ∆dm (D) = A⊆E D\Ac ⊗ D/A, where D = (E, F) is
+                                                        P
+a delta-matroid and the deletion and contraction are delta-matroid deletion and contraction.
+  Up to isomorphism, there are exactly three delta-matroids over one element: Dc := ({e}, {{e}}),
+Do := ({e}, {∅}), and Dn := ({e}, {∅, {e}}). Accordingly, set
+                    (                            (                         (
+                     1 if D = Dc ,                1 if D = Do ,             1 if D = Dn ,
+(42)      δc (D) :=                    δo (D) :=                 δn (D) :=
+                     0 otherwise;                 0 otherwise;              0 otherwise.
+(Using notation defined after the statement of Theorem 38 below, the subscripts of the δ’s record,
+in order, if each delta-matroids is a coloop, orientable ribbon-loop, or non-orientable ribbon-loop.)
+We set
+(43)                           δa = δ(a1 , a2 , a3 ) := a1 δc + a2 δo + a3 δn .
+Then the Tutte polynomial of Hdm is defined by
+(44)                                α(a, b) := exp∗ (δa ) ∗ exp∗ (δb ).
+   For a canonical Tutte polynomial we require that δa is uniform. By applying δ ⊗ δ to ∆(D),
+where D is over E = {e, f } and has feasible sets ∅, {e}, and {e, f }, it is seen that δa is uniform only
+       √
+if a3 = a1 a2 . Thus the Tutte polynomial of a delta-matroid will be a 2-variable polynomial, rather
+than a 3-variable polynomial (which is perhaps unexpected given that there are three delta-matroids
+of graded dimension 1).
+Theorem 38. The 2-variable Bollobás-Riordan polynomial arises as the canonical Tutte polynomial
+of the Hopf algebra Hdm :
+                                                                             
+                                            ρ(D) |E|−ρ(D)       y1      x2
+(45)                     α(a, b)(D) = x1 y2               R̃D      + 1,    +1 ,
+                                                                x1      y2
+                    √                       √
+where a = (x1 , x2 , x1 x2 ), b = (y1 , y2 , y1 y2 ), and E is the ground set of the delta-matroid D.
+   The proof of Theorem 38 is similar in structure to that of Theorem 26, and will follow from a
+sequence of lemmas.
+   It is convenient for us to relate D|e , the restriction of D to e, to the element e of D. For
+this we need a little additional notation. Let D = (E, F) be a delta-matroid, and e ∈ E. Then
+e is a ribbon loop if e is a loop in Dmin . A ribbon loop e is is orientable if e is not a loop in
+(D ∗ e)min , and is non-orientable if e is a loop in (D ∗ e)min . Note that it can be determined if e is a
+(orientable/non-orientable) ribbon loop by looking for its membership in sets in Fmin and Fmin +1 .
+Lemma 39. Let D = (E, F) be a delta-matroid, and e ∈ E. Then e is not a ribbon loop (is an
+orientable ribbon loop, is a non-orientable ribbon loop, respectively) if and only if D|e is isomorphic
+to Dc (Do , Dn , respectively).
+                                                     25
+Proof. Let f ∈ E with f 6= e. We start by showing that e is a ribbon loop in D if and only if it
+is a ribbon loop in D\f . This is easily seen to be true if f is a coloop, so suppose it is not. Then
+there is some Z ∈ F with f ∈   / Z.
+   Suppose that e is not a ribbon loop. Then there is some X ∈ F(D)min with e ∈ X. We show
+there is some Y ∈ F(D)min such that e ∈ Y but f ∈         / Y . From this it immediately follows that
+e ∈ Y ∈ F(D\f )min and so e is not a ribbon loop in D\f . To construct Y , if f ∈    / X take Y = X,
+otherwise f ∈ X and so f ∈ X4Z, where Z is as above. The Symmetric Exchange Axiom gives
+that there is some X4{f, u} ∈ F. By the minimality of X, u 6= e and X4{f, u} ∈ F(D)min . Take
+Y = X4{f, u}. It follows that e is not a ribbon loop in D\f .
+   For the converse suppose that e is a ribbon loop. Then e is not in any feasible set in F(D)min .
+To show that e is not in any feasible set in F(D\f )min it is enough to show that there is some set
+in F(D)min that does not contain f . Choose X ∈ F(D)min . If f ∈        / X we are done, otherwise we
+have f ∈ X ∈ F(D)min . Then f ∈ X4Z, and the Symmetric Exchange Axiom gives that there
+is some X4{f, u} ∈ F. The minimality of X gives that f ∈          / X4{f, u} ∈ F(D)min . This is the
+required set. Thus e is a ribbon loop in D\f .
+   We have just shown that e is a ribbon loop in D if and only if it is one in D\f . Next we show
+that a ribbon loop e is orientable in D if and only if it is orientable in D\f . Again this is easily
+seen to be true if f is a coloop, so suppose it is not. Then there is some Z ∈ F with f ∈   / Z.
+   If e is a non-orientable ribbon loop, then there is some X ∈ F(D)min +1 with e ∈ X. We show
+there is some Y ∈ F(D)min +1 with e ∈ Y and f ∈          / Y . We have seen above (in the argument
+that if e is a ribbon loop in D then it is one in D\f ) that there is a set in Y ∈ F(D)min not
+containing f and no sets in F(D)min contain e, it follows that e is a non-orientable ribbon loop
+in F(D\f ). To construct Y , if f ∈   / X take Y = X, otherwise f ∈ X and so f ∈ X4Z, where
+Z is as above. The Symmetric Exchange Axiom gives that there is some X4{f, u} ∈ F. The set
+X4{f, u} must be in F(D)min or F(D)min +1 , but since it contains e it must be in F(D)min +1 .
+Thus taking Y = X4{f, u} gives the required set.
+   Conversely, if e is an orientable ribbon loop, then no element of F(D)min or F(D)min +1 contains
+e. We have seen above (in the argument that if e is a ribbon loop in D then it is one in D\f )
+that there is a set in F(D)min that does not contain f . It follows that no element of F(D\f )min or
+F(D\f )min +1 will contain e, so e is an orientable ribbon loop of D\f . Thus we have shown that a
+ribbon loop e is orientable in D if and only if it is orientable in D\f .
+   Finally, since e is not a ribbon loop (an orientable ribbon loop, a non-orientable ribbon loop,
+respectively) in D if and only if it is one in D\f , the result stated in the lemma follows by deleting
+the edges in E\e one at a time.                                                                       
+Lemma 40. Let D = (E, F) be a delta-matroid, and e ∈ E. Then
+                       
+                       ρ(D/e) + 1 if e is not a ribbon loop,
+                       
+               ρ(D) = ρ(D/e)          if e is an orientable ribbon loop,
+                                   1
+                       
+                        ρ(D/e) + 2 if e is a non-orientable ribbon loop.
+                       
+
+Proof. We prove the lemma by computing rmax (D) and rmin (D) which, respectively, equal the
+maximum and minimum cardinalities of the feasible sets in F(D).
+   First suppose that e is not a ribbon loop, so e is in some feasible set in F(D)min . Since e is not
+a loop, F(D/e) = {X\e | X ∈ F and e ∈ X} and it follows rmin (D/e) = rmin (D) − 1. For rmax , we
+first show that e appears in some element of F(D)max . Let X ∈ F(D)max . If e ∈ X we are done,
+otherwise choose some Y ∈ F(D) that contains e (this exists since e is not a ribbon loop). Then
+e ∈ X4Y and so the Symmetric Exchange Axiom gives X4{e, u} ∈ F(D). By the maximality of
+X, we have X4{e, u} ∈ F(D)max and so e appears in some element of F(D)max . It then follows
+from the definition of contraction that rmax (D/e) = rmax (D) − 1 (observe that this argument holds
+                                                  26
+as long as e is not a loop. We will use this fact below.). Thus ρ(D) = 21 (rmax (D) + rmin (D)) =
+1
+2 (rmax (D/e) + rmin (D/e) + 2) = ρ(D/e).
+   Next suppose that e is a non-orientable ribbon loop. In particular, e is not a loop. We have e is
+not in any element of F(D)min nor any element of F(D ∗ e)min . It is not hard to see that the latter
+implies that e is in some element of F(D)min +1 . Then, since F(D/e) = {X\e | X ∈ F and e ∈ X},
+it follows that rmin (D/e) = rmin (D). The identity rmax (D/e) = rmax (D) − 1 follows as in the
+case of when e is not a ribbon loop above. Thus we have that ρ(D) = 21 (rmax (D) + rmin (D)) =
+1                                            1
+2 (rmax (D/e) + rmin (D/e) + 1) = ρ(D/e) + 2 .
+   Finally suppose that e is an orientable ribbon loop. If e is a loop then F(D) = F(D/e) and
+so ρ(D) = 12 (rmax (D) + rmin (D)) = 12 (rmax (D/e) + rmin (D/e)) = ρ(D/e). Now suppose that e
+is not a loop. Since e is an orientable ribbon loop, e is not in any element of F(D)min but is in
+some element of F(D ∗ e)min . It is not hard to see that the latter implies that e is not in any
+element of F(D)min +1 . We show that e is in some element of F(D)min +2 , from which it follows
+immediately from the definition of F(D/e) that rmin (D/e) = rmin (D) + 1. Choose X ∈ F(D)min
+and a feasible set Y ∈ F(D) that contains e. Since e ∈  / X, the Symmetric Exchange Axiom gives
+that X4{e, u} ∈ F. By the minimality of X and since no set in F(D)min or F(D)min +1 contains
+e it follows that X4{e, u} ∈ F(D)min +2 and contains e. The identity rmax (D/e) = rmax (D) − 1
+again follows as in the case of when e is not a ribbon loop above. Thus, by the definition of ρ, we
+have that ρ(D) = 21 (rmax (D) + rmin (D)) = 21 (rmax (D/e) + 1 + rmin (D/e) − 1) = ρ(D/e).        
+
+  Observe that this proof gives that rmax (D/e) = rmax (D)−1 when e is not a loop, and rmax (D/e) =
+rmax (D) when it is. We will use this observation in Section 4.9.
+
+Proof of Theorem 38. Applying Theorem 5 with r1 (A) := ρ(A), and r2 (A) := |A| − ρ(A) (so via
+                                                     1/2 1/2
+Lemmas 39 and 40 a1 = x11 x02 , a2 = x01 x12 , a3 = x1 x2 ) gives
+
+                                  ρ(D) |E|−ρ(D)
+                                                   X  x1 ρ(A)  x2 |A|−ρ(A)
+                α(a, b)(D) = y1 y2
+                                                         y1       y2
+                                                  A⊆E
+
+                                  ρ(D) |E|−ρ(D)
+                                                   X  y1 ρ(D)−ρ(A)  x2 |A|−ρ(A)
+                             = x 1 y2                                               ,
+                                                         x1            y2
+                                              A⊆E
+
+from which the result follows.                                                                    
+
+  We can use Hopf algebra mappings to show that the 2-variable Bollobás-Riordan polynomial,
+eD (x, y), extends the Tutte polynomial from matroids to delta-matroids.
+R
+
+Corollary 41. Let Hdm be the Hopf algebra of delta-matroids from Definition 37, and Hm be the
+Hopf algebra of matroids from Definition 15. Then the inclusion φ : Hm → Hdm is a Hopf algebra
+morphism. Furthermore it naturally induces the identity TM (x, y) = R̃D (x, y).
+
+Proof. That the map is a Hopf algebra morphism follows readily from the fact that delta-matroids
+restrict to matroids in a way compatible with the standard constructions of deletion, contraction,
+etc. (recall a matroid is a delta-matroid).
+   In Theorem 9 let H = Hm , H0 = Hdm , δH be the selector used in Theorem 16, and δH0 be
+the selector used in Theorem 38. Then since matroids are closed under deletion and contraction
+                                                                             (k)
+and Dn is not a matroid, Dn will never appear as a term in δH (M ). Therefore δH (x1 , x2 )(M ) =
+              √
+δH0 (x1 , x2 , x1 x2 )(M ). By Theorem 9, it follows that
+                                                                   √                 √
+                       αH (x1 , x2 , y1 , y2 )(M ) = αH0 (x1 , x2 , x1 x2 , y1 , y2 , y1 y2 )(M ).
+                                                 27
+Theorems 16 and 38 give
+                                                                                                   
+             r(M ) |E|−r(M )          y1      x2              ρ(M ) |E|−ρ(M )            y1      x2
+           x 1 y2            TM          + 1,    +1       = x 1 y2            R̃M           + 1,    +1 ,
+                                      x1      y2                                         x1      y2
+from which the result follows upon noting that if M is a matroid, r(M ) = ρ(M ).                               
+4.6. Bollobás and Riordan’s ribbon graph polynomial. We use standard ribbon graph ter-
+minology following [20]. For a ribbon graph G = (V, E) we set e(G) := |E|, v(G) := |V |, c(G)
+to be is its number of components, f (G) its number of boundary components, and γ(G) its Euler
+genus (which is twice its genus if it is orientable and its genus if it is not). The rank of G is
+r(G) := v(G) − c(G). Euler’s formula gives that v(G) − e(A) + f (A) = 2c(A) − γ(A).
+   The Bollobás-Riordan polynomial of [7] is defined as
+                                         X
+(46)                     RG (x, y, z) :=    (x − 1)r(G)−r(A) y |A|−r(A) z γ(A) .
+                                              A⊆E
+In this section we focus on the 2-variable Bollobás-Riordan polynomial
+                                       X
+(47)                      R
+                          eG (x, y) :=     (x − 1)ρ(G)−ρ(A) (y − 1)|A|−ρ(A) ,
+                                            A⊆E
+where
+(48)                                    ρ(A) := 12 (|A| + v(A) − f (A)) ,
+and ρ(G) := ρ(E).
+  Euler’s formula can be used to relate the two versions of the Bollobás-Riordan polynomial:
+                         eG (x + 1, y + 1) = x 12 γ(G) RG (x + 1, y, 1/√xy).
+                         R
+   We turn to the Hopf algebra of ribbon graphs. As was the case with graphs, to ensure a single
+element of graded dimension zero in the Hopf algebra we work with equivalence classes of ribbon
+graphs. For this, let G = (V, E) be a ribbon graph, v ∈ V , and P and Q be non-trivial ribbon
+subgraphs of G. Then G is said to be the join of P and Q, written P ∨ Q, if G = P ∪ Q and
+P ∩ Q = {v} and if there exists an arc on v with the property that all edges of P incident to v
+meet it there, and none of the edges of Q do. Note that the parameters γ, r, e, and ρ are invariant
+under joins and disjoint unions (but v and c are not).
+   We omit the straightforward proof of the following lemma.
+Lemma 42. The set of equivalence classes of ribbon graphs considered up to joins and isomorphism
+forms a minor system where the grading is given by the cardinality of the edge set, deletion and
+contraction are given by ribbon graph deletion and contraction, and multiplication is given by direct
+sum.
+  For convenience we usually identify a ribbon graph with its equivalence class.
+Definition 43. Let Hrg denote the Hopf algebra associated with ribbon graphs via Lemma 42 and
+Proposition 3. Its coproduct is given by ∆rg (G) = A⊆E(G) D\Ac ⊗ D/A, where the deletion and
+                                                  P
+
+contraction are ribbon graph deletion and contraction.
+  There are exactly three elements of Hrg of graded dimension 1. Accordingly we set
+(49)
+           (                                (                              (
+            1 if G =         ,               1 if G =       ,               1 if G =                       ,
+  δb (G) =                         δo (G) =                       δn (G) =
+            0 otherwise;                     0 otherwise;                   0 otherwise.
+Then
+(50)                              δa = δ(a1 , a2 , a3 ) := a1 δb + a2 δo + a3 δn .
+                                                          28
+By considering the ribbon graph that describes a graph with one vertex and two loops on a Klein
+                                                            √
+bottle, it can be seen that δa is not uniform unless a3 = a1 a2 . The following theorem will show
+                                                              √
+that the converse holds, so δa is uniform if and only if a3 = a1 a2 .
+Theorem 44. The 2-variable Bollobás-Riordan polynomial arises as the Tutte polynomial of the
+Hopf algebra Hrg ,
+                                                                            
+                                            ρ(G) |E|−ρ(G)       y1      x2
+                         α(a, b)(G) = x1 y2               R̃G      + 1,    +1 ,
+                                                                x1      y2
+                    √                       √
+where a = (x1 , x2 , x1 x2 ), b = (y1 , y2 , y1 y2 ), and E = E(G).
+   We proceed as we did in Section 4.2 when we recovered the Tutte polynomial for graphs from
+that for matroids via a Hopf algebra map. A quasi-tree is a ribbon graph with exactly one boundary
+component, so f (G) = 1. If G is a ribbon graph let D(G) := (E, F(G)), where F(G) consists of the
+edge sets of the spanning subgraphs of G that restrict to a quasi-tree in each connected component
+of G, i.e., F(G) := {A | f (A) = c(G)}. It was shown in [8, 13] that D(G) is a delta-matroid.
+Lemma 45. There is a natural Hopf algebra morphism φ : Hrg → Hdm given by φ : G → D(G).
+Proof. Since D(G ∨ H) = D(G) ⊕ D(H), φ is well-defined. It is easily seen that φ is multi-
+                                                P It was shown in [13] that D(G)/A
+plicative, and sends the (co)unit to the (co)unit.                                 = D(G/A)
+and D(G)\A = D(G\A), giving D(∆rg (G)) = A⊆E D(G\Ac ) ⊗ D(G/A) = A⊆E D(G)\Ac ⊗
+                                                                             P
+
+D(G)/A = ∆dm (D(G)).                                                                     
+  We will use φ to identify the Tutte polynomial of Hrg .
+Proof of Theorem 44. Upon verifying that δb (G) = δc0 (D(G)), δo (G) = δo0 (D(G)), and δn (G) =
+δn0 (C(G)), where the primed δ’s are those of Equation (42), Theorems 9 and 38 give
+                            ρ(D(G)) |E|−ρ(D(G))
+                                                X y1 ρD(G) (E)−ρD(G) (A) x2 |A|−ρD(G) (A)
+              α(a, b)(G) = x1      y2                                                     ,
+                                                    x1                   y2
+                                                   A⊆E
+
+where E = E(D(G)). It remains to show that for any A ⊆ E,
+(51)                                    ρD(G) (A) = ρG (A).
+It was shown in [8, 13] that D(G)min = C(G) and D(G)max = B(G∗ ) = (C(G∗ ))∗ . Then us-
+ing the rank functions for cycle matroids and dual matroids we get 2ρD(G) (A) = 2ρ(D(G)\Ac ) =
+rmax (D(G)\Ac )+rmin (D(G)\Ac ) = rmax (D(G\Ac ))+rmin (D(G\Ac )) = |A|−r((G\Ac )∗ )+r(G\Ac ) =
+|A| − v((G\Ac )∗ ) + c((G\Ac )∗ ) + v(G\Ac ) − c(G\Ac ) = |A| + v(G\Ac ) − f (G\Ac ) = 2ρ(G\Ac ) =
+2ρG (A), and the result follows.                                                                 
+  Note that in the proof of Theorem 44 we have shown that
+(52)                                  eG (x, y) = R
+                                      R           eD(G) (x, y),
+
+and that this identity is naturally induced by the Hopf algebra morphism φ of Lemma 45.
+Corollary 46.
+                                                  p                √
+(53)                   R̃G (x, y) = α(1, y − 1,    y − 1, x − 1, 1, x − 1)(G).
+Corollary 47. Let Hprg be the Hopf subalgebra of Hrg generated by plane graphs (i.e., ribbon
+graphs of genus 0), and Hg be the Hopf algebra of graphs from Definition 19. Then the projection
+φ : Hprg → Hg defined by setting φ(G) to be the underlying graph of G is a Hopf algebra morphism.
+Furthermore it naturally induces the identity TG (x, y) = R̃G (x, y).
+                                                    29
+                     c              c
+                            A                      A
+                    A               C
+                            d                 A          B
+                                    c
+                        B       B                  A
+                            c
+                     (a) (G, P).            (b) (G, P) \ X/Y .            (c) G/P .
+
+
+        Figure 3. A vertex partitioned ribbon graph and associated constructions. The
+        letters A, B and C indicate the blocks of the partition. X consists of the edge
+        marked d, and Y consists of the edges marked c.
+
+Proof. Clearly φ(G\e) = φ(G)\e, for each e ∈ E(G). If e is not a loop then it is also clear that
+φ(G/e) = φ(G)/e. If e is a loop then, since G is plane, there can be no cycle C of G interlaced
+with e (i.e, at the vertex v which meets e, no cycle C appears in the cyclic order eCeC at that
+vertex). Thus G/e = G1 t G2 = G1 ∨ G2 , where we have used the fact that elements of Hprg are
+considered modulo joins. It is then not hard to see that φ(G/e) = φ(G1 ∨ G2 ) = φ(G)/e. From
+these observations it follows easily that φ is a Hopf algebra morphism.
+   To obtain the polynomial identities we apply Theorem 9 to Theorems 44 and 21. In Theorem 9
+let H = Hprg , H0 = Hg , δH be the selector used in Theorem 44, and δH0 be the selector used in
+Theorem 21. By Theorems 9, 44 and 21,
+                                         
+        ρ(G) |E|−ρ(G)       y1      x2           r(φ(G)) |E(φ(G))|−r(φ(G))        y1    x2
+       x1 y2          R̃G      + 1,    + 1 = x1         y2                 Tφ(G) ( + 1,    + 1).
+                            x1      y2                                            x1    y2
+Since G is plane, Euler’s formula then gives v(G) − e(G) + f (G) = 2c(G). Substituting for e(G) in
+Equation (48) gives ρ(G) = r(φ(G)), from which the result follows.                              
+4.7. The three-variable Bollobás-Riordan polynomial. Here we determine the minor system
+that gives rise to the (3-variable) Bollobás-Riordan polynomial, (46). We will see that RG (x, y, z) is
+not associated with ribbon graphs, but rather ribbon graphs whose vertex set has been partitioned.
+   A vertex partitioned ribbon graph, (G, P) consists of a ribbon graph G = (V, E) and a partition P
+of its vertex set V . Deletion and contraction for vertex partitioned ribbon graphs is defined in the
+natural way. If e ∈ E(G), then deletion is defined by (G, P)\e := (G\e, P). Contraction is defined
+by (G, P)/e := (G/e, P 0 ), where the partition P 0 is induced by P as follows. Suppose e = (u, v)
+and Pu , Pv ∈ P are the blocks of the partition containing u and v respectively (u may equal v and
+the blocks need not be distinct). Then P 0 is obtained from P by removing blocks of the partition
+Pu and Pv , and replacing them with the block (Pu ∪ Pv )\{u, v} ∪ W where W is the set of vertices
+created by the contraction (so w consists of one or two vertices).
+   There are two graphs naturally associated with (G, P). The first is the underlying graph of G.
+The second is obtained by identifying the vertices in the underlying graph of G that belong to each
+block of P. We denote this graph by G/P . As an example, Figure 3 shows a vertex partitioned
+ribbon graph (G, P), a minor of it, and G/P .
+   We say that (G, P) is a the join of (G1 , P1 ) and (G2 , P2 ), written (G1 , P1 ) ∨ (G2 , P2 ), if G =
+G1 ∨ G2 and, for i = 1, 2, Pi is the restriction of P to elements in V (Gi ). We state the following
+Lemma without proof.
+Lemma 48. The set of equivalence classes of vertex partitioned ribbon graphs considered up to
+joins and isomorphism forms a minor system where the grading is given by the cardinality of the
+edge set, deletion and contraction are given as above, and multiplication is given by disjoint union.
+  We will now identify a vertex partitioned ribbon graph with its equivalence class.
+                                                   30
+Definition 49. We let Hvrg denote the Hopf algebra associatedP    with vertex partitioned ribbon
+graphs via Proposition 3. Its coproduct is given by ∆vrg (G, P) = A⊆E(G) (G, P)\Ac ⊗ (G, P)/A.
+
+   While Hrg has three elements of graded dimension 1, Hvrg has four, giving rise to the following
+maps.
+(54)
+              (                                                (
+               1 if (G, P) = (      , {{u}, {v}}),               1 if (G, P) = (       , {{v}}),
+δb (G, P) =                                        δo (G, P) =
+               0 otherwise;                                      0 otherwise;
+                   (                                           (
+                    1 if (G, P) = (      , {{v}}),              1 if (G, P) = (         , {{u, v}}),
+       δn (G, P) =                                 δl (G, P) =
+                    0 otherwise;                                0 otherwise;
+
+where the drawings above represent the equivalence classes of the ribbon graphs, and u and v are
+the vertices in the relevant figures.
+  We set
+
+(55)                       δa = δ(a1 , a2 , a3 , a4 ) := a1 δb + a2 δo + a3 δn + a4 δl .
+                                                                                           √
+As it is not when restricted to ribbon graphs, δa is not uniform unless a3 =                   a2 a4 . The following
+                                                          √
+theorem will shows that δa is uniform if and only if a3 = a2 a4 .
+
+Theorem 50. The canonical Tutte polynomial of the Hopf algebra Hvrg is given by
+(56)
+                                                    r(A/P )  |A|−ρ(A)  ρ(A)−r(A/P )
+                   r(G/P ) |E|−ρ(G) ρ(G)−r(G/P ) X  x1         x2          x3
+  α(a, b)(G, P) = y1      y2       y3                                                     ,
+                                                    y1         y2          y3
+                                                      A⊆E
+                    √                            √
+where a = (x1 , x2 , x2 x3 , x3 ), b = (y1 , y2 , y2 y3 , y3 ), and E = E(G).
+
+Proof. Set r1 (G, P) := r(G/P ), r2 (G, P) := |E| − ρ(G), r3 (G, P) := ρ(G) − r(G/P ), where ρ(G) is
+as in Equation (48), and E = E(G).
+   Recalling that e is a loop in a graph if and only if it is a loop in its cycle matroid we have
+                                    (
+                                      r1 ((G, P)/e)       if e is a loop in G/P ,
+(57)                    r1 (G, P) =
+                                      r1 ((G, P)/e) + 1 otherwise.
+
+Similarly, by Lemma 40, and using a result from [13] that e is (not a / an orientable / a nonori-
+entable) loop in G if and only if e is a (not a / an orientable / a nonorientable) ribbon loop in
+D(G), we have
+                           
+                           r2 ((G, P)/e)
+                                                if e is not a loop in G,
+(58)            r2 (G, P) = r2 ((G, P)/e) + 1 if e is an orientable loop in G,
+                             r2 ((G, P)/e) + 21 if e is a non-orientable loop in G.
+                           
+                           
+
+  From the cases for r1 and r2 above we can deduce that
+                   
+                   r3 ((G, P)/e) if e is not a loop in G or G/P ,
+                   
+                   
+                   r ((G, P)/e) if e is an orientable loop in G and a loop in G ,
+                       3                                                             /P
+       r3 (G, P) =
+                   
+                    r 3 ((G, P)/e) if e is a non-orientable loop in G and  a loop in G/P ,
+                   
+                     r3 ((G, P)/e) if e is not a loop in G, but is a loop in G/P .
+                   
+                                                        31
+  Then if δ1 := δc , δ2 := δo , δ3 := δn , and δ4 := δl in Theorem 5 we have m11 = m22 = m43 = 1,
+m32 = m33 = 12 , and all other mij are zero. The theorem then gives
+                                                         r(A/P )  |A|−ρ(A)  ρ(A)−r(A/P )
+                     r(G ) |E|−ρ(G) ρ(G)−r(G/P ) X        x1         x2          x3
+ α(a, b)(G, P) = y1 /P y2            y3                                                        ,
+                                                          y1         y2          y3
+                                                      A⊆E
+
+as required.                                                                                       
+  We can recognise the Bollobás-Riordan polynomial in Equation (56):
+Corollary 51. Let G = (V, E) be a ribbon graph, P̂ = {{v} | v ∈ V }, and α be as in Theorem 50.
+Then                                                                       r        
+                              r(G) |E|−r(G)           1
+                                                        γ(G)      y1     x2   x 3 y2
+            α(a, b)(G, P̂) = x1 y2          (y3 /y2 ) 2      RG      + 1, ,            .
+                                                                  x1     y2   x 2 y3
+In particular, if a = (1, y, yz, yz 2 ), b = (x − 1, 1, 1, 1), then
+                                       α(a, b)(G, P̂) = RG (x, y, z).
+Proof. The result follows from Theorem 50 upon noting that here r(A) = r(A/P ) and, via Euler’s
+Formula, ρ(A) = r(A) + 21 γ(A).                                                              
+  In light of Corollary 51 it is natural to make the following definition.
+Definition 52. The Bollobás-Riordan polynomial, R(G,P) (x, y, z), of a vertex partitioned ribbon
+graph (G, P) is defined by
+                                         X
+     R(G,P) (x, y, z) := α(x, y)(G, P) =   (x − 1)r(G/P )−r(A/P ) y |A|−r(A/P ) z 2(ρ(A)−r(A/P )) ,
+                                             A⊆E(G)
+
+where α is as in Theorem 50, x = (1, y, yz, yz 2 ), and y = (x − 1, 1, 1, 1).
+Corollary 53. The projection φ : Hvrg → Hrg defined by φ(G, P) = G is a Hopf algebra morphism.
+Furthermore it naturally induces the identity
+                                                                    p
+                R̃G (x, y) = (x − 1)ρ(G)−r(G/P) R(G,P) (x, y − 1, 1/ (x − 1)(y − 1)).
+Proof. The mapping is easily seen to be a well-defined Hopf algebra morphism. In Theorem 9
+let H = Hvrg , H0 = Hrg , δH be the selector used in Theorem 50, and δH0 be the selector used
+in Theorem 44. We have δH (s, x1 , x2 , x3 , x1 )(G, P) = δH0 (s, x1 , x2 , x3p
+                                                                              )(G). By Theorem 9, and
+                                           ρ(G)−r(G/P )
+Corollaries 44 and 46, R̃G (x, y) = (x − 1)             R(G,P) (x, y − 1, 1/ (x − 1)(y − 1)).       
+4.8. Krushkal’s polynomial. The Krushkal polynomial [11, 30] is a 4-variable extension of the
+Tutte polynomial to graphs embedded (but not necessarily cellularly embedded) in surfaces. For a
+graph G = (V, E) embedded in a surface Σ, denoted G ⊂ Σ, the Krushkal polynomial is defined by
+                                         X                       1        1 ⊥
+                    KG⊂Σ (x, y, a, b) :=     xr(G)−r(A) y κ(A) a 2 s(A) b 2 s (A) ,
+                                              A⊆E(G)
+
+where s(A) := γ(N (V ∪A)) is the Euler genus of a regular neighbourhood N (V ∪A) of the spanning
+subgraph (V, A) of G (note N (V ∪A) can be considered as a ribbon graph); s⊥ (A) := γ(Σ\N (V ∪A));
+and, as in Equation (35),
+(59)                        κ(A) := #cpts(Σ\N (V ∪ A)) − #cpts(Σ\N (V )).
+Observe that here #cpts(Σ\N (V )) = #cpts(Σ) since we are considering graphs in surfaces, rather
+than graphs in pseudo-surfaces. Note that we are following [11] and using the form of the exponent
+of y from the proof of Lemma 4.1 of [4] rather than the homological definition given in [30].
+                                                       32
+   The Krushkal polynomial absorbs both the Bollobás-Riordan and Las Vergnas polynomials. From
+[11, 30]
+                                          1
+                         RG (x, y, z) = y 2 γ(G) KG⊂Σ (x − 1, y, yz 2 , y −1 ),
+where RG is computed by considering the ribbon graph arising from a neighbourhood of G in Σ.
+From [4, 11, 22]
+                                          1       ⊥
+(60)                  LG⊂Σ (x, y, z) = z 2 (s(E)−s (E)) KG⊂Σ (x − 1, y − 1, z −1 , z).
+   Similarly to what we saw with the Bollobás-Riordan polynomial, the Krushkal polynomial is not
+the canonical Tutte polynomial arising from graphs in surfaces and their minors, but rather with
+vertex partitioned graphs in surfaces. A vertex partitioned graph in a surface, (G ⊂ Σ, P) consists
+of a graph G = (V, E) embedded in a surface Σ (although not necessarily cellularly embedded) and
+a partition P of its vertex set V .
+   Considering only graphs in surfaces for the moment (i.e., forgetting about the partition), if e ∈ E
+then (G ⊂ Σ)\e is the graph in a surface obtained by removing the edge e from the drawing of
+G ⊂ Σ (without removing the points of e from Σ, or its incident vertices). Edge contraction
+(G ⊂ Σ)/e is defined by forming a quotient space of the surface G/e ⊂ Σ0 then resolving any pinch
+points by “splitting” them into new vertices as in Figure 2(a) and 2(c) (formally, delete a small
+neighbourhood of e in Σ and contract any resulting boundary components to points which become
+vertices).
+   Deletion and contraction for vertex partitioned graphs in surfaces is defined in the natural way,
+and analogously to the ribbon graph case. If e ∈ E(G), then deletion is defined by (G ⊂ Σ, P)\e :=
+((G ⊂ Σ)\e, P). Contraction is defined by (G ⊂ Σ, P)/e := ((G ⊂ Σ)/e, P 0 ), where the partition
+P 0 is induced by P as follows. Suppose e = (u, v) and Pu , Pv ∈ P are the blocks containing u and
+v respectively (u may equal v and the blocks need not be distinct). Then P 0 is obtained from P by
+removing blocks Pu and Pv , and replacing them with the block (Pu ∪ Pv )\{u, v} ∪ W where W is
+the set of vertices created by the contraction (so w consists of one or two vertices).
+   There are three graphs naturally associated with (G ⊂ Σ, P). The underlying graph in a surface
+G ⊂ Σ, the underlying abstract graph G, and the abstract graph G/P obtained by identifying the
+vertices in G that belong to each block of P.
+   It is convenient at this point to extend Equation (48) to the present setting, defining
+(61)                                 ρ(A) := 21 (|A| + v(A) − b(A)) ,
+where b(A) denotes the number of boundary components of N (V ∪A). We set ρ(G ⊂ Σ, P) := ρ(E).
+  We will show that the Krushkal polynomial arises as the canonical Tutte polynomial associated
+with vertex partitioned graphs in surfaces.
+Definition 54. We will say that two vertex partitioned graphs in surfaces (G1 ⊂ Σ1 , P1 ) and
+(Gk ⊂ Σk , Pk ) are Kr-equivalent if there is a sequence of vertex partitioned graphs in surfaces
+(G1 ⊂ Σ1 , P1 ), (G2 ⊂ Σ1 , P2 ), . . . , (Gk ⊂ Σk , Pk ) such that (Gi ⊂ Σi , Pi ) is obtained from (Gi−1 ⊂
+Σi−1 , Pi−1 ), or vice versa, by one of the following moves.
+   (1) Deleting a component of the surface that contains no edges of the graph.
+   (2) Deleting an isolated vertex from a graph.
+   (3) Connect summing two surface components (away from any graph components).
+   (4) Replacing a region, with another surface with boundary (so that it forms a region of a new
+         graph in a surface).
+   It is clear that Kr-equivalence gives rise to an equivalence relation, and we let G vgs denote the set
+of all equivalence classes of graphs in pseudo-surfaces considered up to Kr-equivalence. We grade
+G vgs by the number of edges in any graph that represents its class.
+   The following lemma is easily verified.
+                                                      33
+Lemma 55. G vgs forms a minor system where the grading is given by the cardinality of the edge
+set, deletion and contraction are given as above, and multiplication is given by disjoint union.
+
+Definition 56. We let Hvgs denote the Hopf algebra   associated with G vgs via Lemma 55 and
+Proposition 3. Its coproduct is ∆vgs (G ⊂ Σ, P) = A⊆E(G) ((G ⊂ Σ, P)\Ac ) ⊗ ((G ⊂ Σ, P)/A).
+                                                 P
+
+
+Lemma 57. G1vgs has a basis consisting of exactly five elements represented by
+      (1) a 1-path in the sphere with each vertex appearing in its own block of the partition,
+      (2) a loop in the sphere,
+      (3) a 1-path in the sphere with both vertices appearing in the same block of the partition,
+      (4) a loop cellularly embedded in the real projective plane,
+      (5) a loop that forms the meridian of a torus.
+
+Proof. Let (G ⊂ Σ, P) be a vertex partitioned graph in a surface with exactly one edge. If that
+edge is a bridge then delete any isolated vertices, remove any empty surface components, then
+replace the remaining region with a disc. What remains is a 1-path in the sphere with each vertex
+appearing in its own block of the partition or a 1-path in the sphere with both vertices appearing
+in the same block of the partition.
+   Otherwise the single edge in (G ⊂ Σ, P) is a loop. Again delete any isolated vertices then remove
+any empty surface components. The resulting vertex partitioned graph in a surface has one or two
+regions. If it has two regions replace each with a disc to obtain a loop in the sphere. If it has
+one region then either a neighbourhood N (e) of the edge is an annulus or Möbius band. If it is a
+Möbius band replace the unique region with a disc to get a loop cellularly embedded in the real
+projective plane. If it is an annulus replace the unique region with an annulus to get a loop that
+forms the meridian of a torus.                                                                    
+
+  We now describe the selector of Hvgs . For this set
+(62)               (
+                    1 if (G ⊂ Σ, P) is a 1-path in the sphere, with a partition of two blocks,
+  δ1 (G ⊂ Σ, P) :=
+                    0 otherwise;
+                   (
+                    1 if (G ⊂ Σ, P) is a loop in the sphere,
+  δ2 (G ⊂ Σ, P) :=
+                    0 otherwise;
+                   (
+                    1 if (G ⊂ Σ, P) is a 1-path in the sphere with a partition of one block,
+  δ3 (G ⊂ Σ, P) :=
+                    0 otherwise;
+                   (
+                    1 if (G ⊂ Σ, P) is a loop cellularly embedded in the real projective plane,
+  δ4 (G ⊂ Σ, P) :=
+                    0 otherwise;
+                   (
+                    1 if (G ⊂ Σ, P) is a loop that is a meridian of a torus,
+  δ5 (G ⊂ Σ, P) :=
+                    0 otherwise.
+
+Set
+                   δa = δ(a1 , a2 , a3 , a4 , a5 ) := a1 δ1 + a2 δ2 + a3 δ3 + a4 δ4 + a5 δ5 .
+                                                           √
+It can be seen that δa is not uniform unless a4 = a3 a5 , in which case the following theorem says
+that it is.
+
+                                                   34
+Theorem 58. The canonical Tutte polynomial of the Hopf algebra Hvgs is given by
+
+                                 r(G/P ) κ(G⊂Σ,P) ρ(G⊂Σ,P)−r(G/P ) |E|−ρ(G⊂Σ,P)−κ(G⊂Σ,P)
+  α(a, b)(G ⊂ Σ, P) = y1                y2       y3               y4
+
+
+                                           X  x1 r(A/P )  x2 κ(A)  x3 ρ(A)−r(A/P )  x4 |A|−ρ(A)−κ(A)
+                                                                                                               ,
+                                                   y1                   y2         y3                 y4
+                                           A⊆E
+
+                            √                                       √
+where a = (x1 , x2 , x3 ,       x3 x4 , x4 ), b = (y1 , y2 , y3 ,       y3 y4 , y4 ), and E = E(G).
+
+Proof. Set r1 (G ⊂ Σ, P) := r(G/P ), r2 (G ⊂ Σ, P) := κ(G ⊂ Σ, P), r3 (G ⊂ Σ, P) := ρ(G ⊂
+Σ, P) − r(G/P ), r4 (G ⊂ Σ, P) := |E| − ρ(G ⊂ Σ, P) − κ(G ⊂ Σ, P). Equation (56) relates r(G/P )
+and r((G/P )/e). By observing that N (V ∪ A) gives rise to a ribbon graph, we see ρ(A) from
+Equation (61) corresponds to ρ(A) from Equation (48), and then (57) gives the relation between
+ρ(G/P ) and ρ((G/P )/e). Recall from Section 4.4 that e ∈ E(G) is a quasi-loop if κ(e) = 1. It is
+then not hard to see that
+                                   (
+                                    κ((G, P)/e) + 1 if e is a quasi-loop,
+                        κ(G, P) =                                         .
+                                    κ((G, P)/e)      otherwise
+
+From these we can deduce the relations between ri (G, P) and ri ((G, P)/e), for each i. Applying
+this to Theorem 5 gives m11 = m22 = m33 = m54 = 1, m43 = m44 = 21 , and all other mij are zero.
+The result follows.                                                                            
+
+Corollary 59. Let G ⊂ Σ be a graph in a surface, P̂ = {{v} | v ∈ V }, and α be as in Theorem 58.
+Then
+                                                                                    
+                                         1        1        1
+                               r(G) κ(G) 2 s(G) − 2 s⊥ (G) 2 γ(Σ)        y1 x2 x3 y4
+         α(a, b)(G ⊂ Σ, P̂) = x1 y2 y3         y4         x4      KG⊂Σ     , , ,       .
+                                                                         x1 y2 y3 x4
+                                           √                    √
+In particular, when a = (1, y, a,           a, 1), b = (x, 1, 1, b, b),
+
+                                                                        1 ⊥
+                                   α(x, y)(G ⊂ Σ, P̂) = b− 2 s (G) KG⊂Σ (x, y, a, b),
+                            √
+and when a = (1, y, a,          ab, b), b = (x, 1, 1, 1, 1),
+
+                                                                    1
+                                   α(x, y)(G ⊂ Σ, P̂) = b 2 γ(Σ) KG⊂Σ (x, y, a, 1/b).
+
+Proof. First observe that G = G/P , and so r(G) = r(G/P ). Then, by Euler’s formula, ρ(A) −
+r(A/P ) = ρ(A) − r(A) = 12 (|A| + v(A) − b(A))) − v(A) + c(A) = 12 γ(A) = 21 s(A).
+   For obtaining a 12 s⊥ (A) exponent, we can write Σ = N (V ) ∪ N (E) ∪ N (R) where V is the vertex
+set of G, E its edge set and N (R) is the complement of N (V )∪N (E), and where the neighbourhoods
+only intersect on their boundaries. Choose a triangulation of Σ that restricts to a triangulation
+of each of N (V ), N (E), and N (R). To compute the Euler characteristic χ(Σ\N (V ∪ A)), for
+A ⊆ E, with this triangulation observe that Σ\N (V ∪ A) = [Σ\N (V )] ∪ N (A) and that each time
+we add the neighbourhood of an edge to Σ\N (V ), the Euler characteristic drops by 1. It follows
+that χ(Σ\N (V ∪ A)) = χ(Σ\N (V )) − |A|. Using that γ(Σ\N (V ∪ A)) = 2 #cpts(Σ\N (V ∪ A)) −
+                                                                35
+χ(Σ\N (V ∪ A)) − b(Σ\N (V ∪ A)) we have
+ γ(Σ) − s⊥ (A) = γ(Σ\N (V )) − γ(Σ\N (V ∪ A))
+                  = 2 #cpts(Σ\N (V )) − χ(Σ\N (V )) − b(Σ\N (V ))
+                          − 2 #cpts(Σ\N (V ∪ A)) + χ(Σ\N (V ∪ A)) + b(Σ\N (V ∪ A))
+                  = [χ(Σ\N (V )) − |A| − χ(Σ\N (V ))] + 2[#cpts(Σ\N (V ∪ A)) − #cpts(Σ\N (V ))]
+                          + [b(Σ\N (V ∪ A)) − |V |]
+                  = 2[|A| − ρ(A) − κ(A)].
+The results then follows from Theorem 58 and the definition of KG⊂Σ .                                            
+Corollary 60.
+  (1) The natural mapping φ1 : Hvgs → Hvrg defined by sending (G ⊂ Σ, P) to (N (G), P) is a
+      Hopf algebra morphism. Furthermore it naturally induces identity
+                                                     1
+                               RG (x, y, z) = y 2 γ(Σ) KG⊂Σ (x − 1, y, yz 2 , y −1 ).
+    (2) The projection φ2 : Hvgs → Hps defined by identifying all of the vertices in each block of
+        the partition of (G ⊂ Σ, P) to a pinch point is a Hopf algebra morphism. Furthermore it
+        naturally induces the polynomial identity
+                                                 1            ⊥
+                     Lφ2 (G⊂Σ,P) (x, y, z) = z 2 (s(E)−s (E)) KG⊂Σ (x − 1, y − 1, z −1 , z).
+Proof. It is readily verified that the maps are Hopf algebra morphisms.
+  For φ1 , in Theorem 9 let H = Hvgs , H0 = Hvrg , δH be the selector used in Theorem 50, and δH0
+be the selector used in Theorem 44. It is easily seen that
+                      δH (a1 , a2 , a4 , a3 , a2 )(G ⊂ Σ, P) = δH0 (a1 , a2 , a3 , a4 )(φ(G, P)).
+Theorem 9 gives
+      αH (1, y, yz 2 , y, yz, x − 1, 1, 1, 1, 1)(G ⊂ Σ, P) = αH0 (1, y, yz, yz 2 , x − 1, 1, 1, 1)(φ1 (G, P)).
+                                       1
+Corollaries 51 and 59 then give y 2 γ(Σ) KG⊂Σ (x − 1, y, y, yz 2 ) = RG (x, y, z), but since G is cellularly
+embedded, γ(Σ) = γ(G).
+   For φ2 , in Theorem 9 let H = Hvgs , H0 = Hgs , δH be the selector used in Theorem 50, and δH0 be
+the selector used in Theorem 29. We have δH (a1 , a2 , a3 , a3 , a3 )(G ⊂ Σ, P) = δH0 (a1 , a2 , a3 )(φ2 (G ⊂
+              1       ⊥
+Σ, P)), so z 2 (s(E)−s (E)) KG⊂Σ (x − 1, y − 1, z −1 , z) = αH (1, y − 1, 1, 1, 1, x − 1, 1, z, z, z) = αH0 (1, y −
+1, 1, x − 1, 1, z) = Lφ2 (G⊂Σ,P) (x, y, z).                                                                       
+  In light of Corollary 59 we make the following definition.
+Definition 61. The Krushkal polynomial, K      e (G⊂Σ,P) (x, y, a, b), of a vertex partitioned graph in a
+surface (G ⊂ Σ, P) is
+                                                  X
+ e (G⊂Σ,P) (x, y, a, b) := α(a, b)(G ⊂ Σ, P) =
+ K                                                     xr(G/P )−r(A/P ) y κ(A) aρ(A)−r(A/P ) b|A|−ρ(A)−κ(A) ,
+                                                          A⊆E(G)
+                                                     √
+where α is as in Theorem 50, a = (1, y, a,               ab, b), and b = (x, 1, 1, 1, 1).
+  We note that if P = {{v} | v ∈ V }, then by Corollary 59
+                              e (G⊂Σ,P) (x, y, a, b) = b 21 γ(G) KG⊂Σ (x, y, a, 1/b).
+                              K
+Following the proof of Item (1) of Corollary 60 gives
+                                                   e (G⊂Σ,P) (x − 1, y, yz 2 , y).
+                                R(G,P) (x, y, z) = K
+                                                              36
+While following the proof of Item (2) of Corollary 60 gives
+                                                             e (G⊂Σ,P) (x − 1, y − 1, z −1 , z −1 ),
+           Lφ2 (G⊂Σ,P) (x, y, z) = z |E(G)|−r(G/P )−κ(G⊂Σ,P) K
+where φ2 is the mapping from the corollary.
+Remark 62. In Section 1 we described three problems in the area topological Tutte polynomials.
+The first problem was why three topological Tutte polynomials (the Las Vergnas, Bollobás-Riordan,
+and Krushkal polynomials) had naturally arisen in the literature, and if any one of these can
+claim to be the Tutte polynomial of an embedded graph. This is answered by the Hopf algebraic
+framework of canonical Tutte polynomials. Each of these three topological Tutte polynomials
+is a canonical Tutte polynomial, but each is a canonical Tutte polynomial of a slightly different
+class of objects with different concepts of deletion and contraction. It is worth emphasising here
+that in order to obtain the Hopf algebraic framework for these topological Tutte polynomials, we
+had to enlarge the domain of the polynomials. (For example, the Bollobás-Riordan polynomial is
+properly a polynomial of vertex partitioned ribbon graphs, rather than ribbon graphs.) In each
+case the domain can be found by starting with a cellularly embedded graph, a notion of deletion
+and contraction and looking for the class closed under these operations.
+   The second problem was why the three existing topological Tutte polynomials did not have full
+deletion-contraction definitions terminating in trivial objects. The answer is that the polynomials
+have previously been considered on what the canonical picture considers the wrong domains. Upon
+extending the domains of the polynomials as guided by the Hopf algebras, the resulting canonical
+Tutte polynomials do have full deletion-contraction definitions (by Theorem 6).
+   The final problem is about the Bollobás-Riordan polynomial RG (x, y, z). Most of the known
+results about this polynomial, particularly its combinatorial interpretations, do not apply to the
+full 3-variable polynomial RG (x, y, z), but rather to its 2-variable specialisation xγ(G)/2 RG (x +
+        √
+1, y, 1/ xy) (see, for example, [7, 12, 16, 19, 23, 24, 29]). Why is this? Again our Hopf algebraic
+                                                    √
+framework offers an answer: xγ(G)/2 RG (x+1, y, 1/ xy) is the canonical Tutte polynomial of ribbon
+graphs, whereas RG (x, y, z) is the canonical Tutte polynomial of vertex partitioned ribbon graphs.
+This suggests that one should look for evaluations and results for RG (x, y, z) in the setting of vertex
+partitioned ribbon graphs, since restricting to ribbon graphs alone corresponds to the polynomial
+                        √
+xγ(G)/2 RG (x + 1, y, 1/ xy).
+4.9. The Penrose polynomial as a Tutte polynomial. We will now illustrate that graph poly-
+nomials that are not traditionally regarded as being “Tutte polynomials” arise as canonical Tutte
+polynomials of minor systems. In Section 4.5 we saw that the 2-variable Bollobás-Riordan arises as
+the Tutte polynomial of delta-matroids and the usual minor operations of deletion and contraction.
+However, delta-matroids have a third minor operation arising from loop complementation (see [9]).
+We will examine what happens when we change our notions of deletion and contraction to incorpo-
+rate the additional minor operation. In particular, we will show that the Penrose polynomial arises
+in this setting.
+   The Penrose polynomial PG (λ) was defined implicitly by Penrose in [41] for plane graphs (see also
+[1, 2]). In this section, however, we will focus on matroidal definitions of the Penrose polynomial,
+discussing its graphical form in Section 4.10. It was defined for binary matroids by Aigner and
+Mielke in [3]. For a binary matroid M with rank function r, the Penrose polynomial is
+                                             X
+(63)                              PM (λ) :=      (−1)|X| λdim(BM (X)) ,
+                                               X⊆E
+
+where BM (X) is the binary vector space formed of the incidence vectors of the sets in the collection
+{A ∈ C(M ) | A ∩ X ∈ C ∗ (M )}. Brijder and Hoogeboom defined the Penrose polynomial in greater
+generality for vf-safe delta-matroids in [10].
+                                                      37
+   Following Brijder and Hoogeboom [9], let D = (E, F) be a delta-matroid and e ∈ E. Then
+D + e is defined to be the pair (E, F 0 ) where F 0 = F4{F ∪ e | F ∈ F and e ∈    / F }. If e1 , e2 ∈ E
+then (D + e1 ) + e2 = (D + e2 ) + e1 , and so for A = {a1 , . . . , an } ⊆ E we can define the loop
+complementation of D on A, by D + A := D + a1 + · · · + an .
+   In general D + A need not be a delta-matroid, thus we restrict our attention to a class of delta-
+matroids that is closed under loop complementation. A delta-matroid D = (E, F) is said to be
+vf-safe if the application of any sequence of twists and loop complementations results in a delta-
+matroid. The class of vf-safe delta-matroids is known to be closed under deletion and contraction,
+and strictly contains the class of binary delta-matroids (see for example [10]). In particular, in [14]
+it was shown that delta-matroids of ribbon graphs are vf-safe.
+   Set dD := r(Dmin ). If X ⊆ E, then the dual pivot on X, denoted by D¯∗X, is defined by
+D¯∗X := ((D ∗ X) + X) ∗ X. The Penrose polynomial of D, defined by Brijder and Hoogeboom in
+[10], is
+                                               X
+(64)                                P (D; λ) =     (−1)|A| λdD∗E¯∗A .
+                                                   A⊆E
+
+It was shown in [10] that when the delta-matroid D is a binary matroid, Equations (63) and (64)
+agree.
+   Here we introduce a function on delta-matroids by
+(65)              ξ(A) := 21 (|A| + rmax (D + A) − rmax (D)) = |A|/2 + ρ(D + A) − ρ(D).
+With this we define the 2-variable Penrose polynomial, P̃D (x, y) ∈ Z[x1/2 , y 1/2 ], by
+                                       X
+(66)                     P̃D (x, y) :=   (x − 1)ξ(E)−ξ(A) (y − 1)|A|−ξ(A) .
+                                             A⊆E
+
+Proposition 63. The Penrose polynomial can be recovered as a specialisation of the 2-variable
+Penrose polynomial:
+                                                         |E|+rmax (D+E) ξ(D)−|E|
+                    P̃D (x, y) √        √ √      √ = (−1)              λ         PD (λ).
+                                   x=1+i λ, y=1−i λ
+             √              √    √          √
+Proof. For       x = 1 + i λ and y = 1 − i λ, the definition of ξ gives
+                                X √                  √
+                   P̃D (x, y) =  (i λ)2ξ(E)−2ξ(A) (−i λ)2|A|−2ξ(A)
+                              A⊆E
+                                                              X
+                            = (−1)|E|+rmax (D+E)) λξ(D)−|E|         (−1)|A|) (λ)|E|−rmax (D+A) .
+                                                              A⊆E
+Next
+             dD∗E¯∗A = rmin ((D∗ ) ∗ A + A ∗ A) = rmin ((D + A)∗ ) = |E| − rmax (D + A),
+where the first equality is by definition, the second uses the twisted duality identities of [9, 14] to
+write (D + A)∗ = D + A ∗ E = D ∗ A ∗ A + A ∗ Ac ∗ A = D ∗ A ∗ Ac ∗ A + A ∗ A = D ∗ E ∗ A + A ∗ A =
+(D∗ ) ∗ A + A ∗ A, the third equality follows by looking how duality changes the size of a maximal
+feasible set.                                                                                        
+  For our minor systems we consider vf-safe delta-matroids, but rather than usual deletion and
+contraction for delta-matroids, which results in the Bollobás-Riordan polynomial, we use the minor
+operations D/e and (D + e)/e. With these notions of minors, the following result is easily checked.
+Lemma 64. The set of isomorphism classes of vf-safe delta-matroids forms a minor system where
+the grading is given by the cardinality of the ground set, “deletion” and “contraction” are given by
+D/e and (D + e)/e and multiplication is given by direct sum.
+                                                       38
+Definition 65. Let Hpe denote the Hopf algebra associated
+                                                       P with vf-safe delta-matroids via Lemma 64
+and Proposition 3. Its coproduct is given by ∆pe (D) = A⊆E D/Ac ⊗ (D + A)/A.
+   We need to be able to recognise when an element e of D has D/ec isomorphic to Dc , Do , or
+Dn . Let D = (E, F) be a delta-matroid, and e ∈ E. Then we say that e is a ribbon dual-loop if
+e is a coloop in Dmax . A ribbon dual-loop e is orientable if e is not a coloop in (D ∗ e)max , and
+is non-orientable if e is a coloop in (D ∗ e)max . Observe that e is an (orientable/non-orientable)
+ribbon dual-loop in D if and only if e is an (orientable/non-orientable) ribbon loop in D∗ . Also
+observe that it can be determined if e is a (orientable/non-orientable) ribbon dual-loop by looking
+for its membership in sets in Fmax and Fmax −1 .
+Lemma 66. Let D = (E, F) be a delta-matroid, and e ∈ E. Then e is an orientable ribbon
+dual-loop (is not a ribbon dual-loop, is a non-orientable ribbon dual-loop, respectively) if and only
+if D/ec is isomorphic to Dc (Do , Dn , respectively).
+Proof. We start by observing that
+             D/ec = (D ∗ ec )\ec = ([(D ∗ ec )\ec ] ∗ e) ∗ e = [(D ∗ E)\ec ] ∗ e = (D∗ |e )∗ .
+So D/ec = Dc if and only if (D∗ |e )∗ = Dc if and only if D∗ |e = Do . By Lemma 39 this happens
+if and only if e is an orientable ribbon loop of D∗ which happens if and only if e is an orientable
+ribbon dual-loop in D. Arguing similarly gives that D/ec = Do if and only if e is not a ribbon
+dual-loop in D, and D/ec = Do if and only if e is a non-orientable ribbon dual-loop in D.        
+Lemma 67. Let D = (E, F) be a vf-safe delta-matroid, and e ∈ E. Then
+                   
+                   rmax (D + e)
+                                        if e is an orientable ribbon dual-loop,
+         rmax (D) = rmax (D + e) − 1 if e is not a ribbon dual-loop,
+                   
+                      rmax (D + e) + 1 if e is a non-orientable ribbon dual-loop.
+                   
+
+Proof. If e is an orientable ribbon dual-loop then it is a coloop of Dmax but not a coloop of (D∗e)max .
+If there were any sets F ∈ F(D)max −1 with e ∈      / F then F(D ∗ e)max would consist exactly of sets
+of the form F ∪ {e} for these F , so e would be a coloop (D ∗ e)max . Thus there is an element
+X ∈ F(D)max such that X\{e} ∈      / F(D) and it follows that X is a maximal set in F(D + e). Thus
+rmax (D + e) = rmax (D).
+   If e is not a ribbon dual-loop then it is not a coloop of Dmax . Thus there is F ∈ F(D)max such that
+e∈ / F and F ∪{e} ∈   / F(D). It follows that F ∪{e} ∈ F(D +e), and that rmax (D +e) = rmax (D)+1.
+   If e is a non-orientable ribbon dual-loop then, by Lemma 66, D/ec = Dn . If there was a set
+F ∈ F(D)max such that F \{e} ∈     / F(D) then by contracting the elements of F \{e} first we would
+get that D/ec = Dc . Similarly, if there was a set F ∈ F(D)max −1 such that F ∪ {e} ∈      / F(D) then
+by contracting the elements of F \{e} first we would get that D/ec = Do . Thus F ∈ F(D)max if
+and only if F \{e} ∈ F(D)max −1 , and it follows that rmax (D + e) = rmax (D) − 1.                   
+Lemma 68. Let D = (E, F) be a vf-safe delta-matroid, and e ∈ E. Then
+                 
+                                    1
+                 ξ((D + e)/e) + 2 if e is an orientable ribbon dual-loop,
+                 
+          ξ(D) = ξ((D + e)/e) + 1 if e is not a ribbon dual-loop,
+                 
+                   ξ((D + e)/e)        if e is a non-orientable ribbon dual-loop.
+                 
+
+Proof. We have
+(67)
+ 2(ξ(D) − ξ((D + e)/e)) =|E| + rmax (D + E) − rmax (D) − |E| + 1 − rmax ([(D + e)/e] + (E\{e}))
+                            + rmax ((D + e)/e)
+                          =rmax (D + E) − rmax (D) − rmax ((D + E)/e) + rmax ((D + e)/e) + 1,
+                                                    39
+where the first equality is by definition, the second uses that [(D + e)/e] + (E\{e}) = (D + E)/e.
+We also have
+                                         (
+                                           rmax (D/e)       if e is a loop,
+(68)                         rmax (D) =
+                                           rmax (D/e) + 1 otherwise.
+(This identity follows easily from the definitions, but was also shown in the proof of Lemma 40.)
+Furthermore, we claim that e is a loop of D + e if and only if it is also a loop of D + E. Assuming
+this claim for the moment, we can use Equation (68) to eliminate all of the contractions in (67),
+giving
+                       2(ξ(D) − ξ((D + e)/e)) = rmax (D + e) − rmax (D) + 1.
+The result then follows by an application of Lemma 67.
+   It remains to verify the claim that e is a loop of D + e if and only if it is a loop of D + E. For this
+suppose f ∈ E with e 6= f (if there is no such f then the result is trivially true). Then if e is a loop
+of D +e it appears in no feasible sets of D +e, and so it cannot appear in a feasible set of (D +e)+f .
+By induction it follows that if e is a loop of D + e then it is a loop of (D + e) + (E\{e}) = D + E.
+Applying this result to the delta-matroid D + (E\{e}) gives that if e is a loop of (D + (E\{e}) + e)
+then it is a loop of (D + (E\{e}) + e) + (E\{e}) = D + e (since loop complementation is involuntary
+and commutes on disjoint elements). This completes the proof of the claim and the proof of the
+lemma.                                                                                                  
+  For constructing the Tutte polynomial of Hpe we use the same δa as for the Bollobás-Riordan
+polynomial, see Equation (43). For uniformity we see that, by applying δ ⊗ δ to ∆(D), where D is
+                                                                                      √
+over E = {e, f } and has feasible sets ∅, {e}, and {e, f }, δa is uniform only if a1 = a2 a3 .
+Theorem 69. The canonical Tutte polynomial of the Hopf algebra Hpe is the 2-variable Penrose
+polynomial
+                                                                              
+                                            ξ(D) |E|−ξ(D)         y1      x2
+(69)                      α(a, b)(D) = x1 y2                P̃D      + 1,    +1 ,
+                                                                  x1      y2
+           √                        √
+where a = ( x1 x2 , x1 , x2 ), b = ( y1 y2 , y1 , y2 ), and E is the ground set of the delta-matroid D.
+Proof. Applying Theorem 5 with D e := D/e and D e := (D + e)/e, r1 (A) := ξ(A), and
+r2 (A) := |A| − ξ(A), and using Lemmas 66 and 68 gives m11 = 1/2, m21 = 1, m31 = 0, m12 = 1/2,
+                            √
+m22 = 0, m32 = 1 (so a1 = x1 x2 , a2 = x1 , and a3 = x2 ). Thus
+
+                                 ξ(D) |E|−ξ(D)
+                                               X  x1 ξ(A)  x2 |A|−ξ(A)
+                   α(a, b)(D) = y1 y2
+                                                     y1       y2
+                                               A⊆E
+
+                                 ξ(D) |E|−ξ(D)
+                                               X y1 ξ(D)−ξ(A)  x2 |A|−ξ(A)
+                                                       
+                              = x1 y2                                        ,
+                                                     x1            y2
+                                                 A⊆E
+
+from which the result follows.                                                                          
+   At this point the reader might ask what happens if we choose the minor operations D/e and
+(D+e)/e, rather than D\e and (D+e)/e. If we do weP    obtain equivalent polynomials. Let Hpe be the
+Hopf algebra of Definition 65 with coproduct ∆pe = A⊆E D/Ac ⊗ (D + A)/A. Using the “deletion
+and contraction” D \ e and (D + e)/e instead and proceeding as for Hpe results in a second Hopf
+algebra of delta-matroids, that we denote Ĥpe , with coproduct ∆ˆ pe = P           c
+                                                                          A⊆E D \ A ⊗ (D + A)/A.
+
+Lemma 70. The function ∗ : Ĥpe → Hpe defined by ∗ : D 7→ D∗ , where D∗ is the dual of the
+delta-matroid D is a Hopf algebra morphism.
+                                                    40
+          Figure 4. Giving a “half-twist” to an edge of a ribbon graph G to form Gτ (e) .
+
+                                 ˆ pe (D))∗ we use the twisted duality properties of delta-matroids
+Proof. To show that ∆pe (D∗ ) = (∆
+from Brijder and Hoogeboom [9] (see also [14]) and that D/A = (D ∗ A) \ A. First
+            D∗ \ A = (D ∗ E) \ A = ((D ∗ A) ∗ Ac ) \ A = ((D ∗ A) \ A) ∗ Ac = (D/A)∗ .
+Also,
+
+  (D∗ +A)/A = (((D ∗E)+A)∗A)\A = ((((D ∗A)∗Ac )+A)∗A)\A = ((((D ∗A))+A)∗A)\A)∗Ac
+= ((((D + A)) ∗ A) + A) \ A) ∗ Ac = (((D + A)) ∗ A) \ A) ∗ Ac = ((D + A))/A) ∗ Ac = (D + A))/A)∗ .
+Then
+                      X                             X
+        ∆pe (D∗ ) =         D∗ /Ac ⊗ (D∗ + A)/A =                                      ˆ pe (D))∗ .
+                                                          (D \ Ac )∗ ⊗ ((D + A)/A)∗ = (∆
+                      A⊆E                           A⊆E
+
+The remaining properties are easily verified.                                                           
+
+   We use the functions of of Equation (42) to define selectors. For Ĥpe we take δ̂â = a1 δb + a2 δo +
+a3 δn , and for Hpe take δa = a2 δb + a1 δo + a3 δn . Let α̂(â, b̂) denote the canonical Tutte polynomial
+associated with Ĥpe , and α(a, b) denote the canonical Tutte polynomial associated with Hpe . Then,
+since ∗ is a Hopf algebra morphism, by Lemma 70 and that δ̂â = δa ◦ ∗, we can apply Theorem 9
+to get α̂(â, b̂)(D) = α(a, b)(D∗ ). Theorem 9 also gives that δ̂â is uniform if and only if δa is. Thus
+we have shown the following.
+Theorem 71. The Tutte polynomial of the Hopf algebra Ĥpe is the 2-variable Penrose polynomial
+                                                                                
+                                           ξ(D∗ ) |E|−ξ(D∗ )        y1      x2
+(70)                     α̂(â, b̂)(D) = x1      y2          P̃D∗      + 1,    +1 ,
+                                                                    x1      y2
+                √                        √
+where â = (x1 , x1 x2 , x2 ), b̂ = (y1 , y1 y2 , y2 ), and E is the ground set of the delta-matroid D.
+  Thus the three minor operations D \ e, D/e and (D + e)/e of delta-matroids only generate
+two Tutte polynomials: the 2-variable Bollobás-Riordan polynomial and the 2-variable Penrose
+polynomial.
+
+4.10. The Penrose polynomial for ribbon graphs. Let G be a ribbon graph and A ⊆ E(G).
+The partial Petrial, Gτ (A) , of G is the ribbon graph obtained from G by for each edge e ∈ A,
+choosing one of the arcs [a, b] where e meets a vertex, detaching e from the vertex along that arc
+giving two copies of the arc [a, b], then reattaching it but by gluing [a, b] to the arc [b, a] (the
+directions are reversed). This is shown in Figure 4. From [21], the Penrose polynomial of a ribbon
+graph (or cellularly embedded graph) G is defined by
+                                                               τ (A)
+                                              X
+                                  PG (λ) :=       (−1)|A| λf (G ) .
+                                             A⊆E(G)
+
+If D(G) is the delta-matroid of G then, from [14],
+(71)                                    PG (λ) = λc(G) PD(G) (λ).
+                                                    41
+  Proceeding as in Section 4.9, we define the 2-variable Penrose polynomial by
+                                              X
+(72)                          P̃G (x, y) :=         (x − 1)ξ(E)−ξ(A) (y − 1)|A|−ξ(A) ,
+                                              A⊆E
+where                                                                 
+                                    ξ(A) = 12 |A| + f (Gτ (A) ) − f (G) .
+We state the following without proof.
+Lemma 72. The set of equivalence classes of ribbon graphs considered up to joins and isomorphism
+forms a minor system where the grading is given by the cardinality of the edge set, deletion is given
+by G/e, contraction by Gτ (e) /e, and multiplication is given by direct sum.
+  We identify a ribbon graph with its equivalence class.
+Definition 73. Let Hper denote the Hopf algebra associated  with ribbon graphs via Lemma 72
+and Proposition 3. Its coproduct is given by ∆per (G) = A⊆E(G) G/Ac ⊗ Gτ (A) /A.
+                                                       P
+
+  Using δb , δo , and δn from Equation (49), gives
+(73)                              δa = δ(a1 , a2 , a3 ) := a1 δb + a2 δo + a3 δn .
+By considering the ribbon graph that describes a graph with one vertex and two loops on a Klein
+                                                           √
+bottle, it can be seen that δa is not uniform unless a1 = a2 a3 . The following theorem shows that
+it is uniform if this holds, and identifies the corresponding canonical Tutte polynomial.
+Theorem 74. The 2-variable Penrose polynomial polynomial arises as the canonical Tutte poly-
+nomial of the Hopf algebra Hper :
+                                                                              
+                                           ξ(D) |E|−ξ(D)          y1      x2
+(74)                      α(a, b)(G) = x1 y2                P̃D      + 1,    +1 ,
+                                                                  x1      y2
+            √                       √
+where a = ( x1 x2 , x1 , x2 ), b = ( y1 y2 , y1 , y2 ), and E = E(G).
+  To prove the theorem we use the following lemma.
+Lemma 75. There is a natural Hopf algebra morphism φ : Hper → Hpe given by φ : G → D(G).
+Proof. Since D(G ∨ H) = D(G) ⊕ D(H), φ is well-defined. It is easily seen that φ is multiplicative,
+and sends the (co)unit to the (co)unit. It was shown in [13, 14] that D(G)/A = D(G/A) and
+D(G) + A = D(Gτ (A) ), giving D(∆per (G)) = A⊆E D(G/Ac ) ⊗ D(Gτ (A) /A) = A⊆E D(G)/Ac ⊗
+                                            P                                  P
+
+(D(G) + A)/A = ∆pe (D(G)).                                                                       
+Proof of Theorem 74. Upon verifying that δb (G) = δc0 (D(G)), δo (G) = δo0 (D(G)) and δn (G) =
+δn0 (C(G)), where the primed δ’s are those of Equation (42), Theorems 9 and 38 give
+                                                                            
+                                   ξ(D(G)) |E|−ξ(D(G))          y1      x2
+                    α(a, b)(G) = x1       y2           P̃D(G)      + 1,    +1 ,
+                                                                x1      y2
+where E := E(D(G)). It remains to show that for any ξD(G) (A) = ξG (A), but this follows by
+Equation (65), which gives, ξ(A) = |A|/2 + ρ(D + A) − ρ(D), and by Equation (51), which gives
+ρD(G) (A) = ρG (A) = 21 (|A| − v(A) + f (A)).                                              
+Corollary 76. Let G be a ribbon graph. Then
+                                                    f (Gτ (E) )−c(G) ξ(G)−|E|−c(G)
+               P̃G (x, y) √        √ √      √ = (−1)                λ              PG (λ).
+                              x=1+i λ, y=1−i λ
+
+Proof. The result follows from Theorem 74, Proposition 63 and Equation (71) upon noting that
+D(Gτ (E) )max = (C(Gτ (E) )∗ ))∗ , and so rmax (D(G) + E) = |E| − r((Gτ (E) )∗ ) = |E| − f (Gτ (E) ) +
+c(G).                                                                                                
+                                                           42
+                                                  References
+ [1] M. Aigner, The Penrose polynomial of a plane graph, Math. Ann. 307 (2) (1997) 173–189.
+ [2] M. Aigner, Die Ideen von Penrose zum 4-Farbenproblem, Jahresber. Deutsch. Math.-Verein. 102 (2) (2000)
+     43–68.
+ [3] M. Aigner, H. Mielke, The Penrose polynomial of binary matroids, Monatsh. Math. 131 (1) (2000) 1–13.
+ [4] R. Askanazi, S. Chmutov, C. Estill, J. Michel, P. Stollenwerk, Polynomial invariants of graphs on surfaces,
+     Quantum Topol. 4 (1) (2013) 77–90.
+ [5] D. Bar-Natan, On the Vassiliev knot invariants, Topology 34 (2) (1995) 423–472.
+ [6] B. Bollobás, O. Riordan, A polynomial invariant of graphs on orientable surfaces, Proc. London Math. Soc. (3)
+     83 (3) (2001) 513–531.
+ [7] B. Bollobás, O. Riordan, A polynomial of graphs on surfaces, Math. Ann. 323 (1) (2002) 81–96.
+ [8] A. Bouchet, Maps and 4-matroids, Discrete Math. 78 (1-2) (1989) 59–71.
+ [9] R. Brijder, H. J. Hoogeboom, The group structure of pivot and loop complementation on graphs and set systems,
+     European J. Combin. 32 (8) (2011) 1353–1367.
+[10] R. Brijder, H. J. Hoogeboom, Interlace polynomials for multimatroids and delta-matroids, European J. Combin.
+     40 (2014) 142–167.
+[11] C. Butler, A quasi-tree expansion of the Krushkal polynomial, Adv. in Appl. Math. in press.
+[12] S. Chmutov, I. Pak, The Kauffman bracket of virtual links and the Bollobás-Riordan polynomial, Mosc. Math.
+     J. 7 (3) (2007) 409–418, 573.
+[13] C. Chun, I. Moffatt, S. D. Noble, R. Rueckriemen, Matroids, delta-matroids and embedded graphs, preprint.
+[14] C. Chun, I. Moffatt, S. D. Noble, R. Rueckriemen, On the interplay between embedded graphs and delta-matroids,
+     preprint.
+[15] H. H. Crapo, The Tutte polynomial, Aequationes Math. 3 (1969) 211–229.
+[16] O. T. Dasbach, D. Futer, E. Kalfagianni, X.-S. Lin, N. W. Stoltzfus, The Jones polynomial and graphs on
+     surfaces, J. Combin. Theory Ser. B 98 (2) (2008) 384–399.
+[17] G. Duchamp, N. Hoang-Nghia, T. Krajewski, A. Tanasa, Recipe theorem for the Tutte polynomial for matroids,
+     renormalization group-like approach, Adv. in Appl. Math. 51 (3) (2013) 345–358.
+[18] J. A. Ellis-Monaghan, New results for the Martin polynomial, J. Combin. Theory Ser. B 74 (2) (1998) 326–352.
+[19] J. A. Ellis-Monaghan, I. Moffatt, Twisted duality for embedded graphs, Trans. Amer. Math. Soc. 364 (3) (2012)
+     1529–1569.
+[20] J. A. Ellis-Monaghan, I. Moffatt, Graphs on surfaces: Dualities, polynomials, and knots, Springer Briefs in
+     Mathematics, Springer, New York, 2013.
+[21] J. A. Ellis-Monaghan, I. Moffatt, A Penrose polynomial for embedded graphs, European J. Combin. 34 (2) (2013)
+     424–445.
+[22] J. A. Ellis-Monaghan, I. Moffatt, The Las Vergnas polynomial for embedded graphs, European J. Combin. 50
+     (2015) 97–114.
+[23] J. Ellis-Monaghan, I. Moffatt, Evaluations of topological Tutte polynomials, Combin. Probab. Comput. 24 (3)
+     (2015) 556–583.
+[24] J. A. Ellis-Monaghan, I. Sarmiento, A recipe theorem for the topological Tutte polynomial of Bollobás and
+     Riordan, European J. Combin. 32 (6) (2011) 782–794.
+[25] G. Etienne, M. Las Vergnas, External and internal elements of a matroid basis, Discrete Math. 179 (1-3) (1998)
+     111–119.
+[26] G. E. Farr, Minors for alternating dimaps, Quart. J. Math. (2017) 1–36.
+[27] S. A. Joni, G.-C. Rota, Coalgebras and bialgebras in combinatorics, Stud. Appl. Math. 61 (2) (1979) 93–139.
+[28] W. Kook, V. Reiner, D. Stanton, A convolution formula for the Tutte polynomial, J. Combin. Theory Ser. B
+     76 (2) (1999) 297–300.
+[29] M. Korn, I. Pak, Combinatorial evaluations of the Tutte polynomial, preprint (2003).
+[30] V. Krushkal, Graphs, links, and duality on surfaces, Combin. Probab. Comput. 20 (2) (2011) 267–287.
+[31] T. Krajewski, V. Rivasseau, A. Tanasa, Z. Wang, Topological graph polynomials and quantum field theory. I.
+     Heat kernel theories, J. Noncommut. Geom. 4 (1) (2010) 29–82.
+[32] J. P. S. Kung, A multiplication identity for characteristic polynomials of matroids, Adv. in Appl. Math. 32 (1-2)
+     (2004) 319–326, special issue on the Tutte polynomial.
+[33] J. P. S. Kung, Convolution-multiplication identities for Tutte polynomials of graphs and matroids, J. Combin.
+     Theory Ser. B 100 (6) (2010) 617–624.
+[34] S. K. Lando, On a Hopf algebra in graph theory, J. Combin. Theory Ser. B 80 (1) (2000) 104–121.
+[35] M. Las Vergnas, Extensions normales d’un matroı̈de, polynôme de Tutte d’un morphisme, C. R. Acad. Sci. Paris
+     Sér. A-B 280 (22) (1975) Ai, A1479–A1482.
+                                                         43
+[36] M. Las Vergnas, Sur les activités des orientations d’une géométrie combinatoire, Cahiers Centre Études Rech.
+     Opér. 20 (3-4) (1978) 293–300, colloque Mathématiques Discrètes: Codes et Hypergraphes (Brussels, 1978).
+[37] M. Las Vergnas, On the Tutte polynomial of a morphism of matroids, Ann. Discrete Math. 8 (1980) 7–20,
+     combinatorics 79 (Proc. Colloq., Univ. Montréal, Montreal, Que., 1979), Part I.
+[38] M. Las Vergnas, Eulerian circuits of 4-valent graphs imbedded in surfaces, in: Algebraic methods in graph
+     theory, Vol. I, II (Szeged, 1978), Vol. 25 of Colloq. Math. Soc. János Bolyai, North-Holland, Amsterdam-New
+     York, 1981, pp. 451–477.
+[39] M. Las Vergnas, The Tutte polynomial of a morphism of matroids. I. Set-pointed matroids and matroid per-
+     spectives, Ann. Inst. Fourier (Grenoble) 49 (3) (1999) 973–1015, symposium à la Mémoire de François Jaeger
+     (Grenoble, 1998).
+[40] I. Moffatt, Knot invariants and the Bollobás-Riordan polynomial of embedded graphs, European J. Combin.
+     29 (1) (2008) 95–107.
+[41] R. Penrose, Applications of negative dimensional tensors, in: Combinatorial Mathematics and its Applications
+     (Proc. Conf., Oxford, 1969), Academic Press, London, 1971, pp. 221–244.
+[42] G.-C. Rota, Hopf algebra methods in combinatorics, in: Problèmes combinatoires et théorie des graphes (Colloq.
+     Internat. CNRS, Univ. Orsay, Orsay, 1976), Vol. 260 of Colloq. Internat. CNRS, CNRS, Paris, 1978, pp. 363–365.
+[43] W. R. Schmitt, Incidence Hopf algebras, J. Pure Appl. Algebra 96 (3) (1994) 299–330.
+[44] W. T. Tutte, A ring in graph theory, Proc. Cambridge Philos. Soc. 43 (1947) 26–40.
+[45] W. T. Tutte, An algebraic theory of graphs, Ph.D. thesis, University of Cambridge (1948).
+
+  ∗
+   CPT - UMR 7332, CNRS, Aix-Marseille Université and Université de Toulon, Campus de Luminy,
+13228 Marseille Cedex 9, France
+  E-mail address: thomas.krajewski@cpt.univ-mrs.fr
+  ∗
+    Department of Mathematics, Royal Holloway, University of London, Egham, Surrey, TW20 0EX,
+United Kingdom
+  E-mail address: iain.moffatt@rhul.ac.uk
+   ‡
+     Université de Bordeaux, LaBRI, UMR 5800, F-33400 Talence, France and Horia Hulubei National
+Institute for Physics and Nuclear Engineering P.O.B. MG-6 077125 Magurele, Romania and I. U. F.
+Paris, France
+   E-mail address: adrian.tanasa@ens-lyon.org
+
+
+
+
+                                                         44
+

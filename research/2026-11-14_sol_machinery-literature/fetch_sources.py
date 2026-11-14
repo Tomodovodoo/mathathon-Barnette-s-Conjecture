@@ -1,7 +1,14 @@
-﻿from pathlib import Path
+from pathlib import Path
 import urllib.request, subprocess, json, hashlib
 P=Path(__file__).resolve().parent
 sources={
+'bernardi-kalman-postnikov':'https://arxiv.org/pdf/2004.00683',
+'bernardi-orientations':'https://arxiv.org/pdf/math/0612003',
+'penrose-embedded':'https://arxiv.org/pdf/1106.5279',
+'hopf-tutte':'https://arxiv.org/pdf/1508.00814',
+'fps-dissections':'https://arxiv.org/pdf/0810.2608',
+'schrijver-matroid-intersection':'https://ir.cwi.nl/pub/2216/2216D.pdf',
+'lovasz-recski':'https://dml.cz/bitstream/handle/10338.dmlcz/701272/WSAA_10-1982-1_18.pdf',
 'hine-kalman':'https://arxiv.org/pdf/1808.06091',
 'kalman-hypergraphs':'https://www.math.titech.ac.jp/top/~kalman/hypertutte.pdf',
 'kalman-postnikov':'https://arxiv.org/pdf/1602.04449',

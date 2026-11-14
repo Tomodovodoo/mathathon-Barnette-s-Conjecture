@@ -1,0 +1,18 @@
+[
+  {
+    "rim": 4,
+    "n": 3,
+    "states": 2,
+    "ordered_disjoint_pairs": 2,
+    "determinant_coefficient": "-51*q**3",
+    "direct_pair_sum": "-51*q**3"
+  },
+  {
+    "rim": 6,
+    "n": 5,
+    "states": 3,
+    "ordered_disjoint_pairs": 2,
+    "determinant_coefficient": "-20775*q**3",
+    "direct_pair_sum": "-20775*q**3"
+  }
+]
