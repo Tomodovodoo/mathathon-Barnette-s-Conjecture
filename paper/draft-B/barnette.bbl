@@ -1,0 +1,84 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{constructive2026}
+\emph{A constructive proof of {B}arnette's conjecture}, Unsigned manuscript
+  dated 18 October 2026, 2026.
+
+\bibitem{apsw2016}
+Helmut Alt, Michael~S. Payne, Jens~M. Schmidt, and David~R. Wood,
+  \emph{Thoughts on {B}arnette's conjecture}, Australasian Journal of
+  Combinatorics \textbf{64} (2016), no.~2, 354--365.
+
+\bibitem{barnette1969}
+D.~W. Barnette, \emph{Conjecture 5}, Recent Progress in Combinatorics (Proc.
+  Third Waterloo Conf. on Combinatorics, May 1968) (W.~T. Tutte, ed.), Academic
+  Press, New York, 1969, p.~343.
+
+\bibitem{bgm2021}
+Gunnar Brinkmann, Jan Goedgebeur, and Brendan~D. McKay, \emph{The minimality of
+  the {G}eorges--{K}elmans graph}, Mathematics of Computation \textbf{91}
+  (2022), no.~335, 1483--1500.
+
+\bibitem{feder-subi2006}
+Tom{\'a}s Feder and Carlos Subi, \emph{On {B}arnette's conjecture}, Tech.
+  Report TR06-015, Electronic Colloquium on Computational Complexity, 2006.
+
+\bibitem{fordfulkerson1956}
+Lester~R. Ford, Jr. and Delbert~R. Fulkerson, \emph{Maximal flow through a
+  network}, Canadian Journal of Mathematics \textbf{8} (1956), 399--404.
+
+\bibitem{goodey1975}
+P.~R. Goodey, \emph{Hamiltonian circuits in polytopes with even sided faces},
+  Israel Journal of Mathematics \textbf{22} (1975), no.~1, 52--56.
+
+\bibitem{hertel2005}
+Alexander Hertel, \emph{A survey and strengthening of {B}arnette's conjecture},
+  Tech. report, Department of Computer Science, University of Toronto, 2005.
+
+\bibitem{hine-kalman2018}
+Camden Hine and Tam{\'a}s K{\'a}lm{\'a}n, \emph{Clock theorems for triangulated
+  surfaces}, arXiv:1808.06091, 2018.
+
+\bibitem{hmm1985}
+D.~A. Holton, B.~Manvel, and B.~D. McKay, \emph{Hamiltonian cycles in cubic
+  3-connected bipartite planar graphs}, Journal of Combinatorial Theory, Series
+  B \textbf{38} (1985), no.~3, 279--297.
+
+\bibitem{li2026}
+Zhentao Li, \emph{A note on the proof of {B}arnette's conjecture},
+  arXiv:2610.30490v1 [math.CO], 21 October 2026, 2026.
+
+\bibitem{openai2026}
+{OpenAI}, \emph{Paired states and {H}amiltonian cycles in cubic bipartite
+  planar graphs}, OpenAI Math Release preprint, family 180, 2026, Dated 24
+  September 2026. \url{https://github.com/openai/math}.
+
+\bibitem{schnieders2025}
+Tobias Schnieders, \emph{Barnette graphs with faces up to size 8 are
+  {H}amiltonian}, arXiv:2508.03531, 2025.
+
+\bibitem{stein1971}
+Sherman~K. Stein, \emph{{B}-sets and planar maps}, Pacific Journal of
+  Mathematics \textbf{37} (1971), no.~1, 217--224.
+
+\bibitem{tait1884}
+P.~G. Tait, \emph{Listing's {T}opologie}, Philosophical Magazine, Series 5
+  \textbf{17} (1884), no.~103, 30--46.
+
+\bibitem{tutte1946}
+W.~T. Tutte, \emph{On {H}amiltonian circuits}, Journal of the London
+  Mathematical Society \textbf{s1-21} (1946), no.~2, 98--101.
+
+\bibitem{tutte1975}
+\bysame, \emph{Duality and trinity}, Infinite and Finite Sets (Colloq.,
+  Keszthely, 1973), Vol. III, Colloquia Mathematica Societatis J{\'a}nos
+  Bolyai, vol.~10, North-Holland, Amsterdam, 1975, pp.~1459--1472.
+
+\end{thebibliography}

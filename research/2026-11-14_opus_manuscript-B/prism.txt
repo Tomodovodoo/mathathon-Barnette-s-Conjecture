@@ -1,0 +1,1 @@
+n = 5 states 3 pairs 2 good states 2 Hamiltonian cycles avoiding e0* 4

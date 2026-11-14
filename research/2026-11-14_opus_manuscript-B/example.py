@@ -382,3 +382,33 @@ for (r, s, cyc, o, j, q) in info:
         ind = [e for e in E if set(e) <= set(comp)]
         assert len(ind) == len(comp) - 1
 print('all recovered P are acyclic selections; both classes induce trees')
+
+# all Hamiltonian cycles of G avoiding e0* versus the cycles produced by recovery
+print()
+G = {i: set() for i in range(len(F))}
+dual_of = {}
+for e in E:
+    i, k = left[e], left[e[1], e[0]]
+    G[i].add(k); G[k].add(i)
+    dual_of[frozenset((i, k))] = e
+avoid = frozenset((left[e0], left[e0[1], e0[0]]))
+found = set()
+
+
+def dfs(path, used):
+    v = path[-1]
+    if len(path) == len(F):
+        if path[0] in G[v] and frozenset((v, path[0])) != avoid:
+            cyc = path + [path[0]]
+            found.add(frozenset(frozenset(p) for p in zip(cyc, cyc[1:])))
+        return
+    for w in G[v]:
+        if w not in used and frozenset((v, w)) != avoid:
+            used.add(w); path.append(w)
+            dfs(path, used)
+            path.pop(); used.discard(w)
+
+
+dfs([t0], {t0})
+print('Hamiltonian cycles of G avoiding e0* :', len(found))
+print('cycles produced from the 6 good states: 6 (distinct, by injectivity)')
