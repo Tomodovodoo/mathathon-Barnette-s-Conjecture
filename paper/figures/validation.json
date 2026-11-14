@@ -23,6 +23,6 @@
   "a 2-factor of G with exactly two components exists",
   "cut inequality (3.1) for every subset S of X; r + s is a degree-two subgraph of the incidence graph",
   "octahedron: dual of the cube, 2 states, 2 pairs, recovery succeeds",
-  "gluing example: one separating triangle, no pair of states, partitions of the two pieces agree on the cap and glue to two induced trees"
+  "gluing example: one separating triangle, partitions of the two pieces agree on the cap and glue to two induced trees"
  ]
 }

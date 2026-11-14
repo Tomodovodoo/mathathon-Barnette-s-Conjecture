@@ -313,11 +313,14 @@ CHECKS = [
     'a 2-factor of G with exactly two components exists',
     'cut inequality (3.1) for every subset S of X; r + s is a degree-two subgraph of the incidence graph',
     'octahedron: dual of the cube, 2 states, 2 pairs, recovery succeeds',
-    'gluing example: one separating triangle, no pair of states, partitions of the two pieces agree on the cap and glue to two induced trees',
+    'gluing example: one separating triangle, partitions of the two pieces agree on the cap and glue to two induced trees',
 ]
 
 if __name__ == '__main__':
     run, oc, gl = running(), octahedron(), gluing()
+    from geometry_check import verify
+    geometry = verify([('running',run,run['r']),('octahedron',oc,oc['s'])])
+    (HERE / 'geometry-validation.json').write_text(json.dumps(geometry,indent=1))
     (HERE / 'checked.json').write_text(json.dumps(jsonable(dict(running=run, octahedron=oc, gluing=gl)), indent=1))
     (HERE / 'validation.json').write_text(json.dumps(dict(status='COMPUTED', counts=run['counts'], checks=CHECKS), indent=1))
     k = run['disk']

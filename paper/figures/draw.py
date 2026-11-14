@@ -47,7 +47,23 @@ class Panel:
         rs = [v for v in f if v in self.roots]
         if len(rs) == 2:                       # a face with an outer arc as a side
             apex = next(v for v in f if v not in rs)
-            return 0.5 * self.xy[apex] + 0.5 * self.arcmid(*rs)
+            start = 0.5 * self.xy[apex] + 0.5 * self.arcmid(*rs)
+            if i in m.white:
+                # Incentre of a circular-sided face: largest inscribed disk.
+                from scipy.optimize import minimize
+                edges = [(self.xy[a],self.xy[b]) for a,b in zip(f,f[1:]+f[:1]) if not (a in self.roots and b in self.roots)]
+                def clearance(z):
+                    return np.array([self.R-np.linalg.norm(z[:2])-z[2]] +
+                        [check.cross2(b-a,z[:2]-a)/np.linalg.norm(b-a)-z[2] for a,b in edges])
+                opt = minimize(lambda z:-z[2], [*start,.1], constraints=[{'type':'ineq','fun':clearance}],method='SLSQP',options={'ftol':1e-12})
+                assert opt.success and min(clearance(opt.x)) > -1e-7
+                return opt.x[:2]
+            return start
+        # Incentres keep white-face marks away from narrow corners.
+        if i in m.white:
+            a, b, c = (self.xy[v] for v in f)
+            w = np.array([np.linalg.norm(b-c), np.linalg.norm(c-a), np.linalg.norm(a-b)])
+            return (w[0]*a + w[1]*b + w[2]*c) / sum(w)
         return sum(self.xy[v] for v in f) / 3
 
     def outer(self, a, b):
@@ -72,21 +88,59 @@ class Panel:
         f = self.m.F[i]
         return pt(self.xy[f[0]]) + ''.join(self.seg(a, b) for a, b in zip(f, f[1:] + f[:1])) + ' -- cycle'
 
-    def dual_path(self, g):
-        """Path of the edge g of G, crossing its edge of T once."""
+    def smooth_route(self, points, gates, handle=.18):
+        """Cubic pieces with explicit midpoint joins and transverse tangents.
+
+        gates maps an interior waypoint to the crossed segment's endpoints.
+        Short handles keep each piece inside its incident sector.
+        """
+        tangents = []
+        for k, q in enumerate(points):
+            direction = points[min(k+1,len(points)-1)] - points[max(0,k-1)]
+            if k in gates:
+                a, b = gates[k]
+                edge = b-a
+                direction = np.array([-edge[1], edge[0]])
+                if np.dot(direction, points[k+1]-points[k-1]) < 0:
+                    direction = -direction
+            direction = direction / np.linalg.norm(direction)
+            lens = [np.linalg.norm(q-points[j]) for j in (k-1,k+1) if 0 <= j < len(points)]
+            tangents.append(direction * handle * min(lens))
+        return [(points[k], points[k]+tangents[k], points[k+1]-tangents[k+1], points[k+1])
+                for k in range(len(points)-1)]
+
+    def curve_tex(self, pieces):
+        return pt(pieces[0][0]) + ''.join(f' .. controls {pt(b)} and {pt(c)} .. {pt(d)}' for a,b,c,d in pieces)
+
+    def dual_curves(self, g):
         i, j = g
-        a, b = self.m.cross[und(i, j)]
-        mid = self.mid(a, b)
-        if self.m.t0 not in (i, j):
-            return f'{pt(self.cen[i])} .. controls {pt(mid)} .. {pt(self.cen[j])}'
+        a, b = self.m.cross[und(i,j)]
+        mid = self.mid(a,b)
+        if self.m.t0 not in g:
+            return self.smooth_route([self.cen[i],mid,self.cen[j]], {1:(self.xy[a],self.xy[b])})
         inner = j if i == self.m.t0 else i
-        t = ang(mid)
-        d = (-90 - t + 180) % 360 - 180
-        rr = self.R + RING
-        s = f'[rounded corners=3pt] {pt(self.cen[inner])} -- ({t:.2f}:{rr})'
-        if abs(d) > 1:
-            s += f' arc[start angle={t:.2f},end angle={t + d:.2f},radius={rr}]'
+        outer = mid * (self.R+RING)/self.R
+        # A straight radial exit, followed by the collar arc.
+        return self.smooth_route([self.cen[inner],mid,outer], {1:(mid+np.array([-mid[1],mid[0]]),mid)})
+
+    def dual_path(self, g):
+        s = self.curve_tex(self.dual_curves(g))
+        if self.m.t0 in g:
+            a,b = self.m.cross[und(*g)]
+            t = ang(self.mid(a,b)); d = (-90-t+180)%360-180
+            if abs(d)>1:
+                s += f' arc[start angle={t:.2f},end angle={t+d:.2f},radius={self.R+RING}]'
         return s
+
+    def white_curves(self, rec, t, x):
+        ch = rec['chosen'][t]
+        sides = [(x,v) for v in self.m.F[t] if v != x]
+        sides.sort(key=lambda e: self.m.white_face(*e) != ch['parent'])
+        q = .5*(self.cen[t]+self.xy[x])
+        # The two adjacent H faces include the black sectors. A short arc
+        # needs only the deleted-spoke midpoint, not two forced side bends.
+        points = [self.cen[ch['parent']],q,self.cen[ch['child']]]
+        return self.smooth_route(points,{1:(self.cen[t],self.xy[x])},handle=.42)
 
     # layers -------------------------------------------------------------------
     def add(self, s):
@@ -199,13 +253,7 @@ class Panel:
     def white_tree(self, rec, s, arrows=False):
         m = self.m
         for t, x in zip(m.A, s):
-            ch = rec['chosen'][t]
-            sides = [(x, v) for v in m.F[t] if v != x]
-            sides.sort(key=lambda e: m.white_face(*e) != ch['parent'])      # parent side first
-            q = 0.5 * self.cen[t] + 0.5 * self.xy[x]
-            near = [0.62 * self.xy[x] + 0.38 * self.xy[e[1]] if not self.outer(*e) else self.mid(*e) for e in sides]
-            pts = [self.cen[ch['parent']], near[0], q, near[1], self.cen[ch['child']]]
-            self.add(r'\draw[bf wtree] plot[smooth,tension=.5] coordinates {' + ' '.join(pt(p) for p in pts) + '};')
+            self.add(r'\draw[bf wtree] ' + self.curve_tex(self.white_curves(rec,t,x)) + ';')
         for w in m.white:
             self.add(rf'\draw[draw=bfW,fill=white,line width=.8pt] {pt(self.cen[w])} circle[radius=2pt];')
         y = self.cen[rec['y0']]
@@ -255,7 +303,24 @@ def make():
 
     def O():
         return Panel(om, oxy, oR, unit=U)
-    cube2 = O().graphG(dots=False).graphG('bf cycle', oc['two_factor'], dots=False).dotsG(1.8).tex()
+    # Put the two checked four-cycles on concentric squares.
+    import networkx as nx
+    cycles = nx.cycle_basis(nx.Graph(oc['two_factor']))
+    assert sorted(map(len,cycles)) == [4,4]
+    outer = cycles[0]
+    inner = [next(v for v in om.G[u] if v not in outer) for u in outer]
+    assert all(om.G.has_edge(inner[k],inner[(k+1)%4]) for k in range(4))
+    corners = [np.array(q,float) for q in [(-3,-3),(3,-3),(3,3),(-3,3)]]
+    square = {v:q for v,q in zip(outer,corners)}
+    square.update({v:.46*q for v,q in zip(inner,corners)})
+    cp = O()
+    for g in om.G.edges():
+        cp.add(rf'\draw[bf G] {pt(square[g[0]])} -- {pt(square[g[1]])};')
+    for u,v in oc['two_factor']:
+        cp.add(rf'\draw[bf cycle] {pt(square[u])} -- {pt(square[v])};')
+    for v,q in square.items():
+        cp.add(rf'\draw[fill={"black" if v in om.black else "white"},line width=.5pt] {pt(q)} circle[radius=1.8pt];')
+    cube2=cp.tex()
     a = O().base().graphG().vertices(labels=True).tex()
     b = O().base().state(orr, 'bf r').state(os_).arrows(om.D(orr, os_)).vertices().tex()
     c = O().base().state(os_).lines(om.Q(os_), 'bf Q').vertices().tex()
@@ -265,12 +330,12 @@ def make():
             + r'\\[2mm]' + '\n'
             + row([c, d, e], ['(d) $Q_s$, opposite the wedges', '(e) kept spokes and the white tree', '(f) $P$, two trees, one cycle'], '1mm') + r'\end{tabular}')
     fig('01-cube', body,
-        r'The whole construction on the cube. (a) The cube $G$, drawn with one vertex below the picture. The bold edges have degree two at every vertex but form two cycles. '
-        r'(b) Its dual $T$ is the octahedron. Faces of $T$ are black or white as the vertices of $G$ are. The outer face $t_0$ is black, shown by the grey collar, and its corners $0,1,2$ are the roots. '
-        r'(c) A state picks one corner in each bounded black triangle and uses each inner vertex once. Outlined wedges are $r$, solid wedges are $s$, and the arrows $r(t)\to s(t)$ form $D$. '
-        r'(d) $Q_s$ is the edge opposite each solid wedge. Here it is a forest with one root in each component. '
-        r'(e) Delete the dotted spoke at each solid wedge. The solid spokes form a tree, and the green edges crossing the deleted spokes form a tree on the white faces, rooted at the ringed face. '
-        r'(f) Each face gets one bold edge. The bold edges form two trees, on the disks and on the squares, and the curve that crosses every other edge is a Hamiltonian cycle of $G$.',
+        r'The complete construction on the cube. (a) The square-in-square cube has a degree-two subgraph with two cycles. '
+        r'(b) Its dual is the octahedron, in the disk embedding used below; shaded faces are black and hollow vertices are roots. '
+        r'(c) Outlined choices $r$ and solid choices $s$ are disjoint states; the arrows $r(t)\to s(t)$ form $D$. '
+        r'(d) The sides opposite $s$ form the forest $Q_s$. '
+        r'(e) Delete the dotted chosen spokes. The remaining spokes form a tree; the dual edges across deleted spokes form the white-face tree, rooted at the ring. '
+        r'(f) That tree selects one bold side per face. The selected edges $P$ induce two trees, and their complementary dual is one Hamiltonian cycle.',
         'cube and octahedron; all objects from check.octahedron()')
 
     # 02 degree two is not enough ------------------------------------------------
@@ -471,6 +536,9 @@ def make():
             ps_.add(rf'\draw[bf detour,shorten >=1.6pt,-{{Stealth[length=4.2pt,width=3.6pt]}}] {pt(ct)} -- {pt(xy[y])};')
     for t in m.A:
         ps_.add(rf'\fill {pt(ps_.cen[t])} ++(-1.7pt,-1.7pt) rectangle ++(3.4pt,3.4pt);')
+    for kk,c,poly in polys:
+        w = kk['white'][0]
+        ps_.label(ps_.cen[w], rf'$W={kk["W"]}$', 'fill=white,inner sep=1pt')
     ps_.vertices()
     side = (r'\begin{tabular}{@{}l@{}}'
             r'long cycle $C_1$:\\[.5mm]\quad $L^+(C_1)-L^-(C_1)=' + f'{run["D_cycles"][0]["L_diff"]:.0f}' + r'$\\[2mm]'
@@ -548,6 +616,46 @@ def make():
         r'The order of the argument and where each figure belongs. Solid boxes are the main line for a triangulation without separating triangles. '
         r'The disk identity is used twice, for the cancellation and for the forest of selected edges. Separating triangles are handled last, by induction.',
         'logical dependence of Sections 2 to 7 of the OpenAI paper (LIT), no computed object')
+
+    short_caps = {
+    '02-two-factors': r'Degree two does not ensure one cycle. The running graph $G$ has $22$ vertices; filled and hollow dots are its bipartition. Both bold subgraphs have degree two everywhere, but only the connected one in (b) is Hamiltonian. The same embedding is used for the final cycle in Figure~13.',
+    '03-dual': r'Pass from $G$ to $T=G^*$. Grey edges join face centres across their corresponding edges of $T$. Shaded faces are black, including the outer face $t_0$ shown by the collar. The hollow roots are $0,4,5$; the $10$ bounded black faces match the $10$ nonroot vertices.',
+    '04-local': r'Read the two choices inside one black triangle $t$. The outlined corner is $r(t)$, the solid corner is $s(t)$, and the third is $u(t)$. The solid arrow is $D$, while the dashed opposite side is $Q_s$. In (b), replacing the edge by two spokes gives weight $a(t,s(t))-a(t,r(t))$ and excludes $u(t)$ from the tinted subdisk.',
+    '09-Q': r'The opposite sides distinguish failure from success. (a) The second state $s$ of Figure~7 gives a cycle of $Q_s$ around the central white triangle. (b) The first state $r$, now drawn solid, gives a forest with one root per component. Recovery uses the pair $(s,r)$.',
+    '10-cancellation': r'Keep $s$ fixed and reverse the heavy dashed cycle of $Q_s$. Only the outlined choices move, from $r$ to $\tilde r$; the solid choices and $\omega(s)$ stay fixed. The disk identity changes $J$ by $2$, so the phases are opposite and the two terms $i^J e^{x\omega(s)}$ cancel.',
+    '11-spokes': r'Slide each dashed cycle of $D$ onto its solid spoke route. Unit circulation around each bounded spoke face makes the counterclockwise weight difference $L^+-L^-$ equal to the white-face count inside the original cycle, labelled $W$. Both counts are positive. Each cycle gives a simple zero, so this group has a nonzero leading term of phase $(-i)^2$.',
+    '12-tree-cotree': r'Recover from the forest state $r$ of Figure~9(b), drawn solid. (a) Delete the dotted chosen spokes; the remaining spokes, joined through $c_0$, form a spanning tree. (b) Each deleted spoke is crossed at its midpoint by one edge of the white-face tree. Its root $y_0$ is the ringed face across $e_0=\{0,4\}$.',
+    '13-selected': r'The white-face tree selects the bold sides. Its root selects $e_0$; each other white face selects the side towards its parent. Every black and white face has one selected side. The resulting $P$ is a forest with two components. Its complementary dual in (b) is one cycle through all $22$ faces, separating the disk and square classes into two induced trees.',
+    '14-gluing': r'Glue across the separating triangle $\{3,4,5\}$. Solve the outer piece first, then prescribe its same-class edge $\{3,5\}$ on the inner piece. The classes agree on the cap. For each class the two trees meet in that edge or in vertex $4$, so their union is again an induced tree.',
+    }
+    for i,(name,body,cap,note) in enumerate(FIGS):
+        FIGS[i]=(name,body,short_caps.get(name,cap),note)
+
+    def mini():
+        return Panel(m,xy,R,unit=.205,pad=.05)
+    panels=[mini().base().graphG().vertices().tex(),
+            mini().base().state(r,'bf r').state(s).arrows(m.D(r,s)).vertices().tex(),
+            mini().base().state(s).lines(m.Q(s),'bf Q').vertices().tex(),
+            mini().base().state(r).lines(m.Q(r),'bf Q').vertices().tex(),
+            mini().base().white_tree(rec,r).lines(rec['P'],'bf P').vertices().tex(),
+            mini().base().lines(rec['P'],'bf P').graphG('bf cycle',rec['hamiltonian'],dots=False).vertices(classes=rec['parts']).tex()]
+    strip=row(panels,[r'(a) $T=G^*$',r'(b) $(r,s)$ and $D$',r'(c) cyclic $Q_s$',r'(d) forest $Q_r$',r'(e) tree and $P$',r'(f) one cycle'],'1mm')
+    notes=r'''\begin{minipage}{15.7cm}\footnotesize
+\medskip
+(a) Colour the dual triangles by the bipartition of $G$. Choose the black outer face and its roots.\\[2mm]
+(b) An integral incidence flow supplies two disjoint states. Their arrows form $D$.\\[2mm]
+(c) For fixed $s$, reverse a cycle of $Q_s$. Opposite phases cancel all pairs with cyclic $Q_s$.\\[2mm]
+(d) Regroup by $D$. Positive spoke circulations make the sum nonzero, so a forest pair survives.
+Here the same states in the order $(s,r)$ give the forest $Q_r$.\\[2mm]
+(e) Delete the chosen spokes. Their dual white-face tree selects $P$; the disk identity makes $P$ acyclic.\\[2mm]
+(f) One selected side at each face gives degree two in the complementary dual. Tree duality makes it connected,
+so it is a Hamiltonian cycle. The two sides induce trees in $T$.\\[2mm]
+Separating triangles are handled by cutting and gluing with a prescribed edge, as in Figure~14.
+\end{minipage}'''
+    fig('16-at-a-glance',r'\begin{tabular}{@{}c@{}}'+strip+r'\\[3mm]'+notes+r'\end{tabular}',
+        r'The proof at a glance on the running example. Read the strip from left to right. Cancellation removes cyclic second states; nonvanishing supplies a forest state. The white-face tree then selects the forest whose complementary dual is the Hamiltonian cycle.',
+        'running example; all states, cycles, white-tree and P from check.running; general implications LIT OpenAI Sections 2--7')
+
     return run, oc, gl
 
 
@@ -558,7 +666,7 @@ def write():
         (HERE / f'{name}.tex').write_text(
             '\\documentclass[10pt,border=6pt]{standalone}\n\\usepackage{amsmath}\n\\usepackage{barnette-figs}\n\\begin{document}%\n'
             + body + '%\n\\end{document}\n', encoding='utf-8')
-    g = [r'\documentclass[10pt,a4paper]{amsart}', r'\usepackage[margin=1in]{geometry}', r'\usepackage{barnette-figs}',
+    g = [r'\documentclass[10pt,a4paper]{amsart}', r'\usepackage[margin=1in]{geometry}', r'\usepackage{barnette-figs}', r'\usepackage{capt-of}',
          r'\title{Figures for the Barnette exposition}', r'\begin{document}', r'\maketitle',
          r'\noindent This gallery sets every figure at its final size in the text block of the paper '
          r'(\texttt{amsart}, A4, 1in margins). Captions are the proposed captions. '
@@ -566,7 +674,7 @@ def write():
     filler = (r'\noindent\textit{Body text for scale.} A state assigns to each bounded black triangle one of its corners '
               r'so that every vertex other than a root is used once. A pair is two states that differ at every triangle.\par')
     for i, (name, body, cap, note) in enumerate(FIGS, 1):
-        g += [r'\begin{figure}[!htbp]\centering', rf'\input{{{name}-body.tex}}', rf'\caption{{{cap}}}', rf'\label{{fig:{name[3:]}}}', r'\end{figure}', filler]
+        g += [r'\par\medskip\noindent\begin{minipage}{\textwidth}\centering', rf'\input{{{name}-body.tex}}', rf'\captionof{{figure}}{{{cap}}}', rf'\label{{fig:{name[3:]}}}', r'\end{minipage}\par\medskip', filler]
         if i % 2 == 0:
             g.append(r'\clearpage')
     g.append(r'\end{document}')

@@ -1,0 +1,16 @@
+[
+ {
+  "example": "running",
+  "G_edges": 33,
+  "white_edges": 10,
+  "samples_per_cubic": 160,
+  "minimum_crossing_angle_degrees": 80.14168352721487
+ },
+ {
+  "example": "octahedron",
+  "G_edges": 12,
+  "white_edges": 3,
+  "samples_per_cubic": 160,
+  "minimum_crossing_angle_degrees": 87.1529174234742
+ }
+]
