@@ -1,5 +1,7 @@
 # 01. Degree two is free, connectivity is the problem
 
+Where this step lives elsewhere. Paper: the introduction and Proposition 2.6(1) of [`barnette.pdf`](../../paper/main/barnette.pdf), with Figure 1(a). Primal note: Theorem T and Lemma 12 of [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "Hamiltonian cycle G-P" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md)). Blueprint nodes `thm:main` and `prop:target.1` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md). Atlas: page 1, [the chain](../atlas/pages/01-chain.pdf), and page 26, [hypotheses](../atlas/pages/26-hypotheses.pdf).
+
 ## What we want at this point and why
 
 Before any machinery, we want to know what is hard about finding a Hamiltonian cycle in a Barnette graph $G$. The answer shapes the whole proof. Half of the definition of a Hamiltonian cycle comes for free in these graphs, and the other half is a global condition that no local rule controls. Every later step is a way to get hold of that global condition.
@@ -58,13 +60,13 @@ In these three examples the share of connected 2-factors decreases. This table d
 
 ## What does not work
 
-**Counting 2-factors.** For a bipartite planar graph, a suitably signed bipartite adjacency determinant counts perfect matchings in absolute value. For a general planar graph the corresponding formula is a Pfaffian, so 2-factors can be counted fast. The count does not see connectivity. Nothing in the 112 above tells you that 28 of them are connected. The proof of Barnette's conjecture is a count too, and its whole difficulty is to build one in which the disconnected objects cancel.
+**Counting 2-factors.** Kasteleyn's method counts the perfect matchings of a planar graph with one determinant (a Pfaffian in general, a signed bipartite adjacency determinant when the graph is bipartite). In a cubic graph that also counts 2-factors, so they can be counted fast. The count does not see connectivity. Nothing in the 112 above tells you that 28 of them are connected. The proof of Barnette's conjecture is a count too, and its whole difficulty is to build one in which the disconnected objects cancel.
 
 **Dropping a hypothesis.** The statement is false as soon as one of the four hypotheses goes. These are published results, cited here through the project's literature review `research/2026-11-14_opus_history-literature/` and the limits study `research/2026-11-14_astra_limits/HYPOTHESES.md`. I did not open the original papers.
 
-- Not bipartite. Tutte's graph on 46 vertices is cubic, planar, 3-connected and not Hamiltonian (Tutte 1946).
-- Not 3-connected. There is a cubic bipartite planar 2-connected graph on 26 vertices with no Hamiltonian cycle (Asano, Saito, Exoo, Harary 1982, known to the project from the abstract only). Deciding Hamiltonicity in that class is NP-complete (Akiyama, Nishizeki, Saito 1980).
-- Not planar. Horton's graph is cubic, bipartite, 3-connected and not Hamiltonian.
+- Not bipartite. Tutte's graph on 46 vertices is cubic, planar, 3-connected and not Hamiltonian (Tutte 1946). The smallest such graphs have 38 vertices (Holton and McKay 1988, cited in the paper, Section 7).
+- Not 3-connected. There is a cubic bipartite planar 2-connected graph on 26 vertices with no Hamiltonian cycle. The paper (Section 7) builds it: three copies of the cube with one edge removed, hung between two new vertices. Deleting the two new vertices leaves three pieces, so no cycle can visit all of them. That 26 is the minimum is attributed to Asano, Saito, Exoo and Harary 1982, known to the project from the abstract only. Deciding Hamiltonicity in that class is NP-complete (Akiyama, Nishizeki, Saito 1980).
+- Not planar. The smallest cubic bipartite 3-connected graph with no Hamiltonian cycle has 50 vertices; it is the Georges-Kelmans graph (Georges 1989; minimality from the Brinkmann-Goedgebeur-McKay census, both cited in the paper, Section 7). Horton's earlier example is larger.
 - Not cubic. The 11-vertex graph with the 5 vertices of a triangular bipyramid on one side and its 6 faces on the other is planar, bipartite and 3-connected. Its two sides have different sizes, so it has no Hamiltonian cycle.
 
 So no argument that uses only three of the hypotheses can work. Step 08 says where each one enters.
@@ -78,6 +80,7 @@ So no argument that uses only three of the hypotheses can work. Step 08 says whe
 - **Tutte paths.** Every 4-connected planar graph is Hamiltonian (Tutte 1956). A cubic graph is never 4-connected, and the method does not see a 2-colouring, so it cannot use bipartiteness. Status: published theorem, not applicable.
 - **Matching theory.** Gorsky, Steiner and Wiederrecht (2023) translate the conjecture into a statement about Pfaffian graphs. The translation is an equivalence and gives no way to produce the cycle. Status: published. The OpenAI paper uses it for Corollary 7.2.
 - **Counting connected objects with signs.** This is the route the proof takes. It was absent from the Barnette literature before 2026, according to a text search of 23 papers reported in `WHAT-WAS-HARD.md` section 9. That search is a computation by a project agent, not refereed.
+- **Status of the theorem itself.** OpenAI's preprint proves it and has a Lean 4 formalisation, which an agent here rebuilt (a computation, not refereed). The project's exposition, the paper linked above, was checked line by line by a second AI model with the verdict that the proof follows. No human has read it yet.
 
 ## Where this is used next
 
