@@ -70,7 +70,7 @@ def rainbow_fig():
             far = p.cen[t] if not used else p.cen[t] + 0.3 * (p.cen[t] - p.xy[used[0]])
             p.add(rf'\node[font=\footnotesize\itshape,inner sep=0pt] at {pt(far)} {{{FL[i]}}};')
         return p.vertices()
-    a = cell(draw(sel).tex(), r'(a) A good state as a tree on the white faces (small circles). Each green curve crosses one deleted spoke (dotted), inside a black face. The ten black faces \textit{a} to \textit{j} are each crossed once.', 7.1)
+    a = cell(draw(sel).tex(), r'(a) A good state as a tree on the white faces (small circles). Each heavy green curve crosses one deleted spoke (dotted), inside a black face. The ten black faces \textit{a} to \textit{j} are each crossed once.', 7.1)
     ia, ir = m.A.index(t_add), m.A.index(rem[0])
     b = cell(draw(new, True).tex(), rf'(b) One exchange at vertex ${v_add}$: its passage moves from face \textit{{{FL[ir]}}} (dotted fill) to face \textit{{{FL[ia]}}} (hatched). Still a tree with one passage at every vertex, but \textit{{{FL[ia]}}} is crossed twice and \textit{{{FL[ir]}}} not at all.', 7.1)
     Hs = m.spoke_graph()
@@ -110,7 +110,7 @@ def trinity_fig():
     wdots(p).vertices()
     a = cell(p.tex(), rf'(a) All three at once: {nK} points and {eK} joins. Squares are black centres, small circles white centres, dots the vertices of $T$. The edges of $T$ are thin grey.', 7.1)
     p = P(U2).base().spokes(style='bf kept', outer=True, kept='bf kept').vertices()
-    b = cell(p.tex(), r'(b) Without the white centres: the spoke graph. States, pairs and the spanning tree of page 8 live here.', 7.1)
+    b = cell(p.tex(), r'(b) Without the white centres: the spoke graph. States, pairs and the spanning tree of page ' + pg('recovery') + r' live here.', 7.1)
     p = wdots(wspokes(P(U2).base(), 'bf wtree,line width=1.5pt')).vertices()
     c = cell(p.tex(), r'(c) Without the black centres: the same construction on the white faces.', 7.1)
     p = P(U2).base(shade=False).graphG('bf cycle,line width=.9pt', dots=False).dotsG(2.0)
@@ -215,7 +215,7 @@ def cuts_fig():
         split = ''.join(letters[v] for v in c4 if v in ps[0]) + ' / ' + ''.join(letters[v] for v in c4 if v not in ps[0])
         bot.append(cell(small(p.tex()), rf'\textbf{{{len(lst)} of {len(rparts)}}}, split \textit{{{split}}}\\ {how}', 4.6))
 
-    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
+    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}' + vs('2.5mm')
     CERT['cuts'] = dict(triangle=cap, triangle_patterns={str(k): len(v) for k, v in by3.items()}, four_cycle=c4,
                         four_patterns={str(k): len(v) for k, v in by4.items()}, hamiltonian_cycles=len(rparts),
                         four_signatures=[dict(word=w, joins_inside_outside=sig, cycles=len(v_)) for (w, sig), v_ in bysig.items()])
@@ -226,8 +226,53 @@ def cuts_fig():
             + grid(bot, 3, colsep='3mm', rowsep='2mm') + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
+def exception_shape(vmax=16):
+    """The unrepaired lifts recorded by the induction-completion census (one row for each, with its triangulation).
+    Recompute their shape from the stored faces: with x removed, the opposite edges of the outer state plus two
+    root edges form a forest with two trees, one through a and v1 and one through b and v2."""
+    import gzip
+    D_ = ROOT / 'research/2026-11-14_fable_induction-completion/data'
+    rows = [json.loads(l_) for l_ in (D_ / 'exceptions_6_13.jsonl').read_text().splitlines()]
+    with gzip.open(D_ / 'exceptions_14_17.jsonl.gz', 'rt') as fh:
+        rows += [json.loads(l_) for l_ in fh]
+    rows = [r_ for r_ in rows if r_['V'] <= vmax]
+    tri = lambda f: [frozenset(e) for e in ((f[0], f[1]), (f[1], f[2]), (f[0], f[2]))]
+    out = Counter()
+    for r_ in rows:
+        x, a_, v1, b_, v2, t0 = r_['x'], r_['a'], r_['v1'], r_['b'], r_['v2'], r_['t0']
+        outer, asg = [tuple(f) for f in r_['outer']], r_['assign']
+        V_ = {v for f in r_['blacks'] + r_['whites'] for v in f}
+        E_ = Counter(e for f in r_['blacks'] + r_['whites'] for e in tri(f))
+        Eb = Counter(e for f in r_['blacks'] for e in tri(f))
+        # a two-coloured triangulation of the sphere in which x has degree four with neighbours a, v1, b, v2 in order
+        assert len(V_) == r_['V'] and len(E_) == 3 * len(V_) - 6 and set(E_.values()) == {2} and set(Eb) == set(E_) and set(Eb.values()) == {1}
+        assert {frozenset(f) for f in r_['blacks'] if x in f} == {frozenset((x, a_, v1)), frozenset((x, b_, v2))}
+        assert {frozenset(f) for f in r_['whites'] if x in f} == {frozenset((x, v1, b_)), frozenset((x, v2, a_))}
+        assert sorted(map(sorted, outer)) == sorted(sorted(f) for f in r_['blacks'] if x not in f and set(f) != set(t0))
+        nonroot = V_ - {x} - set(t0)
+        assert all(u in f for f, u in zip(outer, asg)) and len(set(asg)) == len(asg) and set(asg) <= nonroot
+        (miss,) = nonroot - set(asg)
+        assert miss in (v1, v2)                                       # the state of the contraction: one copy of the merged vertex is unused
+        F_ = nx.Graph()
+        F_.add_nodes_from(V_ - {x})
+        for f, u in zip(outer, asg):
+            p_, q_ = [w for w in f if w != u]
+            F_.add_edge(p_, q_)
+        F_.add_edges_from([(t0[0], t0[1]), (t0[1], t0[2])])
+        assert nx.is_forest(F_) and nx.number_connected_components(F_) == 2
+        same = lambda u, w: nx.has_path(F_, u, w)
+        out['two trees, a with v1 and b with v2'] += same(a_, v1) and same(b_, v2) and not same(a_, b_)
+        g = next(f for f in outer if a_ in f and v2 in f)
+        out['the black face on a v2 uses a'] += asg[outer.index(g)] == a_
+        out[f'V={r_["V"]}'] += 1
+    return len(rows), dict(out)
+
+
 @fig('induction')
 def induction_fig():
+    nexc, shape = exception_shape()
+    assert nexc == 466 and shape['two trees, a with v1 and b with v2'] == 466 and shape['the black face on a v2 uses a'] == 466
+    assert [shape[f'V={k}'] for k in (13, 14, 15, 16)] == [8, 20, 80, 358]
     found = None
     for x in m.X:
         if m.T.degree(x) != 4 or any(x in m.F[f] and f == m.t0 for f in range(len(m.F))):
@@ -344,7 +389,7 @@ def induction_fig():
         other = next((t for t in res if t[2] and t[1] != Lf), None)
         p, _ = state_panel(m, xy, R, (other or pick)[1], U2)
         cells.append(cell(ring(p.vertices(), x, '5pt', 'line width=1.3pt').tex(), r'(d) Another lift that succeeds.', 7.1))
-    CERT['induction'] = dict(x=x, a=a_, v1=v1, b=b_, v2=v2, small_vertices=len(sm.V), tree_matchings_small=len(res), lifts_ok=nok, repaired_by_rotation=nrot,
+    CERT['induction'] = dict(unrepaired_lifts=dict(rows=nexc, source='research/2026-11-14_fable_induction-completion/data/exceptions_*.jsonl', shape=shape), x=x, a=a_, v1=v1, b=b_, v2=v2, small_vertices=len(sm.V), tree_matchings_small=len(res), lifts_ok=nok, repaired_by_rotation=nrot,
                              shown=dict(lift_ok=ok, rotation=bool(rot)))
     return grid(cells, 2)
 
@@ -424,7 +469,7 @@ def earlier_fig():
            r'this proof & a good state, from a pair, by cancellation and positivity\\\bottomrule\end{tabular}\end{minipage}')
     CERT['earlier'] = dict(hamiltonian_cycles=len(cycles), avoid_min=lo_, avoid_max=hi_, feder_subi_type_per_class=per, colouring=col,
                            relaxed_example=dict(vertices=10, edges=sorted(map(sorted, tg.edges())), cycles=len(fparts), passing_per_class=fper, excluded_partition=ps, offending_edges=bad))
-    return r'\begin{tabular}{@{}c@{}}' + grid([a, b, c, d], 2) + r'\\[3mm]' + led + r'\end{tabular}'
+    return r'\begin{tabular}{@{}c@{}}' + grid([a, b, c, d], 2) + vs('3mm') + led + r'\end{tabular}'
 
 # ---------------------------------------------------------------------------
 @fig('produced')
@@ -477,7 +522,7 @@ def produced_fig():
             bot.append(cell(small(p.vertices().tex()), 'good state' if pr else why, 3.4))
             reasons.append(None if pr else why)
         info.append(dict(avoids=av, produced=pr))
-    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}\\[2.5mm]'
+    hd = lambda t: r'\begin{minipage}[t]{14.4cm}\centering\footnotesize\textbf{' + t + r'}\end{minipage}' + vs('2.5mm')
     # the count as one bar
     n_use = sum(not i_['avoids'] for i_ in info)
     n_pr = sum(i_['produced'] for i_ in info)
@@ -494,7 +539,7 @@ def produced_fig():
     L.append(rf'\node[font=\footnotesize] at ({(n_pr + n_miss + n_use / 2) * wu},.375) {{{n_use} use $e$}};')
     L.append(rf'\node[font=\footnotesize,anchor=north] at (7,-.12) {{The {len(info)} Hamiltonian cycles of the hexagonal prism, one box each. The proof reaches the {n_pr} dark ones.}};')
     CERT['produced'] = dict(cycles=info, reasons=reasons, faces=hm.F, t0=hm.t0, e0=hm.e0, counts=dict(use_e=n_use, produced=n_pr, avoid_not_produced=n_miss))
-    return (r'\begin{tabular}{@{}c@{}}' + hd('The hexagonal prism, drawn inside its dual triangulation: all eight Hamiltonian cycles (purple). The prescribed edge $e$ is the dashed one.')
+    return (r'\begin{tabular}{@{}c@{}}' + hd('The hexagonal prism, drawn inside its dual triangulation: all eight Hamiltonian cycles (heavy purple curves). The prescribed edge $e$ is the dashed one.')
             + grid(top, 4, colsep='2mm', rowsep='3mm') + r'\\\noalign{\vskip 4mm}'      # \\[len] adds nothing under a deep nested tabular
             + hd('The four cycles that avoid $e$, run backwards: the state each one comes from, with its opposite edges dashed')
             + grid(bot, 4, colsep='2mm') + r'\\\noalign{\vskip 3mm}' + tikz(L) + r'\end{tabular}')
@@ -599,7 +644,7 @@ def hypotheses_fig():
     for x in range(tg + 1):
         for y in range(tg + 1):
             L.append(rf'\fill {pt(P_(x, y))} circle[radius=1.5pt];')
-            L.append(rf'\node[font=\footnotesize,anchor=north east,inner sep=2pt] at {pt(P_(x, y))} {{${3 * (x % tg) + (y % tg)}$}};')
+            L.append(rf'\node[font=\footnotesize,anchor=north,fill=white,inner sep=1pt] at ($ {pt(P_(x, y))}+(0,-2.6pt) $) {{${3 * (x % tg) + (y % tg)}$}};')
     L.append(r'\path[use as bounding box] (-3.6,-3.6) rectangle (3.6,3.6);')
     d = cell(tikz(L), r'(d) On a torus: a grid of 9 vertices whose opposite sides are glued (equal numbers are one vertex). Outlined and solid wedges are two states. The dashed opposite edges of the solid one are 9 edges on 9 vertices, so they contain a cycle.', W)
     CERT['hypotheses'] = dict(K4_dual_degrees_odd=True, theta26=dict(vertices=26, connectivity=2, pieces_without_terminals=3),
@@ -683,8 +728,8 @@ def families_fig():
                [('states', [t[2] for t in trow], st[0]), ('good states', [t[3] for t in trow], st[2])], 'number of layers', 0)
     CERT['families'] = dict(prisms=[dict(sides=a_, states=b_, tree_matchings=c_, hamiltonian_cycles=d_) for a_, b_, c_, d_ in rows],
                             nanotubes=[dict(layers=a_, vertices=b_, states=c_, tree_matchings=d_) for a_, b_, c_, d_ in trow])
-    return (r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + r'\\[4mm]' + grid([c1, c2], 2, colsep='4mm')
-            + r'\\[1mm]{\footnotesize (c) Counts by direct enumeration, on a doubling scale. The number of good states stays at 2 in both families.}\end{tabular}')
+    return (r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + vs('5mm') + grid([c1, c2], 2, colsep='4mm')
+            + vs('2mm') + r'{\footnotesize (c) Counts by direct enumeration, on a doubling scale. The number of good states stays at 2 in both families.}\end{tabular}')
 
 
 # ---------------------------------------------------------------------------
@@ -692,15 +737,15 @@ def families_fig():
 def open_fig():
     # (a) evidence ranges. Each number is quoted from the report or referee named in the Sources table; nothing here is recomputed.
     # (statement, largest size with every case checked by two independent programs, by at least one program, largest sampled size)
-    bars = [('at least $2^m$ good states, $m$ the fewest cycles of a cover: every root', 22, 22, 100),
-            ('the same bound, on triangulations without separating triangles', 16, 24, None),
-            ('greedy descent in the lattice reaches a good state', None, 16, 150),
-            ('exchange descent on rainbow trees reaches a good state', None, 17, 120),
+    bars = [(r'at least $2^m$ good states, $m$ the fewest\\cycles of a cover: every root', 22, 22, 100),
+            (r'the same bound, on triangulations\\without separating triangles', 16, 24, None),
+            (r'greedy descent in the lattice\\reaches a good state', None, 16, 150),
+            (r'exchange descent on rainbow trees\\reaches a good state', None, 17, 120),
             ('some contraction keeps a pair', 17, 19, None),
-            ('a contraction never has more good states than the original', 17, 18, None)]
+            (r'a contraction never has more\\good states than the original', 17, 18, None)]
     # (statement, size of a known counterexample, True if every smaller case was checked)
     dead = [('the highest state with a partner is good', 12, False), ('an extreme cover has a good orientation', 18, True),
-            ('some good state of a contraction lifts directly', 18, True), ('a cover one step from an extreme has one', 24, False),
+            (r'some good state of a contraction\\lifts directly', 18, True), ('a cover one step from an extreme has one', 24, False),
             ('an extreme or irreducible cover has one', 33, False), ('every maximal chain of covers has one', 33, False),
             ('at least half of all covers have one', 33, False), ('the evict walk never repeats', 38, False)]
     assert all((tw is None or tw <= on) and (sa is None or sa > on) for _, tw, on, sa in bars)
@@ -708,13 +753,14 @@ def open_fig():
     X = lambda v: w * (math.log(v) - math.log(8)) / (math.log(150) - math.log(8))
     L = []
     y = 0
-    ybot = -len(bars) * .68 - len(dead) * .5 - .75
+    pitch = lambda name, base: base + .34 * name.count(r'\\')            # a label with two lines gets a taller row
+    ybot = -sum(pitch(b_[0], .58) for b_ in bars) - sum(pitch(d_[0], .5) for d_ in dead) - .75
     for t in (8, 12, 17, 24, 33, 50, 75, 100, 150):
         L.append(rf'\draw[black!25,line width=.3pt] ({X(t):.3f},.4) -- ({X(t):.3f},{ybot});\node[font=\footnotesize,anchor=south] at ({X(t):.3f},.4) {{${t}$}};')
     L.append(rf'\node[font=\footnotesize,anchor=south west,inner sep=1pt] at (0,.95) {{number of vertices of $T$}};')
     L.append(rf'\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,.2) {{open, and tested up to}};')
     for name, tw, on, sa in bars:
-        y -= .68
+        y -= pitch(name, .58) / 2
         if sa:
             L.append(rf'\draw[line width=1.5pt,dash pattern=on 3pt off 2pt] ({X(on):.3f},{y}) -- ({X(sa):.3f},{y});\node[font=\footnotesize,fill=white,inner sep=1pt,anchor=west] at ({X(sa) + .05:.3f},{y}) {{${sa}$}};')
         L.append(rf'\draw[line width=.7pt,fill=white] (0,{y - .11}) rectangle ({X(on):.3f},{y + .11});')
@@ -722,17 +768,20 @@ def open_fig():
             L.append(rf'\fill[black!80] (0,{y - .11}) rectangle ({X(tw):.3f},{y + .11});')
         lab = f'{on}' if tw in (None, on) else f'{tw}, {on}'
         L.append(rf'\node[font=\footnotesize,fill=white,inner sep=1pt,anchor=south west] at ({X(on) + .04:.3f},{y + .08}) {{${lab}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{\hyphenpenalty=10000 {name}}};')
-    y -= .72
+        L.append(rf'\node[font=\footnotesize,anchor=east,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        y -= pitch(name, .58) / 2
+    y -= .5
     L.append(rf'\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,{y}) {{refuted, counterexample known at}};')
+    y -= .22
     for name, v, smallest in dead:
-        y -= .5
+        y -= pitch(name, .5) / 2
         L.append(rf'\draw[line width=.4pt,black!55] (0,{y}) -- ({X(v):.3f},{y});\draw[line width=1.6pt] ({X(v) - .1:.3f},{y - .1}) -- ({X(v) + .1:.3f},{y + .1}) ({X(v) - .1:.3f},{y + .1}) -- ({X(v) + .1:.3f},{y - .1});')
         if smallest:
             L.append(rf'\draw[line width=.8pt] ({X(v):.3f},{y}) circle[radius=.19];')
         L.append(rf'\node[font=\footnotesize,inner sep=1pt,anchor=west] at ({X(v) + .25:.3f},{y}) {{${v}$}};')
-        L.append(rf'\node[font=\footnotesize,anchor=east,text width=5.7cm,align=right,inner sep=1pt] at (-.2,{y}) {{\hyphenpenalty=10000 {name}}};')
-    y -= .75
+        L.append(rf'\node[font=\footnotesize,anchor=east,align=right,inner sep=1pt] at (-.2,{y}) {{{name}}};')
+        y -= pitch(name, .5) / 2
+    y -= .5
     x0 = -5.8
     L.append(rf'\fill[black!80] ({x0},{y - .11}) rectangle ({x0 + .8},{y + .11});\node[right,font=\footnotesize] at ({x0 + .8},{y}) {{every case, two programs}};')
     L.append(rf'\draw[line width=.7pt,fill=white] ({x0 + 4.5},{y - .11}) rectangle ({x0 + 5.3},{y + .11});\node[right,font=\footnotesize] at ({x0 + 5.3},{y}) {{every case, one program}};')
@@ -762,9 +811,9 @@ def open_fig():
     side = (r'\begin{tabular}{@{}c@{\hspace{5mm}}c@{}}' + small(p.tex()) + r' & \begin{minipage}[b][5.4cm][c]{7.6cm}\footnotesize (b) The mechanism behind the failures at the extremes, on the state $s_{' + str(nm[s])
             + r'}$ of the running example. The three black faces round the hatched white face all put their wedge (blue) at the corner away from it, so their opposite edges close a triangle (heavy dashes). '
             r'The 12-vertex counterexample on page ' + pg('canonical') + r' fails through a face of this kind.\end{minipage}\end{tabular}')
-    CERT['open'] = dict(open_statements=[dict(statement=a_, every_case_two_programs=b_, every_case_one_program=c_, sampled_to=d_) for a_, b_, c_, d_ in bars],
-                        refuted=[dict(statement=a_, counterexample_at=b_, known_smallest=c_) for a_, b_, c_ in dead], quoted_not_recomputed=True, mechanism_face=y_)
-    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]\begin{minipage}{14cm}\centering\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Logarithmic scale.\end{minipage}\\[4mm]'
+    CERT['open'] = dict(open_statements=[dict(statement=a_.replace(chr(92) * 2, ' '), every_case_two_programs=b_, every_case_one_program=c_, sampled_to=d_) for a_, b_, c_, d_ in bars],
+                        refuted=[dict(statement=a_.replace(chr(92) * 2, ' '), counterexample_at=b_, known_smallest=c_) for a_, b_, c_ in dead], quoted_not_recomputed=True, mechanism_face=y_)
+    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]\begin{minipage}{14cm}\centering\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Logarithmic scale.\end{minipage}' + vs('5mm')
             + side + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------

@@ -44,7 +44,7 @@ def chain():
         'pair': P(u).base().state(r, 'bf r').state(s).vertices(),
         'disk': shade_faces(P(u).base(), DISK['white']).arrows(m.D(r, s)).vertices(),
         'forest': P(u).base().state(r).lines(m.Q(r), 'bf Q').vertices(),
-        'wtree': P(u).base().white_tree(rec, r).vertices(),
+        'wtree': P(u).base().add(r'\tikzset{bf wtree/.append style={line width=1.2pt}}').white_tree(rec, r).vertices(),
         'trees': P(u).base().lines(rec['P'], 'bf P').vertices(classes=rec['parts']),
         'cycle': P(u).base(shade=False).graphG(dots=False).graphG('bf cycle', rec['hamiltonian'], dots=False),
     }
@@ -78,7 +78,7 @@ def chain():
     seg('state', 'pair', free, rf'the same inequality\\gives two at once')
     seg('pair', 'disk', main, rf'disk identity\\page {pg("disk")}')
     # the hard step: four parallel lines between the same two stations
-    alts = [('sum', 'sum'), ('polynomial', 'polynomial'), ('involutions', 'pairing'), ('determinant', 'matrix')]
+    alts = [('sum', 'sum'), ('polynomial', 'polynom.'), ('involutions', 'pairing'), ('determinant', 'matrix')]
     (x1, y1), (x2, y2) = pos['disk'], pos['forest']
     for k, (slug, name) in enumerate(alts):
         y = y1 + 1.05 - k * .7
@@ -282,14 +282,14 @@ def sum_fig():
         pre = ('-' if lead < 0 else '') + ('' if d['base'] == 0 else ('e^{x}' if d['base'] == 1 else 'e^{%dx}' % d['base']))
         notes.append(rf'cover $D_{{{i + 1}}}$, its four orientations: the terms add up to ${pre}{fac}$')
     cols = '@{}' + 'c@{\\hspace{2.5mm}}' * 3 + 'c@{}'
-    hd = lambda t: r'\multicolumn{4}{@{}l}{\footnotesize\textbf{' + t + r'}}\\[.8mm]'
-    note = lambda t: r'\multicolumn{4}{c}{\footnotesize ' + t + r'}\\[2.2mm]'
+    hd = lambda t: r'\multicolumn{4}{@{}l}{\footnotesize\textbf{' + t + r'}}' + vs('1.5mm')
+    note = lambda t: r'\multicolumn{4}{c}{\footnotesize ' + t + r'}' + vs('3mm')
     brace = (r'\multicolumn{2}{c}{\footnotesize$\underbrace{\hspace{' + f'{2 * w:.2f}' + r'cm}}_{\text{same }s,\ Q_s\text{ has a cycle (shaded): the two terms cancel}}$} & '
              r'\multicolumn{2}{c}{\footnotesize $s$ is good: nothing to cancel with}\\[1mm]')
     body = (rf'\begin{{tabular}}{{{cols}}}' + hd('Grouped by the second state $s$ (solid wedges), with its opposite edges $Q_s$ dashed')
-            + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + r'\\[6mm]'
+            + ' & '.join(top[:4]) + r'\\[.5mm]' + brace + ' & '.join(top[4:]) + vs('5mm')
             + hd('Grouped by the cover $D$ (arrows from the corner of $r$ to the corner of $s$)')
-            + ' & '.join(bottom[:4]) + r'\\[.5mm]' + note(notes[0]) + ' & '.join(bottom[4:]) + r'\\[.5mm]' + note(notes[1]).replace(r'\\[2.2mm]', '')
+            + ' & '.join(bottom[:4]) + r'\\[.5mm]' + note(notes[0]) + ' & '.join(bottom[4:]) + r'\\[.5mm]' + note(notes[1]).replace(vs('3mm'), '')
             + r'\end{tabular}')
     return body
 

@@ -54,14 +54,14 @@ Euler's formula, with one wedge for each black face inside, gives $3(B-W)=2\ell-
 Shading shows one more white face than black.
 Reading corners as angles makes the disk flat, so its boundary turns exactly once.
 Each version says the same thing about a walk around the cycle. Black faces lie on the left three more times than on the right, or three fewer if the walk is clockwise.
-That fixed number is why the signs on page 4 behave.''',
+That fixed number is why the signs on page @sum@ behave.''',
      r'''Lemma 4.1 of the OpenAI paper. The shading and turning versions were proved in this project and checked by a second model. No human has read them.''',
      ['sum', 'polynomial', 'primal', 'hypotheses'],
      [OA + ', Lemma 4.1', RS + 'astra_referee-combinatorics/REWRITTEN-PROP-5-1.md', RS + 'opus_route-topology/TOPOLOGY.md, Section 2',
       RS + 'fable_referee-topology/REFEREE.md, parts a and b', HERE])
 
 page('sum', 'exponential sum', 'Eight terms, grouped twice', G1, r'''
-Give every state $s$ an exponent, its volume from page 7, and every pair $(r,s)$ a sign read off the cycles of $D$.
+Give every state $s$ an exponent, its volume from page @heights@, and every pair $(r,s)$ a sign read off the cycles of $D$.
 The eight pairs of the running example give eight terms $\pm e^{vx}$.
 Group them by $s$. The two pairs that share a cyclic $Q_s$ cancel, so only good states survive.
 Group the same terms by the cover, the set of cycles of $D$ with their directions forgotten. Each group factors into one bracket per cycle, no bracket vanishes identically,
@@ -83,12 +83,11 @@ This version has integer coefficients and no analysis. The geometric input is un
 
 page('involutions', 'involutions', 'Cancellation as a pairing of objects', G1, r'''
 Li's note replaces the sum by two pairings. If $Q_s$ has a cycle, move $r$ to the third corner on each of its faces, as in (a) and (b).
-The new pair has the same $s$, the opposite sign and the same weight, so the two cancel.
-The second pairing shows that the surviving good states do not cancel.
-Reversing a cycle of $D$ flips the sign but changes the weight, so Li adds marks.
-A mark sits where a fixed ray from a white face crosses a spoke of $s$. Crossings along a ray pair off, and (c) and (d) move one mark to its partner.''',
-     r'''Li's note, Definitions 13 to 23. Two models checked this project's full write-up of both pairings on 1,206 examples up to 14 vertices.
-     The panels are computed here. A complete marked object is not drawn. Not read by a human.''',
+The new pair has the same $s$ and weight and the opposite sign, so the two cancel. With $q$ cycles a state has $2^q$ partners, and they pair off.
+The second pairing shows that the good states do not cancel.
+Reversing a cycle of $D$ flips the sign but changes the weight, so Li adds marks where a fixed ray from a white face crosses a spoke of $s$. Crossings along a ray pair off, and (c) and (d) move one mark to its partner.''',
+     r'''Li's note, Definitions 13 to 23. Two models checked this project's write-up of both pairings on 1,206 examples.
+     The panels are computed here. Page @keystep@ draws a complete marked object. Not read by a human.''',
      ['sum', 'rowdep', 'lattice'],
      [LI + ', Definitions 13 to 23, Appendix B', 'proofs/involutions/INVOLUTIONS.md (both pairings in full)', RS + 'opus_referee-involutions/REPORT.md',
       RS + 'fable_referee-involutions-v2/REPORT.md', RS + 'sol_atlas-audit/code/proposed.py (ray panel proposed there; recomputed here)',
@@ -121,8 +120,22 @@ A state lets each black vertex choose one of its three faces. A cycle of $D$ bec
 The disk identity says the shore has one more white vertex than black.
 The outcome also needs no duality. Removing a perfect matching that contains $e$ leaves a single cycle.
 The proof gets no shorter. The gain is that the inside of a curve becomes a shore of a cut, which a proof assistant can handle.''',
-     r'''Written in this project and refereed by a second model. Its Lean statement is unrefereed. Not read by a human.''',
-     ['disk', 'recovery', 'cuts'],
-     [LI, 'proofs/primal/', RS + 'astra_primal-proof/', RS + 'fable_referee-primal/', RS + 'opus_lean-formalisation/REPORT.md', HERE])
+     r'''Written in this project, refereed by a second model, revised, and accepted in a cross-audit. Not read by a human.''',
+     ['disk', 'recovery', 'keystep', 'blueprint', 'cuts'],
+     [LI, 'proofs/primal/', RS + 'astra_primal-proof/', RS + 'fable_referee-primal/', RS + 'opus_lean-formalisation/REPORT.md', RS + 'opus_cross-audit/', HERE])
 
 import pages_more  # noqa: E402,F401
+
+# Reading order. It follows the chain of page 1, with the heights before the sum that uses them,
+# the three-proofs comparison after the primal page, and the scope pages last (see README, "Order").
+ORDER = ['chain', 'pairs', 'disk', 'heights', 'sum', 'polynomial', 'involutions', 'recovery', 'primal', 'keystep',
+         'rowdep', 'determinant', 'dimers', 'lattice', 'pairlattice', 'canonical', 'matroids', 'lp',
+         'rainbow', 'random', 'trinity', 'cuts', 'induction', 'earlier', 'produced', 'families', 'hypotheses', 'pfaffian',
+         'blueprint', 'open']
+assert sorted(ORDER) == sorted(p['slug'] for p in PAGES)
+PAGES.sort(key=lambda p: ORDER.index(p['slug']))
+_num = {p['slug']: i + 1 for i, p in enumerate(PAGES)}
+import re as _re
+for _p in PAGES:
+    for _k in ('text', 'status'):
+        _p[_k] = _re.sub(r'@(\w+)@', lambda _m: str(_num[_m.group(1)]), _p[_k])

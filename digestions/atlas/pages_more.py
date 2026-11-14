@@ -1,15 +1,15 @@
 """Page texts, continued (imported at the end of pages.py)."""
-from pages import page, OA, LI, BT, RS, HERE, G2, G3, G4, G5, G6
+from pages import page, OA, LI, BT, RS, HERE, G1, G2, G3, G4, G5, G6
 
 # ---------------------------------------------------------------- linear algebra
 page('rowdep', 'row dependence', 'Cancellation is a dependent set of rows', G2, r'''
-Fix the second state $s$ and write a matrix with a row for each black face and a column for each non-root vertex.
+Fix $s$ and write a matrix with a row for each black face and a column for each non-root vertex.
 The row of a face has two entries, at the ends of its opposite edge.
-Expanding the determinant picks one end in every row and each column once, which is a partner $r$ for $s$.
-If the opposite edges contain a cycle, the rows on the cycle add up to zero and the determinant vanishes. If they form three trees, one at each root, it is plus or minus one.
-Having no cycle is not enough. When one tree holds two roots the determinant is zero, as for five states here.
+Expanding the determinant picks one end in every row and each column once, which is a partner $r$ for $s$, so the determinant adds up the partners with signs.
+If the opposite edges contain a cycle, its rows add up to zero and the determinant vanishes. If they form three trees, one at each root, it is plus or minus one.
+Having no cycle is not enough. With two roots in one tree it is zero, as for five states here.
 This explains the cancellation, not why a good state exists.''',
-     r'''Proved here and checked by a second model, which corrected the overall sign. Not read by a human. All twelve matrices are computed here.''',
+     r'''Proved here and checked by a second model, which corrected the overall sign. Not read by a human. All twelve matrices are computed.''',
      ['sum', 'involutions', 'determinant', 'matroids'],
      [RS + 'astra_referee-combinatorics/REPORT.md', BT + ', Proposition 2.1', HERE])
 
@@ -20,7 +20,7 @@ With every weight equal to one they cancel, so the evaluation is zero although g
 The signs balance like this on every example.
 The remedy keeps the weights as variables. The polynomial is then the coefficient, in the determinant of the matrix in (d), of the monomial that uses every black face once,
 and anticommuting variables package the same extraction.
-Either way the nonvanishing still has to come from the positive direction of pages 4 and 5.''',
+Either way the nonvanishing still has to come from the positive direction of pages @sum@ and @polynomial@.''',
      r'''The coefficient formula and the sign balance were proved in this project. A second model checked the formula and the prism example. The matrix in (d) is computed here. Not read by a human.''',
      ['polynomial', 'rowdep', 'dimers', 'produced'],
      [RS + 'fable_referee-determinants/REFEREE-dimers.md', RS + 'fable_referee-determinants/SIGNIFICANCE.md, Sections 1 and 3',
@@ -38,7 +38,7 @@ So the standard tools count too much, and the surplus terms have no sign control
      ['pairs', 'determinant', 'pfaffian', 'trinity'],
      [RS + 'astra_route-dimers/PROOF.md', RS + 'fable_referee-determinants/REFEREE-dimers.md', HERE])
 
-page('pfaffian', 'Heawood torus', 'Off the sphere: the Heawood graph on a torus', G2, r'''
+page('pfaffian', 'Heawood torus', 'Off the sphere: the Heawood graph on a torus', G6, r'''
 The paper extends the theorem to cubic bipartite graphs with a Pfaffian orientation by quoting a structure theorem. A direct proof would rerun the argument on another surface.
 The smallest test is the Heawood graph on a torus. Its dual is the complete graph on seven vertices.
 No roots are removed, since seven black faces already match seven vertices. There are 24 states and 48 pairs, and every cycle of $D$ runs through all seven vertices.
@@ -55,7 +55,7 @@ The twelve states of the running example form a lattice. One clock move turns th
 Every line in the diagram is one such move, and the shaded faces show the height gained so far.
 A natural hope is that a fixed place in this order, the top or the bottom, always holds a good state.
 Here both ends do, and six of the twelve states are good states.
-In general the hope fails, and page 16 shows a triangulation whose extreme partnered state has a cycle.
+In general the hope fails, and page @canonical@ shows a triangulation whose extreme partnered state has a cycle.
 The order describes how states are related. It does not find a good state.''',
      r'''Such lattices of matchings are classical. The order is computed here. The failure of the extremes was found in this project and checked by a second model. Not read by a human.''',
      ['heights', 'pairlattice', 'canonical', 'involutions'],
@@ -118,12 +118,12 @@ It is open whether exchanges that never increase the colour error always reach a
 
 page('random', 'random trees', 'A random spanning tree with the right degrees', G4, r'''
 Delete one spoke at each bounded black centre and one at each non-root vertex.
-If the rest of the spoke graph is a spanning tree, the deleted spokes are a good state, and conversely.
+If the rest of the spoke graph is a spanning tree, the deleted spokes are a good state, and conversely. So a good state is a spanning tree with prescribed degrees.
 A uniformly random spanning tree has those degrees with probability six in 6,670,188 here.
-The hope was to tune edge weights until the prescribed degrees are the average, then show that the exact degrees have positive probability.
+The hope was to tune edge weights until those degrees are the average, then show that they occur with positive probability.
 On the whole spoke graph the first half fails. The roots and the outer centre must keep every spoke, and no positive weights make that the average.
 Measures on trees forced to keep those spokes are not excluded.''',
-     r'''From a report of this project. Two further models checked the obstruction and narrowed it to weights on the whole spoke graph. The count and the sample are computed here. Not read by a human.''',
+     r'''Two models checked this project's report and narrowed the obstruction to weights on the whole spoke graph. The count and the sample are computed here. Not read by a human.''',
      ['rainbow', 'recovery', 'lp', 'open'],
      [RS + 'sol_route-probabilistic/REPORT.md', RS + 'sol_route-probabilistic/PROOFS.md', RS + 'sol_referee-covers/INTEGRATION.md (scope of the mean obstruction)',
       RS + 'opus_two-tree-packing/REFEREE.md', HERE + ' (figs_scope.py: random_fig, seed 2026)'])
@@ -142,27 +142,27 @@ Knot theorists know this structure as a trinity, and one report restates the the
 
 # ---------------------------------------------------------------- cutting and induction
 page('cuts', 'small cuts', 'What a small cut has to remember', G5, r'''
-The proof splits $T$ along separating triangles and glues the answers.
-Across a triangle, two of the three vertices lie in the same tree and are joined by an edge, so there are three patterns.
-Prescribing that edge makes both sides agree, which is why the theorem carries a prescribed edge.
+The proof splits $T$ along separating triangles and glues the answers. Each side only reports how its trees meet the cut.
+Across a triangle, two of the three vertices lie in one tree, joined by an edge, so there are three patterns.
+Prescribing that edge makes both sides agree, which is why the theorem carries one.
 Across a cycle of length four the split of the vertices is not enough. A side must also report which cut vertices each tree joins through it.
 On one such cycle here five splits occur, in six ways. The alternating split occurs with either tree joined through the inside.''',
-     r'''Gluing along triangles is in the OpenAI paper, Section 7. The patterns are computed here from all Hamiltonian cycles of the two examples. An audit by a second model found the sixth. The general list for length four is in an unrefereed report. Not read by a human.''',
+     r'''Gluing along triangles is in the OpenAI paper, Section 7. The patterns are computed here from every Hamiltonian cycle of the two examples. A second model's audit found the sixth. The general list for length four is unrefereed. Not read by a human.''',
      ['pairs', 'recovery', 'induction', 'earlier'],
      [OA + ', Section 7', RS + 'fable_route-categorical/REPORT.md', RS + 'astra_route-pfaffian/REPORT.md (chord exception)',
       RS + 'sol_atlas-audit/AUDIT.md (six connection signatures; recomputed here with open sides)', HERE])
 
 page('induction', 'induction', 'Induction by removing a vertex of degree four', G5, r'''
-Euler's formula supplies a non-root vertex $x$ of degree four. Remove it and merge two opposite neighbours.
-A good state of the smaller triangulation lifts back in one way, shown in (b) and (c).
-If the lift is not a good state, rotate three wedges around one white face, as in (d).
-Up to 16 vertices the rotation repairs 27,723 of 28,189 failing lifts. The other 466 need a rule nobody has found.
+Remove a non-root vertex $x$ of degree four and merge two opposite neighbours.
+A good state of the smaller triangulation lifts in one way, shown in (b) and (c).
+If the lift fails, rotate three wedges round one white face, as in (d).
+Up to 16 vertices the rotation repairs 27,723 of 28,189 failing lifts. The other 466 have no known repair and one shape. Without $x$ the opposite edges form two trees, each with one merged vertex and the neighbour sharing its black face.
 At 18 vertices some contractions have no good state that lifts directly.
-The induction also needs a contraction that keeps a pair, which held in every test and is not proved.''',
-     r'''A second model checked the lift and the rotation, reproduced the counts, and found the failures at 18 vertices. In 1.2 million contractions up to 18 vertices the number of good states never dropped. Both open statements are conjectures. Not read by a human.''',
+The induction also needs a contraction that keeps a pair. That held in every test.''',
+     r'''A second model checked the lift and the rotation, reproduced the counts and found the failures at 18 vertices. The shape is recomputed here from its recorded cases. Both gaps are conjectures. Not read by a human.''',
      ['cuts', 'rainbow', 'open'],
      [RS + 'opus_route-induction/REPORT.md', RS + 'opus_route-induction/INDUCTION.md, Section 4', RS + 'opus_route-induction/PROOFS.md',
-      RS + 'fable_induction-completion/REFEREE.md', RS + 'fable_induction-completion/REPORT.md', RS + 'astra_induction-lemmas/REPORT.md',
+      RS + 'fable_induction-completion/REFEREE.md', RS + 'fable_induction-completion/REPORT.md', RS + 'fable_induction-completion/RESIDUAL-CASES.md (one shape for all exceptions; recomputed here for the 466 from data/exceptions_*.jsonl)', RS + 'astra_induction-lemmas/REPORT.md',
       RS + 'sol_atlas-audit/code/proposed.py (aligned layout proposed there; recomputed here)', HERE])
 
 page('earlier', 'earlier methods', 'Where the older methods meet this proof', G5, r'''
@@ -220,3 +220,34 @@ Three crosses sit at 33 vertices, beyond every exhaustive range, so passing all 
       RS + 'fable_referee-topology/REPORT.md (rainbow descent through 17, walk periodic at 38)', RS + 'opus_route-induction/REPORT.md',
       RS + 'fable_induction-completion/REFEREE.md (contractions through 18 and 19, direct lift refuted at 18)', RS + 'astra_referee-combinatorics/REPORT.md (12-vertex example)',
       RS + 'sol_atlas-audit/AUDIT.md (range ledger)', HERE + ' (panel b only)'])
+
+page('keystep', 'three proofs', 'Three written proofs of the key step', G1, r'''
+This project wrote out the step from a pair to a good state three times. They are one calculation.
+The main paper gives each white face a path to the outer face and reads a height off the corners where it turns.
+Reversing a cycle of $D$ changes that height by one when the face is inside the cycle, so a signed sum of powers of the total height cannot vanish.
+The primal note lays all paths on $G$ as one flow and reads the same weight there.
+The bijective note unpacks the paper's Lemmas 4.5 to 4.7 term by term for one particular height. Its terms are pairs with marks on the paths.''',
+     r'''Main paper: refereed twice by a second model, verdict follows. Primal note: refereed, revised, accepted in a cross-audit.
+Bijective note: refereed twice, verdict follows. None was read by a human. All numbers here are recomputed.''',
+     ['heights', 'sum', 'involutions', 'primal', 'blueprint'],
+     ['paper/main/barnette.tex, Lemmas 4.5 to 4.7 and Proposition 4.8', 'paper/figures/ (figures 17-heights and 10-cancellation; redrawn here, not copied)',
+      'proofs/primal/primal.tex, Lemmas 6 to 8', 'proofs/primal/figures/ (04-flow; recomputed here)',
+      'proofs/involutions/involutions.tex, Sections 4 and 5', 'proofs/involutions/STATUS.md (path marks as the paper height unpacked term by term)',
+      RS + 'sol_referee-main/', RS + 'sol_referee-main-v2/', RS + 'fable_referee-primal/', RS + 'opus_cross-audit/',
+      RS + 'opus_referee-involutions/REPORT.md', RS + 'fable_referee-involutions-v2/REPORT.md',
+      HERE + ' (figs_proofs.py: 176 height jumps, 16 cut fluxes, the local potentials of the flow, all 43 marked objects and the 9 unpaired ones)'])
+
+page('blueprint', 'machine check', 'What is machine-checked', G6, r'''
+OpenAI published a Lean proof with their paper. This project's main paper takes a different route in places,
+so a blueprint lists the 34 statements on its route and looks for each in the Lean proof.
+Four match a Lean declaration exactly. Twenty-five match only after a translation, and five have no counterpart.
+The translations are not machine-checked, so Lean certifies the theorem and not this paper's argument.
+Nothing in this atlas is checked in Lean either.
+A later Lean version follows the paper's sign and finite-difference route. With it a second model counts 5, 27 and 2.''',
+     r'''The blueprint is this project's. The later Lean version was rebuilt and checked by a second model.
+It compiles from a fresh copy and its statements say what is claimed. That model calls its recount advisory, and it corrected three claims made around the proof. Not read by a human.''',
+     ['keystep', 'primal', 'open'],
+     ['proofs/blueprint/BLUEPRINT.md', 'proofs/blueprint/blueprint.json (statuses and uses, read by the build)', 'proofs/blueprint/columns.pdf',
+      'proofs/lean/README.md', 'proofs/lean/BLUEPRINT-DELTA.md',
+      RS + 'astra_lean-check/REPORT.md (independent rebuild; advisory recount 5, 27, 2; three corrections)',
+      RS + 'astra_lean-check/recount.json (read by the build)', HERE])

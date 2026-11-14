@@ -6,6 +6,15 @@ U2 = 0.615
 FL = 'abcdefghij'
 
 
+def label_offsets(mod, p, z, dist=0.5):
+    """Offsets that put the number of a vertex on the side away from the wedge it carries."""
+    off = {}
+    for t, v in zip(mod.A, z):
+        d = p.xy[v] - p.cen[t]
+        off[v] = tuple(dist * d / np.hypot(*d))
+    return off
+
+
 def named_panel(z, u=U2):
     """The running example with vertex numbers and black faces lettered a to j."""
     p = P(u).base()
@@ -19,7 +28,7 @@ def named_panel(z, u=U2):
         v = z[i]
         q = p.cen[t] + 0.28 * (p.cen[t] - p.xy[v])
         p.add(rf'\node[font=\footnotesize\itshape,inner sep=0pt] at {pt(q)} {{{FL[i]}}};')
-    p.vertices(labels=True)
+    p.vertices(labels=label_offsets(m, p, z))
     return p, cyc
 
 
@@ -80,7 +89,7 @@ def rowdep_fig():
         else:
             assert abs(det) == 1 and not rows
             cap = rf'({tag}) The state $s_{{{nm[z]}}}$. It is good: its opposite edges form three trees, one at each root. No rows are dependent, and the determinant is ${int(det):+d}$, a single term.'
-        cells.append(r'\begin{tabular}[t]{@{}c@{}}' + p.tex() + r'\\[1mm]' + M + r'\\[1mm]\begin{minipage}{7.1cm}\centering\footnotesize ' + cap + r'\end{minipage}\end{tabular}')
+        cells.append(r'\begin{tabular}[t]{@{}c@{}}' + p.tex() + r'\\[1mm]' + M + vs('1.5mm') + r'\begin{minipage}[t]{7.1cm}\centering\footnotesize ' + cap + r'\end{minipage}\end{tabular}')
         out[tag] = dict(state=nm[z], det=int(det), dependent_rows=[FL[i] for i in rows], terms=terms)
     # all twelve states
     for z in states:
@@ -98,7 +107,7 @@ def rowdep_fig():
              + names(joined) + r'$.\end{minipage}')
     out['all'] = dict(good=sorted(nm[z] for z in tree_states), cyclic=sorted(nm[z] for z in cyc_states), root_joining_forest=sorted(nm[z] for z in joined))
     CERT['rowdep'] = out
-    return r'\begin{tabular}{@{}c@{}}' + grid(cells, 2) + r'\\[3mm]' + strip + r'\end{tabular}'
+    return r'\begin{tabular}{@{}c@{}}' + grid(cells, 2) + vs('3mm') + strip + r'\end{tabular}'
 
 
 # ---------------------------------------------------------------------------
@@ -138,7 +147,7 @@ def determinant_fig():
             p.lines(list(zip(c, c[1:] + c[:1])), 'bf Q,line width=2pt')
         for k, t in enumerate(hm.A):
             p.add(rf'\node[font=\footnotesize\itshape,inner sep=0pt] at {pt(p.cen[t] + 0.28 * (p.cen[t] - p.xy[z[k]]))} {{{FL[k]}}};')
-        p.vertices(labels=(i == 0))
+        p.vertices(labels=label_offsets(hm, p, z, 0.62) if i == 0 else False)
         if z in tms:
             lab = rf'good state, sign ${"+" if sign[z] > 0 else "-"}1$'
         else:
@@ -192,12 +201,12 @@ def determinant_fig():
         e_ = eps(mates[z][0], z)
         pp = P(0.2).base().state(z).lines(m.Q(z), 'bf Q').vertices()
         six.append(cell(small(pp.tex()), rf'$s_{{{nm[z]}}}$: ${"+" if e_ > 0 else "-"}1$'))
-    sixrow = (r'\begin{minipage}{14.6cm}\centering\footnotesize\textbf{The six good states of the running example and their signs}\end{minipage}\\[1mm]'
+    sixrow = (r'\begin{minipage}{14.6cm}\centering\footnotesize\textbf{The six good states of the running example and their signs}\end{minipage}' + vs('1.5mm')
               + grid(six, 6, colsep='1.2mm'))
     CERT['determinant'] = dict(prism=dict(faces=hm.F, t0=hm.t0, states=sts, tree_matchings=tms, signs=[sign[z] for z in tms]), running_signs=[plus, minus],
                                matrix=dict(rows=hm.X, entries={f'{a_},{b_}': str(NN[hm.X.index(a_), hm.X.index(b_)]) for a_, b_ in entry},
                                            determinant_terms=nterms, coefficient=str(coef), equals_pair_polynomial=True))
-    return (r'\begin{tabular}{@{}c@{}}' + grid(cells, 3, colsep='2mm') + r'\\[2mm]' + led + r'\\[3mm]' + mat + r'\\[3mm]' + sixrow + r'\end{tabular}')
+    return (r'\begin{tabular}{@{}c@{}}' + grid(cells, 3, colsep='2mm') + vs('2.5mm') + led + vs('4.5mm') + mat + vs('4mm') + sixrow + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
 @fig('dimers')

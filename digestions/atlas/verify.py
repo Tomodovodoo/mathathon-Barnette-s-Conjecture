@@ -13,7 +13,7 @@ O = Path(__file__).resolve().parent
 sys.path.insert(0, str(O))
 import fitz
 import lib
-import figs_chain, figs_algebra, figs_order, figs_scope      # noqa: F401
+import figs_chain, figs_algebra, figs_order, figs_scope, figs_proofs      # noqa: F401
 import pages
 
 TW = 15.92
@@ -35,6 +35,19 @@ for p in P:
     check(p['slug'] in lib.FIGS, f'no figure for {p["slug"]}')
     lib.FIGS[p['slug']]()
 check(set(lib.CERT) >= {p['slug'] for p in P if p['slug'] not in ('chain', 'sum')}, 'a figure wrote no certificate')
+
+# 1b. the numbers that page texts quote from the certificates
+C = lib.CERT
+k = C['keystep']
+check(k['height_jump_checks'] == 176 and k['flux_checks'] == 16, 'keystep: number of checked height jumps or cut fluxes changed')
+check((k['sigma_paper'], k['primal_coefficient'], k['marked_signed_total'], k['unpaired_objects'], k['marked_objects']) == (18, 9, -9, 9, 43), 'keystep: the three totals changed')
+check(abs(k['sigma_paper']) == 2 * k['product_sum'] and abs(k['primal_coefficient']) == k['product_sum'] == abs(k['marked_signed_total']), 'keystep: the three proofs disagree')
+b = C['blueprint']
+check(b['route_statements'] == 34 and b['counts'] == {'exact': 4, 'form': 25, 'none': 5}, 'blueprint: counts differ from the page text')
+check(b['advisory_recount'] == {'exact': 5, 'form': 27, 'none': 2} and len(b['moved_by_recount']) == 3, 'blueprint: recount differs from the page text')
+u = C['induction']['unrepaired_lifts']
+check(u['rows'] == 466 and u['shape']['two trees, a with v1 and b with v2'] == 466, 'induction: the 466 unrepaired lifts do not share one shape')
+check([p['slug'] for p in P] == pages.ORDER, 'page order differs from pages.ORDER')
 
 # 2. texts: length, no internal tags, no file paths, no dashes used as punctuation
 TAGS = re.compile(r'PROVED-HERE|\bLIT\b|COMPUTED|CONJECTURE|HUNCH|REFUTED|\bT[1-4]\b')
@@ -77,7 +90,8 @@ check('undefined' not in log.lower() or 'There were undefined references' not in
 # 5. the PDF: contents, one page per route, sources; every route page has its figure and fits
 doc = fitz.open(O / 'atlas.pdf')
 check(len(doc) >= len(P) + 2, 'too few pages')
-check(len(doc) <= len(P) + 3, 'a route page overflowed onto a second page')
+check(doc[len(P) + 1].get_text().lstrip().startswith('Sources'), 'a route page overflowed onto a second page')
+check(all(str(k) in doc[0].get_text() for k in range(1, len(P) + 1)) and len(doc[0].get_images(full=True)) + len(doc[0].get_drawings()) > 30 * 20, 'contents page lacks a thumbnail')
 for i, p in enumerate(P, 1):
     text = doc[i].get_text()
     check(text.lstrip().startswith(str(i)), f'page {i} does not start with its number')

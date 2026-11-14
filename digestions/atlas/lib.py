@@ -274,10 +274,16 @@ def cell(tex, label=None, width=None):
     return r'\begin{tabular}[t]{@{}c@{}}' + tex + r'\\[.6mm]' + w + label + e + r'\end{tabular}'
 
 
+def vs(length):
+    r'''Row break plus a real vertical skip. Inside a tabular, \\[len] only deepens the strut, so it adds
+    nothing under a row that is already deeper than len (a nested tabular with a caption).'''
+    return r'\\\noalign{\vskip ' + length + '}'
+
+
 def grid(cells, ncols, colsep='3mm', rowsep='3mm'):
     rows = [cells[i:i + ncols] for i in range(0, len(cells), ncols)]
     cols = '@{}' + ('c@{\\hspace{' + colsep + '}}') * (ncols - 1) + 'c@{}'
-    body = (r'\\[' + rowsep + ']\n').join(' &\n'.join(row) for row in rows)
+    body = (vs(rowsep) + '\n').join(' &\n'.join(row) for row in rows)
     return rf'\begin{{tabular}}{{{cols}}}' + '\n' + body + '\n' + r'\end{tabular}'
 
 

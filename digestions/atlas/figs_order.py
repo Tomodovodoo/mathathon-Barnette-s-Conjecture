@@ -106,7 +106,7 @@ def pairlattice_fig():
         nt = sum(m.Q_is_forest(q) for _, q in d['pairs'])
         trees.append(nt)
         where = 'upper' if i == hi else 'lower'
-        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cover $D_{{{i + 1}}}$, the {where} node. Blue: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. {nt} of its 4 orientations are good pairs.', 7.1))
+        cells.append(cell(p.tex(), rf'({"ab"[i]}) Cover $D_{{{i + 1}}}$, the {where} node. Heavy blue lines: its two cycles, without direction. Outlined wedge: the one corner each black face does not use. {nt} of its 4 orientations are good pairs.', 7.1))
     # (c) what changes between the two covers
     sym = [e for e, x1, x2 in zip(spokes, vecs[0], vecs[1]) if x1 != x2]
     p = P(U2).base()
@@ -196,8 +196,8 @@ def canonical_fig():
              rf'Every state has a partner. Eight are good and one has a cycle, and that one is the {which}. '
              r'Mirror the triangulation and the order turns over, so the same state defeats the other extreme.\end{minipage}')
     CERT['canonical'] = dict(faces=cm.F, t0=cm.t0, state=cs, extreme=which, volumes=[v[z] for z in order], kinds=kinds, tree_matchings=len(tms), cycle_length=ncyc)
-    return (r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + r'\\[3mm]' + grid(thumbs[:5], 5, colsep='1.5mm') + r'\\[2mm]' + grid(thumbs[5:], 4, colsep='1.5mm')
-            + r'\\[2mm]' + strip + r'\end{tabular}')
+    return (r'\begin{tabular}{@{}c@{}}' + grid([a, b], 2) + vs('3mm') + grid(thumbs[:5], 5, colsep='1.5mm') + vs('2mm') + grid(thumbs[5:], 4, colsep='1.5mm')
+            + vs('2.5mm') + strip + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------
 def rooted_forest(mod, edges):

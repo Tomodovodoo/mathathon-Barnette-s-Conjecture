@@ -17,7 +17,7 @@
    "title": "Two states from one count",
    "figure_cm": [
     14.64,
-    16.43
+    16.73
    ],
    "words": 142
   },
@@ -27,49 +27,49 @@
    "title": "The disk identity, three ways",
    "figure_cm": [
     14.64,
-    19.24
+    19.54
    ],
    "words": 133
   },
   {
    "n": 4,
-   "slug": "sum",
-   "title": "Eight terms, grouped twice",
-   "figure_cm": [
-    12.75,
-    17.13
-   ],
-   "words": 130
-  },
-  {
-   "n": 5,
-   "slug": "polynomial",
-   "title": "The same sum as an integer polynomial",
-   "figure_cm": [
-    14.64,
-    18.57
-   ],
-   "words": 131
-  },
-  {
-   "n": 6,
-   "slug": "involutions",
-   "title": "Cancellation as a pairing of objects",
-   "figure_cm": [
-    14.64,
-    17.75
-   ],
-   "words": 148
-  },
-  {
-   "n": 7,
    "slug": "heights",
    "title": "The exponent is a volume",
    "figure_cm": [
     14.64,
-    16.43
+    16.73
    ],
    "words": 139
+  },
+  {
+   "n": 5,
+   "slug": "sum",
+   "title": "Eight terms, grouped twice",
+   "figure_cm": [
+    12.75,
+    17.73
+   ],
+   "words": 130
+  },
+  {
+   "n": 6,
+   "slug": "polynomial",
+   "title": "The same sum as an integer polynomial",
+   "figure_cm": [
+    14.64,
+    18.87
+   ],
+   "words": 131
+  },
+  {
+   "n": 7,
+   "slug": "involutions",
+   "title": "Cancellation as a pairing of objects",
+   "figure_cm": [
+    14.64,
+    18.05
+   ],
+   "words": 150
   },
   {
    "n": 8,
@@ -77,7 +77,7 @@
    "title": "From a good state to the cycle",
    "figure_cm": [
     14.64,
-    17.69
+    17.99
    ],
    "words": 149
   },
@@ -87,49 +87,49 @@
    "title": "The same proof inside the cubic graph",
    "figure_cm": [
     14.64,
-    17.41
+    17.71
    ],
    "words": 147
   },
   {
    "n": 10,
-   "slug": "rowdep",
-   "title": "Cancellation is a dependent set of rows",
+   "slug": "keystep",
+   "title": "Three written proofs of the key step",
    "figure_cm": [
-    14.64,
-    16.18
-   ],
-   "words": 149
-  },
-  {
-   "n": 11,
-   "slug": "determinant",
-   "title": "One determinant is not enough",
-   "figure_cm": [
-    15.09,
-    16.26
-   ],
-   "words": 149
-  },
-  {
-   "n": 12,
-   "slug": "dimers",
-   "title": "Two matchings laid on top of each other",
-   "figure_cm": [
-    14.64,
-    20.2
+    13.59,
+    18.57
    ],
    "words": 150
   },
   {
-   "n": 13,
-   "slug": "pfaffian",
-   "title": "Off the sphere: the Heawood graph on a torus",
+   "n": 11,
+   "slug": "rowdep",
+   "title": "Cancellation is a dependent set of rows",
    "figure_cm": [
-    14.57,
-    15.16
+    14.64,
+    16.61
    ],
-   "words": 147
+   "words": 150
+  },
+  {
+   "n": 12,
+   "slug": "determinant",
+   "title": "One determinant is not enough",
+   "figure_cm": [
+    15.09,
+    17.41
+   ],
+   "words": 149
+  },
+  {
+   "n": 13,
+   "slug": "dimers",
+   "title": "Two matchings laid on top of each other",
+   "figure_cm": [
+    14.64,
+    20.5
+   ],
+   "words": 150
   },
   {
    "n": 14,
@@ -147,7 +147,7 @@
    "title": "The lattice of covers",
    "figure_cm": [
     14.64,
-    19.24
+    19.54
    ],
    "words": 143
   },
@@ -157,7 +157,7 @@
    "title": "The extreme state can have a cycle",
    "figure_cm": [
     14.64,
-    16.76
+    17.51
    ],
    "words": 143
   },
@@ -167,7 +167,7 @@
    "title": "Three conditions, and any two are easy",
    "figure_cm": [
     14.64,
-    19.57
+    19.87
    ],
    "words": 147
   },
@@ -177,7 +177,7 @@
    "title": "The relaxed problem has a fractional corner",
    "figure_cm": [
     14.64,
-    19.52
+    19.82
    ],
    "words": 144
   },
@@ -187,7 +187,7 @@
    "title": "A tree that uses every black face once",
    "figure_cm": [
     14.64,
-    17.08
+    17.38
    ],
    "words": 150
   },
@@ -197,9 +197,9 @@
    "title": "A random spanning tree with the right degrees",
    "figure_cm": [
     14.64,
-    16.33
+    16.63
    ],
-   "words": 145
+   "words": 149
   },
   {
    "n": 21,
@@ -207,7 +207,7 @@
    "title": "Three graphs inside one triangulation",
    "figure_cm": [
     14.64,
-    16.41
+    16.71
    ],
    "words": 149
   },
@@ -217,7 +217,7 @@
    "title": "What a small cut has to remember",
    "figure_cm": [
     15.11,
-    18.34
+    18.79
    ],
    "words": 149
   },
@@ -227,9 +227,9 @@
    "title": "Induction by removing a vertex of degree four",
    "figure_cm": [
     14.64,
-    17.11
+    17.41
    ],
-   "words": 149
+   "words": 150
   },
   {
    "n": 24,
@@ -237,7 +237,7 @@
    "title": "Where the older methods meet this proof",
    "figure_cm": [
     14.57,
-    18.9
+    19.5
    ],
    "words": 148
   },
@@ -247,40 +247,60 @@
    "title": "Which Hamiltonian cycles the proof can produce",
    "figure_cm": [
     14.82,
-    16.22
+    17.02
    ],
    "words": 146
   },
   {
    "n": 26,
-   "slug": "hypotheses",
-   "title": "What breaks when a hypothesis is dropped",
+   "slug": "families",
+   "title": "Two families, counted",
    "figure_cm": [
-    14.77,
-    17.88
+    14.64,
+    14.29
    ],
    "words": 149
   },
   {
    "n": 27,
-   "slug": "families",
-   "title": "Two families, counted",
+   "slug": "hypotheses",
+   "title": "What breaks when a hypothesis is dropped",
    "figure_cm": [
-    14.64,
-    13.59
+    14.77,
+    18.18
    ],
    "words": 149
   },
   {
    "n": 28,
+   "slug": "pfaffian",
+   "title": "Off the sphere: the Heawood graph on a torus",
+   "figure_cm": [
+    14.57,
+    15.46
+   ],
+   "words": 147
+  },
+  {
+   "n": 29,
+   "slug": "blueprint",
+   "title": "What is machine-checked",
+   "figure_cm": [
+    14.78,
+    17.19
+   ],
+   "words": 149
+  },
+  {
+   "n": 30,
    "slug": "open",
    "title": "What is still open, and how far it was tested",
    "figure_cm": [
-    14.22,
-    17.77
+    14.07,
+    19.14
    ],
    "words": 149
   }
  ],
- "pdf_pages": 31
+ "pdf_pages": 34
 }

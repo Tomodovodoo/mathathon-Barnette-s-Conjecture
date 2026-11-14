@@ -15,7 +15,7 @@ O = Path(__file__).resolve().parent
 sys.path.insert(0, str(O))
 import fitz
 import lib
-import figs_chain, figs_algebra, figs_order, figs_scope       # noqa: F401  (they register figures)
+import figs_chain, figs_algebra, figs_order, figs_scope, figs_proofs       # noqa: F401  (they register figures)
 import pages
 
 FD = O / 'figs'
@@ -135,7 +135,10 @@ for d in (PD, RD):
     d.mkdir()
 doc = fitz.open(O / 'atlas.pdf')
 names = ['00-contents'] + [f'{num[p["slug"]]:02d}-{p["slug"]}' for p in PAGES]
-overflow = len(doc) > len(PAGES) + 3
+# a route page that runs over shifts every later page: page i must open with the number i and close with its cross-references
+overflow = (len(doc) < len(PAGES) + 2
+            or any(not doc[i].get_text().lstrip().startswith(str(i)) or 'See also' not in doc[i].get_text() for i in range(1, len(PAGES) + 1))
+            or not doc[len(PAGES) + 1].get_text().lstrip().startswith('Sources'))
 if overflow:
     print('WARNING: some page overflowed; pages are named by position')
     names = [f'p{i:02d}' for i in range(len(doc))]
