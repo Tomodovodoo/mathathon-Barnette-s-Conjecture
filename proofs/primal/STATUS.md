@@ -40,6 +40,19 @@ The checker does not test an arbitrary theorem quantifier by finite enumeration.
 
 ## Phase comparison after referee correction
 
-PROVED-HERE. If a pair has $c_+$ positive and $c_-$ negative circuits, put $c=c_++c_-$. Its real sign is $(-1)^{(n+3c)/2}(-1)^{c_-}$, whereas Lean's phase is $i^{c_- - c_+}$. Their ratio is $(-1)^{(n+3c)/2}i^c$. This follows by counting the $(h+3)/2$ negative local signs on a positive circuit and reversing all signs on a negative circuit. The ratio depends on the circuit count. The two polynomials are different sums, not a single polynomial with a global normalization. Their cancellation and lowest-degree arguments give the same existence conclusion.
+PROVED-HERE. If a pair has $c_+$ positive and $c_-$ negative circuits, put $c=c_++c_-$. Its real sign is $(-1)^{(n+3c)/2}(-1)^{c_-}$, whereas Lean's phase is $i^{c_- - c_+}$. Their ratio is $(-1)^{(n+3c)/2}i^c$. This follows by counting the $(h+3)/2$ negative local signs on a positive circuit and reversing all signs on a negative circuit. The referee's M4 says this depends on $c$, but that is REFUTED by simplification: $(-1)^{(n+3c)/2}i^c=i^{n+3c}i^c=i^n$. Thus, with the same corner-sign convention and the same weights, $Z_{\rm real}=i^n Z_{\rm Lean}$. The sums use different displayed coefficients but differ by one constant normalization, not a circuit-count-dependent factor. This identification is proved informally here; no new Lean declaration or build is claimed. Directly, if $t=\sum\delta$, then $3\mid t$ by the disk identity, $\varepsilon=i^{n-t}$ and Lean's phase is $i^{t/3}$, giving ratio $i^{n-4t/3}=i^n$. The actual definition is PairPhases.lean:9, and rawIndexSum is at line 31.
 
 Remarks 14 and 15 are new informal proofs in PRIMAL-PROOF.md, not claims about new Lean declarations. The revision's finite checks and build results are recorded in research/2026-11-14_astra_primal-revision/REPORT.md.
+
+
+## Revision checks
+
+COMPUTED. The dedicated revision checker exhausts all roots and states on the plantri -ba inputs at each indicated number of dual vertices, equivalently faces of G. It checks every cyclic second state with a partner, every circuit reversal, and the constant phase normalization for every ordered pair. This extends Lemma 7 coverage, not the full all-bonds census.
+
+| Faces of G | Graphs | Roots | States | Cancelling states | Reversals | Phase checks |
+| --- | --- | --- | --- | --- | --- | --- |
+| 15 | 57 | 1,482 | 23,946 | 72 | 144 | 4,816 |
+| 16 | 185 | 5,180 | 103,488 | 235 | 470 | 16,648 |
+| Current 13-face running example | 1 | 22 | 264 | 4 | 8 | 112 |
+
+No assertion failed. Commands and JSON outputs are in research/2026-11-14_astra_primal-revision/. The figure check script independently rebuilds the two illustrated primal rotation systems, checks states and pairs, all four disk counts, path-flow divergences and slopes, the recovery tree, matching and cycle, and the separate three-cut example. Fifteen PDF pages and all eight standalone figure renders were inspected. No new Lean build was run.

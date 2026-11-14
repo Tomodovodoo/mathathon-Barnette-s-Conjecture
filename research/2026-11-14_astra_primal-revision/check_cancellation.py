@@ -1,4 +1,4 @@
-﻿import sys,json,time
+import sys,json,time
 from pathlib import Path
 from collections import Counter
 ROOT=Path(__file__).resolve().parents[2]
@@ -12,6 +12,10 @@ def check(G,name):
   R=Rooted(G,b0); states=R.states(); C['roots']+=1; C['states']+=len(states)
   for s in states:
    ps=[r for r in states if R.is_pair(r,s)]
+   for r in ps:
+    t=sum(R.delta(b,f,g) for b,f,g in zip(R.A,r,s))
+    assert t%3==0 and R.eps(r,s)==(1j**(len(R.A)+t//3)).real and (1j**(len(R.A)+t//3)).imag==0
+    C['phase normalization checks']+=1
    Q=R.Q(s); cycles=undirected_cycles(range(G.nF),[(i,*G.efaces[e]) for i,e in enumerate(Q)])
    if not cycles:
     if ps: assert len(ps)==1; C['forest states with unique partner']+=1

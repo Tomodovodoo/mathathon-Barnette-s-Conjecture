@@ -5,10 +5,11 @@
     "graphs": 185,
     "roots": 5180,
     "states": 103488,
+    "phase normalization checks": 16648,
     "forest states with unique partner": 16178,
     "cancelling states": 235,
     "checked reversals": 470
   },
-  "seconds": 6.935680866241455,
+  "seconds": 7.182570934295654,
   "failures": 0
 }
