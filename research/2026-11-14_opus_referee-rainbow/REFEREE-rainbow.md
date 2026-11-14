@@ -98,7 +98,7 @@ What it would give, with Theorem R and Theorem S: a good state, hence a good pai
 
 **Reproduction.** `check_rainbow.py S 6 12`: `𝓖 = 𝓡` in all 208 rootings with `V <= 12` (74,432 trees). This is Fable's range `V <= 12` reproduced with independent code.
 
-**The `V = 18` cut-off set.** See `code/README.md` and `data/stepx_18_*.json` for what my time-boxed run covered; the summary is in `REPORT.md`. My enumeration uses Theorem S (rainbow trees are the acyclic selections inside 2-factors), which I verified against brute force for `V <= 12`, and Proposition U for rootings with one 2-factor.
+**The `V = 18` cut-off set.** Fable's run left 58 triangulations at `V = 18` (plantri indices 103 to 130, 310 to 337, 1541, 1542). My time-boxed run (7 minutes) completed seven of them: 1541, 1542, 103 to 107, all 224 rootings. 104 have one 2-factor (Proposition U). In the other 120 all 7,999,488 rainbow trees can descend; no trap. Index 108 stopped after 17 rootings, all fine. 51 remain open. My enumeration uses Theorem S (rainbow trees are the acyclic selections inside 2-factors), which I verified against brute force for `V <= 12`, and Proposition U for rootings with one 2-factor.
 
 ## Dependency table (bounded to the refereed claims)
 
