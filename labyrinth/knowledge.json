@@ -1827,7 +1827,7 @@
     "by": [
      "research/2026-11-14_fable_referee-determinants"
     ],
-    "verdict": "every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
+    "verdict": "proof in research/2026-11-14_sol_route-constructive: every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
    },
    "links": [
     {
@@ -2259,14 +2259,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_fable_dependency-graph"
    },
    "links": [
     {
@@ -2657,14 +2657,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_fable_dependency-graph"
    },
    "links": [
     {
@@ -2699,15 +2699,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
-     "research/2026-11-14_astra_referee-combinatorics",
-     "research/2026-11-14_fable_referee-determinants"
+     "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending | every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_sol_route-algebra"
    },
    "links": [
     {
@@ -2852,14 +2851,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_fable_dependency-graph"
    },
    "links": [
     {
@@ -2898,14 +2897,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_fable_referee-determinants"
     ],
-    "verdict": "every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
+    "verdict": "proof in research/2026-11-14_astra_route-dimers: every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending. Not covered by that verdict: 2026-11-14_sol_route-algebra"
    },
    "links": [
     {
@@ -3171,14 +3170,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_astra_referee-combinatorics"
    },
    "links": [
     {
@@ -3221,14 +3220,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_fable_referee-determinants"
     ],
-    "verdict": "every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
+    "verdict": "proof in research/2026-11-14_astra_route-dimers: every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending. Not covered by that verdict: 2026-11-14_fable_referee-determinants"
    },
    "links": [
     {
@@ -3274,7 +3273,7 @@
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
    },
    "links": [
     {
@@ -3860,7 +3859,7 @@
    "tier": "T6",
    "status": "live",
    "vivid": "Would remove the coefficient extraction and give a polynomial-time evaluation.",
-   "test": "Test the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.",
+   "test": "Check the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.",
    "links": [
     {
      "to": "m.step.N",
@@ -4130,7 +4129,7 @@
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
    },
    "links": [
     {
@@ -4196,14 +4195,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (under review)",
    "review": {
-    "state": "unreviewed",
+    "state": "under-review",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC). Not covered by that verdict: 2026-11-14_sol_route-algebra"
    },
    "links": [
     {
@@ -4249,7 +4248,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC)"
    },
    "links": [
     {
@@ -4349,14 +4348,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_fable_referee-determinants"
     ],
-    "verdict": "every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending"
+    "verdict": "proof in research/2026-11-14_astra_route-dimers: every refereed claim CORRECT, two wording fixes (REFEREE-constructive.md, REFEREE-dimers.md); li.py, the marked walk, the exchange walks and the trinity cofactors were not refereed; human check pending. Not covered by that verdict: 2026-11-14_sol_route-algebra"
    },
    "links": [
     {
@@ -4391,14 +4390,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (unreviewed)",
+   "status": "established: proved here (under review)",
    "review": {
-    "state": "unreviewed",
+    "state": "under-review",
     "date": "2026-11-14",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC). Not covered by that verdict: 2026-11-14_sol_machinery-literature"
    },
    "links": [
     {
@@ -4467,15 +4466,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (under review)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
-     "research/2026-11-14_astra_referee-combinatorics",
-     "research/2026-11-14_sol_referee-structure"
+     "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending | pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_astra_limits, 2026-11-14_opus_route-graph-theory"
    },
    "links": [
     {
@@ -4543,7 +4541,7 @@
    "title": "matching matroid meets graphic matroid",
    "statement": "Treat the two endpoint constraints as one matroid and use Edmonds' two-matroid intersection.",
    "where": [
-    "research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 6; research/2026-11-14_sol_route-constructive/data/other_candidates.json"
+    "research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 6; research/2026-11-14_sol_route-constructive/data/other_candidates.json; research/2026-11-14_fable_referee-determinants/REFEREE-constructive.md"
    ],
    "tags": [
     "step U"
@@ -4554,7 +4552,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "Matchings are not a matroid (augmentation fails on K_{2,2}). With only the face partition and the white graphic matroid, the augmenting-path algorithm returns white trees that repeat vertices.",
-   "note": "Smallest known counterexample: Truncated octahedron: eleven spokes repeat non-root 3 at faces 2 and 8, and non-root 4 at faces 4 and 15.",
+   "note": "Smallest known counterexample: Hexagonal prism: 4 of the 6 common bases of the two-matroid relaxation are not states (referee's correction, refd). Larger witness: truncated octahedron, eleven spokes repeating non-roots 3 and 4 (con/data/other_candidates.json).",
    "links": [
     {
      "to": "m.step.U",
@@ -4566,6 +4564,10 @@
     },
     {
      "to": "src.agent.con",
+     "rel": "cites"
+    },
+    {
+     "to": "src.agent.refd",
      "rel": "cites"
     }
    ]
@@ -5166,7 +5168,7 @@
     "by": [
      "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending"
    },
    "links": [
     {
@@ -5235,15 +5237,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "established: proved here (under review)",
+   "status": "established: proved here (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
+    "state": "refereed",
     "date": "2026-11-14",
     "by": [
-     "research/2026-11-14_astra_referee-combinatorics",
-     "research/2026-11-14_sol_referee-structure"
+     "research/2026-11-14_astra_referee-combinatorics"
     ],
-    "verdict": "FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending | pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_astra_limits"
    },
    "links": [
     {
@@ -5573,7 +5574,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC)"
    },
    "links": [
     {
@@ -6172,7 +6173,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC)"
    },
    "links": [
     {
@@ -6218,7 +6219,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC)"
    },
    "links": [
     {
@@ -6315,7 +6316,7 @@
    "tier": null,
    "status": "refuted",
    "lesson": "States lift bijectively, but the lift of a tree matching is a tree matching only under a side condition at the split vertex that is not inherited. Contraction can create the obstruction.",
-   "note": "Smallest known counterexample: Contraction creates a black-inner triangle from 11 vertices on; 708 of 1516 tree matchings do not lift.",
+   "note": "Smallest known counterexample: Contraction creates a black-inner triangle from 11 vertices on; not every tree matching lifts (708 of 1516 cases in gt/ROUTES.md I1).",
    "links": [
     {
      "to": "m.step.U",
@@ -6627,7 +6628,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC)"
    },
    "links": [
     {

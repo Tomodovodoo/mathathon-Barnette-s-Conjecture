@@ -490,7 +490,7 @@ route("N.3", "N", "cycle popping, random walk", "HUNCH", "dep,con", "dep/skeleto
 route("N.4", "N", "Pfaffian gadget for the turn tensor", "HUNCH", "mach,dim", "mach/ROUTE-IDEAS.md 6; dim/ROUTES.md",
       "Replace each black face by a planar matchgate with signature q^delta on distinct ordered corners and zero on equal corners.",
       vivid="Would remove the coefficient extraction and give a polynomial-time evaluation.",
-      test="Test the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.")
+      test="Check the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.")
 route("N.5", "N", "height potential on pairs", "HUNCH", "mach", "mach/ROUTE-IDEAS.md 7",
       "A combination of the two state heights that decreases along some exchange move at every non-tree pair.",
       vivid="Would turn existence into descent.", test="Search for a non-tree local minimum of each candidate on small exchange graphs.")
@@ -854,6 +854,12 @@ route("U.c", "U", "cycle-to-state map replayed; not injective off tree matchings
       "map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)",
       "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same "
       "unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.")
+
+# accuracy pass against the sources (11:10 UTC)
+_upd("U.x1", cex="Hexagonal prism: 4 of the 6 common bases of the two-matroid relaxation are not states (referee's correction, refd). "
+                 "Larger witness: truncated octahedron, eleven spokes repeating non-roots 3 and 4 (con/data/other_candidates.json).",
+     src="mach,con,refd", where="+; refd/REFEREE-constructive.md")
+_upd("U.x6", cex="Contraction creates a black-inner triangle from 11 vertices on; not every tree matching lifts (708 of 1516 cases in gt/ROUTES.md I1).")
 
 STEP_NOTES = {
     "E": "The Lean proof skips this node: it selects P inside G without building the white tree.",

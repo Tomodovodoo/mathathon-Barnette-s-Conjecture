@@ -114,7 +114,7 @@ digraph routemap {
   "S" -> "FP" [label="U.4 unique partner: |det K_{B-s}| = 1", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="mach"];
   "S" -> "FP" [label="U.5 tree matchings = partnered Hamiltonian cycles", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="comb,lim,gt"];
   "S" -> "FP" [label="U.6 rooted functional orientations; two-sided hypertrees", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="mach"];
-  "S" -> "FP" [label="U.x1 matching matroid meets graphic matroid", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="mach,con"];
+  "S" -> "FP" [label="U.x1 matching matroid meets graphic matroid", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="mach,con,refd"];
   "S" -> "FP" [label="U.x2 unconstrained white spanning trees", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="dim,con"];
   "S" -> "FP" [label="U.x3 trinity arborescences = tree matchings", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="dim"];
   "S" -> "FP" [label="U.x4 Yutsis partition of G", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="mach"];

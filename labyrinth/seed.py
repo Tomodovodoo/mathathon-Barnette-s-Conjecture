@@ -46,17 +46,20 @@ def expand(where):
 
 
 def review_of(r):
-    """Review state of a PROVED-HERE route: the weakest state among its source folders."""
+    """Review state of a PROVED-HERE route: the best state among the folders that hold a written proof of it.
+    The verdict names the folder whose proof the referee read, so a mixed provenance stays visible."""
     order = ["unreviewed", "under-review", "refereed"]
-    revs = [RT.REVIEW.get(f, {"state": "unreviewed"}) for f in srcs(r) if f in RT.FOLDERS]
-    worst = min(revs, key=lambda v: order.index(v["state"]))
-    out = {"state": worst["state"], "date": DAY}
-    by = sorted({b for v in revs for b in v.get("by", [])})
-    if by:
-        out["by"] = by
-    verdicts = sorted({v["verdict"] for v in revs if v.get("verdict")})
-    if verdicts:
-        out["verdict"] = " | ".join(verdicts)
+    fs = [f for f in srcs(r) if f in RT.FOLDERS]
+    best = max(fs, key=lambda f: order.index(RT.REVIEW.get(f, {"state": "unreviewed"})["state"]))
+    rv = RT.REVIEW.get(best, {"state": "unreviewed"})
+    out = {"state": rv["state"], "date": DAY}
+    if rv.get("by"):
+        out["by"] = rv["by"]
+    if rv.get("verdict"):
+        out["verdict"] = f"proof in {RT.FOLDERS[best]}: {rv['verdict']}"
+    others = [f for f in fs if f != best and RT.REVIEW.get(f, {"state": "unreviewed"})["state"] != rv["state"]]
+    if others and "verdict" in out:
+        out["verdict"] += ". Not covered by that verdict: " + ", ".join(RT.FOLDERS[f].split("/")[-1] for f in others)
     return out
 
 
@@ -377,7 +380,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
      "groups": [G1, G2, G3, G4],
      "entries": [
          row("main", G1, "Barnette's conjecture", "Every cubic bipartite 3-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge.",
-             "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; three reverse-Lamport audits FOLLOW (AI, unreviewed)",
+             "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; reverse-Lamport audits: OpenAI and trees paper FOLLOW, Li follows with four routine steps supplied (AI, unreviewed)",
              "proved", ["th.G2.1", "c.G2.c", "p.G2.4"], ["OpenAI 2026", "Li 2026", "trees paper 2026"],
              [("2022-01-01", "verified by computer up to 90 vertices (Brinkmann-Goedgebeur-McKay)"), ("2025-01-01", "proved for faces of size at most 8 (Schnieders)")]),
          row("prop51", G1, "Shortest rigorous proof of Proposition 5.1 (a pair implies a forest pair)",

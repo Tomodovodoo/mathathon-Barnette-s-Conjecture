@@ -12,7 +12,7 @@
    "group": "The theorem and its proofs",
    "cls": "Barnette's conjecture",
    "result": "Every cubic bipartite 3-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge.",
-   "status": "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; three reverse-Lamport audits FOLLOW (AI, unreviewed)",
+   "status": "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; reverse-Lamport audits: OpenAI and trees paper FOLLOW, Li follows with four routine steps supplied (AI, unreviewed)",
    "kind": "proved",
    "refs": [
     "th.G2.1",

@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T11:09:34Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -123,9 +123,9 @@ Generated 2026-11-14T11:09:34Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## Under review (7)
 
+- **exactly one tree matching is impossible** [`p.D.4`]
 - **tree matchings can be exponentially rare** [`p.D.5`]
-- **tree matchings = partnered Hamiltonian cycles** [`p.U.5`]
-- **recovery is injective, with known image** [`p.F.3`]
+- **three-matroid intersection** [`p.U.3`]
 - **the gluing needs the same-label edge** [`p.G.2`]
 - **one exact Euler identity, both directions** [`p.A.GT`]
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]

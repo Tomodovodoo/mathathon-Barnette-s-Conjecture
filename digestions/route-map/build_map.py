@@ -15,6 +15,7 @@ Output (next to this file):
 Needs matplotlib. Graphviz is not needed (it was not installed on the build machine).
 """
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -64,7 +65,8 @@ ORDER = {s: i for i, s in enumerate(RT.STATUS_ORDER)}
 
 
 def sorted_routes(step):
-    return sorted(BY_STEP[step], key=lambda r: (ORDER[r["status"]], r["id"]))
+    nat = lambda i: [int(x) if x.isdigit() else x for x in re.split(r"(\d+)", i)]
+    return sorted(BY_STEP[step], key=lambda r: (ORDER[r["status"]], nat(r["id"])))
 
 
 def strands(step):
@@ -485,8 +487,10 @@ def export_md():
             tag = {"fact": " (fact)", "equiv": " (reformulation)", "partial": " (partial)"}.get(ro, "")
             rev = ""
             if r["status"] == "PROVED-HERE":
-                states = {RT.REVIEW.get(f.strip(), {}).get("state", "unreviewed") for f in r["src"].split(",")}
-                rev = ", " + ("AI-refereed" if states == {"refereed"} else "partly AI-refereed" if "refereed" in states else "under review" if "under-review" in states else "unreviewed")
+                fs = [f.strip() for f in r["src"].split(",") if f.strip() in RT.FOLDERS]
+                ref = [f for f in fs if RT.REVIEW.get(f, {}).get("state") == "refereed"]
+                und = [f for f in fs if RT.REVIEW.get(f, {}).get("state") == "under-review"]
+                rev = ", " + (f"AI-refereed ({', '.join(ref)})" if ref else f"under review ({', '.join(und)})" if und else "unreviewed")
             L.append(f"| {r['id']} | {md_escape(r['label'])}{tag} | `{r['status']}`{rev} | {md_escape(r['where'])} | {md_escape(r['text'])} |")
             if r["status"] == "REFUTED":
                 notes.append(f"- **{r['id']}, refuted.** Lesson: {r['lesson']} Smallest known counterexample: {r['cex']}")

@@ -1175,7 +1175,7 @@
    "where": "mach/ROUTE-IDEAS.md 6; dim/ROUTES.md",
    "text": "Replace each black face by a planar matchgate with signature q^delta on distinct ordered corners and zero on equal corners.",
    "vivid": "Would remove the coefficient extraction and give a polynomial-time evaluation.",
-   "test": "Test the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.",
+   "test": "Check the Grassmann-Pluecker identities of the six-value signature with the boundary order fixed.",
    "role": "route"
   },
   {
@@ -1377,11 +1377,11 @@
    "step": "U",
    "label": "matching matroid meets graphic matroid",
    "status": "REFUTED",
-   "src": "mach,con",
-   "where": "mach/REFORMULATIONS.md 6; con/data/other_candidates.json",
+   "src": "mach,con,refd",
+   "where": "mach/REFORMULATIONS.md 6; con/data/other_candidates.json; refd/REFEREE-constructive.md",
    "text": "Treat the two endpoint constraints as one matroid and use Edmonds' two-matroid intersection.",
    "lesson": "Matchings are not a matroid (augmentation fails on K_{2,2}). With only the face partition and the white graphic matroid, the augmenting-path algorithm returns white trees that repeat vertices.",
-   "cex": "Truncated octahedron: eleven spokes repeat non-root 3 at faces 2 and 8, and non-root 4 at faces 4 and 15.",
+   "cex": "Hexagonal prism: 4 of the 6 common bases of the two-matroid relaxation are not states (referee's correction, refd). Larger witness: truncated octahedron, eleven spokes repeating non-roots 3 and 4 (con/data/other_candidates.json).",
    "role": "route"
   },
   {
@@ -1965,7 +1965,7 @@
    "where": "gt/ROUTES.md I1; gt/PROOFS.md",
    "text": "Lift a tree matching through the expansion of a degree-4 vertex.",
    "lesson": "States lift bijectively, but the lift of a tree matching is a tree matching only under a side condition at the split vertex that is not inherited. Contraction can create the obstruction.",
-   "cex": "Contraction creates a black-inner triangle from 11 vertices on; 708 of 1516 tree matchings do not lift.",
+   "cex": "Contraction creates a black-inner triangle from 11 vertices on; not every tree matching lifts (708 of 1516 cases in gt/ROUTES.md I1).",
    "role": "route"
   },
   {
