@@ -2,6 +2,7 @@
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,microtype,amssymb,graphicx}
+\usepackage{flafter}
 \usepackage[hidelinks]{hyperref}
 
 \numberwithin{equation}{section}
@@ -74,12 +75,14 @@ each a proposition below, and an induction that removes the separating triangles
 For the last implication, the tree of a good state $s$ has a dual spanning tree in $G$, which contains a perfect matching $M\ni e$ such that the side of each black face $t\neq t_0$ in $M^*$ contains $s(t)$ (Figure~\ref{fig:overview}).
 That $M^*$ is acyclic follows from a count used throughout, the \emph{disk identity}: a cycle of $T$ whose edges all contain the corner chosen in their black face has exactly one more white face than black faces inside it.
 
-The middle implication is a signed count, as no direct construction of a good state is known.
-A pair $(r,s)$ has a sign $\eps(r,s)=\pm1$, and it directs two sides of every black face, which form directed cycles of two kinds.
-A cycle of the first kind exists exactly when $s$ is not good, and reversing it changes $r$ and the sign; so the terms with $s$ not good cancel in every sum $\sum\eps(r,s)f(s)$ over pairs.
-Reversing a cycle $C$ of the second kind changes $s$ and the sign, so that $f=1$ gives zero; but it also changes an integer weight $\omega(s)$ by the number $a(C)\ge1$ of white faces inside $C$.
-The $2^c$ pairs with the same $c$ cycles $C_i$ of the second kind therefore contribute $\pm z^{\omega_0}\prod_{i}\bigl(1-z^{a(C_i)}\bigr)$ to $Z(z)=\sum\eps(r,s)z^{\omega(s)}$, with a sign that depends only on $c$.
-At $z=1$ the terms with the fewest cycles dominate, and they do not cancel; hence $Z\neq0$, and a good state exists.
+The middle implication is a signed count over pairs, as no direct construction of a good state is known.
+The first state $r$ directs the sides opposite the corners chosen by $s$, and if $s$ is not good these sides contain a directed cycle.
+Reversing it changes $r$ and a sign $\eps(r,s)=\pm1$ but not $s$; so the pairs with $s$ not good cancel in every sum $\sum\eps(r,s)f(s)$ over pairs.
+
+To see that such a sum is not zero, the pairs are grouped in a second way, by the cycles that the edges from $r(t)$ to $s(t)$ form.
+Reversing one of these cycles, $C$, also changes the sign, but it changes an integer weight $\omega(s)$ by the number $a(C)\ge1$ of white faces inside $C$.
+So in $Z(z)=\sum\eps(r,s)z^{\omega(s)}$ every cycle contributes a factor $1-z^{a(C)}$, which vanishes to first order at $z=1$.
+The groups with the fewest cycles therefore give the term of lowest order, and their contributions have the same sign; hence $Z\neq0$, and a good state exists.
 
 The first implication is a flow argument resting on a planar edge count.
 Finally, a separating triangle of $T$ is a $3$-edge cut of $G$, across which Hamiltonian cycles of the two smaller graphs can be glued if they use the same two edges of the cut; this is the reason for the prescribed edge in Theorem~\ref{thm:main}.
@@ -143,10 +146,12 @@ In this setting we look for
 For such an $M$ the graph $G-M$ is a spanning subgraph of $G$ with all degrees two, it is connected by Lemma~\ref{lem:duality}, and so it is a Hamiltonian cycle of $G$ that avoids $e_0^*$.
 
 A matching as in~\eqref{eq:aim} chooses a corner in every face of $A$.
-Indeed, the cycle $G-M$ crosses the two sides of $t_0$ other than $e_0$, so $M^*-e_0$ is a forest of three trees, one through each root.
+Indeed, $M^*$ is a forest with $n+1$ edges on $n+3$ vertices, so it has two components.
+The Hamiltonian cycle $G-M$ crosses no edge of $M^*$, and it crosses the two sides of $t_0$ other than $e_0$, which separates the third root from the ends of $e_0$.
+So deleting $e_0$ leaves three trees, one through each root.
 Orient each tree towards its root.
 Every vertex $x\in X$ then has one outgoing edge, which is the side in $M^*$ of exactly one face $t\in A$, and $s(t)=x$ defines a bijection $s$ from $A$ onto $X$.
-The proof runs this backwards.
+The proof runs this construction backwards.
 
 \begin{definition}\label{def:state}
 A \emph{state} is a bijection $s\colon A\to X$ such that $s(t)\in V(t)$ for every $t\in A$.
@@ -225,7 +230,7 @@ If $T$ has a good state, then $G$ has a Hamiltonian cycle that avoids $e_0^*$.
 \begin{proof}
 Let $s$ be a good state and $M$ the matching of Lemma~\ref{lem:matching}.
 By~\eqref{eq:aim} we must show that $M^*$ is acyclic.
-A cycle in $M^*-e_0$ would have $W-B=1$ by the disk identity, while counting the faces matched across it gives $W-B=h-2\ell=3$.
+The reason is that the disk identity and a count of the faces that $M$ matches across a cycle of $M^*-e_0$ give different values for the surplus of white faces inside the cycle.
 
 Direct the side of each $t\in A$ in $M^*$ away from $s(t)$.
 As $s$ is a bijection onto $X$, this makes the spanning subgraph $N$ of $T$ with edge set $M^*\setminus\{e_0\}$ a directed graph as in Lemma~\ref{lem:outdegree}.
@@ -319,7 +324,7 @@ For a cycle $C$ of $T$, we let $a(C)$ be the number of white faces inside $C$.
 \begin{lemma}\label{lem:D}
 Let $(r,s)$ be a pair with $2$-factor $F$, and let $c=c(F)$.
 \begin{enumerate}
-\item $D(r,s)$ is a disjoint union of $c$ directed cycles whose vertex sets partition $X$.
+\item $D(r,s)$ consists of the three isolated roots and $c$ disjoint directed cycles whose vertex sets partition $X$.
 Each of them satisfies the hypotheses of Lemma~\ref{lem:disk}; in particular $a(C)\ge1$ for every cycle $C$ of $D(r,s)$.
 \item Let $C$ be a cycle of $D(r,s)$.
 Exchanging $r(t)$ and $s(t)$ for the faces $t$ with a side on $C$ gives a pair with $2$-factor $F$ in which only $C$ has changed its direction; we say that it is obtained from $(r,s)$ by \emph{reversing} $C$.
@@ -344,13 +349,18 @@ If $C$ runs clockwise, they are the $\ell=(h-3)/2$ edges whose black face is ins
 The lengths of the cycles are odd and add up to $n$, so $c\equiv n$, and the total number of factors $-1$ is $(n-3c)/2+3c^+$, which has the parity of $(n+c)/2+c^+$.
 \end{proof}
 
-The sign formula is the disk identity $h=2\ell+3$ once more: a cycle of $D(r,s)$ has three more black faces along its outside than along its inside, so its two directions differ in three factors.
+The sign formula is the disk identity $h=2\ell+3$ once more: a cycle of $D(r,s)$ has three more black faces along its outside than along its inside, so the numbers of factors $-1$ for its two directions differ by three.
+
+We need a weight that increases by $a(C)$ when a cycle $C$ of $D(r,s)$ is turned from clockwise to counterclockwise.
+It counts crossings, with signs, with arcs from the white faces to $t_0$: such an arc crosses a counterclockwise closed curve once in this count if its white face is inside the curve, and not at all otherwise.
 
 \begin{definition}\label{def:weight}
 Choose a point $p_t$ in every face $t\in A$ and join it to the corners of $t$ in $X$ by arcs inside $t$ that meet only in $p_t$ (Figure~\ref{fig:pair}(a)).
 This draws $H$ in the plane, and a state $s$ is drawn as the $n$ arcs from $p_t$ to $s(t)$.
+
 For each white face $y$ fix an arc $\gamma_y$ from a point of $y$ to a point of $t_0$ that avoids the vertices of $T$ and the points $p_t$ and crosses the arcs of $H$ transversally, in finitely many points.
 For a directed curve $\alpha$ made up of arcs of $H$, let $\cross{\alpha}{\gamma_y}$ be the number of points in which $\gamma_y$ crosses $\alpha$ from the left of $\alpha$ to its right, minus the number of points in which it crosses from right to left.
+
 For $t\in A$ and a corner $v\in X$ of $t$ put $\omega(t,v)=\sum_y\cross{p_t\to v}{\gamma_y}$, the sum being over the white faces.
 The \emph{weight} of a state $s$ is
 \begin{equation}\label{eq:weight}
@@ -366,7 +376,6 @@ The \emph{weight} of a state $s$ is
 \end{figure}
 
 Such weights are known as height functions of perfect matchings~\cite{Thurston}.
-Their use lies in differences: the drawings of two states differ by closed curves, and $\cross{\Gamma}{\gamma_y}$ tells whether a closed curve $\Gamma$ goes round $y$.
 
 \begin{lemma}\label{lem:weight}
 Let $(r,s)$ be a pair, let $C$ be a clockwise cycle of $D(r,s)$, and let $(r',s')$ be the pair obtained by reversing $C$.
@@ -411,7 +420,7 @@ By Lemma~\ref{lem:cancel} with $f(s)=z^{\omega(s)}$, only the pairs $(r,s)$ in w
 We determine the lowest order term of $Z$ at $z=1$.
 Let $m$ be the least number of cycles of a $2$-factor of $H$; there is a $2$-factor, since $T$ has a pair.
 Every factor $1-z^{a}$ in~\eqref{eq:product} is $(1-z)(1+z+\dots+z^{a-1})$.
-So the term of $F$ is divisible by $(1-z)^{c(F)}$, the polynomial $Z(z)$ is divisible by $(1-z)^m$, and the quotient takes at $z=1$ the value
+So the term of $F$ is divisible by $(1-z)^{c(F)}$, the Laurent polynomial $Z(z)$ is divisible by $(1-z)^m$, and the quotient takes at $z=1$ the value
 \begin{equation}\label{eq:leading}
 (-1)^{(n+m)/2}\sum_{F\,:\,c(F)=m}\ \prod_{C\in\cC_F}a(C),
 \end{equation}
@@ -464,15 +473,17 @@ We show that $q-b_K\le 2p$, and that $q-b_K\le 2p-4$ if $K$ contains the roots.
 This suffices, as the roots lie in one component and $b(U)$ is the sum of the numbers $b_K$.
 If $p\le3$, then $q\le\binom p2\le 2p$; and if moreover $K$ contains the roots, then $K$ is the boundary of $t_0$ and $q-b_K\le 3-1$.
 
-\step{Step 2: the faces of $K$.}
+\step{Step 2: the triangular faces of $K$.}
 Let $p\ge4$, and regard $K$ as a connected plane graph with $f$ faces.
 A face of $K$ of length three is bounded by a triangle of $T$ and has the other vertices of $K$ on its far side; as this triangle is not separating, the face contains no vertex of $T$, so it is a face of $T$.
 Hence the faces of $K$ of length three are the faces of $T$ with all corners in $K$, say $b_K$ black and $w_K$ white ones.
+
+\step{Step 3: the other faces of $K$.}
 Let $\Psi$ be one of the other faces of $K$, with boundary walk of length $d_\Psi\ge4$, and let $\beta_\Psi$ be the number of black faces of $T$ contained in $\Psi$ minus the number of white ones.
 An edge of $T$ inside $\Psi$ lies on a black and on a white face in $\Psi$, and each of the $d_\Psi$ edges of the boundary walk lies on one face in $\Psi$; so $3\beta_\Psi$ is a sum of $d_\Psi$ terms $\pm1$.
 This forces $\beta_\Psi=0$ if $d_\Psi=4$, $|\beta_\Psi|=1$ if $d_\Psi=5$, and $|\beta_\Psi|\le d_\Psi/3$ in general; in all cases $\beta_\Psi\le d_\Psi-4$.
 
-\step{Step 3: the count.}
+\step{Step 4: the count.}
 As $T$ has equally many black and white faces, $w_K-b_K=\sum_\Psi\beta_\Psi\le\sum_\Psi(d_\Psi-4)$.
 Counting the edges of $K$ at its faces, we obtain
 \[
@@ -525,7 +536,7 @@ Theorem~\ref{thm:main} follows from Lemma~\ref{lem:dual} and Theorem~\ref{thm:du
 The proof is due to OpenAI~\cite{OpenAI}, whose paper contains states and pairs, the disk identity, the cancellation, the weighted count, the flow argument and the induction.
 In place of $\eps(r,s)$ they use the phase $i^{J}$ with $J=\tfrac13\sum_t\delta_t(r(t),s(t))$, which equals $i^{-n}\eps(r,s)$, and in place of~\eqref{eq:leading} the coefficient of $x^m$ in $\sum i^{J}e^{x\omega(s)}$.
 The real sign and the integer polynomial are from~\cite{Constructive}, which also shows that $T$ has a pair if and only if no separating triangle of $T$ has three black faces along its inner side.
-Li~\cite{Li} works in $G$ and replaces the evaluation at $z=1$ by a second sign-reversing involution, on pairs with $m$ marked crossings.
+Li~\cite{Li} works in $G$ and replaces the evaluation of $Z(z)/(1-z)^m$ at $z=1$ by a second sign-reversing involution, on pairs with $m$ marked crossings.
 The translation of Hamiltonian cycles of $G$ into partitions of $V(T)$ into two induced trees is due to Stein~\cite{Stein}, and states are the states of Tutte's theory of trinities~\cite{HineKalman}.
 
 \emph{The hypotheses.}
