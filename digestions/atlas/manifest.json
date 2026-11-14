@@ -1,226 +1,96 @@
-[
+{
+ "command": "python digestions/atlas/build.py",
+ "pages": [
   {
-    "number": 1,
-    "name": "01-waypoints",
-    "title": "One proof, several readings",
-    "status": "LIT for the supplied OpenAI proof, Sections 3 to 7. The alternative research routes have mixed review status, recorded on their pages.",
-    "words": 126,
-    "connects": "2 exponential sum; 4 polynomial; 5 heights; 18 primal; 19 recovery."
+   "n": 1,
+   "slug": "chain",
+   "title": "The chain, and where the routes branch",
+   "figure_cm": [
+    17.37,
+    15.31
+   ],
+   "words": 143
   },
   {
-    "number": 2,
-    "name": "02-exponential",
-    "title": "Eight terms, two regroupings",
-    "status": "LIT: OpenAI Proposition 5.1 and Lemmas 5.2 to 5.3. COMPUTED here for all 8 ordered pairs; the general proof is supplied literature.",
-    "words": 135,
-    "connects": "4 linear weights; 5 heights; 9 incidence cancellation; 12 pair lattice."
+   "n": 2,
+   "slug": "pairs",
+   "title": "Two states from one count",
+   "figure_cm": [
+    15.33,
+    17.12
+   ],
+   "words": 142
   },
   {
-    "number": 3,
-    "name": "03-involutions",
-    "title": "Li turns the sum into paired objects",
-    "status": "LIT: Li, Definitions 13 to 23 and Appendix B. COMPUTED: first involution here. COMPUTED cube one-mark involution and signs; multi-mark implementation has not been independently refereed.",
-    "words": 140,
-    "connects": "2 exponential terms; 4 linear weights; 26 open doors."
+   "n": 3,
+   "slug": "disk",
+   "title": "The disk identity, three ways",
+   "figure_cm": [
+    15.33,
+    20.08
+   ],
+   "words": 133
   },
   {
-    "number": 4,
-    "name": "04-linear",
-    "title": "The same argument with linear weights",
-    "status": "PROVED-HERE in the determinant referee, SIGNIFICANCE Section 2; independently AI-refereed reformulation, human review pending. COMPUTED polynomial here.",
-    "words": 137,
-    "connects": "2 exponential terms; 7 white surplus; 10 determinant; 25 Berezin."
+   "n": 4,
+   "slug": "sum",
+   "title": "Eight terms, grouped twice",
+   "figure_cm": [
+    12.75,
+    17.01
+   ],
+   "words": 124
   },
   {
-    "number": 5,
-    "name": "05-heights",
-    "title": "Put the height on white faces",
-    "status": "PROVED-HERE in the combinatorics referee with normalization corrections; independently AI-refereed, human review pending. COMPUTED exact heights on all 12 states.",
-    "words": 138,
-    "connects": "2 exponents; 7 area; 13 clock lattice."
+   "n": 5,
+   "slug": "polynomial",
+   "title": "The same sum as an integer polynomial",
+   "figure_cm": [
+    15.33,
+    19.42
+   ],
+   "words": 131
   },
   {
-    "number": 6,
-    "name": "06-euler",
-    "title": "The disk identity as a census",
-    "status": "LIT: OpenAI Lemma 4.1. COMPUTED: B=5, W=6, I=3, h=7, l=2; all D and directed Q cycles of all pairs also checked.",
-    "words": 135,
-    "connects": "7 white surplus; 8 turning angles; 21 hypotheses."
+   "n": 6,
+   "slug": "involutions",
+   "title": "Cancellation as a pairing of objects",
+   "figure_cm": [
+    15.33,
+    17.03
+   ],
+   "words": 160
   },
   {
-    "number": 7,
-    "name": "07-white-surplus",
-    "title": "The disk has one extra white face",
-    "status": "PROVED-HERE in both combinatorics and topology referees; independently AI-refereed, human review pending. COMPUTED white areas 6 and 1 on this pair.",
-    "words": 133,
-    "connects": "4 lowest coefficient; 5 heights; 6 disk census; 8 turning."
+   "n": 7,
+   "slug": "heights",
+   "title": "The exponent is a volume",
+   "figure_cm": [
+    15.33,
+    17.12
+   ],
+   "words": 139
   },
   {
-    "number": 8,
-    "name": "08-turning",
-    "title": "The disk identity as turning number",
-    "status": "PROVED-HERE in the topology submission, CORRECT after explanatory additions by its independent AI referee. COMPUTED turn labels here; human review pending.",
-    "words": 133,
-    "connects": "6 Euler census; 7 white surplus; 21 hypotheses."
+   "n": 8,
+   "slug": "recovery",
+   "title": "From a forest state to the cycle",
+   "figure_cm": [
+    15.33,
+    18.11
+   ],
+   "words": 149
   },
   {
-    "number": 9,
-    "name": "09-incidence",
-    "title": "Cancellation is a row dependence",
-    "status": "PROVED-HERE in the combinatorics referee, exact global-factor correction included. Independently AI-refereed; COMPUTED matrix and null vector here.",
-    "words": 137,
-    "connects": "3 first involution; 10 global determinant; 14 matroids."
-  },
-  {
-    "number": 10,
-    "name": "10-determinant",
-    "title": "A determinant needs coefficient extraction",
-    "status": "PROVED-HERE formulas independently AI-refereed in fable_referee-determinants. REFUTED shortcut: one raw evaluation counts tree matchings. The prism formula is independently reproduced there.",
-    "words": 136,
-    "connects": "4 polynomial; 9 fixed-state matrix; 14 relaxations; 25 Berezin."
-  },
-  {
-    "number": 11,
-    "name": "11-double-dimers",
-    "title": "A doubled spoke is not a D-cycle",
-    "status": "PROVED-HERE double-dimer dictionary, independently AI-refereed. REFUTED shortcut with doubled edges. COMPUTED cube doubled matching here; no general cancellation-free proof.",
-    "words": 133,
-    "connects": "2 disjoint pairs; 10 determinant extraction; 21 non-bijective failures."
-  },
-  {
-    "number": 12,
-    "name": "12-pair-lattice",
-    "title": "Forget orientations, keep the pair lattice",
-    "status": "PROVED-HERE correspondence independently AI-refereed. COMPUTED complete running-example Hasse diagram. REFUTED individual extreme guarantees; joint-extremes conjecture remains open in the reviewed sources.",
-    "words": 137,
-    "connects": "13 state lattice; 23 canonical choices; 26 open doors."
-  },
-  {
-    "number": 13,
-    "name": "13-clock-lattice",
-    "title": "The twelve states under clock moves",
-    "status": "COMPUTED complete order on all 12 states and tree markers here. General height reading independently AI-refereed; canonical-extreme shortcuts REFUTED in the combinatorics referee.",
-    "words": 138,
-    "connects": "2 state numbers; 5 height labels; 12 pair lattice; 23 counterexample."
-  },
-  {
-    "number": 14,
-    "name": "14-three-matroids",
-    "title": "Three constraints, not two",
-    "status": "PROVED-HERE three-matroid description independently AI-refereed. COMPUTED all 6 two-constraint prism bases here, 4 nonstates. No polynomial-time algorithm follows.",
-    "words": 134,
-    "connects": "9 incidence determinant; 15 fractional LP; 23 failed canonical choices."
-  },
-  {
-    "number": 15,
-    "name": "15-fractional",
-    "title": "The natural relaxation has a fractional vertex",
-    "status": "COMPUTED here with all subset inequalities and full active-rank certificate; exact half values. General relaxation obstruction independently AI-refereed in the structure report.",
-    "words": 143,
-    "connects": "14 three matroids; 26 algorithmic open doors."
-  },
-  {
-    "number": 16,
-    "name": "16-rainbow",
-    "title": "A white tree with one token per face",
-    "status": "Original rainbow dictionary independently AI-refereed. New Theorem R and exchange results in RAINBOW.md are PROVED-HERE but unrefereed. COMPUTED tree and point-preserving exchange here.",
-    "words": 136,
-    "connects": "14 partition constraints; 19 tree/cotree; 26 exchange question."
-  },
-  {
-    "number": 17,
-    "name": "17-boundary",
-    "title": "What a small cut must remember",
-    "status": "COMPUTED cube boundary restrictions here. LIT triangular gluing. Categorical 4-cut completeness proof is unrefereed and has a finite-check subcase; 5-cut failure is unrefereed computation.",
-    "words": 150,
-    "connects": "18 cut side; 19 recovery; 24 earlier decomposition methods."
-  },
-  {
-    "number": 18,
-    "name": "18-primal",
-    "title": "Keep the construction inside G",
-    "status": "LIT supplied proof; formal dependency description from opus_lean-formalisation is unrefereed research. COMPUTED recovered cycle checked by toolkit and barnette_lab here.",
-    "words": 138,
-    "connects": "6 disk side; 17 cut patterns; 19 recovery."
-  },
-  {
-    "number": 19,
-    "name": "19-recovery",
-    "title": "From a white tree to one Jordan curve",
-    "status": "LIT: OpenAI Section 6 and constructive paper recovery criterion. COMPUTED P, inducedness, white tree and Hamiltonian cycle; independent laboratory recovery agrees.",
-    "words": 135,
-    "connects": "16 white tree; 18 primal; 20 produced cycles; 24 Stein equivalence."
-  },
-  {
-    "number": 20,
-    "name": "20-coverage",
-    "title": "Two produced cycles, six missed cycles",
-    "status": "COMPUTED all 8 prism cycles and both recovery images here. Injectivity and failure of surjectivity independently AI-refereed in sol_referee-structure/REFEREE-limits.md.",
-    "words": 134,
-    "connects": "10 prism determinant; 19 recovery; 22 family counts."
-  },
-  {
-    "number": 21,
-    "name": "21-hypotheses",
-    "title": "Four places a hypothesis enters",
-    "status": "PROVED-HERE failure analyses independently AI-refereed in the limits report. Schematic obligations only; no claim of four newly computed graph counterexamples.",
-    "words": 135,
-    "connects": "6 matching census; 8 turning; 11 doubled edges; 18 cut side."
-  },
-  {
-    "number": 22,
-    "name": "22-families",
-    "title": "Counts separate existence from abundance",
-    "status": "COMPUTED prisms p=4,6,8,10,12 and width-four nanotubes L=0,1,2,3 here. General prism formulas and nanotube transfers are PROVED-HERE in an unrefereed family report; no independent review claimed.",
-    "words": 139,
-    "connects": "20 produced versus missed; 26 counting conjectures."
-  },
-  {
-    "number": 23,
-    "name": "23-canonical",
-    "title": "The tempting highest state can be cyclic",
-    "status": "REFUTED canonical highest/lowest guarantees, independently AI-refereed with reflection correction. COMPUTED validity and cyclic Q of this 12-vertex witness here.",
-    "words": 136,
-    "connects": "12 pair extremes; 13 state lattice; 26 open canonical rules."
-  },
-  {
-    "number": 24,
-    "name": "24-earlier",
-    "title": "Earlier methods meet the new forest step",
-    "status": "LIT endpoint equivalence as cited in supplied papers. Older-method comparison is unrefereed research, with explicit original-source limitations; no new equivalence asserted.",
-    "words": 141,
-    "connects": "1 proof stations; 17 decomposition; 19 two-tree endpoint."
-  },
-  {
-    "number": 25,
-    "name": "25-berezin",
-    "title": "Grassmann variables package the same coefficient",
-    "status": "PROVED-HERE identities and REFUTED gauge shortcuts in sol_route-algebra, unrefereed. The overlapping determinant identity is independently AI-refereed elsewhere.",
-    "words": 143,
-    "connects": "4 polynomial; 9 incidence determinant; 10 coefficient extraction."
-  },
-  {
-    "number": 26,
-    "name": "26-open",
-    "title": "The doors that are actually still open",
-    "status": "CONJECTURE and HUNCH only for the new implications. Unrefereed conjecture and induction reports; finite checks are not general guarantees. Established backbone is supplied literature.",
-    "words": 140,
-    "connects": "12 extremes; 14 constraints; 16 exchanges; 22 counts; 25 dictionaries."
-  },
-  {
-    "number": 27,
-    "name": "27-morse",
-    "title": "Morse cancellation pairs the bad orientations",
-    "status": "PROVED-HERE dictionary independently AI-refereed after sign and root corrections. COMPUTED complete two-mate cube here. This is not an independent existence proof.",
-    "words": 136,
-    "connects": "3 first involution; 9 row dependence; 13 clock moves; 28 trinity."
-  },
-  {
-    "number": 28,
-    "name": "28-trinity",
-    "title": "Three incidence graphs in one triangulation",
-    "status": "COMPUTED K on the cube, with 14 vertices, 36 edges and 24 triangular faces. Triangle-factor reformulation is unrefereed. Floer dictionary independently AI-refereed as a dictionary only.",
-    "words": 133,
-    "connects": "11 incidence matchings; 16 white tree; 19 recovery; 25 algebraic dictionaries."
+   "n": 9,
+   "slug": "primal",
+   "title": "The same proof inside the cubic graph",
+   "figure_cm": [
+    15.33,
+    17.76
+   ],
+   "words": 157
   }
-]
+ ],
+ "pdf_pages": 11
+}
