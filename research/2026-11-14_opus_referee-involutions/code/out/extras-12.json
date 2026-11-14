@@ -1,0 +1,13 @@
+{
+ "command": "python research/2026-11-14_opus_referee-involutions/code/extras.py 12",
+ "H_increment": {
+  "reversals": 1120,
+  "dH=-a when cw->ccw": 1120,
+  "list=m!*set": 208
+ },
+ "k_m_plus_1": {
+  "opposite sign": 75,
+  "zero": 20,
+  "same sign as k=m": 113
+ }
+}

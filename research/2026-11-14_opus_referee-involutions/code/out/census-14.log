@@ -1,0 +1,50 @@
+6 done 0.0 s
+7 done 0.1 s
+8 done 0.2 s
+9 done 0.6 s
+10 done 1.6 s
+11 done 4.3 s
+12 done 22.8 s
+13 done 49.2 s
+14 done 273.8 s
+{
+ "command": "python research/2026-11-14_opus_referee-involutions/code/check.py census 14",
+ "classes": {
+  "6": 1,
+  "8": 1,
+  "9": 1,
+  "10": 2,
+  "11": 2,
+  "12": 8,
+  "13": 8,
+  "14": 32
+ },
+ "rooted": 1206,
+ "paired": 880,
+ "m_hist": {
+  "1": 560,
+  "2": 162,
+  "3": 158
+ },
+ "objects": 244240,
+ "fix2": 4658,
+ "fix1": 243764,
+ "max_walk": 4,
+ "walk_hist": {
+  "0": 4627,
+  "2": 30,
+  "4": 1
+ },
+ "cases": {
+  "case2-reverse": 29676,
+  "fixed": 4658,
+  "case2-keep": 14614,
+  "case1": 195292
+ },
+ "section7_printed_sign_fails": 718,
+ "section7_printed_sign_fails_m_odd": 718,
+ "m_odd": 718,
+ "random_order_rows_ok": 880,
+ "other_k_zero_below": true,
+ "other_k_above_nonzero": 823
+}
