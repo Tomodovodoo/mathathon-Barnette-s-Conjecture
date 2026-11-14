@@ -1,4 +1,6 @@
 import Devices.Concrete
+import Devices.Outdegree
+import Devices.TreeMatching
 
 open OAI.Barnette OAI.Barnette.TriangleSystem OAI.Barnette.Network.ColoredDual
 
@@ -32,3 +34,7 @@ open OAI.Barnette OAI.Barnette.TriangleSystem OAI.Barnette.Network.ColoredDual
 #print axioms OAI.Barnette.Network.ColoredDual.sign_eq_I_pow_mul_phase_concrete
 #print axioms OAI.Barnette.Network.ColoredDual.forest_pair_real
 #print axioms OAI.Barnette.Network.ColoredDual.realSum_ne_zero_concrete
+-- Devices.Outdegree (Lemma 3.7) and Devices.TreeMatching
+#print axioms OAI.Barnette.Devices.OutOrientation.card_edgeSet_add_sinks
+#print axioms OAI.Barnette.Devices.OutOrientation.component_count
+#print axioms OAI.Barnette.Devices.IsAcyclic.perfectMatching_unique

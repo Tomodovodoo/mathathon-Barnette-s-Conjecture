@@ -1,0 +1,14 @@
+OAI.Barnette.main : OAI.Barnette.MainStatement
+'OAI.Barnette.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+OAI.Barnette.main: 36345 constants in its closure
+  OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation_real: REACHED
+  OAI.Barnette.TriangleSystem.Pair.realSum_ne_zero: REACHED
+  OAI.Barnette.TriangleSystem.OppositeCycle.paperSign_reverse: REACHED
+  OAI.Barnette.TriangleSystem.Pair.sign_orient: REACHED
+  Blueprint.finite_difference: REACHED
+  OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation: not reached
+  OAI.Barnette.TriangleSystem.Pair.total_sum_ne_zero: not reached
+  OAI.Barnette.common_phase_sum_ne_zero: not reached
+  OAI.Barnette.TriangleSystem.OppositeCycle.fixed_second_state_cancels: not reached
+  OAI.Barnette.phase: not reached
+  OAI.Barnette.TriangleSystem.Pair.term: not reached

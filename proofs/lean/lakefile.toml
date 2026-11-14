@@ -18,4 +18,8 @@ name = "ComparatorChallenges"
 
 [[lean_lib]]
 name = "Devices"
-roots = ["Devices.FiniteDifference", "Devices.LocalSign", "Devices.RealSign", "Devices.Concrete"]
+roots = ["Devices.FiniteDifference", "Devices.LocalSign", "Devices.RealSign", "Devices.Concrete", "Devices.Outdegree", "Devices.TreeMatching"]
+
+[[lean_lib]]
+name = "PaperRoute"
+globs = ["PaperRoute.+"]

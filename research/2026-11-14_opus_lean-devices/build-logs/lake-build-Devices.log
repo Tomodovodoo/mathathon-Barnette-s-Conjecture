@@ -1,4 +1,0 @@
-ℹ [8924/8943] Replayed Devices.FiniteDifference
-info: Devices/FiniteDifference.lean:93:0: 'Blueprint.finite_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: Devices/FiniteDifference.lean:94:0: 'Blueprint.finite_difference_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
-Build completed successfully (8943 jobs).

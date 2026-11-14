@@ -1,0 +1,49 @@
+/-
+TODO: statements NOT machine-checked. This file is not part of any Lake library and is never
+compiled (the extension is .lean.txt on purpose). Everything here is a precise target, written in
+the vocabulary of github.com/openai/math at 4eaee875 and of proofs/lean/Devices/. Nothing below is a
+result.
+
+T1. Class size invariance (needed to read `Pair.minCycles` as "the smallest number of cycles of
+    D(r, s) over ALL pairs", as the paper defines m). `minCycles` is currently the minimum over the
+    chosen representatives of the classes (`GroupIndex.representative`), which is enough for
+    `realSum_ne_zero` and `forest_pair_of_disk_circulation_real`.
+
+    theorem OAI.Barnette.TriangleSystem.Pair.card_cycleClass_group [Fintype A]
+        (P : T.Pair X) (Q : P.Group) :
+        Fintype.card (CycleClass Q.val.next) = Fintype.card (CycleClass P.next)
+
+    Plan: `Q.val.next` agrees with `P.next` or `P.next⁻¹` on each cycle of `P.next`
+    (`bits_invariant`), so `SameCycle` is the same relation.
+
+T2. Lemma 4.6 with the paper's heights (bridge B3 of the blueprint). For each white vertex `y` of
+    the cubic graph a walk `p_y` from `y` to the root vertex; `κ_y(t, v)` the turn sign of the paper;
+    `w t v := Σ_y κ_y(t, v)`. Target: there is `α : E → ℝ` with
+    `N.boundary α = whiteCharge M.black root` and `M.weights α root = w + (a function of t only)`.
+    Then `realSum_ne_zero_concrete` holds verbatim for the paper's heights, because a function of t
+    only shifts ω(s) by a constant. Not started: defining κ_y needs the cyclic order of the three
+    edges at a black vertex, which the Lean encodes through `ColoredDual.oriented`.
+
+T3. Lemma 4.2 through Lemma 3.7. Apply `Devices.OutOrientation.component_count` to each connected
+    component of `T.oppositeGraph s` with `out v := some (third corner)` for `v = r(t)`, to get "each
+    component of Q_s is a tree with exactly one root or contains no root and exactly one cycle".
+    Needs the restriction of `oppositeGraph s` to a component as a `SimpleGraph` on a subtype and
+    the transfer of the orientation; the Lean replaces this lemma by `augQ_acyclic`.
+
+T4. Lemma 3.7, first claim ("every cycle of F is a directed cycle"):
+
+    theorem OutOrientation.cycle_directed {u : V} (c : G.Walk u u) (hc : c.IsCycle) :
+        (∀ i < c.length, o.out (c.getVert i) = some (c.getVert (i+1))) ∨
+        (∀ i < c.length, o.out (c.getVert (i+1)) = some (c.getVert i))
+
+T5. "A Hamiltonian cycle comes out of the construction exactly when the state is good" (the
+    converse of Prop. 3.9, with Lemma 3.1): every perfect matching `P` of `G` whose
+    complement is connected and avoids the prescribed edge comes from a good state. In the Lean's
+    terms, roughly: for `M : N.ColoredDual D` and a perfect matching `P` of the primal with
+    `G - P` connected, there is `s : M.State root` with `(T.oppositeGraph s).IsAcyclic` and every
+    component of the opposite graph containing one root, such that `P` is the selection recovered
+    from `s`. Not attempted.
+
+T6. Prop. 2.6(2) (two induced trees) and Lemma 2.2 (topological): out of scope, as the blueprint
+    says (no Jordan curve theorem in Mathlib d13f23b7).
+-/

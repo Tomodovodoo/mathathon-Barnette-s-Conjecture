@@ -298,7 +298,7 @@ theorem I_zpow_rawIndexSum {r s : T.State X} (hrs : T.Partner r s) :
   rw [zpow_neg, zpow_natCast, ← inv_pow, inv_neg, inv_one]
 
 /-- **The phase of OpenAI's Lean proof is the real sign times the constant `i^(-n)`**
-(paper, Remark 4.9: "`i^J = i^{-n} ε`"). The hypothesis `3 ∣ Σ δ` holds for every pair of the
+(paper, Remark 4.10: "`i^J = i^{-n} ε`"). The hypothesis `3 ∣ Σ δ` holds for every pair of the
 concrete system by the disk identity (see `three_dvd_rawIndexSum`). -/
 theorem phase_eq_paperSign {r s : T.State X} (hrs : T.Partner r s)
     (h3 : (3 : ℤ) ∣ rawIndexSum r s) :
