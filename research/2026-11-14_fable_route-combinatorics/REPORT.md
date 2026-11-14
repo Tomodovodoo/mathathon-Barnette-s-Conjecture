@@ -29,7 +29,7 @@ Statuses as in `research/BRIEF.md`. Details and proofs are in `PROOF.md`, the li
 | A Hamiltonian cycle avoiding `e0*` gives a state; it is a tree matching or has no partner; tree matchings inject into such cycles; `3 #TM <= #HC(G)` | `PROVED-HERE`, `COMPUTED` (`lab/survey.py 16`, E8) | PROOF 6 |
 | `#TM >= 2 cmin`; the two signs are equally frequent | `PROVED-HERE` | PROOF 3 |
 | `#TM >= 2^cmin` | `CONJECTURE`, `COMPUTED` up to 16 vertices | ROUTES 11 |
-| "s is a tree matching iff it has exactly one partner" (trees paper, Theorem 1.2) | `LIT`, `COMPUTED` on 140358 states | DATA |
+| "s is a tree matching iff it has exactly one partner" (trees paper, Theorem 1.2) | `LIT`, `COMPUTED` on 140358 states by brute force over all states (`lab/extra2.py 16`) | DATA |
 
 Nothing here has been refereed.
 

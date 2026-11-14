@@ -11,6 +11,7 @@ Python 3.14, standard library only, except `dets.py` which needs `numpy`. Run ev
 | `zpoly.py` | The signed rank polynomial `Z(q)` and the tests Z1 to Z4. |
 | `dets.py` | Numerical checks D1 to D4 of the determinant, Fourier and height identities in `PROOF.md`. |
 | `extra.py` | Checks X1 to X3. |
+| `extra2.py` | Check X4: partners found from the cycles of `Q_s` agree with a brute-force search over all states. |
 | `cex.py` | Prints the counterexamples in full. |
 | `tables.py` | Markdown tables from the survey output. |
 
@@ -21,6 +22,7 @@ python lab/survey.py 16 data/rows_v16.json > data/survey_v16.txt     # 40 s
 python lab/zpoly.py 15                      > data/zpoly_v15.txt     # 10 s
 python lab/dets.py 12                       > data/dets_v12.txt      # 60 s
 python lab/extra.py 16                      > data/extra_v16.txt     # 30 s
+python lab/extra2.py 16                     > data/extra2_v16.txt    # 60 s
 python lab/cex.py                           > data/counterexamples.txt
 python lab/tables.py data/rows_v16.json     > data/tables.md
 ```

@@ -20,7 +20,7 @@ These agree with the counts of 3-connected cubic bipartite planar graphs on 8, 1
 
 1. All states have the same permutation sign.
 2. The disk identity on every cycle of every `D(r, s)` and of every `Q_s`: the `delta`-sum is `-3` exactly when the cycle is counterclockwise, where orientation is decided by a flood fill of the faces on the left.
-3. A partnered state with `k` cycles in `Q_s` has `2^k` partners.
+3. A partnered state with `k` cycles in `Q_s` has `2^k` partners. `lab/extra2.py 16` confirms this against a brute-force search for disjoint states: 140358 states, 24744 pairs, 24090 states with exactly one partner, and these are exactly the states whose `Q_s` is a rooted forest.
 4. `mu(s) = sum_r eps(r, s)` is `0` when `Q_s` has a cycle and `+1` or `-1` otherwise.
 5. `L+(C) - L-(C)` for the spoke circulation equals the number of white faces inside `C`, found by an independent flood fill (up to 12 vertices), and is positive (up to 16).
 6. `sum over tree matchings of eps(s) omega(s)^j` is `0` for `j < cmin`, and for `j = cmin` equals `(-1)^((n - cmin)/2) cmin! sum over minimal D of prod_C area(C)`.
