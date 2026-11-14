@@ -55,7 +55,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `astra_main-revision/` | GPT-6 Astra | Paper version 2 | done | 19 pages; both reviews applied. |
 | `sol_referee-main-v2/` | GPT-6.1 Sol | Regression referee of version 2 | done | FOLLOWS; eight small corrections applied. |
 | `opus_coldread-main-v2/` | Opus 5.5 | Fresh reader and finishing editor of version 2 | done | 17 edits; main idea given room. |
-| `fable_final-polish/` | Fable 5.2 | Last figure fixes; naming in companion notes | running | |
+| `fable_final-polish/` | Fable 5.2 | Last figure fixes; naming in companion notes | done | Paper at 20 pages; labels placed by computation in every figure; names aligned in both companion notes. |
 | `astra_induction-lemmas/` | GPT-6 Astra | The two missing lemmas of the induction | done | Both still open. G proved without chordless 5-cycles. |
 | `opus_referee-involutions/` | Opus 5.5 | Referee of the bijective note | done | FOLLOWS; object count depends on the drawing, signed sum does not. |
 | `sol_involutions-revision/` | GPT-6.1 Sol | Bijective note revised, drawing-free version added | done | |
@@ -63,12 +63,23 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_cross-audit/` | Opus 5.5 | Primal adjudication, consistency table, hygiene | done | Sign over Lean phase is the constant i^n. Primal note accepted. |
 | `opus_consistency-edits/` | Opus 5.5 | Naming convention applied to digestions, map, atlas text | done | good state, good pair, cover, m. |
 | `sol_referee-covers/` | GPT-6.1 Sol | Referee of cycle-cover, probabilistic and family reports | done | Main proofs pass, with qualified ranges. |
-| `opus_blueprint/` | Opus 5.5 | `proofs/blueprint/` against Lean | done | Of 34 route statements: 4 exact, 25 after translation, 5 without counterpart. |
-| `opus_lean-devices/` | Opus 5.5 | `proofs/lean/`: sign and finite-difference route in Lean | done, check pending | 866 lines; main theorem rebuilt without phase or polynomial, by its author's account. |
-| `astra_lean-check/` | GPT-6 Astra | Independent rebuild and statement check of `proofs/lean/` | running | |
-| `fable_descent/` | Fable 5.2 | Monotone descent and complexity | see its report | |
+| `opus_blueprint/` | Opus 5.5 | `proofs/blueprint/` against Lean | done, superseded | First count 4 / 25 / 5 of 34; final count in `opus_lean-integration/`. |
+| `opus_lean-devices/` | Opus 5.5 | `proofs/lean/`: sign and finite-difference route in Lean | done, checked | 866 lines, 29 theorems; qualified by `astra_lean-check/`. |
+| `astra_lean-check/` | GPT-6 Astra | Independent rebuild and statement check of `proofs/lean/` | done | Rebuilds from a fresh clone; standard axioms only; three overstatements found (TODO T5, whole Lemma 4.5, "no polynomial") and corrected. |
+| `fable_descent/` | Fable 5.2 | Monotone descent and complexity | done, referee running | Monotone descent (C3) holds on 193,623,384 pairs through 23 vertices, unproved. Every bounded variant false. Search is in PPADS. |
 | `sol_map-update/`, `sol_map-final/` | GPT-6.1 Sol | Route map and labyrinth updates | done | 244 routes, 77 refutations. |
 | `astra_synthesis/` | GPT-6 Astra | `digestions/SYNTHESIS.md` | done | |
-| `fable_synthesis-audit/` | Fable 5.2 | Fact-check of the synthesis | see its report | |
+| `fable_synthesis-audit/` | Fable 5.2 | Fact-check of the synthesis | done | No wrong number found; review statuses and wording tightened. |
 | `sol_atlas-audit/` | GPT-6.1 Sol | Second-model review of the atlas | done | 78 checks pass; seven figures proposed. |
-| `fable_atlas-final/`, `fable_atlas-finish/` | Fable 5.2 | Atlas integration and finishing | finishing | |
+| `fable_atlas-final/`, `fable_atlas-finish/` | Fable 5.2 | Atlas integration and finishing | done | 30 route pages on 34 PDF pages; `verify.py` passes. |
+| `opus_lean-integration/` | Opus 5.5 | Blueprint and Lean documents after the independent check | done | Of 34 route statements: 5 exact, 17 after an unformalised translation, 10 weaker or different, 2 with no counterpart. |
+| `sol_lab-tests/` | GPT-6.1 Sol | Test campaign for `workings/barnette_lab/` | done | 14 unit tests, 1,209 rooted runs; independent comparison through 12 vertices. |
+| `opus_digestions-audit-2/` | Opus 5.5 | Second audit of `digestions/steps/` | done | Steps 01 to 08 and glossary follow the refereed paper; four errors fixed; problems in 00 and 09 listed. |
+| `sol_digest-fixes/` | GPT-6.1 Sol | Overview and open-problems chapter rewritten; map rebuilt | done | First partnered cyclic state occurs at 12 vertices. C3 holds on 193,623,384 pairs through 23. |
+| `opus_referee-rainbow/` | Opus 5.5 | Referee of the rainbow route and two-tree packing | done | Step R, Theorem S and the sign-free evenness of good states correct. Packing referee is the author's model. |
+| `fable_referee-families/` | Fable 5.2 | Different-model referee of counting, probabilistic and algebra reports | done | Numbers agree. Prism-chain count holds only for a mixed gluing rule. Sign gauge exists on incidences of both states. |
+| `astra_referee-descent/` | GPT-6 Astra | Referee of the descent study and induction partial results | running | |
+| `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | running | |
+| `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | running | |
+| `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | running | |
+| `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | running | |
