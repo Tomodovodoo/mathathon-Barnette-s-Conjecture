@@ -1,0 +1,12 @@
+[
+  {
+    "name": "cube",
+    "laplacian_coefficient": 2,
+    "unrestricted": 8
+  },
+  {
+    "name": "hexagonal_prism",
+    "laplacian_coefficient": 2,
+    "unrestricted": 80
+  }
+]
