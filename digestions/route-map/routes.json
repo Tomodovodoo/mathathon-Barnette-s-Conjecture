@@ -2433,7 +2433,7 @@
   {
    "id": "TG.older",
    "step": "TG",
-   "label": "older approaches: tests in progress",
+   "label": "older radial-tree dictionary and limits",
    "status": "HUNCH",
    "src": "older",
    "where": "older/BRIDGES.md; older/REPORT.md",
@@ -2492,8 +2492,16 @@
    "label": "merged dual exposition",
    "status": "PROVED-HERE",
    "src": "main",
-   "where": "paper/main/; research/2026-11-14_opus_manuscript-merge/",
-   "text": "Written dual route uses product of local signs, heights along face paths, and an explicit connectivity lemma inside a selected cycle. Under two AI reader reviews; no final verdict at integration.",
+   "where": "paper/main/barnette.tex; research/2026-11-14_sol_referee-main/REFEREE.md; research/2026-11-14_sol_referee-main/EDITS.md",
+   "text": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-main"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Main theorem route FOLLOWS. Off-route Laurent terminology and conditional-scope edits proposed; application not certified. Second cold read pending. Human check pending."
+   },
    "role": "route"
   },
   {

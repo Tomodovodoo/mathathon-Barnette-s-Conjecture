@@ -372,7 +372,7 @@
    "group": "The theorem and its proofs",
    "cls": "Written proof routes",
    "result": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
-   "status": "Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check.",
+   "status": "Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check.",
    "kind": "partial",
    "refs": [
     "p.G2.main",
@@ -387,6 +387,11 @@
      "date": "2026-11-14",
      "was": "Primal proof, draft A heights proof, draft B scalar-height-moment proof; exact prism families as a separate structural route.",
      "status": "Proofs supplied; draft A referee reports sentence repairs; remaining independent reviews pending."
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
+     "status": "Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check."
     }
    ]
   },

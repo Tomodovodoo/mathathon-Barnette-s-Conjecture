@@ -6128,8 +6128,12 @@
    "created": "2026-11-14",
    "updated": "2026-11-14",
    "kind": "theorem",
-   "tier": "T1",
-   "status": "established (LIT: published)",
+   "tier": "T2",
+   "status": "established (LIT: 2026 preprint or its formalisation, unrefereed)",
+   "review": {
+    "state": "unreviewed",
+    "verdict": "Supplied preprint or formal source; no journal review claimed."
+   },
    "links": [
     {
      "to": "m.step.G2",
@@ -7771,7 +7775,7 @@
   },
   {
    "id": "h.TG.older",
-   "title": "older approaches: tests in progress",
+   "title": "older radial-tree dictionary and limits",
    "statement": "The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.",
    "where": [
     "research/2026-11-14_astra_older-approaches/BRIDGES.md; research/2026-11-14_astra_older-approaches/REPORT.md"
@@ -7936,9 +7940,9 @@
   {
    "id": "p.G2.main",
    "title": "merged dual exposition",
-   "statement": "Written dual route uses product of local signs, heights along face paths, and an explicit connectivity lemma inside a selected cycle. Under two AI reader reviews; no final verdict at integration.",
+   "statement": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending.",
    "where": [
-    "paper/main/; research/2026-11-14_opus_manuscript-merge/"
+    "paper/main/barnette.tex; research/2026-11-14_sol_referee-paper/main/REFEREE.md; research/2026-11-14_sol_referee-paper/main/EDITS.md"
    ],
    "tags": [
     "step G2"
@@ -7947,14 +7951,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (under review)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
-    "date": "2026-11-14",
+    "state": "refereed",
     "by": [
-     "research/2026-11-14_sol_referee-main",
-     "research/2026-11-14_fable_coldread-main"
-    ]
+     "research/2026-11-14_sol_referee-main"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Main theorem route FOLLOWS. Off-route Laurent terminology and conditional-scope edits proposed; application not certified. Second cold read pending. Human check pending."
    },
    "links": [
     {
@@ -9467,9 +9471,9 @@
    "tier": null,
    "status": "open",
    "title": "Is there an existence proof with no signed count?",
-   "statement": "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
-   "why": "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
-   "next": "First test: conjecture k.U.7h (local search from a point-rainbow tree, 450 of 450 so far) at 18 vertices, recording the longest plateau; then k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.",
+   "statement": "No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.",
+   "why": "No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.",
+   "next": "Finish the pending reports, then referee the new local and density arguments.",
    "links": [
     {
      "to": "k.U.7h",

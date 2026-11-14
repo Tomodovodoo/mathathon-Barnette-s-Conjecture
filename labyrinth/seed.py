@@ -13,7 +13,7 @@ Tier policy (see labyrinth/README.md):
       Supplied 2026 preprint claims are conservatively T2 with explicit review status.
   T2  PROVED-HERE, with the review state of the agent folder it comes from. Referees are AI agents; no node is
       human-checked.
-  T3  only the census cross-check, where two independent implementations agree instance by instance.
+  T3  the census cross-check and the independently replayed finite C1 census.
   T4  every other computation.   T5 conjectures (each with a test).   T6 hunches.
 """
 import json
@@ -133,7 +133,7 @@ for r in RT.ROUTES:
     n = dict(id=nid(r), title=r["label"], statement=r["text"], where=[expand(r["where"])], tags=[f"step {r['step']}"],
              created=DAY, updated=DAY)
     if st == "LIT":
-        pre = all(f in ("O", "L", "T", "Lean") or f in RT.FOLDERS for f in srcs(r))
+        pre = r["id"] == "G2.2" or all(f in ("O", "L", "T", "Lean") or f in RT.FOLDERS for f in srcs(r))
         n.update(kind="theorem", tier="T2" if pre else "T1",
                  status=("established (LIT: 2026 preprint or its formalisation, unrefereed)" if pre else "established (LIT: published)")
                  + (", partial result" if r.get("partial") else ""))
@@ -301,6 +301,7 @@ frontier_history = [
 ]
 # Current door statements supersede the first map's tests. Keep stable ids for events.
 updates = {
+ 'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.', 'Finish the pending reports, then referee the new local and density arguments.'),
  'q.canonical': ('No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
  'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'Exclude the exceptional two-cover overlap; then treat more covers.'),
  'q.disk': ('Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.', 'Human-check the corrected flat-angle proof.'),
@@ -468,6 +469,7 @@ for e in S["entries"]:
 # Keep prior state-of-the-art results when a row changes.
 S['entries'].append(row('new-presentations',G1,'Written proof routes','Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.','Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check.','partial',['p.G2.main','p.G2.primal','p.G2.inv','c.G2.c'],[]))
 for entry in S['entries']:
+    if entry['id']=='new-presentations': entry['status']='Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check.'
     if entry['id']=='pair': entry['status']='PROVED-HERE, independently AI-refereed in structure INTEGRATION.md; human check pending.'
     if entry['id']=='structural': entry.update(result='No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing remain live at this snapshot.',status='Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed.')
     if entry['id']=='rarity': entry.update(result='Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.',status='T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.')

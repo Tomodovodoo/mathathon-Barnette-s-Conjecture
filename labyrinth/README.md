@@ -22,7 +22,7 @@ python -X utf8 -B labyrinth/lab.py build
 
 T1 means published literature or a standard result. LIT records source provenance and does not promote a supplied unrefereed 2026 preprint to T1. T2 means a written proof, with its review state. An AI referee changes that state, never the tier. No node is human-checked. Newly discovered proofs inside referee reports remain unreviewed.
 
-T3 is used for independently validated exhaustive computations, including the all-root census through 16 and the independent C1 census through 22. T4 records the newer separator-free order-24 census and other unchecked numerical campaigns. T5 is a testable conjecture and T6 a hunch. Claim-specific reviews override folder defaults. The earlier primal proof is AI-refereed; its revision and its disagreement with referee M4 are not newly refereed. Merged and involution texts are under review at this snapshot.
+T3 is used for independently validated exhaustive computations, including the all-root census through 16 and the independent C1 census through 22. T4 records the newer separator-free order-24 census and other unchecked numerical campaigns. T5 is a testable conjecture and T6 a hunch. Claim-specific reviews override folder defaults. The earlier primal proof is AI-refereed; its revision and its disagreement with referee M4 are not newly refereed. Merged main theorem now has one independent AI referee, FOLLOWS; proposed ancillary edits are not certified applied. Its second cold read and the involution referee remain pending.
 
 ## Frontier scope
 

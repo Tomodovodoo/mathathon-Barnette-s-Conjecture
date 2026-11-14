@@ -1,0 +1,19 @@
+{
+  "route_counts": {
+    "LIT": 46,
+    "PROVED-HERE": 57,
+    "REFUTED": 67,
+    "HUNCH": 25,
+    "CONJECTURE": 19,
+    "COMPUTED": 12
+  },
+  "total_routes": 226,
+  "broken_local_links": [],
+  "final_report_scan": {
+    "research\\2026-11-14_astra_induction-lemmas\\REPORT.md": false,
+    "research\\2026-11-14_opus_two-tree-packing\\REPORT.md": false,
+    "research\\2026-11-14_sol_referee-main\\REPORT.md": true,
+    "research\\2026-11-14_fable_coldread-main\\REPORT.md": false,
+    "research\\2026-11-14_opus_referee-involutions\\REPORT.md": false
+  }
+}

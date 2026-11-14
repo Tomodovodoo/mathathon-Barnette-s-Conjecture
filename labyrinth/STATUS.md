@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T12:28:41Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -52,7 +52,7 @@ Generated 2026-11-14T12:28:41Z by `labyrinth/lab.py build`. Do not edit by hand.
 ## Open doors (questions) (12)
 
 - **Is there a polynomial-time construction of the Hamiltonian cycle?** [`q.poly-time`, open] The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; tree matchings can be exponentially rare.
-- **Is there an existence proof with no signed count?** [`q.structural`, open] Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.
+- **Is there an existence proof with no signed count?** [`q.structural`, open] No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.
 - **Is there a canonical forest pair?** [`q.canonical`, open] No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.
 - **How many tree matchings must there be?** [`q.tm-lower`, open] C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.
 - **Is there a determinant or Pfaffian for Z without coefficient extraction?** [`q.det`, open] Z is the squarefree coefficient of one determinant (2^n evaluations). Raw determinants, doubled edges and scalar factorisations are refuted.
@@ -90,7 +90,7 @@ Generated 2026-11-14T12:28:41Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **a potential along the selected out-edges** [`h.F.5`, live] Follow selected out-edges from a vertex to a root; a quantity that decreases along the walk proves connectivity.
 - **Hall-free shelling construction** [`h.A.5`, live] Build a pair by a canonical ordering from t0 inward, as for Schnyder woods.
 - **finding a tree matching is in PPAD** [`h.D.8`, live] Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs.
-- **older approaches: tests in progress** [`h.TG.older`, live] The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.
+- **older radial-tree dictionary and limits** [`h.TG.older`, live] The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.
 
 ## Dead ends (refuted) (67)
 
@@ -162,17 +162,15 @@ Generated 2026-11-14T12:28:41Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **every maximal lattice chain hits success** [`x.D.chain-dead`, refuted] Every maximal chain contains an element carrying a tree pair.
 - **at least half the lattice succeeds** [`x.D.fraction-dead`, refuted] At least half the factor lattice admits a successful direction choice.
 
-## Under review (5)
+## Under review (4)
 
 - **exactly one tree matching is impossible** [`p.D.4`]
 - **the gluing needs the same-label edge** [`p.G.2`]
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
-- **merged dual exposition** [`p.G2.main`]
 - **complete marked involution exposition** [`p.G2.inv`]
 
-## Recent events (72 total)
+## Recent events (73 total)
 
-- 2026-11-14T11:00 · refuted · The partner of a tree matching need not be a tree matching (6 of 442)
 - 2026-11-14T11:00 · proposed · Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)
 - 2026-11-14T11:05 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 175 routes
 - 2026-11-14T11:12 · proved · Categorical routes: gluing formula across any cycle; boundary patterns complete at cut lengths 3 and 4 (route-categorical, unreviewed)
@@ -197,3 +195,4 @@ Generated 2026-11-14T12:28:41Z by `labyrinth/lab.py build`. Do not edit by hand.
 - 2026-11-14T15:13 · refuted · Map refresh, attributed report integration: root-free torus nonvanishing. Transfer spherical signed nonvanishing directly to Heawood on the torus. New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.
 - 2026-11-14T15:14 · documented · Map refresh, attributed report integration: merged dual exposition. Written dual route uses product of local signs, heights along face paths, and an explicit connectivity lemma inside a selected cycle. Under two AI reader reviews; no final verdict at integration. New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.
 - 2026-11-14T15:15 · documented · Map refresh, attributed report integration: complete marked involution exposition. Written bijective route through marked objects and two involutions. Under independent AI referee; no final verdict at integration. New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.
+- 2026-11-14T12:30 · reviewed · Late merged-paper referee: main theorem FOLLOWS; eight edits proposed, including off-route Laurent terminology; application not certified. Human check pending.

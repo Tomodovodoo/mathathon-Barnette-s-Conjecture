@@ -138,7 +138,7 @@ def draw(detail, stem):
     pos, xR = layout(detail)
     nw, nh = (NW, NH) if detail else (1.95, 0.5)
     xmin, xmax = (-5.75, xR + 5.75) if detail else (-3.1, xR + 3.1)
-    ymax = 1.75 if detail else 1.15
+    ymax = 2.25 if detail else 1.15
     ymin = pos["IT"][1] - (1.55 if detail else 2.85)
     fig = plt.figure(figsize=(xmax - xmin, ymax - ymin))
     ax = fig.add_axes([0, 0, 1, 1])
@@ -230,6 +230,10 @@ def draw(detail, stem):
     def rows(sid, x, ytop, width=LISTW):
         """The list of routes of a step, top-left corner at (x, ytop)."""
         s = STEP[sid]
+        # Route lists have an opaque backing so dense bypass strands stay behind them.
+        nr=len(BY_STEP[sid])
+        ax.add_patch(FancyBboxPatch((x-0.04, ytop-nr*RH-0.04), width+0.08, nr*RH+0.32,
+                                   boxstyle="square,pad=0", facecolor="white", edgecolor="none", zorder=2.5))
         ax.text(x, ytop + 0.13, f"{sid}   {s['title']}", fontsize=8.0, weight="bold", va="center", ha="left", zorder=6)
         ax.text(x + width, ytop + 0.13, verdict_text(sid), fontsize=6.4, weight="bold", va="center", ha="right",
                 color=VERDICT_COLOUR[s["verdict"]], zorder=6)
@@ -251,7 +255,16 @@ def draw(detail, stem):
             if kind == "PARTIAL":
                 tcol = "#555555"
             ax.text(x + 0.38, y, r["id"], fontsize=FS, weight="bold", va="center", ha="left", color=tcol, zorder=6)
-            ax.text(x + 0.95, y, r["label"], fontsize=FS, va="center", ha="left", color=tcol, zorder=6)
+            # The catalogue keeps the full title; this index uses a shortened title.
+            import textwrap
+            title=textwrap.shorten(r["label"],width=48,placeholder="...")
+            tx=ax.text(x + 1.45, y, title, fontsize=FS, va="center", ha="left", color=tcol, zorder=6)
+            srcwidth=max(0.32,len(r["src"])*(FS-1)*0.57/72)
+            avail=(width-1.45-srcwidth-0.1)*fig.dpi
+            lim=48
+            while tx.get_window_extent(fig.canvas.get_renderer()).width>avail and lim>12:
+                lim-=1
+                tx.set_text(textwrap.shorten(r["label"],width=lim,placeholder="..."))
             ax.text(x + width, y, r["src"], fontsize=FS - 1.0, va="center", ha="right", color="#666666", zorder=6)
             y -= RH
         return y
@@ -325,7 +338,7 @@ def draw(detail, stem):
     if detail:
         n = len(BY_STEP["U"])
         yu = (ys + yf) / 2 + n * RH / 2 + 1.2
-        rows("U", xc + 0.45, yu)
+        rows("U", xc, yu)
     else:
         step_tag("U", xc - 0.4, ym + 0.1, ha="right")
     # ---- goal edge T -> 2T
@@ -617,3 +630,8 @@ if __name__ == "__main__":
         export_md()
     c = Counter(r["status"] for r in RT.ROUTES)
     print(len(RT.WAYPOINTS), "waypoints,", len(RT.STEPS), "steps,", len(RT.ROUTES), "routes:", dict(c))
+
+# Matplotlib emits harmless trailing spaces in SVG path data; normalize generated
+# text so the owned-path whitespace check remains useful for actual prose edits.
+for svg in HERE.glob('*.svg'):
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf8').splitlines())+'\n',encoding='utf8')

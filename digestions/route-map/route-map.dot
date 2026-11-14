@@ -198,7 +198,7 @@ digraph routemap {
   "K" -> "FP" [label="D.families exact even-prism counts", color="#1f5fbf", status="PROVED-HERE", role="partial", src="families"];
   "K" -> "FP" [label="D.ext1 distance one from a lattice extreme", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="conjectures"];
   "K" -> "FP" [label="D.ext2 R2: extreme or irreducible", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="conjectures"];
-  "T" -> "2T" [label="TG.older older approaches: tests in progress", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="older"];
+  "T" -> "2T" [label="TG.older older radial-tree dictionary and limits", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="older"];
   "M" -> "N" [label="N.li-check Li two-mark involutions on running example", color="#1b8a5a", style=dashed, status="COMPUTED", role="route", src="map"];
   "S" -> "DI" [label="B.height signed white area is additive", color="#1f5fbf", status="PROVED-HERE", role="partial", src="reft"];
   "K" -> "FP" [label="D.unbounded unbounded c_min in Goodey chains", color="#1f5fbf", status="PROVED-HERE", role="partial", src="older"];
