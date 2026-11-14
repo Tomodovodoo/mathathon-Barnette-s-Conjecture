@@ -1,6 +1,6 @@
 # 01. Degree two is free, connectivity is the problem
 
-Where this step lives elsewhere. Paper: the introduction and Proposition 2.6(1) of [`barnette.pdf`](../../paper/main/barnette.pdf), with Figure 1(a). Primal note: Theorem T and Lemma 12 of [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "Hamiltonian cycle G-P" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md)). Blueprint nodes `thm:main` and `prop:target.1` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md). Atlas: page 1, [the chain](../atlas/pages/01-chain.pdf), and page 26, [hypotheses](../atlas/pages/26-hypotheses.pdf).
+Where this step lives elsewhere. Paper: the introduction and Proposition 2.6(1) of [`barnette.pdf`](../../paper/main/barnette.pdf), with Figure 1(a). Primal note: Theorem T and Lemma 12 of [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "Hamiltonian cycle G-P" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md)). Blueprint nodes `thm:main` and `prop:target.1` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md). Atlas: page 1, [the chain](../atlas/pages/01-chain.pdf); page 27, [hypotheses](../atlas/pages/27-hypotheses.pdf); and page 29, [what is machine-checked](../atlas/pages/29-blueprint.pdf).
 
 ## What we want at this point and why
 
