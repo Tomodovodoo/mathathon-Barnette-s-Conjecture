@@ -500,6 +500,8 @@ def main():
         require(summary['paired']==sum(bool(r['pairs']) for r in small),'saved census paired count')
         require(summary['fix2' if 'fix2' in summary else 'bfs+:fix2']==sum(r['F'] for r in small),'saved census fixed count')
         cov.hit('saved small census referees',len(small)); cov.finish()
+    for check, counts in cov.rows.items():
+        require(counts[1] > 0, f'nonvacuous coverage required: {check}')
     elapsed=time.perf_counter()-started
     print(cov.table(),flush=True)
     print(f'PASS {args.tier}: {len(rows)} rooted runs; {elapsed:.2f} seconds',flush=True)

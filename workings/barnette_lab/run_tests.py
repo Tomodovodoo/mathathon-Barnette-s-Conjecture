@@ -15,7 +15,7 @@ def main():
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     suite = unittest.defaultTestLoader.discover(str(HERE/'tests'))
-    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    result = unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(suite)
     if not result.wasSuccessful():
         return 1
     from barnette_lab.campaign import main as campaign
