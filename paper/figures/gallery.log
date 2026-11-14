@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 11:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -627,13 +627,13 @@ L3 programming layer <2025-12-24>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14764 strings out of 467870
- 302773 string characters out of 5419323
+ 14770 strings out of 467870
+ 302894 string characters out of 5419323
  741409 words of memory out of 5000000
- 43210 multiletter control sequences out of 15000+600000
+ 43216 multiletter control sequences out of 15000+600000
  632821 words of font info for 61 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 117i,15n,121p,633b,779s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,15n,121p,633b,786s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 csc10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmex10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -647,7 +647,7 @@ l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Tom/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Tom/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 /Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on gallery.pdf (14 pages, 198425 bytes).
+Output written on gallery.pdf (14 pages, 204653 bytes).
 PDF statistics:
  111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

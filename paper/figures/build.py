@@ -1,7 +1,7 @@
 import subprocess,sys,fitz
 from pathlib import Path
 O=Path(__file__).parent.resolve()
-for name in ['model.py','check.py','draw.py']:
+for name in (['check.py','draw.py'] if '--from-json' in sys.argv else ['model.py','check.py','draw.py']):
  subprocess.run([sys.executable,str(O/name)],cwd=O,check=True)
 for p in sorted(O.glob('[0-9][0-9]-*.tex'))+[O/'gallery.tex']:
  if '-body' in p.stem:continue

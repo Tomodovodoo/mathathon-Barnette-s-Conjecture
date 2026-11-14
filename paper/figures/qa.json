@@ -1,0 +1,176 @@
+[
+  {
+    "file": "01-two-factors.pdf",
+    "pages": 1,
+    "fonts": [
+      "DQRHHL+CMR10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "02-dual.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "MKOIPU+CMR8",
+      "NFHPWC+CMMI8"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "03-cycle-trees.pdf",
+    "pages": 1,
+    "fonts": [
+      "CNZAFN+CMR10",
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "VTDKQU+CMMI10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "04-state.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "05-pair-D.pdf",
+    "pages": 1,
+    "fonts": [
+      "EIKAFH+CMR10",
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "SIVOKY+CMMI10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "06-Q.pdf",
+    "pages": 1,
+    "fonts": [
+      "ENOSGZ+CMR10",
+      "GBCRXR+CMR6",
+      "KJXRMB+CMMI10",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "YHBLYI+CMMI7"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "07-disk.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "RTSGPL+CMR8",
+      "TJDDZS+CMMI8"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "08-cancellation.pdf",
+    "pages": 1,
+    "fonts": [
+      "EYZOOR+CMR10",
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "TLMDYS+CMEX10",
+      "XDQWUY+CMMI10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "09-spokes.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "WLUNRM+CMMI10",
+      "YDYZFC+CMR10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "10-white-tree.pdf",
+    "pages": 1,
+    "fonts": [
+      "FXXUVH+CMSY10",
+      "GBCRXR+CMR6",
+      "HYBWDE+CMR10",
+      "OCHEKQ+CMR8",
+      "OVBLUF+CMMI10",
+      "REOFEC+CMR7",
+      "SAMXUX+CMMI8"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "11-selected-Jordan.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "12-recovered.pdf",
+    "pages": 1,
+    "fonts": [
+      "GBCRXR+CMR6",
+      "NFHPWC+CMMI8",
+      "OCHEKQ+CMR8",
+      "PAALMU+CMR10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "13-gluing.pdf",
+    "pages": 1,
+    "fonts": [
+      "QLUUYW+CMR8",
+      "RWWMHB+CMR10"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "14-overview.pdf",
+    "pages": 1,
+    "fonts": [
+      "BGGLVD+CMMI8",
+      "QWCTAB+CMSY8",
+      "SAELLI+CMR8",
+      "UUTIOV+CMMI6"
+    ],
+    "raster_images": 0
+  },
+  {
+    "file": "gallery.pdf",
+    "pages": 14,
+    "fonts": [
+      "AIUYMT+CMCSC10",
+      "DMWDNU+CMR7",
+      "FXXUVH+CMSY10",
+      "GBCRXR+CMR6",
+      "IWKVNA+CMMI7",
+      "IWZREV+CMMI8",
+      "QWCTAB+CMSY8",
+      "SXUSLV+CMR8",
+      "TLMDYS+CMEX10",
+      "UUTIOV+CMMI6",
+      "WLJPJI+CMMI10",
+      "YDFZXM+CMR10"
+    ],
+    "raster_images": 0
+  }
+]

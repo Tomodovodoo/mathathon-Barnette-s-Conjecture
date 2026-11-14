@@ -1,0 +1,23 @@
+{
+  "status": "COMPUTED",
+  "states": 15,
+  "ordered_pairs": 10,
+  "cyclic_pairs": 2,
+  "checks": [
+    "cubic bipartite 3-connected primal",
+    "Eulerian dual",
+    "no separating triangles",
+    "state bijections",
+    "disjoint pairs",
+    "cycle reversal involution",
+    "phase difference 2",
+    "disk identity",
+    "positive detour circulation",
+    "retained incidence tree",
+    "white-face tree",
+    "one selected edge per face",
+    "two induced trees",
+    "connected degree-two complementary dual",
+    "disconnected two-factor"
+  ]
+}

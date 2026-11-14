@@ -6,7 +6,8 @@ def line(u,v,sty):return rf'\draw[{sty}] {pt(u)} -- {pt(v)};'
 def edge(u,v):return tuple(sorted((u,v)))
 def panel(mode='',pair=None,scale=.52,labels=False):
  scale=.72
- out=[rf'\begin{{tikzpicture}}[x={scale}cm,y={scale}cm]',r'\path[use as bounding box] (-.6,-.7) rectangle (12.6,11);']
+ out=[rf'\begin{{tikzpicture}}[x={scale}cm,y={scale}cm]',r'\path[use as bounding box] (-1.5,-1.4) rectangle (13.5,11);']
+ if mode=='incidence':out[1]=r'\path[use as bounding box] (-1.5,-2.8) rectangle (14.5,12);'
  for t in d['black']:
   if t:out.append(r'\fill[black!9] '+' -- '.join(pt(xy[v]) for v in F[t])+' -- cycle;')
  if mode=='disk':
@@ -37,7 +38,7 @@ def panel(mode='',pair=None,scale=.52,labels=False):
  if mode in ['spokes','detour']:
   for t in A:
    for v in F[t]:out.append(line(cent[t],xy[v],'spoke'))
-  for t,a,b in zip(A,r,s):
+  for t,a,b in zip(A,rr,ss):
    out.append(line(xy[a],cent[t],'dedge'));out.append(line(cent[t],xy[b],'dedge'))
  if mode=='white':
   for t,v in zip(A,sg):
@@ -47,7 +48,7 @@ def panel(mode='',pair=None,scale=.52,labels=False):
    path=[cent[ws[0]],mid[0],p,mid[1],cent[ws[1]]]
    out.append(r'\draw[wt] '+' -- '.join(pt(z) for z in path)+';')
   out.append(r'\node[draw=treegreen,circle,line width=1pt,inner sep=3pt] at '+pt(cent[d['white_root']])+' {};')
-  out.append(r'\node[anchor=north,fill=white,inner sep=.3pt] at '+pt(cent[d['white_root']]+[0,-.1])+r' {$y_0$};')
+  out.append(r'\node[anchor=south,fill=white,inner sep=.3pt] at '+pt(cent[d['white_root']]+[.2,.15])+r' {$y_0$};')
   for w in d['white']:out.append(r'\node[circle,draw=treegreen,fill=white,inner sep=1.5pt] at '+pt(cent[w])+' {};')
  if mode in ['P','trees','jordan']:
   for a,b in d['selected_edges']:out.append(line(xy[a],xy[b],'pedge'))
@@ -62,7 +63,7 @@ def panel(mode='',pair=None,scale=.52,labels=False):
  if mode=='disk':
   for t in d['disk']['faces']:out.append(r'\node[fill=white,inner sep=1pt] at '+pt(cent[t])+(' {$B$};' if t in d['black'] else ' {$W$};'))
   out.append(r'\node[anchor=north] at (6,-.8) {$B=1,\ W=2,\ I=0,\ h=5,\ l=1$};')
- out.append(r'\node[anchor=north] at (6,-.25) {$t_0$ is the outer black face};')
+ out.append(r'\node[anchor=north] at '+('(6,-2.3)' if mode=='incidence' else '(6,-.25)')+r' {$t_0$ is the outer black face};')
  out.append(r'\end{tikzpicture}');return '\n'.join(out)
 def dual_routes(es,sty):
  out=[]
@@ -85,7 +86,7 @@ outer=max(faces(G),key=len); interior=sorted(set(G)-set(outer)); gp={v:np.array(
 L=nx.laplacian_matrix(G,nodelist=interior+outer).toarray();p=np.linalg.solve(L[:len(interior),:len(interior)],-L[:len(interior),len(interior):]@np.array([gp[v] for v in outer]));gp.update(dict(zip(interior,p)))
 
 def primal(es):
- out=[r'\begin{tikzpicture}[x=.72cm,y=.72cm]',r'\path[use as bounding box] (-.6,-.7) rectangle (12.6,11);']
+ out=[r'\begin{tikzpicture}[x=.72cm,y=.72cm]',r'\path[use as bounding box] (-1.5,-1.4) rectangle (13.5,11);']
  for a,b in G.edges():out.append(line(gp[a],gp[b],'base'))
  for a,b in es:out.append(line(gp[a],gp[b],'ham'))
  for v in G:out.append(r'\node[circle,draw,fill='+('black' if v in d['black'] else 'white')+',inner sep=1.4pt] at '+pt(gp[v])+' {};')
@@ -98,12 +99,11 @@ add('01-two-factors',two(primal(d['two_factor']),primal(d['hamiltonian']),'Two c
 add('02-dual',panel(scale=.9,labels=True),r'The running Eulerian triangulation has 14 vertices and 24 faces. Grey interiors denote black faces; the unbounded face is also black. Hollow vertices are the three roots. Vertex numbers remain fixed throughout.')
 add('03-cycle-trees',two(panel('trees'),primal(d['hamiltonian']),'Two induced trees in $T$','Complementary dual cycle in $G$'),r'Every edge within either vertex class is bold. The duals of all remaining edges form the single cycle below. Circle and square classes remain distinguishable without colour.')
 add('04-state',panel('state',scale=.9),r'A blue disk marks the corner $s(t)$ inside each bounded black triangle. Every nonroot receives exactly one mark; roots receive none. This state has a disjoint partner and a forest $Q_s$.')
-add('05-pair-D',two(panel('pair',(r,s)),panel('D',(r,s))),'') if False else None
 add('05-pair-D',two(panel('pair',(r,s)),panel('D',(r,s)),'Squares: $r$; disks: $s$','$D$: arrows from $r(t)$ to $s(t)$'),r'The two states choose different corners in every black face. Their directed edges split the nonroots into three cycles. The lower panel removes corner marks to expose those cycles.')
 add('06-Q',two(panel('Q',(r,s)),panel('Q',(rg,sg)),'Cyclic $Q_s$','Forest $Q_s$'),r'Each dashed edge lies opposite the second-state mark. The upper state has a cycle; the lower has three tree components, each containing one root. The panels use different second states.')
 b=d['disk'];add('07-disk',panel('disk',(r,s),scale=.9),rf'The highlighted disk bounded by a five-edge cycle has $B={b["B"]}$, $W={b["W"]}$, $I={b["I"]}$, $h={b["h"]}$ and $l={b["l"]}$. Thus $B+W=2I+h-2$, $B=I+l$ and $2l-h=-3$. The other two cycles of $D$ are suppressed.')
 add('08-cancellation',two(panel('cancel',(r,s)),panel('cancel',d['reversed_pair']),r'$J(r,s)=3$',r'$J(\widetilde r,s)=1$'),r'Reverse the dashed cycle by moving only the square marks. Blue disks, hence $s$ and its real weight, stay fixed. The phase changes from $i^3$ to $i$, so these two terms cancel. Applying the move twice restores the first panel.')
-add('09-spokes',two(panel('D',(r,s)),panel('detour',(r,s)),'Edges of $D$','Two-spoke detours'),r'Each directed edge moves through the centre of its own black triangle. Detours have disjoint interiors and exclude the third corner. With $a(t,v)=\tfrac12\det(c_t,v)$, counterclockwise circulation is the positive area of the spoke polygon. The checked circulations are '+', '.join(f'{v:.3f}' for v in d['circulations'])+'.')
+add('09-spokes',two(panel('D',(s,r)),panel('detour',(s,r)),'Edges of $D$','Two-spoke detours'),r'Here all three cycles are oriented counterclockwise. Each directed edge moves through the centre of its own black triangle. Detours have disjoint interiors and exclude the third corner. With $a(t,v)=\tfrac12\det(c_t,v)$, counterclockwise circulation is the positive area of the spoke polygon. The checked circulations are '+', '.join(f'{v:.3f}' for v in d['circulations'])+'.')
 add('10-white-tree',two(panel('incidence'),panel('white'),'Retained incidence tree $H-s$','White-face cotree, rooted at $y_0$'),r'The dash-dot routes cross the deleted spokes $(t,s(t))$. The upper panel retains the solid spokes and deletes the dashed ones. Below, the routes join all 12 white centres in one tree with 11 edges. Each route stays within the two white faces and their common black triangle. This is the cotree of the retained incidence tree.')
 add('11-selected-Jordan',panel('jordan',scale=.85),r'The bold black edges are $P$, one side of every face. The blue Jordan curve crosses precisely the unselected edges. Its two regions separate the two components of $P$; the exterior arcs represent edges incident with the outer-face dual vertex.')
 add('12-recovered',two(panel('trees'),primal(d['hamiltonian']),'Induced tree partition','Hamiltonian cycle'),r'The recovered partition includes the prescribed outer edge in one tree. The complementary dual cycle visits each of the 24 faces once and avoids the dual of that prescribed edge. This is the same cycle as in Figures 1 and 3.')
@@ -137,6 +137,6 @@ for name,body,cap in figs:
  (O/(name+'.tex')).write_text(r'\documentclass[10pt,border=6pt]{standalone}'+'\n'+r'\usepackage{barnette-figs}'+'\n'+r'\begin{document}'+body+r'\end{document}')
 gallery=[r'\documentclass[10pt,a4paper]{amsart}',r'\usepackage[margin=1in]{geometry}',r'\usepackage{barnette-figs}',r'\begin{document}']
 for i,(name,body,cap) in enumerate(figs,1):
- gallery += [r'\section*{'+f'{i}. '+name[3:].replace('-',' ')+r'}',r'\begin{figure}[h!]\centering',r'\input{'+name+'-body.tex}',r'\caption{'+cap+r'}',r'\end{figure}',r'\clearpage']
+ gallery += [r'\section*{'+f'{i}. '+name[3:].replace('-',' ')+r'}',r'\begin{figure}[h!]\centering',r'\input{'+name+'-body.tex}',r'\caption{\textsc{'+('LIT' if i==14 else 'COMPUTED')+r'.} '+cap+r'}',r'\end{figure}',r'\clearpage']
 gallery.append(r'\end{document}');(O/'gallery.tex').write_text('\n'.join(gallery));(O/'captions.json').write_text(json.dumps({name:cap for name,_,cap in figs},indent=2))
 (O/'gluing.json').write_text(json.dumps(dict(edges=list(GL.edges()),parts=[sorted(z) for z in part]),indent=2))

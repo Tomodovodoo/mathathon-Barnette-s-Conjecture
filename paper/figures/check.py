@@ -8,7 +8,7 @@ r,s=d['cyclic_pair'];rg,sg=d['forest_pair'];Q=q(s); C=nx.cycle_basis(Q)[0]; ce={
 def flip(r,s):return [next(v for v in F[t] if v not in [x,y]) if edge(*[v for v in F[t] if v!=y]) in ce else x for t,x,y in zip(A,r,s)]
 r2=flip(r,s);assert flip(r2,s)==r and sorted(r2)==d['X'];assert all(x!=y for x,y in zip(r2,s))
 def delta(u,v):
- t=next(i for i in d['black'] if u in F[i] and v in F[i]); z=next(vv for vv in F[t] if vv not in [u,v]); val=np.cross(xy[v]-xy[u],xy[z]-xy[u]);return (1 if val>0 else -1)*(-1 if t==0 else 1)
+ t=next(i for i in d['black'] if u in F[i] and v in F[i]); z=next(vv for vv in F[t] if vv not in [u,v]); val=float(np.linalg.det(np.array([xy[v]-xy[u],xy[z]-xy[u]])));return (1 if val>0 else -1)*(-1 if t==0 else 1)
 def J(r,s):return sum(delta(u,v) for u,v in zip(r,s))//3
 assert abs(J(r2,s)-J(r,s))==2
 # White tree edges cross the deleted spokes.
@@ -30,7 +30,7 @@ match=[]
 def rec(left,es):
  if not left:
   h=G.copy();h.remove_edges_from(es)
-  if not nx.is_connected(h):match.append(list(h.edges()))
+  if nx.number_connected_components(h)==2:match.append(list(h.edges()))
   return bool(match)
  u=min(left)
  for v in G[u]:
@@ -54,3 +54,22 @@ for cycle in cycles:
  assert circ>0;circs.append(circ)
 d.update(reversed_pair=[r2,s],Q_cycle=C,white_tree=list(WT.edges()),white_root=y0,selected_edges=P,parts=parts,hamiltonian=list(HC.edges()),two_factor=match[0],dual_edges=list(G.edges()),dual_crossings=[[*e,*v] for e,v in cross.items()],disk=dict(cycle=cy,faces=sorted(inside),B=B,W=WW,I=I,h=h,l=ell),spoke_weights=weights,circulations=circs,J=[J(r,s),J(r2,s)],D_cycles=cycles)
 (O/'checked.json').write_text(json.dumps(d,indent=2)); print(d['counts'],d['disk'],'J',d['J'],'circulation',circs)
+
+assert nx.is_bipartite(G) and nx.node_connectivity(G)==3 and all(v==3 for _,v in G.degree())
+assert all(v%2==0 for _,v in T.degree())
+triangles={tuple(sorted(c)) for c in nx.enumerate_all_cliques(T) if len(c)==3}
+assert triangles=={tuple(sorted(f)) for f in F}
+assert nx.number_connected_components(nx.Graph(d['two_factor']))==2
+H=nx.Graph()
+for t in d['black']:
+ for v in F[t]:H.add_edge(('f',t),('v',v))
+H.remove_edges_from((('f',t),('v',v)) for t,v in zip(A,sg));assert nx.is_tree(H)
+for state in [r,s,r2,rg,sg]:
+ assert sorted(state)==sorted(d['X']) and all(v in F[t] for t,v in zip(A,state))
+# Strictly positive face orientation validates the saved planar straight-line layout.
+for i,f in enumerate(F):
+ a,b,c0=(xy[v] for v in f);area=float(np.linalg.det(np.array([b-a,c0-a])))
+ assert abs(area)>1e-6
+(O/'validation.json').write_text(json.dumps(dict(status='COMPUTED',states=d['counts']['states'],ordered_pairs=d['counts']['pairs'],cyclic_pairs=d['counts']['cyclic_pairs'],checks=['cubic bipartite 3-connected primal','Eulerian dual','no separating triangles','state bijections','disjoint pairs','cycle reversal involution','phase difference 2','disk identity','positive detour circulation','retained incidence tree','white-face tree','one selected edge per face','two induced trees','connected degree-two complementary dual','disconnected two-factor']),indent=2))
+assert all(sum(set(e)<=set(f) for e in P)==1 for f in F)
+

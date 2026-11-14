@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 11:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -468,7 +468,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 Non-PDF special ignored!
-<special> papersize=282.41554pt,539.64412pt
+<special> papersize=319.29012pt,568.32442pt
 {C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 (03-cycle-trees.aux)
  ***********
@@ -478,7 +478,7 @@ L3 programming layer <2025-12-24>
  ) 
 Here is how much of TeX's memory you used:
  13273 strings out of 467870
- 283891 string characters out of 5419323
+ 283893 string characters out of 5419323
  703837 words of memory out of 5000000
  41943 multiletter control sequences out of 15000+600000
  629544 words of font info for 46 fonts, out of 8000000 for 9000

@@ -34,10 +34,6 @@ def model(G):
  print(len(T),len(states),len(pairs),len(cyclic),'cyclic',flush=True)
  return T,fs,black,white,roots,A,X,states,pairs,cyclic,good,q
 if __name__=='__main__':
- pts=sorted(set(it.permutations((0,1,2))))
- pts=sorted(set(tuple(a*s for a,s in zip(p,sgn)) for p in pts for sgn in it.product((-1,1),repeat=3)))
- G=nx.Graph();G.add_nodes_from(range(len(pts)))
- G.add_edges_from((i,j) for i,j in it.combinations(G,2) if sum((a-b)**2 for a,b in zip(pts[i],pts[j]))==2)
  G=nx.read_adjlist(OUT/'running-primal.adjlist',nodetype=int)
  m=model(G)
  T,fs,black,white,roots,A,X,states,pairs,cyclic,good,q=m

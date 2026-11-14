@@ -4,7 +4,7 @@
 
 The master is a 10pt `amsart` document on A4 with 1in margins. Its text block is 15.92cm wide. Never shrink a finished PDF to make it fit. Include the `-body.tex` at natural size, or include the standalone PDF at natural size after accounting for its 6pt border.
 
-Every graph uses one TikZ unit, 0.72cm. The running triangulation's root triangle is 12 units wide, so its geometric width is 8.64cm, or 0.543 textwidth. The reserved graph envelope is 13.2 units, 9.504cm, or 0.597 textwidth. Exterior incidence routes may extend to 14 units, about 0.66 textwidth including padding. The overview uses a 10cm text box, 0.628 textwidth, with its own diagram coordinates.
+Every graph uses one TikZ unit, 0.72cm. The running triangulation's root triangle is 12 units wide, so its geometric width is 8.64cm, or 0.543 textwidth. The reserved graph envelope is 15 units, 10.8cm, or 0.678 textwidth. Exterior incidence routes may extend to 14 units; their reserved envelope is 16 units, about 0.724 textwidth including padding. The overview uses a 10cm text box, 0.628 textwidth, with its own diagram coordinates.
 
 All graph coordinates remain identical across the sequence. Panel geometry is never rescaled. Two views stack vertically in one column, separated by 4mm, rather than becoming cramped half-width figures. Panel labels are centred below each view. A figure occupies one gallery page so its caption can remain with it. The manuscript may place single panels within the text at these same widths.
 
