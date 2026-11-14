@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barnette Proof Walkthrough</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a paper figure on the left that stays put, a numbered argument on the right that drives it. */
+:root {
+  --bg: #f2f4f7;
+  --panel: #ffffff;
+  --ink: #17202b;
+  --muted: #5a6675;
+  --line: #d3dae2;
+  --face: #cbd5e1;
+  --tedge: #7a8898;
+  --pair: #1c6fd1;
+  --q: #d2530a;
+  --wtree: #7b4bc4;
+  --clsa: #008a6e;
+  --clsb: #c4358c;
+  --hl: rgba(250, 190, 20, 0.38);
+  --focus: #1c6fd1;
+  --display: "STIX Two Text", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --ui: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
+    --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff9550; --wtree: #b99aff;
+    --clsa: #30d0a6; --clsb: #ff80c2; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
+  --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff9550; --wtree: #b99aff;
+  --clsa: #30d0a6; --clsb: #ff80c2; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 15px; line-height: 1.45; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+a { color: var(--pair); }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 22px 20px 40px; display: flex; flex-direction: column; gap: 16px; }
+header.top { display: flex; flex-direction: column; gap: 6px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(25px, 3.2vw, 34px); line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -.005em; }
+.lede { font-family: var(--display); font-size: 17px; line-height: 1.45; color: var(--muted); max-width: 74ch; margin: 2px 0 0; }
+
+.bar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.bar .lab { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { border: 1px solid var(--line); background: var(--panel); border-radius: 7px; padding: 6px 10px; cursor: pointer; line-height: 1.2; text-align: left; }
+.seg button small { display: block; font-size: 11px; color: var(--muted); font-family: var(--mono); }
+.seg button:hover { border-color: var(--tedge); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.seg button[aria-pressed="true"] small { color: var(--bg); opacity: .75; }
+
+nav.steps { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; background: var(--panel); }
+nav.steps button { border: 0; border-right: 1px solid var(--line); background: transparent; padding: 9px 8px 8px; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+nav.steps button:last-child { border-right: 0; }
+nav.steps .n { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+nav.steps .t { font-size: 13px; font-weight: 600; line-height: 1.2; }
+nav.steps button:hover { background: color-mix(in srgb, var(--face) 35%, transparent); }
+nav.steps button[aria-current="step"] { background: var(--ink); color: var(--bg); }
+nav.steps button[aria-current="step"] .n { color: var(--bg); opacity: .7; }
+
+main { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.figcol { position: sticky; top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.figbox { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px; }
+svg#fig { display: block; width: 100%; height: auto; max-height: 82vh; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12.5px; color: var(--muted); padding: 0 4px; min-height: 20px; }
+.legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.legend svg { flex: none; }
+.figcap { font-family: var(--display); font-size: 15.5px; line-height: 1.4; padding: 2px 4px 4px; max-width: 66ch; }
+.figcap:empty { display: none; }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.panel h2 { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.15; margin: 0; text-wrap: balance; }
+.panel .ref { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.phead { display: flex; flex-direction: column; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.stepno { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.src { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; font-size: 13px; color: var(--muted); }
+.src .who { font-family: var(--mono); font-size: 12px; }
+.src .sect { font-family: var(--display); font-style: italic; font-size: 15px; color: var(--ink); }
+.rtag { font-family: var(--ui); font-size: 11.5px; line-height: 1.6; padding: 0 8px; border-radius: 99px; border: 1px solid var(--line); background: color-mix(in srgb, var(--face) 30%, transparent); color: var(--ink); white-space: nowrap; }
+.prose { font-family: var(--display); font-size: 16.5px; line-height: 1.5; max-width: 66ch; display: flex; flex-direction: column; gap: 10px; }
+.prose p { margin: 0; }
+.prose .claim { border-left: 3px solid var(--ink); padding: 2px 0 2px 12px; }
+.prose .claim b { font-family: var(--ui); font-size: 13px; letter-spacing: .02em; }
+.prose .cite { font-family: var(--ui); font-size: 13px; line-height: 1.45; color: var(--muted); }
+.prose .todo { font-family: var(--ui); font-size: 13px; line-height: 1.45; color: var(--muted); border: 1px dashed var(--tedge); border-radius: 6px; padding: 6px 10px; }
+.prose sub, .prose sup { font-size: .72em; line-height: 0; }
+.eq { font-family: var(--display); text-align: center; font-size: 17px; padding: 2px 0; overflow-x: auto; white-space: nowrap; }
+.do { font-family: var(--ui); font-size: 13.5px; background: color-mix(in srgb, var(--pair) 9%, transparent); border: 1px solid color-mix(in srgb, var(--pair) 30%, transparent); border-radius: 7px; padding: 8px 10px; }
+.do b { font-weight: 600; }
+.note { font-family: var(--ui); font-size: 13.5px; background: color-mix(in srgb, var(--q) 10%, transparent); border: 1px solid color-mix(in srgb, var(--q) 35%, transparent); border-radius: 7px; padding: 8px 10px; }
+
+.ctl { display: flex; flex-direction: column; gap: 8px; }
+.ctl .lab { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.ctl .lab .keep { text-transform: none; font-family: var(--display); font-style: italic; font-size: 14px; letter-spacing: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--panel); border-radius: 7px; padding: 6px 11px; cursor: pointer; }
+.btn:hover { border-color: var(--tedge); }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn[disabled] { opacity: .45; cursor: default; }
+.btn.tog { display: inline-flex; align-items: center; gap: 7px; }
+.btn.tog::before { content: ""; width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid var(--muted); background: transparent; flex: none; }
+.btn.tog[aria-pressed="true"] { background: var(--panel); color: var(--ink); border-color: var(--ink); }
+.btn.tog[aria-pressed="true"]::before { background: var(--ink); border-color: var(--ink); box-shadow: inset 0 0 0 2px var(--panel); }
+.chip { border: 1px solid var(--line); background: var(--panel); border-radius: 7px; padding: 4px 8px 4px 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.chip:hover { border-color: var(--tedge); }
+.chip[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.chip .ph { min-width: 2ch; text-align: center; font-weight: 600; }
+.tag { font-family: var(--ui); font-size: 11px; padding: 1px 6px; border-radius: 99px; border: 1px solid transparent; }
+.tag.ok { background: color-mix(in srgb, var(--clsa) 16%, transparent); color: var(--clsa); border-color: color-mix(in srgb, var(--clsa) 40%, transparent); }
+.tag.na { background: color-mix(in srgb, var(--muted) 12%, transparent); color: var(--muted); border-color: color-mix(in srgb, var(--muted) 35%, transparent); }
+.tag.cyc { background: color-mix(in srgb, var(--q) 14%, transparent); color: var(--q); border-color: color-mix(in srgb, var(--q) 40%, transparent); }
+
+dl.read { display: grid; grid-template-columns: auto 1fr; gap: 3px 14px; margin: 0; font-size: 13.5px; }
+dl.read dt { color: var(--muted); }
+dl.read dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.tw { overflow-x: auto; }
+table.z { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.z th { text-align: left; font-weight: 600; font-size: 12px; color: var(--muted); padding: 4px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.z td { padding: 4px 8px; border-bottom: 1px solid var(--line); font-family: var(--mono); white-space: nowrap; }
+table.z tr.g td { background: color-mix(in srgb, var(--face) 30%, transparent); font-family: var(--ui); font-size: 12.5px; white-space: normal; }
+table.z tr.p { cursor: pointer; }
+table.z tr.p:hover td { background: color-mix(in srgb, var(--pair) 8%, transparent); }
+table.z tr.p.cur td { box-shadow: inset 3px 0 0 var(--ink); font-weight: 600; }
+table.z td.zero { color: var(--q); }
+.pager { display: flex; justify-content: space-between; gap: 8px; margin-top: 2px; }
+footer.about { font-size: 13px; color: var(--muted); max-width: 96ch; display: flex; flex-direction: column; gap: 6px; }
+footer.about p { margin: 0; }
+.cref { border: 0; background: none; padding: 0; margin: 0; font: inherit; color: var(--pair); cursor: pointer; }
+.cref:hover { text-decoration: underline; }
+.refs { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
+.refs h2 { font-family: var(--display); font-weight: 600; font-size: 19px; color: var(--ink); margin: 0 0 8px; }
+.refs ol { list-style: none; margin: 0; padding: 0; counter-reset: r; display: flex; flex-direction: column; gap: 6px; }
+.refs li { counter-increment: r; display: grid; grid-template-columns: 2.4em minmax(0, 1fr); border-radius: 4px; }
+.refs li::before { content: "[" counter(r) "]"; font-family: var(--mono); font-size: 12px; color: var(--ink); }
+.refs li.flash { background: var(--hl); }
+
+/* figure */
+#fig .band { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); opacity: .55; }
+#fig .bf { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); }
+#fig .te { stroke: var(--tedge); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+#fig .te.dim { opacity: .35; }
+#fig .te.soft { stroke-width: 1.1; }
+#fig .tv { fill: var(--ink); stroke: var(--panel); stroke-width: 1.5; }
+#fig .tv.soft { fill: var(--tedge); }
+#fig .hlf { fill: var(--hl); }
+#fig .hit { stroke: transparent; stroke-width: 20; fill: none; cursor: pointer; }
+#fig .e0 { stroke: color-mix(in srgb, var(--ink) 60%, var(--tedge)); stroke-width: 4.5; fill: none; stroke-linecap: round; }
+#fig .e0.soft { stroke-width: 5; }
+#fig .e0.wide { stroke-width: 11; }
+.hint { font-size: 12.5px; color: var(--muted); }
+#fig .lbl { font-family: var(--display); font-style: italic; font-size: 17px; fill: var(--ink); }
+#fig .lbl.sm { font-family: var(--mono); font-style: normal; font-size: 12px; }
+#fig .lbl.halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+#fig .ge { stroke: var(--ink); stroke-width: 2.3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+#fig .ge.faint { stroke-width: 1.5; opacity: .28; stroke-dasharray: 3 4; }
+#fig .gvb { fill: var(--ink); stroke: var(--panel); stroke-width: 1.2; }
+#fig .gvw { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
+#fig .ring { stroke: var(--ink); stroke-width: 4; fill: none; }
+#fig .ring.thin { stroke-width: 1.5; opacity: .3; stroke-dasharray: 3 4; }
+#fig .ham { stroke: var(--ink); stroke-width: 5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+#fig .d { stroke: var(--pair); stroke-width: 3.6; fill: none; stroke-linecap: round; }
+#fig .dh { fill: var(--pair); }
+#fig .d.sel { stroke-width: 5.5; }
+#fig .mr { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
+#fig .ms { fill: var(--pair); stroke: var(--panel); stroke-width: 1; }
+#fig .ptr { stroke: var(--pair); stroke-width: 2.2; stroke-linecap: round; }
+#fig .q { stroke: var(--q); stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+#fig .q.hi { stroke-width: 8; opacity: .5; }
+#fig .qh { fill: var(--q); }
+#fig .q.sel { stroke-width: 6.5; }
+#fig .q.gone { stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 3 5; }
+#fig .qc { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
+#fig .wt { stroke: var(--wtree); stroke-width: 2.6; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+#fig .wth { fill: var(--wtree); }
+#fig .wn { fill: var(--panel); stroke: var(--wtree); stroke-width: 2.2; }
+#fig .wn.root { fill: var(--wtree); }
+#fig .sp { stroke: var(--muted); stroke-width: 1.1; fill: none; }
+#fig .p { stroke: var(--ink); stroke-width: 5; fill: none; stroke-linecap: round; }
+#fig .ca { stroke: var(--clsa); stroke-width: 5.5; fill: none; stroke-linecap: round; }
+#fig .cb { stroke: var(--clsb); stroke-width: 5.5; fill: none; stroke-linecap: round; }
+#fig .va { fill: var(--clsa); stroke: var(--panel); stroke-width: 1.5; }
+#fig .vb { fill: var(--clsb); stroke: var(--panel); stroke-width: 1.5; }
+#fig .vS { fill: none; stroke: var(--q); stroke-width: 3; }
+#fig .sep { stroke: var(--q); stroke-width: 5; fill: none; stroke-linejoin: round; stroke-dasharray: 2 7; stroke-linecap: round; }
+#fig .click { cursor: pointer; }
+#fig .dimmed { opacity: .25; }
+
+@media (max-width: 940px) {
+  main { grid-template-columns: minmax(0, 1fr); }
+  .figcol { position: static; }
+  nav.steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  nav.steps button:nth-child(4) { border-right: 0; }
+  nav.steps button:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 480px) {
+  .wrap { padding: 16px 16px 32px; }
+  nav.steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  nav.steps button { border-bottom: 1px solid var(--line); }
+  nav.steps button:nth-child(2n) { border-right: 0; }
+  .panel { padding: 14px 14px 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg button, .btn, .chip, nav.steps button { transition: background-color .12s, border-color .12s; }
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">OPENAI MATH RELEASE · FAMILY 180 · 24 SEPTEMBER 2026</div>
+    <h1>An exposition of OpenAI’s proof of Barnette’s conjecture</h1>
+    <p class="lede">The proof of Barnette’s conjecture in OpenAI’s release <a href="https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf" target="_blank" rel="noopener">Paired states and Hamiltonian cycles in cubic bipartite planar graphs</a> <button class="cref" data-act="ref" data-i="1">[1]</button> is visualised in eight steps below, with different example graphs.</p>
+  </header>
+  <div class="bar"><span class="lab">Example graph G</span><div class="seg" id="examples"></div></div>
+  <nav class="steps" id="steps" aria-label="Steps of the proof"></nav>
+  <main>
+    <div class="figcol">
+      <div class="figbox"><svg id="fig" viewBox="0 0 680 680" role="img" aria-label="The dual triangulation T of the chosen graph, with the objects of the current proof step drawn on it"></svg></div>
+      <div class="figcap" id="figcap"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <section class="panel" id="panel"></section>
+  </main>
+  <footer class="about">
+    <p><b>What this page checks.</b> For each example it lists every state and every pair, and recomputes the phases, the disk counts, the cancellation and the construction of step 7. That confirms the identities on these graphs. It is not a check of the proof.</p>
+    <p><b>Status of the proof.</b> The manuscript <button class="cref" data-act="ref" data-i="1">[1]</button> was produced by an unreleased OpenAI model and is not peer reviewed. The same repository contains a Lean formalisation of the main theorem (<a href="https://github.com/openai/math/blob/main/lean/docs/180.md" target="_blank" rel="noopener">lean/docs/180.md</a>), which was not re-run for this page. Zhentao Li's note <button class="cref" data-act="ref" data-i="8">[8]</button> is a condensed exposition of the same proof which, according to its abstract, replaces the exponential sum by two sign-reversing involutions.</p>
+    <p><b>Names and numbers.</b> Results are cited by the paper’s own numbers and section titles. The paper prints a name for only two of them: Lemma 4.1 (Disk identity) and Corollary 7.2 (Prescribed paths in Pfaffian graphs). “State”, “pair” and “root” are defined in its running text, not as numbered definitions.</p>
+    <p>Use the left and right arrow keys to move between steps.</p>
+    <section class="refs" aria-label="References">
+      <h2>References</h2>
+      <ol>
+        <li id="ref-1"><span>OpenAI. <i>Paired states and Hamiltonian cycles in cubic bipartite planar graphs</i>. Preprint, 24 September 2026. <a href="https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf" target="_blank" rel="noopener">github.com/openai/math</a>.</span></li>
+        <li id="ref-2"><span>B. Grünbaum. Unsolved problem 5. In W. T. Tutte, editor, <i>Recent Progress in Combinatorics: Proceedings of the Third Waterloo Conference on Combinatorics, May 1968</i>, page 343. Academic Press, New York, 1969. Conjecture attributed to D. W. Barnette.</span></li>
+        <li id="ref-3"><span>S. K. Stein. B-sets and planar maps. <i>Pacific Journal of Mathematics</i>, 37(1):217–224, 1971. <a href="https://msp.org/pjm/1971/37-1/pjm-v37-n1-p20-s.pdf" target="_blank" rel="noopener">msp.org</a>.</span></li>
+        <li id="ref-4"><span>H. Alt, M. S. Payne, J. M. Schmidt, and D. R. Wood. Thoughts on Barnette’s conjecture. <i>Australasian Journal of Combinatorics</i>, 64(2):354–365, 2016. <a href="https://arxiv.org/abs/1312.3783v1" target="_blank" rel="noopener">arXiv:1312.3783</a>.</span></li>
+        <li id="ref-5"><span>W. T. Tutte. Duality and trinity. In A. Hajnal, R. Rado, and V. T. Sós, editors, <i>Infinite and Finite Sets</i>, vol. III, volume 10 of Colloquia Mathematica Societatis János Bolyai, pages 1459–1472. North-Holland, Amsterdam, 1975.</span></li>
+        <li id="ref-6"><span>C. Hine and T. Kálmán. Clock theorems for triangulated surfaces. <a href="https://arxiv.org/abs/1808.06091v1" target="_blank" rel="noopener">arXiv:1808.06091</a>, 2018.</span></li>
+        <li id="ref-7"><span>M. Gorsky, R. Steiner, and S. Wiederrecht. Matching theory and Barnette’s conjecture. <i>Discrete Mathematics</i>, 346(2):113249, 2023. <a href="https://arxiv.org/abs/2202.11641v3" target="_blank" rel="noopener">arXiv:2202.11641</a>.</span></li>
+        <li id="ref-8"><span>Z. Li. A note on the proof of Barnette’s conjecture. <a href="https://arxiv.org/abs/2610.30490" target="_blank" rel="noopener">arXiv:2610.30490</a>, 2026.</span></li>
+      </ol>
+    </section>
+  </footer>
+</div>
+<script>
+// Core combinatorics for "Paired states and Hamiltonian cycles in cubic bipartite planar graphs".
+// Works in Node (module.exports) and in the browser (global Core).
+// Conventions: a sphere triangulation is a rotation system rot[v] = neighbours of v in
+// counterclockwise order.  The face on the LEFT of the directed edge u->v is (u, v, w) with
+// w = predecessor of u in rot[v].
+const Core = (() => {
+  'use strict';
+
+  const key = (u, v) => (u < v ? u + ',' + v : v + ',' + u);
+
+  // ---------- construction ----------
+  function fromFaces(n, faces) {
+    const nxt = Array.from({ length: n }, () => new Map());
+    for (const [a, b, c] of faces) {
+      nxt[a].set(b, c); nxt[b].set(c, a); nxt[c].set(a, b);
+    }
+    const rot = [];
+    for (let v = 0; v < n; v++) {
+      const start = nxt[v].keys().next().value;
+      const cyc = [start];
+      let cur = nxt[v].get(start);
+      while (cur !== start) {
+        if (cur === undefined || cyc.length > nxt[v].size) throw new Error('bad faces at vertex ' + v);
+        cyc.push(cur); cur = nxt[v].get(cur);
+      }
+      if (cyc.length !== nxt[v].size) throw new Error('vertex link not a single cycle at ' + v);
+      rot.push(cyc);
+    }
+    return rot;
+  }
+
+  function leftThird(rot, u, v) {
+    const r = rot[v]; const i = r.indexOf(u);
+    return r[(i - 1 + r.length) % r.length];
+  }
+
+  function listFaces(rot) {
+    const seen = new Set(); const faces = [];
+    for (let u = 0; u < rot.length; u++) for (const v of rot[u]) {
+      if (seen.has(u + '>' + v)) continue;
+      const w = leftThird(rot, u, v);
+      if (leftThird(rot, v, w) !== u || leftThird(rot, w, u) !== v) throw new Error('non-triangular face');
+      seen.add(u + '>' + v); seen.add(v + '>' + w); seen.add(w + '>' + u);
+      faces.push([u, v, w]);
+    }
+    return faces;
+  }
+
+  // octahedron on antipodal pairs (p0,q0),(p1,q1),(p2,q2); (p0,p1,p2) counterclockwise from outside
+  function octaFaces(p, q) {
+    const out = [];
+    for (let m = 0; m < 8; m++) {
+      const t = [0, 1, 2].map(i => ((m >> i) & 1 ? q[i] : p[i]));
+      const odd = ((m & 1) + ((m >> 1) & 1) + ((m >> 2) & 1)) % 2;
+      out.push(odd ? [t[0], t[2], t[1]] : t);
+    }
+    return out;
+  }
+  function bipyramid(m) { // vertices 0..m-1 equator, m = north, m+1 = south
+    const f = [];
+    for (let i = 0; i < m; i++) { const j = (i + 1) % m; f.push([m, i, j]); f.push([m + 1, j, i]); }
+    return fromFaces(m + 2, f);
+  }
+  function fromConvex(points, tris) { // orient each triangle outward
+    const det = (a, b, c) => a[0] * (b[1] * c[2] - b[2] * c[1]) - a[1] * (b[0] * c[2] - b[2] * c[0]) + a[2] * (b[0] * c[1] - b[1] * c[0]);
+    return fromFaces(points.length, tris.map(([a, b, c]) => (det(points[a], points[b], points[c]) > 0 ? [a, b, c] : [a, c, b])));
+  }
+  function tetrakisHexahedron() {
+    const P = [];
+    for (let m = 0; m < 8; m++) P.push([m & 1 ? 1 : -1, m & 2 ? 1 : -1, m & 4 ? 1 : -1]);
+    const tris = [];
+    for (let ax = 0; ax < 3; ax++) for (const sg of [-1, 1]) {
+      const c = [0, 0, 0]; c[ax] = sg * 1.5; const ci = P.length; P.push(c);
+      const vs = [];
+      for (let m = 0; m < 8; m++) if (P[m][ax] === sg) vs.push(m);
+      for (let i = 0; i < 4; i++) for (let j = i + 1; j < 4; j++) {
+        let diff = 0; for (let k = 0; k < 3; k++) if (P[vs[i]][k] !== P[vs[j]][k]) diff++;
+        if (diff === 1) tris.push([ci, vs[i], vs[j]]);
+      }
+    }
+    return fromConvex(P, tris);
+  }
+  // glue a second octahedron into face F=(x,y,z) (given counterclockwise) of a triangulation
+  function glueOctahedron(rot, F) {
+    const n = rot.length; const faces = listFaces(rot);
+    const same = (f) => f.includes(F[0]) && f.includes(F[1]) && f.includes(F[2]);
+    const keep = faces.filter(f => !same(f));
+    if (keep.length !== faces.length - 1) throw new Error('F is not a face');
+    const add = octaFaces([F[0], F[2], F[1]], [n, n + 1, n + 2]).slice(1);
+    return fromFaces(n + 3, keep.concat(add));
+  }
+  // vertex split used to grow random Eulerian triangulations (dual: insert a square face)
+  function splitVertex(rot, f, i0, j) {
+    const d = rot[f].length; if (j < 2 || j % 2 || d - j < 2) throw new Error('bad split');
+    const nb = []; for (let i = 0; i < d; i++) nb.push(rot[f][(i0 + i) % d]);
+    const R = rot.map(r => r.slice()); const f2 = R.length, q = R.length + 1;
+    R[f] = nb.slice(0, j + 1).concat([q]);
+    R.push(nb.slice(j).concat([nb[0], q]));
+    R.push([nb[0], f, nb[j], f2]);
+    const rep = (v, arr) => { const k = R[v].indexOf(f); R[v].splice(k, 1, ...arr); };
+    rep(nb[0], [f, q, f2]); rep(nb[j], [f2, q, f]);
+    for (let i = j + 1; i < d; i++) rep(nb[i], [f2]);
+    return R;
+  }
+
+  // ---------- the model ----------
+  // outer = [a,b,c] a face (any rotation / orientation of its vertex set), e0 = [u,v] an edge of it
+  function build(rot, outer, e0) {
+    const n = rot.length; const faces = listFaces(rot);
+    const fidx = new Map(); faces.forEach((f, i) => { for (let k = 0; k < 3; k++) fidx.set(f[k] + '>' + f[(k + 1) % 3], i); });
+    const leftFace = (u, v) => fidx.get(u + '>' + v);
+    const E = 0 | (faces.length * 3 / 2);
+    if (n - E + faces.length !== 2) throw new Error('not a sphere');
+    // simple?
+    for (let v = 0; v < n; v++) { if (new Set(rot[v]).size !== rot[v].length || rot[v].includes(v)) throw new Error('not simple'); }
+    const t0 = faces.findIndex(f => outer.every(x => f.includes(x)));
+    if (t0 < 0) throw new Error('outer is not a face');
+    // 2-colour faces; colour 0 = black = colour of t0
+    const col = new Array(faces.length).fill(-1); col[t0] = 0; const st = [t0];
+    while (st.length) {
+      const f = st.pop(); const F = faces[f];
+      for (let k = 0; k < 3; k++) {
+        const g = leftFace(F[(k + 1) % 3], F[k]);
+        if (col[g] < 0) { col[g] = 1 - col[f]; st.push(g); } else if (col[g] === col[f]) throw new Error('faces not 2-colourable');
+      }
+    }
+    const edges = []; const eid = new Map();
+    for (let u = 0; u < n; u++) for (const v of rot[u]) if (u < v) {
+      const L = leftFace(u, v), R = leftFace(v, u);
+      eid.set(key(u, v), edges.length);
+      edges.push({ u, v, black: col[L] === 0 ? L : R, white: col[L] === 0 ? R : L });
+    }
+    const roots = faces[t0].slice(); const isRoot = new Array(n).fill(false); roots.forEach(v => (isRoot[v] = true));
+    const A = []; faces.forEach((f, i) => { if (col[i] === 0 && i !== t0) A.push(i); });
+    const X = []; for (let v = 0; v < n; v++) if (!isRoot[v]) X.push(v);
+    const k = faces.length / 2;
+    const delta = (v, w) => (col[leftFace(v, w)] === 0 ? 1 : -1);
+    const M = { n, rot, faces, col, edges, eid, t0, roots, isRoot, A, X, k, delta, leftFace, e0: e0 ? e0.slice() : [roots[0], roots[1]] };
+    M.edgeOf = (u, v) => eid.get(key(u, v));
+    M.third = (t, a, b) => faces[t].find(x => x !== a && x !== b);
+    M.opp = (t, v) => { const o = faces[t].filter(x => x !== v); return M.edgeOf(o[0], o[1]); };
+    M.sepTriangles = separatingTriangles(M);
+    return M;
+  }
+
+  function separatingTriangles(M) {
+    const out = []; const adj = M.rot.map(r => new Set(r));
+    const isFace = new Set(M.faces.map(f => f.slice().sort((a, b) => a - b).join(',')));
+    for (let a = 0; a < M.n; a++) for (const b of M.rot[a]) if (b > a) for (const c of M.rot[b]) if (c > b && adj[a].has(c)) {
+      if (!isFace.has([a, b, c].join(','))) out.push([a, b, c]);
+    }
+    return out;
+  }
+
+  // ---------- states ----------
+  // a state is an array s with s[i] = vertex chosen by the black triangle A[i]
+  function enumerateStates(M, limit = Infinity) {
+    const out = []; const used = new Array(M.n).fill(false); const s = new Array(M.A.length).fill(-1);
+    const opts = M.A.map(t => M.faces[t].filter(v => !M.isRoot[v]));
+    const order = M.A.map((_, i) => i).sort((a, b) => opts[a].length - opts[b].length);
+    (function rec(d) {
+      if (out.length >= limit) return;
+      if (d === order.length) { out.push(s.slice()); return; }
+      const i = order[d];
+      for (const v of opts[i]) if (!used[v]) { used[v] = true; s[i] = v; rec(d + 1); used[v] = false; }
+      s[i] = -1;
+    })(0);
+    return out;
+  }
+
+  // Q_s: edge opposite s(t) for t in A.  Returns edges, component structure and a verdict.
+  function analyseQ(M, s) {
+    const qEdges = M.A.map((t, i) => M.opp(t, s[i]));
+    const par = Array.from({ length: M.n }, (_, i) => i);
+    const find = x => { while (par[x] !== x) { par[x] = par[par[x]]; x = par[x]; } return x; };
+    for (const e of qEdges) { const a = find(M.edges[e].u), b = find(M.edges[e].v); if (a !== b) par[a] = b; }
+    const comp = new Map();
+    for (let v = 0; v < M.n; v++) { const c = find(v); if (!comp.has(c)) comp.set(c, { verts: [], edges: [], roots: 0 }); const C = comp.get(c); C.verts.push(v); if (M.isRoot[v]) C.roots++; }
+    for (const e of qEdges) comp.get(find(M.edges[e].u)).edges.push(e);
+    const comps = [...comp.values()];
+    let forest = true, partnered = true, cyclic = 0;
+    for (const C of comps) {
+      const exc = C.edges.length - (C.verts.length - 1);
+      if (exc > 0) forest = false;
+      if (C.edges.length !== C.verts.length - C.roots) partnered = false;
+      else if (C.roots === 0) cyclic++;
+    }
+    return { qEdges, comps, forest, partnered, cyclicComps: cyclic, partners: partnered ? 2 ** cyclic : 0 };
+  }
+
+  // all partners r of s (states with r(t) != s(t) everywhere)
+  function partnersOf(M, s, limit = Infinity) {
+    const out = []; const used = new Array(M.n).fill(false); const r = new Array(M.A.length).fill(-1);
+    const opts = M.A.map((t, i) => M.faces[t].filter(v => !M.isRoot[v] && v !== s[i]));
+    const order = M.A.map((_, i) => i).sort((a, b) => opts[a].length - opts[b].length);
+    (function rec(d) {
+      if (out.length >= limit) return;
+      if (d === order.length) { out.push(r.slice()); return; }
+      const i = order[d];
+      for (const v of opts[i]) if (!used[v]) { used[v] = true; r[i] = v; rec(d + 1); used[v] = false; }
+      r[i] = -1;
+    })(0);
+    return out;
+  }
+
+  // side of a simple closed vertex cycle not containing t0: faces, interior vertices
+  function disk(M, cyc) {
+    const onC = new Set(); const h = cyc.length;
+    for (let i = 0; i < h; i++) onC.add(key(cyc[i], cyc[(i + 1) % h]));
+    const seen = new Array(M.faces.length).fill(false); seen[M.t0] = true; const st = [M.t0];
+    while (st.length) {
+      const f = st.pop(); const F = M.faces[f];
+      for (let k = 0; k < 3; k++) {
+        const a = F[k], b = F[(k + 1) % 3]; if (onC.has(key(a, b))) continue;
+        const g = M.leftFace(b, a); if (!seen[g]) { seen[g] = true; st.push(g); }
+      }
+    }
+    const inside = []; for (let f = 0; f < M.faces.length; f++) if (!seen[f]) inside.push(f);
+    const cs = new Set(cyc); const iv = new Set();
+    for (const f of inside) for (const v of M.faces[f]) if (!cs.has(v)) iv.add(v);
+    return { faces: inside, interior: [...iv] };
+  }
+
+  // data of a directed simple cycle (vertex list in travel order)
+  function cycleData(M, cyc) {
+    const h = cyc.length; const D = disk(M, cyc); const inSet = new Set(D.faces);
+    let dsum = 0, l = 0, leftIn = 0;
+    for (let i = 0; i < h; i++) {
+      const a = cyc[i], b = cyc[(i + 1) % h];
+      dsum += M.delta(a, b);
+      if (inSet.has(M.leftFace(a, b))) leftIn++;
+      if (inSet.has(M.edges[M.edgeOf(a, b)].black)) l++;
+    }
+    if (leftIn !== 0 && leftIn !== h) throw new Error('cycle is not simple');
+    const B = D.faces.filter(f => M.col[f] === 0).length, W = D.faces.length - B;
+    return { verts: cyc.slice(), h, ccw: leftIn === h, deltaSum: dsum, l, I: D.interior.length, B, W, faces: D.faces, interior: D.interior };
+  }
+
+  // D(r,s): the directed cycles r(t) -> s(t)
+  function pairCycles(M, r, s) {
+    const next = new Map(), tri = new Map();
+    M.A.forEach((t, i) => { next.set(r[i], s[i]); tri.set(r[i], i); });
+    const seen = new Set(); const cycles = [];
+    for (const v of M.X) {
+      if (seen.has(v)) continue;
+      const cyc = []; const tris = []; let x = v;
+      while (!seen.has(x)) { seen.add(x); cyc.push(x); tris.push(tri.get(x)); x = next.get(x); }
+      const cd = cycleData(M, cyc); cd.tris = tris; cycles.push(cd);
+    }
+    return cycles;
+  }
+  function Jof(M, r, s) { let t = 0; M.A.forEach((_, i) => { t += M.delta(r[i], s[i]); }); return t / 3; }
+
+  // the directed cycles of Q_s under the orientation r(t) -> u(t)
+  function qCycles(M, r, s) {
+    const next = new Map(), tri = new Map();
+    M.A.forEach((t, i) => { const u = M.third(t, r[i], s[i]); next.set(r[i], u); tri.set(r[i], i); });
+    const state = new Map(); const cycles = [];
+    for (const v0 of M.X) {
+      if (state.has(v0)) continue;
+      const path = []; let x = v0;
+      while (x !== undefined && !state.has(x) && next.has(x)) { state.set(x, 1); path.push(x); x = next.get(x); }
+      if (x !== undefined && state.get(x) === 1) {
+        const cyc = path.slice(path.indexOf(x)); const cd = cycleData(M, cyc); cd.tris = cyc.map(v => tri.get(v)); cycles.push(cd);
+      }
+      for (const p of path) state.set(p, 2);
+    }
+    return cycles;
+  }
+  // the involution in the proof of Lemma 5.2: reverse one directed cycle of Q_s
+  function flip(M, r, s, cyc) {
+    const r2 = r.slice();
+    for (const i of cyc.tris) r2[i] = M.third(M.A[i], r[i], s[i]);
+    return r2;
+  }
+
+  // ---------- positive spoke circulation (Lemma 5.3) ----------
+  // a[i][v] for t = A[i], v in V(t)
+  function circulation(M) {
+    const nearOuter = new Set(); const F0 = M.faces[M.t0];
+    for (let k = 0; k < 3; k++) nearOuter.add(M.edges[M.edgeOf(F0[k], F0[(k + 1) % 3])].white);
+    const OUT = -1; const reg = f => (nearOuter.has(f) ? OUT : f);
+    // spokes: (i, v) with left / right white faces when walking centre -> v
+    const spokes = []; const a = M.A.map(() => ({}));
+    M.A.forEach((t, i) => {
+      const F = M.faces[t];
+      for (let k = 0; k < 3; k++) {
+        const v = F[k], vp = F[(k + 1) % 3], vm = F[(k + 2) % 3];
+        spokes.push({ i, v, L: reg(M.edges[M.edgeOf(v, vp)].white), R: reg(M.edges[M.edgeOf(vm, v)].white) });
+        a[i][v] = 0;
+      }
+    });
+    const adj = new Map();
+    const push = (f, o) => { if (!adj.has(f)) adj.set(f, []); adj.get(f).push(o); };
+    spokes.forEach(sp => { push(sp.L, { to: sp.R, sp, leaving: 'L' }); push(sp.R, { to: sp.L, sp, leaving: 'R' }); });
+    const bounded = []; for (let f = 0; f < M.faces.length; f++) if (M.col[f] === 1 && !nearOuter.has(f)) bounded.push(f);
+    for (const f of bounded) {
+      const prev = new Map([[f, null]]); const qu = [f]; let hit = false;
+      while (qu.length && !hit) {
+        const x = qu.shift();
+        for (const o of adj.get(x) || []) if (!prev.has(o.to)) { prev.set(o.to, { from: x, o }); if (o.to === OUT) { hit = true; break; } qu.push(o.to); }
+      }
+      if (!hit) throw new Error('spoke graph H0 not connected');
+      let x = OUT;
+      while (prev.get(x)) { const { from, o } = prev.get(x); a[o.sp.i][o.sp.v] += o.leaving === 'L' ? 1 : -1; x = from; }
+    }
+    return a;
+  }
+  function omega(M, a, s) { let t = 0; s.forEach((v, i) => { t += a[i][v]; }); return t; }
+
+  // ---------- from a forest pair to the two induced trees (Section 6) ----------
+  function construct(M, r, s, e0) {
+    e0 = e0 || M.e0; const e0id = M.edgeOf(e0[0], e0[1]);
+    const y0 = M.edges[e0id].white;
+    // white tree: one edge per t in A joining the white faces across the two sides of t at s(t)
+    const wadj = new Map(); const wEdges = [];
+    M.A.forEach((t, i) => {
+      const F = M.faces[t]; const o = F.filter(x => x !== s[i]);
+      const ea = M.edgeOf(s[i], o[0]), eb = M.edgeOf(s[i], o[1]);
+      const fa = M.edges[ea].white, fb = M.edges[eb].white;
+      wEdges.push({ i, t, fa, fb, ea, eb });
+      for (const [x, y, e] of [[fa, fb, eb], [fb, fa, ea]]) { if (!wadj.has(x)) wadj.set(x, []); wadj.get(x).push({ to: y, i, edgeAtTo: e }); }
+    });
+    // BFS from y0; the edge of t bordering the endpoint farther from y0 is selected
+    const depth = new Map([[y0, 0]]); const parent = new Map(); const qu = [y0]; const sel = new Array(M.A.length).fill(-1);
+    while (qu.length) {
+      const x = qu.shift();
+      for (const o of wadj.get(x) || []) {
+        if (depth.has(o.to)) { continue; }
+        depth.set(o.to, depth.get(x) + 1); parent.set(o.to, { from: x, i: o.i }); sel[o.i] = o.edgeAtTo; qu.push(o.to);
+      }
+    }
+    const whiteCount = M.faces.length / 2;
+    const isTree = depth.size === whiteCount && !sel.includes(-1);
+    const P0 = sel.slice(); const P = P0.concat([e0id]); const inP = new Set(P);
+    // components of P
+    const par = Array.from({ length: M.n }, (_, i) => i);
+    const find = x => { while (par[x] !== x) { par[x] = par[par[x]]; x = par[x]; } return x; };
+    let acyclic = true;
+    for (const e of P) { const a = find(M.edges[e].u), b = find(M.edges[e].v); if (a === b) acyclic = false; else par[a] = b; }
+    const reps = [...new Set(Array.from({ length: M.n }, (_, v) => find(v)))];
+    const cls = Array.from({ length: M.n }, (_, v) => reps.indexOf(find(v)));
+    // Hamiltonian cycle of G = T*: faces are vertices, non-selected edges are the cycle edges
+    const nb = M.faces.map(() => []);
+    M.edges.forEach((e, id) => { if (!inP.has(id)) { nb[e.black].push({ f: e.white, id }); nb[e.white].push({ f: e.black, id }); } });
+    const twoReg = nb.every(x => x.length === 2);
+    let ham = null;
+    if (twoReg) {
+      const seq = [M.t0]; const eseq = []; let prevE = -1, cur = M.t0;
+      for (;;) { const o = nb[cur][0].id !== prevE ? nb[cur][0] : nb[cur][1]; eseq.push(o.id); prevE = o.id; cur = o.f; if (cur === M.t0) break; seq.push(cur); if (seq.length > M.faces.length) break; }
+      if (seq.length === M.faces.length) ham = { faces: seq, edges: eseq };
+    }
+    // induced check
+    let induced = true;
+    M.edges.forEach((e, id) => { if ((cls[e.u] === cls[e.v]) !== inP.has(id)) induced = false; });
+    const ok = isTree && acyclic && reps.length === 2 && !!ham && induced && cls[e0[0]] === cls[e0[1]] && cls[M.roots.find(x => x !== e0[0] && x !== e0[1])] !== cls[e0[0]];
+    return { ok, y0, wEdges, parent, depth, sel, P0, P, e0id, cls, ham, isTree, acyclic, comps: reps.length, induced };
+  }
+
+  // find one forest pair by backtracking (for larger triangulations)
+  function findForestPair(M) {
+    const m = M.A.length; const s = new Array(m).fill(-1); const used = new Array(M.n).fill(false);
+    const opts = M.A.map(t => M.faces[t].filter(v => !M.isRoot[v]));
+    const order = M.A.map((_, i) => i).sort((a, b) => opts[a].length - opts[b].length);
+    let found = null;
+    // union-find with rollback, tracking #roots per component
+    const par = Array.from({ length: M.n }, (_, i) => i); const rootsIn = M.isRoot.map(x => (x ? 1 : 0)); const rank = new Array(M.n).fill(0);
+    const find = x => { while (par[x] !== x) x = par[x]; return x; };
+    (function rec(d) {
+      if (found) return;
+      if (d === m) { found = s.slice(); return; }
+      const i = order[d];
+      for (const v of opts[i]) {
+        if (used[v]) continue;
+        const e = M.edges[M.opp(M.A[i], v)]; let a = find(e.u), b = find(e.v);
+        if (a === b || rootsIn[a] + rootsIn[b] > 1) continue;
+        if (rank[a] < rank[b]) [a, b] = [b, a];
+        const bump = rank[a] === rank[b]; par[b] = a; rootsIn[a] += rootsIn[b]; if (bump) rank[a]++;
+        used[v] = true; s[i] = v;
+        rec(d + 1);
+        used[v] = false; s[i] = -1; par[b] = b; rootsIn[a] -= rootsIn[b]; if (bump) rank[a]--;
+        if (found) return;
+      }
+    })(0);
+    if (!found) return null;
+    const rs = partnersOf(M, found, 2);
+    return rs.length ? { r: rs[0], s: found } : null;
+  }
+
+  // ---------- separating triangles: cut, solve, glue (Section 7) ----------
+  // returns { cls } labelling of vertices (two induced trees), following the paper's induction
+  function solve(rot, outer, e0, log) {
+    const M = build(rot, outer, e0);
+    if (!M.sepTriangles.length) {
+      const p = findForestPair(M); if (!p) throw new Error('no forest pair found');
+      const c = construct(M, p.r, p.s, e0); if (!c.ok) throw new Error('construction failed');
+      return { cls: c.cls, M, pair: p, pieces: null };
+    }
+    const tri = M.sepTriangles[0]; const onT = new Set([key(tri[0], tri[1]), key(tri[1], tri[2]), key(tri[0], tri[2])]);
+    const side = new Array(M.faces.length).fill(-1); side[M.t0] = 0; const st = [M.t0];
+    while (st.length) {
+      const f = st.pop(); const F = M.faces[f];
+      for (let k = 0; k < 3; k++) { const a = F[k], b = F[(k + 1) % 3]; if (onT.has(key(a, b))) continue; const g = M.leftFace(b, a); if (side[g] < 0) { side[g] = 0; st.push(g); } }
+    }
+    const piece = (which) => {
+      const fs = M.faces.filter((_, f) => (side[f] === 0) === (which === 0));
+      // cap: reverse of the boundary direction used by the kept faces
+      let cap = null;
+      for (const F of fs) for (let k = 0; k < 3; k++) {
+        const a = F[k], b = F[(k + 1) % 3];
+        if (onT.has(key(a, b))) { const c = tri.find(x => x !== a && x !== b); cap = [b, a, c]; }
+      }
+      const all = fs.concat([cap]); const ids = [...new Set(all.flat())].sort((x, y) => x - y);
+      const loc = new Map(ids.map((v, i) => [v, i]));
+      return { rot: fromFaces(ids.length, all.map(F => F.map(v => loc.get(v)))), ids, loc, cap };
+    };
+    const p0 = piece(0), p1 = piece(1);
+    const r0 = solve(p0.rot, outer.map(v => p0.loc.get(v)), e0.map(v => p0.loc.get(v)), log);
+    const lab = new Array(M.n).fill(-1);
+    p0.ids.forEach((v, i) => { lab[v] = r0.cls[i]; });
+    // same-label edge of the cap is prescribed in the other piece
+    const [x, y, z] = tri; const pairE = lab[x] === lab[y] ? [x, y] : lab[x] === lab[z] ? [x, z] : [y, z];
+    const r1 = solve(p1.rot, tri.map(v => p1.loc.get(v)), pairE.map(v => p1.loc.get(v)), log);
+    const flipLab = r1.cls[p1.loc.get(pairE[0])] !== lab[pairE[0]];
+    p1.ids.forEach((v, i) => { const c = flipLab ? 1 - r1.cls[i] : r1.cls[i]; if (lab[v] >= 0 && lab[v] !== c) throw new Error('labels disagree on the cap'); lab[v] = c; });
+    if (log) log.push({ tri, sizes: [p0.ids.length, p1.ids.length] });
+    return { cls: lab, M, pieces: [{ ids: p0.ids, sub: r0 }, { ids: p1.ids, sub: r1, e0: pairE }], tri };
+  }
+
+  // check a 2-labelling: both classes induce trees; return the Hamiltonian cycle of the dual
+  function checkPartition(M, cls) {
+    const inP = new Set(); M.edges.forEach((e, id) => { if (cls[e.u] === cls[e.v]) inP.add(id); });
+    const cnt = [0, 0]; cls.forEach(c => cnt[c]++);
+    const ecnt = [0, 0]; M.edges.forEach((e) => { if (cls[e.u] === cls[e.v]) ecnt[cls[e.u]]++; });
+    const par = Array.from({ length: M.n }, (_, i) => i);
+    const find = x => { while (par[x] !== x) { par[x] = par[par[x]]; x = par[x]; } return x; };
+    let acyclic = true;
+    for (const id of inP) { const e = M.edges[id]; const a = find(e.u), b = find(e.v); if (a === b) acyclic = false; else par[a] = b; }
+    const trees = acyclic && ecnt[0] === cnt[0] - 1 && ecnt[1] === cnt[1] - 1 && cnt[0] > 0 && cnt[1] > 0;
+    const nb = M.faces.map(() => []);
+    M.edges.forEach((e, id) => { if (!inP.has(id)) { nb[e.black].push({ f: e.white, id }); nb[e.white].push({ f: e.black, id }); } });
+    let ham = null;
+    if (nb.every(x => x.length === 2)) {
+      const seq = [M.t0]; const eseq = []; let prevE = -1, cur = M.t0;
+      for (;;) { const o = nb[cur][0].id !== prevE ? nb[cur][0] : nb[cur][1]; eseq.push(o.id); prevE = o.id; cur = o.f; if (cur === M.t0) break; seq.push(cur); if (seq.length > M.faces.length) break; }
+      if (seq.length === M.faces.length) ham = { faces: seq, edges: eseq };
+    }
+    return { trees, ham, P: [...inP] };
+  }
+
+  return { key, fromFaces, listFaces, leftThird, octaFaces, bipyramid, tetrakisHexahedron, glueOctahedron, splitVertex, fromConvex,
+    build, enumerateStates, analyseQ, partnersOf, disk, cycleData, pairCycles, Jof, qCycles, flip, circulation, omega, construct,
+    findForestPair, solve, checkPartition, separatingTriangles };
+})();
+
+
+</script>
+<script>
+const EXAMPLES = (() => {
+  const C = Core;
+  const oct = C.fromFaces(6, C.octaFaces([0, 1, 2], [3, 4, 5]));
+  const tk = C.tetrakisHexahedron();
+  const coords = {"cube":{"top":0,"P":[[0,1],[0.866,-0.5],[-0.866,-0.5],[0,-0.452],[-0.392,0.226],[0.392,0.226]]},"prism6":{"top":0,"P":[[0,1],[-0.866,-0.5],[-0.242,-0.634],[0.031,-0.263],[0.243,0.104],[0.428,0.527],[-0.5,0.289],[0.866,-0.5]]},"g20":{"top":0,"P":[[0,1],[-0.866,-0.5],[-0.652,0.383],[-0.346,0.034],[-0.165,0.482],[0.866,-0.5],[0.144,-0.317],[0.202,0.283],[-0.005,-0.756],[-0.335,-0.384],[0.499,-0.098],[0.657,0.373]]},"perm":{"top":0,"P":[[0,1],[-0.257,0.457],[-0.866,-0.5],[-0.524,-0.006],[0.77,0.159],[0.248,0.17],[0.247,-0.746],[-0.023,-0.299],[0.866,-0.5],[-0.138,0.08],[0.143,0.545],[-0.401,-0.397],[-0.693,0.4],[0.343,-0.198]]},"g28":{"top":0,"P":[[0,1],[-0.866,-0.5],[-0.128,-0.084],[0.306,-0.306],[0.7,0.437],[0.866,-0.5],[-0.692,0.384],[-0.304,0.412],[0.353,-0.009],[0.543,0.173],[-0.077,-0.811],[0.032,-0.518],[-0.508,-0.054],[-0.434,-0.434],[0.158,0.578],[0.033,0.23]]},"glued":{"top":0,"P":[[0,1],[0.866,-0.5],[-0.866,-0.5],[0,-0.548],[-0.717,-0.124],[0.717,-0.124],[0.162,0.063],[-0.264,0.222],[0.099,0.481]]}};
+  const list = [
+    { id: 'cube', name: 'Cube', sub: '8 vertices', rot: oct, outer: [0, 1, 2] },
+    { id: 'prism6', name: 'Hexagonal prism', sub: '12 vertices', rot: C.bipyramid(6), outer: [7, 1, 0] },
+    { id: 'g20', name: '20-vertex graph', sub: '6 squares, 6 hexagons', rot: [[5,1,2,4,7,11],[2,0,5,8,9,3],[0,1,3,4],[6,7,4,2,1,9],[0,2,3,7],[1,0,11,10,6,8],[3,9,8,5,10,7],[10,11,0,4,3,6],[1,5,6,9],[6,3,1,8],[7,6,5,11],[5,0,7,10]], outer: [0, 5, 1] },
+    { id: 'perm', name: 'Truncated octahedron', sub: '24 vertices', rot: tk, outer: C.listFaces(tk)[0] },
+    { id: 'g28', name: '28-vertex graph', sub: 'with an octagon', rot: [[1,6,7,14,4,5],[6,0,5,10,13,12],[7,12,11,3,8,15],[5,8,2,11],[5,0,14,9],[1,0,4,9,8,3,11,10],[0,1,12,7],[12,2,15,14,0,6],[14,15,2,3,5,9],[5,4,14,8],[1,5,11,13],[5,3,2,12,13,10],[11,2,7,6,1,13],[1,10,11,12],[8,9,4,0,7,15],[7,2,8,14]], outer: [0, 5, 1] },
+    { id: 'glued', name: 'Two cubes, glued', sub: '14 vertices, a 3-edge cut', rot: C.glueOctahedron(oct, [0, 4, 5]), outer: [0, 1, 2] },
+  ];
+  return list.map(e => Object.assign(e, coords[e.id]));
+})();
+</script>
+<script>
+// Interactive walkthrough. Depends on Core (core.js) and EXAMPLES (examples with coordinates).
+(() => {
+  'use strict';
+  const C = Core, NS = 'http://www.w3.org/2000/svg';
+  const CX = 340, CY = 340, RT = 258, RG = 304;
+  const STEPS = [
+    { id: 'dual', t: 'Set Up: The dual formulation', sec: '§1.1', sect: 'The dual problem and the proof strategy', res: ['Theorem 2.2'] },
+    { id: 'states', t: 'States', sec: '§2', sect: 'Plane trees and the triangulation statement', res: [] },
+    { id: 'pairs', t: 'Two disjoint states', sec: '§3', sect: 'Two disjoint states', res: ['Proposition 3.1'] },
+    { id: 'disk', t: 'Disk identity', sec: '§4', sect: 'The disk identity', res: ['Lemma 4.1 (Disk identity)'] },
+    { id: 'flip', t: 'Reversing a cycle', sec: '§5.1', sect: 'Cancellation', res: ['Lemma 5.2'] },
+    { id: 'sum', t: 'The sum Z(x)', sec: '§5', sect: 'A weighted cancellation argument', res: ['Proposition 5.1', 'Lemma 5.3'] },
+    { id: 'trees', t: 'Forest to trees', sec: '§6', sect: 'Recovering the two induced trees', res: ['Lemma 6.1', 'Lemma 6.2'] },
+    { id: 'glue', t: 'Cut and glue', sec: '§7', sect: 'Separating triangles and the Hamiltonian cycle', res: ['Theorem 1.1', 'Corollary 7.1', 'Corollary 7.2'] },
+  ];
+  const S = { ex: 2, step: 0, e0k: 0, pair: 0, st: 0, cyc: 0, sub7: 0, sub8: 0, showG: true, showT: true, peek: false, showQ: false, ztab: 's', note: '', hideE0: false };
+  let D = null;
+
+  // ---------- small helpers ----------
+  const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+  const f1 = x => (Math.round(x * 10) / 10).toString();
+  const pt = p => f1(p[0]) + ',' + f1(p[1]);
+  const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const arcPt = (deg, R) => [CX + R * Math.cos(deg * Math.PI / 180), CY - R * Math.sin(deg * Math.PI / 180)];
+  const angDiff = (a, b) => ((b - a + 540) % 360) - 180;
+  const PH = ['1', 'i', '−1', '−i'];
+  const ph = J => PH[((J % 4) + 4) % 4];
+  const sgn = x => (x < 0 ? '−' + (-x) : '' + x);
+  const cplx = (re, im) => { if (!re && !im) return '0'; if (!im) return sgn(re); const iPart = (im === 1 ? '' : im === -1 ? '−' : sgn(im)) + 'i'; return re ? sgn(re) + (im > 0 ? ' + ' : ' ') + iPart : iPart; };
+  const iPow = J => [[1, 0], [0, 1], [-1, 0], [0, -1]][((J % 4) + 4) % 4];
+  const fact = m => (m <= 1 ? 1 : m * fact(m - 1));
+  const plural = (n, w) => n + ' ' + w + (n === 1 ? '' : 's');
+  const cref = (n, extra) => `<button class="cref" data-act="ref" data-i="${n}" title="Go to reference ${n}">[${n}${extra ? ', ' + extra : ''}]</button>`;
+
+  // ---------- geometry of the current example ----------
+  const isOuter = (u, v) => D.M.isRoot[u] && D.M.isRoot[v];
+  function edgePt(u, v, t) {
+    if (isOuter(u, v)) { const a = D.rootAng[u]; return arcPt(a + t * angDiff(a, D.rootAng[v]), RT); }
+    return lerp(D.pos[u], D.pos[v], t);
+  }
+  function edgeLen(u, v) { return isOuter(u, v) ? RT * Math.abs(angDiff(D.rootAng[u], D.rootAng[v])) * Math.PI / 180 : dist(D.pos[u], D.pos[v]); }
+  function edgeD(u, v, shrink = 0) {
+    const L = edgeLen(u, v), t0 = shrink / L, t1 = 1 - shrink / L;
+    const a = edgePt(u, v, t0), b = edgePt(u, v, t1);
+    if (isOuter(u, v)) return `M${pt(a)} A${RT},${RT} 0 0 ${angDiff(D.rootAng[u], D.rootAng[v]) < 0 ? 1 : 0} ${pt(b)}`;
+    return `M${pt(a)} L${pt(b)}`;
+  }
+  function edgeAngle(u, v, t) { const a = edgePt(u, v, t - 0.02), b = edgePt(u, v, t + 0.02); return Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI; }
+  const eUV = id => [D.M.edges[id].u, D.M.edges[id].v];
+  const centroid = f => { const p = D.M.faces[f].map(v => D.pos[v]); return [(p[0][0] + p[1][0] + p[2][0]) / 3, (p[0][1] + p[1][1] + p[2][1]) / 3]; };
+  function faceD(f) {
+    const F = D.M.faces[f]; const rs = F.filter(v => D.M.isRoot[v]);
+    if (rs.length === 2) { const v = F.find(x => !D.M.isRoot[x]); return `M${pt(D.pos[v])} L${edgeD(rs[0], rs[1]).slice(1)} Z`; }
+    return 'M' + F.map(v => pt(D.pos[v])).join(' L') + ' Z';
+  }
+  function markerPos(t, v) { const c = centroid(t), p = D.pos[v]; const d = dist(c, p); return lerp(p, c, Math.min(0.55, Math.max(0.25, 15 / d))); }
+  function gEdgeD(id) {
+    const E = D.M.edges[id]; const m = edgePt(E.u, E.v, 0.5);
+    if (E.black === D.M.t0) { const a = D.rootAng[E.u] + 0.5 * angDiff(D.rootAng[E.u], D.rootAng[E.v]); return `M${pt(D.fc[E.white])} L${pt(m)} L${pt(arcPt(a, RG))}`; }
+    return `M${pt(D.fc[E.black])} L${pt(m)} L${pt(D.fc[E.white])}`;
+  }
+  function arrowHead(g, p, deg, size, cls, extra) { return mk('path', Object.assign({ d: `M${f1(size)},0 L${f1(-size * 0.75)},${f1(size * 0.72)} L${f1(-size * 0.75)},${f1(-size * 0.72)} Z`, transform: `translate(${pt(p)}) rotate(${f1(deg)})`, class: cls }, extra || {}), g); }
+  function arrowEdge(g, u, v, cls, hcls, extra, at = 0.56, size = 8) {
+    mk('path', Object.assign({ d: edgeD(u, v, 7), class: cls }, extra || {}), g);
+    arrowHead(g, edgePt(u, v, at), edgeAngle(u, v, at), size, hcls, extra);
+  }
+
+  // ---------- prepare an example ----------
+  function prepare(exi) {
+    const ex = EXAMPLES[exi];
+    const M = C.build(ex.rot, ex.outer, null);
+    D = { ex, M };
+    D.pos = ex.P.map(p => [CX + RT * p[0], CY - RT * p[1]]);
+    D.rootAng = {}; M.roots.forEach(v => { D.rootAng[v] = Math.atan2(ex.P[v][1], ex.P[v][0]) * 180 / Math.PI; });
+    const F0 = M.faces[M.t0];
+    D.outerEdges = [0, 1, 2].map(k => [F0[k], F0[(k + 1) % 3]]);
+    S.e0k = Math.max(0, D.outerEdges.findIndex(e => !e.includes(ex.top)));
+    D.fc = M.faces.map((F, i) => {
+      if (i === M.t0) return null;
+      const rs = F.filter(v => M.isRoot[v]);
+      if (rs.length === 2) { const v = F.find(x => !M.isRoot[x]); return lerp(D.pos[v], edgePt(rs[0], rs[1], 0.5), 0.52); }
+      return centroid(i);
+    });
+    D.states = C.enumerateStates(M);
+    D.qinfo = D.states.map(s => C.analyseQ(M, s));
+    D.a = C.circulation(M);
+    D.omega = D.states.map(s => C.omega(M, D.a, s));
+    D.pairs = []; const groups = new Map();
+    D.states.forEach((s, si) => {
+      if (!D.qinfo[si].partners) return;
+      for (const r of C.partnersOf(M, s)) {
+        const cycles = C.pairCycles(M, r, s).sort((x, y) => Math.min(...x.verts) - Math.min(...y.verts));
+        for (const c of cycles) {
+          let Lp = 0, Lm = 0;
+          for (let j = 0; j < c.h; j++) { const i = c.tris[j], tail = c.verts[j], head = c.verts[(j + 1) % c.h]; if (c.ccw) { Lp += D.a[i][head]; Lm += D.a[i][tail]; } else { Lp += D.a[i][tail]; Lm += D.a[i][head]; } }
+          c.Lp = Lp; c.Lm = Lm; c.gap = Lp - Lm;
+        }
+        const dkey = M.A.map((t, i) => C.key(r[i], s[i])).join('|');
+        if (!groups.has(dkey)) groups.set(dkey, { id: groups.size, c: cycles.length, cyc: cycles.map(c => ({ Lp: c.Lp, Lm: c.Lm, gap: c.gap, h: c.h })), members: [] });
+        const G = groups.get(dkey); G.members.push(D.pairs.length);
+        D.pairs.push({ r, s, si, J: C.Jof(M, r, s), cycles, forest: D.qinfo[si].forest, gid: G.id });
+      }
+    });
+    D.groups = [...groups.values()];
+    D.cmin = D.groups.length ? Math.min(...D.groups.map(g => g.c)) : 0;
+    D.lead = D.groups.filter(g => g.c === D.cmin).reduce((t, g) => t + g.cyc.reduce((x, c) => x * c.gap, 1), 0);
+    D.moments = [];
+    for (let m = 0; m <= D.cmin && D.pairs.length; m++) {
+      let re = 0, im = 0;
+      for (const p of D.pairs) if (p.forest) { const z = iPow(p.J), w = D.omega[p.si] ** m; re += z[0] * w; im += z[1] * w; }
+      D.moments.push([re / fact(m), im / fact(m)]);
+    }
+    D.firstForest = D.pairs.findIndex(p => p.forest);
+    D.firstCyclic = D.pairs.findIndex(p => !p.forest);
+    // if no pair exists, exhibit a set S violating the flow condition
+    D.violator = null;
+    if (!D.pairs.length && M.X.length <= 16) {
+      let best = null;
+      for (let mask = 1; mask < (1 << M.X.length); mask++) {
+        const inS = new Set(M.X.filter((_, j) => (mask >> j) & 1));
+        const contrib = M.A.map(t => Math.min(2, M.faces[t].filter(v => inS.has(v)).length));
+        const sum = contrib.reduce((x, y) => x + y, 0);
+        if (sum < 2 * inS.size && (!best || inS.size < best.S.size)) best = { S: inS, contrib, sum };
+      }
+      D.violator = best;
+    }
+    S.pair = D.firstCyclic >= 0 ? D.firstCyclic : 0; S.st = D.pairs.length ? D.pairs[S.pair].si : 0; S.cyc = 0; S.note = '';
+    resolve();
+  }
+  function e0() { return D.outerEdges[S.e0k]; }
+  function resolve() {
+    D.sol = C.solve(D.ex.rot, D.ex.outer, e0());
+    D.solChk = C.checkPartition(D.M, D.sol.cls);
+  }
+  const curPair = () => D.pairs[S.pair] || null;
+  function construction() { const p = curPair(); return p && p.forest ? C.construct(D.M, p.r, p.s, e0()) : null; }
+
+  // ---------- figure layers ----------
+  function drawBase(g, o = {}) {
+    const M = D.M;
+    mk('path', { class: 'band', 'fill-rule': 'evenodd', d: `M${CX - RG},${CY} a${RG},${RG} 0 1 0 ${2 * RG},0 a${RG},${RG} 0 1 0 ${-2 * RG},0 Z M${CX - RT},${CY} a${RT},${RT} 0 1 0 ${2 * RT},0 a${RT},${RT} 0 1 0 ${-2 * RT},0 Z` }, g);
+    M.faces.forEach((F, i) => { if (i !== M.t0 && M.col[i] === 0) mk('path', { d: faceD(i), class: 'bf' }, g); });
+    if (o.hlFaces) for (const f of o.hlFaces) if (f !== M.t0) mk('path', { d: faceD(f), class: 'hlf' }, g);
+    if (o.noEdges) return;
+    M.edges.forEach((E) => { const dim = o.dim || (o.dimEdge && o.dimEdge(E)); mk('path', { d: edgeD(E.u, E.v), class: 'te' + (dim ? ' dim' : '') + (o.soft ? ' soft' : '') }, g); });
+  }
+  function drawE0(g, label = true, mode = '') {
+    const [u, v] = e0();
+    if (!S.hideE0) mk('path', { d: edgeD(u, v), class: 'e0' + (mode ? ' ' + mode : '') }, g);
+    if (label) {
+      const a = D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v]);
+      const p = arcPt(a + 13, (RT + RG) / 2);
+      if (!S.hideE0) mk('text', { x: f1(p[0]), y: f1(p[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'e₀';
+      const k2 = (S.e0k + 1) % 3; const [u2, v2] = D.outerEdges[k2];
+      const a2 = D.rootAng[u2] + 0.5 * angDiff(D.rootAng[u2], D.rootAng[v2]);
+      const p2 = arcPt(a2 + 13, (RT + RG) / 2);
+      mk('text', { x: f1(p2[0]), y: f1(p2[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 't₀';
+    }
+  }
+  function drawHits(g) {
+    D.outerEdges.forEach(([u, v], k) => { const h = mk('path', { d: edgeD(u, v), class: 'hit', 'data-act': 'e0', 'data-i': k }, g); mk('title', {}, h).textContent = 'Use this outer edge as e₀'; });
+  }
+  function drawVerts(g, o = {}) {
+    const M = D.M;
+    for (let v = 0; v < M.n; v++) {
+      let cls = o.cls ? (o.cls[v] === 0 ? 'va' : o.cls[v] === 1 ? 'vb' : 'tv') : 'tv';
+      if (o.dimV && o.dimV(v)) cls = 'tv dimmed';
+      if (o.soft) cls = 'tv soft';
+      const p = D.pos[v];
+      if (M.isRoot[v]) mk('rect', { x: f1(p[0] - (o.soft ? 5 : 6)), y: f1(p[1] - (o.soft ? 5 : 6)), width: o.soft ? 10 : 12, height: o.soft ? 10 : 12, rx: 1.5, class: cls }, g);
+      else mk('circle', { cx: f1(p[0]), cy: f1(p[1]), r: o.soft ? 4 : 4.8, class: cls }, g);
+      if (o.ring && o.ring.has(v)) mk('circle', { cx: f1(p[0]), cy: f1(p[1]), r: 10.5, class: 'vS' }, g);
+    }
+  }
+  function drawG(g, o = {}) {
+    const M = D.M; const inHam = o.ham ? new Set(o.ham.edges) : null;
+    M.edges.forEach((E, id) => { if (inHam && inHam.has(id)) return; mk('path', { d: gEdgeD(id), class: 'ge' + (inHam ? ' faint' : '') }, g); });
+    if (!o.noRing) mk('circle', { cx: CX, cy: CY, r: RG, class: 'ring' + (o.ham ? ' thin' : '') }, g);
+    if (o.ham) drawHam(g, o.ham);
+    M.faces.forEach((F, i) => { if (i === M.t0) return; mk('circle', { cx: f1(D.fc[i][0]), cy: f1(D.fc[i][1]), r: o.ham ? 4.3 : 5.4, class: M.col[i] === 0 ? 'gvb' : 'gvw' }, g); });
+  }
+  function drawHam(g, ham) {
+    const M = D.M; const outerAng = [];
+    for (const id of ham.edges) {
+      mk('path', { d: gEdgeD(id), class: 'ham' }, g);
+      const E = M.edges[id]; if (E.black === M.t0) outerAng.push(D.rootAng[E.u] + 0.5 * angDiff(D.rootAng[E.u], D.rootAng[E.v]));
+    }
+    if (outerAng.length === 2) {
+      const d = angDiff(outerAng[0], outerAng[1]); const a = arcPt(outerAng[0], RG), b = arcPt(outerAng[1], RG);
+      mk('path', { d: `M${pt(a)} A${RG},${RG} 0 0 ${d < 0 ? 1 : 0} ${pt(b)}`, class: 'ham' }, g);
+    }
+  }
+  function drawMarkers(g, p, which = 'rs') {
+    D.M.A.forEach((t, i) => {
+      if (which.includes('r')) { const m = markerPos(t, p.r[i]); mk('circle', { cx: f1(m[0]), cy: f1(m[1]), r: 4.6, class: 'mr' }, g); }
+      if (which.includes('s')) { const m = markerPos(t, p.s[i]); mk('circle', { cx: f1(m[0]), cy: f1(m[1]), r: 4.8, class: 'ms' }, g); }
+    });
+  }
+  function drawPointers(g, s) {
+    D.M.A.forEach((t, i) => { const c = centroid(t), m = D.pos[s[i]]; mk('line', { x1: f1(c[0]), y1: f1(c[1]), x2: f1(m[0]), y2: f1(m[1]), class: 'ptr' }, g); mk('circle', { cx: f1(c[0]), cy: f1(c[1]), r: 2.6, class: 'dh' }, g); });
+    D.M.A.forEach((t, i) => { const m = D.pos[s[i]]; mk('circle', { cx: f1(m[0]), cy: f1(m[1]), r: 5.6, class: 'ms' }, g); });
+  }
+  function drawD(g, p, o = {}) {
+    p.cycles.forEach((c, ci) => {
+      const sel = o.sel === ci; const extra = o.click ? { 'data-act': 'cyc', 'data-i': ci, style: 'cursor:pointer' } : {};
+      for (let j = 0; j < c.h; j++) {
+        const a = c.verts[j], b = c.verts[(j + 1) % c.h];
+        arrowEdge(g, a, b, 'd' + (sel ? ' sel' : ''), 'dh', extra, 0.56, sel ? 9.5 : 8);
+        if (o.click) mk('path', Object.assign({ d: edgeD(a, b), class: 'hit' }, extra), g);
+        if (o.delta && sel) {
+          const t = D.M.A[c.tris[j]]; const m = lerp(edgePt(a, b, 0.5), centroid(t), 0.42);
+          mk('text', { x: f1(m[0]), y: f1(m[1] + 4), 'text-anchor': 'middle', class: 'lbl sm halo' }, g).textContent = D.M.delta(a, b) > 0 ? '+1' : '−1';
+        }
+      }
+    });
+  }
+  function drawQ(g, s, r, o = {}) {
+    const M = D.M;
+    M.A.forEach((t, i) => {
+      const [x, y] = M.faces[t].filter(v => v !== s[i]);
+      if (r) { const tail = r[i], head = M.third(t, r[i], s[i]); const sel = o.selTris && o.selTris.has(i); const extra = sel && o.click ? { 'data-act': 'flip', style: 'cursor:pointer' } : {}; arrowEdge(g, tail, head, 'q' + (sel ? ' sel' : ''), 'qh', extra, 0.56, sel ? 10 : 8); if (sel && o.click) mk('path', Object.assign({ d: edgeD(tail, head), class: 'hit' }, extra), g); }
+      else mk('path', { d: edgeD(x, y, 6), class: 'q hi' }, g);
+    });
+  }
+  function drawClasses(g, cls, o = {}) {
+    D.M.edges.forEach((E) => { if (cls[E.u] < 0 || cls[E.v] < 0 || cls[E.u] !== cls[E.v]) return; if (o.only && !(o.only.has(E.u) && o.only.has(E.v))) return; mk('path', { d: edgeD(E.u, E.v), class: cls[E.u] === 0 ? 'ca' : 'cb' }, g); });
+  }
+
+  // ---------- the figure for each step ----------
+  function renderFigure() {
+    const svg = document.getElementById('fig'); svg.textContent = '';
+    const g = mk('g', {}, svg); const M = D.M; const p = curPair(); const id = STEPS[S.step].id;
+    const noPairs = !D.pairs.length;
+    if (id === 'dual') {
+      if (S.peek) {
+        drawBase(g, { dim: true }); drawE0(g, true, 'wide'); drawClasses(g, D.sol.cls); drawG(g, { ham: D.solChk.ham }); drawVerts(g, { cls: D.sol.cls });
+      } else {
+        if (S.showT) { drawBase(g, { soft: true }); drawVerts(g, { soft: true }); } if (S.showG) drawG(g);
+      }
+    } else if (id === 'states') {
+      drawBase(g); drawE0(g); const s = D.states[S.st];
+      if (S.showQ) drawQ(g, s, null);
+      drawVerts(g); drawPointers(g, s);
+    } else if (noPairs && id !== 'glue') {
+      const V = D.violator;
+      drawBase(g, { hlFaces: V ? M.A.filter((t, i) => V.contrib[i] > 0) : null }); drawE0(g);
+      if (V) M.A.forEach((t, i) => { if (V.contrib[i] > 0) { const c = centroid(t); mk('text', { x: f1(c[0]), y: f1(c[1] + 5), 'text-anchor': 'middle', class: 'lbl sm halo' }, g).textContent = V.contrib[i]; } });
+      drawVerts(g, { ring: V ? V.S : null });
+    } else if (id === 'pairs') {
+      drawBase(g); drawE0(g); drawD(g, p); drawMarkers(g, p); drawVerts(g);
+    } else if (id === 'disk') {
+      const c = p.cycles[Math.min(S.cyc, p.cycles.length - 1)];
+      drawBase(g, { hlFaces: c.faces }); drawE0(g); drawD(g, p, { sel: Math.min(S.cyc, p.cycles.length - 1), click: true, delta: true }); drawMarkers(g, p, 'r'); drawVerts(g);
+    } else if (id === 'flip') {
+      const qc = C.qCycles(M, p.r, p.s); const selTris = new Set(qc.length ? qc[0].tris : []);
+      drawBase(g, { hlFaces: qc.length ? qc[0].faces : null }); drawE0(g); drawQ(g, p.s, p.r, { selTris, click: true }); drawMarkers(g, p); drawVerts(g);
+    } else if (id === 'sum') {
+      drawBase(g, { dim: true }); drawE0(g);
+      M.A.forEach((t, i) => {
+        const c = centroid(t);
+        for (const v of M.faces[t]) {
+          mk('line', { x1: f1(c[0]), y1: f1(c[1]), x2: f1(D.pos[v][0]), y2: f1(D.pos[v][1]), class: 'sp' }, g);
+          const w = D.a[i][v]; if (w) { const m = lerp(c, D.pos[v], 0.5); mk('text', { x: f1(m[0]), y: f1(m[1] + 4), 'text-anchor': 'middle', class: 'lbl sm halo' }, g).textContent = sgn(w); }
+        }
+        mk('circle', { cx: f1(c[0]), cy: f1(c[1]), r: 2.6, class: 'tv' }, g);
+      });
+      drawD(g, p); drawVerts(g);
+    } else if (id === 'trees' || id === 'glue') {
+      if (id === 'glue' && D.sol.pieces) return renderGlue(g);
+      const res = construction(); const sub = id === 'glue' ? 3 : S.sub7;
+      if (!res) { drawBase(g); drawE0(g); drawVerts(g); }
+      else if (sub === 0) { drawBase(g); drawE0(g); drawQ(g, p.s, p.r); drawMarkers(g, p, 's'); drawVerts(g); }
+      else if (sub === 1 || sub === 2) {
+        drawBase(g, { dim: sub === 1 }); drawE0(g, sub === 1);
+        if (sub === 1) {
+          mk('circle', { cx: CX, cy: CY, r: RG, class: 'q', style: 'stroke-width:3' }, g);
+          M.roots.forEach(v => { mk('path', { d: `M${pt(D.pos[v])} L${pt(arcPt(D.rootAng[v], RG))}`, class: 'q', style: 'stroke-width:3' }, g); });
+          M.A.forEach((t, i) => {
+            const c = centroid(t), r = p.r[i], u = M.third(t, p.r[i], p.s[i]);
+            mk('path', { d: `M${pt(c)} L${pt(D.pos[p.s[i]])}`, class: 'q gone' }, g);
+            mk('path', { d: `M${pt(D.pos[r])} L${pt(c)} L${pt(D.pos[u])}`, class: 'q', style: 'stroke-width:3' }, g);
+            mk('circle', { cx: f1(c[0]), cy: f1(c[1]), r: 3.4, class: 'qc' }, g);
+          });
+        }
+        const wg = mk('g', sub === 2 ? { opacity: 0.55 } : {}, g);
+        for (const we of res.wEdges) {
+          const t = we.t, i = we.i; const sm = lerp(centroid(t), D.pos[p.s[i]], 0.5);
+          const ma = edgePt(...eUV(we.ea), 0.5), mb = edgePt(...eUV(we.eb), 0.5);
+          mk('path', { d: `M${pt(D.fc[we.fa])} L${pt(ma)} L${pt(sm)} L${pt(mb)} L${pt(D.fc[we.fb])}`, class: 'wt' }, wg);
+          if (sub === 2) {
+            const childIsA = res.parent.get(we.fa) && res.parent.get(we.fa).i === i; const from = childIsA ? ma : mb, to = D.fc[childIsA ? we.fa : we.fb];
+            arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 7, 'wth');
+          }
+        }
+        M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: f === res.y0 ? 6.5 : 4.4, class: 'wn' + (f === res.y0 ? ' root' : '') }, wg); });
+        if (sub === 2) { for (const eidx of res.P0) mk('path', { d: edgeD(...eUV(eidx)), class: 'p' }, g); mk('path', { d: edgeD(...e0()), class: 'p' }, g); drawMarkers(g, p, 's'); }
+        const y = D.fc[res.y0]; const dir = [y[0] - CX, y[1] - CY]; const dl = Math.hypot(dir[0], dir[1]) || 1;
+        mk('text', { x: f1(y[0] - 21 * dir[1] / dl), y: f1(y[1] + 21 * dir[0] / dl + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'y₀';
+        if (sub === 2) drawE0Label(g);
+        drawVerts(g);
+      } else { drawBase(g, { dim: true }); drawE0(g); drawClasses(g, res.cls); drawG(g, { ham: res.ham }); drawVerts(g, { cls: res.cls }); }
+    }
+    drawHits(g);
+  }
+  function drawE0Label(g) {
+    if (S.hideE0) return;
+    const [u, v] = e0(); const a = D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v]); const q = arcPt(a + 13, (RT + RG) / 2);
+    mk('text', { x: f1(q[0]), y: f1(q[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'e₀';
+  }
+  function renderGlue(g) {
+    const M = D.M, sol = D.sol, tri = sol.tri, sub = S.sub8;
+    const in0 = new Set(sol.pieces[0].ids), in1 = new Set(sol.pieces[1].ids);
+    const triPath = `M${pt(D.pos[tri[0]])} L${pt(D.pos[tri[1]])} L${pt(D.pos[tri[2]])} Z`;
+    const dk = C.disk(M, tri);
+    if (sub === 0) { drawBase(g, { hlFaces: dk.faces }); drawE0(g); mk('path', { d: triPath, class: 'sep' }, g); drawVerts(g); }
+    else if (sub === 1 || sub === 2) {
+      const act = sub === 1 ? in0 : in1; const cls = sol.cls.map((c, v) => (act.has(v) ? c : -1));
+      drawBase(g, { dimEdge: E => !(act.has(E.u) && act.has(E.v)) }); drawE0(g); drawClasses(g, cls, { only: act });
+      mk('path', { d: triPath, class: 'sep' }, g);
+      const pe = sol.pieces[1].e0; const m = edgePt(pe[0], pe[1], 0.5); const c = [(D.pos[tri[0]][0] + D.pos[tri[1]][0] + D.pos[tri[2]][0]) / 3, (D.pos[tri[0]][1] + D.pos[tri[1]][1] + D.pos[tri[2]][1]) / 3];
+      const lp = sub === 2 ? lerp(m, c, -0.22) : lerp(m, c, 0.2);
+      mk('text', { x: f1(lp[0]), y: f1(lp[1] + 5), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = sub === 2 ? 'e₀′' : 'same label';
+      drawVerts(g, { cls, dimV: v => !act.has(v) });
+    } else { drawBase(g, { dim: true }); drawE0(g); drawClasses(g, sol.cls); mk('path', { d: triPath, class: 'sep' }, g); drawG(g, { ham: D.solChk.ham }); drawVerts(g, { cls: sol.cls }); }
+    drawHits(g);
+  }
+
+  // ---------- legend ----------
+  const sw = (inner) => `<svg width="30" height="14" viewBox="0 0 30 14" aria-hidden="true">${inner}</svg>`;
+  const LG = {
+    black: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--face)"/>') + 'black triangle',
+    root: sw('<rect x="9" y="1" width="12" height="12" rx="1.5" style="fill:var(--ink)"/>') + 'root (vertex of t₀)',
+    e0: sw('<path d="M5 7 H25" style="stroke:color-mix(in srgb, var(--ink) 60%, var(--tedge));stroke-width:4"/><rect x="1" y="3" width="8" height="8" rx="1" style="fill:var(--ink)"/><rect x="21" y="3" width="8" height="8" rx="1" style="fill:var(--ink)"/>') + 'e₀: the chosen side of t₀. Its two endpoints must land in the same tree. The Hamiltonian cycle avoids the edge of G that crosses e₀.',
+    gG: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:2.3"/><circle cx="8" cy="7" r="4.3" style="fill:var(--ink)"/><circle cx="22" cy="7" r="3.6" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.8"/>') + 'graph G: black lines, with its black and white vertices',
+    tT: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.2"/><circle cx="8" cy="7" r="3.2" style="fill:var(--tedge)"/><circle cx="22" cy="7" r="3.2" style="fill:var(--tedge)"/>') + 'triangulation T: grey lines and dots',
+    gv: sw('<circle cx="8" cy="7" r="4.3" style="fill:var(--ink)"/><circle cx="22" cy="7" r="4.3" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.6"/>') + 'vertices of G',
+    ring: sw('<path d="M2 12 A20 20 0 0 1 28 12" style="fill:none;stroke:var(--ink);stroke-width:3"/>') + 'ring: the vertex of G at infinity, the one “inside” the triangle t₀ of T',
+    s: sw('<circle cx="15" cy="7" r="5" style="fill:var(--pair)"/>') + 'chosen vertex s(t)',
+    sel: sw('<path d="M5 7 H22" style="stroke:var(--pair);stroke-width:2.2"/><circle cx="5" cy="7" r="2.6" style="fill:var(--pair)"/><circle cx="23" cy="7" r="5" style="fill:var(--pair)"/>') + 'chosen vertex s(t), joined to the black triangle t that chooses it',
+    r: sw('<circle cx="15" cy="7" r="4.8" style="fill:var(--q)"/>') + 'chosen vertex r(t)',
+    d: sw('<path d="M2 7 H28" style="stroke:var(--pair);stroke-width:3.6"/><path d="M20 7 l-7 -5 v10 z" style="fill:var(--pair)"/>') + 'arrow r(t) → s(t)',
+    q: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:4"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
+    qhi: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.4"/><path d="M4 7 H26" style="stroke:var(--q);stroke-width:8;opacity:.5;stroke-linecap:round"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
+    disk: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'inside the selected cycle',
+    wt: sw('<path d="M2 7 H28" style="stroke:var(--wtree);stroke-width:2.6"/><circle cx="15" cy="7" r="4" style="fill:var(--panel);stroke:var(--wtree);stroke-width:2.2"/>') + 'tree on white triangles',
+    p: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:5"/>') + 'selected sides P',
+    trees: sw('<path d="M2 4 H28" style="stroke:var(--clsa);stroke-width:4"/><path d="M2 10 H28" style="stroke:var(--clsb);stroke-width:4"/>') + 'the two induced trees',
+    ham: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:5"/>') + 'Hamiltonian cycle of G',
+    spoke: sw('<path d="M2 7 H28" style="stroke:var(--muted);stroke-width:1.2"/>') + 'spoke, with its weight a(t, v) if nonzero',
+    sep: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:4;stroke-dasharray:2 6;stroke-linecap:round"/>') + 'separating triangle',
+    inside: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'inside the separating triangle',
+    touch: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'black triangle touching S, with the number of choices it can supply',
+    viol: sw('<circle cx="15" cy="7" r="5.5" style="fill:none;stroke:var(--q);stroke-width:2.5"/>') + 'the set S',
+  };
+  function renderLegend() {
+    const id = STEPS[S.step].id; let keys = ['root'];
+    if (id === 'dual') keys = S.peek ? ['trees', 'ham'] : (S.showG ? ['gG'] : []).concat(S.showT ? ['tT'] : [], S.showG ? ['ring'] : []);
+    else if (id === 'states') keys = ['root', 'sel'].concat(S.showQ ? ['qhi'] : []);
+    else if (!D.pairs.length && id !== 'glue') keys = ['viol', 'touch', 'root'];
+    else if (id === 'pairs') keys = ['r', 's', 'd', 'root'];
+    else if (id === 'disk') keys = ['r', 'd', 'disk'];
+    else if (id === 'flip') keys = ['q', 'r', 's', 'disk'];
+    else if (id === 'sum') keys = ['spoke', 'd'];
+    else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 'wt'], ['wt', 'p', 's'], ['trees', 'ham']][S.sub7];
+    else if (id === 'glue') keys = D.sol.pieces ? (S.sub8 === 0 ? ['sep', 'inside'] : S.sub8 === 3 ? ['trees', 'ham', 'sep'] : ['trees', 'sep']) : ['trees', 'ham'];
+    document.getElementById('figcap').innerHTML = id === 'dual' && S.peek ? 'In the figure, Theorem 2.2 is applied to the outer triangle <i>t</i><sub>0</sub> and one of its sides, <i>e</i><sub>0</sub>.' : '';
+    document.getElementById('legend').innerHTML = keys.concat(S.hideE0 || (id === 'dual' && !S.peek) ? [] : ['e0']).map(k => { const j = LG[k].indexOf('</svg>') + 6; return `<span>${LG[k].slice(0, j)}<span>${LG[k].slice(j)}</span></span>`; }).join('');
+  }
+
+  // ---------- text panels ----------
+  const pairChips = () => `<div class="ctl"><div class="lab">All ${plural(D.pairs.length, 'pair')} of this triangulation</div><div class="row">${D.pairs.map((p, i) =>
+    `<button class="chip" data-act="pair" data-i="${i}" aria-pressed="${i === S.pair}" title="Pair ${i + 1}: phase ${ph(p.J)}, Q_s ${p.forest ? 'is a forest' : 'has a cycle'}"><span>${i + 1}</span><span class="ph">${ph(p.J)}</span><span class="tag ${p.forest ? 'ok' : 'cyc'}">${p.forest ? 'forest' : 'cycle'}</span></button>`).join('')}</div></div>`;
+  const noPairBox = () => {
+    const V = D.violator; if (!V) return '<div class="note">This triangulation has no pair.</div>';
+    return `<div class="note"><b>No pair exists here.</b> Take S to be the ${plural(V.S.size, 'ringed vertex').replace('vertexs', 'vertices')}. A pair would choose each of them twice, so it needs 2|S| = ${2 * V.S.size} choices, but the black triangles touching S can supply only ${V.contrib.filter(x => x).join(' + ')} = ${V.sum} (each number is min(2, vertices in S)). S is the inside of a separating triangle, and that is why the proof cuts along separating triangles first. Go to step 8.</div>`;
+  };
+  const stateTag = q => (!q.forest ? '<span class="tag cyc">cycle</span>' : q.partners ? '<span class="tag ok">forest</span>' : '<span class="tag na">no partner</span>');
+  const E0NAMES = () => D.outerEdges.map(([u, v]) => { const a = ((D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v])) % 360 + 360) % 360; return a > 200 && a < 340 ? 'bottom' : a < 90 || a >= 340 ? 'upper right' : 'upper left'; });
+  const e0Row = () => `<div class="ctl"><div class="lab">Prescribed outer edge <span class="keep">e<sub>0</sub></span></div><div class="row" role="group">${E0NAMES().map((n, k) => `<button class="btn" data-act="e0" data-i="${k}" aria-pressed="${k === S.e0k && !S.hideE0}">${n}</button>`).join('')}<span class="hint">click the chosen one again to hide it</span></div></div>`;
+  const subSeg = (labels, cur, act) => `<div class="row" role="group">${labels.map((l, i) => `<button class="btn" data-act="${act}" data-i="${i}" aria-pressed="${i === cur}">${l}</button>`).join('')}</div>`;
+
+  const PANEL = {
+    dual() {
+      const M = D.M;
+      return `<div class="prose">
+        <p><b>Barnette's conjecture (1969)</b> ${cref(2)}. Every cubic, bipartite, 3-connected planar graph <i>G</i> has a Hamiltonian cycle.</p>
+        <p>The proof works in the dual. Since <i>G</i> is cubic and 3-connected, its dual <i>T</i> is a simple triangulation of the sphere. Since <i>G</i> is bipartite, the triangles of <i>T</i> can be coloured black and white so that every edge of <i>T</i> lies between a black triangle and a white triangle. Such a triangulation <i>T</i> is called Eulerian (every vertex of <i>T</i> has even degree). The outermost black ring is a black vertex of <i>G</i> “at infinity”, and the shaded ring (<i>t</i><sub>0</sub>) is the corresponding triangular face of <i>T</i>.</p>
+        <p class="claim"><b>THEOREM</b> (${cref(3)}, ${cref(4)}). <i>G</i> is Hamiltonian if and only if the vertices of <i>T</i> admit a partition into two sets that each induce a tree. The Hamiltonian cycle is the closed curve running between the two trees.</p>
+        <p class="cite">Originally due to Stein ${cref(3, 'Theorem 2.2')}, in a formulation about partitioning the regions of a planar map. Proved in the two-tree form used here by Alt, Payne, Schmidt and Wood ${cref(4, 'Lemma 5')}.</p>
+        <p class="claim"><b>THEOREM 2.2</b> (OpenAI ${cref(1)}, §2). For every facial triangle <i>t</i> of <i>T</i> and every edge <i>e</i> of <i>t</i> there exists a partition of the vertices of <i>T</i> into two sets that each induce a tree, such that both endpoints of <i>e</i> lie in one tree and the third vertex of <i>t</i> lies in the other.</p>
+        <p>Theorem 2.2 is the statement the OpenAI paper proves. Barnette’s conjecture follows from this.</p></div>
+        <div class="do"><b>Try it.</b> Choose one of the arcs <i>e</i><sub>0</sub> of <i>t</i><sub>0</sub>, highlight the graph, or the triangulation, or the solution: the partition of <i>T</i> into two trees.</div>` + e0Row() + `
+        <div class="ctl"><div class="row">
+          <button class="btn tog" data-act="toggle" data-k="showG" aria-pressed="${S.showG && !S.peek}" ${S.peek ? 'disabled' : ''}>Graph G</button>
+          <button class="btn tog" data-act="toggle" data-k="showT" aria-pressed="${S.showT && !S.peek}" ${S.peek ? 'disabled' : ''}>Triangulation T</button>
+          <button class="btn primary" data-act="toggle" data-k="peek">${S.peek ? 'Hide the answer' : 'Peek at the answer'}</button></div></div>
+        <dl class="read"><dt>G</dt><dd>${2 * M.k} vertices, ${3 * M.k} edges, ${M.k + 2} faces</dd><dt>T = G*</dt><dd>${M.k + 2} vertices, ${3 * M.k} edges, ${M.k} black + ${M.k} white triangles (k = ${M.k})</dd></dl>`;
+    },
+    states() {
+      const M = D.M, q = D.qinfo[S.st];
+      return `<div class="prose">
+        <p>Call the three vertices of <i>t</i><sub>0</sub> the <b>roots</b>. Let <i>A</i> be the other <i>k</i> − 1 black triangles and <i>X</i> the <i>k</i> − 1 non-root vertices.</p>
+        <p class="claim"><b>DEFINITION</b> (State). A <strong>state</strong> is a bijection <i>r</i> : <i>A</i> → <i>X</i> with <i>r</i>(<i>t</i>) ∈ <i>V</i>(<i>t</i>), where <i>V</i>(<i>t</i>) is the vertex set of the triangle <i>t</i>.</p>
+        <p>A state assigns to each black triangle (except for <i>t</i><sub>0</sub>) one of its vertices. The figure shows one state. The notion comes from Tutte’s theory of trinity ${cref(5)}; see ${cref(6)} for a modern treatment.</p>
+        
+        <p>For a state <i>s</i>, let <i>Q<sub>s</sub></i> be the set of opposite edges: for each triangle <i>t</i> of <i>A</i>, the edge of <i>t</i> opposite its chosen vertex <i>s</i>(<i>t</i>).</p>
+        <p>In the next step we consider a <i>partner state</i> <i>r</i> to <i>s</i>, that chooses a different vertex than <i>s</i> for each triangle, and orients edges in <i>Q<sub>s</sub></i> away from <i>r</i>(<i>t</i>).</p>
+        </div>
+        <div class="ctl"><div class="row"><button class="btn tog" data-act="toggle" data-k="showQ" aria-pressed="${S.showQ}"><span>Show Q<sub>s</sub></span></button></div><div class="lab">All ${plural(D.states.length, 'state')}</div><div class="row">${D.states.map((s, i) => `<button class="chip" data-act="state" data-i="${i}" aria-pressed="${i === S.st}"><span>${i + 1}</span></button>`).join('')}</div>
+        </div>
+        <dl class="read"><dt>|A| = |X|</dt><dd>${M.A.length}</dd><dt>This state</dt><dd>Q<sub>s</sub> ${q.forest ? 'has no cycle' : 'contains a cycle'}; ${q.partners ? plural(q.partners, 'partner') + ' (step 3)' : 'no partner (step 3)'}</dd></dl>`;
+    },
+    pairs() {
+      const head = `<div class="prose">
+        <p>Recall, <i>A</i> = black triangles except for <i>t</i><sub>0</sub>, and <i>X</i> = non-root vertices of <i>T</i>.</p>
+        <p>Two states <i>r</i>, <i>s</i> are called a <strong>pair</strong> if they choose different vertices on every triangle, i.e., if <i>r</i>(<i>t</i>) ≠ <i>s</i>(<i>t</i>) for all <i>t</i> in <i>A</i>. In each triangle <i>t</i>, orient the edge joining these two vertices from <i>r</i>(<i>t</i>) to <i>s</i>(<i>t</i>). This yields a graph <i>D</i> on <i>X</i> consisting of vertex-disjoint directed cycles, since every non-root vertex has exactly one arrow in and one arrow out.</p>
+        <p>Recall that <i>Q<sub>s</sub></i> is the set of edges opposite <i>s</i>(<i>t</i>) for <i>t</i> in <i>A</i>. These are not the arrows above: in each triangle, the edge of <i>Q<sub>s</sub></i> joins <i>r</i>(<i>t</i>) to the third vertex. Oriented leaving <i>r</i>(<i>t</i>), they need not form cycles. Step 5 comes back to them.</p>
+        <p class="claim"><b>PROPOSITION 3.1.</b> If <i>T</i> has no separating triangle, a pair exists.</p>
+        <p>A <i>separating triangle</i> is three mutually adjacent vertices of <i>T</i> that do not bound a face, so <i>T</i> has vertices on both sides of it.</p>
+        <p><b>Example.</b> The “Two cubes, glued” graph has a separating triangle, the one along which its two octahedra are joined, and it has no pair. <button class="cref" data-act="ex" data-i="${EXAMPLES.findIndex(e => e.id === 'glued')}">Load that example</button> to see why.</p>
+        <p>So the proof has two cases.</p>
+        <p><b>Case 1: <i>T</i> has no separating triangle.</b> A pair exists by Proposition 3.1, and steps 4 to 7 turn it into the two trees.</p>
+        <p><b>Case 2: <i>T</i> has a separating triangle.</b> A pair is no longer guaranteed, and the proof does not look for one. It cuts <i>T</i> along such triangles until no piece has one, applies Case 1 to each piece, and glues the results. This is step 8.</p>
+        <p>The two states of a pair together form a 2-regular spanning subgraph of the incidence graph, and every such subgraph splits into two states. So by max-flow it is enough to check, for every set <i>S</i> of non-root vertices,</p>
+        <div class="eq">Σ<sub><i>t</i> ∈ <i>A</i></sub> min(2, |<i>V</i>(<i>t</i>) ∩ <i>S</i>|) ≥ 2|<i>S</i>|.</div>
+        <p>With <i>U</i> the complement of <i>S</i>, this is the planar density bound <i>e</i>(<i>U</i>) − <i>b</i>(<i>U</i>) ≤ 2|<i>U</i>| − 4, where <i>e</i> counts edges and <i>b</i> black triangles inside <i>U</i>. It follows from Euler's formula, one component of <i>T</i>[<i>U</i>] at a time. The hypothesis is used once: a triangular face of <i>T</i>[<i>U</i>] must be a face of <i>T</i>.</p></div>`;
+      if (!D.pairs.length) return head + noPairBox();
+      const p = curPair();
+      return head + pairChips() + `<dl class="read"><dt>Pair ${S.pair + 1}</dt><dd>${plural(p.cycles.length, 'cycle')} of lengths ${p.cycles.map(c => c.h).join(', ')}</dd><dt>Chip key</dt><dd>number, phase i<sup>J</sup> (step 4), Q<sub>s</sub> forest or cycle (step 5)</dd></dl>`;
+    },
+    disk() {
+      const head = `<div class="prose">
+        <p>Give each directed edge a sign: <i>δ</i>(<i>v</i>, <i>w</i>) = +1 if the black triangle of the edge is on the left when travelling from <i>v</i> to <i>w</i>, and −1 otherwise.</p>
+        <p class="claim"><b>LEMMA 4.1</b> (Disk identity). Let <i>r</i> be a state and choose, in each triangle <i>t</i>, one side leaving <i>r</i>(<i>t</i>). Every directed cycle of chosen sides avoids the roots, and its <i>δ</i>-sum is −3 if it is counterclockwise and +3 if it is clockwise.</p>
+        <p>Three counts prove it. Let the cycle have length <i>h</i>, with <i>I</i> vertices strictly inside, <i>B</i> black and <i>W</i> white triangles inside, and <i>l</i> sides whose black triangle is inside. Euler's formula and counting triangle sides are routine. The third count is where the state enters: it matches the inside black triangles bijectively to the <i>I</i> inside vertices together with the <i>l</i> cycle vertices whose outgoing side has its black triangle inside.</p>
+        <p>So every pair has an integer <i>J</i>(<i>r</i>, <i>s</i>) = ⅓ Σ<sub><i>t</i></sub> <i>δ</i>(<i>r</i>(<i>t</i>), <i>s</i>(<i>t</i>)) = (clockwise cycles) − (counterclockwise cycles). Its phase <i>i<sup>J</sup></i> is the sign used in step 6.</p></div>`;
+      if (!D.pairs.length) return head + noPairBox();
+      const p = curPair(), ci = Math.min(S.cyc, p.cycles.length - 1), c = p.cycles[ci];
+      const ok = b => (b ? '✓' : '✗');
+      return head + `<div class="do"><b>Try it.</b> Click a cycle in the figure, or pick one here, to run the three counts on it.</div>
+        <div class="row" role="group">${p.cycles.map((x, j) => `<button class="btn" data-act="cyc" data-i="${j}" aria-pressed="${j === ci}">Cycle ${j + 1} ${x.ccw ? '↺' : '↻'}</button>`).join('')}</div>
+        <dl class="read"><dt>Selected cycle</dt><dd>${ci + 1} of ${p.cycles.length}, ${c.ccw ? 'counterclockwise' : 'clockwise'}, h = ${c.h}</dd>
+        <dt>Inside</dt><dd>I = ${c.I}, B = ${c.B}, W = ${c.W}, l = ${c.l}</dd>
+        <dt>Euler</dt><dd>B + W = 2I + h − 2: ${c.B + c.W} = ${2 * c.I + c.h - 2} ${ok(c.B + c.W === 2 * c.I + c.h - 2)}</dd>
+        <dt>Sides</dt><dd>3(B − W) = 2l − h: ${sgn(3 * (c.B - c.W))} = ${sgn(2 * c.l - c.h)} ${ok(3 * (c.B - c.W) === 2 * c.l - c.h)}</dd>
+        <dt>Matching</dt><dd>B = I + l: ${c.B} = ${c.I + c.l} ${ok(c.B === c.I + c.l)}</dd>
+        <dt>Hence</dt><dd>2l − h = ${sgn(2 * c.l - c.h)}, δ-sum = ${sgn(c.deltaSum)}</dd>
+        <dt>Whole pair</dt><dd>J = ${sgn(p.J)}, phase i<sup>J</sup> = ${ph(p.J)}</dd></dl>` + pairChips();
+    },
+    flip() {
+      const head = `<div class="prose">
+        <p>Fix the second state <i>s</i>. In each triangle, <i>Q<sub>s</sub></i> contains the side joining <i>r</i>(<i>t</i>) to the third corner <i>u</i>(<i>t</i>); orient it away from <i>r</i>(<i>t</i>). Every vertex now has at most one outgoing side, so a cycle of <i>Q<sub>s</sub></i> is automatically a directed cycle.</p>
+        <p class="claim"><b>LEMMA 5.2.</b> If <i>Q<sub>s</sub></i> has a cycle, the terms with second state <i>s</i> in the sum <i>Z</i> of step 6 cancel to zero.</p>
+        <p><b>The proof reverses that cycle.</b> On its triangles replace <i>r</i>(<i>t</i>) by <i>u</i>(<i>t</i>). The result <i>r̃</i> is again a partner of <i>s</i>, reversing twice gives back <i>r</i>, and <i>J</i>(<i>r̃</i>, <i>s</i>) = <i>J</i>(<i>r</i>, <i>s</i>) ± 2.</p>
+        <p>The ±2 is the disk identity applied to the cycle of <i>Q<sub>s</sub></i>. So the two pairs have opposite phases, <i>i<sup>J</sup></i> and −<i>i<sup>J</sup></i>, while anything that depends only on <i>s</i> is the same for both.</p>
+        <p>If <i>Q<sub>s</sub></i> is a forest there is nothing to reverse, and <i>s</i> has at most one partner: the orientation that sends every tree towards its root.</p></div>`;
+      if (!D.pairs.length) return head + noPairBox();
+      const p = curPair(); const qc = C.qCycles(D.M, p.r, p.s);
+      let body;
+      if (qc.length) {
+        const r2 = C.flip(D.M, p.r, p.s, qc[0]); const J2 = C.Jof(D.M, r2, p.s);
+        body = `<div class="do"><b>Try it.</b> Click the thick cycle in the figure, or use the button, and watch the phase flip.</div>
+          <div class="row"><button class="btn primary" data-act="flip">Reverse the cycle</button></div>
+          <dl class="read"><dt>Now</dt><dd>pair ${S.pair + 1}: J = ${sgn(p.J)}, phase ${ph(p.J)}</dd><dt>After reversing</dt><dd>J = ${sgn(J2)}, phase ${ph(J2)}</dd><dt>Cycle</dt><dd>length ${qc[0].h}, ${qc[0].ccw ? 'counterclockwise' : 'clockwise'}, δ-sum ${sgn(qc[0].deltaSum)}</dd></dl>`;
+      } else {
+        body = `<dl class="read"><dt>Pair ${S.pair + 1}</dt><dd>Q<sub>s</sub> is a forest: three trees, one root in each</dd></dl>` +
+          (D.firstCyclic < 0 ? `<div class="note">In this example every pair already has a forest, so no cancellation happens. The 20-vertex and 28-vertex examples each have a state with a cycle.</div>` : '');
+      }
+      return head + body + pairChips();
+    },
+    sum() {
+      const head = `<div class="prose">
+        <p>Put a real weight <i>a</i>(<i>t</i>, <i>v</i>) on every vertex <i>v</i> of every black triangle <i>t</i>, let <i>ω</i>(<i>s</i>) = Σ<sub><i>t</i></sub> <i>a</i>(<i>t</i>, <i>s</i>(<i>t</i>)), and add up all pairs:</p>
+        <div class="eq"><i>Z</i>(<i>x</i>) = Σ<sub>pairs (<i>r</i>, <i>s</i>)</sub> <i>i</i><sup><i>J</i>(<i>r</i>, <i>s</i>)</sup> · <i>e</i><sup><i>x ω</i>(<i>s</i>)</sup>.</div>
+        <p><b>Sorted by <i>s</i>, the cyclic states vanish.</b> If <i>Q<sub>s</sub></i> has a cycle, step 5 pairs up the partners of <i>s</i> with opposite phases and the same weight. Only pairs with <i>Q<sub>s</sub></i> a forest survive.</p>
+        <p><b>Sorted by <i>D</i>, the sum is not zero.</b> Pairs with the same undirected arrow set <i>D</i> are the 2<sup><i>c</i></sup> ways to orient its <i>c</i> cycles, and each cycle <i>C</i> contributes a factor −<i>i e</i><sup><i>xL</i>₊(<i>C</i>)</sup> + <i>i e</i><sup><i>xL</i>₋(<i>C</i>)</sup>. Choose the weights as a positive circulation on the spokes (Lemma 5.3, the numbers in the figure). Then <i>L</i>₊ − <i>L</i>₋ counts the white triangles enclosed by <i>C</i> after sliding each arrow onto two spokes, so it is positive. Each factor vanishes to first order at <i>x</i> = 0, and a group with <i>c</i> cycles starts at <i>x<sup>c</sup></i> with coefficient (−<i>i</i>)<sup><i>c</i></sup> Π (<i>L</i>₊ − <i>L</i>₋). At the smallest <i>c</i> all groups share one phase and have positive size, so nothing cancels.</p>
+        <p>Note that <i>Z</i>(0) = 0. Counted with signs alone, the forest pairs cancel exactly. The weights are what tell them apart.</p>
+        <p class="claim"><b>PROPOSITION 5.1.</b> If at least one pair exists, some pair has <i>Q<sub>s</sub></i> a forest. The reason: <i>Z</i> is not identically zero, and only forest pairs contribute to it.</p></div>`;
+      if (!D.pairs.length) return head + noPairBox();
+      const tabs = `<div class="row" role="group"><button class="btn" data-act="ztab" data-k="s" aria-pressed="${S.ztab === 's'}">Sort by second state s</button><button class="btn" data-act="ztab" data-k="d" aria-pressed="${S.ztab === 'd'}">Sort by cycle set D</button></div>`;
+      let rows = '';
+      const prow = (i, extra) => { const p = D.pairs[i]; return `<tr class="p${i === S.pair ? ' cur' : ''}" data-act="pair" data-i="${i}"><td>${i + 1}</td>${extra(p)}<td>${ph(p.J)}</td><td>${sgn(D.omega[p.si])}</td><td><span class="tag ${p.forest ? 'ok' : 'cyc'}">${p.forest ? 'forest' : 'cycle'}</span></td></tr>`; };
+      if (S.ztab === 's') {
+        const bySi = new Map(); D.pairs.forEach((p, i) => { if (!bySi.has(p.si)) bySi.set(p.si, []); bySi.get(p.si).push(i); });
+        const forestList = [];
+        for (const [si, list] of bySi) {
+          if (D.qinfo[si].forest) { forestList.push(...list); continue; }
+          rows += `<tr class="g"><td colspan="5">State ${si + 1}: Q<sub>s</sub> has a cycle. Its ${list.length} partners have phases ${list.map(i => ph(D.pairs[i].J)).join(' and ')} and the same weight, so they cancel.</td></tr>`;
+          rows += list.map(i => prow(i, () => `<td>${si + 1}</td>`)).join('');
+        }
+        if (forestList.length) {
+          rows += `<tr class="g"><td colspan="5">${plural(forestList.length, 'state')} with Q<sub>s</sub> a forest. Each has exactly one partner, and these terms survive.</td></tr>`;
+          rows += forestList.map(i => prow(i, p => `<td>${p.si + 1}</td>`)).join('');
+        }
+      } else {
+        for (const G of D.groups) {
+          const prod = G.cyc.reduce((x, c) => x * c.gap, 1); const z = iPow(-G.c);
+          rows += `<tr class="g"><td colspan="5">Cycle set ${G.id + 1}: ${plural(G.c, 'cycle')}, L₊ − L₋ = ${G.cyc.map(c => c.gap).join(', ')}. Its ${G.members.length} orientations sum to ${cplx(z[0] * prod, z[1] * prod)}·x<sup>${G.c === 1 ? '' : G.c}</sup> + higher order</td></tr>`;
+          rows += G.members.map(i => prow(i, p => `<td>${p.cycles.map(c => (c.ccw ? '↺' : '↻')).join(' ')}</td>`)).join('');
+        }
+      }
+      const z = iPow(-D.cmin);
+      const mom = D.moments.map((m, k) => `m = ${k}: ${cplx(m[0], m[1])}`).join(' &nbsp; ');
+      return head + `<div class="do"><b>Try it.</b> Switch between the two sortings of the same ${D.pairs.length} terms. Click a row to see that pair.</div>` + tabs +
+        `<div class="tw"><table class="z"><thead><tr><th>Pair</th><th>${S.ztab === 's' ? 'State' : 'Orientations'}</th><th>i<sup>J</sup></th><th>ω(s)</th><th>Q<sub>s</sub></th></tr></thead><tbody>${rows}</tbody></table></div>
+        <dl class="read"><dt>Lowest order</dt><dd>Z(x) = ${cplx(z[0] * D.lead, z[1] * D.lead)}·x<sup>${D.cmin === 1 ? '' : D.cmin}</sup> + higher order, so Z ≠ 0</dd>
+        <dt>Check on forest pairs only</dt><dd>Σ i<sup>J</sup> ω<sup>m</sup>/m! gives ${mom}</dd></dl>`;
+    },
+    trees() {
+      const p = curPair(); const res = construction();
+      const texts = [
+        `<p class="claim"><b>LEMMA 6.1.</b> If (<i>r</i>, <i>s</i>) is a pair with <i>Q<sub>s</sub></i> a forest, each component of <i>Q<sub>s</sub></i> contains exactly one of the three roots.</p>
+         <p><i>Q<sub>s</sub></i> has <i>k</i> − 1 edges on <i>k</i> + 2 vertices, so three components. Orient each side away from <i>r</i>(<i>t</i>): every non-root has out-degree one and roots have none. A tree with <i>q</i> vertices has <i>q</i> − 1 edges, so it must contain exactly one root. The arrows flow to the roots.</p>`,
+        `<p>Put a centre in every black triangle and join it to its three vertices by <b>spokes</b>. The faces of this spoke graph are the white triangles.</p>
+         <p>Remove the spoke to the chosen vertex <i>s</i>(<i>t</i>) from every <i>t</i> in <i>A</i> (dotted). What remains is <i>Q<sub>s</sub></i> with each side bent through its centre, plus the three spokes of <i>t</i><sub>0</sub>, drawn here as the outer ring. The ring ties the three components together, so the remainder is a spanning tree.</p>
+         <p>By plane duality (Lemma 2.1), the removed spokes, read as adjacencies between white triangles, form a <b>spanning tree on the white triangles</b>.</p>`,
+        `<p>Root the white tree at <i>y</i><sub>0</sub>, the white triangle across <i>e</i><sub>0</sub> from <i>t</i><sub>0</sub>. Every tree edge crosses one removed spoke (<i>t</i>, <i>s</i>(<i>t</i>)). Give it to its end farther from <i>y</i><sub>0</sub>, and <b>select the side of <i>t</i> at <i>s</i>(<i>t</i>) that borders that white triangle</b>. Finally select <i>e</i><sub>0</sub>.</p>
+         <p>Every triangle of either colour now has exactly one selected side. In other words the selection <i>P</i> is a perfect matching of <i>G</i>, and the other edges of <i>G</i> form a 2-factor. It remains to see that the 2-factor is a single cycle.</p>`,
+        `<p class="claim"><b>LEMMA 6.2.</b> The selected edge set <i>P</i> is a forest.</p>
+         <p>Set <i>e</i><sub>0</sub> aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.</p>
+         <p>So <i>P</i> is a forest with <i>k</i> edges on <i>k</i> + 2 vertices: <b>two trees</b>. The edges of <i>G</i> crossing the unselected sides form a connected 2-regular graph, a single closed curve through all 2<i>k</i> triangles: <b>the Hamiltonian cycle</b>. An edge of <i>T</i> stays on one side of the curve exactly when it is selected, so each side induces a tree, and <i>e</i><sub>0</sub> lies in one of them.</p>`,
+      ];
+      if (!D.pairs.length) return `<div class="prose">${texts[0]}</div>` + noPairBox();
+      const note = S.note ? `<div class="note">${S.note}</div>` : '';
+      const read = res ? `<dl class="read"><dt>Pair ${S.pair + 1}</dt><dd>Q<sub>s</sub> forest with ${D.qinfo[p.si].comps.length} components</dd><dt>Selection P</dt><dd>${res.P.length} sides, ${res.comps} components, ${res.acyclic ? 'no cycle' : 'cycle!'}</dd><dt>Result</dt><dd>${res.ok ? 'two induced trees and a Hamiltonian cycle on ' + res.ham.faces.length + ' vertices, avoiding the edge dual to e<sub>0</sub>' : 'construction failed'}</dd></dl>` : '';
+      return subSeg(['a. Three rooted trees', 'b. White tree', 'c. Select sides', 'd. Two trees'], S.sub7, 'sub7') + `<div class="prose">${texts[S.sub7]}</div>` + note +
+        `<div class="do"><b>Try it.</b> Walk through a to d. Then choose another forest pair or another <i>e</i><sub>0</sub> below. The trees and the cycle change. The argument stays the same.</div>` + read + e0Row() + pairChips();
+    },
+    glue() {
+      const M = D.M;
+      const cor = `<p class="claim"><b>THEOREM 1.1.</b> Dualising back, every cubic bipartite 3-connected planar graph has a Hamiltonian cycle.</p>
+        <p><b>Corollary 7.1.</b> For every edge <i>e</i> of <i>G</i> there is a Hamiltonian cycle avoiding <i>e</i>: take <i>e</i><sub>0</sub> to be the dual edge. <b>Corollary 7.2</b> (Prescribed paths in Pfaffian graphs). By a published equivalence of Gorsky, Steiner and Wiederrecht ${cref(7)}, every three-edge path in a cubic 3-connected Pfaffian bipartite graph lies on a Hamiltonian cycle.</p>
+        <p>The argument is an existence proof. It shows that the sum <i>Z</i> is nonzero without saying which term survives, and the paper claims no polynomial-time algorithm.</p>`;
+      if (!D.sol.pieces) {
+        return `<div class="prose"><p>Steps 3 to 7 assumed that <i>T</i> has no separating triangle. In general the paper inducts on the number of vertices. Cut <i>T</i> along a separating triangle into two smaller triangulations, closing each side with a new triangular cap. Solve the piece containing <i>t</i><sub>0</sub>. Its cap receives both labels, so exactly two of its corners agree; prescribe that edge as <i>e</i><sub>0</sub> in the other piece. The two partitions then agree on the triangle and glue.</p>
+          <p>This triangulation has no separating triangle, so the figure simply shows the finished partition for the current pair.</p>${cor}</div>
+          <div class="row"><button class="btn primary" data-act="ex" data-i="${EXAMPLES.findIndex(e => e.id === 'glued')}">Load the glued example</button></div>`;
+      }
+      const sol = D.sol; const lab = v => (sol.cls[v] === 0 ? 'green' : 'pink');
+      const texts = [
+        `<p>The dotted triangle is a <b>separating triangle</b>: it has vertices on both sides. In <i>G</i> it is a 3-edge cut with a cycle on each side. Step 3 showed that no pair exists here, so the weighted sum has nothing to work with.</p>
+         <p>Cut along the triangle. Each side becomes a smaller triangulation once it is closed with a triangular <b>cap</b>. Counting sides shows that the three triangles just inside the cut have the same colour, so the cap can be given the other colour and the black and white pattern survives.</p>`,
+        `<p>First solve the piece containing <i>t</i><sub>0</sub> and <i>e</i><sub>0</sub>, by steps 2 to 7 (it has ${sol.pieces[0].ids.length} vertices and no separating triangle).</p>
+         <p>A tree cannot contain all three corners of the cap, so both labels occur on it: exactly two corners share a label.</p>`,
+        `<p>Now solve the other piece with <b>the cap as its outer triangle and that same-label edge as its prescribed edge</b>. This is exactly what the extra condition in Theorem 2.2 provides. After renaming the two labels, the two partitions agree on the three shared vertices.</p>`,
+        `<p>For each label the two trees meet in a single vertex or a single edge, so their union is a tree. It is induced, because no edge of <i>T</i> joins the inside of the triangle to the outside. The prescription at <i>e</i><sub>0</sub> is untouched. The curve between the glued trees is a Hamiltonian cycle of <i>G</i>.</p>${cor}`,
+      ];
+      return subSeg(['a. Cut', 'b. Outer piece', 'c. Inner piece', 'd. Glue'], S.sub8, 'sub8') + `<div class="prose">${texts[S.sub8]}</div>` +
+        `<dl class="read"><dt>Separating triangle</dt><dd>${sol.tri.length} vertices, labels ${sol.tri.map(lab).join(', ')}</dd><dt>Pieces</dt><dd>${sol.pieces.map(p => p.ids.length + ' vertices').join(' and ')}</dd><dt>Glued result</dt><dd>${D.solChk.trees ? 'two induced trees' : 'not trees'}, ${D.solChk.ham ? 'Hamiltonian cycle on ' + D.solChk.ham.faces.length + ' vertices' : 'no cycle'}</dd></dl>`;
+    },
+  };
+
+  function renderPanel() {
+    const st = STEPS[S.step];
+    document.getElementById('panel').innerHTML = `<div class="phead"><div class="stepno">Step ${S.step + 1} of ${STEPS.length}</div><h2>${st.t}</h2><div class="src"><span class="who">OpenAI ${cref(1)} ${st.sec}</span><span class="sect">${st.sect}</span>${st.res.map(r => '<span class="rtag">' + r + '</span>').join('')}</div></div>` + PANEL[st.id]() +
+      `<div class="pager"><button class="btn" data-act="step" data-i="${S.step - 1}" ${S.step === 0 ? 'disabled' : ''}>← Previous</button><button class="btn primary" data-act="step" data-i="${S.step + 1}" ${S.step === STEPS.length - 1 ? 'disabled' : ''}>Next step →</button></div>`;
+  }
+  function renderChrome() {
+    document.getElementById('examples').innerHTML = EXAMPLES.map((e, i) => `<button data-act="ex" data-i="${i}" aria-pressed="${i === S.ex}">${e.name}<small>${e.sub}</small></button>`).join('');
+    document.getElementById('steps').innerHTML = STEPS.map((s, i) => `<button data-act="step" data-i="${i}" ${i === S.step ? 'aria-current="step"' : ''}><span class="n">${i + 1}</span><span class="t">${s.t}</span></button>`).join('');
+  }
+  function render() { renderChrome(); renderPanel(); renderFigure(); renderLegend(); }
+
+  // ---------- actions ----------
+  function setStep(i) {
+    if (i < 0 || i >= STEPS.length) return;
+    S.step = i; S.note = ''; const id = STEPS[i].id;
+    if (D.pairs.length) {
+      if ((id === 'trees' || id === 'glue') && !curPair().forest) { S.pair = D.firstForest; S.note = `Switched to pair ${S.pair + 1}, whose Q<sub>s</sub> is a forest.`; }
+      if (id === 'flip' && curPair().forest && D.firstCyclic >= 0) S.pair = D.firstCyclic;
+    }
+    if (id !== 'dual') S.peek = false;
+    try { history.replaceState(null, '', '#' + id); } catch (e) { /* hash is optional */ }
+  }
+  function act(a, el) {
+    const i = +el.getAttribute('data-i'), k = el.getAttribute('data-k');
+    if (a === 'ref') { const r = document.getElementById('ref-' + i); if (r) { r.scrollIntoView({ block: 'center' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1600); } return; }
+    if (a === 'ex') { S.ex = i; prepare(i); setStep(S.step); }
+    else if (a === 'step') setStep(i);
+    else if (a === 'e0') { if (i === S.e0k) S.hideE0 = !S.hideE0; else { S.e0k = i; S.hideE0 = false; resolve(); } }
+    else if (a === 'pair') { S.pair = i; S.cyc = 0; S.note = ''; S.st = D.pairs[i].si; if (STEPS[S.step].id === 'trees' && !D.pairs[i].forest) S.note = `Pair ${i + 1} has a cycle in Q<sub>s</sub>, so there is nothing to build from it. Its term cancelled in step 6. Pick a pair tagged forest.`; }
+    else if (a === 'state') S.st = i;
+    else if (a === 'cyc') S.cyc = i;
+    else if (a === 'toggle') S[k] = !S[k];
+    else if (a === 'ztab') S.ztab = k;
+    else if (a === 'sub7') S.sub7 = i;
+    else if (a === 'sub8') S.sub8 = i;
+    else if (a === 'flip') {
+      const p = curPair(); if (!p) return; const qc = C.qCycles(D.M, p.r, p.s); if (!qc.length) return;
+      const r2 = C.flip(D.M, p.r, p.s, qc[0]).join(',');
+      const j = D.pairs.findIndex(x => x.si === p.si && x.r.join(',') === r2); if (j >= 0) S.pair = j;
+    }
+    render();
+  }
+  function onClick(ev) { const el = ev.target.closest('[data-act]'); if (!el || el.disabled) return; act(el.getAttribute('data-act'), el); }
+
+  function init() {
+    document.addEventListener('click', onClick);
+    document.addEventListener('keydown', ev => {
+      if (ev.target.closest('input, textarea, select')) return;
+      if (ev.key === 'ArrowRight') { setStep(S.step + 1); render(); } else if (ev.key === 'ArrowLeft') { setStep(S.step - 1); render(); }
+    });
+    const fromHash = () => { const h = (location.hash || '').slice(1); const i = STEPS.findIndex(s => s.id === h); return i; };
+    window.addEventListener('hashchange', () => { const i = fromHash(); if (i >= 0 && i !== S.step) { setStep(i); render(); } });
+    prepare(S.ex); const i = fromHash(); setStep(i >= 0 ? i : 0); render();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  window.__app = { S, get D() { return D; }, act: (a, attrs) => { const el = document.createElement('i'); for (const k in attrs) el.setAttribute('data-' + k, attrs[k]); act(a, el); }, setStep: i => { setStep(i); render(); } };
+})();
+
+</script>
+</body>
+</html>
