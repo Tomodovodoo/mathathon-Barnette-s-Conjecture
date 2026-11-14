@@ -1,4 +1,4 @@
-# Barnette's Conjecture
+﻿# Barnette's Conjecture
 
 A collaborative workspace for studying Barnette's Conjecture, collecting the information needed to understand it, and developing a constructive, explanatory proof.
 
@@ -28,7 +28,7 @@ Nothing produced in that campaign has been read by a human. "Refereed" in these 
 | --- | --- |
 | `papers/` | Source literature. The three papers on the 2026 proof, a curated library, `INDEX.md` (what each source is used for and how it was verified) and `barnette.bib`. |
 | `paper/` | The manuscript. `main/` is the current exposition, with earlier versions under `main/history/`. `figures/` is the shared figure toolkit. `draft-A/` and `draft-B/` are the two independent drafts the exposition was merged from, kept as records. |
-| `proofs/` | Proof routes with their status. `primal/` proves the theorem in the cubic graph itself. `involutions/` is the bijective proof. `blueprint/` maps the exposition statement by statement against the Lean proof. `lean/` holds Lean files for the exposition's own devices. |
+| `proofs/` | Proof routes with their status. `primal/` proves the theorem in the cubic graph itself. `involutions/` is the bijective proof. `blueprint/` maps the exposition statement by statement against the Lean proof. `lean/` holds Lean files for the exposition's own devices. `sign-free/` collects the part of the proof that needs no sign, and says where it stops. |
 | `digestions/` | Explanations. `SYNTHESIS.md`, `steps/` (one document per step of the proof, plus a glossary), `route-map/` (every route found or refuted), `atlas/` (illustrated routes). |
 | `workings/` | Shared computations. `barnette_lab/` is the reference implementation of every object in the proof. |
 | `labyrinth/` | The research map: knowledge graph, events, state of the art, dashboard. |
