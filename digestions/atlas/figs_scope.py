@@ -461,7 +461,7 @@ def earlier_fig():
     p.lines([e for e in Pe if e not in bad], 'bf P')
     p.lines(bad, 'af halo,line width=4.2pt').lines(bad, 'draw=black,line width=2.8pt,dash pattern=on 2.2pt off 1.8pt')
     d = cell(shapes(p, set(ps[0])).tex(), rf'(d) The one cycle without one. Each of its two trees (filled, unfilled) contains an edge between two vertices outside the {names[B]} (heavy dashes). On the running example the relaxed condition excludes nothing: all {len(cycles)} cycles pass for every colour.', 7.1)
-    led = (r'\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.35}\begin{tabular}{@{}p{2.1cm}p{12.0cm}@{}}\toprule '
+    led = (r'\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.35}\begin{tabular}{@{}p{2.1cm}p{11.8cm}@{}}\toprule '
            r'\textbf{Earlier idea} & \textbf{What it supplies}\\\midrule '
            r'Stein & the target: two induced trees\\'
            r'Kelmans & a prescribed edge, so that pieces can be glued along small cuts\\'
@@ -739,10 +739,10 @@ def open_fig():
     # (statement, largest size with every case checked by two independent programs, by at least one program, largest sampled size)
     bars = [(r'at least $2^m$ good states, $m$ the fewest\\cycles of a cover: every root', 22, 22, 100),
             (r'the same bound, on triangulations\\without separating triangles', 16, 24, None),
-            (r'pair descent that never adds a cycle\\reaches a good pair', 20, 23, 150),
+            (r'pair descent that never adds a cycle\\reaches a good pair', 20, 23, 200),
             (r'exchange descent on rainbow trees\\reaches a good state', 12, 17, 120),
-            ('some contraction keeps a pair', 17, 19, None),
-            (r'a contraction never has more\\good states than the original', 17, 18, None)]
+            (r'without separating triangles,\\some contraction keeps a pair', 19, 19, None),
+            (r'a contraction never has more\\good states than the original', 18, 18, None)]
     # (statement, size of a known counterexample, True if every smaller case was checked)
     dead = [('the highest state with a partner is good', 12, False), ('an extreme cover has a good orientation', 18, True),
             (r'some good state of a contraction\\lifts directly', 18, True), ('a cover one step from an extreme has one', 24, False),
@@ -751,14 +751,17 @@ def open_fig():
     assert all((tw is None or tw <= on) and (sa is None or sa > on) for _, tw, on, sa in bars)
     # pair descent: author's census 193,623,384 pairs through 23 (fable_descent), independent replay 3,373,400 pairs through 20 (astra_referee-descent).
     # rainbow descent: author through 17 (fable_referee-topology), independent replay through 12 (opus_referee-rainbow).
-    assert [(tw, on) for _, tw, on, _ in bars] == [(22, 22), (16, 24), (20, 23), (12, 17), (17, 19), (17, 18)]
+    # G: g_structure.py explicitly asserts existence through 19, besides checking each merge.
+    # One-sided count: the referee checks G >= M+N-2e and 2e <= min(M,N), hence G >= max(M,N), through 18.
+    # C3 samples: fable_descent REPORT/DESCENT support 200; capped starts at 300 are undecided.
+    assert [(tw, on) for _, tw, on, _ in bars] == [(22, 22), (16, 24), (20, 23), (12, 17), (19, 19), (18, 18)]
     w = 7.6
-    X = lambda v: w * (math.log(v) - math.log(8)) / (math.log(150) - math.log(8))
+    X = lambda v: w * (math.log(v) - math.log(8)) / (math.log(200) - math.log(8))
     L = []
     y = 0
     pitch = lambda name, base: base + .34 * name.count(r'\\')            # a label with two lines gets a taller row
     ybot = -sum(pitch(b_[0], .58) for b_ in bars) - sum(pitch(d_[0], .5) for d_ in dead) - .75
-    for t in (8, 12, 17, 24, 33, 50, 75, 100, 150):
+    for t in (8, 12, 17, 24, 33, 50, 75, 100, 150, 200):
         L.append(rf'\draw[black!25,line width=.3pt] ({X(t):.3f},.4) -- ({X(t):.3f},{ybot});\node[font=\footnotesize,anchor=south] at ({X(t):.3f},.4) {{${t}$}};')
     L.append(rf'\node[font=\footnotesize,anchor=south west,inner sep=1pt] at (0,.95) {{number of vertices of $T$}};')
     L.append(rf'\node[font=\footnotesize\bfseries,anchor=east,inner sep=1pt] at (-.2,.2) {{open, and tested up to}};')
@@ -816,7 +819,7 @@ def open_fig():
             r'The 12-vertex counterexample on page ' + pg('canonical') + r' fails through a face of this kind.\end{minipage}\end{tabular}')
     CERT['open'] = dict(open_statements=[dict(statement=a_.replace(chr(92) * 2, ' '), every_case_two_programs=b_, every_case_one_program=c_, sampled_to=d_) for a_, b_, c_, d_ in bars],
                         refuted=[dict(statement=a_.replace(chr(92) * 2, ' '), counterexample_at=b_, known_smallest=c_) for a_, b_, c_ in dead], quoted_not_recomputed=True, mechanism_face=y_)
-    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]\begin{minipage}{14cm}\centering\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Logarithmic scale.\end{minipage}' + vs('5mm')
+    return (r'\begin{tabular}{@{}c@{}}' + chart + r'\\[1mm]\begin{minipage}{14cm}\centering\footnotesize (a) How far each open statement was tested, and where a counterexample to each refuted one is known. Contractions are at nonroot degree-four vertices. Logarithmic scale.\end{minipage}' + vs('5mm')
             + side + r'\end{tabular}')
 
 # ---------------------------------------------------------------------------

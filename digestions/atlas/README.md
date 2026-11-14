@@ -4,9 +4,11 @@
 
 A repair pass of 2026-11-14 brought pages 26, 29 and 30 in line with the project's fact table: the four-way Lean status on page 29 (5, 17, 10, 2), the pair-descent ranges on page 30 (20 vertices by a second program, 23 by the author) and the review wording on page 26. Its changelog and before and after renders are in `research/2026-11-14_fable_atlas-repair/`.
 
+A second-model recheck of that repair and the later page-24 wording is in `research/2026-11-14_sol_atlas-recheck/`. It confirms the four-way count statement by statement against the status table, makes the page-24 access chain explicit, removes its standalone overfull box, and extends the two-program contraction ranges to 19 and 18. Pair-descent samples now end at 200, supported by the descent report; capped starts at 300 remain undecided. This recheck reads saved census data and source code, rather than rerunning those censuses or rechecking Lean declarations.
+
 The fourth pass, also of 2026-11-14, came before it. The fourth pass adds two pages (three written proofs of the key step, and what is machine-checked), fixes the spacing between stacked blocks in one shared macro, reorders the pages, and checks the shape of the 466 unrepaired lifts by computation. Page-by-page inspection notes, the changelog and before and after contact sheets in colour, greyscale and a deuteranopia simulation are in `research/2026-11-14_fable_atlas-finish/`. The third pass (audit integration, naming convention) is in `research/2026-11-14_fable_atlas-final/`, the second in `research/2026-11-14_fable_atlas-review/`.
 
-The atlas compares readings of one proof. It does not claim 30 independent proofs. One model audited the second pass and its corrections are applied; nobody has audited the third pass, the fourth or the repair, and no human mathematician has read any page. Each page says in plain words where its mathematics comes from and who checked it. Nothing in the atlas is checked in Lean.
+The atlas compares readings of one proof. It does not claim 30 independent proofs. One model audited the second pass and its corrections are applied; the repair has now had a bounded second-model audit of pages 24, 26, 29 and 30. The third and fourth passes have not had a complete audit, and no human mathematician has read any page. Each page says in plain words where its mathematics comes from and who checked it. Nothing in the atlas is checked in Lean.
 
 ## Build and check
 
@@ -72,7 +74,7 @@ The audit left seven proposed figures in `digestions/atlas/proposed/`. All seven
 
 ## What is still schematic or thin
 
-- Page 30: the chart quotes its ranges from project reports and from the other models that repeated them. Nothing on it was recomputed here. The two contraction bars keep 17 as their two-program range. A referee later replayed a related counting inequality through 18, but I found no second program for these two statements beyond 17.
+- Page 30: the chart quotes its ranges from project reports and from the other models that repeated them. The recheck reconciles their saved totals without rerunning the censuses. The pair-preserving contraction bar is solid through 19 because `g_structure.py` explicitly asserts existence at each root. The good-state contraction bar is solid through 18 because the referee's two-sided inequality and both half-exception bounds imply each one-sided inequality. The separator-free hypothesis for the first statement is printed on the chart. Pair-descent sampling reaches 200; three starts capped at 300 are not successes.
 - Page 29: the four statuses (5 exact, 17 after a translation, 10 weaker or different, 2 none) are the blueprint's, a hand curation by one model, read from its JSON file and not re-derived. Another model's advisory recount has three classes (5, 27, 2). The figure function asserts that it is the same count with "translation" and "weaker" merged. "No polynomial" on this page means six named upstream lemmas only. The table of translations is a summary in my words of four of the blueprint's bridges.
 - Page 10: one face path, one flow and one unpaired object are drawn. The totals are computed for the running example and one choice of paths (shortest paths in `G`, ties by face index). I did not compare these paths with the ones behind the primal note's own flow figure; other paths give other weights, and the proofs say only the lowest coefficient is independent of the choice. The bijective note's second pairing (which objects cancel which) is not drawn or recomputed: the page checks only that the signed count of all 43 marked objects equals the signed count of the 9 unpaired ones.
 - Page 7: panels (c) and (d) show one move of one mark on rays, and only the case with a reversal.
@@ -111,12 +113,12 @@ Route-page numbers below match the current combined PDF. The contents is PDF pag
 | 21 | Three graphs inside one triangulation | [PDF](pages/21-trinity.pdf) | 14.64 x 16.71 | 149 |
 | 22 | What a small cut has to remember | [PDF](pages/22-cuts.pdf) | 15.11 x 18.79 | 149 |
 | 23 | Induction by removing a vertex of degree four | [PDF](pages/23-induction.pdf) | 14.64 x 17.41 | 150 |
-| 24 | Where the older methods meet this proof | [PDF](pages/24-earlier.pdf) | 14.57 x 19.5 | 148 |
+| 24 | Where the older methods meet this proof | [PDF](pages/24-earlier.pdf) | 14.57 x 19.5 | 130 |
 | 25 | Which Hamiltonian cycles the proof can produce | [PDF](pages/25-produced.pdf) | 14.82 x 17.02 | 146 |
 | 26 | Two families, counted | [PDF](pages/26-families.pdf) | 14.64 x 14.29 | 149 |
 | 27 | What breaks when a hypothesis is dropped | [PDF](pages/27-hypotheses.pdf) | 14.77 x 18.18 | 149 |
 | 28 | Off the sphere: the Heawood graph on a torus | [PDF](pages/28-pfaffian.pdf) | 14.57 x 15.46 | 147 |
 | 29 | What is machine-checked | [PDF](pages/29-blueprint.pdf) | 14.79 x 17.22 | 150 |
-| 30 | What is still open, and how far it was tested | [PDF](pages/30-open.pdf) | 14.07 x 19.14 | 149 |
+| 30 | What is still open, and how far it was tested | [PDF](pages/30-open.pdf) | 14.07 x 19.48 | 149 |
 
 The text block is 15.92 cm wide, so every figure is between 0.80 and 0.95 of the text width. Word counts include the status sentence and exclude the short labels under the panels. Provenance for each page is in the Sources table at the end of the atlas and in the `sources` fields of `pages.py` and `pages_more.py`.

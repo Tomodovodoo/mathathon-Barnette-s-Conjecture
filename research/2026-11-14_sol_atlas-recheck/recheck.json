@@ -1,0 +1,57 @@
+{
+  "command": "Run from repository root: python -X utf8 research/2026-11-14_sol_atlas-recheck/recheck.py.",
+  "route_groups": {
+    "exact": [
+      "def:pair",
+      "def:state",
+      "lem:difference",
+      "lem:reversals",
+      "txt:flow"
+    ],
+    "translation": [
+      "def:selection",
+      "eq:counts",
+      "eq:hall",
+      "lem:cap",
+      "lem:disk",
+      "lem:dual",
+      "lem:duality.1",
+      "lem:sign",
+      "prop:good",
+      "prop:pair",
+      "prop:recover",
+      "prop:target.1",
+      "thm:T",
+      "txt:D",
+      "txt:delta",
+      "txt:inside",
+      "txt:two-faces"
+    ],
+    "weaker": [
+      "def:good",
+      "lem:Y",
+      "lem:cancel",
+      "lem:duality.2",
+      "lem:good",
+      "lem:height",
+      "lem:outdegree",
+      "lem:partner",
+      "thm:main",
+      "txt:heights"
+    ],
+    "none": [
+      "lem:connected",
+      "prop:target.2"
+    ]
+  },
+  "route_counts": {
+    "exact": 5,
+    "translation": 17,
+    "weaker": 10,
+    "none": 2
+  },
+  "G_saved_roots": 62416,
+  "induction_saved_contractions": 1202792,
+  "induction_saved_exceptions": 7940,
+  "chart_matches": true
+}

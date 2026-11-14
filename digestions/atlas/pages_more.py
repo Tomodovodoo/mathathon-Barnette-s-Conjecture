@@ -166,14 +166,14 @@ The induction also needs a contraction that keeps a pair. That held in every tes
       RS + 'sol_atlas-audit/code/proposed.py (aligned layout proposed there; recomputed here)', HERE])
 
 page('earlier', 'earlier methods', 'Where the older methods meet this proof', G5, r'''
-Three older ideas end at the same object. Stein showed that a Hamiltonian cycle of $G$ is a split of the vertices of $T$ into two induced trees.
-Kelmans strengthened the conjecture to cycles that avoid or use a prescribed edge, which makes gluing along small cuts possible. Feder and Subi colour the vertices of $T$, contract one class, and look for a spanning tree of faces.
-A relaxed reading, tested in (c) and (d), asks for an induced tree whose vertices outside one class are pairwise non-adjacent. Their theorem asks more, a degree condition on omitted vertices.
-None of the three supplies the step from a pair to a good state.''',
-     r'''Kelmans is read through later accounts, Feder and Subi through a report. The translation of Feder and Subi was written in this project and is unrefereed. The 10-vertex example was recomputed here. Not read by a human.''',
+Stein identifies Hamiltonian cycles of $G$ with splits of $T$ into two induced trees.
+Kelmans strengthened the conjecture to cycles avoiding or using a prescribed edge, allowing gluing along small cuts. Feder and Subi contract one vertex colour class and seek a spanning tree of faces.
+Panels (c) and (d) test a relaxed condition, an induced tree with pairwise non-adjacent vertices outside one class. Their theorem also requires a degree condition on omitted vertices.
+None supplies the step from a pair to a good state.''',
+     r'''Stein's article is published. Feder and Subi are read in ECCC report TR06-015, Kelmans through Hertel and Alt and coauthors; his original was not opened. Our translation of Feder and Subi is unrefereed. The 10-vertex example is recomputed here. Not read by a human.''',
      ['recovery', 'cuts', 'produced'],
      [RS + 'astra_older-approaches/BRIDGES.md', RS + 'astra_older-approaches/SOURCES.md', RS + 'astra_older-approaches/NOVELTY.md', OA + ', Section 2',
-      RS + 'sol_atlas-audit/outputs/fs-witness.json (the 10-vertex triangulation; every count on it recomputed here)', HERE])
+      RS + 'astra_citation-audit/TEXT-FIXES.md (publication and access chain)', RS + 'sol_atlas-audit/outputs/fs-witness.json (the 10-vertex triangulation; every count on it recomputed here)', HERE])
 
 # ---------------------------------------------------------------- scope
 page('produced', 'produced cycles', 'Which Hamiltonian cycles the proof can produce', G6, r'''
@@ -218,11 +218,13 @@ Three crosses sit at 33 vertices, beyond every exhaustive range, so passing all 
      r'''The ranges are quoted, not rerun, from this project's reports and the other models that repeated them. Panel (b) is computed here. Not read by a human.''',
      ['chain', 'rainbow', 'induction', 'pairlattice', 'canonical'],
      [RS + 'opus_conjectures/REPORT.md', RS + 'sol_referee-conjectures/REFEREE.md (bound replayed on 9,531,638 roots through 22, of which 4,656,948 have a pair; descent on all 24,744 pairs through 16; 33-vertex counterexamples)',
-      RS + 'fable_descent/REPORT.md (pair descent, the author: 193,623,384 pairs through 23)',
+      RS + 'fable_descent/REPORT.md (pair descent: 193,623,384 pairs through 23; sampled strict minima through 200, capped starts at 300 undecided)',
       RS + 'astra_referee-descent/REPORT.md (pair descent replayed by a different model: 3,373,400 pairs through 20)',
       RS + 'astra_cycle-covers/REPORT.md (23,824,742 roots through 24, no separating triangles)', RS + 'sol_referee-covers/REFEREE-covers.md (replayed through 16 only: 129 graphs, 3,374 roots)',
       RS + 'fable_referee-topology/REPORT.md (rainbow descent through 17, walk periodic at 38)', RS + 'opus_referee-rainbow/REPORT.md (rainbow descent replayed through 12)', RS + 'opus_route-induction/REPORT.md',
-      RS + 'fable_induction-completion/REFEREE.md (contractions through 18 and 19, direct lift refuted at 18)', RS + 'astra_referee-combinatorics/REPORT.md (12-vertex example)',
+      RS + 'fable_induction-completion/REFEREE.md (contractions through 18 and 19, direct lift refuted at 18)',
+      RS + 'astra_induction-lemmas/code/g_structure.py (some merge keeps a pair, explicit assertion through 19)',
+      RS + 'astra_referee-descent/REFEREE-induction.md (two-sided inequality and both half-exception bounds imply the one-sided bound through 18)', RS + 'astra_referee-combinatorics/REPORT.md (12-vertex example)',
       RS + 'sol_atlas-audit/AUDIT.md (range ledger)', HERE + ' (panel b only)'])
 
 page('keystep', 'three proofs', 'Three written proofs of the key step', G1, r'''

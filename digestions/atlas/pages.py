@@ -25,7 +25,8 @@ SOURCES_INTRO = ('Each row lists the papers, the project reports and the computa
                  'Paths are relative to the repository root. The build script draws every figure from objects it computes and asserts, '
                  'and it writes the certificates to computed.json next to the atlas. '
                  'Where a row says a report is unrefereed, no second model has checked it. A check by a second model is not peer review. '
-                 'An independent model audited this atlas page by page, and its corrections are applied. No human mathematician has read any page of it.')
+                 'A second model audited an earlier atlas page by page. The latest repair was rechecked on pages 24, 26, 29 and 30. '
+                 'No human mathematician has read any page of it.')
 
 G1, G2, G3, G4, G5, G6 = 'main chain', 'linear algebra', 'order', 'trees', 'cutting', 'scope'
 

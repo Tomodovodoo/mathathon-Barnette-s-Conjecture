@@ -2537,7 +2537,7 @@
     "statement": "pair descent that never adds a cycle reaches a good pair",
     "every_case_two_programs": 20,
     "every_case_one_program": 23,
-    "sampled_to": 150
+    "sampled_to": 200
    },
    {
     "statement": "exchange descent on rainbow trees reaches a good state",
@@ -2546,14 +2546,14 @@
     "sampled_to": 120
    },
    {
-    "statement": "some contraction keeps a pair",
-    "every_case_two_programs": 17,
+    "statement": "without separating triangles, some contraction keeps a pair",
+    "every_case_two_programs": 19,
     "every_case_one_program": 19,
     "sampled_to": null
    },
    {
     "statement": "a contraction never has more good states than the original",
-    "every_case_two_programs": 17,
+    "every_case_two_programs": 18,
     "every_case_one_program": 18,
     "sampled_to": null
    }

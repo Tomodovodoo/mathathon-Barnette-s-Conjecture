@@ -58,7 +58,7 @@ for p in P:
     body = re.sub(r'\$[^$]*\$', 'x', re.sub(r'\\[a-zA-Z]+', ' ', p['text'] + ' ' + p['status']))
     n = len(body.split())
     words[p['slug']] = n
-    check(80 <= n <= 150, f'{p["slug"]}: {n} words')
+    check(130 <= n <= 150, f'{p["slug"]}: {n} words')
     raw = p['text'] + ' ' + p['status'] + ' ' + p['title']
     check(not TAGS.search(raw), f'{p["slug"]}: internal status tag in the text')
     check(not PATHS.search(raw), f'{p["slug"]}: file path in the text')
@@ -69,7 +69,7 @@ for p in P:
 figtex = ''.join((O / 'figs' / f'{num[p["slug"]]:02d}-{p["slug"]}.tex').read_text(encoding='utf8') for p in P)
 check(not TAGS.search(figtex), 'internal status tag inside a figure')
 
-# 3. figures: one vector PDF per page, width between 0.75 and 0.95 of the text width
+# 3. figures: one vector PDF per page, width between 0.80 and 0.95 of the text width
 sizes = {}
 for p in P:
     f = O / 'figs' / f'{num[p["slug"]]:02d}-{p["slug"]}.pdf'
@@ -77,7 +77,7 @@ for p in P:
     d = fitz.open(f)
     w = d[0].rect.width / 72 * 2.54
     sizes[p['slug']] = round(w / TW, 3)
-    check(0.75 <= w / TW <= 0.95, f'{p["slug"]}: figure width {w / TW:.3f} of the text width')
+    check(0.80 <= w / TW <= 0.95, f'{p["slug"]}: figure width {w / TW:.3f} of the text width')
     check(not d[0].get_images(), f'{p["slug"]}: raster image in a figure')
     d.close()
 
@@ -86,6 +86,11 @@ log = (O / 'atlas.log').read_text(errors='replace')
 check('! ' not in log, 'TeX error in atlas.log')
 over = [float(x) for x in re.findall(r'Overfull \\[hv]box \(([\d.]+)pt too', log)]
 check(all(x <= 2 for x in over), f'overfull boxes: {over}')
+for p in P:
+    figure_log = O / 'figs' / f'{num[p["slug"]]:02d}-{p["slug"]}.log'
+    if figure_log.exists():
+        figure_over = [float(x) for x in re.findall(r'Overfull \\[hv]box \(([\d.]+)pt too', figure_log.read_text(errors='replace'))]
+        check(all(x <= 2 for x in figure_over), f'{p["slug"]}: standalone overfull boxes: {figure_over}')
 check('undefined' not in log.lower() or 'There were undefined references' not in log, 'undefined references')
 
 # 5. the PDF: contents, one page per route, sources; every route page has its figure and fits
