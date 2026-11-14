@@ -1,0 +1,13 @@
+13
+    (('meets_uni', 'meets_Qcyc', 'D_ccw'), 'dk<0') 8
+    (('meets_uni', 'meets_Qcyc', 'D_cw'), 'dk<0') 8
+14
+    (('meets_uni', 'meets_Qcyc', 'D_ccw'), 'dk<0') 44
+    (('meets_uni', 'meets_Qcyc', 'D_cw'), 'dk<0') 12
+15
+    (('meets_uni', 'meets_Qcyc', 'D_ccw'), 'dk<0') 168
+    (('meets_uni', 'meets_Qcyc', 'D_cw'), 'dk<0') 120
+    (('meets_uni', 'misses_Qcyc', 'D_ccw'), 'dk=0') 10
+    (('meets_uni', 'misses_Qcyc', 'D_cw'), 'dk=0') 10
+    (('misses_uni', 'misses_Qcyc', 'D_ccw'), 'dk=0') 14
+    (('misses_uni', 'misses_Qcyc', 'D_cw'), 'dk=0') 14

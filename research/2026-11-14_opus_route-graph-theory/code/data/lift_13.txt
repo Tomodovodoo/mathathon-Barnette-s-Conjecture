@@ -1,0 +1,6 @@
+8 {'cases': 48, 'bijective': 48, 'Q formula': 48}
+9 {}
+10 {'cases': 168, 'bijective': 168, 'Q formula': 168}
+11 {'cases': 140, 'bijective': 140, 'Q formula': 140}
+12 {'cases': 592, 'bijective': 592, 'Q formula': 592}
+13 {'cases': 972, 'bijective': 972, 'Q formula': 972}

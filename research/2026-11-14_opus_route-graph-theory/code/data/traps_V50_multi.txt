@@ -1,0 +1,4 @@
+V=50 sampled pairs with k>0: 772, weak traps: 55, deep traps: 0
+V=50 sampled pairs with k>0: 613, weak traps: 0, deep traps: 0
+V=50 sampled pairs with k>0: 1063, weak traps: 9, deep traps: 0
+V=50 sampled pairs with k>0: 644, weak traps: 47, deep traps: 0

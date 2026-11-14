@@ -31,57 +31,58 @@ def contract(T, x, i):
         E.add(tuple(sorted((p2, q2))))
     return Tri.from_edges(list(E)), v1, v2
 
-Vmax = int(sys.argv[1]); Vmin = int(sys.argv[2]) if len(sys.argv) > 2 else 8
-for V in range(Vmin, Vmax + 1):
-    try:
-        Ts = load(V)
-    except FileNotFoundError:
-        Ts = generate(V)[V]
-    c = collections.Counter()
-    for T in Ts:
-        for f in T.faces():
-            R = Rooted(T, f)
-            if R.black_inner_sep_triangles():
-                continue
-            S = R.states()
-            TM = [s for s in S if R.is_tree_matching(s)]
-            for x in T.V:
-                if len(T.rot[x]) != 4 or x in f:
+if __name__ == '__main__':
+    Vmax = int(sys.argv[1]); Vmin = int(sys.argv[2]) if len(sys.argv) > 2 else 8
+    for V in range(Vmin, Vmax + 1):
+        try:
+            Ts = load(V)
+        except FileNotFoundError:
+            Ts = generate(V)[V]
+        c = collections.Counter()
+        for T in Ts:
+            for f in T.faces():
+                R = Rooted(T, f)
+                if R.black_inner_sep_triangles():
                     continue
-                for i in (0, 1):
-                    res = contract(T, x, i)
-                    if res is None:
+                S = R.states()
+                TM = [s for s in S if R.is_tree_matching(s)]
+                for x in T.V:
+                    if len(T.rot[x]) != 4 or x in f:
                         continue
-                    T2, v1, v2 = res
-                    ren = lambda w: v1 if w == v2 else w
-                    f2 = tuple(ren(w) for w in f)
-                    R2 = Rooted(T2, f2)
-                    # map faces of T (not containing x) to faces of T2
-                    fm = {}
-                    for t in R.A:
-                        if x in t:
+                    for i in (0, 1):
+                        res = contract(T, x, i)
+                        if res is None:
                             continue
-                        key = frozenset(ren(w) for w in t)
-                        fm[t] = [t2 for t2 in R2.A if frozenset(t2) == key][0]
-                    TM2 = [s for s in R2.states() if R2.is_tree_matching(s)]
-                    TM2set = {frozenset(s.items()) for s in TM2}
-                    c['cases'] += 1
-                    c['P1 T2 has TM'] += bool(TM2)
-                    if not TM2:
-                        c['T2 obstructed: has sep tri'] += 1
-                        continue
-                    nbr = set(T.rot[x])
-                    a, b = T.rot[x][(i + 1) % 4], T.rot[x][(i + 3) % 4]
-                    proj_ok = False
-                    lifted = set()
-                    for s in TM:
-                        bet = [t for t in R.A if x in t]
-                        if any(s[t] in (a, b) for t in bet):
+                        T2, v1, v2 = res
+                        ren = lambda w: v1 if w == v2 else w
+                        f2 = tuple(ren(w) for w in f)
+                        R2 = Rooted(T2, f2)
+                        # map faces of T (not containing x) to faces of T2
+                        fm = {}
+                        for t in R.A:
+                            if x in t:
+                                continue
+                            key = frozenset(ren(w) for w in t)
+                            fm[t] = [t2 for t2 in R2.A if frozenset(t2) == key][0]
+                        TM2 = [s for s in R2.states() if R2.is_tree_matching(s)]
+                        TM2set = {frozenset(s.items()) for s in TM2}
+                        c['cases'] += 1
+                        c['P1 T2 has TM'] += bool(TM2)
+                        if not TM2:
+                            c['T2 obstructed: has sep tri'] += 1
                             continue
-                        s2 = frozenset((fm[t], ren(s[t])) for t in R.A if x not in t)
-                        if s2 in TM2set:
-                            proj_ok = True
-                            lifted.add(s2)
-                    c['P2 some TM projects to TM'] += proj_ok
-                    c['P3 every TM of T2 lifts'] += (lifted == TM2set)
-    print(V, dict(c), flush=True)
+                        nbr = set(T.rot[x])
+                        a, b = T.rot[x][(i + 1) % 4], T.rot[x][(i + 3) % 4]
+                        proj_ok = False
+                        lifted = set()
+                        for s in TM:
+                            bet = [t for t in R.A if x in t]
+                            if any(s[t] in (a, b) for t in bet):
+                                continue
+                            s2 = frozenset((fm[t], ren(s[t])) for t in R.A if x not in t)
+                            if s2 in TM2set:
+                                proj_ok = True
+                                lifted.add(s2)
+                        c['P2 some TM projects to TM'] += proj_ok
+                        c['P3 every TM of T2 lifts'] += (lifted == TM2set)
+        print(V, dict(c), flush=True)

@@ -1,0 +1,6 @@
+8 {'cases': 48, 'P1 T2 has TM': 48, 'P2 some TM projects to TM': 48, 'P3 every TM of T2 lifts': 24}
+9 {}
+10 {'cases': 168, 'P1 T2 has TM': 168, 'P2 some TM projects to TM': 168, 'P3 every TM of T2 lifts': 96}
+11 {'cases': 116, 'P1 T2 has TM': 80, 'P2 some TM projects to TM': 80, 'P3 every TM of T2 lifts': 40, 'T2 obstructed: has sep tri': 36}
+12 {'cases': 592, 'P1 T2 has TM': 592, 'P2 some TM projects to TM': 592, 'P3 every TM of T2 lifts': 332}
+13 {'cases': 724, 'P1 T2 has TM': 628, 'P2 some TM projects to TM': 628, 'P3 every TM of T2 lifts': 316, 'T2 obstructed: has sep tri': 96}

@@ -1,0 +1,7 @@
+6 {'edges': 12, 'covered': 12, 'disjoint_images': 0}
+7 {'edges': 0, 'covered': 0, 'disjoint_images': 0}
+8 {'edges': 18, 'covered': 12, 'disjoint_images': 0}
+9 {'edges': 21, 'covered': 21, 'disjoint_images': 18}
+10 {'edges': 48, 'covered': 20, 'disjoint_images': 0}
+11 {'edges': 54, 'covered': 33, 'disjoint_images': 24}
+12 {'edges': 209, 'covered': 91, 'disjoint_images': 67}

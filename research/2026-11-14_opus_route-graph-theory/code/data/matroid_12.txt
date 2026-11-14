@@ -1,0 +1,27 @@
+   6 (0, 4, 3) |BT| 14 |OT| 2 |TM| 2
+   6 (0, 3, 2) |BT| 14 |OT| 2 |TM| 2
+   6 (0, 2, 1) |BT| 14 |OT| 2 |TM| 2
+   6 (0, 1, 4) |BT| 14 |OT| 2 |TM| 2
+   6 (1, 2, 5) |BT| 14 |OT| 2 |TM| 2
+   6 (1, 5, 4) |BT| 14 |OT| 2 |TM| 2
+   6 (2, 3, 5) |BT| 14 |OT| 2 |TM| 2
+   6 (3, 4, 5) |BT| 14 |OT| 2 |TM| 2
+6 {'inst': 8, 'BTinOT': 0, 'OTinBT': 8, 'TMeq': 8, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+7 {'inst': 0, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 0, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+   8 (0, 4, 3) |BT| 78 |OT| 6 |TM| 2
+   8 (0, 3, 2) |BT| 78 |OT| 6 |TM| 2
+   8 (0, 2, 7) |BT| 78 |OT| 6 |TM| 2
+   8 (0, 7, 4) |BT| 78 |OT| 6 |TM| 2
+   8 (1, 2, 5) |BT| 78 |OT| 6 |TM| 2
+   8 (1, 5, 4) |BT| 78 |OT| 6 |TM| 2
+   8 (1, 4, 6) |BT| 78 |OT| 6 |TM| 2
+   8 (1, 6, 2) |BT| 78 |OT| 6 |TM| 2
+   8 (2, 6, 7) |BT| 78 |OT| 6 |TM| 2
+   8 (2, 3, 5) |BT| 78 |OT| 6 |TM| 2
+   8 (3, 4, 5) |BT| 78 |OT| 6 |TM| 2
+   8 (4, 7, 6) |BT| 78 |OT| 6 |TM| 2
+8 {'inst': 12, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 12, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+9 {'inst': 8, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 8, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+10 {'inst': 32, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 32, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+11 {'inst': 28, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 28, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}
+12 {'inst': 120, 'BTinOT': 0, 'OTinBT': 0, 'TMeq': 120, 'BTmat': 0, 'OTmat': 0, 'TMmat': 0}

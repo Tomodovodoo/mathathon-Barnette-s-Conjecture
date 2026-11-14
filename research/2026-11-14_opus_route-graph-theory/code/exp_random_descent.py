@@ -39,7 +39,13 @@ for trial in range(trials):
             hist[k2 - k] = hist.get(k2 - k, 0) + 1
             if k2 >= k:
                 viol += 1
-                if viol <= 3:
+                if viol == 1:
+                    import json
+                    json.dump({"rot": {str(a): bb for a, bb in T.rot.items()}, "t0": R.t0,
+                               "r": [[list(t), r[t]] for t in R.A], "s": [[list(t), s[t]] for t in R.A],
+                               "Dcycle": Dc, "k": k, "k_after": k2},
+                              open(f"data/strongviol_{V}_seed{seed}.json", "w"))
+                if viol <= 0:
                     print("VIOLATION", V, T.rot, R.t0, r, s, Dc, k, k2)
         # random move
         if qcs and rng.random() < 0.5:

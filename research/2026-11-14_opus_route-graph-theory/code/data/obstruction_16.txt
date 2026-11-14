@@ -1,0 +1,11 @@
+V=6: rooted 8, flow==criterion 8, with sep. triangle 0, of which pairs exist 0
+V=7: rooted 0, flow==criterion 0, with sep. triangle 0, of which pairs exist 0
+V=8: rooted 12, flow==criterion 12, with sep. triangle 0, of which pairs exist 0
+V=9: rooted 14, flow==criterion 14, with sep. triangle 14, of which pairs exist 8
+V=10: rooted 32, flow==criterion 32, with sep. triangle 0, of which pairs exist 0
+V=11: rooted 36, flow==criterion 36, with sep. triangle 18, of which pairs exist 10
+V=12: rooted 160, flow==criterion 160, with sep. triangle 60, of which pairs exist 20
+V=13: rooted 176, flow==criterion 176, with sep. triangle 110, of which pairs exist 60
+V=14: rooted 768, flow==criterion 768, with sep. triangle 336, of which pairs exist 114
+V=15: rooted 1482, flow==criterion 1482, with sep. triangle 988, of which pairs exist 420
+V=16: rooted 5180, flow==criterion 5180, with sep. triangle 2968, of which pairs exist 1082

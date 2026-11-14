@@ -1,0 +1,1 @@
+V=30 sampled pairs with k>0: 230, weak traps: 9, deep traps: 0

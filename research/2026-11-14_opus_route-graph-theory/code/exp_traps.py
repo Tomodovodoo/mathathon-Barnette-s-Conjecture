@@ -48,6 +48,11 @@ if __name__ == "__main__":
                 b = best_move(R, r, s)
                 if b[0] >= k:
                     wtrap += 1
+                    if wtrap == 1:
+                        import json
+                        json.dump({"rot": {str(a): bb for a, bb in R.T.rot.items()}, "t0": R.t0,
+                                   "r": [[list(t), r[t]] for t in R.A], "s": [[list(t), s[t]] for t in R.A]},
+                                  open(f"data/weaktrap_{V}_seed{seed}.json", "w"))
                     if all(best_move(R, r2, s)[0] >= k for r2 in all_mates(R, r, s)):
                         dtrap += 1
                         print("DEEP TRAP", V, R.t0, k, flush=True)

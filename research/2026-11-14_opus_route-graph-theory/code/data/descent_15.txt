@@ -1,0 +1,10 @@
+6 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+7 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+8 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+9 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+10 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+11 states with k>0: 0 traps (no decreasing move): 0 strict: 0
+12 states with k>0: 2 traps (no decreasing move): 0 strict: 0
+13 states with k>0: 4 traps (no decreasing move): 0 strict: 0
+14 states with k>0: 14 traps (no decreasing move): 0 strict: 0
+15 states with k>0: 72 traps (no decreasing move): 0 strict: 0
