@@ -18,13 +18,13 @@ Choose any second-fixed object by enumerating minimum covers. Alternate first an
 
 ## Verification
 
-COMPUTED by research/2026-11-14_sol_li-completion/verify.py and extras.py. All 55 classes through 14 triangulation vertices agree as canonical maps with plantri. All 1206 roots are checked, including 880 with pairs. The verifier enumerates 221050 marked objects and checks both maps, signs, fixed sets, lowest coefficients and all 4658 paths from second-fixed objects. Maximum path length is two moves. Family checks reach 20 triangulation vertices. See the research census, witnesses and family outputs.
+COMPUTED by research/2026-11-14_sol_li-completion/verify.py and extras.py. All 55 classes through 14 triangulation vertices agree as canonical maps with plantri. All 1206 roots are checked, including 880 with pairs. The verifier enumerates 221050 marked objects and checks both maps, signs, fixed sets, lowest coefficients and all 4658 paths from second-fixed objects. Maximum path length is two moves in those drawings; the 69-drawing recheck of the running example reaches six. Family checks reach 20 triangulation vertices. See the research census, witnesses and family outputs.
 
 ## Example and source relation
 
-The current running.json has minimum cycle count two. The exact rational layout here gives 279 marked objects, nine second-fixed objects, and lowest coefficient nine. running-objects.json lists every object and both images; example-table.tex includes the full listing in the PDF. The earlier Li replay has 213 objects on the same input with roots 4 and 5 interchanged. The marked set depends on the drawing; the signed sum and the nine second-fixed objects do not.
+The current running.json has minimum cycle count two. The exact rational layout here gives 279 marked objects, nine second-fixed objects, and lowest coefficient nine. running-objects.json lists every object and both images; example-table.tex includes the full listing in the PDF. The earlier Li replay has 213 objects on the same input with roots 4 and 5 interchanged. The marked set depends on the drawing; the signed sum and the second-fixed count of nine do not. The actual fixed marked objects can change.
 
-Li's incidence orientation is opposite to the directed two-spoke convention used here, so his cw-prime is -J. The two sign definitions nevertheless agree because n and m have the same parity. Li Definitions 13 through 23 and Appendix B supply the maps. The full general-m verifications, set convention, invariant selection rule, nonemptiness proof and finite-path extraction are written in the note. OpenAI supplies the disk identity and first cancellation; barnette_trees uses a different ordered weight-token walk with restarts. Heights at white faces are signed counts of the same ray crossings.
+Li's incidence orientation is opposite to the directed two-spoke convention used here, so his cw-prime is -J. The two sign definitions nevertheless agree because n and m have the same parity. Li Definitions 13 through 23 and Appendix B supply the maps. Li states the set convention, unmarked-cycle rule, priority rule and fixed-set description. This note writes out his intended proof, including all-marked minimality, return-move and sign checks, the interior partner reversal, and independent orientation choices for nonemptiness. The project audit research/2026-11-14_fable_dependency-graph/audit-li.md, L-F5 and L-F6, had already identified and sketched these checks. OpenAI supplies the disk identity and first cancellation; barnette_trees uses a different ordered weight-token walk with restarts. Heights at white faces are signed counts of the same ray crossings.
 
 ## Full proof details
 
@@ -44,7 +44,7 @@ Substituting gives W=B+1 and h-2ell=3. Thus the cycle has odd length and contain
 
 For a pair, the sides r(t) to s(t) have indegree and outdegree one at every nonroot. Their cycles are simple: each edge has only one black incident triangle and so cannot be supplied twice. The disk identity applies with state r. Thus J, one third of their total delta sum, is clockwise minus counterclockwise cycles, and J, n and the cycle count have the same parity.
 
-Replacing a side by its tail-centre-head spoke detour preserves simplicity, orientation and all white-face interior predicates. The old side and new detour bound a subdisk inside their black triangle excluding the third corner. Distinct detours have disjoint interiors because each triangle supplies at most one side. Sliding through these subdisks cannot cross any other edge, detour, or white-face point, even when the third corner occurs elsewhere on the cycle. All subsequent cycle tests refer to these spoke cycles.
+Replacing each side by its tail-centre-head detour gives a simple cycle because detours lie in distinct black-triangle interiors apart from their endpoints. The old and new cycles differ by small triangular boundaries containing no white-face point. Their winding numbers at every white face agree. A white face inside exists by the disk count, so their orientations agree as well.
 
 ### First map
 
@@ -58,7 +58,7 @@ Summing the disk identity changes J by plus or minus two. Thus floor(J/2) change
 
 ### Second map
 
-Fix a total order on unoriented cycles using sorted supplying-face sets. The same order is used in both directions. For each cycle C and white point w, order ray crossings from w. An exterior point has an even number of crossings, paired 1 with 2, 3 with 4, and so on. An interior point has an odd number, with crossing 1 unpaired and pairs 2 with 3, 4 with 5, and so on. Paired crossings have opposite traversal directions by Jordan entry/exit alternation.
+Fix a total order on unoriented cycles. Within each family compared by the maps, supplying-face sets are disjoint, so their lexicographic order suffices. The same order is used in both directions. For each cycle C and white point w, order ray crossings from w. An exterior point has an even number of crossings, paired 1 with 2, 3 with 4, and so on. An interior point has an odd number, with crossing 1 unpaired and pairs 2 with 3, 4 with 5, and so on. Paired crossings have opposite traversal directions by Jordan entry/exit alternation.
 
 First reverse the first unmarked cycle if one exists, leaving all tokens fixed. The unoriented cover and its unmarked cycles stay unchanged. The same reversal therefore applies twice, and no token can become invalid. Its sign changes because J changes by two and no marked direction changes.
 
@@ -85,3 +85,18 @@ In Li's incidence graph the second-matching complement contains subdivided oppos
 Join objects exchanged by each nonfixed map with an edge carrying that map's label; keep parallel edges of different labels. Every object has at most one edge of each label. Begin at a second-fixed object constructed above, which lacks a label-two edge. Its finite component is a path or a singleton, since an endpoint cannot belong to any degree-two cycle, including a parallel two-edge cycle. Alternating first and second edges traverses this path without repetition.
 
 If the other endpoint were also second-fixed, the path would begin and end with a first edge and have odd length. Sign reversal on every edge would give opposite endpoint signs, contradicting the common sign of second-fixed objects. Thus it ends at a first-fixed object, or the initial singleton is already first-fixed. This proves termination and construction. Minimum-cover enumeration is a prerequisite; there is no claim of a polynomial-time initialization or of a universal two-move bound.
+
+
+## Drawing-free version
+
+PROVED-HERE, Section 5 and Lemma 7 of the note. Fix a dual spanning tree rooted at the outer black face. For each white face w, follow its path to the root. At a black-face step i, let v be the common corner of the entering and leaving sides, and let kappa be +1 for a left turn around v and -1 for a right turn. A token is the incidence (w,i) eligible when s(f_i)=v. Its direction bit is (1+kappa)/2. Keep m distinct tokens.
+
+For a cycle, list those steps turning around either its r-corner or its s-corner. Cutting the oriented sphere map along the formal incidence cycle shows that these steps alternate entry and exit, end outside, and have odd length exactly for an inside white face. The signed traversal at an s-incidence is -kappa, with the opposite sign at an r-incidence. Thus consecutive entries pair exactly as in the ray version. The full proof in Lemma 7 checks eligibility after reversal, distinctness, the return move, first-exit signs and independent cycle orientations. No metric drawing is part of the construction.
+
+COMPUTED by research/2026-11-14_sol_involutions-revision/code/check.py 14. All 1206 roots, 880 paired roots, and all objects for two BFS trees were checked. Increasing and decreasing face-ID tie breaks give 17832 and 18362 objects, respectively, each with 4658 second-fixed objects and maximum path length four. The count of objects, first-fixed count and walks depend on the tree; m, F and the signed sum do not.
+
+PROVED-HERE. This is a term-by-term bijective unpacking of the main paper's height argument for one height. The first involution lifts its cancellation lemma to marked objects; the second proves the height and finite-difference lemmas together. For face-path tokens H=-omega exactly. For ray tokens H has the opposite cycle-reversal increment, with a possible constant on each unoriented-cover class. The corrected comparison is
+
+$$\frac{1}{m!}\sum_p\varepsilon(p)H(s)^m=(-1)^{(n+m)/2}F.$$
+
+COMPUTED. The octahedron has n=3, m=1, F=1 and coefficient +1. The former exponent (n-m)/2 gave -1 and is REFUTED. With fewer than m marks the signed count is zero by unmarked-cycle reversal, PROVED-HERE. With m+1 marks it vanishes on 57 of 880 paired roots in the referee's drawings, and 78 in the original author's drawings. This higher count also depends on the rays. The second involution is not defined for arbitrary larger mark counts.

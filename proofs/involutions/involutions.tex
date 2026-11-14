@@ -12,7 +12,7 @@
 \author{Research note, 14 November 2026}
 \begin{document}
 \begin{abstract}
-We write out Li's intended multi-mark proof in Appendix B of Zhentao Li's note.
+We write out the intended multi-mark proof in Appendix B of Zhentao Li's note.
 The proof uses finite signed sets and two explicit involutions. It uses no
 generating function, limiting argument, or complex number. A finite alternating
 path constructs a forest pair. The coefficient comparison at the end is a
@@ -358,9 +358,10 @@ lemmas together by pairing the terms of the expansion.
 The number of marks matters. With fewer than $m$ marks every object has
 an unmarked cycle, so the signed count is zero. With more than $m$, the
 one-token-per-cycle deduction fails and the second map is undefined on
-some objects. COMPUTED for the original ray convention: with $m-1$ marks
+some objects. COMPUTED in the referee's ray drawings: with $m-1$ marks
 the count is zero on all 880 paired roots through 14 vertices; with $m+1$
-it is zero on 57 of them. Thus arbitrary mark counts cannot replace $m$.
+it is zero on 57 of them, versus 78 in the original author's drawings.
+These higher-order counts depend on the rays. Thus arbitrary mark counts cannot replace $m$.
 
 \section{An explicit constructor}
 Enumerate pairs to determine $m$ and a minimum cover. Choose its white
@@ -490,6 +491,14 @@ drawings, alternating paths from all of them have length zero or two.
 Path lengths depend on the drawing: an independent census with a
 different generic direction finds a path of four moves, and the running
 example with unsheared vertical rays has paths of six moves.
+The revision verifier also checks all these roots with two breadth-first
+face-path trees, breaking ties by increasing and decreasing face ID.
+Their marked sets have 17832 and 18362 objects, respectively; both have
+4658 second-fixed objects and maximum path length four. It checks every
+object, all fixed starts, the turn-sign rules, the corrected coefficient,
+and agreement of $F$ and the signed sum across both trees and the rays.
+The code and raw outputs are in
+\texttt{research/2026-11-14\_sol\_involutions-revision/}.
 These are bounds in triangulation vertices; the corresponding cubic
 graphs have at most 24 vertices.
 An additional comparison computes the existing integer-weight polynomial's

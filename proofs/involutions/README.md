@@ -1,26 +1,18 @@
 # Forest pairs by two involutions
 
-Read involutions.pdf for the complete standalone proof and every marked object of the current running example. INVOLUTIONS.md is a shorter companion. STATUS.md separates source results, completed proofs and computations. The research folder contains the independent verifier, raw census, family measurements, witnesses and reverse-Lamport audit.
+Read involutions.pdf for the complete note, its drawing-free version, four computed figures and the complete 279-object ray listing. INVOLUTIONS.md is the companion proof; STATUS.md records provenance.
 
-Run from the repository root with Python, NetworkX, SymPy, NumPy, SciPy and MiKTeX available:
+The revision records, code, raw verification outputs, page renders and reverse-Lamport audit are in research/2026-11-14_sol_involutions-revision/. The original census and hard-family evidence remain in research/2026-11-14_sol_li-completion/; the independent referee is research/2026-11-14_opus_referee-involutions/.
 
-```powershell
-python research/2026-11-14_sol_li-completion/verify.py 14
-python research/2026-11-14_sol_li-completion/extras.py
-python research/2026-11-14_sol_li-completion/more_checks.py
-python research/2026-11-14_sol_li-completion/build.py
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=proofs/involutions proofs/involutions/involutions.tex
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory=proofs/involutions proofs/involutions/involutions.tex
-```
-
-extras.py expects the repository's installed workings/barnette_lab/vendor/plantri.exe. It compares complete canonical map sets with the census generator. The verifier itself imports only the census input generator; it implements states, cycles, exact ray intersections, signs, both maps, fixed counts and paths independently of the existing Li implementation.
-
-The figure generator imports paper/figures/model.py and draw.py read-only. Blue arrows, thick marked spokes, white points and root circles use the existing encodings. No file in the shared toolkit is modified. Figure inputs and the example tables are generated under this folder.
-
-To render with PyMuPDF:
+From the repository root:
 
 ```powershell
-python -c "import fitz;from pathlib import Path;d=fitz.open('proofs/involutions/involutions.pdf');[p.get_pixmap(matrix=fitz.Matrix(1.15,1.15)).save(Path('proofs/involutions/figures')/('page-%02d.png'%(i+1))) for i,p in enumerate(d)]"
+python research/2026-11-14_sol_involutions-revision/code/check.py 14
+python research/2026-11-14_sol_involutions-revision/code/referee_rerun.py
+python research/2026-11-14_sol_involutions-revision/code/drawings.py
+python research/2026-11-14_sol_involutions-revision/code/figures.py
 ```
 
-The manuscript is amsart on A4 with one-inch margins. Build diagnostics and visual QA are recorded in the research REPORT.md. No polynomial is used in the existence proof or constructor. The separate coefficient comparison explains the relation to the refereed algebraic route.
+Build from proofs/involutions/ with two runs of `pdflatex -interaction=nonstopmode -halt-on-error involutions.tex`. Render from there with `pdftoppm -scale-to 1300 -png involutions.pdf ../../research/2026-11-14_sol_involutions-revision/page`. Python uses NetworkX, SymPy, and Pillow; plantri.exe is the existing census generator. The figure script reads the original figure sources from commit 55e60f9 and only writes the owned paths. The common figure style is imported read-only.
+
+The note uses amsart, A4 paper and one-inch margins. No float occurs within a statement or proof. The coefficient comparison is separate from the forest-pair proof.

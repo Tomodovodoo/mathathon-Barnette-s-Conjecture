@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 13:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.29)  14 NOV 2026 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./proofs/involutions/involutions.tex
-(proofs/involutions/involutions.tex
+**./involutions.tex
+(involutions.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
 (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsart.cls
@@ -206,9 +206,7 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen182
 \Gin@req@width=\dimen183
-)
-(E:\Personal\Math\mathathon\barnette-s-conjecture\paper\figures\barnette-figs.s
-ty
+) (../../paper/figures/barnette-figs.sty
 
 LaTeX Warning: You have requested package `../../paper/figures/barnette-figs',
                but the package provides `barnette-figs'.
@@ -696,9 +694,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 x.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count342
-)
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
-s.aux)
+) (involutions.aux)
 \openout1 = `involutions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -721,7 +717,8 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
 LaTeX Font Info:    ... okay on input line 13.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
- (C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+(C:\Users\Tom\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
@@ -789,30 +786,17 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 13.
-
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
-s.out)
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
-s.out)
+ (involutions.out) (involutions.out)
 \@outlinefile=\write4
 \openout4 = `involutions.out'.
 
- [1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-[2] [3] [4] [5]
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/pa
-nels.tex
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/ma
-rked.tex)
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/se
-cond.tex)
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\figures/fi
-rst.tex)) [6] [7]
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\example-ta
-ble.tex [8
+ [1{C:/Users/Tom/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4]
+ [5] [6] (figures/panels.tex [7]
+(figures/marked.tex) (figures/second.tex) [8] (figures/paths.tex)
+(figures/first.tex) [9]) (example-table.tex [10
 
-] [9
 
-] [10
+
 
 ] [11
 
@@ -822,26 +806,29 @@ ble.tex [8
 
 ] [14
 
-]) [15
+] [15
 
 ]
-(E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\involutions\involution
-s.aux)
+[16
+
+]) [17
+
+] (involutions.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `involutions.out' has not changed.
-(rerunfilecheck)             Checksum: 6EFED4CF5B84A377EA5A7B3E060EEE52;2036.
+(rerunfilecheck)             Checksum: B0FA2E6D890B377A548B8BF7486572C4;2222.
  ) 
 Here is how much of TeX's memory you used:
- 22347 strings out of 467870
- 421601 string characters out of 5419323
- 866842 words of memory out of 5000000
- 50648 multiletter control sequences out of 15000+600000
+ 22461 strings out of 467870
+ 422697 string characters out of 5419323
+ 858474 words of memory out of 5000000
+ 50755 multiletter control sequences out of 15000+600000
  638250 words of font info for 81 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 99i,9n,118p,621b,710s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,118p,602b,724s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmcsc10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -849,28 +836,26 @@ s/cm/cmcsc10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /public/amsfonts/cmextra/cmex8.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Tom/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Tom/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Tom/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Tom/AppDa
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Tom/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Tom/AppDa
 ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Tom
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/User
-s/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:
-/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pf
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/User
+s/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
+/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pf
 b><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr9.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Tom/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Tom/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Tom/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Tom/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on E:\Personal\Math\mathathon\barnette-s-conjecture\proofs\invol
-utions\involutions.pdf (15 pages, 351836 bytes).
+r9.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb><C:/Users/Tom/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/Tom/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Tom/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/Tom/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Users/Tom/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on involutions.pdf (17 pages, 366222 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

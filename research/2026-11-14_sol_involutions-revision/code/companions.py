@@ -1,0 +1,46 @@
+from pathlib import Path
+p=Path('proofs/involutions/involutions.tex');s=p.read_text().replace('COMPUTED for the original ray convention:',"COMPUTED in the referee's ray drawings:")
+s=s.replace('it is zero on 57 of them. Thus arbitrary mark counts cannot replace $m$.','it is zero on 57 of them, versus 78 in the original author\'s drawings.\nThese higher-order counts depend on the rays. Thus arbitrary mark counts cannot replace $m$.')
+needle='These are bounds in triangulation vertices;'
+s=s.replace(needle,r'''The revision verifier also checks all these roots with two breadth-first
+face-path trees, breaking ties by increasing and decreasing face ID.
+Their marked sets have 17832 and 18362 objects, respectively; both have
+4658 second-fixed objects and maximum path length four. It checks every
+object, all fixed starts, the turn-sign rules, the corrected coefficient,
+and agreement of $F$ and the signed sum across both trees and the rays.
+The code and raw outputs are in
+\texttt{research/2026-11-14\_sol\_involutions-revision/}.
+'''+needle)
+s=s.replace('We write out Li\'s intended multi-mark proof in Appendix B of Zhentao Li\'s note.',"We write out the intended multi-mark proof in Appendix B of Zhentao Li's note.")
+p.write_text(s)
+p=Path('proofs/involutions/INVOLUTIONS.md');s=p.read_text().replace('Maximum path length is two moves.','Maximum path length is two moves in those drawings; the 69-drawing recheck of the running example reaches six.')
+s=s.replace('the signed sum and the nine second-fixed objects do not.','the signed sum and the second-fixed count of nine do not. The actual fixed marked objects can change.')
+s=s.replace('The full general-m verifications, set convention, invariant selection rule, nonemptiness proof and finite-path extraction are written in the note.',"Li states the set convention, unmarked-cycle rule, priority rule and fixed-set description. This note writes out his intended proof, including all-marked minimality, return-move and sign checks, the interior partner reversal, and independent orientation choices for nonemptiness. The project audit research/2026-11-14_fable_dependency-graph/audit-li.md, L-F5 and L-F6, had already identified and sketched these checks.")
+start=s.index('Replacing a side by its tail-centre-head spoke detour');end=s.index('\n\n### First map',start)
+s=s[:start]+"Replacing each side by its tail-centre-head detour gives a simple cycle because detours lie in distinct black-triangle interiors apart from their endpoints. The old and new cycles differ by small triangular boundaries containing no white-face point. Their winding numbers at every white face agree. A white face inside exists by the disk count, so their orientations agree as well."+s[end:]
+s=s.replace('Fix a total order on unoriented cycles using sorted supplying-face sets.', 'Fix a total order on unoriented cycles. Within each family compared by the maps, supplying-face sets are disjoint, so their lexicographic order suffices.')
+s+=r'''
+
+## Drawing-free version
+
+PROVED-HERE, Section 5 and Lemma 7 of the note. Fix a dual spanning tree rooted at the outer black face. For each white face w, follow its path to the root. At a black-face step i, let v be the common corner of the entering and leaving sides, and let kappa be +1 for a left turn around v and -1 for a right turn. A token is the incidence (w,i) eligible when s(f_i)=v. Its direction bit is (1+kappa)/2. Keep m distinct tokens.
+
+For a cycle, list those steps turning around either its r-corner or its s-corner. Cutting the oriented sphere map along the formal incidence cycle shows that these steps alternate entry and exit, end outside, and have odd length exactly for an inside white face. The signed traversal at an s-incidence is -kappa, with the opposite sign at an r-incidence. Thus consecutive entries pair exactly as in the ray version. The full proof in Lemma 7 checks eligibility after reversal, distinctness, the return move, first-exit signs and independent cycle orientations. No metric drawing is part of the construction.
+
+COMPUTED by research/2026-11-14_sol_involutions-revision/code/check.py 14. All 1206 roots, 880 paired roots, and all objects for two BFS trees were checked. Increasing and decreasing face-ID tie breaks give 17832 and 18362 objects, respectively, each with 4658 second-fixed objects and maximum path length four. The count of objects, first-fixed count and walks depend on the tree; m, F and the signed sum do not.
+
+PROVED-HERE. This is a term-by-term bijective unpacking of the main paper's height argument for one height. The first involution lifts its cancellation lemma to marked objects; the second proves the height and finite-difference lemmas together. For face-path tokens H=-omega exactly. For ray tokens H has the opposite cycle-reversal increment, with a possible constant on each unoriented-cover class. The corrected comparison is
+
+$$\frac{1}{m!}\sum_p\varepsilon(p)H(s)^m=(-1)^{(n+m)/2}F.$$
+
+COMPUTED. The octahedron has n=3, m=1, F=1 and coefficient +1. The former exponent (n-m)/2 gave -1 and is REFUTED. With fewer than m marks the signed count is zero by unmarked-cycle reversal, PROVED-HERE. With m+1 marks it vanishes on 57 of 880 paired roots in the referee's drawings, and 78 in the original author's drawings. This higher count also depends on the rays. The second involution is not defined for arbitrary larger mark counts.
+'''
+p.write_text(s)
+p=Path('proofs/involutions/STATUS.md');s=p.read_text().replace('Lemma 7, alternating path','Lemma 8, alternating path').replace('The maximum verified alternating path is two nonfixed moves. This is a finite census result, not a universal complexity bound.', 'The original census drawings have maximum path length two. The referee census reaches four, the 69 running-example drawings reach six, and the two drawing-free tree censuses each reach four. These are finite measurements, not universal bounds.')
+s+='''\n## Revision, 14 November 2026\n\nPROVED-HERE. Section 5, Lemma 7 gives drawing-free tokens as white-face/path-step incidences, their direction bit, all second-map checks, and the same area-product fixed count. This is the face-path height of paper/main Section 4 with opposite normalization, unpacked term by term. The main route remains Li's intended proof written out in full.\n\nCOMPUTED. research/2026-11-14_sol_involutions-revision/code/check.py checks all 1206 roots in ray mode and with two face-path trees. Object totals are 221050, 17832 and 18362; all three modes give 4658 second-fixed objects. Every displayed sign has explicit computational checks, including the corrected (n+m)/2 coefficient and Li's orientation convention. The referee's independent code is rerun separately, including its 57 higher-mark zeros. The author's ray geometry has 78 such zeros. See verification.json, referee-rerun.json, drawing-census.json and AUDIT.md in that research folder.\n\nThe coefficient error is REFUTED by the octahedron and corrected. The count is 55 classes. Rays, object lists, first-fixed sets and path lengths depend on the drawing; path-mode analogues depend on the dual tree. F and the signed sum do not. Actual second-fixed marked objects can change even though their cardinality is invariant.\n'''
+p.write_text(s)
+p=Path('proofs/involutions/README.md');p.write_text('''# Forest pairs by two involutions\n\nRead involutions.pdf for the complete note, its drawing-free version, four computed figures and the complete 279-object ray listing. INVOLUTIONS.md is the companion proof; STATUS.md records provenance.\n\nThe revision records, code, raw verification outputs, page renders and reverse-Lamport audit are in research/2026-11-14_sol_involutions-revision/. The original census and hard-family evidence remain in research/2026-11-14_sol_li-completion/; the independent referee is research/2026-11-14_opus_referee-involutions/.\n\nFrom the repository root:\n\n```powershell\npython research/2026-11-14_sol_involutions-revision/code/check.py 14\npython research/2026-11-14_sol_involutions-revision/code/referee_rerun.py\npython research/2026-11-14_sol_involutions-revision/code/drawings.py\npython research/2026-11-14_sol_involutions-revision/code/figures.py\n```\n\nBuild from proofs/involutions/ with two runs of `pdflatex -interaction=nonstopmode -halt-on-error involutions.tex`. Render from there with `pdftoppm -scale-to 1300 -png involutions.pdf ../../research/2026-11-14_sol_involutions-revision/page`. Python uses NetworkX, SymPy, and Pillow; plantri.exe is the existing census generator. The figure script reads the original figure sources from commit 55e60f9 and only writes the owned paths. The common figure style is imported read-only.\n\nThe note uses amsart, A4 paper and one-inch margins. No float occurs within a statement or proof. The coefficient comparison is separate from the forest-pair proof.\n''')
+# Reproducible figure generation from frozen pre-revision sources.
+p=Path('research/2026-11-14_sol_involutions-revision/code/figures.py');s=p.read_text().replace('import re,json','import re,json,subprocess')
+s=s.replace("s=(F/(name+'.tex')).read_text().replace", "s=subprocess.check_output(['git','show','55e60f9:proofs/involutions/figures/'+name+'.tex'],cwd=ROOT,text=True).replace")
+p.write_text(s)
