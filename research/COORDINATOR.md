@@ -47,3 +47,7 @@ Remaining plan
 2. When the referees of induction, conjectures, topology and packing land: fold verdicts into `digestions/route-map/` and `labyrinth/` (one agent).
 3. From 14:05 UTC: cross-audits of `paper/main/`, `proofs/primal/`, `proofs/involutions/`, `digestions/`; repository cleanup (build artefacts, stale drafts flagged not deleted); top-level README update with the final layout.
 4. `E:\lbb` (7.4 GB Lean build, outside the repo) could not be deleted from this session. Tell the user.
+
+## State at 14:10 UTC (machine 15:10)
+
+Exploration is finished. Audit phase: eight audits or finishing runs in progress (see INDEX.md). Remaining coordinator work: check the paper's formal-verification sentence against research/2026-11-14_opus_lean-integration/PAPER-SENTENCE.md once both land; final INDEX update; final summary at 16:00 UTC. E:\lbb must be kept (it now holds the Lean work).
