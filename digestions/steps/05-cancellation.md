@@ -18,7 +18,7 @@ The weight of a pair depends only on $s$, and $s$ did not change. So the twins c
 
 Let $(r,s)$ be a pair and $u(t)$ the third corner of $t$.
 
-**The cycle cover $D(r,s)$.** Direct, in each $t \in A$, the edge from $r(t)$ to $s(t)$. Every non-root is $r(t)$ for one face and $s(t')$ for one face, so it has one edge out and one in. The edges form disjoint directed cycles through all of $X$. Different faces give different edges, so each cycle is a simple cycle of $T$. Its edges leave corners chosen by $r$, so step 04 applies. Each cycle has odd length.
+**The directed cycles $D(r,s)$.** Direct, in each $t \in A$, the edge from $r(t)$ to $s(t)$. Every non-root is $r(t)$ for one face and $s(t')$ for one face, so it has one edge out and one in. The edges form disjoint directed cycles through all of $X$. Different faces give different edges, so each cycle is a simple cycle of $T$. Its edges leave corners chosen by $r$, so step 04 applies. Each cycle has odd length. With the directions forgotten, the cycles of $D(r,s)$ are the *cover* of the pair, called a group in the OpenAI paper.
 
 **The sign.**
 
@@ -39,7 +39,7 @@ The papers choose $F(s) = e^{x\omega(s)}$ or $z^{\omega(s)}$ for a weight $\omeg
 1. If $Q_s$ contains a cycle, $\mu(s) = 0$.
 2. If $s$ has a partner and $Q_s$ is a forest, $s$ has exactly one partner and $\mu(s) = \pm 1$.
 
-Hence $S_F = \sum_{s \text{ tree matching}} \mu(s) F(s)$ for every $F$.
+Hence $S_F = \sum_{s \text{ good state}} \mu(s) F(s)$ for every $F$. (Good states are the trees paper's tree matchings, step 03.)
 
 ## Proof, with each assumption named
 
@@ -70,9 +70,9 @@ Here a cube is a finite set of independent binary choices, not a subgraph of the
 The picture behind the proof is that the set of all pairs is cut into cubes in two different ways.
 
 - Fix the undirected cycles of $D$. Each cycle can run either way, independently. With $c$ cycles this is a cube with $2^c$ pairs, and $\varepsilon$ alternates along every edge of the cube, because reversing a cycle of odd length flips an odd number of factors.
-- Fix $s$. Its partners are the $2^k$ orientations of the $k$ cycles of $Q_s$, and $\varepsilon$ alternates there too.
+- Fix $s$. Its partners are the $2^{q(s)}$ orientations of the $q(s)$ cycles of $Q_s$, and $\varepsilon$ alternates there too.
 
-Tree matchings are the cubes of the second kind that have dimension zero. A sum of $\varepsilon F(s)$ over a cube of the second kind with $k \ge 1$ vanishes for every $F$. A sum over a cube of the first kind does not, because $F(s)$ changes when a cycle of $D$ is reversed. Step 06 computes it.
+Good states are the cubes of the second kind that have dimension zero. A sum of $\varepsilon F(s)$ over a cube of the second kind with $q(s) \ge 1$ vanishes for every $F$. A sum over a cube of the first kind does not, because $F(s)$ changes when a cycle of $D$ is reversed. Step 06 computes it.
 
 ## Worked example
 
@@ -86,11 +86,11 @@ $$r = (6, 2, 8, 1, 3, 10, 11, 7, 12, 9), \qquad r' = (6, 2, 1, 9, 3, 10, 11, 7, 
 
 They differ exactly on the three faces $7, 9, 21$ that supply the triangle. The signs are $\varepsilon(r, s^*) = -1$ and $\varepsilon(r', s^*) = +1$, with $J = 0$ and $J = -2$. They cancel.
 
-Notice what the reversal did to the cycle cover. $D(r, s^*)$ consists of the 7-cycle through $2,3,9,10,11,6,1$ and the triangle $8,12,7$. $D(r', s^*)$ consists of the 7-cycle through $7,12,8,10,11,6,1$ and the triangle $3,9,2$. The twins live in different cubes of the first kind. Reversing a cycle of $Q_s$ rearranges $D$ completely and still moves $J$ by exactly two.
+Notice what the reversal did to the cover. $D(r, s^*)$ consists of the 7-cycle through $2,3,9,10,11,6,1$ and the triangle $8,12,7$. $D(r', s^*)$ consists of the 7-cycle through $7,12,8,10,11,6,1$ and the triangle $3,9,2$. The twins live in different cubes of the first kind. Reversing a cycle of $Q_s$ rearranges $D$ completely and still moves $J$ by exactly two.
 
 ![Reversing the cycle of Q_s changes only r](../../paper/figures/renders/10-cancellation.png)
 
-**Small cases.** In the octahedron and the prism every state with a partner is a tree matching and nothing cancels. Among all triangulations with at most 11 vertices no state has both a partner and a cycle in $Q_s$. The first appears at 12 vertices (`research/2026-11-14_fable_route-combinatorics/DATA.md`, computed, confirmed by the referee's independent enumeration). So the cancellation cannot be seen on toy examples. The lab's own test suite exercises it on 3 of its 77 runs, a weakness noted by the referee of the determinant reports.
+**Small cases.** In the octahedron and the prism every state with a partner is a good state and nothing cancels. Among all triangulations with at most 11 vertices no state has both a partner and a cycle in $Q_s$. The first appears at 12 vertices (`research/2026-11-14_fable_route-combinatorics/DATA.md`, computed, confirmed by the referee's independent enumeration). So the cancellation cannot be seen on toy examples. The lab's own test suite exercises it on 3 of its 77 runs, a weakness noted by the referee of the determinant reports.
 
 ## The determinant reading
 
@@ -110,8 +110,8 @@ Status. The determinant formula is Proposition 5 of `fable_route-combinatorics/P
 
 - **A rule for $Z$ that depends on $r$.** Then the map need not be an involution, and the pairing of terms breaks. Nobody recorded a smallest counterexample, because a rule has to be specified first (`research/2026-11-14_astra_limits/HYPOTHESES.md`, not yet refereed).
 - **A weight that depends on $r$.** The twins must have equal weight. A function of $s$ guarantees this. More general weights are possible if they are invariant under the chosen involution.
-- **Counting without signs.** A state is a tree matching exactly when it has an odd number of partners, namely one. So the number of tree matchings has the parity of the number of pairs. That number is even, because $(r,s) \mapsto (s,r)$ has no fixed point. Counting modulo 2 proves nothing (`fable_dependency-graph/skeleton.md`, edge D3, proved there and not refereed).
-- **Constant weight.** With $F = 1$ the cancellation works and the total is zero for a different reason. Each cube of the first kind sums to zero. The conclusion is that tree matchings of sign $+1$ and $-1$ are equally many. In particular there are never exactly one. This says nothing about whether there are any. It is the reason step 06 needs weights.
+- **Counting without signs.** A state is good exactly when it has an odd number of partners, namely one. So the number of good states has the parity of the number of pairs. That number is even, because $(r,s) \mapsto (s,r)$ has no fixed point. Counting modulo 2 proves nothing (`fable_dependency-graph/skeleton.md`, edge D3, proved there and not refereed).
+- **Constant weight.** With $F = 1$ the cancellation works and the total is zero for a different reason. Each cube of the first kind sums to zero. The conclusion is that good states of sign $+1$ and $-1$ are equally many. In particular there are never exactly one. This says nothing about whether there are any. It is the reason step 06 needs weights.
 
 ## Where this is used next
 

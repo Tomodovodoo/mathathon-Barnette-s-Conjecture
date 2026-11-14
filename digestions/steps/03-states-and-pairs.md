@@ -22,17 +22,17 @@ This derivation is Proposition 7 of `research/2026-11-14_fable_route-combinatori
 
 ## Definitions
 
-**State.** A bijection $s : A \to X$ with $s(t)$ a corner of $t$ for every $t$. Equivalently, a perfect matching of the bipartite incidence graph $B$ whose two sides are $A$ and $X$ and whose edges are the pairs $(t, v)$ with $v$ a corner of $t$. These are the Tutte states of trinity theory. Li calls them perfect matchings of $H$, the trees paper perfect matchings of $B$.
+**State.** A bijection $s : A \to X$ with $s(t)$ a corner of $t$ for every $t$. Equivalently, a perfect matching of the bipartite incidence graph $\mathcal B$ whose two sides are $A$ and $X$ and whose edges are the pairs $(t, v)$ with $v$ a corner of $t$. These are the Tutte states of trinity theory. Li calls them perfect matchings of $H$, the trees paper perfect matchings of $B$. In these digestions $H$ is the spoke graph below and $B$ is the number of black faces in a disk (step 04), so the incidence graph gets the main paper's letter $\mathcal B$.
 
 **Opposite edges.** For a state $s$, $Q_s$ is the graph on all of $V(T)$ whose edges are the side of $t$ opposite $s(t)$, one for each $t \in A$. These $n$ edges are distinct, since an edge has only one black face.
 
 **Spoke graph.** Put a centre in every black face, $t_0$ included, and join it to its three corners by spokes. This graph is $H$. It has $2n+4$ vertices and $3n+3$ edges. A state is a set of $n$ spokes.
 
-**Tree matching.** A state $s$ such that $H$ minus the spokes of $s$ is a spanning tree. Removing the spoke $(t, s(t))$ leaves the centre of $t$ as a vertex of degree two on a path between the other two corners, which is the edge of $Q_s$ with a subdivision point. The centre of $t_0$ ties the three roots together. So
+**Good state.** A state $s$ such that $H$ minus the spokes of $s$ is a spanning tree. The name is the main paper's. The trees paper and earlier versions of these digestions say *tree matching*; the OpenAI paper has no name and speaks of a pair with $Q_s$ a forest. Removing the spoke $(t, s(t))$ leaves the centre of $t$ as a vertex of degree two on a path between the other two corners, which is the edge of $Q_s$ with a subdivision point. The centre of $t_0$ ties the three roots together. So
 
 $$H - s \text{ is a tree} \iff Q_s \text{ is a forest with exactly one root in each component.}$$
 
-This equivalence is (3) of the trees paper. Step 07 turns a tree matching into the two induced trees.
+This equivalence is (3) of the trees paper. Step 07 turns a good state into the two induced trees.
 
 **Pair.** Two states $r, s$ with $r(t) \neq s(t)$ for every $t \in A$. We also say that $r$ is a partner of $s$. The trees paper says mate. For a pair, $u(t)$ denotes the third corner of $t$.
 
@@ -46,11 +46,11 @@ A single state does not tell you much about $Q_s$. A partner does three jobs.
 
 **It orients $Q_s$.** The edge of $Q_s$ in $t$ joins the two corners other than $s(t)$, which are $r(t)$ and $u(t)$. Direct it from $r(t)$ to $u(t)$. Since $r$ is a bijection onto $X$, every non-root is the tail of exactly one edge and no root is a tail.
 
-**Lemma 1** (trees paper, Proposition 2.1; the first half is OpenAI Lemma 6.1). Let $s$ be a state with a partner. Every component of $Q_s$ is a tree containing exactly one root, or contains no root and exactly one cycle. If there are $k$ components of the second kind, $s$ has exactly $2^k$ partners.
+**Lemma 1** (trees paper, Proposition 2.1; the first half is OpenAI Lemma 6.1). Let $s$ be a state with a partner. Every component of $Q_s$ is a tree containing exactly one root, or contains no root and exactly one cycle. If there are $q(s)$ components of the second kind, $s$ has exactly $2^{q(s)}$ partners. (The trees paper writes $k$; here $k$ is reserved for the number of black faces.)
 
 *Proof.* Take a component with $v$ vertices of which $a$ are roots. Its edges number $v - a$, one per tail. A connected graph has at least $v - 1$ edges, so $a \le 1$. If $a = 1$ it has $v - 1$ edges and is a tree, and all edges point to the root. If $a = 0$ it has $v$ edges, hence one cycle. The cycle runs one of two ways and everything else points to it. Conversely any such orientation gives a partner by reading off the tails, and the two directions of each cycle are free choices. $\square$
 
-So with a partner, "forest" already implies "one root per component". And a tree matching is exactly a state with one partner.
+So with a partner, "$Q_s$ is a forest" already implies "one root per component", and only then may "forest" stand for the whole condition. Without a partner it may not: the third state of the prism below has a forest $Q_s$ and is not good. A good state is exactly a state with one partner.
 
 **It gives something to move.** If $Q_s$ has a cycle, the cycle can be run the other way, and that changes $r$ without touching $s$. Step 05 uses this to cancel.
 
@@ -66,7 +66,7 @@ The proof has two parts.
 
 ### Part 1, from pairs to a counting condition
 
-Two disjoint perfect matchings of $B$ together form a subgraph with degree two everywhere. Conversely such a subgraph is a union of even cycles, and taking alternate edges splits it into two disjoint perfect matchings. So we want a 2-factor of $B$.
+Two disjoint perfect matchings of $\mathcal B$ together form a subgraph with degree two everywhere. Conversely such a subgraph is a union of even cycles, and taking alternate edges splits it into two disjoint perfect matchings. So we want a 2-factor of the incidence graph $\mathcal B$. (A 2-factor of $\mathcal B$ is not a 2-factor of $G$; step 01 uses the word for $G$.)
 
 Set up a flow. A source sends capacity 2 to each vertex of $X$, each incidence $(t,v)$ carries capacity 1, and each face of $A$ sends capacity 2 to a sink. A flow of value $2n$ with whole numbers is a 2-factor. By the max-flow min-cut theorem with integral capacities (Ford and Fulkerson 1956) such a flow exists if and only if every cut has capacity at least $2n$, which works out to
 
@@ -100,19 +100,19 @@ Computed check. The criterion agrees with a direct flow computation on all 7,868
 
 $$\begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}.$$
 
-It has two perfect matchings, the states $s_1 = (3,4,5)$ and $s_2 = (5,3,4)$, written as the images of faces $4,5,6$. They differ everywhere, so they form a pair in either order. $Q_{s_1}$ has the edges $15, 23, 04$ and $Q_{s_2}$ has $13, 24, 05$. Each is three single edges with one root each. Both states are tree matchings.
+It has two perfect matchings, the states $s_1 = (3,4,5)$ and $s_2 = (5,3,4)$, written as the images of faces $4,5,6$. They differ everywhere, so they form a pair in either order. $Q_{s_1}$ has the edges $15, 23, 04$ and $Q_{s_2}$ has $13, 24, 05$. Each is three single edges with one root each. Both states are good.
 
-**Prism.** $T$ is the double wheel with apexes $6, 7$ and rim $0,\dots,5$, and $t_0 = (6,0,1)$. There are three states. Two of them form a pair and are tree matchings. The third sends the faces $(7,2,1), (6,2,3), (7,4,3), (6,4,5), (7,0,5)$ to $2, 3, 7, 4, 5$. Its opposite edges are $71, 62, 43, 65, 70$. That is a forest. Its components are $\{0,1,7\}$ with two roots, $\{2,5,6\}$ with one, and $\{3,4\}$ with none. It is not a tree matching and it has no partner. This is the smallest example showing that "forest" without a partner is not enough.
+**Prism.** $T$ is the double wheel with apexes $6, 7$ and rim $0,\dots,5$, and $t_0 = (6,0,1)$. There are three states. Two of them form a pair and are good states. The third sends the faces $(7,2,1), (6,2,3), (7,4,3), (6,4,5), (7,0,5)$ to $2, 3, 7, 4, 5$. Its opposite edges are $71, 62, 43, 65, 70$. That is a forest. Its components are $\{0,1,7\}$ with two roots, $\{2,5,6\}$ with one, and $\{3,4\}$ with none. It is not a good state and it has no partner. This is the smallest example showing that "forest" without a partner is not enough.
 
-**Double octahedron.** Glue an octahedron with new vertices $6,7,8$ into the face $(3,4,5)$ of the octahedron. The triangle $3,4,5$ is now separating. Of the 14 possible outer faces, 8 give four states, four pairs and four tree matchings. The other 6 give four states and no pair. For $t_0 = (0,1,5)$ the inner faces along the triangle are black, namely $(3,4,8), (4,5,6), (5,3,7)$, together with the central face $(6,7,8)$. Take $S = \{6,7,8\}$. These three vertices need $6$ incidences. The four black faces that touch them supply $1 + 1 + 1 + 2 = 5$. Condition (1) fails by one.
+**Double octahedron.** Glue an octahedron with new vertices $6,7,8$ into the face $(3,4,5)$ of the octahedron. The triangle $3,4,5$ is now separating. Of the 14 possible outer faces, 8 give four states, four pairs and four good states. The other 6 give four states and no pair. For $t_0 = (0,1,5)$ the inner faces along the triangle are black, namely $(3,4,8), (4,5,6), (5,3,7)$, together with the central face $(6,7,8)$. Take $S = \{6,7,8\}$. These three vertices need $6$ incidences. The four black faces that touch them supply $1 + 1 + 1 + 2 = 5$. Condition (1) fails by one.
 
-**Running example.** 13 vertices, $n = 10$, no separating triangle. There are 12 states and 8 pairs. Seven states have a partner. Six of them have one partner each and are tree matchings. The seventh has two partners and a cycle in its $Q$. The figure shows the flow for one pair.
+**Running example.** 13 vertices, $n = 10$, no separating triangle. There are 12 states and 8 pairs. Seven states have a partner. Six of them have one partner each and are good states. The seventh has two partners and a cycle in its $Q$. The figure shows the flow for one pair.
 
 ![The flow that supplies a pair](../../paper/figures/renders/06-flow.png)
 
 ## What does not work
 
-- **One state.** The prism example above. Also, in the octahedron with every face split in four, 34 of the 54 states have an acyclic $Q_s$ and are not tree matchings (`research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.5, computed).
+- **One state.** The prism example above. Also, in the octahedron with every face split in four, 34 of the 54 states have an acyclic $Q_s$ and are not good states (`research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.5, computed).
 - **Dropping the second bijection.** Keep $r$ a state and keep the choices distinct in each face, but drop the requirement that $s$ is a bijection. For any choice of one corner per face, the signed sum over states $r$ avoiding that choice is a determinant, and the sum over all choices is non-zero for an easy reason. It produces a choice function whose opposite edges form a rooted forest, but that function may use a vertex twice, and step 07 needs each vertex used once. So the whole difficulty is the second bijection. This is the side remark in section 4 of `fable_route-combinatorics/PROOF.md`, proved in this project and checked by a second model, not yet read by a human.
 - **Graphs that are only 2-connected.** Then $T$ has parallel edges. On the 26-vertex non-Hamiltonian example every root has eight states and no pair, so the proof stops here and nowhere later (`astra_limits/HYPOTHESES.md`, computed in this project, not yet refereed).
 - **Rooting anywhere.** Pairs depend on $t_0$. The double octahedron has them for 8 roots out of 14. This is why step 08 is needed.
@@ -120,9 +120,9 @@ It has two perfect matchings, the states $s_1 = (3,4,5)$ and $s_2 = (5,3,4)$, wr
 ## Other routes to a pair
 
 - **Li's route.** Take a smallest set $S$ violating (1) and show that it is cut off by three edges of $G$. Published. The audit in `fable_dependency-graph/correspondence.md`, note 3.7, observes that Li's argument already yields the black inner boundary.
-- **Pairs as orientations.** A 2-factor of $B$ is the same as an orientation of $H$ minus the centre of $t_0$ with prescribed out-degrees, so by a theorem of Felsner the 2-factors form a distributive lattice. Proved in `opus_route-graph-theory/PROOFS.md` section 3. The referee's integration notes do not list this lemma among the confirmed statements, so treat it as not yet refereed. Felsner's theorem was cited there from memory. The lattice does not single out a good pair, see step 09.
+- **Pairs as orientations.** A 2-factor of $\mathcal B$ is the same as an orientation of $H$ minus the centre of $t_0$ with prescribed out-degrees, so by a theorem of Felsner the 2-factors form a distributive lattice. Proved in `opus_route-graph-theory/PROOFS.md` section 3. The referee's integration notes do not list this lemma among the confirmed statements, so treat it as not yet refereed. Felsner's theorem was cited there from memory. The lattice does not single out a good pair, see step 09.
 - **A construction without flows.** Unknown. The obstruction is always a single triangle, which suggests that an explicit ordering argument should exist, as it does for Schnyder woods. Nobody in the project found one.
 
 ## Where this is used next
 
-Step 04 proves the counting lemma for cycles made of edges that leave the corners chosen by a state. Steps 05 and 06 assume that a pair exists and produce a pair whose second state is a tree matching.
+Step 04 proves the counting lemma for cycles made of edges that leave the corners chosen by a state. Steps 05 and 06 assume that a pair exists and produce a pair whose second state is a good state.

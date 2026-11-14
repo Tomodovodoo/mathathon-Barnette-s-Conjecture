@@ -1,7 +1,7 @@
 {
  "meta": {
   "size_name": "|V(T)|",
-  "value_name": "tree matchings of (T, t0)",
+  "value_name": "good states of (T, t0)",
   "value_scale": "log"
  },
  "sizes": [
@@ -1752,7 +1752,7 @@
     ],
     [
      8,
-     "q = 3 hexagonal-prism duals glued into white faces: 3^3 states, 2^3 tree matchings (astra_limits, rarity family)"
+     "q = 3 hexagonal-prism duals glued into white faces: 3^3 states, 2^3 good states (astra_limits, rarity family)"
     ]
    ],
    "intervals": [
@@ -7886,7 +7886,7 @@
     ],
     [
      16,
-     "q = 4 hexagonal-prism duals glued into white faces: 3^4 states, 2^4 tree matchings (astra_limits, rarity family)"
+     "q = 4 hexagonal-prism duals glued into white faces: 3^4 states, 2^4 good states (astra_limits, rarity family)"
     ]
    ],
    "intervals": [
@@ -10342,7 +10342,7 @@
     ],
     [
      32,
-     "q = 5 hexagonal-prism duals glued into white faces: 3^5 states, 2^5 tree matchings (astra_limits, rarity family)"
+     "q = 5 hexagonal-prism duals glued into white faces: 3^5 states, 2^5 good states (astra_limits, rarity family)"
     ]
    ],
    "intervals": [
@@ -11572,7 +11572,7 @@
     ],
     [
      64,
-     "q = 6 hexagonal-prism duals glued into white faces: 3^6 states, 2^6 tree matchings (astra_limits, rarity family)"
+     "q = 6 hexagonal-prism duals glued into white faces: 3^6 states, 2^6 good states (astra_limits, rarity family)"
     ]
    ],
    "intervals": [
@@ -12816,7 +12816,7 @@
    "note": "independent complete implementations agree; not imported as full TM value spectrum"
   },
   {
-   "statistic": "C1, equality iff one factor and c_min distribution",
+   "statistic": "C1, equality iff one factor and m distribution",
    "class": "4-connected Eulerian triangulations, every facial root",
    "through_dual_order": 24,
    "rooted_instances": 23824742,
@@ -12826,7 +12826,7 @@
     "astra_cycle-covers"
    ],
    "source": "research/2026-11-14_astra_cycle-covers/data/census.json",
-   "note": "inherited C engine; no independent order-24 replay; maximum c_min=6 at order 23"
+   "note": "inherited C engine; no independent order-24 replay; maximum m=6 at order 23"
   },
   {
    "statistic": "ML1 pair-preserving merge existence",

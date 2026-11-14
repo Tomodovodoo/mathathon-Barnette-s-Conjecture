@@ -30,7 +30,7 @@ G1, G2, G3, G4, G5, G6 = 'main chain', 'linear algebra', 'order', 'trees', 'cutt
 
 page('chain', 'the chain', 'The chain, and where the routes branch', G1, r'''
 Read the stations in order. The proof turns a cubic graph into its dual triangulation, finds two states that disagree at every black face,
-and shows that some state has a forest of opposite edges. From such a state, three forced steps build the Hamiltonian cycle.
+and shows that some state is good: its opposite edges form three trees, one at each root. From such a state, three forced steps build the Hamiltonian cycle.
 Only the step from station 5 to station 6 is hard, and the atlas has four readings of it. They are four ways to organise one argument,
 a signed sum that cancels the cyclic states and still cannot vanish. They are not four proofs.
 The stubs are shortcuts that this project tested and refuted with explicit examples.
@@ -62,10 +62,10 @@ That fixed number is why the signs on page 4 behave.''',
 page('sum', 'exponential sum', 'Eight terms, grouped twice', G1, r'''
 Give every state $s$ an exponent, its volume from page 7, and every pair $(r,s)$ a sign read off the cycles of $D$.
 The eight pairs of the running example give eight terms $\pm e^{vx}$.
-Group them by $s$. The two pairs that share a cyclic $Q_s$ cancel, so only states with a forest survive.
+Group them by $s$. The two pairs that share a cyclic $Q_s$ cancel, so only good states survive.
 Group the same terms by the cycle cover $D$. Each group factors into one bracket per cycle, no bracket is zero,
 and by the disk identity the groups with the fewest cycles agree in sign at lowest order.
-So the sum is not zero and a forest state exists. The argument does not say which state.''',
+So the sum is not zero and a good state exists. The argument does not say which state.''',
      r'''OpenAI paper, Section 5. All eight terms and both factorisations are computed here.''',
      ['disk', 'polynomial', 'involutions', 'heights', 'rowdep'], [OA + ', Proposition 5.1, Lemmas 5.2 and 5.3', HERE + ' (lib.py: term, group_data)'])
 
@@ -83,7 +83,7 @@ This version has integer coefficients and no analysis. The geometric input is un
 page('involutions', 'involutions', 'Cancellation as a pairing of objects', G1, r'''
 Li's note replaces the sum by two pairings. The first keeps $s$ fixed. If $Q_s$ has a cycle, move $r$ to the third corner on every face of that cycle, as in (a) and (b).
 The result is a pair with the opposite sign and the same weight, so the two cancel.
-With $k$ cycles the $2^k$ partners of $s$ pair off in the same way. A state with a forest has one partner and survives.
+With $q$ cycles in $Q_s$ the $2^q$ partners of $s$ pair off in the same way. A good state has one partner and survives.
 The second pairing must show that the survivors do not cancel each other.
 Reversing a cycle of $D$ flips the sign, as in (c) and (d), but it also changes the weight, so Li adds marks to make this a true pairing.''',
      r'''Li's note, Definitions 13 to 23. The first pairing is computed here on all eight pairs. The marks are not drawn, and their code was checked on the cube only.''',
@@ -100,12 +100,12 @@ So the analytic weights count white faces under a surface, and reversing a cycle
      ['sum', 'lattice', 'polynomial'],
      [RS + 'astra_referee-combinatorics/REFEREE.md', RS + 'fable_referee-topology/REPORT.md (height as winding number)', HERE + ' (lib.py: heights)'])
 
-page('recovery', 'recovery', 'From a forest state to the cycle', G1, r'''
-Once a state has a forest of opposite edges, the cycle follows with no further choices.
+page('recovery', 'recovery', 'From a good state to the cycle', G1, r'''
+Once a state is good, its opposite edges forming one tree per root, no choices remain.
 Delete the chosen spoke in every black face. What remains of the spoke graph is a spanning tree,
 so the curves that cross the deleted spokes form a tree on the white faces. Root that tree at the white face next to the prescribed edge $e$.
-Each tree edge runs past two sides of one black face, and we select the side facing away from the root of the tree.
-The selected edges, with $e$, split the vertices of $T$ into two classes that each induce a tree.
+Each tree edge runs past two sides of one black face, and the side facing away from the root of the tree joins the selection.
+The selection, with $e$, splits the vertices of $T$ into two classes that each induce a tree.
 The boundary between the classes is one closed curve through every face. In $G$ it is a Hamiltonian cycle that avoids $e$.''',
      r'''OpenAI paper, Section 6. Every object in the four panels is asserted by the checker and agrees with the independent laboratory code.''',
      ['chain', 'primal', 'rainbow', 'produced', 'earlier'], [OA + ', Section 6', BT + ' (recovery criterion)', 'toolkit/model.py (recover)', HERE])

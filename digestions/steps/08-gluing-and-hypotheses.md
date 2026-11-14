@@ -38,9 +38,9 @@ The OpenAI paper and Li cut at every separating triangle. The trees paper cuts o
 
 Take the double octahedron of step 03. Its faces are those of the octahedron on $0,\dots,5$ except $(3,4,5)$, together with $(3,4,8), (4,5,6), (5,3,7), (3,8,7), (4,6,8), (5,7,6), (6,7,8)$. Root it at $t_0 = (0,1,5)$ with $e_0 = 01$. Step 03 showed that this root has four states and no pair. The triangle $\Delta = \{3,4,5\}$ has black inner boundary.
 
-*Outer piece.* The octahedron on $0,\dots,5$ with the cap $(3,4,5)$, rooted at $(0,1,5)$. It has a pair. The script picks the tree matching that sends the black faces $(1,2,3), (2,0,4), (3,4,5)$ to $2, 4, 3$, and recovery with $e_0 = 01$ gives the classes $\{0,1,4\}$ and $\{2,3,5\}$. On the cap, $3$ and $5$ are together and $4$ is alone. So $e_1 = 35$.
+*Outer piece.* The octahedron on $0,\dots,5$ with the cap $(3,4,5)$, rooted at $(0,1,5)$. It has a pair. The script picks the good state that sends the black faces $(1,2,3), (2,0,4), (3,4,5)$ to $2, 4, 3$, and recovery with $e_0 = 01$ gives the classes $\{0,1,4\}$ and $\{2,3,5\}$. On the cap, $3$ and $5$ are together and $4$ is alone. So $e_1 = 35$.
 
-*Inner piece.* The octahedron on $3,\dots,8$, rooted at its cap with prescribed edge $35$. It has two tree matchings. The first gives the classes $\{3,5,8\}$ and $\{4,6,7\}$.
+*Inner piece.* The octahedron on $3,\dots,8$, rooted at its cap with prescribed edge $35$. It has two good states. The first gives the classes $\{3,5,8\}$ and $\{4,6,7\}$.
 
 *Glue.* The classes are
 

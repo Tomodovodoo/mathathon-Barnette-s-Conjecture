@@ -15,7 +15,7 @@ Dependencies are networkx and sympy. Optional installation is `python -m pip ins
 
 `states`, `pairs`, `Q`, `dcycles`, `J`, `delta`, `H`, `B`, `weights`, `polynomial`, `recover` expose the proof objects. `enumerate_tree` implements prefix pruning. `algorithms.marked_walk` implements the ordered-token involutions. `algorithms.solve` handles black-boundary separators recursively. `check_cycle` independently validates the resulting cycle against the constructed primal graph.
 
-`li.LiObjects` implements the literal half-ray involutions for c_min=1 using exact rational coordinates. `LiMultiObjects` implements Appendix B with sets of distinct intersections, following Definition 14. The finite range is recorded separately.
+`li.LiObjects` implements the literal half-ray involutions for m=1 using exact rational coordinates. `LiMultiObjects` implements Appendix B with sets of distinct intersections, following Definition 14. The finite range is recorded separately.
 
 Integer polynomial coefficients use the constructive paper's epsilon sign. The original exponential sum is `i**(-n) * Z(exp(x))`. JSON includes all states but only a representative pair, and records the selected tree state separately. The cycle certificate lives in `certificate`.
 
@@ -30,7 +30,7 @@ g = named_graphs()['cube']
 cycle = hamiltonian_cycle(g, next(iter(g.edges())))
 ```
 
-The checked examples are in `examples/cube.json` and `examples/truncated_octahedron.json`. Their representative pair uses the exported tree matching as its second state.
+The checked examples are in `examples/cube.json` and `examples/truncated_octahedron.json`. Their representative pair uses the exported good state as its second state.
 
 Optional exhaustive small-graph campaign:
 

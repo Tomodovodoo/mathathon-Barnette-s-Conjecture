@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T13:08:03Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -33,30 +33,30 @@ Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **roots not on a common face** [`k.A.2`, open] For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states. The categorical agent tested the two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2).
 - **Gauss-Bonnet form for any cycle** [`k.B.5`, open] For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.
 - **a test function with one sign on all covers** [`k.N.9`, open] There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.
-- **at least 2^cmin tree matchings** [`k.D.3`, open] C1: every feasible root has #TM >= 2^c_min. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.
-- **a canonical forest pair** [`k.D.6`, open] Under a bijection from states to trinity arborescences, tree matchings have a tree description that singles one out.
-- **order-theoretic position in the state lattice** [`k.U.5h`, open] Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found.
+- **at least 2^m good states** [`k.D.3`, open] C1: every feasible root has #TM >= 2^m. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.
+- **a canonical good pair** [`k.D.6`, open] Under a bijection from states to trinity arborescences, good states have a tree description that singles one out.
+- **order-theoretic position in the state lattice** [`k.U.5h`, open] Outcome (topo): the good states are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often good states. No order-theoretic pattern was found.
 - **describe partnered Hamiltonian cycles in G alone** [`k.U.6h`, open] There is a description, without states, of the Hamiltonian cycles of G avoiding e0* whose state has a partner.
-- **remove a leaf of the white tree** [`k.F.4`, open] Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a tree matching, and the cycle of the larger graph is a local detour.
+- **remove a leaf of the white tree** [`k.F.4`, open] Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a good state, and the cycle of the larger graph is a local detour.
 - **a cut-free root** [`k.G.3`, open] Count how often some root (black face on the black side of all separating triangles, or the same with colours swapped) exists.
 - **ordered pairs of edges (global H+-)** [`k.G2.5`, open] Some Hamiltonian cycle contains x and avoids y for any two edges. Not implied by the theorem.
-- **non-increasing exchange path to a tree pair** [`k.N.11`, open] C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a forest pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.
-- **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with cmin distinct marks are the elementary symmetric reading of the linear-weight coefficient.
-- **local search from a point-rainbow tree** [`k.U.7h`, open] Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.
-- **every Hamiltonian cycle from a two-root tree matching** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
-- **contraction inequality tau(T) >= tau(T/ac)** [`k.D.9`, open] Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted tree matching lifts directly.
-- **ML1: preserve a pair in some merge** [`k.U.G`, open] Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass.
-- **ML2: two-sided existence lifting** [`k.U.ML2`, open] If both contractions at a non-root degree-four vertex have tree matchings, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.
-- **two white trees in every pair support** [`k.U.packing`, open] Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.
+- **non-increasing exchange path to a good pair** [`k.N.11`, open] C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a good pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.
+- **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with m distinct marks are the elementary symmetric reading of the linear-weight coefficient.
+- **local search from a point-rainbow tree** [`k.U.7h`, open] Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.
+- **every Hamiltonian cycle from a two-root good state** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
+- **contraction inequality tau(T) >= tau(T/ac)** [`k.D.9`, open] Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted good state lifts directly.
+- **ML1: preserve a pair in some merge** [`k.U.G`, open] Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass. The induction-lemmas run (where it is called G) proves it for triangulations without chordless five-cycles; unreviewed.
+- **ML2: two-sided existence lifting** [`k.U.ML2`, open] If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.
+- **P2: two face-rainbow trees in every pair support** [`k.U.packing-P2`, open] Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.
 
 ## Open doors (questions) (12)
 
-- **Is there a polynomial-time construction of the Hamiltonian cycle?** [`q.poly-time`, open] The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; tree matchings can be exponentially rare.
-- **Is there an existence proof with no signed count?** [`q.structural`, open] No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.
-- **Is there a canonical forest pair?** [`q.canonical`, open] No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.
-- **How many tree matchings must there be?** [`q.tm-lower`, open] C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.
+- **Is there a polynomial-time construction of the Hamiltonian cycle?** [`q.poly-time`, open] The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; good states can be exponentially rare.
+- **Is there an existence proof with no signed count?** [`q.structural`, open] No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.
+- **Is there a canonical good pair?** [`q.canonical`, open] No universal canonical good pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.
+- **How many good states must there be?** [`q.tm-lower`, open] C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.
 - **Is there a determinant or Pfaffian for Z without coefficient extraction?** [`q.det`, open] Z is the squarefree coefficient of one determinant (2^n evaluations). Raw determinants, doubled edges and scalar factorisations are refuted.
-- **Which Hamiltonian cycles come from tree matchings?** [`q.which-hc`, open] Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.
+- **Which Hamiltonian cycles come from good states?** [`q.which-hc`, open] Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.
 - **Is there a second proof of the disk identity?** [`q.disk`, answered] Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.
 - **Can a different rooting remove the separating-triangle induction?** [`q.roots`, open] With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).
 - **Do Li's higher-mark involutions match the polynomial coefficient?** [`q.li-b`, open] A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.
@@ -76,20 +76,20 @@ Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **height-function form of J** [`h.C.4`, live] The Q_s-reversal can change the cycle structure of D completely and J still moves by exactly 2.
 - **mixed determinant with positive curvature** [`h.N.1`, live] Z = [prod z_t] det(sum z_t M_t) is n! times a mixed discriminant of rank-two blocks. Prove it nonzero from structural hypotheses.
 - **2-adic evaluation at z = -1** [`h.N.2`, live] Choose weights with every L+ - L- odd and evaluate T's polynomial at -1.
-- **cycle popping, random walk** [`h.N.3`, live] The two moves pop cycles of Q_s and of D, as in Wilson's algorithm. Show the walk hits a tree pair fast.
+- **cycle popping, random walk** [`h.N.3`, live] The two moves pop cycles of Q_s and of D, as in Wilson's algorithm. Show the walk hits a good pair fast.
 - **Pfaffian gadget for the turn tensor** [`h.N.4`, live] Replace each black face by a planar matchgate with signature q^delta on distinct ordered corners and zero on equal corners.
-- **height potential on pairs** [`h.N.5`, live] A combination of the two state heights that decreases along some exchange move at every non-tree pair.
+- **height potential on pairs** [`h.N.5`, live] A combination of the two state heights that decreases along some exchange move at every non-good pair.
 - **curved double-dimer connection, Lee-Yang** [`h.N.6`, live] Realise the loop factor -i e^{xL+} + i e^{xL-} as the trace of a non-flat connection.
 - **LGV after cutting along seams** [`h.N.7`, live] Cut the pair diagram into non-intersecting paths and use a Lindstrom-Gessel-Viennot determinant.
 - **abstract valuation theorem** [`h.N.8`, live] Axiomatise: a finite signed cycle system, two involutions, a positive circulation.
 - **flux on a small set of faces** [`h.N.10`, live] Put positive flux only on a set of faces that meets the interior of every feasible D-cycle.
 - **support of the tree-degree polynomial** [`h.U.1h`, live] Show the target degree vector d* lies in the support of det L_H(y), from plane incidence inequalities.
 - **spanning-tree parity / matroid parity** [`h.U.2h`, live] 'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces.
-- **Bernardi process, Schnyder woods, blossom trees** [`h.U.4h`, live] A canonical tree or orientation of the map might produce a tree matching directly.
+- **Bernardi process, Schnyder woods, blossom trees** [`h.U.4h`, live] A canonical tree or orientation of the map might produce a good state directly.
 - **Temperley / Kenyon-Propp-Wilson** [`h.E.2`, live] Read the step as the tree-to-matching bijection of KPW.
 - **a potential along the selected out-edges** [`h.F.5`, live] Follow selected out-edges from a vertex to a root; a quantity that decreases along the walk proves connectivity.
 - **Hall-free shelling construction** [`h.A.5`, live] Build a pair by a canonical ordering from t0 inward, as for Schnyder woods.
-- **finding a tree matching is in PPAD** [`h.D.8`, live] Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs.
+- **finding a good state is in PPAD** [`h.D.8`, live] Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs.
 - **older radial-tree dictionary and limits** [`h.TG.older`, live] The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.
 
 ## Dead ends (refuted) (67)
@@ -99,47 +99,47 @@ Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **other surfaces** [`x.S0.x3`, refuted] On an orientable surface of genus g, |A| - |X| = 2g, so states with three roots do not exist for g > 0, and the two-tree target is impossible on the torus by an edge count.
 - **trees from colour classes** [`x.TG.x1`, refuted] Build a permeating subtree containing all or none of a colour class of the vertex 3-colouring.
 - **Grinberg obstruction** [`x.TG.x2`, refuted] Use Grinberg's formula with a modulus to decide Hamiltonicity.
-- **every avoiding cycle comes from a tree matching** [`x.A.x1`, refuted] If every Hamiltonian cycle avoiding e0* came from a tree matching, known Hamiltonicity results would give pairs with no flow argument.
+- **every avoiding cycle comes from a good state** [`x.A.x1`, refuted] If every Hamiltonian cycle avoiding e0* came from a good state, known Hamiltonicity results would give pairs with no flow argument.
 - **drop bijectivity** [`x.B.x1`, refuted] Let each black face choose a corner with no injectivity requirement.
 - **sign as a product of two dimer weights** [`x.C.x1`, refuted] Write the local phase as alpha(r(t)) beta(s(t)) and get Z as a product of two incidence determinants.
 - **choose the cycle using r** [`x.K.x1`, refuted] Let the reversed cycle depend on the partner.
 - **zero, vertex-only or face-only weights** [`x.N.x1`, refuted] Use weights alpha_t + beta_v, or none.
-- **parity or mod p count without weights** [`x.N.x2`, refuted] Show the number of tree matchings is odd, or nonzero mod p.
-- **tree pair among the fewest-cycle pairs** [`x.N.x3`, refuted] Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.
-- **highest or lowest partnered state** [`x.N.x4`, refuted] The top (bottom) partnered state of the lattice is a tree matching.
-- **minimal cover, all cycles one way** [`x.N.x5`, refuted] Take D with cmin cycles and orient all of them counterclockwise (or clockwise).
-- **largest rank difference** [`x.N.x6`, refuted] The pair maximising omega(s) - omega(r) is a forest pair.
-- **one cycle always suffices** [`x.N.x7`, refuted] cmin = 1, so a first-order argument is enough.
-- **cubes of tree matchings; sign = parity of rank** [`x.N.x8`, refuted] Tree matchings split into cubes of dimension cmin; or eps(s) = (-1)^omega(s) up to a constant.
+- **parity or mod p count without weights** [`x.N.x2`, refuted] Show the number of good states is odd, or nonzero mod p.
+- **good pair among the fewest-cycle pairs** [`x.N.x3`, refuted] Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.
+- **highest or lowest partnered state** [`x.N.x4`, refuted] The top (bottom) partnered state of the lattice is a good state.
+- **minimal cover, all cycles one way** [`x.N.x5`, refuted] Take D with m cycles and orient all of them counterclockwise (or clockwise).
+- **largest rank difference** [`x.N.x6`, refuted] The pair maximising omega(s) - omega(r) is a good pair.
+- **one cycle always suffices** [`x.N.x7`, refuted] m = 1, so a first-order argument is enough.
+- **cubes of good states; sign = parity of rank** [`x.N.x8`, refuted] Good states split into cubes of dimension m; or eps(s) = (-1)^omega(s) up to a constant.
 - **ordinary determinant, all face variables 1** [`x.N.x9`, refuted] Evaluate det(sum_t M_t) with no coefficient extraction.
 - **allow doubled edges (standard double dimers)** [`x.N.x10`, refuted] Add a diagonal so that r and s may share edges, as in Kenyon's double-dimer determinant.
 - **positive semidefinite blocks** [`x.N.x11`, refuted] Find a gauge in which the local matrices M_t are positive semidefinite, then use mixed-discriminant positivity.
 - **Combinatorial Nullstellensatz** [`x.N.x12`, refuted] Get a nonzero evaluation of F from the coefficient form of Alon's theorem.
-- **real stability of the tree-state polynomial** [`x.N.x13`, refuted] The unsigned generating polynomial of tree matchings is real stable, like spanning-tree polynomials.
+- **real stability of the tree-state polynomial** [`x.N.x13`, refuted] The unsigned generating polynomial of good states is real stable, like spanning-tree polynomials.
 - **matching matroid meets graphic matroid** [`x.U.x1`, refuted] Treat the two endpoint constraints as one matroid and use Edmonds' two-matroid intersection.
-- **unconstrained white spanning trees** [`x.U.x2`, refuted] Every spanning tree of the white-face graph, or of its restriction to duals of B, gives a tree matching.
-- **trinity arborescences = tree matchings** [`x.U.x3`, refuted] The Hine-Kalman bijection carries all states to arborescences; perhaps every arborescence is a tree matching.
+- **unconstrained white spanning trees** [`x.U.x2`, refuted] Every spanning tree of the white-face graph, or of its restriction to duals of B, gives a good state.
+- **trinity arborescences = good states** [`x.U.x3`, refuted] The Hine-Kalman bijection carries all states to arborescences; perhaps every arborescence is a good state.
 - **Yutsis partition of G** [`x.U.x4`, refuted] Identify the two induced trees with a Yutsis decomposition of the cubic graph.
-- **a forest state is enough** [`x.R.x1`, refuted] Call s good as soon as Q_s is acyclic, with no partner assumed.
+- **a good state is enough** [`x.R.x1`, refuted] Call s good as soon as Q_s is acyclic, with no partner assumed.
 - **prescribe whatever each cut needs** [`x.G.x1`, refuted] Strengthen the induction hypothesis to an arbitrary set of prescribed edges.
 - **LP relaxation of the three constraints is integral** [`x.U.x5`, refuted] Perfect matchings of B intersected with complements of spanning trees of H form an integral polytope.
-- **induction by degree-4 expansion** [`x.U.x6`, refuted] Lift a tree matching through the expansion of a degree-4 vertex.
+- **induction by degree-4 expansion** [`x.U.x6`, refuted] Lift a good state through the expansion of a degree-4 vertex.
 - **positivity of the norm or of the Laplacian terms** [`x.U.x7`, refuted] CT F(w)F(1/w) and the constrained Laplacian coefficient are sums of nonnegative terms, so they are positive.
-- **tree count as an unrooted invariant** [`x.U.x8`, refuted] The number of tree matchings equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.
+- **tree count as an unrooted invariant** [`x.U.x8`, refuted] The number of good states equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.
 - **single-swap descent on the number of Q-cycles** [`x.N.x14`, refuted] From every pair with a cycle in Q_s some single exchange lowers the number of cycles.
-- **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all tree matchings get the same coefficient sign.
-- **extremes of Felsner's lattice of pairs** [`k.D.7`, refuted] C2 is false. Both true lattice extremes can have no forest pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.
-- **the partner of a tree matching is a tree matching** [`x.D.x1`, refuted] Swapping r and s would then be a free involution on tree matchings and explain why their number is even.
+- **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all good states get the same coefficient sign.
+- **extremes of Felsner's lattice of pairs** [`k.D.7`, refuted] C2 is false. Both true lattice extremes can have no good pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.
+- **the partner of a good state is a good state** [`x.D.x1`, refuted] Swapping r and s would then be a free involution on good states and explain why their number is even.
 - **a uniform boundary condition for longer cuts** [`x.G.x2`, refuted] Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.
-- **two roots instead of a root face** [`x.A.x2`, refuted] Root at two vertices not tied to a face; every root pair then has a two-root tree matching, and it gives a Hamiltonian cycle.
+- **two roots instead of a root face** [`x.A.x2`, refuted] Root at two vertices not tied to a face; every root pair then has a two-root good state, and it gives a Hamiltonian cycle.
 - **the two cube structures form a bicomplex** [`x.K.x2`, refuted] Treat reversal of Q-cycles and reversal of D-cycles as two commuting differentials and read the proof as homology.
-- **topological Hall for partial tree matchings** [`x.U.x9`, refuted] Get a tree matching from connectivity of the complex of partial tree matchings.
+- **topological Hall for partial good states** [`x.U.x9`, refuted] Get a good state from connectivity of the complex of partial good states.
 - **distance one from a lattice extreme** [`x.D.ext1`, refuted] R1: success within cover-distance one of an extreme.
-- **R2: extreme or irreducible** [`x.D.ext2`, refuted] A bottom, top, join-irreducible or meet-irreducible element need not carry a tree pair.
+- **R2: extreme or irreducible** [`x.D.ext2`, refuted] A bottom, top, join-irreducible or meet-irreducible element need not carry a good pair.
 - **BF21 parity equals black-inner obstruction** [`x.TG.parity`, refuted] Identify the even-interior condition of the older contracted graph with the black-inner separator obstruction.
 - **signed sum as base-lattice rank polynomial** [`x.N.rank-dead`, refuted] Read the pair sum from the ordinary rank polynomial of the factor lattice.
 - **fixed-cycle-count flip connectivity** [`x.D.level-dead`, refuted] Covers with the same c, including minimum-c covers, form a connected flip level.
-- **some contracted tree matching lifts directly** [`x.U.lift-dead`, refuted] If T/M has tree matchings, at least one lifts directly to T.
+- **some contracted good state lifts directly** [`x.U.lift-dead`, refuted] If T/M has good states, at least one lifts directly to T.
 - **surplus walk always terminates** [`x.U.walk-dead`, refuted] The surplus walk alone reaches smaller black excess.
 - **positive full-spoke UST mean fitting** [`x.U.mean-dead`, refuted] Finite positive weights attain the target degrees on all of H.
 - **joint Lorentzian rounding** [`x.U.support-dead`, refuted] Joint endpoint degree support inherits M-convexity from the spanning-tree polynomial.
@@ -152,22 +152,21 @@ Generated 2026-11-14T12:33:01Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **induction R5: Some TM of T/M satisfies the local condition LC (edge a v in** [`x.U.ind-R5`, refuted] Some TM of T/M satisfies the local condition LC (edge a v in Q) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R6: rho(lift) is a TM for every failing lift** [`x.U.ind-R6`, refuted] rho(lift) is a TM for every failing lift R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R7: TM(T) >= 2 TM(T/M)** [`x.U.ind-R7`, refuted] TM(T) >= 2 TM(T/M) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R8: lowest coefficient lc = sum over D with c_min cycles of prod** [`x.U.ind-R8`, refuted] lowest coefficient lc = sum over D with c_min cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
-- **induction R9: c_min(T) = c_min(T/M) (when both have pairs)** [`x.U.ind-R9`, refuted] c_min(T) = c_min(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
+- **induction R8: lowest coefficient lc = sum over D with m cycles of prod** [`x.U.ind-R8`, refuted] lowest coefficient lc = sum over D with m cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
+- **induction R9: m(T) = m(T/M) (when both have pairs)** [`x.U.ind-R9`, refuted] m(T) = m(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R10: Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges define** [`x.U.ind-R10`, refuted] Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges defined) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R11: Prescribed corner: for every face t in A and non-root corner** [`x.U.ind-R11`, refuted] Prescribed corner: for every face t in A and non-root corner u, some TM has s(t)=u (HCs); same for the mate r (HCr) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R12: A good contraction (result has a pair) always exists** [`x.U.ind-R12`, refuted] A good contraction (result has a pair) always exists R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **induction R13: Inverse P-operation (Batagelj) preserves pairs** [`x.U.ind-R13`, refuted] Inverse P-operation (Batagelj) preserves pairs R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.
 - **rainbow loads are M-convex** [`x.U.loads-dead`, refuted] Rainbow load vectors satisfy simultaneous M-exchange.
-- **every maximal lattice chain hits success** [`x.D.chain-dead`, refuted] Every maximal chain contains an element carrying a tree pair.
+- **every maximal lattice chain hits success** [`x.D.chain-dead`, refuted] Every maximal chain contains an element carrying a good pair.
 - **at least half the lattice succeeds** [`x.D.fraction-dead`, refuted] At least half the factor lattice admits a successful direction choice.
 
-## Under review (4)
+## Under review (3)
 
-- **exactly one tree matching is impossible** [`p.D.4`]
+- **exactly one good state is impossible** [`p.D.4`]
 - **the gluing needs the same-label edge** [`p.G.2`]
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
-- **complete marked involution exposition** [`p.G2.inv`]
 
 ## Recent events (73 total)
 

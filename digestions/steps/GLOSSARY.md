@@ -2,7 +2,9 @@
 
 Every term and symbol used in the digestions, with the name each of the three papers gives it. "O" is the OpenAI paper, "L" is Li's note, "T" is the trees paper. The digestions follow the shared notation of `research/BRIEF.md`, which is close to O and T. The translation between the papers is taken from `research/2026-11-14_fable_dependency-graph/correspondence.md`, an audit made in this project and not refereed. Where I use a translation in a proof I rechecked it.
 
-A warning first. The letter $H$ means the full spoke graph in O and T and the reduced incidence graph in L. Li's $H$ is our $B$.
+The digestions use the main paper's names (`paper/main/barnette.tex`) wherever it has one. All other names in use, including the ones earlier versions of these digestions used, are collected in the last section, "Synonyms".
+
+A warning first. The letter $H$ means the full spoke graph in O and T and the reduced incidence graph in L. Li's $H$ is the trees paper's $B$ and our $\mathcal B$. In the digestions plain $B$ is only the number of black faces inside a disk.
 
 ## Graphs and the setting
 
@@ -10,7 +12,7 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 | --- | --- | --- | --- | --- |
 | Barnette graph, $G$ | a finite simple graph that is cubic, bipartite, planar and 3-connected | "a graph satisfying Theorem 1.1" | Barnette graph | cubic bipartite polyhedral graph |
 | $N$ | number of vertices of $G$ | not named | not named | $N$ |
-| 2-factor | a spanning subgraph with all degrees two | "spanning subgraph of degree two" | 2-factor, also used for two disjoint matchings of $H$ | same as O |
+| 2-factor | a spanning subgraph of $G$ with all degrees two. For the incidence graph we always say "2-factor of $\mathcal B$" | "spanning subgraph of degree two" | 2-factor, also used for two disjoint matchings of $H$ | same as O |
 | $T = G^*$ | the dual of $G$, a simple triangulation of the sphere | sphere triangulation | not used. L works in $\mathrm{aux}(G)$, which is $T$ with a centre in every face | triangulation |
 | black face, white face | the two colours of the triangles of $T$, coming from the two colours of the vertices of $G$ | black and white triangles | black vertex $b$, white vertex $w$ of $G$ | black and white faces |
 | vertex of $T$ | a face of $G$ | vertex | face-vertex $f$ | vertex |
@@ -36,25 +38,26 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 | spoke | the edge from the centre of a black face to one of its corners, written $(t,v)$ | incidence spoke | an edge of $G_{FB}$ | spoke |
 | $H$ | the spoke graph, all centres including that of $t_0$ joined to their corners | $H$ in section 6.1 | $G_{FB}$ | $H$ |
 | $H_0$ | $H$ without the centre of $t_0$ | $H_0$ in section 5.2 | not named | $H_0$ |
-| $B$ | the incidence graph between $A$ and $X$ | "the bipartite incidence graph on $A$ and $X$" | $H = G_{FB} - N[b_0]$ | $B$ |
-| $K_B$ | the $0/1$ matrix of $B$, rows $A$, columns $X$ | not used | not used | $K_B$ |
+| $\mathcal B$ | the incidence graph between $A$ and $X$ | "the bipartite incidence graph on $A$ and $X$" | $H = G_{FB} - N[b_0]$ | $B$ |
+| $K_{\mathcal B}$ | the $0/1$ matrix of $\mathcal B$, rows $A$, columns $X$ | not used | not used | $K_B$ |
 | $M$ | the number of states, equal to $\lvert\det K_B\rvert$ | not used | not used | $M$ |
 
 ## States and pairs
 
 | Term or symbol | Meaning | O | L | T |
 | --- | --- | --- | --- | --- |
-| state | a bijection $s : A \to X$ with $s(t)$ a corner of $t$, that is a perfect matching of $B$ | state | perfect matching of $H$ | perfect matching of $B$ |
+| state | a bijection $s : A \to X$ with $s(t)$ a corner of $t$, that is a perfect matching of $\mathcal B$ | state | perfect matching of $H$ | perfect matching of $B$ |
 | pair $(r,s)$ | two states that differ in every face. $r$ is the first state, $s$ the second | pair | ordered 2-factor $(M_1, M_2)$ with $M_1 = r$, $M_2 = s$ | disjoint matching pair, element of $\mathcal P$ |
 | partner | a state $r$ that forms a pair with $s$ | partner | not named | disjoint mate |
 | $u(t)$ | the third corner of $t$, other than $r(t)$ and $s(t)$ | $u(t)$ | not named | $u(t)$ |
 | $Q_s$ | the edges of $T$ opposite $s(t)$, one for each $t \in A$ | $Q_s$ | $H - M_2$, which is $Q_s$ with every edge subdivided and the roots removed | $Q_s$ |
-| $k(s)$ | the number of cycles of $Q_s$. A state with a partner has $2^{k(s)}$ partners | not used | not used | $k$ in Proposition 2.1 |
-| tree matching | a state $s$ such that $H - s$ is a spanning tree, equivalently $Q_s$ is a forest with one root in each component | not named. "$Q_s$ a forest" for a pair | cycle-breaking, for a pair | tree matching |
-| forest pair | a pair $(r,s)$ with $Q_s$ a forest. Its second state is a tree matching | "a pair with $Q_s$ a forest" | cycle-breaking 2-factor | tree pair |
+| $q(s)$ | the number of cycles of $Q_s$. A state with a partner has $2^{q(s)}$ partners. Not to be confused with $k$, the number of black faces | not used | not used | $k$ in Proposition 2.1 |
+| good state | a state $s$ such that $H - s$ is a spanning tree, equivalently $Q_s$ is a forest with one root in each component. The second condition cannot be dropped: a forest $Q_s$ with two roots in one tree is not good (the prism, step 03). The main paper's name | not named. "$Q_s$ a forest" for a pair | cycle-breaking, for a pair | tree matching |
+| good pair | a pair $(r,s)$ whose second state is good. For a pair this is the same as $Q_s$ being a forest, because the partner forces one root per tree | "a pair with $Q_s$ a forest" | cycle-breaking 2-factor | tree pair |
+| $\#TM$ | the number of good states of a rooted triangulation. The letters stand for "tree matchings" and are kept because the census files use them | not used | not used | number of tree matchings |
 | $D(r,s)$ | the directed edges $r(t) \to s(t)$. They form disjoint cycles through all of $X$ | $D$ | the cycles of $H[M_1 \cup M_2]$ with the orientation $\mathrm{orient}(M_1, M_2)$, which runs the other way | $D_{r,s}$ |
-| cycle cover | the set of undirected cycles of $D(r,s)$. The pairs with a given cover are its orientations | "group" | a 2-factor of $H$ | "group" |
-| $c(D)$, $c_{\min}$, $m$ | the number of cycles of a cover, and the least such number over all pairs | $c(D)$, $c_{\min}$ | $c_{\min}$ | $c$, $m$ |
+| cover | the set of undirected cycles of $D(r,s)$. The pairs with a given cover are its orientations | "group" | a 2-factor of $H$ | "group" |
+| $c(D)$, $m$ | the number of cycles of a cover, and the least such number over all pairs. Not the number $q(s)$ of cycles of $Q_s$ | $c(D)$, $c_{\min}$ | $c_{\min}$ | $c$, $m$ |
 | exchange graph | pairs as nodes, joined when they differ by reversing one cycle of $D$ or one cycle of $Q_s$ | not used | not used | $\mathcal E$ |
 
 ## The disk identity
@@ -72,14 +75,14 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 | Term or symbol | Meaning | O | L | T |
 | --- | --- | --- | --- | --- |
 | $J(r,s)$ | $\tfrac13\sum_t \delta(r(t), s(t))$, equal to the number of clockwise cycles of $D$ minus the number of counterclockwise ones | $J$ | $-cw'$ | $J$ in (8) |
-| sign of a pair, $\varepsilon(r,s)$ | $\prod_t \delta(r(t),s(t)) = (-1)^{(n+J)/2}$ | the phase $i^J = i^{-n}\varepsilon$ | $(-1)^{cw}$ with $cw = \lfloor cw'/2\rfloor \bmod 2$ | $\varepsilon$ |
-| $\mu(s)$ | the sum of $\varepsilon(r,s)$ over the partners of $s$. It is $\pm 1$ for a tree matching and $0$ otherwise | not named | not named | not named |
+| sign of a pair, $\varepsilon(r,s)$ | $\prod_t \delta(r(t),s(t)) = (-1)^{(n+J)/2}$, equivalently $\varepsilon = i^n i^{-J}$. The Lean proof's phase is $i^J$ when its corner order matches, so the real sign divided by the Lean phase is the constant $i^n$ (`research/2026-11-14_opus_cross-audit/ADJUDICATION.md`) | the phase $i^J = i^{-n}\varepsilon$ | $(-1)^{cw}$ with $cw = \lfloor cw'/2\rfloor \bmod 2$ | $\varepsilon$ |
+| $\mu(s)$ | the sum of $\varepsilon(r,s)$ over the partners of $s$. It is $\pm 1$ for a good state and $0$ otherwise | not named | not named | not named |
 | $a(t,v)$ | a weight on the spoke $(t,v)$ | real numbers from Lemma 5.3 | the signed number of white-vertex rays crossing the spoke | integers with $0 \le a \le 6n$ |
-| $\omega(s)$ | $\sum_t a(t, s(t))$ | $\omega(s)$ | the number of available marks, with signs | $\omega(s)$ |
+| $\omega(s)$ | $\sum_t a(t, s(t))$, which equals $\sum_y \eta_s(y)$ when $a(t,v) = \sum_y \kappa_y(t,v)$ (step 06). It rises when a cycle of $D$ turns counterclockwise, as the main paper's $\omega(s) = \sum_y \eta_s(y)$ does. The involution note's $H(s)$ is $-\omega(s)$ | $\omega(s)$ | the number of available marks, with signs | $\omega(s)$ |
 | $L^+(C)$, $L^-(C)$ | the sum of $a(t,\text{head})$ along a cycle of $D$ in its counterclockwise and clockwise orientation. The difference is positive | $L^+$, $L^-$ | not named | $L^+$, $L^-$ |
 | spoke detour | the route from tail through the centre to head that replaces an edge of $D$ | "two-spoke route", the slide | not needed, cycles live on spokes from the start | spoke detour |
 | inner white face | a white face that shares no edge with $t_0$ | a bounded face of $H_0$ | a white vertex not adjacent to $b_0$ | same as O |
-| height $h_s(w)$ | the signed number of crossings of a fixed path from the inner white face $w$ to $t_0$ with the spokes of $s$ | not used | the crossings of the ray of $w$ with $M_2$ | not used |
+| height $\eta_s(y)$ | the signed number of crossings of a fixed path from the inner white face $y$ to $t_0$ with the spokes of $s$. It rises by one when a cycle of $D$ around $y$ turns counterclockwise. The main paper's $\eta_s(y)$ counts turn signs along a path of faces instead; the two differ by constants. The involution note's $H(s) = -\sum_y \eta_s(y)$ has the opposite sign | not used | the crossings of the ray of $y$ with $M_2$ | not used |
 | $\mathcal F(w)$ | the polynomial $\sum \varepsilon(r,s)\, w^s$ in one variable per spoke | not used | not used | not used. From this project |
 | the signed sum | the sum over pairs that is evaluated in two ways | $Z(x) = \sum i^J e^{x\omega(s)}$ | $\lvert O^+\rvert - \lvert O^-\rvert$ | $Z_{\mathcal C}(z) = \sum \varepsilon z^{\omega(s)}$ on one exchange component |
 | the two cancellations | reversing a cycle of $Q_s$, and reversing a cycle of $D$ | Lemma 5.2, and the factors of (5.4) | the involutions $\iota_1$ and $\iota_2$ | the moves (b) and (a), the involutions $\beta$ and $\alpha$ |
@@ -89,9 +92,9 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 
 | Term or symbol | Meaning | O | L | T |
 | --- | --- | --- | --- | --- |
-| incidence tree | the spanning tree $H - s$ of a tree matching | "the remainder" | $T_{FB} = G_{FB} - M_2$ | $H - s$ |
+| incidence tree | the spanning tree $H - s$ of a good state | "the remainder" | $T_{FB} = G_{FB} - M_2$ | $H - s$ |
 | white-face tree, $W_s$ | the tree on the white faces dual to the spokes of $s$ | "spanning tree on the white triangles" | $T_W = M_2^*$ | $W_s$ |
-| selected edges, $P$ | one edge in every face of $T$, read in $G$ a perfect matching | $P \subset E(T)$ | the perfect matching $P$ of $G$ | $P$ |
+| selection $P$ | one edge in every face of $T$, read in $G$ a perfect matching. Its edges are the selected edges; "selected" never refers to $D$ here | $P \subset E(T)$ | the perfect matching $P$ of $G$ | $P$ |
 | $P_0$ | $P$ without $e_0$ | $P_0$ | $\mathrm{trace}_B(P)$, moved onto spokes | not named |
 | plain and mixed edges | for a partition of $V(T)$ into two classes, edges with both ends in one class, and the others. Words of these digestions | "same-label" edges | not used | not used |
 | the two induced trees | the two components of $P$, also the two sides of the Hamiltonian cycle | Theorem 2.2 | not used | Lemma 7.1 |
@@ -108,9 +111,25 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 | disk identity | Lemma 4.1 | Claim 25 | Lemma 4.1 |
 | cancellation for a fixed second state | Lemma 5.2 | Lemma 17, $\iota_1$ | Lemma 4.2, move (b) |
 | positive weights | Lemma 5.3 with (5.3) | Remark 19, Definition 20 | Lemma 5.1 |
-| a forest pair exists | Proposition 5.1 | Lemma 7, the Key Lemma | Theorem 5.2 |
+| a good pair exists | Proposition 5.1 | Lemma 7, the Key Lemma | Theorem 5.2 |
 | one root per component | Lemma 6.1 | Lemma 8 | Proposition 2.1 with (3) |
-| the selected edges form a forest | Lemma 6.2 | Lemma 30, by a different argument | Lemma 7.1 |
+| the selection is a forest | Lemma 6.2 | Lemma 30, by a different argument | Lemma 7.1 |
 | gluing | section 7 | Appendix C | section 7.3 |
 | avoiding an edge | Corollary 7.1 | Theorem 3 | Theorem 1.1 |
 | only in one paper | Corollary 7.2 | the ray drawing | Theorems 1.2, 5.2, 5.3, Lemma 6.1, Proposition 6.2 |
+
+## Synonyms
+
+One name per object in the digestions. This table lists every other name in use across the project, so that a reader coming from another document can find the object. "main" is `paper/main/barnette.tex`, "inv" is `proofs/involutions/`, "pri" is `proofs/primal/`.
+
+| Name here | Other names |
+| --- | --- |
+| good state | tree matching (T, earlier digestions, route map and labyrinth before 2026-11-14), forest state (atlas first pass), "circuit-free $Q_s$ with a partner" (pri), cycle-breaking (L, for a pair) |
+| good pair | forest pair (inv, earlier digestions), tree pair (T), cycle-breaking 2-factor (L), "a pair with $Q_s$ a forest" (O) |
+| cover | group (O, T, main), cycle cover (earlier digestions), unoriented-cover class (inv), 2-factor of $H$ (L, whose $H$ is our $\mathcal B$), "the undirected collection $D$" (pri) |
+| $m$ | $c_{\min}$ (O, L, earlier digestions and route map), `cmin` (route map data and census files) |
+| $q(s)$ | $k$ (T, Proposition 2.1). Renamed because $k$ is the number of black faces |
+| $\mathcal B$, the incidence graph | $B$ (T), $H$ (L). In pri, $B$ is the set of black vertices of $G$ |
+| selection $P$, selected edges | chosen sides (main), "the selected matching" (pri). pri also says "selected" for the edges of $D$; these digestions never do |
+| height $\eta_s(y)$ | $h_s(w)$ (earlier digestions), $-H$ summed (inv: $H(s) = -\omega(s)$), integer potentials $a(b,f)$ (pri) |
+| $\omega(s)$ | weight (main), $-H(s)$ (inv) |

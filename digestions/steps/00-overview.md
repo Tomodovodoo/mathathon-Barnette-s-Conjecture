@@ -15,17 +15,17 @@ The proof gives more. For every edge $e$ of $G$ there is a Hamiltonian cycle tha
 1. A Hamiltonian cycle is a spanning subgraph with degree two everywhere that is also connected. Degree two is easy to arrange. Connectivity is the whole problem (step 01).
 2. Pass to the dual $T = G^*$. It is a triangulation of the sphere whose faces are coloured black and white, opposite colours across every edge. A Hamiltonian cycle of $G$ is the same thing as a split of the vertices of $T$ into two sets that each induce a tree (step 02).
 3. Pick a black face $t_0$ as the outer face. Its corners are the roots. There are as many other black faces as non-root vertices. A state gives every such black face one of its corners, using every non-root vertex once (step 03).
-4. A state $s$ picks, in each black face, the edge opposite the chosen corner. Call this edge set $Q_s$. If $Q_s$ is a forest with one root in each component, the state can be turned into a Hamiltonian cycle. Such a state is a tree matching.
+4. A state $s$ picks, in each black face, the edge opposite the chosen corner. Call this edge set $Q_s$. If $Q_s$ is a forest with one root in each component, the state can be turned into a Hamiltonian cycle. Such a state is called good, following the main paper (the trees paper says tree matching).
 5. To certify and control $Q_s$ we use a second state $r$ that differs from $s$ in every face. The two together are a pair. A pair exists exactly when no separating triangle of $T$ has black faces along all three edges on the side away from $t_0$ (step 03).
 6. One counting lemma, the disk identity, says that a cycle built from edges leaving the corners chosen by a state encloses one more white face than black faces (step 04).
 7. Give every pair a sign. For a fixed second state $s$ whose $Q_s$ has a cycle, reversing that cycle changes the first state and flips the sign, so all such pairs cancel (step 05).
-8. Regroup the same signed sum by the cycles that $r$ and $s$ form together. With suitable weights the groups with the fewest cycles all contribute with one sign, so the sum is not zero. Hence some pair survives the cancellation, and its $Q_s$ is a forest (step 06).
+8. Regroup the same signed sum by the cycles that $r$ and $s$ form together. With suitable weights the groups with the fewest cycles all contribute with one sign, so the sum is not zero. Hence some pair survives the cancellation. Its $Q_s$ is a forest, and because the state has a partner each tree of that forest holds one root, so $s$ is good (step 06).
 9. Delete the spokes of that state from the graph joining black-face centres to corners. What remains is a spanning tree. Its dual is a tree on the white faces, which selects one edge in every face. The unselected edges, read in $G$, are a Hamiltonian cycle (step 07).
 10. If $T$ has separating triangles, cut along one, solve the two pieces with matching boundary conditions, and glue (step 08).
 
 Sentences 6 to 8 carry the new mathematics, the disk identity and the signed count it makes possible. The dual, the two trees, the avoided edge and the gluing were in the literature by 2016. States come from Tutte's theory of trinity and had not been used on this problem. This division is the reading of the project's literature review, `research/2026-11-14_opus_history-literature/WHAT-WAS-HARD.md` section 9, which marks it as its own judgement.
 
-The count in steps 05 and 06 is an existence proof. A nonzero signed sum forces at least one tree matching, but does not identify one efficiently. Step 07 is an explicit construction once that matching is supplied.
+The count in steps 05 and 06 is an existence proof. A nonzero signed sum forces at least one good state, but does not identify one efficiently. Step 07 is an explicit construction once that state is supplied.
 
 ## Dependency diagram
 
@@ -41,13 +41,13 @@ flowchart TD
     G --> G1["04 parity: state cycles are odd"]
     G --> G3["04 exact value: delta-sum is -3 or +3"]
     G1 --> H["05 Cancellation for fixed s (Lemma 5.2)"]
-    G3 --> I["06 Nonvanishing: minimal cycle covers share one sign"]
+    G3 --> I["06 Nonvanishing: covers with fewest cycles share one sign"]
     F --> J["06 Some pair has Q_s a forest (Prop. 5.1)"]
     H --> J
     I --> J
     J --> K["07 Spokes minus s is a spanning tree"]
     L --> K
-    K --> M["07 White-face tree, selected edges P"]
+    K --> M["07 White-face tree, selection P"]
     G1 --> N["07 P is a forest (Lemma 6.2)"]
     M --> N
     N --> O["07 Hamiltonian cycle avoiding e0*, two induced trees"]
@@ -69,7 +69,7 @@ Two things in this picture are worth a second look. The disk identity feeds thre
 | [04](04-disk-identity.md) | the disk identity | OpenAI 4; Li Claim 25; trees Lemma 4.1 |
 | [05](05-cancellation.md) | sign of a pair, reversal of a $Q_s$ cycle | OpenAI 5.1; Li Lemma 17; trees Lemma 4.2 |
 | [06](06-nonvanishing.md) | the sum is not zero | OpenAI 5.2, 5.3; Li 4 and App. B; trees 5 |
-| [07](07-recovery.md) | from a forest pair to the cycle | OpenAI 6; Li Lemma 30; trees 7 |
+| [07](07-recovery.md) | from a good pair to the cycle | OpenAI 6; Li Lemma 30; trees 7 |
 | [08](08-gluing-and-hypotheses.md) | separating triangles, role of each hypothesis | OpenAI 7; Li App. C; trees 7.3 |
 | [09](09-what-is-still-open.md) | what nobody knows yet | trees 5.1, 6 |
 | [GLOSSARY](GLOSSARY.md) | every term and symbol in the three papers' names | |
@@ -78,12 +78,12 @@ Two things in this picture are worth a second look. The disk identity feeds thre
 
 ## Examples used throughout
 
-All numbers were computed by `research/2026-11-14_fable_digestions/code/examples.py`, which shares no code with the project's reference implementation `workings/barnette_lab`. The script `crosscheck.py` in the same folder compares the two on the first three examples below. They agree on states, pairs, tree matchings and the signed polynomial.
+All numbers were computed by `research/2026-11-14_fable_digestions/code/examples.py`, which shares no code with the project's reference implementation `workings/barnette_lab`. The script `crosscheck.py` in the same folder compares the two on the first three examples below. They agree on states, pairs, good states and the signed polynomial.
 
 | Name | $T$ | $G$ | Why it is here |
 | --- | --- | --- | --- |
 | cube | octahedron, 6 vertices | cube, 8 vertices | smallest case, everything can be done by hand |
-| prism | double wheel with rim 6, 8 vertices | hexagonal prism, 12 vertices | smallest case where a state with a forest $Q_s$ is not a tree matching |
+| prism | double wheel with rim 6, 8 vertices | hexagonal prism, 12 vertices | smallest case where a state with a forest $Q_s$ is not a good state |
 | double octahedron | 9 vertices | 14 vertices | smallest separating triangle |
 | running example | 13 vertices, no separating triangle | 22 vertices | smallest case with a cancelling pair and a cycle that encloses a vertex. It is the example of `paper/figures/` |
 | 16-vertex example | 16 vertices | 28 vertices | a set of cycles none of whose orientations works |
@@ -103,13 +103,14 @@ Shared notation is that of `research/BRIEF.md`. It is collected in the [glossary
 
 ## Where the project stands now
 
-The three current written routes are [the merged dual paper](../../paper/main/barnette.tex), [the revised primal proof](../../proofs/primal/PRIMAL-PROOF.md), and [the marked-involution proof](../../proofs/involutions/INVOLUTIONS.md). The first and third are under independent AI review. The original primal note was AI-refereed; its revision is self-audited and disputes the referee's circuit-dependent phase normalization, simplifying the proposed ratio to i^n. The dispute is recorded in `research/2026-11-14_astra_primal-revision/REPORT.md`. None is human-checked. The upstream Lean theorem was machine-checked in a local build.
+Snapshot of 2026-11-14, from the final referee reports. No route has been checked by a human.
 
-The merged paper uses the sign as a product of local signs, heights measured along face paths, and a connectivity lemma for the inside of a selected cycle. The last point supplies the connectedness hypothesis needed before Euler's formula is used. These are changes to the presentation, not an unsigned existence proof.
+There are three written routes. [The merged dual paper](../../paper/main/barnette.tex) has an independent AI referee, verdict FOLLOWS, including the repair that makes the inside of a cycle connected before Euler's formula is used (`research/2026-11-14_sol_referee-main/REPORT.md`). The referee proposed eight edits, and a second version applying them is being written; until it lands, read the referee's correction that the off-route expression in Remark 4.10 is a Laurent polynomial with these heights. [The marked-involution proof](../../proofs/involutions/INVOLUTIONS.md) has an independent AI referee, verdict FOLLOWS, with one sign error off the route (`research/2026-11-14_opus_referee-involutions/REPORT.md`); the revision applied all fifteen of its edits and added a drawing-free form of the marks, which nobody else has checked yet. [The primal proof](../../proofs/primal/PRIMAL-PROOF.md) was AI-refereed, revised, and accepted in a cross-audit.
 
-For sentence 8, c_min is the minimum number of components in the unoriented D-cover of a pair. It differs from the number of cycles in Q_s. The cycle-cover run supplies an unreviewed primal interpretation, c(D)=components(G-S)-1, and a separator-free family on 3m+2 dual vertices with c_min=m-1 and #TM=2^(m-1). Large c_min is therefore not an effect of separating triangles alone. Its census tests the exponential bound through dual order 24 only in the 4-connected class; the independent all-root census reaches 22.
+The phase question is settled. For every pair, the primal note's real sign divided by the Lean proof's phase is the constant $i^n$; the referee's formula was right and simplifies to that constant (`research/2026-11-14_opus_cross-audit/ADJUDICATION.md`, proved there and checked by computer on 24,856 pairs). The main paper's $i^J = i^{-n}arepsilon$ says the same thing.
 
-Several hoped-for simplifications are false. Both lattice extremes can fail at V=18; extrema together with irreducibles can all fail at V=33. Direct contraction lifting fails at V=18. The contraction route still needs ML1 and a two-sided lifting lemma, and monotone pair descent C3 and rainbow exchange X remain conjectural. Their exact statements and finite ranges are in [09](09-what-is-still-open.md).
+The upstream Lean theorem was machine-checked in a local build. That does not certify the merged paper's route. Of the 34 statements on that route, 4 have an exact Lean counterpart, 25 have a counterpart in a different form whose translation is not formalised, and 5 have none; the finite-difference lemma (Lemma 4.7) now has a standalone 90-line Lean proof (`research/2026-11-14_opus_blueprint/REPORT.md`).
 
+For sentence 8, $m$ is the least number of cycles of a cover, the unoriented $D$ of a pair. It is not the number $q(s)$ of cycles of $Q_s$. The cycle-cover run gives an unreviewed primal reading, $c(D)$ = components$(G - S) - 1$, and a family without separating triangles on $3j+2$ dual vertices with $m = j-1$ and $2^{j-1}$ good states. So a large $m$ is not caused by separating triangles. Its census tests the bound "at least $2^m$ good states" through dual order 24, only for 4-connected triangulations; the independent all-root census reaches 22.
 
-Late review update. The merged manuscript now has one independent AI referee, `research/2026-11-14_sol_referee-main/REPORT.md`, verdict FOLLOWS for the main theorem, including the disk-connectivity repair. Eight edits are proposed; their application is not certified here. The off-route generating expression in Remark 4.10 is Laurent with these heights, not an ordinary polynomial. The second cold read and the involution referee are still pending at this scan. This supersedes the earlier under-review wording for the merged main route only.
+Several hoped-for simplifications are false. Both lattice extremes can fail at V=18, and extremes together with irreducible elements can all fail at V=33. Direct contraction lifting fails at V=18. The induction by contraction does not close: two lemmas are missing, stated exactly in `research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md`, and the follow-up run proved the first (G) only for triangulations without chordless five-cycles and refuted every repair it tried for the second (`research/2026-11-14_astra_induction-lemmas/REPORT.md`). The two-tree packing conjecture is now proved, unreviewed, but it holds for every choice of one deleted corner per black face, so it does not see states and on its own does not produce a good state (`research/2026-11-14_opus_two-tree-packing/REPORT.md`). Monotone pair descent C3 and rainbow exchange X remain conjectures. Exact statements and finite ranges are in [09](09-what-is-still-open.md).

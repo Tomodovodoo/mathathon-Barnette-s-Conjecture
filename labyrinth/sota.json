@@ -2,7 +2,7 @@
  "about": "Best known result for each tracked question on 2026-11-14. Edited only through labyrinth/seed.py.",
  "groups": [
   "The theorem and its proofs",
-  "Structure of tree matchings",
+  "Structure of good states",
   "Formulas and algorithms",
   "Verification"
  ],
@@ -39,7 +39,7 @@
   {
    "id": "prop51",
    "group": "The theorem and its proofs",
-   "cls": "Shortest rigorous proof of Proposition 5.1 (a pair implies a forest pair)",
+   "cls": "Shortest rigorous proof of Proposition 5.1 (a pair implies a good pair)",
    "result": "Two candidates of about one page: heights as test functions with no weights (comb, rewritten by its referee), and one integer polynomial F with linear weights 1 + xa, real signs and parity only (dim, refd). The Lean proof uses the second form.",
    "status": "proved here (1 independent AI referee each; human check pending)",
    "kind": "proved",
@@ -122,7 +122,7 @@
    "id": "structural",
    "group": "The theorem and its proofs",
    "cls": "Existence proof with no signed count",
-   "result": "No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing remain live at this snapshot.",
+   "result": "No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing P2 remain live; two-tree packing is proved but does not see the states.",
    "status": "Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed.",
    "kind": "partial",
    "refs": [
@@ -148,15 +148,20 @@
      "date": "2026-11-14",
      "was": "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
      "status": "open; 51 dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing remain live at this snapshot.",
+     "status": "Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed."
     }
    ]
   },
   {
    "id": "tm-lower",
-   "group": "Structure of tree matchings",
-   "cls": "Lower bound on the number of tree matchings of a rooted triangulation with a pair",
-   "result": "Proved lower bound 2 c_min; C1 conjectures 2^c_min. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.",
-   "status": "2 c_min AI-refereed; C1 finite census, not a theorem.",
+   "group": "Structure of good states",
+   "cls": "Lower bound on the number of good states of a rooted triangulation with a pair",
+   "result": "Proved lower bound 2m; C1 conjectures 2^m. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.",
+   "status": "2m AI-refereed; C1 finite census, not a theorem.",
    "kind": "proved",
    "refs": [
     "p.D.2",
@@ -174,14 +179,19 @@
      "date": "2026-11-14",
      "was": "At least 2 cmin, and always even. Conjecture: at least 2^cmin (5088 cases, equality in 4609).",
      "status": "2 cmin proved here (1 AI referee; human check pending); 2^cmin conjecture"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Proved lower bound 2 c_min; C1 conjectures 2^c_min. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.",
+     "status": "2 c_min AI-refereed; C1 finite census, not a theorem."
     }
    ]
   },
   {
    "id": "rarity",
-   "group": "Structure of tree matchings",
-   "cls": "Fraction of states that are tree matchings",
-   "result": "Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.",
+   "group": "Structure of good states",
+   "cls": "Fraction of states that are good states",
+   "result": "Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.",
    "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.",
    "kind": "proved",
    "refs": [
@@ -200,13 +210,18 @@
      "date": "2026-11-14",
      "was": "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings.",
      "status": "proved here, checked in structure referee INTEGRATION.md Section 6; computed for q <= 6"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.",
+     "status": "T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed."
     }
    ]
   },
   {
    "id": "canonical",
-   "group": "Structure of tree matchings",
-   "cls": "Canonical forest pair",
+   "group": "Structure of good states",
+   "cls": "Canonical good pair",
    "result": "No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.",
    "status": "Independent AI referee and two V=33 implementations; no human check.",
    "kind": "refuted",
@@ -231,8 +246,8 @@
   },
   {
    "id": "which-hc",
-   "group": "Structure of tree matchings",
-   "cls": "Which Hamiltonian cycles arise from tree matchings",
+   "group": "Structure of good states",
+   "cls": "Which Hamiltonian cycles arise from good states",
    "result": "Exactly the cycles avoiding e0* whose state has a partner. Recovery is injective, not onto (prism: 2 of 4). 3 #TM <= #HC(G).",
    "status": "Earlier recovery image and injectivity independently AI-refereed; revised compatible-state converse is separate, unreviewed.",
    "kind": "proved",
@@ -296,7 +311,7 @@
    "id": "frontier",
    "group": "Verification",
    "cls": "Verified range of the counts",
-   "result": "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and tree matchings agree between two independent implementations (7868 roots); a third recount by a referee agrees.",
+   "result": "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and good states agree between two independent implementations (7868 roots); a third recount by a referee agrees.",
    "status": "exhaustive (T3; no referee of the comparison itself)",
    "kind": "exhaustive",
    "refs": [
@@ -308,6 +323,11 @@
     {
      "date": "2026-11-14",
      "was": "77 rooted runs, 55 triangulations up to 14 vertices (route-constructive)"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and tree matchings agree between two independent implementations (7868 roots); a third recount by a referee agrees.",
+     "status": "exhaustive (T3; no referee of the comparison itself)"
     }
    ]
   },
@@ -336,7 +356,7 @@
    "group": "Verification",
    "cls": "Review state of the proofs written in this project",
    "result": "Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.",
-   "status": "See named review objects; revised primal M4 disagreement requires re-referee.",
+   "status": "See named review objects; the primal M4 question is settled in the cross-audit adjudication.",
    "kind": "partial",
    "refs": [
     "q.human"
@@ -348,6 +368,11 @@
      "date": "2026-11-14",
      "was": "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, route-topology, route-categorical, lean-formalisation, the referees' own additions. Human-checked: none.",
      "status": "partial"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.",
+     "status": "See named review objects; revised primal M4 disagreement requires re-referee."
     }
    ]
   },
@@ -372,7 +397,7 @@
    "group": "The theorem and its proofs",
    "cls": "Written proof routes",
    "result": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
-   "status": "Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check.",
+   "status": "Merged theorem AI-refereed FOLLOWS; a second version applying the eight edits is in progress. Involution note AI-refereed FOLLOWS, all fifteen edits applied. Primal note accepted in the cross-audit; M4 settled, the real sign over the Lean phase is i^n. Lean covers 4 of 34 merged-route statements exactly. No human check.",
    "kind": "partial",
    "refs": [
     "p.G2.main",
@@ -392,14 +417,19 @@
      "date": "2026-11-14",
      "was": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
      "status": "Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check."
+    },
+    {
+     "date": "2026-11-14",
+     "was": "Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.",
+     "status": "Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check."
     }
    ]
   },
   {
    "id": "induction",
-   "group": "Structure of tree matchings",
+   "group": "Structure of good states",
    "cls": "Unsigned contraction induction",
-   "result": "If both contractions at a non-root degree-four vertex have tree matchings, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
+   "result": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
    "status": "CONJECTURE; new claims unreviewed, human check pending",
    "kind": "conjecture",
    "refs": [
@@ -407,13 +437,24 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "If both contractions at a non-root degree-four vertex have tree matchings, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
+    },
+    {
+     "date": "2026-11-14",
+     "was": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
+    }
+   ]
   },
   {
    "id": "rainbow",
-   "group": "Structure of tree matchings",
+   "group": "Structure of good states",
    "cls": "Rainbow exchange",
-   "result": "Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
+   "result": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
    "status": "CONJECTURE; new claims unreviewed, human check pending",
    "kind": "conjecture",
    "refs": [
@@ -421,27 +462,39 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
+    }
+   ]
   },
   {
    "id": "packing",
-   "group": "Structure of tree matchings",
+   "group": "Structure of good states",
    "cls": "Two-tree packing",
-   "result": "Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.",
-   "status": "CONJECTURE; new claims unreviewed, human check pending",
-   "kind": "conjecture",
+   "result": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
+   "status": "PROVED-HERE; new claims unreviewed, human check pending",
+   "kind": "partial",
    "refs": [
     "k.U.packing"
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.",
+     "status": "CONJECTURE; new claims unreviewed, human check pending"
+    }
+   ]
   },
   {
    "id": "covers",
-   "group": "Structure of tree matchings",
-   "cls": "Meaning and range of c_min",
-   "result": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_m, V=3m+2, has no separating triangle, one cover with m-2 triangles and one pentagon, c_min=m-1 and #TM=2^(m-1). Author proof and finite checks, unreviewed.",
+   "group": "Structure of good states",
+   "cls": "Meaning and range of m",
+   "result": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
    "status": "PROVED-HERE; new claims unreviewed, human check pending",
    "kind": "partial",
    "refs": [
@@ -449,13 +502,19 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_m, V=3m+2, has no separating triangle, one cover with m-2 triangles and one pentagon, c_min=m-1 and #TM=2^(m-1). Author proof and finite checks, unreviewed.",
+     "status": "PROVED-HERE; new claims unreviewed, human check pending"
+    }
+   ]
   },
   {
    "id": "census24",
-   "group": "Structure of tree matchings",
+   "group": "Structure of good states",
    "cls": "Separator-free C1 census",
-   "result": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum c_min=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
+   "result": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum m=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
    "status": "COMPUTED; new claims unreviewed, human check pending",
    "kind": "computed",
    "refs": [
@@ -463,11 +522,17 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "was": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum c_min=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
+     "status": "COMPUTED; new claims unreviewed, human check pending"
+    }
+   ]
   },
   {
    "id": "pfaffian",
-   "group": "Structure of tree matchings",
+   "group": "Structure of good states",
    "cls": "Pfaffian corollary",
    "result": "Conditional on the supplied planar theorem, the opened GSW Theorems 4.4, 4.9, 4.12, 1.7 and 4.16 imply Corollary 7.2. One-step trisum gluing uses six path signatures. New inference unreviewed.",
    "status": "PROVED-HERE; new claims unreviewed, human check pending",

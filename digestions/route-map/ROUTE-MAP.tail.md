@@ -4,7 +4,7 @@ The supplied proofs share the disk identity, a sign-reversing cancellation with 
 
 The failed shortcuts are kept as routes with lessons and certificates. C2 fails first at V=18. R2, extreme or irreducible, fails at V=33. Natural two-matroid and integral-LP relaxations fail; exact reformulations alone supply no existence proof. The signed sum cannot be recovered from the ordinary rank polynomial of the factor lattice.
 
-The contraction route has two missing lemmas, ML1 and ML2. C3 allows plateaus among pairs. Rainbow exchange X allows plateaus among white trees, while the surplus walk alone can cycle. Two-tree packing is tracked separately from exact degree rounding. These are the current unsigned doors; their finite evidence is not a proof.
+The contraction route has two missing lemmas, ML1 and ML2. C3 allows plateaus among pairs. Rainbow exchange X allows plateaus among white trees, while the surplus walk alone can cycle. Two-tree packing is proved, unreviewed, but holds for every choice of deleted corners and so never sees the states; its face-side twin P2 and exact degree rounding are open. These are the current unsigned doors; their finite evidence is not a proof.
 
 ## Limits of this map
 

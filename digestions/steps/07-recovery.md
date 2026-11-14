@@ -1,12 +1,12 @@
-# 07. Recovery: from a forest pair to the Hamiltonian cycle
+# 07. Recovery: from a good pair to the Hamiltonian cycle
 
 Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
 
 ## What we want at this point and why
 
-Step 06 produced a pair $(r,s)$ whose opposite-edge graph $Q_s$ is a forest. That is a statement about $n$ edges opposite chosen corners. The theorem asks for a Hamiltonian cycle of $G$ that avoids the edge dual to $e_0$, or equally for two induced trees of $T$ with $e_0$ inside one of them. This step is the translation. It is a chain of six links, and each link is either a planar duality or a count.
+Step 06 produced a good pair $(r,s)$: its opposite-edge graph $Q_s$ is a forest, and since $s$ has the partner $r$, each tree of that forest contains one root. So $s$ is a good state (the trees paper's tree matching). That is a statement about $n$ edges opposite chosen corners. The theorem asks for a Hamiltonian cycle of $G$ that avoids the edge dual to $e_0$, or equally for two induced trees of $T$ with $e_0$ inside one of them. This step is the translation. It is a chain of six links, and each link is either a planar duality or a count.
 
-$$\text{forest pair} \to \text{incidence tree} \to \text{white-face tree} \to \text{selected edges } P \to P \text{ is a forest} \to \text{one cycle in } G \to \text{two induced trees}.$$
+$$\text{good pair} \to \text{incidence tree} \to \text{white-face tree} \to \text{selection } P \to P \text{ is a forest} \to \text{one cycle in } G \to \text{two induced trees}.$$
 
 ## The idea in plain words
 
@@ -32,11 +32,11 @@ The faces of $H$ are in bijection with the white faces of $T$. The spokes cut ea
 
 By tree/cotree duality (Lemma 3 of step 02, applied to the plane graph $H$) the duals of the removed spokes form a spanning tree $W_s$ on the white faces. The removed spoke $(t, s(t))$ separates the two sectors of $t$ at the corner $s(t)$. So its dual edge joins the two white faces that lie across the two sides of $t$ at $s(t)$. $W_s$ has $n+1$ nodes and $n$ edges, one for each face of $A$.
 
-### Link 3. The selected edges
+### Link 3. The selection
 
 Root $W_s$ at $y_0$. Every white face $y \neq y_0$ has a parent, and the edge to the parent is the dual of a spoke $(t, s(t))$ for a unique $t$. This gives a bijection between the white faces other than $y_0$ and the faces of $A$. For each such $y$ select the side of $t$ that borders $y$. It is one of the two sides of $t$ at $s(t)$. Finally select $e_0$, which lies between $t_0$ and $y_0$.
 
-Call the selected set $P$ and put $P_0 = P \setminus \{e_0\}$. By construction every black face and every white face contains exactly one selected edge. So $|P| = n + 1$. The edge of $P_0$ in $t$ is incident with $s(t)$.
+Call the set of selected edges the selection $P$, the main paper's word, and put $P_0 = P \setminus \{e_0\}$. In these digestions "selected" always refers to $P$, never to the edges $r(t) \to s(t)$ of $D$; the primal note uses the word for both. By construction every black face and every white face contains exactly one selected edge. So $|P| = n + 1$. The edge of $P_0$ in $t$ is incident with $s(t)$.
 
 ### Link 4. $P$ is a forest
 
@@ -85,7 +85,7 @@ So $P = \{01, 13, 24, 45\}$, the two paths $0 - 1 - 3$ and $2 - 4 - 5$ of step 0
 
 ## Worked example: the running graph
 
-Use the tree matching $s = (6, 2, 8, 1, 3, 10, 11, 7, 12, 9)$. It is the state drawn as $r$ in the figures, the partner of the state $s^*$ whose $Q$ has a cycle. With $e_0 = 04$ the white root is $y_0 = 3$. The script returns
+Use the good state $s = (6, 2, 8, 1, 3, 10, 11, 7, 12, 9)$. It is the state drawn as $r$ in the figures, the partner of the state $s^*$ whose $Q$ has a cycle. With $e_0 = 04$ the white root is $y_0 = 3$. The script returns
 
 $$P = \{02,\ 04,\ 06,\ 19,\ 39,\ 5\,11,\ 67,\ 78,\ 9\,10,\ 10\,11,\ 11\,12\},$$
 
@@ -99,19 +99,19 @@ $$0, 1, 9, 10, 2, 3, 11, 12, 13, 14, 4, 5, 15, 16, 17, 18, 19, 20, 21, 8, 7, 6.$
 
 ## Which Hamiltonian cycles are produced
 
-The construction is a map from tree matchings to Hamiltonian cycles avoiding the dual of $e_0$. Three facts describe it.
+The construction is a map from good states to Hamiltonian cycles avoiding the dual of $e_0$. Three facts describe it.
 
 1. **It is injective.** Given the cycle, recover $P$, remove $e_0$, direct the three trees towards their roots, and read off the tails. This returns $s$. That is the derivation at the start of step 03 run backwards.
-2. **Its image is known.** Every Hamiltonian cycle $C$ avoiding the dual of $e_0$ defines a state $s_C$ in that way. $C$ is produced by the construction exactly when $s_C$ is a tree matching. If it is not, $s_C$ has no partner at all.
-3. **It is not onto.** In the prism with $t_0 = (6,0,1)$ and $e_0 = 01$, four Hamiltonian cycles avoid the dual of $e_0$ and there are two tree matchings. For the other two choices of $e_0$ the numbers are two and two.
+2. **Its image is known.** Every Hamiltonian cycle $C$ avoiding the dual of $e_0$ defines a state $s_C$ in that way. $C$ is produced by the construction exactly when $s_C$ is good. If it is not, $s_C$ has no partner at all.
+3. **It is not onto.** In the prism with $t_0 = (6,0,1)$ and $e_0 = 01$, four Hamiltonian cycles avoid the dual of $e_0$ and there are two good states. For the other two choices of $e_0$ the numbers are two and two. The two cycles that are not produced fail for a reason that "$Q_{s_C}$ is a forest" would hide: $Q_{s_C}$ has no cycle, but a path of opposite edges joins two roots (computed in `research/2026-11-14_fable_atlas-review/REPORT.md`). So "good" must be read as "a forest with one root in each component", never as "a forest".
 
-A consequence of the first fact is $3 \cdot \#\{\text{tree matchings}\} \le \#\{\text{Hamiltonian cycles of } G\}$, since each cycle avoids exactly one of the three edges at the vertex of $G$ in $t_0$.
+A consequence of the first fact is $3 \cdot \#\{\text{good states}\} \le \#\{\text{Hamiltonian cycles of } G\}$, since each cycle avoids exactly one of the three edges at the vertex of $G$ in $t_0$.
 
-In the running example $G$ has 28 Hamiltonian cycles. Six avoid the dual of $e_0 = 04$, and there are six tree matchings. So here every avoiding cycle is produced. Over all rooted triangulations with a pair and at most 16 vertices the number of avoiding cycles is between 1 and 26 times the number of tree matchings.
+In the running example $G$ has 28 Hamiltonian cycles. Six avoid the dual of $e_0 = 04$, and there are six good states. So here every avoiding cycle is produced. Over all rooted triangulations with a pair and at most 16 vertices the number of avoiding cycles is between 1 and 26 times the number of good states.
 
 Status. Facts 1 and 2 are Proposition 7 of `fable_route-combinatorics/PROOF.md`, Theorem 7.2 of `research/2026-11-14_opus_route-graph-theory/PROOFS.md` and a section of `research/2026-11-14_astra_limits/HYPOTHESES.md`, found independently three times. Two different second models checked them, in `research/2026-11-14_astra_referee-combinatorics/` and in section 5 of `research/2026-11-14_sol_referee-structure/INTEGRATION.md`. Not yet read by a human. Fact 3 is computed, by three programs, mine included.
 
-The reading that matters for intuition is this. Proposition 5.1 does not find an arbitrary Hamiltonian cycle. It finds one of a special kind, one whose state has a partner, and that kind depends on the root $t_0$. A proof that tried to show that every Hamiltonian cycle comes from a forest pair would be aiming at a false statement.
+The reading that matters for intuition is this. Proposition 5.1 does not find an arbitrary Hamiltonian cycle. It finds one of a special kind, one whose state has a partner, and that kind depends on the root $t_0$. A proof that tried to show that every Hamiltonian cycle comes from a good pair would be aiming at a false statement.
 
 ## What does not work
 
@@ -124,7 +124,7 @@ The reading that matters for intuition is this. Proposition 5.1 does not find an
 - **Li's Link 4.** Li does not show that $P$ is a forest. He assumes that the complement of $P$ in $G$ has more than one cycle, takes one with no root face inside, and finds two faces matched to the same black vertex. That uses neither the disk identity nor the partner, and it does not produce the induced trees, which he does not need. Published.
 - **Entirely in $G$.** The Lean formalisation does the recovery in the cubic graph with no spoke graph. Formalised.
 - **Through Temperley's correspondence.** The papers point to the bijection between spanning trees and matchings of Kenyon, Propp and Wilson as a relative of Links 1 to 3. Nobody in the project wrote out an exact dictionary. A hunch.
-- **By removing leaves.** Remove a leaf of $W_s$ together with its black face and show that a smaller rooted triangulation with a tree matching remains. A conjecture in `research/2026-11-14_fable_dependency-graph/skeleton.md`, edge F1, untested.
+- **By removing leaves.** Remove a leaf of $W_s$ together with its black face and show that a smaller rooted triangulation with a good state remains. A conjecture in `research/2026-11-14_fable_dependency-graph/skeleton.md`, edge F1, untested.
 
 ## Where this is used next
 

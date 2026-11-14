@@ -32,7 +32,11 @@
   "pf": "research/2026-11-14_astra_route-pfaffian",
   "main": "paper/main",
   "inv": "proofs/involutions",
-  "revp": "research/2026-11-14_astra_primal-revision"
+  "revp": "research/2026-11-14_astra_primal-revision",
+  "pack": "research/2026-11-14_opus_two-tree-packing",
+  "xa": "research/2026-11-14_opus_cross-audit",
+  "bp": "research/2026-11-14_opus_blueprint",
+  "il": "research/2026-11-14_astra_induction-lemmas"
  },
  "waypoints": [
   {
@@ -82,7 +86,7 @@
   },
   {
    "id": "FP",
-   "name": "Forest pair / tree matching",
+   "name": "Good pair / good state",
    "what": "A pair with Q_s a forest. Equivalently a state s with H - s a spanning tree of the spoke graph. Equivalently a state with exactly one partner."
   },
   {
@@ -216,8 +220,8 @@
    "to": "FP",
    "title": "Compare the two evaluations",
    "verdict": "forced",
-   "must": "The same sum is supported on forest pairs (by K) and is not zero (by N). So a forest pair exists.",
-   "freedom": "The comparison is one line. No canonical forest pair is known: every extremal choice tried is refuted."
+   "must": "The same sum is supported on good pairs (by K) and is not zero (by N). So a good pair exists.",
+   "freedom": "The comparison is one line. No canonical good pair is known: every extremal choice tried is refuted."
   },
   {
    "id": "U",
@@ -227,8 +231,8 @@
    "to": "FP",
    "title": "Unsigned routes (bypass)",
    "verdict": "open",
-   "must": "Find a tree matching with no signed sum: as a prescribed-degree spanning tree, a three-matroid intersection, a constrained white tree, a point of the state lattice.",
-   "freedom": "Contraction induction stops at ML1 and ML2; rainbow exchange and two-tree packing remain conjectural at this snapshot. The natural two-matroid and LP shortcuts fail."
+   "must": "Find a good state with no signed sum: as a prescribed-degree spanning tree, a three-matroid intersection, a constrained white tree, a point of the state lattice.",
+   "freedom": "Contraction induction stops at ML1 and ML2; rainbow exchange X and the face-side packing P2 remain conjectural. Two-tree packing itself is proved but does not see the states. The natural two-matroid and LP shortcuts fail."
   },
   {
    "id": "R",
@@ -520,7 +524,7 @@
    "status": "LIT",
    "src": "lit",
    "where": "Hine-Kalman 2018 (clock theorem); mach/REFORMULATIONS.md 9",
-   "text": "Clock moves connect all states. The tree matchings are a subset of this lattice with no known description.",
+   "text": "Clock moves connect all states. The good states are a subset of this lattice with no known description.",
    "arg": "trinity",
    "role": "fact"
   },
@@ -531,7 +535,7 @@
    "status": "PROVED-HERE",
    "src": "con",
    "where": "con/ALGORITHMS.md",
-   "text": "Because all extensions of a partial matching have one sign, residual determinants count them, and a state can be sampled uniformly in polynomial time. This does not sample tree matchings.",
+   "text": "Because all extensions of a partial matching have one sign, residual determinants count them, and a state can be sampled uniformly in polynomial time. This does not sample good states.",
    "role": "fact"
   },
   {
@@ -602,13 +606,13 @@
   {
    "id": "A.x1",
    "step": "A",
-   "label": "every avoiding cycle comes from a tree matching",
+   "label": "every avoiding cycle comes from a good state",
    "status": "REFUTED",
    "src": "dep,comb,lim",
    "where": "posed in dep/skeleton.md A2; refuted by comb/ROUTES.md 12 (E8) and lim/examples/prism_recovery.json",
-   "text": "If every Hamiltonian cycle avoiding e0* came from a tree matching, known Hamiltonicity results would give pairs with no flow argument.",
+   "text": "If every Hamiltonian cycle avoiding e0* came from a good state, known Hamiltonicity results would give pairs with no flow argument.",
    "lesson": "The recovery map is injective and not onto. A cycle avoiding e0* always defines a state, and that state is a tree matching or has no partner at all. Most avoiding cycles are of the second kind (ratio up to 26).",
-   "cex": "Hexagonal prism (dual with 8 vertices): 4 cycles avoid the edge, 2 tree matchings.",
+   "cex": "Hexagonal prism (dual with 8 vertices): 4 cycles avoid the edge, 2 good states.",
    "role": "route"
   },
   {
@@ -641,7 +645,7 @@
    "status": "COMPUTED",
    "src": "lim",
    "where": "lim/data/roots.json",
-   "text": "In plantri graph 12_2 one black root has 9 states, 10 pairs, 8 tree matchings; every other black root has 9, 2, 2.",
+   "text": "In plantri graph 12_2 one black root has 9 states, 10 pairs, 8 good states; every other black root has 9, 2, 2.",
    "role": "fact"
   },
   {
@@ -851,7 +855,7 @@
    "status": "LIT",
    "src": "O,L,T",
    "where": "O Lemma 5.2; L iota_1; T beta, Prop. 2.1",
-   "text": "Cycles of Q_s are directed by r. Reversing one chosen from s alone changes r, keeps the weight and flips the sign. T classifies all components: the number of partners is 0 or 2^k.",
+   "text": "Cycles of Q_s are directed by r. Reversing one chosen from s alone changes r, keeps the weight and flips the sign. T classifies all components: the number of partners is 0 or 2^q(s), q(s) the number of cycles of Q_s.",
    "arg": "involution",
    "role": "route"
   },
@@ -872,7 +876,7 @@
    "status": "PROVED-HERE",
    "src": "dim,alg",
    "where": "dim/PROOF.md 4; alg/PROOF.md 1",
-   "text": "With one variable per incidence, F(w) has coefficient +1 or -1 on each tree matching and 0 on every other state. So CT F(w)F(1/w) is the number of tree matchings.",
+   "text": "With one variable per incidence, F(w) has coefficient +1 or -1 on each good state and 0 on every other state. So CT F(w)F(1/w) is the number of good states.",
    "role": "fact"
   },
   {
@@ -892,7 +896,7 @@
    "status": "COMPUTED",
    "src": "con,dep,comb,refd",
    "where": "con/VERIFICATION.md; dep/scripts/check_nodes.py (35 cases); comb/lab/dets.py 12; refd/code/results.json",
-   "text": "Every state with a cycle in Q_s has zero signed partner sum; the partner count is 2^k or 0 on 140358 states (comb/lab/extra2.py 16).",
+   "text": "Every state with a cycle in Q_s has zero signed partner sum; the partner count is 2^q(s) or 0 on 140358 states (comb/lab/extra2.py 16).",
    "role": "route"
   },
   {
@@ -910,11 +914,11 @@
   {
    "id": "N.O",
    "step": "N",
-   "label": "Taylor coefficient of order cmin",
+   "label": "Taylor coefficient of order m",
    "status": "LIT",
    "src": "O",
    "where": "O Lemma 5.3, (5.3)-(5.5)",
-   "text": "Unit circulations from dual paths, a slide of edges onto spokes, Z(x) = sum over D of prod (-i e^{xL+} + i e^{xL-}); the coefficient of x^cmin is a nonzero multiple of a positive sum.",
+   "text": "Unit circulations from dual paths, a slide of edges onto spokes, Z(x) = sum over D of prod (-i e^{xL+} + i e^{xL-}); the coefficient of x^m is a nonzero multiple of a positive sum.",
    "arg": "analytic",
    "role": "route"
   },
@@ -925,7 +929,7 @@
    "status": "LIT",
    "src": "L",
    "where": "L Section 4, Defs 14, 20-23, Appendix B",
-   "text": "Weights are signed crossings of vertical rays. A sign-reversing involution on lists of cmin marks; its fixed points share a sign. For cmin > 1 three verifications are left to the reader (dep/audit-li.md).",
+   "text": "Weights are signed crossings of vertical rays. A sign-reversing involution on lists of m marks; its fixed points share a sign. For m > 1 three verifications are left to the reader (dep/audit-li.md).",
    "arg": "bijective",
    "role": "route"
   },
@@ -936,7 +940,7 @@
    "status": "LIT",
    "src": "T",
    "where": "T Lemma 5.1, Thm 5.2, (11)",
-   "text": "Integer weights 0 <= a <= 6n; Z_C(z) = sum eps z^omega has a nonzero coefficient of (z - 1)^m. Every exchange component contains tree pairs of both signs.",
+   "text": "Integer weights 0 <= a <= 6n; Z_C(z) = sum eps z^omega has a nonzero coefficient of (z - 1)^m. Every exchange component contains good pairs of both signs.",
    "arg": "polynomial",
    "role": "route"
   },
@@ -947,7 +951,7 @@
    "status": "LIT",
    "src": "T",
    "where": "T Thm 5.3",
-   "text": "Alternate the two involutions on tokens; the walk ends at a tree pair or restarts with fewer D-cycles. Never computes cmin. 2^O(n log n) time.",
+   "text": "Alternate the two involutions on tokens; the walk ends at a good pair or restarts with fewer D-cycles. Never computes m. 2^O(n log n) time.",
    "arg": "walk",
    "role": "route"
   },
@@ -958,7 +962,7 @@
    "status": "PROVED-HERE",
    "src": "comb,refc",
    "where": "comb/PROOF.md Sections 2-3 (Theorem B); refc/REWRITTEN-PROP-5-1.md (self-contained rewrite by the referee)",
-   "text": "Test the signed measure against a product of cmin heights at white faces. Pairs with one D form a cube, partners of one s form a cube, and the product is a cmin-fold difference that survives only on covers with exactly cmin cycles.",
+   "text": "Test the signed measure against a product of m heights at white faces. Pairs with one D form a cube, partners of one s form a cube, and the product is a m-fold difference that survives only on covers with exactly m cycles.",
    "role": "route"
   },
   {
@@ -1010,21 +1014,21 @@
    "status": "REFUTED",
    "src": "comb,dep,alg",
    "where": "comb/ROUTES.md 8; dep/skeleton.md D3; alg/PROOF.md 2; alg/TABLES.md (residues mod 2, 3, 4, 5, 7, 11)",
-   "text": "Show the number of tree matchings is odd, or nonzero mod p.",
-   "lesson": "The number of tree matchings is always even (the two signs balance), and T = P - 2 N_1 mod 4 is compatible with T = 0. The weighted sum is the refinement that works; the first degree at which anything survives is cmin. No modulus among 2, 3, 4, 5, 7, 11 gives a universally nonzero residue; the positive counts seen are 2, 4, 6, 8, 10, 12, 14, 16, 22.",
-   "cex": "Octahedron: 2 tree matchings, signed count 0.",
+   "text": "Show the number of good states is odd, or nonzero mod p.",
+   "lesson": "The number of good states is always even (the two signs balance), and T = P - 2 N_1 mod 4 is compatible with T = 0. The weighted sum is the refinement that works; the first degree at which anything survives is m. No modulus among 2, 3, 4, 5, 7, 11 gives a universally nonzero residue; the positive counts seen are 2, 4, 6, 8, 10, 12, 14, 16, 22.",
+   "cex": "Octahedron: 2 good states, signed count 0.",
    "role": "route"
   },
   {
    "id": "N.x3",
    "step": "N",
-   "label": "tree pair among the fewest-cycle pairs",
+   "label": "good pair among the fewest-cycle pairs",
    "status": "REFUTED",
    "src": "dep,comb,gt",
-   "where": "dep/skeleton.md D2; comb/ROUTES.md 7 (E2d, E3); refc/REFEREE.md; gt/ROUTES.md O3 (a 40-vertex one-cycle cover with no tree pair)",
+   "where": "dep/skeleton.md D2; comb/ROUTES.md 7 (E2d, E3); refc/REFEREE.md; gt/ROUTES.md O3 (a 40-vertex one-cycle cover with no good pair)",
    "text": "Among the pairs with the fewest D-cycles one has Q_s a forest; or every cycle cover D has a forest orientation.",
-   "lesson": "Reversals inside one fixed cycle cover cannot be guaranteed to reach a forest pair, so a proof must move between covers. The leading coefficient is nonzero because of the fewest-cycle covers, but the surviving pairs can live in other covers. A statement that held on 1794 cases failed at the next size. (Scope as corrected by the referee.)",
-   "cex": "16 vertices, class 158, t0 = (2,7,3): a single 13-cycle whose two orientations both have a triangle in Q_s; its 12 tree matchings lie in two other covers. Also the octahedron with every face split in four (n = 15).",
+   "lesson": "Reversals inside one fixed cycle cover cannot be guaranteed to reach a good pair, so a proof must move between covers. The leading coefficient is nonzero because of the fewest-cycle covers, but the surviving pairs can live in other covers. A statement that held on 1794 cases failed at the next size. (Scope as corrected by the referee.)",
+   "cex": "16 vertices, class 158, t0 = (2,7,3): a single 13-cycle whose two orientations both have a triangle in Q_s; its 12 good states lie in two other covers. Also the octahedron with every face split in four (n = 15).",
    "role": "route"
   },
   {
@@ -1034,7 +1038,7 @@
    "status": "REFUTED",
    "src": "comb",
    "where": "comb/ROUTES.md 4 (E1, E1c); refc/REFEREE.md; gt/ROUTES.md O1 (extremes of the whole matching lattice fail at 10 vertices)",
-   "text": "The top (bottom) partnered state of the lattice is a tree matching.",
+   "text": "The top (bottom) partnered state of the lattice is a good state.",
    "lesson": "For an extreme s every D has all cycles one way, but reversing a cycle of Q_s changes the number of D-cycles by two and extremality does not forbid it.",
    "cex": "12 vertices, class 6, t0 = (2,7,3) for the highest state, and its mirror image for the lowest (the referee's correction: the author's enumeration identified reflections and reported 14).",
    "role": "route"
@@ -1046,7 +1050,7 @@
    "status": "REFUTED",
    "src": "comb",
    "where": "comb/ROUTES.md 5 (E2, E2c); refc/REFEREE.md",
-   "text": "Take D with cmin cycles and orient all of them counterclockwise (or clockwise).",
+   "text": "Take D with m cycles and orient all of them counterclockwise (or clockwise).",
    "lesson": "The leading coefficient sums over all minimal covers and prefers no orientation.",
    "cex": "12 vertices, class 6, t0 = (2,7,3) for counterclockwise, and its mirror image for clockwise (referee's correction; the author reported 13).",
    "role": "route"
@@ -1058,7 +1062,7 @@
    "status": "REFUTED",
    "src": "comb",
    "where": "comb/ROUTES.md 6 (E5)",
-   "text": "The pair maximising omega(s) - omega(r) is a forest pair.",
+   "text": "The pair maximising omega(s) - omega(r) is a good pair.",
    "lesson": "Maximality forces the cycles of Q_s to be counterclockwise and nothing more.",
    "cex": "12 vertices, class 6, t0 = (2,7,3).",
    "role": "route"
@@ -1070,21 +1074,21 @@
    "status": "REFUTED",
    "src": "comb",
    "where": "comb/ROUTES.md 13",
-   "text": "cmin = 1, so a first-order argument is enough.",
-   "lesson": "cmin reaches 3 without separating triangles (192 of 3374 rooted cases up to 16 vertices) and 4 with them. A first-order argument is not enough and Li's Appendix B is needed. Unboundedness of cmin is not proved.",
-   "cex": "9 vertices: octahedron with an octahedron glued into a face, cmin = 2.",
+   "text": "m = 1, so a first-order argument is enough.",
+   "lesson": "m reaches 3 without separating triangles (192 of 3374 rooted cases up to 16 vertices) and 4 with them. A first-order argument is not enough and Li's Appendix B is needed. Unboundedness of m is not proved.",
+   "cex": "9 vertices: octahedron with an octahedron glued into a face, m = 2.",
    "role": "route"
   },
   {
    "id": "N.x8",
    "step": "N",
-   "label": "cubes of tree matchings; sign = parity of rank",
+   "label": "cubes of good states; sign = parity of rank",
    "status": "REFUTED",
    "src": "comb,refc",
    "where": "comb/ROUTES.md 9, 10",
-   "text": "Tree matchings split into cubes of dimension cmin; or eps(s) = (-1)^omega(s) up to a constant.",
-   "lesson": "Z(q)/(q - 1)^cmin can have mixed signs, which refutes a rank-compatible signed cube decomposition. An abstract partition into cubes of dimension cmin is refuted by cardinality (referee).",
-   "cex": "Signs: 14 vertices, class 24, face 6, Z = -1 + 2q + q^5 - 2q^6. Cardinality: a 13-vertex instance with 6 tree matchings and cmin = 2 (refc/code/cube_cardinality.json). Sign = parity of rank fails at 8 vertices.",
+   "text": "Good states split into cubes of dimension m; or eps(s) = (-1)^omega(s) up to a constant.",
+   "lesson": "Z(q)/(q - 1)^m can have mixed signs, which refutes a rank-compatible signed cube decomposition. An abstract partition into cubes of dimension m is refuted by cardinality (referee).",
+   "cex": "Signs: 14 vertices, class 24, face 6, Z = -1 + 2q + q^5 - 2q^6. Cardinality: a 13-vertex instance with 6 good states and m = 2 (refc/code/cube_cardinality.json). Sign = parity of rank fails at 8 vertices.",
    "role": "route"
   },
   {
@@ -1131,7 +1135,7 @@
    "src": "alg",
    "where": "alg/PROOF.md 1",
    "text": "Get a nonzero evaluation of F from the coefficient form of Alon's theorem.",
-   "lesson": "Naming a nonzero monomial of F already names a tree matching. Substituting w = a_t b_v kills F.",
+   "lesson": "Naming a nonzero monomial of F already names a good state. Substituting w = a_t b_v kills F.",
    "cex": "Any instance: F(a_t b_v) = 0.",
    "role": "route"
   },
@@ -1142,7 +1146,7 @@
    "status": "REFUTED",
    "src": "alg",
    "where": "alg/PROOF.md 3",
-   "text": "The unsigned generating polynomial of tree matchings is real stable, like spanning-tree polynomials.",
+   "text": "The unsigned generating polynomial of good states is real stable, like spanning-tree polynomials.",
    "lesson": "Projecting onto matchings destroys stability.",
    "cex": "Cube: abc + def vanishes at a = b = c = e^{i pi/6}, d = e = f = i.",
    "role": "route"
@@ -1178,7 +1182,7 @@
    "status": "HUNCH",
    "src": "dep,con",
    "where": "dep/skeleton.md D4; con/ALGORITHMS.md (exchange walks)",
-   "text": "The two moves pop cycles of Q_s and of D, as in Wilson's algorithm. Show the walk hits a tree pair fast.",
+   "text": "The two moves pop cycles of Q_s and of D, as in Wilson's algorithm. Show the walk hits a good pair fast.",
    "vivid": "All 320 random and greedy trials from ten bad starts ended within ten moves (con, COMPUTED, small sample).",
    "test": "Measure hitting times on exchange components of growing size; look for a potential.",
    "role": "route"
@@ -1202,7 +1206,7 @@
    "status": "HUNCH",
    "src": "mach",
    "where": "mach/ROUTE-IDEAS.md 7",
-   "text": "A combination of the two state heights that decreases along some exchange move at every non-tree pair.",
+   "text": "A combination of the two state heights that decreases along some exchange move at every non-good pair.",
    "vivid": "Would turn existence into descent.",
    "test": "Search for a non-tree local minimum of each candidate on small exchange graphs.",
    "role": "route"
@@ -1251,7 +1255,7 @@
    "src": "comb",
    "where": "comb/REPORT.md, open question 2",
    "text": "There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.",
-   "test": "On the 479 cases with more than 2^cmin tree matchings (comb/data/rows_v16.json), search low-degree polynomials in the heights.",
+   "test": "On the 479 cases with more than 2^m good states (comb/data/rows_v16.json), search low-degree polynomials in the heights.",
    "role": "route"
   },
   {
@@ -1273,49 +1277,49 @@
    "status": "LIT",
    "src": "O,L,T",
    "where": "O Prop. 5.1; L Key Lemma 7; T Thm 5.2",
-   "text": "Supported on forest pairs, and not zero.",
+   "text": "Supported on good pairs, and not zero.",
    "arg": "double-count",
    "role": "route"
   },
   {
    "id": "D.2",
    "step": "D",
-   "label": "at least 2 cmin tree matchings",
+   "label": "at least 2m good states",
    "status": "PROVED-HERE",
    "src": "comb",
    "where": "comb/PROOF.md Corollary 3",
-   "text": "The signed measure on tree matchings kills all polynomials of degree below cmin in the rank, and the two signs are equally frequent.",
+   "text": "The signed measure on good states kills all polynomials of degree below m in the rank, and the two signs are equally frequent.",
    "role": "fact"
   },
   {
    "id": "D.3",
    "step": "D",
-   "label": "at least 2^cmin tree matchings",
+   "label": "at least 2^m good states",
    "status": "CONJECTURE",
    "src": "comb",
    "where": "rc/REFEREE.md; covers/CENSUS.md",
-   "text": "C1: every feasible root has #TM >= 2^c_min. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.",
+   "text": "C1: every feasible root has #TM >= 2^m. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.",
    "test": "Prove the two-cover exceptional-overlap exclusion, then extend the overlap calculation to several covers.",
    "role": "route"
   },
   {
    "id": "D.4",
    "step": "D",
-   "label": "exactly one tree matching is impossible",
+   "label": "exactly one good state is impossible",
    "status": "PROVED-HERE",
    "src": "lim,alg",
    "where": "lim/HYPOTHESES.md; alg/PROOF.md 2 (after T Thm 5.2)",
-   "text": "The signed unweighted sum over tree matchings is zero, so their number is even. The cube has two.",
+   "text": "The signed unweighted sum over good states is zero, so their number is even. The cube has two.",
    "role": "fact"
   },
   {
    "id": "D.5",
    "step": "D",
-   "label": "tree matchings can be exponentially rare",
+   "label": "good states can be exponentially rare",
    "status": "PROVED-HERE",
    "src": "lim,cat",
-   "where": "lim/HYPOTHESES.md (rarity); code/rarity.py q <= 6; cat/PROOF.md Prop. 6 (states, pairs and tree matchings multiply under insertion into a white face)",
-   "text": "Gluing q hexagonal-prism duals into white faces gives 3^q states and 2^q tree matchings.",
+   "where": "lim/HYPOTHESES.md (rarity); code/rarity.py q <= 6; cat/PROOF.md Prop. 6 (states, pairs and good states multiply under insertion into a white face)",
+   "text": "Gluing q hexagonal-prism duals into white faces gives 3^q states and 2^q good states.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1329,12 +1333,12 @@
   {
    "id": "D.6",
    "step": "D",
-   "label": "a canonical forest pair",
+   "label": "a canonical good pair",
    "status": "CONJECTURE",
    "src": "comb",
    "where": "comb/REPORT.md step 3",
-   "text": "Under a bijection from states to trinity arborescences, tree matchings have a tree description that singles one out.",
-   "test": "Write the Hine-Kalman bijection on the 12-vertex class 6 example where every extremal rule fails, and look at the images of its 8 tree matchings.",
+   "text": "Under a bijection from states to trinity arborescences, good states have a tree description that singles one out.",
+   "test": "Write the Hine-Kalman bijection on the 12-vertex class 6 example where every extremal rule fails, and look at the images of its 8 good states.",
    "role": "route"
   },
   {
@@ -1344,7 +1348,7 @@
    "status": "PROVED-HERE",
    "src": "mach",
    "where": "mach/REFORMULATIONS.md 1, 4",
-   "text": "[y^{d*}] det L_H(y) is the number of tree matchings: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial.",
+   "text": "[y^{d*}] det L_H(y) is the number of good states: a positive coefficient of the tree-degree polynomial. Existence would follow from a support theorem for that polynomial.",
    "role": "equiv"
   },
   {
@@ -1354,7 +1358,7 @@
    "status": "PROVED-HERE",
    "src": "dim,alg",
    "where": "dim/PROOF.md 5; alg/PROOF.md 3",
-   "text": "Tree matchings are the spanning trees of the restricted white-face graph whose edge labels use every t and every v once. A doubly squarefree coefficient of a Laplacian determinant counts them, by Cauchy-Binet with all terms nonnegative.",
+   "text": "Good states are the spanning trees of the restricted white-face graph whose edge labels use every t and every v once. A doubly squarefree coefficient of a Laplacian determinant counts them, by Cauchy-Binet with all terms nonnegative.",
    "role": "equiv"
   },
   {
@@ -1364,7 +1368,7 @@
    "status": "PROVED-HERE",
    "src": "mach,gt",
    "where": "mach/REFORMULATIONS.md 6; gt/PROOFS.md Section 1",
-   "text": "A tree matching is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.",
+   "text": "A good state is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1382,7 +1386,7 @@
    "status": "PROVED-HERE",
    "src": "mach",
    "where": "mach/REFORMULATIONS.md 2 (after T Prop. 2.1)",
-   "text": "Zeroing the entries of s in K_B gives a determinant equal to the number of partners up to sign. A tree matching is a state where it is 1.",
+   "text": "Zeroing the entries of s in K_B gives a determinant equal to the number of partners up to sign. A good state is a state where it is 1.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1396,11 +1400,11 @@
   {
    "id": "U.5",
    "step": "U",
-   "label": "tree matchings = partnered Hamiltonian cycles",
+   "label": "good states = partnered Hamiltonian cycles",
    "status": "PROVED-HERE",
    "src": "comb,lim,gt",
    "where": "comb/PROOF.md Prop. 7; lim/HYPOTHESES.md; gt/PROOFS.md Thm 7.2 (explicit left inverse; image = partitions with acyclic white parent map)",
-   "text": "Tree matchings are in bijection with the Hamiltonian cycles avoiding e0* whose state has a partner. So 3 #TM <= #HC(G).",
+   "text": "Good states are in bijection with the Hamiltonian cycles avoiding e0* whose state has a partner. So 3 #TM <= #HC(G).",
    "review": {
     "state": "refereed",
     "by": [
@@ -1448,21 +1452,21 @@
    "status": "REFUTED",
    "src": "dim,con",
    "where": "dim/ROUTES.md; con/ALGORITHMS.md (wilson_candidate)",
-   "text": "Every spanning tree of the white-face graph, or of its restriction to duals of B, gives a tree matching.",
+   "text": "Every spanning tree of the white-face graph, or of its restriction to duals of B, gives a good state.",
    "lesson": "Both label constraints are needed. Rejection sampling accepted 0 of 100 trees on the larger named graphs.",
-   "cex": "Octahedron: 128 white trees, 8 after restricting to duals of B, 2 tree matchings.",
+   "cex": "Octahedron: 128 white trees, 8 after restricting to duals of B, 2 good states.",
    "role": "route"
   },
   {
    "id": "U.x3",
    "step": "U",
-   "label": "trinity arborescences = tree matchings",
+   "label": "trinity arborescences = good states",
    "status": "REFUTED",
    "src": "dim",
    "where": "dim/ROUTES.md (trees and trinity)",
-   "text": "The Hine-Kalman bijection carries all states to arborescences; perhaps every arborescence is a tree matching.",
-   "lesson": "Arborescences count all states. Tree matchings are a proper subset with no known one-colour criterion.",
-   "cex": "Hexagonal prism dual: 3 arborescences in each colour, 2 tree matchings.",
+   "text": "The Hine-Kalman bijection carries all states to arborescences; perhaps every arborescence is a good state.",
+   "lesson": "Arborescences count all states. Good states are a proper subset with no known one-colour criterion.",
+   "cex": "Hexagonal prism dual: 3 arborescences in each colour, 2 good states.",
    "role": "route"
   },
   {
@@ -1508,7 +1512,7 @@
    "status": "HUNCH",
    "src": "mach",
    "where": "mach/ROUTE-IDEAS.md 4, 11, 12, 13",
-   "text": "A canonical tree or orientation of the map might produce a tree matching directly.",
+   "text": "A canonical tree or orientation of the map might produce a good state directly.",
    "vivid": "Each theory uses three colours and rooted trees on triangulations, as the target does.",
    "test": "On the octahedron and the hexagonal bipyramid, test every facewise corner rule for bijectivity on X and for the forest condition.",
    "role": "route"
@@ -1520,7 +1524,7 @@
    "status": "CONJECTURE",
    "src": "topo,mach",
    "where": "topo/PREDICTIONS.md P6; mach/REFORMULATIONS.md 9",
-   "text": "Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found.",
+   "text": "Outcome (topo): the good states are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often good states. No order-theoretic pattern was found.",
    "test": "Decided on the topology agent's sample (166 lattices); a description of the subset is still missing.",
    "role": "route"
   },
@@ -1542,7 +1546,7 @@
    "status": "LIT",
    "src": "O,L,T",
    "where": "O Lemma 6.1; L Lemma 8; T (3), Prop. 2.1, Thm 1.2",
-   "text": "A tree component with v vertices and a roots has v - a out-edges and v - 1 edges, so a = 1. T: s is a tree matching iff it has exactly one partner.",
+   "text": "A tree component with v vertices and a roots has v - a out-edges and v - 1 edges, so a = 1. T: s is a good state iff it has exactly one partner.",
    "arg": "count",
    "role": "route"
   },
@@ -1553,19 +1557,19 @@
    "status": "COMPUTED",
    "src": "comb,con",
    "where": "comb/lab/extra2.py 16; con/VERIFICATION.md",
-   "text": "Brute force over all states: tree matching iff exactly one partner; the partner count is 2^k or 0.",
+   "text": "Brute force over all states: good state iff exactly one partner; the partner count is 2^q(s) or 0.",
    "role": "route"
   },
   {
    "id": "R.x1",
    "step": "R",
-   "label": "a forest state is enough",
+   "label": "a good state is enough",
    "status": "REFUTED",
    "src": "lim,dep",
    "where": "lim/HYPOTHESES.md (forest versus rooted forest); dep/correspondence.md 3.5",
    "text": "Call s good as soon as Q_s is acyclic, with no partner assumed.",
-   "lesson": "Without the partner the out-degree count is unavailable: a component can hold two roots and another none. 'Forest', 'cycle-breaking' and 'tree matching' agree for pairs and differ for single states.",
-   "cex": "Hexagonal prism dual: all 3 states have acyclic Q_s, only 2 are tree matchings.",
+   "lesson": "Without the partner the out-degree count is unavailable: a component can hold two roots and another none. 'Forest', 'cycle-breaking' and 'good state' agree for pairs and differ for single states.",
+   "cex": "Hexagonal prism dual: all 3 states have acyclic Q_s, only 2 are good states.",
    "role": "route"
   },
   {
@@ -1661,7 +1665,7 @@
    "status": "PROVED-HERE",
    "src": "lim,comb",
    "where": "lim/HYPOTHESES.md; comb/PROOF.md Section 6",
-   "text": "For fixed t0 and e0 the map from tree matchings to cycles is injective. Its image is the set of avoiding cycles whose state is a tree matching.",
+   "text": "For fixed t0 and e0 the map from good states to cycles is injective. Its image is the set of avoiding cycles whose state is a good state.",
    "review": {
     "state": "refereed",
     "by": [
@@ -1675,7 +1679,7 @@
   {
    "id": "F.c",
    "step": "F",
-   "label": "recovery checked on every tree matching",
+   "label": "recovery checked on every good state",
    "status": "COMPUTED",
    "src": "con,lim",
    "where": "con/VERIFICATION.md (744 recoveries); lim/code/campaign.py 14 (3618 certificates)",
@@ -1689,7 +1693,7 @@
    "status": "CONJECTURE",
    "src": "dep",
    "where": "dep/skeleton.md F1",
-   "text": "Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a tree matching, and the cycle of the larger graph is a local detour.",
+   "text": "Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a good state, and the cycle of the larger graph is a local detour.",
    "test": "Implement leaf removal on the trees produced by dep/scripts/check_nodes.py and check validity of the smaller object.",
    "role": "route"
   },
@@ -2032,9 +2036,9 @@
    "status": "REFUTED",
    "src": "gt",
    "where": "gt/ROUTES.md I1; gt/PROOFS.md",
-   "text": "Lift a tree matching through the expansion of a degree-4 vertex.",
-   "lesson": "States lift bijectively, but the lift of a tree matching is a tree matching only under a side condition at the split vertex that is not inherited. Contraction can create the obstruction.",
-   "cex": "Contraction creates a black-inner triangle from 11 vertices on; not every tree matching lifts (708 of 1516 cases in gt/ROUTES.md I1).",
+   "text": "Lift a good state through the expansion of a degree-4 vertex.",
+   "lesson": "States lift bijectively, but the lift of a good state is a good state only under a side condition at the split vertex that is not inherited. Contraction can create the obstruction.",
+   "cex": "Contraction creates a black-inner triangle from 11 vertices on; not every good state lifts (708 of 1516 cases in gt/ROUTES.md I1).",
    "role": "route"
   },
   {
@@ -2046,7 +2050,7 @@
    "where": "refd/REPORT.md; alg/PROOF.md 6",
    "text": "CT F(w)F(1/w) and the constrained Laplacian coefficient are sums of nonnegative terms, so they are positive.",
    "lesson": "Both are positive exactly when F is not zero, and showing that is the paper's argument. The positivity in the proof sits on the D side, these on the s side.",
-   "cex": "Obstructed roots of the double octahedron (9 vertices): 360 restricted white trees, 16 with one spoke per face, no tree matching.",
+   "cex": "Obstructed roots of the double octahedron (9 vertices): 360 restricted white trees, 16 with one spoke per face, no good state.",
    "role": "route"
   },
   {
@@ -2056,9 +2060,9 @@
    "status": "REFUTED",
    "src": "alg",
    "where": "alg/REPORT.md; alg/invariants.json",
-   "text": "The number of tree matchings equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.",
+   "text": "The number of good states equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G.",
    "lesson": "The count depends on the root.",
-   "cex": "plantri graph 12_2: 2 or 8 tree matchings depending on the black root, all roots with a pair.",
+   "cex": "plantri graph 12_2: 2 or 8 good states depending on the black root, all roots with a pair.",
    "role": "route"
   },
   {
@@ -2080,19 +2084,19 @@
    "status": "REFUTED",
    "src": "alg",
    "where": "alg/PROOF.md 2; alg/REPORT.md",
-   "text": "Flip signs of incidence variables so that all tree matchings get the same coefficient sign.",
+   "text": "Flip signs of incidence variables so that all good states get the same coefficient sign.",
    "lesson": "A GF(2) inconsistency certificate: six tree states in which every incidence appears an even number of times, three with negative sign.",
-   "cex": "A 13-vertex instance with six tree matchings.",
+   "cex": "A 13-vertex instance with six good states.",
    "role": "route"
   },
   {
    "id": "N.11",
    "step": "N",
-   "label": "non-increasing exchange path to a tree pair",
+   "label": "non-increasing exchange path to a good pair",
    "status": "CONJECTURE",
    "src": "gt",
    "where": "rc/REFEREE.md; conjectures/REPORT.md",
-   "text": "C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a forest pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.",
+   "text": "C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a good pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.",
    "test": "Find a potential on plateau components, or search for a closed positive-cycle component at larger orders.",
    "role": "route"
   },
@@ -2103,8 +2107,8 @@
    "status": "CONJECTURE",
    "src": "refd",
    "where": "refd/REPORT.md (still open)",
-   "text": "Li's objects with cmin distinct marks are the elementary symmetric reading of the linear-weight coefficient.",
-   "test": "Enumerate Li's objects on an instance with cmin = 2 and compare the signed count with the coefficient of x^2 in F(1 + xa) for unit marks.",
+   "text": "Li's objects with m distinct marks are the elementary symmetric reading of the linear-weight coefficient.",
+   "test": "Enumerate Li's objects on an instance with m = 2 and compare the signed count with the coefficient of x^2 in F(1 + xa) for unit marks.",
    "role": "route"
   },
   {
@@ -2124,16 +2128,16 @@
    "status": "REFUTED",
    "src": "gt,conjectures",
    "where": "rc/REFEREE.md; rc/data/v18.json; rc/data/census_18.json",
-   "text": "C2 is false. Both true lattice extremes can have no forest pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.",
+   "text": "C2 is false. Both true lattice extremes can have no good pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.",
    "test": "Exhaustive census of Eulerian triangulations up to about 24 vertices, where one-cycle covers start to appear.",
    "lesson": "Exact extremes are computable by two shortest paths, but neither must succeed. Greedy facial terminals are not necessarily extremes.",
-   "cex": "V=18, four-element diamond lattice, 54 states, 20 pairs and 12 tree states.",
+   "cex": "V=18, four-element diamond lattice, 54 states, 20 pairs and 12 good states.",
    "role": "route"
   },
   {
    "id": "D.8",
    "step": "D",
-   "label": "finding a tree matching is in PPAD",
+   "label": "finding a good state is in PPAD",
    "status": "HUNCH",
    "src": "gt",
    "where": "gt/REPORT.md (leads)",
@@ -2185,7 +2189,7 @@
    "status": "PROVED-HERE",
    "src": "topo",
    "where": "topo/REPORT.md item 2; reft/REFEREE.md",
-   "text": "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. Correct grading: J = J_ccw - 2 times the number of clockwise Q-cycles. Pair each root with its outer-centre spoke in the Forman reading. Numerical checks of the Boolean levels only reach k <= 1.",
+   "text": "Pairs are combinatorial vector fields, good pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the good pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. Correct grading: J = J_ccw - 2 times the number of clockwise Q-cycles. Pair each root with its outer-centre spoke in the Forman reading. Numerical checks of the Boolean levels only reach k <= 1.",
    "review": {
     "state": "refereed",
     "by": [
@@ -2239,20 +2243,20 @@
    "status": "CONJECTURE",
    "src": "topo",
    "where": "reft/RAINBOW.md; reft/REPORT.md",
-   "text": "Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
+   "text": "Conjecture X: every point-rainbow tree reaches a good state by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
    "test": "Use both kinds of plateau moves; analyze periodic witnesses at V=38 before proposing another deterministic rule.",
    "role": "route"
   },
   {
    "id": "D.x1",
    "step": "D",
-   "label": "the partner of a tree matching is a tree matching",
+   "label": "the partner of a good state is a good state",
    "status": "REFUTED",
    "src": "topo",
    "where": "topo/REPORT.md item 5",
-   "text": "Swapping r and s would then be a free involution on tree matchings and explain why their number is even.",
-   "lesson": "The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s.",
-   "cex": "6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).",
+   "text": "Swapping r and s would then be a free involution on good states and explain why their number is even.",
+   "lesson": "The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Good pairs are not symmetric in r and s.",
+   "cex": "6 failures among 442 good states tested (topo data; smallest instance not recorded here).",
    "role": "route"
   },
   {
@@ -2262,7 +2266,7 @@
    "status": "COMPUTED",
    "src": "map",
    "where": "map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)",
-   "text": "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.",
+   "text": "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a good state or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.",
    "role": "fact"
   },
   {
@@ -2294,9 +2298,9 @@
    "status": "REFUTED",
    "src": "cat",
    "where": "cat/REPORT.md (what failed); cat/CATEGORICAL.md",
-   "text": "Root at two vertices not tied to a face; every root pair then has a two-root tree matching, and it gives a Hamiltonian cycle.",
+   "text": "Root at two vertices not tied to a face; every root pair then has a two-root good state, and it gives a Hamiltonian cycle.",
    "lesson": "Two roots move the obstruction and do not remove it, and O Lemma 6.2 needs all roots on one side of every selected cycle, which a root face guarantees. This is what the face root is for.",
-   "cex": "Existence: plantri graph 12_6, 51 of 66 root pairs. Recovery: a two-root tree matching with no Hamiltonian cycle at 8 vertices.",
+   "cex": "Existence: plantri graph 12_6, 51 of 66 root pairs. Recovery: a two-root good state with no Hamiltonian cycle at 8 vertices.",
    "role": "route"
   },
   {
@@ -2314,11 +2318,11 @@
   {
    "id": "U.x9",
    "step": "U",
-   "label": "topological Hall for partial tree matchings",
+   "label": "topological Hall for partial good states",
    "status": "REFUTED",
    "src": "cat",
    "where": "cat/REPORT.md (what failed)",
-   "text": "Get a tree matching from connectivity of the complex of partial tree matchings.",
+   "text": "Get a good state from connectivity of the complex of partial good states.",
    "lesson": "The complex is not connected enough even in the smallest case.",
    "cex": "Octahedron: a two-face subcomplex is disconnected.",
    "role": "route"
@@ -2336,7 +2340,7 @@
   {
    "id": "U.8h",
    "step": "U",
-   "label": "every Hamiltonian cycle from a two-root tree matching",
+   "label": "every Hamiltonian cycle from a two-root good state",
    "status": "CONJECTURE",
    "src": "cat",
    "where": "cat/REPORT.md (table); COMPUTED up to 12 vertices",
@@ -2351,7 +2355,7 @@
    "status": "CONJECTURE",
    "src": "cat",
    "where": "ri/MISSING-LEMMA.md; ri/data/census_*.json",
-   "text": "Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted tree matching lifts directly.",
+   "text": "Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted good state lifts directly.",
    "test": "Prove an injection from exceptional to non-exceptional matchings; distinguish direct lift from rotation.",
    "role": "route"
   },
@@ -2361,15 +2365,15 @@
    "label": "primal proof with flows and real signs",
    "status": "PROVED-HERE",
    "src": "primal",
-   "where": "proofs/primal/STATUS.md; revp/REPORT.md; research/2026-11-14_fable_referee-primal/REFEREE.md",
-   "text": "Full primal proof, independently AI-refereed before revision; missing local sign calculation and map conventions repaired. Revision disputes referee M4: its phase ratio simplifies to i^n, constant in the circuit count. Revised supplementary claims and this disagreement have author verification only.",
+   "where": "proofs/primal/PRIMAL-PROOF.md; research/2026-11-14_opus_cross-audit/ADJUDICATION.md; research/2026-11-14_fable_referee-primal/REFEREE.md",
+   "text": "Full primal proof, AI-refereed before revision, revised, and accepted in a cross-audit. The M4 question is settled: the real sign divided by the Lean phase is the constant i^n for every pair (proved and checked on 24,856 pairs).",
    "review": {
     "state": "refereed",
     "by": [
-     "research/2026-11-14_fable_referee-primal"
+     "research/2026-11-14_opus_cross-audit"
     ],
     "date": "2026-11-14",
-    "verdict": "Earlier proof FOLLOWS with repairs; subsequent revision and M4 disagreement are not independently re-refereed. Human check pending."
+    "verdict": "Revised note ACCEPT; phase ratio i^n proved in ADJUDICATION.md. Human check pending."
    },
    "role": "route"
   },
@@ -2400,7 +2404,7 @@
    "status": "PROVED-HERE",
    "src": "families",
    "where": "families/FAMILIES.md Section 1",
-   "text": "For a prism of order 4m: m states, two tree matchings, c_min=1 and normalized polynomial z^(m-1)-1. Full proof supplied, independent review pending.",
+   "text": "For a prism of order 4j: j states, two good states, m=1 and normalized polynomial z^(j-1)-1. Full proof supplied, independent review pending.",
    "partial": true,
    "role": "partial"
   },
@@ -2424,9 +2428,9 @@
    "status": "REFUTED",
    "src": "conjectures",
    "where": "rc/LATTICE-READING.md Section 6; rc/data/R2_glued_V33.json",
-   "text": "A bottom, top, join-irreducible or meet-irreducible element need not carry a tree pair.",
+   "text": "A bottom, top, join-irreducible or meet-irreducible element need not carry a good pair.",
    "test": "Enumerate irreducibles and all cover orientations through 22 vertices.",
-   "cex": "V=33 rigid-face sum of two V=18 witnesses; lattice B_4, 400 pairs, 144 tree pairs, all ten candidates fail. Two implementations agree. No minimum-order claim.",
+   "cex": "V=33 rigid-face sum of two V=18 witnesses; lattice B_4, 400 pairs, 144 good pairs, all ten candidates fail. Two implementations agree. No minimum-order claim.",
    "lesson": "Success need not occur at lattice boundary elements. This witness has separating triangles and does not settle a separator-free restriction.",
    "role": "route"
   },
@@ -2449,7 +2453,7 @@
    "status": "COMPUTED",
    "src": "map",
    "where": "research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json",
-   "text": "213 marked objects; iota1 fixes 141, iota2 fixes 9 of one sign; signed count -9. Closure, involutivity and sign reversal checked exhaustively on this instance.",
+   "text": "213 marked objects; iota1 fixes 141, iota2 fixes 9 of one sign; signed count -9. Closure, involutivity and sign reversal checked exhaustively on this instance. The involution note counts 279 objects on the same running.json with the same Tutte recipe, roots 4 and 5 sent to each other's anchor points (a reflection). Both counts are right: the object count depends on the drawing (69 drawings, 35 values from 103 to 363), the signed sum -9 and the nine second-fixed objects do not (research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md).",
    "role": "route"
   },
   {
@@ -2466,7 +2470,7 @@
   {
    "id": "D.unbounded",
    "step": "D",
-   "label": "unbounded c_min in Goodey chains",
+   "label": "unbounded m in Goodey chains",
    "status": "PROVED-HERE",
    "src": "older",
    "where": "older/BRIDGES.md; older/REPORT.md",
@@ -2493,14 +2497,14 @@
    "status": "PROVED-HERE",
    "src": "main",
    "where": "paper/main/barnette.tex; research/2026-11-14_sol_referee-main/REFEREE.md; research/2026-11-14_sol_referee-main/EDITS.md",
-   "text": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending.",
+   "text": "Merged dual proof independently AI-refereed: FOLLOWS for Theorem 1.1, including the inside-cycle connectivity repair. Eight replacements proposed; application not checked here. Off-route Remark 4.10 is Laurent, not an ordinary polynomial with the chosen heights. Second cold read remains pending. A second version applying the eight edits is in progress. Blueprint: of 34 route statements, 4 have an exact Lean counterpart, 25 a counterpart in another form (translation not formalised), 5 none; Lemma 4.7 has a standalone Lean proof (research/2026-11-14_opus_blueprint/REPORT.md).",
    "review": {
     "state": "refereed",
     "by": [
      "research/2026-11-14_sol_referee-main"
     ],
     "date": "2026-11-14",
-    "verdict": "Main theorem route FOLLOWS. Off-route Laurent terminology and conditional-scope edits proposed; application not certified. Second cold read pending. Human check pending."
+    "verdict": "Main theorem route FOLLOWS. Eight edits proposed; a second version applying them is in progress, not certified here. Human check pending."
    },
    "role": "route"
   },
@@ -2510,8 +2514,16 @@
    "label": "complete marked involution exposition",
    "status": "PROVED-HERE",
    "src": "inv",
-   "where": "proofs/involutions/; research/2026-11-14_sol_li-completion/",
-   "text": "Written bijective route through marked objects and two involutions. Under independent AI referee; no final verdict at integration.",
+   "where": "proofs/involutions/; research/2026-11-14_opus_referee-involutions/REPORT.md; research/2026-11-14_sol_involutions-revision/REPORT.md",
+   "text": "Written bijective route through marked objects and two involutions. Independent AI referee: FOLLOWS, one sign error off the route. The revision applied all fifteen edits and added a drawing-free mark model, which has no second referee yet.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_opus_referee-involutions"
+    ],
+    "date": "2026-11-14",
+    "verdict": "FOLLOWS; fifteen edits, all applied in the revision. The added drawing-free model is unreviewed. Human check pending."
+   },
    "role": "route"
   },
   {
@@ -2521,7 +2533,7 @@
    "status": "PROVED-HERE",
    "src": "conjectures",
    "where": "rc/LATTICE-READING.md Section 2; rc/REFEREE.md",
-   "text": "A pair is a tree pair iff its selected centre-exit digraph has no directed cycle. DFS tests a given pair in linear time. Choosing directions for all cycles of a specified factor is unresolved. Exhaustively verified through V=18.",
+   "text": "A pair is a good pair iff its selected centre-exit digraph has no directed cycle. DFS tests a given pair in linear time. Choosing directions for all cycles of a specified factor is unresolved. Exhaustively verified through V=18.",
    "review": {
     "state": "refereed",
     "by": [
@@ -2551,7 +2563,7 @@
    "status": "PROVED-HERE",
    "src": "conjectures",
    "where": "rc/REFEREE.md",
-   "text": "If there is one factor, Q-cycle reversal would create another factor. All its 2^c orientations are tree pairs, and unique partners make their second states distinct. Thus #TM=2^c_min. Converse open.",
+   "text": "If there is one factor, Q-cycle reversal would create another factor. All its 2^c orientations are good pairs, and unique partners make their second states distinct. Thus #TM=2^m. Converse open.",
    "review": {
     "state": "refereed",
     "by": [
@@ -2565,11 +2577,11 @@
   {
    "id": "D.covers",
    "step": "D",
-   "label": "primal meaning and unbounded c_min without separators",
+   "label": "primal meaning and unbounded m without separators",
    "status": "PROVED-HERE",
    "src": "covers",
    "where": "covers/PROOFS.md; covers/data/family.json",
-   "text": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_m, V=3m+2, has no separating triangle, one cover with m-2 triangles and one pentagon, c_min=m-1 and #TM=2^(m-1). Author proof and finite checks, unreviewed.",
+   "text": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_j, V=3j+2, has no separating triangle, one cover with j-2 triangles and one pentagon, m=j-1 and #TM=2^(j-1). Author proof and finite checks, unreviewed.",
    "role": "route"
   },
   {
@@ -2579,7 +2591,7 @@
    "status": "COMPUTED",
    "src": "covers",
    "where": "covers/code/README.md; covers/data/census.json",
-   "text": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum c_min=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
+   "text": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum m=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
    "role": "route"
   },
   {
@@ -2629,7 +2641,7 @@
    "status": "CONJECTURE",
    "src": "ri",
    "where": "ri/MISSING-LEMMA.md",
-   "text": "Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass.",
+   "text": "Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass. The induction-lemmas run (where it is called G) proves it for triangulations without chordless five-cycles; unreviewed.",
    "test": "Use short-cycle obstructions and minimal tight sets in MISSING-LEMMA.md; referee the reduction first.",
    "role": "route"
   },
@@ -2640,18 +2652,18 @@
    "status": "CONJECTURE",
    "src": "ri",
    "where": "ri/MISSING-LEMMA.md; ri/RESIDUAL-CASES.md",
-   "text": "If both contractions at a non-root degree-four vertex have tree matchings, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
+   "text": "If both contractions at a non-root degree-four vertex have good states, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass. The induction-lemmas run (where it is called X) refutes mate repair at V=16, single-cycle repair at V=17 and every fixed-cover direction repair at V=18: a repair must sometimes change the cover.",
    "test": "Bound the exceptional fraction by one half, or construct a sign-free injection into non-exceptional matchings.",
    "role": "route"
   },
   {
    "id": "U.lift-dead",
    "step": "U",
-   "label": "some contracted tree matching lifts directly",
+   "label": "some contracted good state lifts directly",
    "status": "REFUTED",
    "src": "ri",
    "where": "ri/data/nolift_18.jsonl; ri/REFEREE.md",
-   "text": "If T/M has tree matchings, at least one lifts directly to T.",
+   "text": "If T/M has good states, at least one lifts directly to T.",
    "cex": "V=18 graph 309, root (5,0,6), x=11, merge {10,2}; both matchings fail to lift, both rotate. 50 such rooted contractions.",
    "lesson": "Direct lifting is stronger than existence lifting. Rotation is essential, and counting inequality does not imply direct lift.",
    "role": "route"
@@ -2663,7 +2675,7 @@
    "status": "PROVED-HERE",
    "src": "reft",
    "where": "reft/RAINBOW.md",
-   "text": "Theorem R proves rainbow existence exactly at feasible roots. Theorem S completes each rainbow tree to a unique incidence 2-factor. Reversible surplus walks give fixed-point-free involutions on tree matchings. New proofs T2 unreviewed.",
+   "text": "Theorem R proves rainbow existence exactly at feasible roots. Theorem S completes each rainbow tree to a unique incidence 2-factor. Reversible surplus walks give fixed-point-free involutions on good states. New proofs T2 unreviewed.",
    "role": "route"
   },
   {
@@ -2706,10 +2718,10 @@
    "id": "U.packing",
    "step": "U",
    "label": "two white trees in every pair support",
-   "status": "CONJECTURE",
-   "src": "prob",
-   "where": "prob/NEXT-PREDICTION.md; prob/REPORT.md",
-   "text": "Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.",
+   "status": "PROVED-HERE",
+   "src": "pack",
+   "where": "research/2026-11-14_opus_two-tree-packing/PROOFS.md Thm 2.1; research/2026-11-14_opus_two-tree-packing/REPORT.md",
+   "text": "For every pair, the 2n white-graph edges dual to the spokes of r and s split into two spanning trees (Nash-Williams, no signed count). It holds for every choice of one deleted corner per black face, so it never sees the states, and it does not give a good state. Author proof, unreviewed.",
    "test": "Check Nash-Williams rank inequalities by the disk count; consume the dedicated packing report when available.",
    "role": "route"
   },
@@ -2764,7 +2776,7 @@
    "status": "PROVED-HERE",
    "src": "families",
    "where": "families/FAMILIES.md; families/data/",
-   "text": "Width-four nanotubes have S_L=Fib_(2L+3), #TM=2 and c_min=1. Stationary transfer certificates also cover width six. All-length transfer reasoning is author proved; finite arithmetic and matrices remain unreviewed.",
+   "text": "Width-four nanotubes have S_L=Fib_(2L+3), #TM=2 and m=1. Stationary transfer certificates also cover width six. All-length transfer reasoning is author proved; finite arithmetic and matrices remain unreviewed.",
    "role": "route"
   },
   {
@@ -2873,24 +2885,24 @@
   {
    "id": "U.ind-R8",
    "step": "U",
-   "label": "induction R8: lowest coefficient lc = sum over D with c_min cycles of prod",
+   "label": "induction R8: lowest coefficient lc = sum over D with m cycles of prod",
    "status": "REFUTED",
    "src": "ind",
    "where": "ind/data/failed_inductions.json; ri/REFEREE.md",
-   "text": "lowest coefficient lc = sum over D with c_min cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "text": "lowest coefficient lc = sum over D with m cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
    "cex": "smallest={'V': 14, 'gid': 12, 't0': 3, 'x': 2, 'merge': '3->1', 'values': 'lc 5 vs 7'}; range=V<=17, 86 failures",
-   "lesson": "c_min can drop under expansion (1 vs 3), resetting lc; signed-polynomial data is not monotone",
+   "lesson": "m can drop under expansion (1 vs 3), resetting lc; signed-polynomial data is not monotone",
    "role": "route"
   },
   {
    "id": "U.ind-R9",
    "step": "U",
-   "label": "induction R9: c_min(T) = c_min(T/M) (when both have pairs)",
+   "label": "induction R9: m(T) = m(T/M) (when both have pairs)",
    "status": "REFUTED",
    "src": "ind",
    "where": "ind/data/failed_inductions.json; ri/REFEREE.md",
-   "text": "c_min(T) = c_min(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
-   "cex": "smallest={'V': 14, 'gid': 7, 't0': 1, 'x': 12, 'merge': '10->6', 'values': 'c_min 1 vs 3'}; range=V<=17; c_min(T) <= c_min(T/M) always holds, equality fails in 358 simple contractions",
+   "text": "m(T) = m(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "cex": "smallest={'V': 14, 'gid': 7, 't0': 1, 'x': 12, 'merge': '10->6', 'values': 'm 1 vs 3'}; range=V<=17; m(T) <= m(T/M) always holds, equality fails in 358 simple contractions",
    "lesson": "expansion can merge D-cycles",
    "role": "route"
   },
@@ -2961,7 +2973,7 @@
    "status": "REFUTED",
    "src": "rc",
    "where": "rc/REFEREE.md; rc/data/r3.json; rc/data/R2_glued_V33.json",
-   "text": "Every maximal chain contains an element carrying a tree pair.",
+   "text": "Every maximal chain contains an element carrying a good pair.",
    "cex": "Saved V=60 chain of seven elements; V=33 gluing already refutes it. No minimum claim.",
    "lesson": "A chain can complete one coordinate block before entering the next and miss every success.",
    "role": "route"
@@ -2976,6 +2988,17 @@
    "text": "At least half the factor lattice admits a successful direction choice.",
    "cex": "Saved V=70 gives 654/1410=109/235; V=33 gluing gives 4/16. No minimum claim.",
    "lesson": "Independent witness blocks multiply the successful fraction down to 2^-q.",
+   "role": "route"
+  },
+  {
+   "id": "U.packing-P2",
+   "step": "U",
+   "label": "P2: two face-rainbow trees in every pair support",
+   "status": "CONJECTURE",
+   "src": "pack",
+   "where": "research/2026-11-14_opus_two-tree-packing/PACKING.md; research/2026-11-14_opus_two-tree-packing/PROOFS.md Conj 3.4",
+   "text": "Every pair support splits into two face-rainbow trees. True on all 14,881 supports with V<=17. Doing the face and point sides at once is the key lemma and fails inside a fixed support.",
+   "test": "Extend the support census to V=18 and look for a support with no split.",
    "role": "route"
   }
  ]

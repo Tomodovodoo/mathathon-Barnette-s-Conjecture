@@ -31,8 +31,12 @@ PAPER = {"O": "papers/OpenAI-Barnette.pdf", "L": "papers/A-Note-On-Barnette.pdf"
 PREFIX = {"LIT": "th", "PROVED-HERE": "p", "COMPUTED": "c", "CONJECTURE": "k", "HUNCH": "h", "REFUTED": "x"}
 
 
+# Routes whose status changed after events referred to them keep their first node id.
+STABLE_ID = {"D.7": "k.D.7", "U.packing": "k.U.packing"}
+
+
 def nid(r):
-    return "k.D.7" if r["id"] == "D.7" else f"{PREFIX[r['status']]}.{r['id']}"
+    return STABLE_ID.get(r["id"], f"{PREFIX[r['status']]}.{r['id']}")
 
 
 def srcs(r):
@@ -181,10 +185,10 @@ for a, b in [("k.D.3", "p.D.2"), ("th.A.T", "th.A.O")]:
 EXTRA = [
     dict(id="e.census16", kind="exhaustive", tier="T3",
          status="exhaustive for |V(T)| <= 16: two independent implementations agree instance by instance (no referee yet)",
-         title="Census of states, pairs and tree matchings, all rooted Eulerian triangulations with at most 16 vertices",
-         statement="7868 rooted triangulations (T, t0), 5088 with a pair. The multiset of (states, pairs, tree matchings) per size is the same in "
+         title="Census of states, pairs and good states, all rooted Eulerian triangulations with at most 16 vertices",
+         statement="7868 rooted triangulations (T, t0), 5088 with a pair. The multiset of (states, pairs, good states) per size is the same in "
                    "the combinatorics lab (own generator) and in the algebra agent's counts (plantri 4.5 and workings/barnette_lab). "
-                   "Totals: 140358 states, 24744 pairs, 24090 tree matchings. Positive tree-matching counts seen: 2, 4, 6, 8, 10, 12, 14, 16. "
+                   "Totals: 140358 states, 24744 pairs, 24090 good states. Positive tree-matching counts seen: 2, 4, 6, 8, 10, 12, 14, 16. "
                    "A third enumeration by the combinatorics referee agrees as well.",
          evidence=["labyrinth/make_frontier.py", "labyrinth/frontier_crosscheck.json",
                    "research/2026-11-14_fable_route-combinatorics/data/rows_v16.json", "research/2026-11-14_sol_route-algebra/counts.json",
@@ -193,28 +197,28 @@ EXTRA = [
          links=[{"to": "wp.FP", "rel": "tests"}, {"to": "k.D.3", "rel": "supports"}, {"to": "src.agent.comb", "rel": "cites"},
                 {"to": "src.agent.alg", "rel": "cites"}, {"to": "src.agent.refc", "rel": "cites"}]),
     dict(id="f.octahedron", kind="family", status="named example", title="Octahedron (dual of the cube), 6 vertices",
-         statement="n = 3, 2 states, 2 pairs, 2 tree matchings, cmin = 1. The smallest case; with zero weights Z = i - i = 0.",
+         statement="n = 3, 2 states, 2 pairs, 2 good states, m = 1. The smallest case; with zero weights Z = i - i = 0.",
          links=[{"to": "wp.FP", "rel": "instance-of"}]),
     dict(id="f.prism", kind="family", status="named example", title="Hexagonal prism dual (hexagonal bipyramid), 8 vertices",
-         statement="3 states, 2 pairs, 2 tree matchings. The smallest example that separates: acyclic Q_s from tree matching, the raw determinant "
-                   "from its squarefree coefficient, trinity arborescences from tree matchings, avoiding cycles (4) from recovered cycles (2).",
+         statement="3 states, 2 pairs, 2 good states. The smallest example that separates: acyclic Q_s from good state, the raw determinant "
+                   "from its squarefree coefficient, trinity arborescences from good states, avoiding cycles (4) from recovered cycles (2).",
          links=[{"to": "x.R.x1", "rel": "supports"}, {"to": "x.N.x9", "rel": "supports"}, {"to": "x.U.x3", "rel": "supports"}, {"to": "x.A.x1", "rel": "supports"}]),
     dict(id="f.double-octahedron", kind="family", status="named example", title="Octahedron glued into a face of an octahedron, 9 vertices",
-         statement="The smallest separating triangle. With t0 on the black side: 4 states, 4 pairs, 4 tree matchings, cmin = 2. "
+         statement="The smallest separating triangle. With t0 on the black side: 4 states, 4 pairs, 4 good states, m = 2. "
                    "With t0 on the white side: 4 states, no pair.",
          links=[{"to": "th.A.T", "rel": "instance-of"}, {"to": "x.N.x7", "rel": "supports"}]),
     dict(id="f.rarity", kind="family", status="named family", title="q prism duals glued into white faces, 5q + 3 vertices",
-         statement="3^q states and 2^q tree matchings: tree matchings are exponentially rare among states.",
+         statement="3^q states and 2^q good states: good states are exponentially rare among states.",
          links=[{"to": "p.D.5", "rel": "instance-of"}]),
     dict(id="f.cls6-12", kind="family", status="named example", title="12 vertices, class 6, t0 = (2,7,3)",
-         statement="9 states, 10 pairs, 8 tree matchings. Highest partnered state, all-counterclockwise minimal cover and largest rank difference "
+         statement="9 states, 10 pairs, 8 good states. Highest partnered state, all-counterclockwise minimal cover and largest rank difference "
                    "all fail here; its mirror image gives the lowest-state and clockwise failures.",
          links=[{"to": "x.N.x4", "rel": "supports"}, {"to": "x.N.x5", "rel": "supports"}, {"to": "x.N.x6", "rel": "supports"}]),
     dict(id="f.cls158-16", kind="family", status="named example", title="16 vertices, class 158, t0 = (2,7,3)",
          statement="A single 13-cycle cover whose two orientations both have a triangle in Q_s. The only failure of 'every cover has a forest "
                    "orientation' among 5088 rooted cases.", links=[{"to": "x.N.x3", "rel": "supports"}]),
     dict(id="f.split4", kind="family", status="named example", title="Octahedron with every face split in four, 18 vertices (n = 15)",
-         statement="20 pairs; the 4 one-cycle pairs all have a cycle in Q_s and the 12 tree pairs all have three cycles. "
+         statement="20 pairs; the 4 one-cycle pairs all have a cycle in Q_s and the 12 good pairs all have three cycles. "
                    "The smallest example found with cyclic Q_s, three D-cycles and one exchange component.",
          links=[{"to": "x.N.x3", "rel": "supports"}]),
     dict(id="f.theta26", kind="family", status="named example", title="Theta of three cubes-minus-an-edge, 26 vertices",
@@ -224,7 +228,7 @@ EXTRA = [
          statement="No two induced trees; the dual has 36 Hamiltonian cycles; a root-free pair exists with Q unicyclic.",
          links=[{"to": "x.S0.x3", "rel": "supports"}]),
     dict(id="m.two-evaluations", kind="method", status="the one new idea", title="A signed sum over pairs, evaluated two ways",
-         statement="Fix s and cancel (support on forest pairs); fix D and factor (nonzero at lowest order). Absent from the Barnette literature before 2026.",
+         statement="Fix s and cancel (support on good pairs); fix D and factor (nonzero at lowest order). Absent from the Barnette literature before 2026.",
          links=[{"to": "wp.M", "rel": "uses"}, {"to": "wp.FP", "rel": "supports"}]),
     dict(id="m.enumeration", kind="method", status="tool", title="Exhaustive enumeration of rooted Eulerian triangulations",
          statement="Three independent generators (comb/lab/tri.py; plantri 4.5 in workings/barnette_lab; gt/code/tri.py) agree on the class counts "
@@ -243,23 +247,23 @@ IDS = {n["id"] for n in nodes}
 
 DOORS = [
     ("q.poly-time", "Is there a polynomial-time construction of the Hamiltonian cycle?",
-     "The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; tree matchings can be exponentially rare.",
-     "First test: on the 40-vertex and 80-vertex failures of the lattice extremes (gt/code/data), check conjecture k.D.7 (min or max carries a tree pair) and "
+     "The proofs give exponential search (3^(N/4), or 2^O(n log n) for the marked walk). Sampling states is polynomial; good states can be exponentially rare.",
+     "First test: on the 40-vertex and 80-vertex failures of the lattice extremes (gt/code/data), check conjecture k.D.7 (min or max carries a good pair) and "
      "count the orientations to be searched.", ["k.D.7", "h.D.8", "h.U.2h", "h.N.3"]),
     ("q.structural", "Is there an existence proof with no signed count?",
      "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
      "First test: conjecture k.U.7h (local search from a point-rainbow tree, 450 of 450 so far) at 18 vertices, recording the longest plateau; "
      "then k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.", ["k.U.7h", "k.N.11", "h.U.1h", "h.N.5"]),
-    ("q.canonical", "Is there a canonical forest pair?",
+    ("q.canonical", "Is there a canonical good pair?",
      "Seven extremal rules are refuted. Only 'lattice min or max' survives, on random samples.",
-     "First test: independently replay the reported 18-vertex joint failures of k.D.7; apply the Hine-Kalman bijection to the 8 tree matchings of f.cls6-12 (k.D.6).", ["k.D.7", "k.D.6"]),
-    ("q.tm-lower", "How many tree matchings must there be?",
-     "Proved here: at least 2 cmin. Conjectured: at least 2^cmin (no exception among 5088 cases; equality in 4609).",
-     "First test: extend the census to 17 and 18 vertices restricted to cmin >= 3 and look for a count below 8.", ["k.D.3", "p.D.2"]),
+     "First test: independently replay the reported 18-vertex joint failures of k.D.7; apply the Hine-Kalman bijection to the 8 good states of f.cls6-12 (k.D.6).", ["k.D.7", "k.D.6"]),
+    ("q.tm-lower", "How many good states must there be?",
+     "Proved here: at least 2m. Conjectured: at least 2^m (no exception among 5088 cases; equality in 4609).",
+     "First test: extend the census to 17 and 18 vertices restricted to m >= 3 and look for a count below 8.", ["k.D.3", "p.D.2"]),
     ("q.det", "Is there a determinant or Pfaffian for Z without coefficient extraction?",
      "Z is the squarefree coefficient of one determinant (2^n evaluations). Raw determinants, doubled edges and scalar factorisations are refuted.",
      "First test: Grassmann-Pluecker identities for the six-value turn signature (h.N.4); the hexagonal prism polynomial is the regression test.", ["h.N.4", "h.N.1", "x.N.x9"]),
-    ("q.which-hc", "Which Hamiltonian cycles come from tree matchings?",
+    ("q.which-hc", "Which Hamiltonian cycles come from good states?",
      "Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.",
      "First test: on the hexagonal prism compare the 2 partnered and 2 unpartnered avoiding cycles face by face (k.U.6h).", ["k.U.6h", "p.U.5"]),
     ("q.disk", "Is there a second proof of the disk identity?",
@@ -273,7 +277,7 @@ DOORS = [
      "First test: on the 9-vertex double octahedron with the obstructed root, enumerate all root triples and count pairs (k.A.2).", ["k.A.2", "k.G.3", "x.A.x2", "k.U.8h"]),
     ("q.li-b", "Do Li's higher-mark involutions match the polynomial coefficient?",
      "Li's Appendix B leaves three verifications to the reader; li.py was not refereed.",
-     "First test: k.N.12 on an instance with cmin = 2.", ["k.N.12", "th.N.L"]),
+     "First test: k.N.12 on an instance with m = 2.", ["k.N.12", "th.N.L"]),
     ("q.surface", "What is the right statement on other surfaces?",
      "States need |A| = |X|, which fails by 2g. The topology-free target is one edge per triangle with connected complementary dual.",
      "First test: on the 3 x 3 torus enumerate root-free pairs and classify Q by its cycle rank against the 36 Hamiltonian cycles.", ["x.S0.x3"]),
@@ -294,15 +298,15 @@ for n in nodes:
 
 meta = {"title": "Barnette's conjecture: the labyrinth", "eyebrow": "mathathon, 14 November 2026",
         "subtitle": "Every waypoint of the proof, every route found or refuted, and its status. "
-                    "Size |V(T)|, invariant: number of tree matchings of a rooted triangulation."}
+                    "Size |V(T)|, invariant: number of good states of a rooted triangulation."}
 frontier_history = [
     {"date": DAY, "size": 14, "resolved": 1.0, "why": "enumerations of route-combinatorics and route-algebra agree (55 triangulations, 1206 roots)"},
     {"date": DAY, "size": 16, "resolved": 1.0, "why": "the same agreement extended to 16 vertices (297 triangulations, 7868 roots)"},
 ]
 # Current door statements supersede the first map's tests. Keep stable ids for events.
 updates = {
- 'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Packing and exact rounding are separate.', 'Finish the pending reports, then referee the new local and density arguments.'),
- 'q.canonical': ('No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
+ 'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.', 'Referee the new local, packing and induction-lemma arguments.'),
+ 'q.canonical': ('No universal canonical good pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
  'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'Exclude the exceptional two-cover overlap; then treat more covers.'),
  'q.disk': ('Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.', 'Human-check the corrected flat-angle proof.'),
  'q.li-b': ('A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.', 'Finish the independent referee and reconcile distinct-mark conventions.'),
@@ -391,7 +395,7 @@ with pth.open("a", encoding="utf-8") as f:
         if (e["ts"], e["type"]) not in known: f.write(json.dumps(e) + "\n")
 
 # ---------------------------------------------------------------- state of the art
-G1, G2, G3, G4 = "The theorem and its proofs", "Structure of tree matchings", "Formulas and algorithms", "Verification"
+G1, G2, G3, G4 = "The theorem and its proofs", "Structure of good states", "Formulas and algorithms", "Verification"
 
 
 def row(id, group, cls, result, status, kind, refs, lit, previous=()):
@@ -406,7 +410,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              "LIT: three 2026 preprints, unrefereed; Lean proof builds locally with standard axioms; reverse-Lamport audits: OpenAI and trees paper FOLLOW, Li follows with four routine steps supplied (AI, unreviewed)",
              "proved", ["th.G2.1", "c.G2.c", "p.G2.4"], ["OpenAI 2026", "Li 2026", "trees paper 2026"],
              [("2022-01-01", "verified by computer up to 90 vertices (Brinkmann-Goedgebeur-McKay)"), ("2025-01-01", "proved for faces of size at most 8 (Schnieders)")]),
-         row("prop51", G1, "Shortest rigorous proof of Proposition 5.1 (a pair implies a forest pair)",
+         row("prop51", G1, "Shortest rigorous proof of Proposition 5.1 (a pair implies a good pair)",
              "Two candidates of about one page: heights as test functions with no weights (comb, rewritten by its referee), and one integer polynomial "
              "F with linear weights 1 + xa, real signs and parity only (dim, refd). The Lean proof uses the second form.",
              "proved here (1 independent AI referee each; human check pending)", "proved", ["p.N.H", "p.N.lin", "th.N.Lean"], [],
@@ -424,16 +428,16 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
          row("structural", G1, "Existence proof with no signed count", "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
              "open; %d dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)" % sum(1 for r in RT.ROUTES if r["status"] == "REFUTED"),
              "partial", ["q.structural", "k.U.7h", "x.U.x5", "x.N.x14"], []),
-         row("tm-lower", G2, "Lower bound on the number of tree matchings of a rooted triangulation with a pair",
-             "At least 2 cmin, and always even. Conjecture: at least 2^cmin (5088 cases, equality in 4609).",
-             "2 cmin proved here (1 AI referee; human check pending); 2^cmin conjecture", "proved", ["p.D.2", "k.D.3", "e.census16"], [],
+         row("tm-lower", G2, "Lower bound on the number of good states of a rooted triangulation with a pair",
+             "At least 2m, and always even. Conjecture: at least 2^m (5088 cases, equality in 4609).",
+             "2m proved here (1 AI referee; human check pending); 2^m conjecture", "proved", ["p.D.2", "k.D.3", "e.census16"], [],
              [("2026-10-18", "at least 2: both signs occur in every exchange component (trees paper Thm 5.2)")]),
-         row("rarity", G2, "Fraction of states that are tree matchings", "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings.",
+         row("rarity", G2, "Fraction of states that are good states", "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q good states.",
              "proved here, checked in structure referee INTEGRATION.md Section 6; computed for q <= 6", "proved", ["p.D.5", "f.rarity"], []),
-         row("canonical", G2, "Canonical forest pair", "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, "
+         row("canonical", G2, "Canonical good pair", "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, "
              "each lattice extreme alone: all refuted. The conjecture campaign reports joint failures of the true minimum and maximum at 18 vertices; independent replay pending.",
              "reported refuted; finite computation under review", "partial", ["k.D.7", "x.N.x4", "x.N.x5", "x.N.x6"], []),
-         row("which-hc", G2, "Which Hamiltonian cycles arise from tree matchings",
+         row("which-hc", G2, "Which Hamiltonian cycles arise from good states",
              "Exactly the cycles avoiding e0* whose state has a partner. Recovery is injective, not onto (prism: 2 of 4). 3 #TM <= #HC(G).",
              "proved here (comb: 1 AI referee; lim, gt: under review)", "proved", ["p.U.5", "p.F.3", "x.A.x1"], []),
          row("det", G3, "Determinant formula for Z",
@@ -446,7 +450,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              "The abstract problem without the spoke-graph structure is NP-hard.",
              "LIT bounds (trees paper); NP-hardness proved here modulo a cited theorem (gt, under review)", "partial",
              ["th.N.T2", "p.ST.4", "x.U.x5", "h.D.8"], ["trees paper 2026"]),
-         row("frontier", G4, "Verified range of the counts", "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and tree matchings "
+         row("frontier", G4, "Verified range of the counts", "All rooted Eulerian triangulations with at most 16 vertices: states, pairs and good states "
              "agree between two independent implementations (7868 roots); a third recount by a referee agrees.",
              "exhaustive (T3; no referee of the comparison itself)", "exhaustive", ["e.census16"], [],
              [("2026-11-14", "77 rooted runs, 55 triangulations up to 14 vertices (route-constructive)")]),
@@ -469,18 +473,18 @@ for e in S["entries"]:
 # Keep prior state-of-the-art results when a row changes.
 S['entries'].append(row('new-presentations',G1,'Written proof routes','Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.','Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check.','partial',['p.G2.main','p.G2.primal','p.G2.inv','c.G2.c'],[]))
 for entry in S['entries']:
-    if entry['id']=='new-presentations': entry['status']='Merged theorem AI-refereed FOLLOWS, eight edits proposed; second cold read and involution review pending. Earlier primal version AI-refereed, revision self-audited; M4 disagreement explicit. No human check.'
+    if entry['id']=='new-presentations': entry['status']='Merged theorem AI-refereed FOLLOWS; a second version applying the eight edits is in progress. Involution note AI-refereed FOLLOWS, all fifteen edits applied. Primal note accepted in the cross-audit; M4 settled, the real sign over the Lean phase is i^n. Lean covers 4 of 34 merged-route statements exactly. No human check.'
     if entry['id']=='pair': entry['status']='PROVED-HERE, independently AI-refereed in structure INTEGRATION.md; human check pending.'
-    if entry['id']=='structural': entry.update(result='No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing remain live at this snapshot.',status='Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed.')
-    if entry['id']=='rarity': entry.update(result='Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.',status='T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.')
+    if entry['id']=='structural': entry.update(result='No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing P2 remain live; two-tree packing is proved but does not see the states.',status='Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed.')
+    if entry['id']=='rarity': entry.update(result='Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.',status='T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.')
     if entry['id']=='which-hc': entry['status']='Earlier recovery image and injectivity independently AI-refereed; revised compatible-state converse is separate, unreviewed.'
     if entry['id']=='canonical':
         entry.update(result='No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.',status='Independent AI referee and two V=33 implementations; no human check.',kind='refuted',refs=['k.D.7','x.D.ext2'])
     if entry['id']=='review':
-        entry.update(result='Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.',status='See named review objects; revised primal M4 disagreement requires re-referee.')
-    if entry['id']=='tm-lower' or entry['cls']=='Number of tree matchings':
-        entry.update(result='Proved lower bound 2 c_min; C1 conjectures 2^c_min. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.',status='2 c_min AI-refereed; C1 finite census, not a theorem.')
-for id,cls,rid in [('induction','Unsigned contraction induction','U.ML2'),('rainbow','Rainbow exchange','U.7h'),('packing','Two-tree packing','U.packing'),('covers','Meaning and range of c_min','D.covers'),('census24','Separator-free C1 census','D.cover-census'),('pfaffian','Pfaffian corollary','G2.pf')]:
+        entry.update(result='Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.',status='See named review objects; the primal M4 question is settled in the cross-audit adjudication.')
+    if entry['id']=='tm-lower' or entry['cls']=='Number of good states':
+        entry.update(result='Proved lower bound 2m; C1 conjectures 2^m. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.',status='2m AI-refereed; C1 finite census, not a theorem.')
+for id,cls,rid in [('induction','Unsigned contraction induction','U.ML2'),('rainbow','Rainbow exchange','U.7h'),('packing','Two-tree packing','U.packing'),('covers','Meaning and range of m','D.covers'),('census24','Separator-free C1 census','D.cover-census'),('pfaffian','Pfaffian corollary','G2.pf')]:
     r=next(r for r in RT.ROUTES if r['id']==rid)
     S['entries'].append(row(id,G2,cls,r['text'],r['status']+'; new claims unreviewed, human check pending','computed' if r['status']=='COMPUTED' else 'conjecture' if r['status']=='CONJECTURE' else 'partial',[nid(r)],[]))
 prior_path=LAB/'sota.json'

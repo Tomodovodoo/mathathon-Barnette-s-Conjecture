@@ -26,11 +26,11 @@ T3 is used for independently validated exhaustive computations, including the al
 
 ## Frontier scope
 
-Size is dual order V=|V(T)|, with primal order 2V-4. The plotted invariant is the number of tree matchings at a facial root. The full admissible value spectrum is independently cross-checked only through 16. Those rows are fully resolved. Larger rows retain parity and explicit witnesses, with unknown values left unknown. Their small resolved fractions must not be read as the fraction of roots checked by newer censuses.
+Size is dual order V=|V(T)|, with primal order 2V-4. The plotted invariant is the number of good states at a facial root. The full admissible value spectrum is independently cross-checked only through 16. Those rows are fully resolved. Larger rows retain parity and explicit witnesses, with unknown values left unknown. Their small resolved fractions must not be read as the fraction of roots checked by newer censuses.
 
-`frontier.json` also records `statistic_coverage` with the exact larger ranges and source paths. The all-root C1 and equality-pattern census reaches 22, on 9,531,638 facial roots, 4,656,948 feasible, independently replayed by the conjecture referee. The cycle-cover run reaches 24 only for 4-connected Eulerian triangulations, on 23,824,742 facial roots. It checks C1, equality patterns and c_min distributions, not the full invariant-value spectrum, and remains T4 under review. It observes maximum c_min=6 at order 23. The scatter is still the original 5,088 feasible-root sample through 16; its caption states that range.
+`frontier.json` also records `statistic_coverage` with the exact larger ranges and source paths. The all-root C1 and equality-pattern census reaches 22, on 9,531,638 facial roots, 4,656,948 feasible, independently replayed by the conjecture referee. The cycle-cover run reaches 24 only for 4-connected Eulerian triangulations, on 23,824,742 facial roots. It checks C1, equality patterns and m distributions, not the full invariant-value spectrum, and remains T4 under review. It observes maximum m=6 at order 23. The scatter is still the original 5,088 feasible-root sample through 16; its caption states that range.
 
-The source reports include an unreviewed separator-free family with unbounded c_min. ML1 and ML2, C3 and rainbow exchange are tracked as separate questions. See the route catalogue and current open-problems chapter for exact hypotheses and counterexamples.
+The source reports include an unreviewed separator-free family with unbounded m. ML1 and ML2, C3 and rainbow exchange are tracked as separate questions. See the route catalogue and current open-problems chapter for exact hypotheses and counterexamples.
 
 ## Verification limits
 

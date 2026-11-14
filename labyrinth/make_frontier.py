@@ -3,12 +3,12 @@
 
 Size       : v = |V(T)|, the number of vertices of the dual Eulerian triangulation
              (the Barnette graph G has 2v - 4 vertices, and n = |A| = |X| = v - 3).
-Invariant  : tau = the number of tree matchings of a rooted triangulation (T, t0).
+Invariant  : tau = the number of good states of a rooted triangulation (T, t0).
              tau > 0 exactly when the state method produces a Hamiltonian cycle directly
              at that root (trees paper, Theorem 1.2).
 
 Claim tested by this script (the cross-check): for v <= 14 the two independent
-enumerations in the repository give the same multiset of (states, pairs, tree matchings)
+enumerations in the repository give the same multiset of (states, pairs, good states)
 over all rooted triangulations. They are
   A  research/2026-11-14_fable_route-combinatorics/data/rows_v16.json
      (own generator from the octahedron, own state code, v <= 16), and
@@ -16,8 +16,8 @@ over all rooted triangulations. They are
      (plantri 4.5 triangulations, workings/barnette_lab state code; it reached v <= 16 when this was run).
 
 Classification of the admissible values 0 .. floor(3^(n/2)) at each size:
-  realized         a rooted triangulation with that many tree matchings is in the data
-  impossible       odd values (the two signs of tree matchings are equally frequent:
+  realized         a rooted triangulation with that many good states is in the data
+  impossible       odd values (the two signs of good states are equally frequent:
                    trees paper Theorem 5.2), and, at every size where A and B agree, every
                    value that they do not realise
   gap-conditional  a size where B is missing: values not realised in enumeration A
@@ -44,7 +44,7 @@ B = json.loads(B_PATH.read_text(encoding="utf-8"))
 # ---- enumeration A, per size
 A_multi = defaultdict(Counter)      # v -> Counter of (states, pairs, trees)
 witness = defaultdict(dict)         # v -> trees -> first witness
-cmin_pts = {}                       # (cmin, trees) -> (count, witness)
+cmin_pts = {}                       # (m, trees) -> (count, witness)
 for r in rows:
     v = r["V"]
     A_multi[v][(r["states"], r["pairs"], r["trees"])] += 1
@@ -107,7 +107,7 @@ for v in sorted(A_multi):
             row["intervals"].append({"v0": t, "v1": u, "status": status, "why": why})
             for o in range(t + (1 - t % 2), u + 1, 2):
                 row["intervals"].append({"v0": o, "v1": o, "status": "impossible",
-                                         "why": "odd: the signs of tree matchings are balanced (trees paper Thm 5.2)"})
+                                         "why": "odd: the signs of good states are balanced (trees paper Thm 5.2)"})
         t = u + 1
     row["note"] = f"{sum(A_multi[v].values())} rooted triangulations in A" + (
         f", {cross[v]['B_rooted']} in B, multisets agree" if validated else ", B does not reach this size")
@@ -125,7 +125,7 @@ for v in (*range(17,25), 28, 33):
     if (v - 3) % 5 == 0:
         q = (v - 3) // 5
         row["realized"].append([2 ** q, f"q = {q} hexagonal-prism duals glued into white faces: "
-                                        f"3^{q} states, 2^{q} tree matchings (astra_limits, rarity family)"])
+                                        f"3^{q} states, 2^{q} good states (astra_limits, rarity family)"])
     # odd values impossible: one interval per odd value is too many here, so use bins of width 1 up to a cap
     cap = min(hi, 401)
     for t in range(1, cap + 1, 2):
@@ -134,28 +134,28 @@ for v in (*range(17,25), 28, 33):
     sizes.append(row)
 
 frontier = {
-    "meta": {"size_name": "|V(T)|", "value_name": "tree matchings of (T, t0)", "value_scale": "log"},
+    "meta": {"size_name": "|V(T)|", "value_name": "good states of (T, t0)", "value_scale": "log"},
     "sizes": sizes,
 }
 (LAB / "frontier.json").write_text(json.dumps(frontier))
 
-# ---- scatter: tree matchings against cmin
+# ---- scatter: good states against m
 pts = []
 for (c, t), (count, w) in sorted(cmin_pts.items()):
     series = "eq" if t == 2 ** c else ("gt" if t > 2 ** c else "lt")
     pts.append({"x": c, "y": t, "series": series, "src": f"{count} rooted triangulations, first {w}"})
 for c in range(1, 6):
-    pts.append({"x": c, "y": 2 ** c, "series": "bound", "src": "conjectured lower bound 2^cmin"})
-    pts.append({"x": c, "y": 2 * c, "series": "proved", "src": "proved lower bound 2 cmin (route-combinatorics, unreviewed)"})
+    pts.append({"x": c, "y": 2 ** c, "series": "bound", "src": "conjectured lower bound 2^m"})
+    pts.append({"x": c, "y": 2 * c, "series": "proved", "src": "proved lower bound 2m (route-combinatorics, unreviewed)"})
 scatter = {
-    "title": "Tree matchings against the minimum number of D-cycles",
-    "tab": "tau vs cmin",
+    "title": "Good states against the minimum number of D-cycles",
+    "tab": "tau vs m",
     "subtitle": "All 5088 rooted Eulerian triangulations with a pair, |V(T)| <= 16 (enumeration A). "
-                "Conjecture k.tm-2cmin says no point lies below 2^cmin.",
-    "x_name": "cmin (fewest cycles of D over all pairs)", "y_name": "tree matchings", "y_scale": "log",
-    "series": [{"key": "eq", "label": "tau = 2^cmin"}, {"key": "gt", "label": "tau > 2^cmin"},
-               {"key": "lt", "label": "tau < 2^cmin (would refute the conjecture)"},
-               {"key": "bound", "label": "2^cmin"}, {"key": "proved", "label": "2 cmin (proved here, unreviewed)"}],
+                "Conjecture k.tm-2cmin says no point lies below 2^m.",
+    "x_name": "m (fewest cycles of D over all pairs)", "y_name": "good states", "y_scale": "log",
+    "series": [{"key": "eq", "label": "tau = 2^m"}, {"key": "gt", "label": "tau > 2^m"},
+               {"key": "lt", "label": "tau < 2^m (would refute the conjecture)"},
+               {"key": "bound", "label": "2^m"}, {"key": "proved", "label": "2m (proved here, unreviewed)"}],
     "points": pts,
 }
 (LAB / "scatter.json").write_text(json.dumps(scatter))
@@ -174,7 +174,7 @@ f=json.loads(fp.read_text())
 f['statistic_coverage']=[
  {'statistic':'complete realized spectrum of TM counts, states and pairs cross-check','class':'all facial roots of Eulerian triangulations','through_dual_order':16,'tier':'T3','by':['fable_route-combinatorics','sol_route-algebra','astra_referee-combinatorics'],'source':'labyrinth/frontier_crosscheck.json'},
  {'statistic':'C1 and equality iff one factor; TM and pair totals','class':'all facial roots of Eulerian triangulations','through_dual_order':22,'tier':'T3','by':['opus_conjectures','sol_referee-conjectures'],'source':'research/2026-11-14_sol_referee-conjectures/data/fast_census_summary.json','note':'independent complete implementations agree; not imported as full TM value spectrum'},
- {'statistic':'C1, equality iff one factor and c_min distribution','class':'4-connected Eulerian triangulations, every facial root','through_dual_order':24,'rooted_instances':23824742,'tier':'T4','review':'under-review','by':['astra_cycle-covers'],'source':'research/2026-11-14_astra_cycle-covers/data/census.json','note':'inherited C engine; no independent order-24 replay; maximum c_min=6 at order 23'},
+ {'statistic':'C1, equality iff one factor and m distribution','class':'4-connected Eulerian triangulations, every facial root','through_dual_order':24,'rooted_instances':23824742,'tier':'T4','review':'under-review','by':['astra_cycle-covers'],'source':'research/2026-11-14_astra_cycle-covers/data/census.json','note':'inherited C engine; no independent order-24 replay; maximum m=6 at order 23'},
  {'statistic':'ML1 pair-preserving merge existence','class':'separator-free rooted triangulations','through_dual_order':19,'tier':'T4','by':['fable_induction-completion'],'source':'research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md'},
  {'statistic':'rainbow exchange X, all rainbow trees','class':'all feasible facial roots','through_dual_order':17,'tier':'T4','by':['fable_referee-topology'],'source':'research/2026-11-14_fable_referee-topology/REPORT.md'}]
 fp.write_text(json.dumps(f,indent=1))

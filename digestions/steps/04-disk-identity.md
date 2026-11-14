@@ -125,4 +125,4 @@ A state has $d = 0$. The example has $d = -1$. The example is `research/2026-11-
 
 ## Where this is used next
 
-Step 05 uses the parity. Step 06 uses the exact value and the white face inside. Step 07 uses it once more for the state $s$ of a forest pair.
+Step 05 uses the parity. Step 06 uses the exact value and the white face inside. Step 07 uses it once more for the state $s$ of a good pair.

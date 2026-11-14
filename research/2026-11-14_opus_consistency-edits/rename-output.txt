@@ -1,0 +1,22 @@
+digestions/steps/00-overview.md 8 {'\\btree matching\\b': 3, '\\bforest[- ]pair\\b': 1, '\\btree matchings\\b': 1, '\\bc_min\\b': 3}
+digestions/steps/01-degree-two-and-connectivity.md 0 {}
+digestions/steps/02-dual-and-two-trees.md 0 {}
+digestions/steps/03-states-and-pairs.md 10 {'\\bTree matching\\b': 1, '\\btree matching\\b': 4, '\\btree matchings\\b': 5}
+digestions/steps/04-disk-identity.md 1 {'\\bforest[- ]pair\\b': 1}
+digestions/steps/05-cancellation.md 6 {'\\btree matching\\b': 3, '\\bTree matchings\\b': 1, '\\btree matchings\\b': 2}
+digestions/steps/06-nonvanishing.md 35 {'\\btree matching\\b': 12, '\\btree matchings\\b': 12, '\\$c_\\{\\\\min\\}\\$': 1, 'c_\\{\\\\min\\}': 1, '\\btree pair\\b': 2, '\\bforest[- ]pair\\b': 5, '\\bforest pairs\\b': 2}
+digestions/steps/07-recovery.md 11 {'\\bforest[- ]pair\\b': 3, '\\btree matching\\b': 3, '\\btree matchings\\b': 5}
+digestions/steps/08-gluing-and-hypotheses.md 2 {'\\btree matching\\b': 1, '\\btree matchings\\b': 1}
+digestions/steps/09-what-is-still-open.md 23 {'\\btree matching\\b': 6, '\\bc_min\\b': 7, '\\btree matchings\\b': 5, '\\bforest[- ]pair\\b': 5}
+digestions/steps/GLOSSARY.md 11 {'\\btree matching\\b': 5, '\\bforest[- ]pair\\b': 2, '\\btree pair\\b': 1, '\\$c_\\{\\\\min\\}\\$': 3}
+digestions/route-map/HOW-IT-WORKS.md 26 {'\\btree matching\\b': 7, '\\btree matchings\\b': 7, '\\bcmin\\b': 8, '\\btree pair\\b': 1, '\\bforest[- ]pair\\b': 1, '\\bTree matchings\\b': 1, '\\b2 (?:c_min|cmin)\\b': 1}
+digestions/route-map/ROUTE-MAP.head.md 3 {'\\btree matching\\b': 3}
+digestions/route-map/ROUTE-MAP.tail.md 0 {}
+digestions/route-map/routes.py 171 {'\\btree matching\\b': 38, '\\bForest pair\\b': 1, '\\bforest pairs\\b': 3, '\\bforest[- ]pair\\b': 10, '\\btree matchings\\b': 51, '\\bcmin\\b': 29, '\\btree pairs\\b': 4, '\\btree pair\\b': 10, '\\bTree matchings\\b': 4, '\\b2 (?:c_min|cmin)\\b': 1, '\\bforest state\\b': 1, '\\bForest pairs\\b': 1, '\\bc_min\\b': 18}
+labyrinth/seed.py 45 {'\\btree matchings\\b': 23, '\\bcmin\\b': 7, '\\btree matching\\b': 1, '\\btree pairs\\b': 1, '\\bforest pairs\\b': 1, '\\btree pair\\b': 1, '\\bforest[- ]pair\\b': 4, '\\b2 (?:c_min|cmin)\\b': 5, '\\bc_min\\b': 2}
+labyrinth/README.md 4 {'\\btree matchings\\b': 1, '\\bc_min\\b': 3}
+labyrinth/make_frontier.py 25 {'\\btree matchings\\b': 9, '\\bcmin\\b': 11, '\\b2 (?:c_min|cmin)\\b': 2, '\\bTree matchings\\b': 1, '\\bc_min\\b': 2}
+digestions/atlas/README.md 2 {'\\btree matchings\\b': 1, '\\bforest state\\b': 1}
+digestions/atlas/pages.py 2 {'\\bforest state\\b': 2}
+digestions/atlas/pages_more.py 27 {'\\btree matchings\\b': 11, '\\btree matching\\b': 13, '\\btree pair\\b': 1, '\\bTree matchings\\b': 1, '\\bforest state\\b': 1}
+workings/barnette_lab/README.md 2 {'\\bc_min\\b': 1, '\\btree matching\\b': 1}
