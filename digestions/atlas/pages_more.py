@@ -170,7 +170,7 @@ Three older ideas end at the same object. Stein showed that a Hamiltonian cycle 
 Kelmans strengthened the conjecture to cycles that avoid or use a prescribed edge, which makes gluing along small cuts possible. Feder and Subi colour the vertices of $T$, contract one class, and look for a spanning tree of faces.
 A relaxed reading, tested in (c) and (d), asks for an induced tree whose vertices outside one class are pairwise non-adjacent. Their theorem asks more, a degree condition on omitted vertices.
 None of the three supplies the step from a pair to a good state.''',
-     r'''The three results are published. The translation of Feder and Subi was written in this project and is unrefereed. An audit of this atlas found the 10-vertex example, recomputed here. Not read by a human.''',
+     r'''Kelmans is read through later accounts, Feder and Subi through a report. The translation of Feder and Subi was written in this project and is unrefereed. The 10-vertex example was recomputed here. Not read by a human.''',
      ['recovery', 'cuts', 'produced'],
      [RS + 'astra_older-approaches/BRIDGES.md', RS + 'astra_older-approaches/SOURCES.md', RS + 'astra_older-approaches/NOVELTY.md', OA + ', Section 2',
       RS + 'sol_atlas-audit/outputs/fs-witness.json (the 10-vertex triangulation; every count on it recomputed here)', HERE])

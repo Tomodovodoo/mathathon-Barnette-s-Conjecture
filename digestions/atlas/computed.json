@@ -504,6 +504,1961 @@
    "0": 11
   }
  },
+ "pairs": {
+  "S": [
+   7,
+   8,
+   12
+  ],
+  "lhs": 7,
+  "rhs": 6,
+  "obstruction": {
+   "faces": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     5
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     2,
+     0,
+     4
+    ],
+    [
+     1,
+     3,
+     5
+    ],
+    [
+     2,
+     4,
+     3
+    ],
+    [
+     0,
+     5,
+     4
+    ],
+    [
+     3,
+     4,
+     8
+    ],
+    [
+     4,
+     5,
+     6
+    ],
+    [
+     5,
+     3,
+     7
+    ],
+    [
+     3,
+     8,
+     7
+    ],
+    [
+     4,
+     6,
+     8
+    ],
+    [
+     5,
+     7,
+     6
+    ],
+    [
+     6,
+     7,
+     8
+    ]
+   ],
+   "t0": 1,
+   "S": [
+    6,
+    7,
+    8
+   ],
+   "lhs": 5,
+   "rhs": 6,
+   "states": 4,
+   "pairs": 0
+  }
+ },
+ "disk": {
+  "B": 5,
+  "W": 6,
+  "I": 3,
+  "h": 7,
+  "l": 2,
+  "cycle": [
+   1,
+   2,
+   3,
+   9,
+   10,
+   11,
+   6
+  ],
+  "turns": [
+   -3,
+   3,
+   2,
+   -3,
+   3,
+   2,
+   2
+  ],
+  "delta_sum": -3
+ },
+ "heights": {
+  "lowest": 0,
+  "first_move": 1,
+  "highest": 11,
+  "volumes": {
+   "11": 7,
+   "9": 6,
+   "7": 5,
+   "5": 4,
+   "10": 6,
+   "8": 5,
+   "6": 4,
+   "3": 3,
+   "4": 3,
+   "2": 2,
+   "1": 1,
+   "0": 0
+  }
+ },
+ "polynomial": {
+  "F": "-345626435*x**10/164921174248896 - 15386013079*x**9/329842348497792 + 14218327115*x**8/12686244172992 - 2117365135*x**7/216858874752 + 1934624425*x**6/12511088928 - 571090675*x**5/641594304 + 834004*x**4/257049 - 2563*x**3/4056 + 9*x**2",
+  "products": [
+   6,
+   3
+  ]
+ },
+ "involutions": {
+  "first": [
+   [
+    1,
+    9
+   ],
+   [
+    2,
+    9
+   ]
+  ],
+  "changed_faces": [
+   7,
+   9,
+   21
+  ],
+  "ray": {
+   "direction": [
+    1,
+    7
+   ],
+   "white_face": 12,
+   "cycle": [
+    1,
+    2,
+    3,
+    9,
+    10,
+    11,
+    6
+   ],
+   "crossings": [
+    [
+     1.1818,
+     13,
+     "r"
+    ],
+    [
+     3.3459,
+     13,
+     "s"
+    ]
+   ],
+   "mark": 2,
+   "partner": 1,
+   "image": [
+    11,
+    0
+   ],
+   "involutive": true,
+   "parity_checked_on": 176
+  }
+ },
+ "recovery": {
+  "state": 1,
+  "P": [
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    4
+   ],
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    6,
+    7
+   ],
+   [
+    7,
+    8
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    10,
+    11
+   ],
+   [
+    11,
+    12
+   ]
+  ],
+  "parts": [
+   [
+    0,
+    2,
+    4,
+    6,
+    7,
+    8
+   ],
+   [
+    1,
+    3,
+    5,
+    9,
+    10,
+    11,
+    12
+   ]
+  ],
+  "cycle": [
+   4,
+   5,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   8,
+   7,
+   6,
+   0,
+   1,
+   9,
+   10,
+   2,
+   3,
+   11,
+   12,
+   13,
+   14
+  ]
+ },
+ "primal": {
+  "cut_edges": 7,
+  "shore": {
+   "black": 5,
+   "white": 6
+  },
+  "matching": [
+   [
+    0,
+    5
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    6,
+    17
+   ],
+   [
+    7,
+    18
+   ],
+   [
+    8,
+    9
+   ],
+   [
+    10,
+    11
+   ],
+   [
+    12,
+    21
+   ],
+   [
+    13,
+    20
+   ],
+   [
+    14,
+    15
+   ],
+   [
+    16,
+    19
+   ]
+  ]
+ },
+ "keystep": {
+  "paths": {
+   "1": [
+    1,
+    0,
+    5,
+    4
+   ],
+   "3": [
+    3,
+    4
+   ],
+   "5": [
+    5,
+    4
+   ],
+   "6": [
+    6,
+    0,
+    5,
+    4
+   ],
+   "8": [
+    8,
+    7,
+    6,
+    0,
+    5,
+    4
+   ],
+   "10": [
+    10,
+    2,
+    3,
+    4
+   ],
+   "12": [
+    12,
+    11,
+    3,
+    4
+   ],
+   "14": [
+    14,
+    4
+   ],
+   "16": [
+    16,
+    15,
+    5,
+    4
+   ],
+   "18": [
+    18,
+    7,
+    6,
+    0,
+    5,
+    4
+   ],
+   "20": [
+    20,
+    13,
+    14,
+    4
+   ]
+  },
+  "turns": {
+   "1": {
+    "0": [
+     0,
+     1
+    ]
+   },
+   "3": {},
+   "5": {},
+   "6": {
+    "0": [
+     6,
+     -1
+    ]
+   },
+   "8": {
+    "7": [
+     1,
+     1
+    ],
+    "0": [
+     6,
+     -1
+    ]
+   },
+   "10": {
+    "2": [
+     3,
+     1
+    ]
+   },
+   "12": {
+    "11": [
+     4,
+     1
+    ]
+   },
+   "14": {},
+   "16": {
+    "15": [
+     6,
+     1
+    ]
+   },
+   "18": {
+    "7": [
+     7,
+     -1
+    ],
+    "0": [
+     6,
+     -1
+    ]
+   },
+   "20": {
+    "13": [
+     11,
+     1
+    ]
+   }
+  },
+  "height_jump_checks": 176,
+  "omega_minus_volume": -4,
+  "sigma_paper": 18,
+  "min_cycles": 2,
+  "product_sum": 9,
+  "flow": {
+   "1->0": 1,
+   "0->5": 4,
+   "5->4": 6,
+   "3->4": 3,
+   "6->0": 3,
+   "8->7": 1,
+   "7->6": 2,
+   "10->2": 1,
+   "2->3": 1,
+   "12->11": 1,
+   "11->3": 1,
+   "14->4": 2,
+   "16->15": 1,
+   "15->5": 1,
+   "18->7": 1,
+   "20->13": 1,
+   "13->14": 1
+  },
+  "flux_checks": 16,
+  "primal_coefficient": 9,
+  "marked_objects": 43,
+  "marked_signed_total": -9,
+  "unpaired_objects": 9,
+  "unpaired_sign": -1,
+  "drawn": {
+   "y": 8,
+   "eta_clockwise": -1,
+   "eta_counterclockwise": 0,
+   "cut_flow": 6
+  }
+ },
+ "rowdep": {
+  "a": {
+   "state": 9,
+   "det": 0,
+   "dependent_rows": [
+    "c",
+    "d",
+    "j"
+   ],
+   "terms": 2
+  },
+  "b": {
+   "state": 1,
+   "det": -1,
+   "dependent_rows": [],
+   "terms": 1
+  },
+  "all": {
+   "good": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    11
+   ],
+   "cyclic": [
+    9
+   ],
+   "root_joining_forest": [
+    3,
+    5,
+    6,
+    7,
+    10
+   ]
+  }
+ },
+ "determinant": {
+  "prism": {
+   "faces": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     3,
+     2
+    ],
+    [
+     0,
+     4,
+     3
+    ],
+    [
+     0,
+     5,
+     4
+    ],
+    [
+     0,
+     6,
+     5
+    ],
+    [
+     0,
+     1,
+     6
+    ],
+    [
+     1,
+     2,
+     7
+    ],
+    [
+     1,
+     7,
+     6
+    ],
+    [
+     2,
+     3,
+     7
+    ],
+    [
+     3,
+     4,
+     7
+    ],
+    [
+     4,
+     5,
+     7
+    ],
+    [
+     5,
+     6,
+     7
+    ]
+   ],
+   "t0": 0,
+   "states": [
+    [
+     4,
+     6,
+     7,
+     3,
+     5
+    ],
+    [
+     4,
+     5,
+     6,
+     3,
+     7
+    ],
+    [
+     3,
+     5,
+     6,
+     7,
+     4
+    ]
+   ],
+   "tree_matchings": [
+    [
+     4,
+     6,
+     7,
+     3,
+     5
+    ],
+    [
+     3,
+     5,
+     6,
+     7,
+     4
+    ]
+   ],
+   "signs": [
+    1,
+    -1
+   ]
+  },
+  "running_signs": [
+   3,
+   3
+  ],
+  "matrix": {
+   "rows": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "entries": {
+    "4,3": "w_{a3}*y_a",
+    "3,4": "-w_{a4}*y_a",
+    "6,5": "w_{b5}*y_b",
+    "5,6": "-w_{b6}*y_b",
+    "7,6": "w_{c6}*y_c",
+    "6,7": "-w_{c7}*y_c",
+    "3,7": "w_{d7}*y_d",
+    "7,3": "-w_{d3}*y_d",
+    "4,5": "w_{e5}*y_e",
+    "4,7": "-w_{e7}*y_e",
+    "5,4": "-w_{e4}*y_e",
+    "5,7": "w_{e7}*y_e",
+    "7,4": "w_{e4}*y_e",
+    "7,5": "-w_{e5}*y_e"
+   },
+   "determinant_terms": 6,
+   "coefficient": "-w_{a3}*w_{b5}*w_{c6}*w_{d7}*w_{e4} + w_{a4}*w_{b6}*w_{c7}*w_{d3}*w_{e5}",
+   "equals_pair_polynomial": true
+  }
+ },
+ "dimers": {
+  "shared": [
+   [
+    10,
+    7,
+    5,
+    5,
+    3,
+    3,
+    5,
+    3,
+    5,
+    3,
+    2,
+    0
+   ],
+   [
+    7,
+    10,
+    7,
+    5,
+    5,
+    3,
+    3,
+    1,
+    2,
+    0,
+    5,
+    3
+   ],
+   [
+    5,
+    7,
+    10,
+    7,
+    7,
+    4,
+    5,
+    2,
+    3,
+    0,
+    5,
+    2
+   ],
+   [
+    5,
+    5,
+    7,
+    10,
+    4,
+    7,
+    7,
+    4,
+    5,
+    2,
+    5,
+    2
+   ],
+   [
+    3,
+    5,
+    7,
+    4,
+    10,
+    7,
+    2,
+    5,
+    0,
+    3,
+    2,
+    5
+   ],
+   [
+    3,
+    3,
+    4,
+    7,
+    7,
+    10,
+    4,
+    7,
+    2,
+    5,
+    2,
+    5
+   ],
+   [
+    5,
+    3,
+    5,
+    7,
+    2,
+    4,
+    10,
+    7,
+    7,
+    4,
+    5,
+    2
+   ],
+   [
+    3,
+    1,
+    2,
+    4,
+    5,
+    7,
+    7,
+    10,
+    4,
+    7,
+    2,
+    5
+   ],
+   [
+    5,
+    2,
+    3,
+    5,
+    0,
+    2,
+    7,
+    4,
+    10,
+    7,
+    7,
+    4
+   ],
+   [
+    3,
+    0,
+    0,
+    2,
+    3,
+    5,
+    4,
+    7,
+    7,
+    10,
+    4,
+    7
+   ],
+   [
+    2,
+    5,
+    5,
+    5,
+    2,
+    2,
+    5,
+    2,
+    7,
+    4,
+    10,
+    7
+   ],
+   [
+    0,
+    3,
+    2,
+    2,
+    5,
+    5,
+    2,
+    5,
+    4,
+    7,
+    7,
+    10
+   ]
+  ],
+  "b": [
+   2,
+   5,
+   4
+  ],
+  "c": [
+   0,
+   1,
+   7
+  ]
+ },
+ "lattice": {
+  "kinds": {
+   "11": "tree",
+   "9": "cyclic",
+   "7": "alone",
+   "5": "alone",
+   "10": "alone",
+   "8": "tree",
+   "6": "alone",
+   "3": "alone",
+   "4": "tree",
+   "2": "tree",
+   "1": "tree",
+   "0": "tree"
+  },
+  "covers": [
+   [
+    9,
+    11
+   ],
+   [
+    7,
+    9
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    10,
+    11
+   ],
+   [
+    8,
+    9
+   ],
+   [
+    8,
+    10
+   ],
+   [
+    6,
+    7
+   ],
+   [
+    6,
+    8
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ "pairlattice": {
+  "upper": 2,
+  "lower": 1,
+  "height_difference": [
+   0,
+   0,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "tree_orientations": [
+   3,
+   3
+  ]
+ },
+ "canonical": {
+  "faces": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    0,
+    3,
+    4
+   ],
+   [
+    0,
+    4,
+    1
+   ],
+   [
+    1,
+    4,
+    5
+   ],
+   [
+    1,
+    5,
+    2
+   ],
+   [
+    2,
+    5,
+    6
+   ],
+   [
+    2,
+    6,
+    7
+   ],
+   [
+    2,
+    7,
+    3
+   ],
+   [
+    3,
+    7,
+    8
+   ],
+   [
+    3,
+    8,
+    9
+   ],
+   [
+    3,
+    9,
+    4
+   ],
+   [
+    4,
+    9,
+    10
+   ],
+   [
+    4,
+    10,
+    5
+   ],
+   [
+    5,
+    10,
+    11
+   ],
+   [
+    5,
+    11,
+    6
+   ],
+   [
+    6,
+    11,
+    7
+   ],
+   [
+    7,
+    10,
+    8
+   ],
+   [
+    7,
+    11,
+    10
+   ],
+   [
+    8,
+    10,
+    9
+   ]
+  ],
+  "t0": 8,
+  "state": [
+   0,
+   4,
+   1,
+   5,
+   8,
+   9,
+   11,
+   6,
+   10
+  ],
+  "extreme": "highest",
+  "volumes": [
+   0,
+   1,
+   2,
+   2,
+   2,
+   3,
+   3,
+   3,
+   4
+  ],
+  "kinds": [
+   "good",
+   "good",
+   "good",
+   "good",
+   "good",
+   "good",
+   "good",
+   "good",
+   "cycle"
+  ],
+  "tree_matchings": 8,
+  "cycle_length": 3
+ },
+ "matroids": {
+  "face_forest": 350,
+  "states": 12,
+  "vertex_forest": 304,
+  "all_three": 6,
+  "witness_a": [
+   1,
+   2,
+   7,
+   1,
+   3,
+   11,
+   6,
+   12,
+   8,
+   9
+  ],
+  "witness_c": [
+   0,
+   2,
+   2,
+   15,
+   7,
+   19,
+   9,
+   21,
+   13,
+   17
+  ]
+ },
+ "lp": {
+  "choices": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    6
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    7,
+    8
+   ],
+   [
+    7,
+    7
+   ],
+   [
+    9,
+    1
+   ],
+   [
+    9,
+    2
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    11,
+    3
+   ],
+   [
+    11,
+    9
+   ],
+   [
+    13,
+    11
+   ],
+   [
+    13,
+    10
+   ],
+   [
+    15,
+    6
+   ],
+   [
+    15,
+    11
+   ],
+   [
+    17,
+    6
+   ],
+   [
+    17,
+    7
+   ],
+   [
+    17,
+    12
+   ],
+   [
+    19,
+    8
+   ],
+   [
+    19,
+    11
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    21,
+    8
+   ],
+   [
+    21,
+    9
+   ],
+   [
+    21,
+    10
+   ]
+  ],
+  "x": [
+   "1/2",
+   "1/2",
+   "1",
+   "0",
+   "1/2",
+   "0",
+   "1/2",
+   "0",
+   "1",
+   "0",
+   "0",
+   "1",
+   "1/2",
+   "1/2",
+   "1/2",
+   "1/2",
+   "0",
+   "1/2",
+   "1/2",
+   "1/2",
+   "0",
+   "1/2",
+   "1/2",
+   "0",
+   "1/2"
+  ],
+  "half": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    6
+   ],
+   [
+    7,
+    1
+   ],
+   [
+    7,
+    7
+   ],
+   [
+    13,
+    11
+   ],
+   [
+    13,
+    10
+   ],
+   [
+    15,
+    6
+   ],
+   [
+    15,
+    11
+   ],
+   [
+    17,
+    7
+   ],
+   [
+    17,
+    12
+   ],
+   [
+    19,
+    8
+   ],
+   [
+    19,
+    12
+   ],
+   [
+    21,
+    8
+   ],
+   [
+    21,
+    10
+   ]
+  ],
+  "averaged_states": [
+   9,
+   4
+  ],
+  "cycles": [
+   1,
+   0
+  ],
+  "inequalities": 1946,
+  "trial": 15
+ },
+ "rainbow": {
+  "add": [
+   0,
+   1
+  ],
+  "remove": [
+   9,
+   1
+  ],
+  "counts_after": [
+   2,
+   1,
+   1,
+   0,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "random": {
+  "spanning_trees": 6670188,
+  "prescribed": 6,
+  "sample": 4000,
+  "seed": 2026,
+  "wrong_points_histogram": {
+   "4": 2,
+   "5": 2,
+   "6": 40,
+   "7": 25,
+   "8": 174,
+   "9": 153,
+   "10": 465,
+   "11": 431,
+   "12": 746,
+   "13": 563,
+   "14": 579,
+   "15": 388,
+   "16": 244,
+   "17": 122,
+   "18": 46,
+   "19": 11,
+   "20": 7,
+   "21": 1,
+   "22": 1
+  }
+ },
+ "trinity": {
+  "points": 35,
+  "joins": 99
+ },
+ "cuts": {
+  "triangle": [
+   3,
+   4,
+   5
+  ],
+  "triangle_patterns": {
+   "(0, 1, 1)": 4,
+   "(0, 1, 0)": 4,
+   "(0, 0, 1)": 4
+  },
+  "four_cycle": [
+   1,
+   6,
+   11,
+   8
+  ],
+  "four_patterns": {
+   "(0, 1, 0, 1)": 12,
+   "(0, 1, 1, 0)": 4,
+   "(0, 1, 1, 1)": 2,
+   "(0, 0, 1, 1)": 4,
+   "(0, 0, 1, 0)": 6
+  },
+  "hamiltonian_cycles": 28,
+  "four_signatures": [
+   {
+    "word": [
+     0,
+     1,
+     0,
+     1
+    ],
+    "joins_inside_outside": [
+     [],
+     [
+      [
+       6,
+       8
+      ]
+     ],
+     [
+      [
+       1,
+       11
+      ]
+     ],
+     []
+    ],
+    "cycles": 8
+   },
+   {
+    "word": [
+     0,
+     1,
+     1,
+     0
+    ],
+    "joins_inside_outside": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "cycles": 4
+   },
+   {
+    "word": [
+     0,
+     1,
+     0,
+     1
+    ],
+    "joins_inside_outside": [
+     [
+      [
+       1,
+       11
+      ]
+     ],
+     [],
+     [],
+     [
+      [
+       6,
+       8
+      ]
+     ]
+    ],
+    "cycles": 4
+   },
+   {
+    "word": [
+     0,
+     1,
+     1,
+     1
+    ],
+    "joins_inside_outside": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "cycles": 2
+   },
+   {
+    "word": [
+     0,
+     0,
+     1,
+     1
+    ],
+    "joins_inside_outside": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "cycles": 4
+   },
+   {
+    "word": [
+     0,
+     0,
+     1,
+     0
+    ],
+    "joins_inside_outside": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "cycles": 6
+   }
+  ]
+ },
+ "induction": {
+  "unrepaired_lifts": {
+   "rows": 466,
+   "source": "research/2026-11-14_fable_induction-completion/data/exceptions_*.jsonl",
+   "shape": {
+    "two trees, a with v1 and b with v2": 466,
+    "the black face on a v2 uses a": 466,
+    "V=13": 8,
+    "V=14": 20,
+    "V=15": 80,
+    "V=16": 358
+   }
+  },
+  "x": 2,
+  "a": 0,
+  "v1": 3,
+  "b": 9,
+  "v2": 1,
+  "small_vertices": 11,
+  "tree_matchings_small": 4,
+  "lifts_ok": 3,
+  "repaired_by_rotation": 1,
+  "shown": {
+   "lift_ok": false,
+   "rotation": true
+  }
+ },
+ "earlier": {
+  "hamiltonian_cycles": 28,
+  "avoid_min": 4,
+  "avoid_max": 14,
+  "feder_subi_type_per_class": [
+   28,
+   28,
+   28
+  ],
+  "colouring": {
+   "0": 0,
+   "1": 1,
+   "6": 2,
+   "2": 2,
+   "9": 0,
+   "8": 2,
+   "3": 1,
+   "4": 2,
+   "5": 1,
+   "11": 0,
+   "7": 0,
+   "10": 1,
+   "12": 1
+  },
+  "relaxed_example": {
+   "vertices": 10,
+   "edges": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     8,
+     9
+    ]
+   ],
+   "cycles": 14,
+   "passing_per_class": {
+    "0": 14,
+    "1": 14,
+    "2": 13
+   },
+   "excluded_partition": [
+    [
+     0,
+     2,
+     5,
+     7,
+     8
+    ],
+    [
+     1,
+     3,
+     4,
+     6,
+     9
+    ]
+   ],
+   "offending_edges": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     5,
+     7
+    ]
+   ]
+  }
+ },
+ "produced": {
+  "cycles": [
+   {
+    "avoids": true,
+    "produced": true
+   },
+   {
+    "avoids": true,
+    "produced": true
+   },
+   {
+    "avoids": true,
+    "produced": false
+   },
+   {
+    "avoids": true,
+    "produced": false
+   },
+   {
+    "avoids": false,
+    "produced": false
+   },
+   {
+    "avoids": false,
+    "produced": false
+   },
+   {
+    "avoids": false,
+    "produced": false
+   },
+   {
+    "avoids": false,
+    "produced": false
+   }
+  ],
+  "reasons": [
+   null,
+   null,
+   "a path of opposite edges (heavy) joins two roots",
+   "a path of opposite edges (heavy) joins two roots"
+  ],
+  "faces": [
+   [
+    0,
+    2,
+    1
+   ],
+   [
+    0,
+    3,
+    2
+   ],
+   [
+    0,
+    4,
+    3
+   ],
+   [
+    0,
+    5,
+    4
+   ],
+   [
+    0,
+    6,
+    5
+   ],
+   [
+    0,
+    1,
+    6
+   ],
+   [
+    1,
+    2,
+    7
+   ],
+   [
+    1,
+    7,
+    6
+   ],
+   [
+    2,
+    3,
+    7
+   ],
+   [
+    3,
+    4,
+    7
+   ],
+   [
+    4,
+    5,
+    7
+   ],
+   [
+    5,
+    6,
+    7
+   ]
+  ],
+  "t0": 0,
+  "e0": [
+   1,
+   2
+  ],
+  "counts": {
+   "use_e": 4,
+   "produced": 2,
+   "avoid_not_produced": 2
+  }
+ },
+ "families": {
+  "prisms": [
+   {
+    "sides": 4,
+    "states": 2,
+    "tree_matchings": 2,
+    "hamiltonian_cycles": 6
+   },
+   {
+    "sides": 6,
+    "states": 3,
+    "tree_matchings": 2,
+    "hamiltonian_cycles": 8
+   },
+   {
+    "sides": 8,
+    "states": 4,
+    "tree_matchings": 2,
+    "hamiltonian_cycles": 10
+   },
+   {
+    "sides": 10,
+    "states": 5,
+    "tree_matchings": 2,
+    "hamiltonian_cycles": 12
+   },
+   {
+    "sides": 12,
+    "states": 6,
+    "tree_matchings": 2,
+    "hamiltonian_cycles": 14
+   }
+  ],
+  "nanotubes": [
+   {
+    "layers": 0,
+    "vertices": 6,
+    "states": 2,
+    "tree_matchings": 2
+   },
+   {
+    "layers": 1,
+    "vertices": 10,
+    "states": 5,
+    "tree_matchings": 2
+   },
+   {
+    "layers": 2,
+    "vertices": 14,
+    "states": 13,
+    "tree_matchings": 2
+   },
+   {
+    "layers": 3,
+    "vertices": 18,
+    "states": 34,
+    "tree_matchings": 2
+   }
+  ]
+ },
+ "hypotheses": {
+  "K4_dual_degrees_odd": true,
+  "theta26": {
+   "vertices": 26,
+   "connectivity": 2,
+   "pieces_without_terminals": 3
+  },
+  "nonbijective": {
+   "twice": [
+    8
+   ],
+   "missed": [
+    7
+   ],
+   "delta_sum": 0
+  },
+  "torus": {
+   "Q_edges": 9,
+   "vertices": 9
+  }
+ },
+ "pfaffian": {
+  "states": 24,
+  "pairs": 48,
+  "delta_sums": {
+   "7": 3,
+   "-7": 3,
+   "-1": 21,
+   "1": 21
+  },
+  "every_state_cancels": true,
+  "shown": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+   ],
+   [
+    3,
+    4,
+    5,
+    6,
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  ]
+ },
  "blueprint": {
   "route_statements": 34,
   "counts": {
@@ -563,5 +2518,89 @@
   },
   "recount_is_this_count_merged": true,
   "source": "proofs/blueprint/blueprint.json"
+ },
+ "open": {
+  "open_statements": [
+   {
+    "statement": "at least $2^m$ good states, $m$ the fewest cycles of a cover: every root",
+    "every_case_two_programs": 22,
+    "every_case_one_program": 22,
+    "sampled_to": 100
+   },
+   {
+    "statement": "the same bound, on triangulations without separating triangles",
+    "every_case_two_programs": 16,
+    "every_case_one_program": 24,
+    "sampled_to": null
+   },
+   {
+    "statement": "pair descent that never adds a cycle reaches a good pair",
+    "every_case_two_programs": 20,
+    "every_case_one_program": 23,
+    "sampled_to": 150
+   },
+   {
+    "statement": "exchange descent on rainbow trees reaches a good state",
+    "every_case_two_programs": 12,
+    "every_case_one_program": 17,
+    "sampled_to": 120
+   },
+   {
+    "statement": "some contraction keeps a pair",
+    "every_case_two_programs": 17,
+    "every_case_one_program": 19,
+    "sampled_to": null
+   },
+   {
+    "statement": "a contraction never has more good states than the original",
+    "every_case_two_programs": 17,
+    "every_case_one_program": 18,
+    "sampled_to": null
+   }
+  ],
+  "refuted": [
+   {
+    "statement": "the highest state with a partner is good",
+    "counterexample_at": 12,
+    "known_smallest": false
+   },
+   {
+    "statement": "an extreme cover has a good orientation",
+    "counterexample_at": 18,
+    "known_smallest": true
+   },
+   {
+    "statement": "some good state of a contraction lifts directly",
+    "counterexample_at": 18,
+    "known_smallest": true
+   },
+   {
+    "statement": "a cover one step from an extreme has one",
+    "counterexample_at": 24,
+    "known_smallest": false
+   },
+   {
+    "statement": "an extreme or irreducible cover has one",
+    "counterexample_at": 33,
+    "known_smallest": false
+   },
+   {
+    "statement": "every maximal chain of covers has one",
+    "counterexample_at": 33,
+    "known_smallest": false
+   },
+   {
+    "statement": "at least half of all covers have one",
+    "counterexample_at": 33,
+    "known_smallest": false
+   },
+   {
+    "statement": "the evict walk never repeats",
+    "counterexample_at": 38,
+    "known_smallest": false
+   }
+  ],
+  "quoted_not_recomputed": true,
+  "mechanism_face": 8
  }
 }
