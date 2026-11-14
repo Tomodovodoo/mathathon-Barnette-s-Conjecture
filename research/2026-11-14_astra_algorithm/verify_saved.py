@@ -38,6 +38,15 @@ for campaign in ('census','families','hybrid','hunt'):
         if row['status']!='ok':continue
         vertices,edges=primal(cases[row['name']]);check(vertices,edges,row['cycle'],row['forbidden']);count+=1
     counts[campaign]=count
+if (BASE/'marked-chains.jsonl').exists():
+    cases={c['name']:c for c in json.loads((BASE/'marked-chain-instances.json').read_text())}
+    records=[json.loads(s) for s in (BASE/'marked-chains.jsonl').read_text().splitlines()]
+    if (BASE/'marked-chain-eight.json').exists():records.append(json.loads((BASE/'marked-chain-eight.json').read_text()))
+    count=0
+    for row in records:
+        if row['status']!='ok':continue
+        vertices,edges=primal(cases[row['name']]);check(vertices,edges,row['cycle'],row['forbidden']);count+=1
+    counts['marked-chains']=count
 for fn in ('prefix-counterexample.json','filtered-prefix-counterexample.json'):
     d=json.loads((BASE/fn).read_text());faces=d['faces'];A=d['A'];R=set(faces[d['root']]);X=set(sum(faces,[]))-R
     h=nx.Graph((('f',t),('v',v)) for t in A+[d['root']] for v in faces[t])

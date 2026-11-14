@@ -3,6 +3,7 @@
   "families": 246,
   "hybrid": 49,
   "hunt": 60,
+  "marked-chains": 8,
   "prefix-counterexample.json": {
     "states": 3,
     "good": 2,

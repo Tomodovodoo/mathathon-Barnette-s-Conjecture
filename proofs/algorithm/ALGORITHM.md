@@ -412,3 +412,86 @@ The public hybrid first obtains a flow pair. It returns immediately when that pa
 | Edge-frontier DP implements the stated invariant | PROVED-HERE | Same induction as path DP; code tests recorded separately |
 | Hybrid terminates and returns a checked certificate | PROVED-HERE | Finite preliminary searches, complete enumeration, flow obstruction and gluing; input existence theorem assumed |
 | Fast times on tubes and biased split samples | COMPUTED | BENCHMARKS.md and saved per-instance cycles |
+
+## The prefix-oracle attack
+
+The next possible improvement is to replace backtracking by a polynomial prefix oracle. The two source tests do not suffice, even after one natural strengthening. Here is a complete small obstruction.
+
+Use the 8-vertex triangulation in `filtered-prefix-counterexample.json`, with outer face `(0,3,4)`. The bounded black faces, in order, are
+
+```
+a=(0,1,2), b=(1,4,5), c=(1,6,7), d=(2,7,3), e=(3,6,5).
+```
+
+The nonroots are `{1,2,5,6,7}`. Its only states are
+
+```
+s1=(1,5,7,2,6), s2=(2,1,6,7,5), s3=(2,5,1,7,6).
+```
+
+To check exhaustiveness, a chooses 1 or 2. If a chooses 1 then b must choose 5, e must choose 6, c must choose 7 and d chooses 2. If a chooses 2, d must choose 7. The remaining three faces b,c,e either choose 1,6,5 or 5,1,6. There is no other matching. Directly contracting the retained two spokes in each bounded face shows that s1 and s2 give three one-root trees. For s3, the Q edges are `(0,1),(1,4),(6,7),(2,3),(3,5)`. The component `{0,1,4}` contains two roots and `{6,7}` has none. Hence s3 is not good.
+
+Now prescribe the prefix `a->2,b->5`. Its sole matching extension is s3. The prefix leaves H connected. In fact the three remaining required deletions are each individually compatible with connectivity. This can be checked without enumerating any spanning trees. After the prefix the neighbour lists of the six black centres are
+
+```
+t0: 0,3,4;  a:0,1;  b:1,4;  c:1,6,7;  d:2,7,3;  e:3,6,5.
+```
+
+All centres and vertices lie in one component. Delete just `c-1`: c still reaches the outer component through `c-7-d-3-t0`, and a,b retain 1. Delete just `d-7`: d still reaches it through 3, and c connects 7 through 1. Delete just `e-6`: e still reaches it through 3, and c connects 6 through 1. Thus all three edges of the unique residual perfect matching survive a filter that removes individually forest-incompatible choices. Deleting all three at once disconnects the retained graph, as the Q components already show.
+
+This refutes both a polynomial constructor that greedily trusts those tests and its individually filtered matching variant. It does not refute a stronger global oracle, C3, Step X or a restricted determinant formula. The witness already lives in the hexagonal-prism dual; no large construction is needed.
+
+The search `attack.py filtered` found this witness after ten eligible rootings in its stated order. `verify_saved.py` independently rebuilt H from the saved face list, enumerated the three states by Cartesian products, and checked each deletion test. The companion unfiltered witness at another root was found after nine eligible rootings. These are the exact search ranges, not a new general census claim.
+
+The same campaign stressed minimum-remaining-corners enumeration on 500 split-generated graphs of dual orders 20,30,40,50 with seed 101441. The worst recorded input used 32,161 candidate tests and 24,699 retained prefixes. Its complete adjacency, root and state are saved in `stress.json`. This is evidence against treating cheap prefix tests as a complete optimization. It is not a superlinear lower bound, since the finite count has no asymptotic force.
+
+A separate 60-instance hunt varied labels and roots at dual orders 30,50,80,120, seed 719883. Every public hybrid call succeeded, with at most two exchanges. The largest measured end-to-end time was 0.454309 seconds on a 236-vertex primal input, including validation and dual construction. This hunt did not produce a difficult family for the final pivot rule. No superlinear or exponential lower bound for that rule was obtained.
+
+## A candidate exponential marked-walk family
+
+The fixed-flow marked constructor was run on the recursively labelled trap chains with k=1,...,10. Its completed move counts for k=1,...,8 are
+
+```
+0, 5, 14, 113, 562, 2811, 14060, 70309.
+```
+
+The eight-factor case has 210 primal vertices and completed in 79.794269 seconds with eight phases, decreasing the D count at unsuccessful endpoints from 24 to 10 in steps of two. The first run censored k=8,9,10 at twenty seconds; only k=8 was rerun with a larger cap. The initialization uses the flow pair at every k, not a specially substituted bad pair. Exact graph labels, roots, starting pairs, returned cycles and software versions are saved in marked-chain-instances.json, marked-chains.jsonl, marked-chain-eight.json and manifest.json. The first factor's normalization count can depend on the orientation in which the flow union is traversed; the marked count follows the all-counterclockwise normalized start.
+
+**Conjecture, fixed rule.** For this labelled chain construction, the reference flow cover, the reference positive weights and the manuscript's ordered-cycle/ordered-token rule, the number of marked moves for every k>=4 is
+
+```
+L(k) = (9*5^(k-2)-2*k+9)/2.
+```
+
+It agrees exactly at k=4,...,8. Equivalently, the observed recurrence from k=5 is `L(k)=5L(k-1)+4k-23`. Testing k=9, then identifying a local marked-state transition invariant, is a concrete next step. The five verified values do not prove an exponential lower bound. The shortest-path lower bound remains the earlier linear one. Different starting covers, weights or tie rules need not obey this conjecture.
+
+The following elementary theorem explains a possible mechanism, without identifying it with the Barnette walk.
+
+**Theorem, abstract involution product.** There are two polynomial-time computable sign-reversing involutions on objects encoded with O(k) bits whose alternating path from a specified alpha-fixed object has exactly `5^k-1` moves before it reaches a beta-fixed object.
+
+**Proof.** On `{0,1,2,3,4}` let alpha fix 0 and interchange 1 with 2 and 3 with 4. Let beta interchange 0 with 1 and 2 with 3 and fix 4. On k-tuples, apply alpha to the first coordinate not fixed by its local alpha, fixing the tuple if none exists. Define beta the same way using its local rule. These are involutions because the first eligible coordinate remains the first eligible coordinate after its swap. Each nonfixed move reverses `(-1)^(sum of coordinates)`. The unique alpha-fixed tuple is all zero; the unique beta-fixed tuple is all four.
+
+For k=1 the alternating walk is 0,1,2,3,4, of length four. Suppose the remaining k-1 coordinates have an alternating path of length D. The first coordinate traverses 0 to 4 in four moves. There beta fixes that coordinate, so the next beta move acts on the remaining tuple. Alpha then traverses the first coordinate back from 4 to 0, again in four alternating moves. At zero alpha fixes that coordinate, so the next alpha move acts on the remaining tuple. Continue. Thus the remaining tuple takes its own alternating path, while coordinate one makes a complete four-edge sweep before the first remaining-tuple move, between consecutive such moves, and after the last. There are D+1 sweeps and D remaining-tuple moves. Induction gives D=`5^(k-1)-1`, which is even, so the last sweep ends at 4. The total is `4(D+1)+D=5^k-1`, and the endpoint is all four. Testing the first eligible coordinate takes O(k) time and the encoding has k digits. QED.
+
+This is a lower bound for the abstract first-eligible involution rule. It proves that finite path structure, sign reversal, efficient move evaluation and a known start endpoint do not by themselves imply a polynomial path. To turn it into a Barnette lower bound one must embed the product transition system in the actual token dynamics, including the priority given to unmarked cycles, pool ranks, restart normalization and the face ordering. That embedding is not established here. The matching factorization across white-face gluings does not automatically factor the marked walk.
+
+
+## Final status table
+
+| Claim group | Status | Evidence or remaining obligation |
+|---|---|---|
+| Source reachability, marked termination and exponential enumeration | LIT | Supplied manuscript Theorems 5.2, 5.3, Proposition 6.2; source audit in AUDIT.md |
+| Audit of source arguments | PROVED-HERE | Explicit obligation graph and proofs; unreviewed |
+| Improved enumeration O(q^2(M+1)), polynomial space | PROVED-HERE | Matching repair, rollback forest and deterministic-prefix charging |
+| Bounded-width good-state DP | PROVED-HERE | Full tree-decomposition transitions; path version implemented |
+| Marked state-space refinement and unmarked BFS bounds | PROVED-HERE | Counting arguments above |
+| Prism linear constructor, fixed-width tube DP and piece-size bounds | PROVED-HERE | Stated structural hypotheses essential |
+| Planar flow and subexponential Hamiltonian search | LIT | Verified source statements; sphere-cut proof and implementation not supplied |
+| Linear trap-chain lower bound | PROVED-HERE | Prior finite trap plus product argument; no stronger lower bound |
+| TREE-PAIR in PPADS | PROVED-HERE | History construction checked; full-problem many-one closure remains attributed to prior referee |
+| Two prefix-oracle conjectures | REFUTED | Explicit 8-vertex proof above and independently replayed certificates |
+| Census, family and adversarial-search performance | COMPUTED | BENCHMARKS.md, scripts, saved cycles, independent-checks.json |
+| C3 and general polynomial construction | CONJECTURE | No proof; bounded variants already refuted in FACTS.md |
+| Better global completion oracle or bounded efficient pivot rule | HUNCH | Must survive the prefix witnesses and prior plateau witnesses |
+| Abstract first-eligible involution product takes 5^k-1 moves | PROVED-HERE | Induction above; not a Barnette lower bound |
+| Formula L(k) for the actual marked trap chains | CONJECTURE | Exact agreement for k=4,...,8; embedding/recurrence proof missing |
