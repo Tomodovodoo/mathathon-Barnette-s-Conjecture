@@ -1,0 +1,5 @@
+states  lstsq coeffs [1. 1. 0.] max residual 0.000;  integer [1. 1. 0.] exact in 58530/58530
+TM      lstsq coeffs [0.766 0.756 1.51 ] max residual 14.490;  integer [1. 1. 2.] exact in 254/58530
+pairs   lstsq coeffs [0.796 0.779 1.513] max residual 19.370;  integer [1. 1. 2.] exact in 24/58530
+lc      lstsq coeffs [1.395 1.526 0.667] max residual 279.333;  integer [1. 2. 1.] exact in 7383/58530
+octahedron insertion: (colour of face relative to root, TM(T+)/TM(T)) ->count {('white', 2.0): 3254, ('black', 0.0): 2920, ('white', None): 1064, ('black', None): 960}
