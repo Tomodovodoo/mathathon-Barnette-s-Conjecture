@@ -34,7 +34,7 @@ digraph blueprint {
  "lem:cancel" [label="Lemma 4.5\ncancellation", fillcolor="#7fbf7b", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
  "txt:heights" [label="Text \nheights along face paths", fillcolor="#7fbf7b", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
  "lem:height" [label="Lemma 4.6\nheight jump = white faces inside", fillcolor="#7fbf7b", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
- "lem:difference" [label="Lemma 4.7\nfinite difference", fillcolor="#f1a340", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
+ "lem:difference" [label="Lemma 4.7\nfinite difference [Lean: here]", fillcolor="#f1a340", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
  "prop:good" [label="Prop. 4.8\na pair gives a good state", fillcolor="#7fbf7b", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled"];
  "rem:other-sums" [label="Remark 4.10\nother sums", fillcolor="#f1a340", fontcolor="black", color="#b15928", penwidth=2.2, style="rounded,filled,dashed"];
  "txt:flow" [label="Text \ncapacity => pair (max-flow)", fillcolor="#1b7837", fontcolor="white", color="#e31a1c", penwidth=2.2, style="rounded,filled"];

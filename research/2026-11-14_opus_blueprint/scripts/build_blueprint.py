@@ -156,7 +156,7 @@ def main():
             for x in cur['lean']:
                 edges.append(dict(src=nid, dst=L(x), type='corresponds-to', relation=cur['rel']))
         if n['kind'] != 'example':
-            rec['short'] = short_label(n, rec).split('\n')[1]
+            rec['short'] = short_label(n, rec).split('\\n')[1]
         if nid == 'lem:difference':
             rec['lean_here'] = 'research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (Blueprint.finite_difference_fin; compiled, axioms propext, Classical.choice, Quot.sound)'
         out_nodes.append(rec)
@@ -164,7 +164,7 @@ def main():
             edges.append(dict(src=nid, dst=u, type='uses'))
 
     # ---- primal and involution nodes
-    for raw, cur_all, src, refereed in [(primal_raw, C.PRIMAL, 'primal', True), (inv_raw, C.INVOLUTIONS, 'involutions', False)]:
+    for raw, cur_all, src, refereed in [(primal_raw, C.PRIMAL, 'primal', True), (inv_raw, C.INVOLUTIONS, 'involutions', True)]:
         for n in raw:
             cur = cur_all[n['id']]
             ref = refereed and n['id'] not in ('PR14', 'PR15')
@@ -260,7 +260,7 @@ def main():
                                  'stronger': 'Lean proves more', 'weaker': 'Lean proves less', 'none': 'no counterpart'}),
         referees=dict(main='research/2026-11-14_sol_referee-main (FOLLOWS)',
                       primal='research/2026-11-14_fable_referee-primal (FOLLOWS, on the pre-revision text; Remarks 14-15 added afterwards)',
-                      involutions='author audit only (research/2026-11-14_sol_li-completion/AUDIT.md); independent referee in progress'),
+                      involutions='research/2026-11-14_opus_referee-involutions (FOLLOWS, commit 45c4cea; one sign error in the off-route Sec 7 comparison)'),
         nodes=out_nodes, edges=edges, analysis={k: v for k, v in analysis.items() if k != 'transitive_reduction'})
     (OUT / 'blueprint.json').write_text(json.dumps(bp, indent=1, ensure_ascii=False), encoding='utf-8')
 

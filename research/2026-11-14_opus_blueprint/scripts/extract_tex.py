@@ -137,6 +137,9 @@ def main_paper():
     ]
     for nid, pat, title in anchors:
         mm = re.search(pat, text)
+        if mm is None:
+            print('anchor missing:', nid, file=sys.stderr)
+            continue
         a = text.rfind('\n\n', 0, mm.start()) + 2
         if nid == 'txt:flow':  # paragraph plus the displayed condition
             b = text.index('\\end{equation}', mm.start()) + len('\\end{equation}')
@@ -147,7 +150,7 @@ def main_paper():
                           statement=strip(para), proof=strip(para), line=lineno(text, a), _end=None))
     # the three-count equation eq:counts has its derivation in the preceding sentence
     for n in nodes:
-        if n['id'] == 'eq:counts':
+        if n['id'] == 'eq:counts' and r'Each edge of $\T$ has exactly one black face and each black face' in text:
             a = text.index('Each edge of $\\T$ has exactly one black face and each black face')
             n['proof'] = strip(text[a:text.index('\\begin{equation}\\label{eq:counts}')])
         if n['id'] == 'eq:density':

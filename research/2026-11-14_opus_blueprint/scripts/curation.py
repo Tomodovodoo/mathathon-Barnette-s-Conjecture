@@ -216,7 +216,7 @@ MAIN = {
     openai='Taylor coefficient of the product (5.4)-(5.5)', primal='Lemma 8 (product of linear polynomials)', inv='Sec 7 (moment comparison, off-route)',
     lean=['TriangleSystem.Pair.cycle_factor_witness', 'common_phase_sum_ne_zero'],
     rel='none', covered=False, route='different',
-    gap='The Lean never forms omega^m: it factorises each D-class as a product of polynomials X * q_C with q_C(0) > 0 (cycle_factor_witness) and reads off the lowest coefficient (common_phase_sum_ne_zero). Distance: the identity itself is self-contained algebra (Mathlib has only the one-variable fwdDiff_iter_pow_eq_factorial). PROVED in Lean here: research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (see FORMALISATION.md).',
+    gap='The Lean never forms omega^m: it factorises each D-class as a product of polynomials X * q_C with q_C(0) > 0 (cycle_factor_witness) and reads off the lowest coefficient (common_phase_sum_ne_zero). Distance: the identity itself is self-contained algebra (Mathlib has only the one-step versions fwdDiff_iter_pow_eq_zero_of_lt and fwdDiff_iter_eq_factorial in Algebra/Group/ForwardDiff.lean, with one common step h). PROVED in Lean here: research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (see FORMALISATION.md).',
  ),
  'prop:good': dict(
     uses=['lem:cancel', 'lem:reversals', 'lem:sign', 'lem:height', 'lem:difference', 'txt:D', 'lem:partner'], implicit=['txt:D (class of a pair)', 'lem:partner (acyclic Q_s with a partner is good)'],

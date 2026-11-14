@@ -25,7 +25,7 @@
  "referees": {
   "main": "research/2026-11-14_sol_referee-main (FOLLOWS)",
   "primal": "research/2026-11-14_fable_referee-primal (FOLLOWS, on the pre-revision text; Remarks 14-15 added afterwards)",
-  "involutions": "author audit only (research/2026-11-14_sol_li-completion/AUDIT.md); independent referee in progress"
+  "involutions": "research/2026-11-14_opus_referee-involutions (FOLLOWS, commit 45c4cea; one sign error in the off-route Sec 7 comparison)"
  },
  "nodes": [
   {
@@ -60,7 +60,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "Lean main has no prescribed edge; the edge-avoiding form is proved for graphs with an algebraic dual and is not restated for drawings (a few lines would combine it with exists_exact_dual).",
-   "gap": null
+   "gap": null,
+   "short": "Hamiltonian cycle avoiding e"
   },
   {
    "id": "lem:dual",
@@ -95,7 +96,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "\"T simple with triangular faces\" is \"the algebraic dual D is simple and the star of every vertex of G is a triangle of D\"; Lean argues by gradients of small support, not Jordan curves.",
-   "gap": null
+   "gap": null,
+   "short": "the dual is a coloured triangulation"
   },
   {
    "id": "lem:connected",
@@ -126,7 +128,8 @@
    "lean_route": "different",
    "covered": false,
    "bridge": null,
-   "gap": "Lean has no topological plane graphs. Nearest: region_connected (the region network of a connected shore A of G is connected) and Bond.connected_shore. These state connectivity of the inside of a cycle for the algebraic region network built from a vertex set of G, not for a plane graph whose faces are bounded by cycles. Far: different objects; the Lean needs no such lemma because connectivity is a field of Duality and survives minors (Duality.minor)."
+   "gap": "Lean has no topological plane graphs. Nearest: region_connected (the region network of a connected shore A of G is connected) and Bond.connected_shore. These state connectivity of the inside of a cycle for the algebraic region network built from a vertex set of G, not for a plane graph whose faces are bounded by cycles. Far: different objects; the Lean needs no such lemma because connectivity is a field of Duality and survives minors (Duality.minor).",
+   "short": "faces bounded by cycles => connected"
   },
   {
    "id": "eq:counts",
@@ -159,7 +162,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "faces of T = vertices of G; Euler is a rank identity (Duality.euler).",
-   "gap": null
+   "gap": null,
+   "short": "k black, k white, 3k edges, k+2 vertices"
   },
   {
    "id": "def:selection",
@@ -187,7 +191,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "a selection is a perfect matching P of G: (N.star v).filter (. in P) has card 1 for every v.",
-   "gap": null
+   "gap": null,
+   "short": "selection"
   },
   {
    "id": "lem:duality.1",
@@ -218,7 +223,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "a cycle of T is a flow circuit of D, equal to c times the gradient of the indicator of a root-free vertex set A of G; its support is the cut of A, a bond.",
-   "gap": null
+   "gap": null,
+   "short": "cycle in N => dual disconnected"
   },
   {
    "id": "lem:duality.2",
@@ -249,7 +255,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "Lean proves \"N acyclic in T implies G minus N* connected\". The spanning-tree sentence is not a lemma; where it is needed (lem:Y) Lean uses remainder_connected plus remainder_independent and an edge count.",
-   "gap": null
+   "gap": null,
+   "short": "N acyclic => dual connected"
   },
   {
    "id": "prop:target.1",
@@ -282,7 +289,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": null,
-   "gap": null
+   "gap": null,
+   "short": "acyclic selection => HC"
   },
   {
    "id": "prop:target.2",
@@ -313,7 +321,8 @@
    "lean_route": "-",
    "covered": false,
    "bridge": null,
-   "gap": "Theorem 2.2 is not stated anywhere in the Lean (opus_lean-formalisation DIFFERENCES item 22). Nearest: Duality.circuit_cut + cap_matching_boundary (exactly one cut edge of a 3-cut lies in a perfect matching). Far: the Lean glues perfect matchings with connected complement and never needs the two-component structure of P."
+   "gap": "Theorem 2.2 is not stated anywhere in the Lean (opus_lean-formalisation DIFFERENCES item 22). Nearest: Duality.circuit_cut + cap_matching_boundary (exactly one cut edge of a 3-cut lies in a perfect matching). Far: the Lean glues perfect matchings with connected complement and never needs the two-component structure of P.",
+   "short": "two induced trees"
   },
   {
    "id": "lem:selections-give-states",
@@ -341,7 +350,8 @@
    "lean_route": "-",
    "covered": false,
    "bridge": null,
-   "gap": "No counterpart; the Lean never goes from a Hamiltonian cycle back to a state. Off the main route (motivation and Sec 7 remark only)."
+   "gap": "No counterpart; the Lean never goes from a Hamiltonian cycle back to a state. Off the main route (motivation and Sec 7 remark only).",
+   "short": "HC => state"
   },
   {
    "id": "def:state",
@@ -370,7 +380,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": null,
-   "gap": null
+   "gap": null,
+   "short": "state"
   },
   {
    "id": "ex:states",
@@ -416,7 +427,8 @@
    "lean_route": "-",
    "covered": true,
    "bridge": "Lean never names good states; it works with \"second state of a pair with oppositeGraph acyclic\" and adds two root sides (augQ).",
-   "gap": null
+   "gap": null,
+   "short": "good state"
   },
   {
    "id": "lem:good",
@@ -447,7 +459,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "Lean proves only \"pair with Q_s acyclic implies S_s (removed) acyclic\", i.e. lem:partner followed by the direction good => spanning tree that lem:Y uses. The converse is not formalised.",
-   "gap": null
+   "gap": null,
+   "short": "good <=> S_s spanning tree"
   },
   {
    "id": "lem:Y",
@@ -485,7 +498,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "Lean proves that Y_s (complement of removed in G) is a spanning tree with black degrees 2 and root degree 1, then gets SOME perfect matching inside it by Hall (tree_matching). The explicit rooting rule that defines P_s is not formalised; only existence is, which is all the theorem needs.",
-   "gap": null
+   "gap": null,
+   "short": "tree Y_s and selection P_s"
   },
   {
    "id": "lem:outdegree",
@@ -514,7 +528,8 @@
    "lean_route": "different",
    "covered": false,
    "bridge": null,
-   "gap": "tail_orientation states \"injective tails on a cycle force a directed cycle\" (first sentence). The component count (q - gamma edges, gamma <= 1, tree iff gamma = 1) is not formalised: Lean replaces it by addSink_acyclic (outdegree <= 1 plus a sink gives acyclicity). Close: about 30-60 Lean lines on top of Mathlib SimpleGraph.IsTree.card_edgeFinset."
+   "gap": "tail_orientation states \"injective tails on a cycle force a directed cycle\" (first sentence). The component count (q - gamma edges, gamma <= 1, tree iff gamma = 1) is not formalised: Lean replaces it by addSink_acyclic (outdegree <= 1 plus a sink gives acyclicity). Close: about 30-60 Lean lines on top of Mathlib SimpleGraph.IsTree.card_edgeFinset.",
+   "short": "outdegree <= 1"
   },
   {
    "id": "lem:disk",
@@ -550,7 +565,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "Lean states h = 2l+3 as |cut A| = 2|blackCut A| + 3 and W >= 1 as white_positive_of_boundary; W = B+1 is not stated (it follows from cubic_black_region_count). disk_count_identity (PairPhases:22) is the paper's arithmetic, proved and unused.",
-   "gap": null
+   "gap": null,
+   "short": "disk identity"
   },
   {
    "id": "prop:recover",
@@ -587,7 +603,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "Lean (and primal Lemma 12) prove acyclicity for every perfect matching compatible with s, not only P_s. \"Matched across Z\" count = matching_cut_balance. The component-per-root step uses addSink in Lean, lem:outdegree here.",
-   "gap": null
+   "gap": null,
+   "short": "P_s acyclic"
   },
   {
    "id": "ex:recover",
@@ -633,7 +650,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": null,
-   "gap": null
+   "gap": null,
+   "short": "pair"
   },
   {
    "id": "lem:partner",
@@ -664,7 +682,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "\"a cycle of Q_s is directed by r\" is partner_orientation; \"acyclic Q_s with a partner has one root per component\" is replaced by augQ_acyclic. Uniqueness of the partner of a good state is not formalised; the main route needs it only for the regrouped formula of lem:cancel, which prop:good does not need.",
-   "gap": null
+   "gap": null,
+   "short": "partner orients Q_s"
   },
   {
    "id": "lem:reversals",
@@ -700,7 +719,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "(2) appears as the bijection between orientation bits of the cycles of next and the pairs with the same D (groupEquiv).",
-   "gap": null
+   "gap": null,
+   "short": "two reversals"
   },
   {
    "id": "lem:sign",
@@ -735,7 +755,8 @@
    "lean_route": "different",
    "covered": false,
    "bridge": null,
-   "gap": "The real sign eps = prod delta(r(t),s(t)) does not occur in the Lean, which uses phase(rawIndexSum) = I^(sum delta div 3) and proves only that one Q_s-reversal multiplies it by -1 (reverse_phase) and that it factorises over D-cycles (group_sum_product). Distance: the identity eps = i^n * phase(rawIndexSum), which needs 3 | sum delta from the disk identity on every D-cycle (primal STATUS.md, phase comparison). Estimated 60-120 Lean lines; see FORMALISATION.md."
+   "gap": "The real sign eps = prod delta(r(t),s(t)) does not occur in the Lean, which uses phase(rawIndexSum) = I^(sum delta div 3) and proves only that one Q_s-reversal multiplies it by -1 (reverse_phase) and that it factorises over D-cycles (group_sum_product). Distance: the identity eps = i^n * phase(rawIndexSum), which needs 3 | sum delta from the disk identity on every D-cycle (primal STATUS.md, phase comparison). Estimated 60-120 Lean lines; see FORMALISATION.md.",
+   "short": "sign = product of local signs"
   },
   {
    "id": "lem:cancel",
@@ -768,7 +789,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "Lean cancels with the complex phase and any weight in a C-module; the real-sign version follows through the uncovered lem:sign bridge. The regrouped formula (sum over good states with their unique partner) is not stated.",
-   "gap": null
+   "gap": null,
+   "short": "cancellation"
   },
   {
    "id": "lem:height",
@@ -804,7 +826,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "Lean proves the summed statement for EVERY flow with boundary whiteCharge (slope = c * #white faces inside), hence for the path flow of the heights. The per-white-face statement (jump 1 or 0 at each y) is not formalised; the main route uses only the sum.",
-   "gap": null
+   "gap": null,
+   "short": "height jump = white faces inside"
   },
   {
    "id": "lem:difference",
@@ -833,7 +856,9 @@
    "lean_route": "different",
    "covered": false,
    "bridge": null,
-   "gap": "The Lean never forms omega^m: it factorises each D-class as a product of polynomials X * q_C with q_C(0) > 0 (cycle_factor_witness) and reads off the lowest coefficient (common_phase_sum_ne_zero). Distance: the identity itself is self-contained algebra (Mathlib has only the one-variable fwdDiff_iter_pow_eq_factorial). PROVED in Lean here: research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (see FORMALISATION.md)."
+   "gap": "The Lean never forms omega^m: it factorises each D-class as a product of polynomials X * q_C with q_C(0) > 0 (cycle_factor_witness) and reads off the lowest coefficient (common_phase_sum_ne_zero). Distance: the identity itself is self-contained algebra (Mathlib has only the one-step versions fwdDiff_iter_pow_eq_zero_of_lt and fwdDiff_iter_eq_factorial in Algebra/Group/ForwardDiff.lean, with one common step h). PROVED in Lean here: research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (see FORMALISATION.md).",
+   "short": "finite difference [Lean: here]",
+   "lean_here": "research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (Blueprint.finite_difference_fin; compiled, axioms propext, Classical.choice, Quot.sound)"
   },
   {
    "id": "prop:good",
@@ -872,7 +897,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "forest_pair: if a pair exists, some pair has oppositeGraph of its second state acyclic; that state is good by lem:partner. Same conclusion, different nonvanishing argument (phase * prod (1 + aX) instead of eps * omega^m).",
-   "gap": null
+   "gap": null,
+   "short": "a pair gives a good state"
   },
   {
    "id": "ex:count",
@@ -917,7 +943,8 @@
    "lean_route": "-",
    "covered": false,
    "bridge": null,
-   "gap": "Off-route remark. The referee (sol_referee-main) noted that sum eps z^omega is a Laurent polynomial, not an integer polynomial, since omega can be negative (Table 4.2 has omega = -4)."
+   "gap": "Off-route remark. The referee (sol_referee-main) noted that sum eps z^omega is a Laurent polynomial, not an integer polynomial, since omega can be negative (Table 4.2 has omega = -4).",
+   "short": "other sums"
   },
   {
    "id": "eq:hall",
@@ -945,7 +972,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": null,
-   "gap": null
+   "gap": null,
+   "short": "capacity condition"
   },
   {
    "id": "prop:pair",
@@ -990,7 +1018,8 @@
    "lean_route": "same",
    "covered": true,
    "bridge": "\"no separating triangle\" is TrivialThreeCuts (every 3-edge cut of G has a singleton side). The density bound is proved globally (induced_euler_bound), not per component.",
-   "gap": null
+   "gap": null,
+   "short": "no separating triangle => pair"
   },
   {
    "id": "lem:cap",
@@ -1025,7 +1054,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "the piece is the contraction G / A^c; its dual comes from Duality.minor instead of lem:connected.",
-   "gap": null
+   "gap": null,
+   "short": "caps"
   },
   {
    "id": "thm:T",
@@ -1063,7 +1093,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "statement: perfect matching P containing e with G - P connected (no face parameter). Route: Lean glues matchings (cap_glue_connected); the paper glues acyclic selections using prop:target.2, which is not formalised.",
-   "gap": null
+   "gap": null,
+   "short": "acyclic selection containing e0"
   },
   {
    "id": "txt:two-faces",
@@ -1092,7 +1123,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "a field of TriangleSystem: two triangles sharing two vertices coincide; supplied for ColoredDual.system from simplicity of D.",
-   "gap": null
+   "gap": null,
+   "short": "two faces share <= 1 side"
   },
   {
    "id": "txt:inside",
@@ -1128,7 +1160,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "the inside of Z is the root-free shore A of the bond cut(A) = Z; Euler for R_Z is region_euler |A| + |U| = |E(A)| + 1; \"no vertex is pinched\" is mixed_corner_on_boundary. The paper's object R_Z and its connectivity via lem:connected have no counterpart.",
-   "gap": null
+   "gap": null,
+   "short": "inside of a cycle (R_Z)"
   },
   {
    "id": "txt:D",
@@ -1160,7 +1193,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "cycles of D are the cycles of the permutation next = r^-1 o s of the black triangles; pairedCycle turns one into a state cycle of T.",
-   "gap": null
+   "gap": null,
+   "short": "D(r,s) = disjoint cycles"
   },
   {
    "id": "txt:delta",
@@ -1191,7 +1225,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "delta is indexDelta of the stored corner labelling; \"counterclockwise\" is the sign c in cycle flow = c * gradient(1_A); cycle_disk gives blackDelta = -3c.",
-   "gap": null
+   "gap": null,
+   "short": "delta, delta-sum = -/+3"
   },
   {
    "id": "txt:heights",
@@ -1223,7 +1258,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "summing the unit path flows from each white face y to t0 gives a flow alpha on G with boundary whiteCharge; the heights kappa are then the potentials ColoredDual.weights alpha up to one additive constant per black triangle (constants cancel on every cycle). This identification is not formalised.",
-   "gap": null
+   "gap": null,
+   "short": "heights along face paths"
   },
   {
    "id": "txt:flow",
@@ -1255,7 +1291,8 @@
    "lean_route": "different",
    "covered": true,
    "bridge": "two_matchings: equal sides and 2|S| <= sum_b min(2, |S cap N(b)|) give two disjoint perfect matchings. Lean uses Hall twice instead of max-flow.",
-   "gap": null
+   "gap": null,
+   "short": "capacity => pair (max-flow)"
   },
   {
    "id": "rem:which",
@@ -1284,7 +1321,8 @@
    "lean_route": "-",
    "covered": false,
    "bridge": null,
-   "gap": "Off-route. No Lean counterpart."
+   "gap": "Off-route. No Lean counterpart.",
+   "short": "which HCs arise"
   },
   {
    "id": "rem:poly",
@@ -1317,7 +1355,8 @@
    "lean_route": "-",
    "covered": false,
    "bridge": null,
-   "gap": "Off-route. group_sum_product is this factorisation after the substitution w_(t,v) = 1 + a(t,v) X, with the phase in place of the sign."
+   "gap": "Off-route. group_sum_product is this factorisation after the substitution w_(t,v) = 1 + a(t,v) X, with the phase in place of the sign.",
+   "short": "polynomial F(w)"
   },
   {
    "id": "PT",
@@ -1796,8 +1835,8 @@
    "proof_lines": 0,
    "proof_words": 0,
    "explicit_uses": [],
-   "status": "unrefereed",
-   "status_text": "unrefereed",
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
    "lean": [],
    "lean_relation": "none",
    "covered": false,
@@ -1817,8 +1856,8 @@
    "explicit_uses": [
     "I:disk"
    ],
-   "status": "unrefereed",
-   "status_text": "unrefereed",
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
    "lean": [
     "lean:TriangleSystem.OppositeCycle.reversal_involutive",
     "lean:TriangleSystem.OppositeCycle.reverse_phase"
@@ -1839,8 +1878,8 @@
    "proof_lines": 30,
    "proof_words": 314,
    "explicit_uses": [],
-   "status": "unrefereed",
-   "status_text": "unrefereed",
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
    "lean": [],
    "lean_relation": "none",
    "covered": false,
@@ -1860,8 +1899,8 @@
    "explicit_uses": [
     "I:disk"
    ],
-   "status": "unrefereed",
-   "status_text": "unrefereed",
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
    "lean": [
     "lean:common_phase_sum_ne_zero"
    ],
@@ -1883,8 +1922,8 @@
    "explicit_uses": [
     "I:fixed"
    ],
-   "status": "unrefereed",
-   "status_text": "unrefereed",
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
    "lean": [],
    "lean_relation": "none",
    "covered": false,
@@ -4769,8 +4808,8 @@
    "lem:connected",
    "eq:counts",
    "def:selection",
-   "lem:duality.1",
    "lem:duality.2",
+   "lem:duality.1",
    "prop:target.2",
    "prop:target.1",
    "def:state",

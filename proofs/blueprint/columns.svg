@@ -193,8 +193,8 @@
 <polygon fill="#7fbf7b" stroke="none" points="663.88,-381 663.88,-397 862.88,-397 862.88,-381 663.88,-381"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-385.25" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 7 cancellation</text>
 <polygon fill="none" stroke="black" points="868.88,-375 868.88,-420 1004.12,-420 1004.12,-375 868.88,-375"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-381 874.88,-414 998.12,-414 998.12,-381 874.88,-381"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-393.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Def. 3 marked objects</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-381 874.88,-414 998.12,-414 998.12,-381 874.88,-381"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-393.75" font-family="Helvetica,sans-Serif" font-size="10.00">Def. 3 marked objects</text>
 <polygon fill="none" stroke="black" points="1004.12,-375 1004.12,-420 1227.12,-420 1227.12,-375 1004.12,-375"/>
 <polygon fill="#1b7837" stroke="none" points="1010.12,-398 1010.12,-414 1221.12,-414 1221.12,-398 1010.12,-398"/>
 <text xml:space="preserve" text-anchor="start" x="1012.12" y="-402.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">phase &#160;(PairPhases:9)</text>
@@ -213,8 +213,8 @@
 <polygon fill="#7fbf7b" stroke="none" points="663.88,-336 663.88,-369 862.88,-369 862.88,-336 663.88,-336"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-348.75" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 7 cancellation</text>
 <polygon fill="none" stroke="black" points="868.88,-330 868.88,-375 1004.12,-375 1004.12,-330 868.88,-330"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-336 874.88,-369 998.12,-369 998.12,-336 874.88,-336"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-348.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Lemma 4 first involution</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-336 874.88,-369 998.12,-369 998.12,-336 874.88,-336"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-348.75" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 4 first involution</text>
 <polygon fill="none" stroke="black" points="1004.12,-330 1004.12,-375 1227.12,-375 1227.12,-330 1004.12,-330"/>
 <polygon fill="#1b7837" stroke="none" points="1010.12,-336 1010.12,-369 1221.12,-369 1221.12,-336 1010.12,-336"/>
 <text xml:space="preserve" text-anchor="start" x="1012.12" y="-348.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">fixed_second_state_cancels &#160;(PairPhases:91)</text>
@@ -231,8 +231,8 @@
 <polygon fill="#1b7837" stroke="none" points="663.88,-291 663.88,-324 862.88,-324 862.88,-291 663.88,-291"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-303.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Lemma 6 the weights</text>
 <polygon fill="none" stroke="black" points="868.88,-285 868.88,-330 1004.12,-330 1004.12,-285 868.88,-285"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-291 874.88,-324 998.12,-324 998.12,-291 874.88,-291"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-303.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Def. 3 marked objects</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-291 874.88,-324 998.12,-324 998.12,-291 874.88,-291"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-303.75" font-family="Helvetica,sans-Serif" font-size="10.00">Def. 3 marked objects</text>
 <polygon fill="none" stroke="black" points="1004.12,-285 1004.12,-330 1227.12,-330 1227.12,-285 1004.12,-285"/>
 <polygon fill="#1b7837" stroke="none" points="1010.12,-308 1010.12,-324 1221.12,-324 1221.12,-308 1010.12,-308"/>
 <text xml:space="preserve" text-anchor="start" x="1012.12" y="-312.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">whiteCharge_cut_integral &#160;(Circulation:208)</text>
@@ -249,8 +249,8 @@
 <polygon fill="#7fbf7b" stroke="none" points="663.88,-246 663.88,-279 862.88,-279 862.88,-246 663.88,-246"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-258.75" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 8 nonvanishing</text>
 <polygon fill="none" stroke="black" points="868.88,-240 868.88,-285 1004.12,-285 1004.12,-240 868.88,-240"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-246 874.88,-279 998.12,-279 998.12,-246 874.88,-246"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-258.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Lemma 5 second involution</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-246 874.88,-279 998.12,-279 998.12,-246 874.88,-246"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-258.75" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 5 second involution</text>
 <polygon fill="none" stroke="black" points="1004.12,-240 1004.12,-285 1227.12,-285 1227.12,-240 1004.12,-240"/>
 <polygon fill="#1b7837" stroke="none" points="1010.12,-263 1010.12,-279 1221.12,-279 1221.12,-263 1010.12,-263"/>
 <text xml:space="preserve" text-anchor="start" x="1012.12" y="-267.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">groupEquiv &#160;(PairPhases:359)</text>
@@ -262,15 +262,15 @@
 <text xml:space="preserve" text-anchor="start" x="300.12" y="-213.75" font-family="Helvetica,sans-Serif" font-size="10.00">(5.4)&#45;(5.5), Prop 5.1</text>
 <polygon fill="none" stroke="black" points="418.38,-195 418.38,-240 657.88,-240 657.88,-195 418.38,-195"/>
 <polygon fill="#f1a340" stroke="none" points="424.38,-218 424.38,-234 651.88,-234 651.88,-218 424.38,-218"/>
-<text xml:space="preserve" text-anchor="start" x="426.38" y="-222.25" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 4.7 finite difference</text>
+<text xml:space="preserve" text-anchor="start" x="426.38" y="-222.25" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 4.7 finite difference [Lean: here]</text>
 <polygon fill="#7fbf7b" stroke="none" points="424.38,-201 424.38,-217 651.88,-217 651.88,-201 424.38,-201"/>
 <text xml:space="preserve" text-anchor="start" x="426.38" y="-205.25" font-family="Helvetica,sans-Serif" font-size="10.00">Prop. 4.8 a pair gives a good state</text>
 <polygon fill="none" stroke="black" points="657.88,-195 657.88,-240 868.88,-240 868.88,-195 657.88,-195"/>
 <polygon fill="#7fbf7b" stroke="none" points="663.88,-201 663.88,-234 862.88,-234 862.88,-201 663.88,-201"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-213.75" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 8 nonvanishing</text>
 <polygon fill="none" stroke="black" points="868.88,-195 868.88,-240 1004.12,-240 1004.12,-195 868.88,-195"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-218 874.88,-234 998.12,-234 998.12,-218 874.88,-218"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-222.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Lemma 6 fixed points</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-218 874.88,-234 998.12,-234 998.12,-218 874.88,-218"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-222.25" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 6 fixed points</text>
 <polygon fill="#7fbf7b" stroke="none" points="874.88,-201 874.88,-217 998.12,-217 998.12,-201 874.88,-201"/>
 <text xml:space="preserve" text-anchor="start" x="876.88" y="-205.25" font-family="Helvetica,sans-Serif" font-size="10.00">Theorem 1 forest pair</text>
 <polygon fill="none" stroke="black" points="1004.12,-195 1004.12,-240 1227.12,-240 1227.12,-195 1004.12,-195"/>
@@ -363,8 +363,8 @@
 <polygon fill="none" stroke="black" points="657.88,-4 657.88,-32 868.88,-32 868.88,-4 657.88,-4"/>
 <text xml:space="preserve" text-anchor="start" x="665.88" y="-14.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#888888">&#45;</text>
 <polygon fill="none" stroke="black" points="868.88,-4 868.88,-32 1004.12,-32 1004.12,-4 868.88,-4"/>
-<polygon fill="#d73027" stroke="none" points="874.88,-10 874.88,-26 998.12,-26 998.12,-10 874.88,-10"/>
-<text xml:space="preserve" text-anchor="start" x="876.88" y="-14.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="white">Lemma 7 alternating path</text>
+<polygon fill="#f1a340" stroke="none" points="874.88,-10 874.88,-26 998.12,-26 998.12,-10 874.88,-10"/>
+<text xml:space="preserve" text-anchor="start" x="876.88" y="-14.25" font-family="Helvetica,sans-Serif" font-size="10.00">Lemma 7 alternating path</text>
 <polygon fill="none" stroke="black" points="1004.12,-4 1004.12,-32 1227.12,-32 1227.12,-4 1004.12,-4"/>
 <text xml:space="preserve" text-anchor="start" x="1012.12" y="-14.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#888888">&#45;</text>
 </g>
