@@ -2,6 +2,7 @@ from inventory import *
 inv=json.loads(read(O/'inventory.json'));c=bib(R/'papers/barnette.bib');m=bib(R/'paper/main/refs.bib')
 used={k for x in inv if x['file']=='paper/main/barnette.tex' for k in x.get('keys',[])}
 allused={k for x in inv for k in x.get('keys',[])}
+assert sum(x['file']=='digestions/atlas/atlas.tex' for x in inv)==30
 assert set(m)==used
 assert all(c[k]==v for k,v in m.items())
 assert allused<=c.keys()

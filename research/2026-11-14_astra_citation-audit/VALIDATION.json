@@ -1,6 +1,6 @@
 {
   "cite_commands": 63,
-  "contexts": 321,
+  "contexts": 351,
   "cited_keys": 23,
   "main_subset_entries": 17,
   "canonical_entries": 96,
@@ -13,6 +13,6 @@
     "paper/main/barnette.tex": "9f10fb5f24dbe663c2603abe8d91dcb315dcc76d40f06534f08cd6b4286c47db",
     "proofs/primal/primal.tex": "f22cf437e0899c417bd6271c9773241de2461a38b10a334461fea1dab8f0fb59",
     "proofs/involutions/involutions.tex": "2b68d93e7efdec6a9fc34a8c276246f7f2b7409f534850d444ee5875b65c7e62",
-    "proofs/sign-free/sign-free.tex": "88d5bb46f52381ad40150256cc99aae082b0cdfb9e6a479e1a63f68e47f98763"
+    "proofs/sign-free/sign-free.tex": "0c140184247bd3a1c26ca1b156f1548c9c2cac7ac24ab2a2be905715a1e87f46"
   }
 }

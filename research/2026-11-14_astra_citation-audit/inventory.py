@@ -12,6 +12,10 @@ if __name__=='__main__':
  for p in docs:
   if not p.exists():continue
   s=read(p)
+  if p.name=='atlas.tex':
+   for line_no,t in enumerate(s.splitlines(),1):
+    if re.match(r'^\d+ & ',t):records.append(dict(file=p.relative_to(R).as_posix(),line=line_no,kind='prose',context=t))
+   continue
   for m in re.finditer(r'\\cite\w*\*?(?:\[[^\]]*\])*\{([^}]+)\}',s):
    a=s.rfind('\n\n',0,m.start())+2;b=s.find('\n\n',m.end());b=len(s) if b<0 else b
    records.append(dict(file=p.relative_to(R).as_posix(),line=s[:m.start()].count('\n')+1,kind='cite',citation=m[0],keys=m[1].split(','),context=s[a:b]))

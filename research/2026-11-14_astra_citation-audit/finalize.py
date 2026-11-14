@@ -9,7 +9,7 @@ canonical.update({
   author = {Edmonds, Jack},
   title = {Edge-disjoint branchings},
   booktitle = {Combinatorial Algorithms},
-  editor = {Rustin, Randall},
+  editor = {Rustin, R.},
   publisher = {Academic Press},
   address = {New York},
   year = {1973},

@@ -1,7 +1,7 @@
 # Citation and library audit
 
 The four manuscripts contain 63 cite commands using 23 distinct keys; none is missing from the library.
-The ledger retains 321 citation contexts, including prose references and the atlas sources table.
+The ledger retains 351 citation contexts, including prose references and the atlas sources table.
 The main bibliography is an exact 17-entry subset of the 96-entry canonical bibliography; its PDF was rebuilt.
 All 50 research PDFs have rights records, totaling 49,808,134 bytes, and all held source PDF hashes are unchanged.
 Numbered literature checks passed, but some metadata fields and project-report claims remain unverified; this is not an exhaustive content clearance.
@@ -40,7 +40,7 @@ The PDF build used `pdflatex -interaction=nonstopmode -halt-on-error`, `bibtex`,
 
 ## What failed or remains open
 
-The deliverable is not a full independent verification of all 321 contexts. Project-report links, computation ranges, and review-status claims are inventoried, but many only received an existence check. The ledger says so. Those require the documents' owners or a further content audit. Opening a linked file and verifying its mathematical argument are different tasks.
+The deliverable is not a full independent verification of all 351 contexts. Project-report links, computation ranges, and review-status claims are inventoried, but many only received an existence check. The ledger says so. Those require the documents' owners or a further content audit. Opening a linked file and verifying its mathematical argument are different tasks.
 
 Metadata checking is also incomplete at field level. The current web pass attempted 63 lookups and obtained 49 responses; some publisher pages blocked access, and a successful response without citation fields is not certification. METADATA-AUDIT.md preserves this distinction and links prior publisher/Crossref evidence. Unverified fields were retained rather than replaced with guesses. Original Waterloo wording, several historical originals, and full redistribution permission for most research downloads remain unresolved.
 
@@ -67,3 +67,5 @@ The finalizer changes the authorized bibliography and index files; it is not a r
 1. Have document owners apply the provenance and decision-problem wording in TEXT-FIXES.md, then recheck citations against any changed theorem numbering.
 2. Finish the explicitly unverified project-report contexts and blocked metadata fields. Obtain an authorized copy of Waterloo p. 343 if exact original wording is needed.
 3. Ask the repository owner to decide retention of the research downloads using PDF-RIGHTS.md; keep only appropriately licensed canonical copies when preparing a public release.
+
+Final extraction includes all 30 atlas source-table rows as separate records. A validation check caught that the first extractor had skipped the table, and the extractor was corrected before handoff.

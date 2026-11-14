@@ -1729,7 +1729,7 @@ One half of the cover it produces is a rainbow tree, a selection whose arcs in $
 This already has the acyclicity that a good state needs and lacks only the face condition.
 ```
 
-### C101 proofs/sign-free/sign-free.tex:430
+### C101 proofs/sign-free/sign-free.tex:432
 
 Citation: `\cite{NashWilliams1964}`.
 
@@ -1742,7 +1742,7 @@ Edmonds \cite{Edmonds1973}, \cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: i
 The source states this for trees directed away from $\varrho$; reverse all arcs.
 ```
 
-### C102 proofs/sign-free/sign-free.tex:430
+### C102 proofs/sign-free/sign-free.tex:432
 
 Citation: `\cite[Exercise~10.29]{SchrijverCourse}`.
 
@@ -1755,7 +1755,7 @@ Edmonds \cite{Edmonds1973}, \cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: i
 The source states this for trees directed away from $\varrho$; reverse all arcs.
 ```
 
-### C103 proofs/sign-free/sign-free.tex:431
+### C103 proofs/sign-free/sign-free.tex:433
 
 Citation: `\cite{Edmonds1973}`.
 
@@ -1768,7 +1768,7 @@ Edmonds \cite{Edmonds1973}, \cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: i
 The source states this for trees directed away from $\varrho$; reverse all arcs.
 ```
 
-### C104 proofs/sign-free/sign-free.tex:431
+### C104 proofs/sign-free/sign-free.tex:433
 
 Citation: `\cite[pp.~1674 and 1685--1686]{SchrijverHandbook}`.
 
@@ -1781,7 +1781,7 @@ Edmonds \cite{Edmonds1973}, \cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: i
 The source states this for trees directed away from $\varrho$; reverse all arcs.
 ```
 
-### C105 proofs/sign-free/sign-free.tex:599
+### C105 proofs/sign-free/sign-free.tex:602
 
 Citation: `\cite{Expo}`.
 
@@ -1796,7 +1796,7 @@ Barnette's conjecture would follow by the remaining steps of \cite{Expo}, which 
 Theorem~\ref{thm:even} would then give a second good state.
 ```
 
-### C106 proofs/sign-free/sign-free.tex:611
+### C106 proofs/sign-free/sign-free.tex:614
 
 Citation: `\cite[Lemma~3.8]{Expo}`.
 
@@ -1914,7 +1914,7 @@ One half of the cover it produces is a rainbow tree, a selection whose arcs in $
 This already has the acyclicity that a good state needs and lacks only the face condition.
 ```
 
-### C115 proofs/sign-free/sign-free.tex:429
+### C115 proofs/sign-free/sign-free.tex:431
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
@@ -1925,7 +1925,7 @@ Edmonds \cite{Edmonds1973}, \cite[pp.~1674 and 1685--1686]{SchrijverHandbook}: i
 The source states this for trees directed away from $\varrho$; reverse all arcs.
 ```
 
-### C116 proofs/sign-free/sign-free.tex:443
+### C116 proofs/sign-free/sign-free.tex:445
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
@@ -1948,7 +1948,7 @@ So the complement in $H$ of each of them is the part of the single spokes that l
 \end{proof}
 ```
 
-### C117 proofs/sign-free/sign-free.tex:473
+### C117 proofs/sign-free/sign-free.tex:475
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
@@ -1966,7 +1966,7 @@ In a pair, the side of $t$ opposite $r(t)$ joins $s(t)$ and $u(t)$, and the side
 \end{proof}
 ```
 
-### C118 proofs/sign-free/sign-free.tex:490
+### C118 proofs/sign-free/sign-free.tex:492
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
@@ -1974,14 +1974,15 @@ Statement class: not verifiable in this pass. This context contains a project at
 \begin{proof}
 Merge the roots of $G_u$ into one vertex $\varrho$.
 By Lemma~\ref{lem:orient}, a splitting $F=\sigma\cup\sigma'$ into two rainbow trees is a partition of the arcs into two spanning trees directed towards $\varrho$.
-By the theorem of Edmonds these exist if at least two arcs leave every nonempty $Y\subseteq X$.
+Conversely two such trees without a common arc have $n$ arcs each, one out of every vertex of $X$, so they use all arcs and give a splitting.
+By the theorem of Edmonds they exist if at least two arcs leave every nonempty $Y\subseteq X$.
 Every vertex of $Y$ has outdegree two, so this says that at most $2|Y|-2$ arcs have both ends in $Y$.
 A face $t$ has such arcs only if $u(t)\in Y$, and then at most $j_t-1$ of them.
 By \eqref{eq:shortfall} and Lemma~\ref{lem:density} with $\rho(Y)=0$ their number is at most $e(Y)-b(Y)\le2|Y|-2$.
 \end{proof}
 ```
 
-### C119 proofs/sign-free/sign-free.tex:504
+### C119 proofs/sign-free/sign-free.tex:507
 
 Source attribution only. Rado1942: verified from a secondary source: Schrijver, A Course in Combinatorial Optimization, Exercise 10.26. Independent transversal iff every union of t sets has rank at least t. Original Rado not opened.
 
@@ -1994,7 +1995,7 @@ Rado's theorem gives an independent transversal, which is a spanning tree with t
 \end{proof}
 ```
 
-### C120 proofs/sign-free/sign-free.tex:624
+### C120 proofs/sign-free/sign-free.tex:627
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -3362,7 +3363,7 @@ COMPUTED link check: `../../research/2026-11-14_astra_referee-descent/REFEREE-in
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
 ```text
-`PROVED-HERE`, independently AI-refereed. [G.md](../../research/2026-11-14_astra_induction-lemmas/G.md), now checked in the [induction review](../../research/2026-11-14_astra_referee-descent/REFEREE-induction.md), proves G when there are no chordless five-cycles. Coloured disk curvature supplies a degree-four vertex, but may supply no good merge. The saved inward-selection failures prevent simply choosing the innermost obstruction. Next step: an uncrossing rule that survives those certificates.
+`PROVED-HERE`, AI-refereed by a fresh instance of the author's model with its own code, not by a different model. [G.md](../../research/2026-11-14_astra_induction-lemmas/G.md), checked in the [induction review](../../research/2026-11-14_astra_referee-descent/REFEREE-induction.md), proves G when there are no chordless five-cycles. Coloured disk curvature supplies a degree-four vertex, but may supply no good merge. The saved inward-selection failures prevent simply choosing the innermost obstruction. Next step: an uncrossing rule that survives those certificates.
 ```
 
 ### C229 digestions/steps/09-what-is-still-open.md:25
@@ -3434,7 +3435,7 @@ COMPUTED link check: `../../research/2026-11-14_sol_digest-fixes/numbers.json`, 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
 ```text
-`COMPUTED`, author campaign. The [descent report](../../research/2026-11-14_fable_descent/REPORT.md) checks all 193,623,384 pairs through $V=23$, all pairs of its random samples through $V=80$, and sampled starts through $V=200$. Three capped starts at $V=300$ remain undecided. The [completed independent review](../../research/2026-11-14_astra_referee-descent/REPORT.md) confirms C3 through $V=19$ and on all 335,704 pairs of a 40-graph $V=40$ batch. It supplies a complete radius-four witness at graph 3, root {10,16,11}, in [recovered40_0_40.json](../../research/2026-11-14_astra_referee-descent/code/recovered40_0_40.json); the originally selected $V=40$ line had radius three. Our [arithmetic check](../../research/2026-11-14_sol_digest-fixes/numbers.json) sums the census outputs; it does not repeat the large search.
+`COMPUTED`, author campaign. The [descent report](../../research/2026-11-14_fable_descent/REPORT.md) checks all 193,623,384 pairs through $V=23$, all pairs of its random samples through $V=80$, and sampled starts through $V=200$. Three capped starts at $V=300$ remain undecided. The [completed independent review](../../research/2026-11-14_astra_referee-descent/REPORT.md) confirms C3 on all 3,373,400 pairs at all roots through $V=20$ and on all 335,704 pairs of a 40-graph $V=40$ batch. It supplies a complete radius-four witness at graph 3, root {10,16,11}, in [recovered40_0_40.json](../../research/2026-11-14_astra_referee-descent/code/recovered40_0_40.json); the originally selected $V=40$ line had radius three. Our [arithmetic check](../../research/2026-11-14_sol_digest-fixes/numbers.json) sums the census outputs; it does not repeat the large search.
 ```
 
 ### C235 digestions/steps/09-what-is-still-open.md:47
@@ -3909,6 +3910,8 @@ COMPUTED link check: `../proofs/primal/primal.pdf`, target exists. Statement cla
 
 COMPUTED link check: `../proofs/involutions/involutions.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
+COMPUTED link check: `../proofs/sign-free/sign-free.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
 COMPUTED link check: `../proofs/blueprint/BLUEPRINT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
 COMPUTED link check: `../proofs/lean/README.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
@@ -3933,6 +3936,7 @@ COMPUTED link check: `../papers/INDEX.md`, target exists. Statement class: not v
 | [Main paper](../paper/main/barnette.pdf) | Version 2, 20 pages: target, corner choices, disk identity, signed count, first pair, gluing. Refereed in both versions. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is kept. |
 | [Primal companion](../proofs/primal/primal.pdf) | 15 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 pages. Li's argument for general $m$, written out as two sign-reversing involutions. Refereed twice. |
+| [Sign-free note](../proofs/sign-free/sign-free.pdf) | Being written at this snapshot. Step R, the pair it yields, and the evenness of the number of good states without signs. Opus refereed these results. |
 | [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean, with a status for each. Rebuilt on version 2 with the Lean audit's verdicts. The judgements are one model's reading. |
 | [Lean devices](../proofs/lean/README.md) | 866 lines of Lean on top of OpenAI's proof: the paper's sign, the cancellation in the case the proof uses, the finite difference and the nonvanishing step, with Lean's flow weights in place of heights. Rebuilt and audited by Astra. |
 | [Step digestions](steps/00-overview.md) | Eleven files with longer proofs, worked examples and failed alternatives for each step. Audited once. |
@@ -3943,7 +3947,7 @@ COMPUTED link check: `../papers/INDEX.md`, target exists. Statement class: not v
 | [Library](../papers/INDEX.md) | 87 sources with access status, and a bibliography. |
 ```
 
-### C263 digestions/SYNTHESIS.md:47
+### C263 digestions/SYNTHESIS.md:48
 
 COMPUTED link check: `../research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -3955,7 +3959,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **The disk identity as a face balance.** For a directed cycle of chosen sides, $W=B+1$: one more white face inside than black. It needs the state and is false for arbitrary cycles. Astra and Fable checked it in separate referee runs, and Sol checked its use in the main paper. [Combinatorics referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
 ```
 
-### C264 digestions/SYNTHESIS.md:49
+### C264 digestions/SYNTHESIS.md:50
 
 COMPUTED link check: `../research/2026-11-14_opus_review-draft-A/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -3967,7 +3971,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **A sign made of local signs.** Put $\epsilon(r,s)=\prod_t\delta(r(t),s(t))$, where $\delta$ is $+1$ when the black face lies to the left of the arrow. It replaces the complex phase $i^J$ up to the constant $i^{-n}$. Opus and Fable each found it while reviewing a draft, Sol checked it in the merged paper, and it now compiles in Lean. [Draft A review](../research/2026-11-14_opus_review-draft-A/REPORT.md), [draft B review](../research/2026-11-14_fable_review-draft-B/REPORT.md)
 ```
 
-### C265 digestions/SYNTHESIS.md:51
+### C265 digestions/SYNTHESIS.md:52
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -3979,7 +3983,7 @@ COMPUTED link check: `../research/2026-11-14_sol_referee-main/REPORT.md`, target
 **Heights along paths of faces.** Fix a path of faces from every white face to $t_0$, and count with sign the black faces where the path turns around the chosen corner. Reversing a clockwise cycle raises the total by the number of white faces inside. This removes the spokes and the sliding argument of the OpenAI paper. Fable supplied the construction and Sol checked it in the merged paper. [Draft B review](../research/2026-11-14_fable_review-draft-B/REPORT.md), [main referee](../research/2026-11-14_sol_referee-main/REPORT.md)
 ```
 
-### C266 digestions/SYNTHESIS.md:53
+### C266 digestions/SYNTHESIS.md:54
 
 COMPUTED link check: `../research/2026-11-14_opus_blueprint/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -3991,7 +3995,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **A finite difference in place of the exponential.** The $2^c$ orientations of a cover with $c$ cycles form a cube. The alternating sum of $\omega^m$ over it vanishes when $c>m$ and is a signed product of white-face counts when $c=m$. Sol checked the proof, and Opus then proved the lemma in Lean. A second form uses linear weights and one integer polynomial. Astra found it, Fable refereed it, and the Lean proof uses the same device. With our signed heights, $\sum\epsilon z^{\omega(s)}$ is a Laurent polynomial. Version 1 called it a polynomial and version 2 corrects that. [Blueprint report](../research/2026-11-14_opus_blueprint/REPORT.md), [determinant referee](../research/2026-11-14_fable_referee-determinants/REPORT.md)
 ```
 
-### C267 digestions/SYNTHESIS.md:55
+### C267 digestions/SYNTHESIS.md:56
 
 COMPUTED link check: `../research/2026-11-14_fable_review-draft-B/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4001,7 +4005,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Connectivity inside a cycle.** Euler's formula needs a connected plane graph. Both drafts applied it to the inside of a cycle without proof. Fable supplied a five-line lemma, and Sol checked that the repair is not circular. [Draft B review](../research/2026-11-14_fable_review-draft-B/REPORT.md)
 ```
 
-### C268 digestions/SYNTHESIS.md:57
+### C268 digestions/SYNTHESIS.md:58
 
 Source attribution only. Anonymous2026: verified by opening the source: Supplied unsigned PDF, dated 18 October 2026, title page has no author. Theorem 1.1 p. 1 gives enumeration bound; Theorem 1.2 p. 2 gives pair/black-inner obstruction/tree equivalence; Proposition 2.1 gives incidence-tree criterion; Lemma 5.1 integer weights; Theorem 5.3 pp. 10-11 gives the marked walk, with a different runtime. No author or public publication claimed.
 
@@ -4011,7 +4015,7 @@ COMPUTED link check: `../research/2026-11-14_sol_referee-structure/INTEGRATION.m
 **An exact criterion for the first pair.** The constructive manuscript states that a pair exists exactly when no separating triangle has black faces along its inner side, the side away from $t_0$. Opus proved it from one Euler identity for induced subgraphs, and Sol checked both directions. So gluing is needed only at such triangles. [Integration, sections 1 and 2](../research/2026-11-14_sol_referee-structure/INTEGRATION.md)
 ```
 
-### C269 digestions/SYNTHESIS.md:59
+### C269 digestions/SYNTHESIS.md:60
 
 COMPUTED link check: `../research/2026-11-14_sol_referee-structure/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4021,7 +4025,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Which cycles the construction finds.** For fixed $t_0$ and $e_0$, different good states give different Hamiltonian cycles, and some cycles are missed. A cycle avoiding the edge yields a state, and the construction finds the cycle exactly when that state is good. Otherwise the state has no partner. On the hexagonal prism with $e_0$ on the equator there are three states, two of them good, and four cycles avoiding the edge. Astra and Fable proved this and Sol checked it. [Structure referee](../research/2026-11-14_sol_referee-structure/REPORT.md)
 ```
 
-### C270 digestions/SYNTHESIS.md:61
+### C270 digestions/SYNTHESIS.md:62
 
 COMPUTED link check: `../research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4033,7 +4037,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Counts.** Write $g$ for the number of good states at a root, $\#TM$ in the reports, and $h$ for the number of Hamiltonian cycles of $G$. Then $3g\le h$ and $g\ge 2m$. Fable proved both and Astra checked them. In $G$, a cover is an edge set $S$ with prescribed local degrees, and its number of cycles is $\kappa(G-S)-1$, one less than the number of components. Astra proved this and Sol checked it. $S$ is not the matching that the proof deletes. [Combinatorics referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 ```
 
-### C271 digestions/SYNTHESIS.md:63
+### C271 digestions/SYNTHESIS.md:64
 
 COMPUTED link check: `../research/2026-11-14_sol_referee-covers/REFEREE-families.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4045,7 +4049,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Families.** The prism over a $2j$-gon has $2j+2$ Hamiltonian cycles, so no exponential lower bound in the number of vertices holds for the whole class. A graph with $b$ irreducible pieces has at least $2^b$ cycles avoiding any given edge and at least $3\cdot2^b$ in all. The cube has six, so six is sharp. Sol proved these. The first referee was a second Sol run. Fable, a different model, then replayed every number it could reach and found the proofs correct. [Families referee, F1 and F5](../research/2026-11-14_sol_referee-covers/REFEREE-families.md), [different-model referee](../research/2026-11-14_fable_referee-families/INTEGRATION.md)
 ```
 
-### C272 digestions/SYNTHESIS.md:65
+### C272 digestions/SYNTHESIS.md:66
 
 COMPUTED link check: `../research/2026-11-14_astra_older-approaches/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4057,7 +4061,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Two smaller points.** To force a cycle through an edge at a cubic vertex, avoid another edge at that vertex. And the signed count is one coefficient of an integer determinant, whose positivity restates the theorem without proving it. [Older approaches](../research/2026-11-14_astra_older-approaches/REPORT.md), [determinant referee](../research/2026-11-14_fable_referee-determinants/REPORT.md)
 ```
 
-### C273 digestions/SYNTHESIS.md:69
+### C273 digestions/SYNTHESIS.md:70
 
 COMPUTED link check: `../research/2026-11-14_fable_dependency-graph/skeleton.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4067,7 +4071,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 The dependency audit found no error in any of the three papers and one shared skeleton of fourteen steps, from the dual and its root through the first pair, the disk identity, the two cancellations and the recovery to gluing. [Skeleton](../research/2026-11-14_fable_dependency-graph/skeleton.md)
 ```
 
-### C274 digestions/SYNTHESIS.md:71
+### C274 digestions/SYNTHESIS.md:72
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -4083,7 +4087,7 @@ Source attribution only. Li2026: verified by opening the source: Supplied PDF/ar
 | Recovery | Tree on white faces, two induced trees | Connected complement in $G$ | Incidence tree and rooted selection |
 ```
 
-### C275 digestions/SYNTHESIS.md:79
+### C275 digestions/SYNTHESIS.md:80
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -4101,7 +4105,7 @@ COMPUTED link check: `../research/2026-11-14_opus_referee-involutions/REPORT.md`
 The papers differ in substance at four steps: how the first pair is found, the weights, the nonvanishing count, and the last step to one cycle. The [correspondence table](../research/2026-11-14_fable_dependency-graph/correspondence.md) gives exact translations, including the two conflicting uses of the letter $H$. OpenAI's paper and the constructive manuscript close as written. Li's note closes once four routine steps are supplied, the balance count for Ore's theorem and three checks in Appendix B. The involution companion writes out Li's general argument. It is Li's proof unpacked, not a new route. [Dependency report](../research/2026-11-14_fable_dependency-graph/REPORT.md), [involution referee](../research/2026-11-14_opus_referee-involutions/REPORT.md)
 ```
 
-### C276 digestions/SYNTHESIS.md:81
+### C276 digestions/SYNTHESIS.md:82
 
 COMPUTED link check: `../research/2026-11-14_opus_lean-formalisation/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4111,7 +4115,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 The Lean proof never uses faces or the Jordan curve theorem. It turns a drawing into an algebraic dual, treats the inside of a cycle as one shore of a bond of $G$, uses one flow and linear polynomial factors, recovers the cycle in $G$, and runs its induction on the avoided edge. It never states the two-induced-trees theorem and does not formalise the Pfaffian corollary. Opus built its 31 files, 8,936 lines, locally. The build prints only `propext`, `Classical.choice` and `Quot.sound`. [Lean report](../research/2026-11-14_opus_lean-formalisation/REPORT.md)
 ```
 
-### C277 digestions/SYNTHESIS.md:83
+### C277 digestions/SYNTHESIS.md:84
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -4125,7 +4129,7 @@ COMPUTED link check: `../proofs/blueprint/BLUEPRINT.md`, target exists. Statemen
 Opus then wrote 866 lines of Lean on top of that build, and Astra, a different model, rebuilt them from a fresh clone and audited each of the 29 theorems against the paper. What is checked, in Lean's algebraic model of the dual: the sign as a product of local signs with both reversals and its closed formula; the relation $\epsilon = i^n$ times OpenAI's phase; the cancellation, but only in the case where no pair has an acyclic $Q_s$, which is all the existence proof uses; the finite difference; and the nonvanishing step by $\epsilon\,\omega^m$, with Lean's flow weights as $\omega$ and not the paper's heights along paths of faces. With these, OpenAI's main theorem rebuilds unchanged on the three standard axioms, and Astra's own dependency walk confirms that it no longer reaches the six phase and polynomial lemmas it replaced. It still reaches general polynomial algebra from Mathlib through the unchanged dual construction. Not checked: the heights, Lemma 4.5 in full with the partner of a good state, the topological Lemma 2.2, the two induced trees, and the drawing itself. Astra also showed that one proposed target, that every Hamiltonian cycle avoiding the edge comes from a good state, is false on the hexagonal prism. The paper never claimed it. The blueprint, rebuilt on version 2 with these verdicts, counts the 34 route statements as 5 exact, 17 after an unformalised translation, 10 weaker or different and 2 without a counterpart. [Lean README](../proofs/lean/README.md), [independent check](../research/2026-11-14_astra_lean-check/REPORT.md), [blueprint](../proofs/blueprint/BLUEPRINT.md)
 ```
 
-### C278 digestions/SYNTHESIS.md:87
+### C278 digestions/SYNTHESIS.md:88
 
 COMPUTED link check: `route-map/ROUTE-MAP.md`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4135,7 +4139,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 Sizes count vertices of $T$ unless marked primal. "First" means an exhaustive search found nothing smaller. "Witness" claims no minimality. The [route map](route-map/ROUTE-MAP.md) lists every refutation.
 ```
 
-### C279 digestions/SYNTHESIS.md:89
+### C279 digestions/SYNTHESIS.md:90
 
 Source attribution only. Stein1971: verified by opening the source: Held publisher scan, Theorem 2.2, printed p. 218, PDF p. 3, states the region-cycle B-set equivalence. Two-induced-trees wording is supplied by Alt Lemma 5, not quoted as Stein verbatim.
 
@@ -4192,7 +4196,7 @@ COMPUTED link check: `../research/2026-11-14_astra_route-pfaffian/REPORT.md`, ta
 | Non-planar | The Pfaffian corollary follows from the theorem through Gorsky, Steiner and Wiederrecht. | On the Heawood graph, 14 primal vertices, the cancellation survives but the count is zero. A direct proof is open. Not reviewed. [Report](../research/2026-11-14_astra_route-pfaffian/REPORT.md) |
 ```
 
-### C280 digestions/SYNTHESIS.md:102
+### C280 digestions/SYNTHESIS.md:103
 
 COMPUTED link check: `synthesis-figures/route-outcomes.png`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4202,21 +4206,21 @@ Statement class: not verifiable in this pass. This context contains a project at
 ![Route records by kind and recorded status](synthesis-figures/route-outcomes.png)
 ```
 
-### C281 digestions/SYNTHESIS.md:104
+### C281 digestions/SYNTHESIS.md:105
 
 COMPUTED link check: `synthesis-figures/route-outcomes.pdf`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
 COMPUTED link check: `route-map/routes.py`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
-COMPUTED link check: `../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+COMPUTED link check: `../research/2026-11-14_opus_reconcile/synthesis-audit/count.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
 ```text
-[Vector PDF](synthesis-figures/route-outcomes.pdf). The chart counts the records of [routes.py](route-map/routes.py). Keyword rules in [count.py](../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py), copied from Fable's audit, give each record one kind, and the kinds overlap, so the rows are a rough guide. "Proved" joins source arguments and proofs written here, reviewed or not. "Open" joins conjectures and hunches.
+[Vector PDF](synthesis-figures/route-outcomes.pdf). The chart counts the records of [routes.py](route-map/routes.py). Keyword rules in [count.py](../research/2026-11-14_opus_reconcile/synthesis-audit/count.py), copied from Fable's audit, give each record one kind, and the kinds overlap, so the rows are a rough guide. "Proved" joins source arguments and proofs written here, reviewed or not. "Open" joins conjectures and hunches.
 ```
 
-### C282 digestions/SYNTHESIS.md:110
+### C282 digestions/SYNTHESIS.md:111
 
 COMPUTED link check: `../research/2026-11-14_opus_two-tree-packing/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4228,7 +4232,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 Each half of the target is easy inside any cover. Opus's packing report proves that every cover contains a spanning tree of the white faces that meets the degree condition at the black faces, and another that meets it at the vertices. It even splits a cover into two trees of the second kind. A good state needs both conditions in one tree. A fresh instance of the same model refereed these proofs with its own code. [Packing report](../research/2026-11-14_opus_two-tree-packing/REPORT.md), [referee](../research/2026-11-14_opus_referee-rainbow/REFEREE-packing.md)
 ```
 
-### C283 digestions/SYNTHESIS.md:112
+### C283 digestions/SYNTHESIS.md:113
 
 COMPUTED link check: `../research/2026-11-14_sol_referee-structure/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4240,7 +4244,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 A 16-vertex cover contains no good state. No reorientation of its cycles helps. The midpoint $(r+s)/2$ of any of its pairs satisfies the linear program and lies outside the convex hull of good states. So a method must sometimes leave the cover it started in. Choosing a canonical cover fails too, by the lattice counterexamples at 18 and 33. The signed count compares all covers at once and cancels the bad second states among them. Nothing we tried does that without signs. The refutations rule out named shortcuts, not every unsigned proof. [Structure referee](../research/2026-11-14_sol_referee-structure/REPORT.md), [lattice referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md)
 ```
 
-### C284 digestions/SYNTHESIS.md:116
+### C284 digestions/SYNTHESIS.md:117
 
 COMPUTED link check: `../research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4252,7 +4256,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 1. **Close the induction without the signed count.** Contract at a vertex of degree four. Lemma G asks that, without separating triangles and above 6 vertices, some such contraction stays simple and keeps a pair. It holds on all 62,416 rooted instances from 8 to 19 vertices. Lemma X asks, when both contractions at a vertex have good states, that some good state of a contraction is not exceptional, which gives a good state before contraction. The stronger inequality, that contraction never increases the number of good states, holds on 1,202,792 contractions through 18 vertices. Astra's later report proves G when there is no chordless 5-cycle and shows that every repair confined to one cover fails. The next step is a move that changes the cover. [Missing lemmas](../research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md), [later report](../research/2026-11-14_astra_induction-lemmas/REPORT.md)
 ```
 
-### C285 digestions/SYNTHESIS.md:118
+### C285 digestions/SYNTHESIS.md:119
 
 COMPUTED link check: `../research/2026-11-14_sol_referee-conjectures/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4264,7 +4268,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 2. **Prove at least $2^m$ good states.** It holds on all 4,656,948 rooted instances with a pair through 22 vertices, computed by Opus and reproduced by Sol with separate code. Astra's census without separating triangles reports no failure on 23,824,742 rooted faces through 24 vertices, and Sol replayed it through 16. The cases of one cover and of two covers are proved and refereed. Explicit families attain equality for every $m$, and $m$ is unbounded even without separating triangles. The next step is the two-cover calculation for more covers. An induction on levels with a fixed number of cycles cannot work, because such levels can be disconnected. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 ```
 
-### C286 digestions/SYNTHESIS.md:120
+### C286 digestions/SYNTHESIS.md:121
 
 COMPUTED link check: `../research/2026-11-14_fable_descent/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4280,7 +4284,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 193,623,384 pairs through 23 vertices and on 230 random triangulations up to 80. Astra's referee reproduced it with its own code on all 3,373,400 pairs through 20 vertices and on a 40-graph batch at 40. Every sharper rule fails: strict descent first at 16, a lookahead of two moves first at 21, a lookahead of three at a 40-vertex witness, and each of 27 named alternative potentials. Rainbow descent says the same for exchanges on rainbow trees. Fable checked it for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Opus repeated it through 12 and finished seven more triangulations at 18, which leaves 51 unfinished. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [descent referee](../research/2026-11-14_astra_referee-descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md), [rainbow referee](../research/2026-11-14_opus_referee-rainbow/REPORT.md)
 ```
 
-### C287 digestions/SYNTHESIS.md:122
+### C287 digestions/SYNTHESIS.md:123
 
 COMPUTED link check: `../research/2026-11-14_sol_referee-conjectures/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4292,7 +4296,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 4. **Find a polynomial-time construction.** Testing one orientation of a cover is linear. Finding a good one among all covers has no polynomial bound. Sampling states at random cannot work in general, because good states can be exponentially rare even without separating triangles. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [families](../research/2026-11-14_sol_counting-families/REPORT.md)
 ```
 
-### C288 digestions/SYNTHESIS.md:124
+### C288 digestions/SYNTHESIS.md:125
 
 COMPUTED link check: `../research/2026-11-14_astra_route-pfaffian/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4302,7 +4306,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 5. **Prove the non-planar statement directly.** The Pfaffian corollary rests on the planar theorem and a structure theorem. Start from the Heawood graph, where the count vanishes. [Pfaffian report](../research/2026-11-14_astra_route-pfaffian/REPORT.md)
 ```
 
-### C289 digestions/SYNTHESIS.md:126
+### C289 digestions/SYNTHESIS.md:127
 
 COMPUTED link check: `../proofs/blueprint/FORMALISATION.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4312,7 +4316,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 6. **Finish formalising our route.** The sign and the counting step are done and independently rebuilt. Section 4 as written still needs the bridge from the paper's heights to Lean's flow weights and Lemma 4.5 in full, about 530 to 1,010 Lean lines by Opus's estimate. The connectivity lemma needs a Jordan curve theorem, which Mathlib lacks. The paper could drop the two induced trees by gluing matchings as Lean does. [What remains](../proofs/blueprint/FORMALISATION.md)
 ```
 
-### C290 digestions/SYNTHESIS.md:132
+### C290 digestions/SYNTHESIS.md:133
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -4357,7 +4361,7 @@ COMPUTED link check: `../papers/INDEX.md`, target exists. Statement class: not v
 10. The OpenAI proof is a preprint that no journal has refereed. A third party reports that two Lean kernels accept the formal proof, and our two builds, Opus's and Astra's fresh one, agree.
 ```
 
-### C291 digestions/SYNTHESIS.md:145
+### C291 digestions/SYNTHESIS.md:146
 
 COMPUTED link check: `../research/2026-11-14_astra_exposition-method/STYLE-GUIDE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4369,7 +4373,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 The lessons come from a study of an earlier rewrite of another paper and its [style guide](../research/2026-11-14_astra_exposition-method/STYLE-GUIDE.md) of 22 rules. [History of that rewrite](../research/2026-11-14_astra_exposition-method/HOW-THE-REWRITE-WORKED.md)
 ```
 
-### C292 digestions/SYNTHESIS.md:158
+### C292 digestions/SYNTHESIS.md:159
 
 COMPUTED link check: `../research/2026-11-14_fable_coldread-main/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4381,7 +4385,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 The merge followed these, and a cold reader still found the opening overloaded, three steps without their reason, and nine of thirteen floats cutting into a proof or a sentence. Version 2 answers that list with a five-step plan on page 1 and every figure placed outside proofs. [Cold read](../research/2026-11-14_fable_coldread-main/REPORT.md), [version 2 report](../research/2026-11-14_astra_main-revision/REPORT.md)
 ```
 
-### C293 digestions/SYNTHESIS.md:164
+### C293 digestions/SYNTHESIS.md:165
 
 Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
 
@@ -4411,7 +4415,7 @@ Source attribution only. OpenAI2026: verified by opening the source: Supplied PD
 | This synthesis | Astra | Fable | |
 ```
 
-### C294 digestions/SYNTHESIS.md:190
+### C294 digestions/SYNTHESIS.md:191
 
 COMPUTED link check: `../research/2026-11-14_opus_cross-audit/ADJUDICATION.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4421,7 +4425,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 **Real sign against Lean's phase.** The primal referee warned that the two differ by a factor depending on the number of cycles. The reviser disagreed. Opus adjudicated for the reviser. The ratio is the constant $i^n$, or $i^{-n}$ if the corner order is reversed. The referee's formula was right and simplifies to that constant. Opus proved it, checked 24,856 pairs with its own code, and later proved it in Lean. Astra rebuilt that Lean proof and checked the identity again on 174,763 sign words. [Adjudication](../research/2026-11-14_opus_cross-audit/ADJUDICATION.md)
 ```
 
-### C295 digestions/SYNTHESIS.md:192
+### C295 digestions/SYNTHESIS.md:193
 
 Source attribution only. Li2026: verified by opening the source: Supplied PDF/arXiv 2610.30490v1. Lemma 9 pp. 3-4; Claim 12 p. 4; Section 4 definitions and one-mark maps pp. 4-8; Claim 25 p. 8; Definition 28 and Lemma 30 in Section 6; Lemmas 34-35 p. 11; Appendix B sketches the generalization; Appendix C pp. 12-13. The project correctly distinguishes its full multi-mark proof from the sketch.
 
@@ -4433,7 +4437,7 @@ COMPUTED link check: `../research/2026-11-14_fable_referee-involutions-v2/REPORT
 **279 against 213 marked objects.** Two runs counted Li's marked objects on the running example and disagreed. Opus reproduced both. They use the same input and two drawings that swap the positions of roots 4 and 5. The count depends on the drawing: 69 drawings give 35 values from 103 to 363. The signed sum, $-9$, and the number of surviving objects, nine, never change. The same referee found one wrong sign in a side formula, for odd $m$, and the revision corrects it. [Discrepancy note](../research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md), [second referee](../research/2026-11-14_fable_referee-involutions-v2/REPORT.md)
 ```
 
-### C296 digestions/SYNTHESIS.md:194
+### C296 digestions/SYNTHESIS.md:195
 
 COMPUTED link check: `../research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4445,20 +4449,20 @@ Statement class: not verifiable in this pass. This context contains a project at
 **First failures.** A search that identifies mirror images cannot report first sizes for claims that depend on orientation. Counting reflections moved two counterexamples down to 12 vertices. Several saved "lattice extremes" were only greedy end points, and the true extremes fail together first at 18. [Combinatorics referee](../research/2026-11-14_astra_referee-combinatorics/REPORT.md), [structure referee](../research/2026-11-14_sol_referee-structure/REPORT.md)
 ```
 
-### C297 digestions/SYNTHESIS.md:198
+### C297 digestions/SYNTHESIS.md:199
 
-COMPUTED link check: `../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+COMPUTED link check: `../research/2026-11-14_opus_reconcile/synthesis-audit/count.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
-COMPUTED link check: `../research/2026-11-14_opus_lean-integration/synthesis-audit/counts.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+COMPUTED link check: `../research/2026-11-14_opus_reconcile/synthesis-audit/counts.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
 ```text
 <!-- inventory-start -->
-The inventory was taken at 2026-11-14 14:18 UTC by [count.py](../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_opus_lean-integration/synthesis-audit/counts.json). It counts folders and files. It reruns no census.
+The inventory was taken at 2026-11-14 14:35 UTC by [count.py](../research/2026-11-14_opus_reconcile/synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_opus_reconcile/synthesis-audit/counts.json). It counts folders and files. It reruns no census.
 ```
 
-### C298 digestions/SYNTHESIS.md:203
+### C298 digestions/SYNTHESIS.md:204
 
 COMPUTED link check: `../paper/main/barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4482,7 +4486,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 | [Atlas](atlas/atlas.pdf) | 34 |
 ```
 
-### C299 digestions/SYNTHESIS.md:214
+### C299 digestions/SYNTHESIS.md:215
 
 COMPUTED link check: `../research/2026-11-14_astra_synthesis/EVIDENCE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4492,7 +4496,7 @@ Statement class: not verifiable in this pass. This context contains a project at
 The censuses cover different populations and must not be added up. The numbers are quoted from the reports, not rerun. [Ledger of computations](../research/2026-11-14_astra_synthesis/EVIDENCE.md)
 ```
 
-### C300 digestions/SYNTHESIS.md:235
+### C300 digestions/SYNTHESIS.md:236
 
 COMPUTED link check: `../research/2026-11-14_sol_machinery-literature/pdf/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
@@ -4680,8 +4684,10 @@ Source attribution only. OpenAI2026: verified by opening the source: Supplied PD
 
 COMPUTED link check: `../../proofs/lean/README.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
 
+COMPUTED link check: `../../research/2026-11-14_opus_lean-integration/STATUS-TABLE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
 ```text
-The phase ratio is the constant i^n. The author has compiled the real-sign lemma, finite-difference nonvanishing and a replacement main theorem on the OpenAI Lean development. Its dependency closure excludes the complex phase and polynomial. Independent rebuild and statement check are pending. The paper's path heights versus formal flow weights and several topological translations remain separate obligations. See [the devices](../../proofs/lean/README.md). Do not read the earlier blueprint's 4/25/5 coverage count as a current tally of these additions.
+The phase ratio is the constant i^n. Opus compiled the real sign, the finite-difference nonvanishing and a replacement main theorem on the OpenAI Lean development, and Astra rebuilt and audited them from a fresh clone. The rebuilt main theorem no longer reaches the six named phase and polynomial lemmas of OpenAI's nonvanishing step. It still reaches general Mathlib polynomial algebra through the unchanged dual construction, so "no polynomial" means only those six lemmas. The paper's path heights versus formal flow weights, Lemma 4.5 in full and the topological translations remain open. The final blueprint counts the 34 route statements as 5 exact, 17 after translation, 10 weaker or different and 2 with no counterpart. See [the devices](../../proofs/lean/README.md) and [the status table](../../research/2026-11-14_opus_lean-integration/STATUS-TABLE.md).
 ```
 
 ### C320 digestions/route-map/HOW-IT-WORKS.md:145
@@ -4689,7 +4695,7 @@ The phase ratio is the constant i^n. The author has compiled the real-sign lemma
 Source attribution only. Rado1942: verified from a secondary source: Schrijver, A Course in Combinatorial Optimization, Exercise 10.26. Independent transversal iff every union of t sets has rank at least t. Original Rado not opened.
 
 ```text
-Rainbow Step R is proved, unreviewed, by Rado and Euler. Every rainbow tree has a unique incidence-factor completion, so R also constructs a pair. Resident eviction gives n fixed-point-free involutions on good states, a sign-free explanation of evenness. Step X remains open: all rootings through V=17, all rootings of 1,485 of 1,543 triangulations at V=18, and samples to V=120 pass. Its plateau search has no polynomial bound. The eviction walk alone cycles at V=38.
+Rainbow Step R is proved by Rado and Euler and refereed by Opus. Every rainbow tree has a unique incidence-factor completion, so R also constructs a pair. Resident eviction gives n fixed-point-free involutions on good states, so their number is even without signs; the same referee accepts it. Step X remains open: all rootings through V=17, all rootings of 1,485 of 1,543 triangulations at V=18, and samples to V=120 pass. The referee repeated it through V=12 and finished seven more graphs at V=18. Its plateau search has no polynomial bound. The eviction walk alone cycles at V=38.
 ```
 
 ### C321 digestions/route-map/HOW-IT-WORKS.md:149
@@ -4699,5 +4705,551 @@ COMPUTED link check: `../../research/2026-11-14_fable_descent/COMPLEXITY.md`, ta
 Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
 
 ```text
-C3 is still a conjecture. The new author census checks every pair through V=22 and every pair of 230 random triangulations at V=26..80. Earlier independent reachability checks stop at 16. Strict q descent fails first at 16, lookahead two first at 21, and lookahead three at 40, not known least. Height tie-breaks also fail. The new conditional PPADS reduction asks for a sink; extra sources prevent the obvious PPAD argument. C3 alone does not give a PLS formulation or a polynomial algorithm. See [the qualified complexity discussion](../../research/2026-11-14_fable_descent/COMPLEXITY.md).
+C3 is still a conjecture. The author census checks every pair through V=23 and every pair of 230 random triangulations at V=26..80. The independent descent referee repeats it on all 3,373,400 pairs through V=20 and a 40-graph batch at V=40. Strict q descent fails first at 16, lookahead two first at 21, confirmed by two programs, and lookahead three at 40, not known least. Height tie-breaks also fail. The new conditional PPADS reduction asks for a sink; extra sources prevent the obvious PPAD argument. C3 alone does not give a PLS formulation or a polynomial algorithm. See [the qualified complexity discussion](../../research/2026-11-14_fable_descent/COMPLEXITY.md).
+```
+
+### C322 digestions/atlas/atlas.tex:146
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/route-map/ROUTE-MAP.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+1 & The chain & \path{papers/OpenAI-Barnette.pdf}, Sections 3 to 7; \path{digestions/route-map/ROUTE-MAP.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C323 digestions/atlas/atlas.tex:147
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `toolkit/check.py`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+2 & Two states & \path{papers/OpenAI-Barnette.pdf}, Proposition 3.1, Section 7; \path{toolkit/check.py} (cut inequality for all subsets); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C324 digestions/atlas/atlas.tex:148
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REWRITTEN-PROP-5-1.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-topology/TOPOLOGY.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+3 & Disk identity & \path{papers/OpenAI-Barnette.pdf}, Lemma 4.1; \path{research/2026-11-14_astra_referee-combinatorics/REWRITTEN-PROP-5-1.md}; \path{research/2026-11-14_opus_route-topology/TOPOLOGY.md}, Section 2; \path{research/2026-11-14_fable_referee-topology/REFEREE.md}, parts a and b; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C325 digestions/atlas/atlas.tex:149
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+4 & Heights & \path{research/2026-11-14_astra_referee-combinatorics/REFEREE.md}; \path{research/2026-11-14_fable_referee-topology/REPORT.md} (height as winding number); computed by \path{digestions/atlas/build.py} (lib.py: heights)\\[.6mm]
+```
+
+### C326 digestions/atlas/atlas.tex:150
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `group_data`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+5 & Exponential sum & \path{papers/OpenAI-Barnette.pdf}, Proposition 5.1, Lemmas 5.2 and 5.3; computed by \path{digestions/atlas/build.py} (lib.py: term, \path{group_data})\\[.6mm]
+```
+
+### C327 digestions/atlas/atlas.tex:151
+
+Source attribution only. Anonymous2026: verified by opening the source: Supplied unsigned PDF, dated 18 October 2026, title page has no author. Theorem 1.1 p. 1 gives enumeration bound; Theorem 1.2 p. 2 gives pair/black-inner obstruction/tree equivalence; Proposition 2.1 gives incidence-tree criterion; Lemma 5.1 integer weights; Theorem 5.3 pp. 10-11 gives the marked walk, with a different runtime. No author or public publication claimed.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `papers/barnette_trees.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+6 & Integer polynomial & \path{research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md}, Section 2; \path{papers/barnette_trees.pdf} (signed integer polynomial); computed by \path{digestions/atlas/build.py} (lib.py: Fpoly)\\[.6mm]
+```
+
+### C328 digestions/atlas/atlas.tex:152
+
+Source attribution only. Li2026: verified by opening the source: Supplied PDF/arXiv 2610.30490v1. Lemma 9 pp. 3-4; Claim 12 p. 4; Section 4 definitions and one-mark maps pp. 4-8; Claim 25 p. 8; Definition 28 and Lemma 30 in Section 6; Lemmas 34-35 p. 11; Appendix B sketches the generalization; Appendix C pp. 12-13. The project correctly distinguishes its full multi-mark proof from the sketch.
+
+COMPUTED link check: `papers/A-Note-On-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/involutions/INVOLUTIONS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_referee-involutions/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-involutions-v2/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_atlas-audit/code/proposed.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `figs_chain.py:`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+7 & Involutions & \path{papers/A-Note-On-Barnette.pdf}, Definitions 13 to 23, Appendix B; \path{proofs/involutions/INVOLUTIONS.md} (both pairings in full); \path{research/2026-11-14_opus_referee-involutions/REPORT.md}; \path{research/2026-11-14_fable_referee-involutions-v2/REPORT.md}; \path{research/2026-11-14_sol_atlas-audit/code/proposed.py} (ray panel proposed there; recomputed here); \path{research/2026-11-14_fable_referee-topology/REFEREE.md}, part d (Morse reading); computed by \path{digestions/atlas/build.py} (\path{figs_chain.py:} crossing parity asserted on all 176 pair, cycle, white-face triples)\\[.6mm]
+```
+
+### C329 digestions/atlas/atlas.tex:153
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+Source attribution only. Anonymous2026: verified by opening the source: Supplied unsigned PDF, dated 18 October 2026, title page has no author. Theorem 1.1 p. 1 gives enumeration bound; Theorem 1.2 p. 2 gives pair/black-inner obstruction/tree equivalence; Proposition 2.1 gives incidence-tree criterion; Lemma 5.1 integer weights; Theorem 5.3 pp. 10-11 gives the marked walk, with a different runtime. No author or public publication claimed.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `papers/barnette_trees.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `toolkit/model.py`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+8 & Recovery & \path{papers/OpenAI-Barnette.pdf}, Section 6; \path{papers/barnette_trees.pdf} (recovery criterion); \path{toolkit/model.py} (recover); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C330 digestions/atlas/atlas.tex:154
+
+Source attribution only. Li2026: verified by opening the source: Supplied PDF/arXiv 2610.30490v1. Lemma 9 pp. 3-4; Claim 12 p. 4; Section 4 definitions and one-mark maps pp. 4-8; Claim 25 p. 8; Definition 28 and Lemma 30 in Section 6; Lemmas 34-35 p. 11; Appendix B sketches the generalization; Appendix C pp. 12-13. The project correctly distinguishes its full multi-mark proof from the sketch.
+
+COMPUTED link check: `papers/A-Note-On-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/primal/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_primal-proof/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-primal/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_lean-formalisation/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_cross-audit/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+9 & Primal picture & \path{papers/A-Note-On-Barnette.pdf}; \path{proofs/primal/}; \path{research/2026-11-14_astra_primal-proof/}; \path{research/2026-11-14_fable_referee-primal/}; \path{research/2026-11-14_opus_lean-formalisation/REPORT.md}; \path{research/2026-11-14_opus_cross-audit/}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C331 digestions/atlas/atlas.tex:155
+
+COMPUTED link check: `paper/main/barnette.tex`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `paper/figures/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/primal/primal.tex`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/primal/figures/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/involutions/involutions.tex`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/involutions/STATUS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-main/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-main-v2/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-primal/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_cross-audit/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_referee-involutions/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-involutions-v2/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `figs_proofs.py:`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+10 & Three proofs & \path{paper/main/barnette.tex}, Lemmas 4.5 to 4.7 and Proposition 4.8; \path{paper/figures/} (figures 17-heights and 10-cancellation; redrawn here, not copied); \path{proofs/primal/primal.tex}, Lemmas 6 to 8; \path{proofs/primal/figures/} (04-flow; recomputed here); \path{proofs/involutions/involutions.tex}, Sections 4 and 5; \path{proofs/involutions/STATUS.md} (path marks as the paper height unpacked term by term); \path{research/2026-11-14_sol_referee-main/}; \path{research/2026-11-14_sol_referee-main-v2/}; \path{research/2026-11-14_fable_referee-primal/}; \path{research/2026-11-14_opus_cross-audit/}; \path{research/2026-11-14_opus_referee-involutions/REPORT.md}; \path{research/2026-11-14_fable_referee-involutions-v2/REPORT.md}; computed by \path{digestions/atlas/build.py} (\path{figs_proofs.py:} 176 height jumps, 16 cut fluxes, the local potentials of the flow, all 43 marked objects and the 9 unpaired ones)\\[.6mm]
+```
+
+### C332 digestions/atlas/atlas.tex:156
+
+Source attribution only. Anonymous2026: verified by opening the source: Supplied unsigned PDF, dated 18 October 2026, title page has no author. Theorem 1.1 p. 1 gives enumeration bound; Theorem 1.2 p. 2 gives pair/black-inner obstruction/tree equivalence; Proposition 2.1 gives incidence-tree criterion; Lemma 5.1 integer weights; Theorem 5.3 pp. 10-11 gives the marked walk, with a different runtime. No author or public publication claimed.
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `papers/barnette_trees.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+11 & Row dependence & \path{research/2026-11-14_astra_referee-combinatorics/REPORT.md}; \path{papers/barnette_trees.pdf}, Proposition 2.1; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C333 digestions/atlas/atlas.tex:157
+
+COMPUTED link check: `research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_route-algebra/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-induction/PROOFS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+12 & One determinant & \path{research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md}; \path{research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md}, Sections 1 and 3; \path{research/2026-11-14_sol_route-algebra/REPORT.md} (Grassmann form, unrefereed); \path{research/2026-11-14_opus_route-induction/PROOFS.md}, Proposition 4.1 (signs balance); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C334 digestions/atlas/atlas.tex:158
+
+COMPUTED link check: `research/2026-11-14_astra_route-dimers/PROOF.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+13 & Double dimers & \path{research/2026-11-14_astra_route-dimers/PROOF.md}; \path{research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C335 digestions/atlas/atlas.tex:159
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_route-combinatorics/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `state_order`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+14 & Clock lattice & \path{research/2026-11-14_astra_referee-combinatorics/REFEREE.md}; \path{research/2026-11-14_fable_route-combinatorics/}; computed by \path{digestions/atlas/build.py} (lib.py: \path{state_order})\\[.6mm]
+```
+
+### C336 digestions/atlas/atlas.tex:160
+
+COMPUTED link check: `research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_conjectures/CONJECTURES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-conjectures/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+15 & Cover lattice & \path{research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md}; \path{research/2026-11-14_opus_conjectures/CONJECTURES.md}, Section 3; \path{research/2026-11-14_sol_referee-conjectures/REFEREE.md} (18-vertex example and census through 18 rebuilt); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C337 digestions/atlas/atlas.tex:161
+
+COMPUTED link check: `research/2026-11-14_fable_route-combinatorics/data/counterexamples.txt`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+16 & Extreme states fail & \path{research/2026-11-14_fable_route-combinatorics/data/counterexamples.txt}; \path{research/2026-11-14_astra_referee-combinatorics/REPORT.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C338 digestions/atlas/atlas.tex:162
+
+COMPUTED link check: `research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-determinants/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+17 & Three conditions & \path{research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md}; \path{research/2026-11-14_fable_referee-determinants/REPORT.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C339 digestions/atlas/atlas.tex:163
+
+COMPUTED link check: `research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `figs_order.py:`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `lp_fig`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+18 & Fractional point & \path{research/2026-11-14_sol_referee-structure/REFEREE-graph-theory.md}; computed by \path{digestions/atlas/build.py} (\path{figs_order.py:} \path{lp_fig}, seed 714)\\[.6mm]
+```
+
+### C340 digestions/atlas/atlas.tex:164
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/RAINBOW.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-topology/TOPOLOGY.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+19 & Rainbow tree & \path{research/2026-11-14_fable_referee-topology/RAINBOW.md}; \path{research/2026-11-14_fable_referee-topology/REPORT.md}; \path{research/2026-11-14_opus_route-topology/TOPOLOGY.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C341 digestions/atlas/atlas.tex:165
+
+COMPUTED link check: `research/2026-11-14_sol_route-probabilistic/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_route-probabilistic/PROOFS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-covers/INTEGRATION.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_two-tree-packing/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `figs_scope.py:`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `random_fig`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+20 & Random trees & \path{research/2026-11-14_sol_route-probabilistic/REPORT.md}; \path{research/2026-11-14_sol_route-probabilistic/PROOFS.md}; \path{research/2026-11-14_sol_referee-covers/INTEGRATION.md} (scope of the mean obstruction); \path{research/2026-11-14_opus_two-tree-packing/REFEREE.md}; computed by \path{digestions/atlas/build.py} (\path{figs_scope.py:} \path{random_fig}, seed 2026)\\[.6mm]
+```
+
+### C342 digestions/atlas/atlas.tex:166
+
+COMPUTED link check: `research/2026-11-14_fable_route-categorical/CATEGORICAL.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+21 & Three graphs & \path{research/2026-11-14_fable_route-categorical/CATEGORICAL.md}, Section 2; \path{research/2026-11-14_fable_referee-topology/REFEREE.md}, part e; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C343 digestions/atlas/atlas.tex:167
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_route-categorical/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_route-pfaffian/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_atlas-audit/AUDIT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+22 & Small cuts & \path{papers/OpenAI-Barnette.pdf}, Section 7; \path{research/2026-11-14_fable_route-categorical/REPORT.md}; \path{research/2026-11-14_astra_route-pfaffian/REPORT.md} (chord exception); \path{research/2026-11-14_sol_atlas-audit/AUDIT.md} (six connection signatures; recomputed here with open sides); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C344 digestions/atlas/atlas.tex:168
+
+COMPUTED link check: `research/2026-11-14_opus_route-induction/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-induction/INDUCTION.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-induction/PROOFS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_induction-completion/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_induction-completion/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `data/exceptions_*.jsonl`, target not resolved as a repository path. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_induction-lemmas/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_atlas-audit/code/proposed.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+23 & Induction & \path{research/2026-11-14_opus_route-induction/REPORT.md}; \path{research/2026-11-14_opus_route-induction/INDUCTION.md}, Section 4; \path{research/2026-11-14_opus_route-induction/PROOFS.md}; \path{research/2026-11-14_fable_induction-completion/REFEREE.md}; \path{research/2026-11-14_fable_induction-completion/REPORT.md}; \path{research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md} (one shape for all exceptions; recomputed here for the 466 from \path{data/exceptions_*.jsonl}); \path{research/2026-11-14_astra_induction-lemmas/REPORT.md}; \path{research/2026-11-14_sol_atlas-audit/code/proposed.py} (aligned layout proposed there; recomputed here); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C345 digestions/atlas/atlas.tex:169
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `research/2026-11-14_astra_older-approaches/BRIDGES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_older-approaches/SOURCES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_older-approaches/NOVELTY.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_atlas-audit/outputs/fs-witness.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+24 & Earlier methods & \path{research/2026-11-14_astra_older-approaches/BRIDGES.md}; \path{research/2026-11-14_astra_older-approaches/SOURCES.md}; \path{research/2026-11-14_astra_older-approaches/NOVELTY.md}; \path{papers/OpenAI-Barnette.pdf}, Section 2; \path{research/2026-11-14_sol_atlas-audit/outputs/fs-witness.json} (the 10-vertex triangulation; every count on it recomputed here); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C346 digestions/atlas/atlas.tex:170
+
+COMPUTED link check: `research/2026-11-14_astra_limits/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-structure/REFEREE-limits.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_limits/examples/prism_recovery.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+25 & Produced cycles & \path{research/2026-11-14_astra_limits/REPORT.md}; \path{research/2026-11-14_sol_referee-structure/REFEREE-limits.md}; \path{research/2026-11-14_astra_limits/examples/prism_recovery.json}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C347 digestions/atlas/atlas.tex:171
+
+COMPUTED link check: `research/2026-11-14_sol_counting-families/FAMILIES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_counting-families/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-covers/REFEREE-families.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+26 & Families & \path{research/2026-11-14_sol_counting-families/FAMILIES.md}; \path{research/2026-11-14_sol_counting-families/REPORT.md}; \path{research/2026-11-14_sol_referee-covers/REFEREE-families.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C348 digestions/atlas/atlas.tex:172
+
+COMPUTED link check: `research/2026-11-14_astra_limits/HYPOTHESES.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_limits/examples/`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-structure/REFEREE-limits.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+27 & Hypotheses & \path{research/2026-11-14_astra_limits/HYPOTHESES.md}; \path{research/2026-11-14_astra_limits/examples/}; \path{research/2026-11-14_sol_referee-structure/REFEREE-limits.md}; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C349 digestions/atlas/atlas.tex:173
+
+Source attribution only. OpenAI2026: verified by opening the source: Supplied PDF, Theorem 1.1 p. 1; Proposition 3.1 pp. 3-4; Lemma 4.1 p. 5; Proposition 5.1 and Lemma 5.2 p. 6; Lemma 5.3 p. 7; Section 5.3 pp. 7-8; Section 6 pp. 8-9; Corollaries 7.1 and 7.2 p. 10. Numbered references match. Weights arise from paths in a component dual; the project face-path identification is an additional project argument.
+
+COMPUTED link check: `research/2026-11-14_astra_route-pfaffian/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_route-pfaffian/GSW-CHAIN.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_route-pfaffian/PROOFS.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `papers/OpenAI-Barnette.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+```text
+28 & Heawood torus & \path{research/2026-11-14_astra_route-pfaffian/REPORT.md}; \path{research/2026-11-14_astra_route-pfaffian/GSW-CHAIN.md}; \path{research/2026-11-14_astra_route-pfaffian/PROOFS.md}; \path{papers/OpenAI-Barnette.pdf}, Corollary 7.2; computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C350 digestions/atlas/atlas.tex:174
+
+COMPUTED link check: `proofs/blueprint/BLUEPRINT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/blueprint/blueprint.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/blueprint/columns.pdf`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/lean/README.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `proofs/lean/BLUEPRINT-DELTA.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_lean-check/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_lean-check/recount.json`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+29 & Machine check & \path{proofs/blueprint/BLUEPRINT.md}; \path{proofs/blueprint/blueprint.json} (statuses and uses, read by the build); \path{proofs/blueprint/columns.pdf}; \path{proofs/lean/README.md}; \path{proofs/lean/BLUEPRINT-DELTA.md}; \path{research/2026-11-14_astra_lean-check/REPORT.md} (independent rebuild; advisory recount 5, 27, 2; three corrections); \path{research/2026-11-14_astra_lean-check/recount.json} (read by the build); computed by \path{digestions/atlas/build.py}\\[.6mm]
+```
+
+### C351 digestions/atlas/atlas.tex:175
+
+COMPUTED link check: `research/2026-11-14_opus_conjectures/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-conjectures/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_cycle-covers/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_referee-covers/REFEREE-covers.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_referee-topology/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_opus_route-induction/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_fable_induction-completion/REFEREE.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_astra_referee-combinatorics/REPORT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `research/2026-11-14_sol_atlas-audit/AUDIT.md`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+COMPUTED link check: `digestions/atlas/build.py`, target exists. Statement class: not verifiable from link existence alone; no independent content check is implied.
+
+Statement class: not verifiable in this pass. This context contains a project attribution, internal cross-reference, or unnumbered literature mention without a completed exact comparison. Retained for the owners to review.
+
+```text
+30 & Open doors & \path{research/2026-11-14_opus_conjectures/REPORT.md}; \path{research/2026-11-14_sol_referee-conjectures/REFEREE.md} (bound replayed on 9,531,638 roots through 22; descent on all 24,744 pairs through 16; 33-vertex counterexamples); \path{research/2026-11-14_astra_cycle-covers/REPORT.md} (23,824,742 roots through 24, no separating triangles); \path{research/2026-11-14_sol_referee-covers/REFEREE-covers.md} (replayed through 16 only: 129 graphs, 3,374 roots); \path{research/2026-11-14_fable_referee-topology/REPORT.md} (rainbow descent through 17, walk periodic at 38); \path{research/2026-11-14_opus_route-induction/REPORT.md}; \path{research/2026-11-14_fable_induction-completion/REFEREE.md} (contractions through 18 and 19, direct lift refuted at 18); \path{research/2026-11-14_astra_referee-combinatorics/REPORT.md} (12-vertex example); \path{research/2026-11-14_sol_atlas-audit/AUDIT.md} (range ledger); computed by \path{digestions/atlas/build.py} (panel b only)\\[.6mm]
 ```
