@@ -6,16 +6,16 @@
 All six take a few minutes, most of it in the layout of the two examples.
 
     route-construction.svg   Figure 1 of the paper: matching, dual, good state, cycle, pair
-    route-disk.svg           the disk identity (Lemma 2.2) on three cycles
-    route-cancel.svg         reversing a cycle of Q_s (Lemmas 3.2 and 3.3)
-    route-count.svg          the eight pairs of the example and Z(z) (Lemma 3.4, Proposition 3.5)
-    route-pair.svg           the flow network and the edge count (Lemma 4.1, Proposition 4.2)
-    route-induction.svg      cutting along a separating triangle (Theorem 4.3)
+    route-disk.svg           the disk identity (Lemma 2.9) on three cycles
+    route-cancel.svg         reversing a cycle of Q_s (Lemmas 3.4 and 3.5)
+    route-count.svg          the eight pairs of the example and Z(z) (Lemma 4.7, Proposition 4.9)
+    route-pair.svg           the flow network and the edge count (Lemmas 5.1 and 5.3, Proposition 5.5)
+    route-induction.svg      cutting along a separating triangle (Theorem 5.6)
 
 The drawing code, the layout and the style are those of paper/figures (figures.py,
 model.py), imported from there; this file only adds what the six figures need
 beyond the paper's three. Everything drawn is computed from paper/figures/running.json
-(the example of Figure 3 of the paper) and from two octahedra glued along a face
+(the example of Figure 2 of the paper) and from two octahedra glued along a face
 (barnette.examples.two_cubes), with workings/barnette for signs, weights, the flow
 and the cut; every number in a label is asserted here.
 
@@ -110,8 +110,8 @@ def triangulation(m):
 
 @functools.lru_cache(None)
 def running():
-    """The example of Figure 3 of the paper, and its two pairs with the same second state
-    s that is not good: (r, s), the pair of Figure 3(a), and (r^K, s) for the cycle K of Q_s."""
+    """The example of Figure 2 of the paper, and its two pairs with the same second state
+    s that is not good: (r, s), the pair of Figure 2(a), and (r^K, s) for the cycle K of Q_s."""
     m, xy = load('running.json')
     T = triangulation(m)
     assert T.A == m.A
@@ -162,7 +162,7 @@ def fig_construction():
 
 # -- Figure: the disk identity -------------------------------------------------------
 def fig_disk():
-    """Lemma 2.2 on three cycles of the example: the long cycles of D(r,s) and of
+    """Lemma 2.9 on three cycles of the example: the long cycles of D(r,s) and of
     D(r^K,s), and the cycle K of Q_s."""
     e = running()
     m, xy = e['m'], e['xy']
@@ -248,8 +248,8 @@ def fig_count():
             disks = [m.disk(C) for C in m.directed_cycles(m.D(r, s))]
             ccw = [k for k in disks if k['ccw']]
             eps, w = bn.sign(T, d(r), d(s)), bn.weight(T, d(s))
-            assert eps == (-1) ** ((n + c) // 2 + len(ccw))                       # Lemma 3.2(2)
-            assert w == wF + sum(k['W'] for k in ccw)                             # Lemma 3.4
+            assert eps == (-1) ** ((n + c) // 2 + len(ccw))                       # (4.3)       
+            assert w == wF + sum(k['W'] for k in ccw)                             # Lemma 4.6
             depth = {y: sum(y in k['white'] for k in ccw) for y in m.white}
             assert sum(depth.values()) == w - wF
             p = Panel(m, xy, 0.335).base(tint=[y for y in depth if depth[y] == 1])
@@ -280,7 +280,7 @@ def fig_count():
 
 # -- Figure: a pair exists ----------------------------------------------------------------
 def network(m, T, height):
-    """The flow network of Proposition 4.2 with the maximum flow found by workings/barnette."""
+    """The flow network of Lemma 5.1 with the maximum flow found by workings/barnette."""
     r, s = bn.first_pair(T)
     cycles = bn.D_cycles(T, r, s)
     assert sorted(t for C in cycles for t in C) == sorted(T.A) and len(cycles) == 2
@@ -326,7 +326,7 @@ def network(m, T, height):
 
 
 def cut_panel(m, xy, unit, S):
-    """The set S of Proposition 4.2 (ringed), the number min(2, |V(t) & S|) in every
+    """A set S as in (5.2) (ringed), the number min(2, |V(t) & S|) in every
     face t of A that has a corner in S, and the edges with both ends in U = V(T) - S."""
     S = set(S)
     U = set(m.V) - S
@@ -380,7 +380,7 @@ def white_outside(p):
 
 
 def fig_induction():
-    """Theorem 4.3 on the two glued octahedra: G_1 and G_2 with their Hamiltonian
+    """Theorem 5.6 on the two glued octahedra: G_1 and G_2 with their Hamiltonian
     cycles, and the Hamiltonian cycle of G that they give."""
     m, xy, T = glued()
     delta = (2, 3, 4)
