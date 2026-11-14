@@ -17,6 +17,7 @@ Tier policy (see labyrinth/README.md):
   T4  every other computation.   T5 conjectures (each with a test).   T6 hunches.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -41,7 +42,7 @@ def srcs(r):
 def expand(where):
     out = where
     for tag, folder in RT.FOLDERS.items():
-        out = out.replace(f"{tag}/", folder + "/")
+        out = re.sub(r"(?<![\w/])" + re.escape(tag) + "/", folder + "/", out)
     return out
 
 
@@ -145,7 +146,7 @@ for r in RT.ROUTES:
         n.update(kind="theorem", tier="T2", status=f"proof supplied ({label})", review=rv)
         links.append({"to": f"wp.{s['to']}", "rel": "supports"})
     elif st == "COMPUTED":
-        n.update(kind="evidence", tier="T4", status="computed", evidence=[expand(r["where"])])
+        n.update(kind="exhaustive" if r.get("tier")=="T3" else "evidence", tier=r.get("tier","T4"), status="computed", evidence=[expand(r["where"])], review=r.get("review", {"state":"unreviewed"}))
         links.append({"to": f"wp.{s['to']}", "rel": "tests"})
     elif st == "CONJECTURE":
         n.update(kind="conjecture", tier="T5", status="open", test=r["test"])
@@ -298,6 +299,19 @@ frontier_history = [
     {"date": DAY, "size": 14, "resolved": 1.0, "why": "enumerations of route-combinatorics and route-algebra agree (55 triangulations, 1206 roots)"},
     {"date": DAY, "size": 16, "resolved": 1.0, "why": "the same agreement extended to 16 vertices (297 triangulations, 7868 roots)"},
 ]
+# Current door statements supersede the first map's tests. Keep stable ids for events.
+updates = {
+ 'q.canonical': ('No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
+ 'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'Exclude the exceptional two-cover overlap; then treat more covers.'),
+ 'q.disk': ('Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.', 'Human-check the corrected flat-angle proof.'),
+ 'q.li-b': ('A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.', 'Finish the independent referee and reconcile distinct-mark conventions.'),
+ 'q.surface': ('Rooted cardinality fails by 2g. Root-free Heawood has odd-cycle cancellation but identically zero polynomial.', 'Find a replacement for spherical nonvanishing; compare the six trisum signatures.'),
+ 'q.human': ('No human-checked claim is recorded. Claim-specific AI reviews are in the route nodes; new referee discoveries remain unreviewed.', 'Check the merged exposition and revised primal sign normalization.')}
+for node in nodes:
+    if node['id'] in updates:
+        node['statement'], node['next'] = updates[node['id']]
+        node['why'] = node['statement']
+        if node['id']=='q.disk': node['status']='answered'
 (LAB / "knowledge.json").write_text(json.dumps({"schema": 1, "meta": meta, "nodes": nodes, "frontier_history": frontier_history},
                                                indent=1), encoding="ascii")
 
@@ -364,6 +378,9 @@ ev("2026-11-14T11:12:00Z", "proposed", "Conjectures: every Hamiltonian cycle com
 ev("2026-11-14T10:55:00Z", "answered", "Dependency-graph conjecture A2 answered: not every avoiding Hamiltonian cycle comes from a tree matching (prism: 4 against 2); the image is characterised", ["x.A.x1", "p.U.5"])
 ev("2026-11-14T10:48:00Z", "computed", "Cross-check for this map: the two independent enumerations agree on all 7868 rooted triangulations up to 16 vertices", ["e.census16"], ["labyrinth/frontier_crosscheck.json"])
 ev("2026-11-14T11:05:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
+for typ, rid in [('refuted','D.ext2'),('reviewed','D.7'),('computed','D.cover-census'),('proved','D.covers'),('refuted','U.lift-dead'),('proved','U.induction'),('proposed','U.G'),('proposed','U.ML2'),('proved','U.rainbow'),('refuted','U.walk-dead'),('refuted','U.mean-dead'),('proposed','U.packing'),('proved','G2.pf'),('refuted','N.heawood'),('documented','G2.main'),('documented','G2.inv')]:
+    rr=next(r for r in RT.ROUTES if r['id']==rid)
+    ev('2026-11-14T15:%02d:00Z' % (len(E)-53), typ, 'Map refresh, attributed report integration: '+rr['label']+'. '+rr['text']+' New proofs remain unreviewed unless a named review says otherwise. Timestamp is bookkeeping.', [nid(rr)], [expand(rr['where'])])
 E.sort(key=lambda e: e["ts"])
 pth = LAB / "events.jsonl"
 old = pth.read_text(encoding="utf-8").splitlines() if pth.exists() else []
@@ -449,16 +466,30 @@ for e in S["entries"]:
     for ref in e["refs"]:
         assert ref in IDS, (e["id"], ref)
 # Keep prior state-of-the-art results when a row changes.
-prior_path = LAB / "sota.json"
-prior = json.loads(prior_path.read_text(encoding="utf-8")) if prior_path.exists() else {"entries": []}
-prior_by_id = {r["id"]: r for r in prior["entries"]}
-for r in S["entries"]:
-    old_row = prior_by_id.get(r["id"])
+S['entries'].append(row('new-presentations',G1,'Written proof routes','Three current written routes: merged dual exposition, revised primal proof, marked involutions. Upstream Lean proof built locally.','Merged and involution texts under AI review; earlier primal version AI-refereed, revision self-audited; M4 phase disagreement explicit. No human check.','partial',['p.G2.main','p.G2.primal','p.G2.inv','c.G2.c'],[]))
+for entry in S['entries']:
+    if entry['id']=='pair': entry['status']='PROVED-HERE, independently AI-refereed in structure INTEGRATION.md; human check pending.'
+    if entry['id']=='structural': entry.update(result='No unsigned existence proof yet. Contraction ML1 and ML2, C3, rainbow X and packing remain live at this snapshot.',status='Conjectures with stated tests; named local lemmas AI-refereed, new extensions unreviewed.')
+    if entry['id']=='rarity': entry.update(result='Exponential rarity also without separating triangles: width-four nanotubes have two tree matchings among Fib_(2L+3) states.',status='T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.')
+    if entry['id']=='which-hc': entry['status']='Earlier recovery image and injectivity independently AI-refereed; revised compatible-state converse is separate, unreviewed.'
+    if entry['id']=='canonical':
+        entry.update(result='No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.',status='Independent AI referee and two V=33 implementations; no human check.',kind='refuted',refs=['k.D.7','x.D.ext2'])
+    if entry['id']=='review':
+        entry.update(result='Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.',status='See named review objects; revised primal M4 disagreement requires re-referee.')
+    if entry['id']=='tm-lower' or entry['cls']=='Number of tree matchings':
+        entry.update(result='Proved lower bound 2 c_min; C1 conjectures 2^c_min. Independent all-root census through V=22; separator-free tests through V=24. One-cover equality proved; converse open.',status='2 c_min AI-refereed; C1 finite census, not a theorem.')
+for id,cls,rid in [('induction','Unsigned contraction induction','U.ML2'),('rainbow','Rainbow exchange','U.7h'),('packing','Two-tree packing','U.packing'),('covers','Meaning and range of c_min','D.covers'),('census24','Separator-free C1 census','D.cover-census'),('pfaffian','Pfaffian corollary','G2.pf')]:
+    r=next(r for r in RT.ROUTES if r['id']==rid)
+    S['entries'].append(row(id,G2,cls,r['text'],r['status']+'; new claims unreviewed, human check pending','computed' if r['status']=='COMPUTED' else 'conjecture' if r['status']=='CONJECTURE' else 'partial',[nid(r)],[]))
+prior_path=LAB/'sota.json'
+prior=json.loads(prior_path.read_text(encoding='utf8')) if prior_path.exists() else {'entries':[]}
+prior_by_id={r['id']:r for r in prior['entries']}
+for r in S['entries']:
+    old_row=prior_by_id.get(r['id'])
     if old_row:
-        r["previous"] = old_row.get("previous", [])
-        if old_row["result"] != r["result"]:
-            r["previous"].append({"date": DAY, "was": old_row["result"], "status": old_row["status"]})
-S["entries"].append(dict(id="new-presentations", updated=DAY, group=G1, cls="Additional manuscript routes", result="Primal proof, draft A heights proof, draft B scalar-height-moment proof; exact prism families as a separate structural route.", status="Proofs supplied; draft A referee reports sentence repairs; remaining independent reviews pending.", kind="partial", refs=["p.G2.primal", "p.G2.drafta", "p.G2.draftb", "p.D.families"], lit=[], previous=[]))
+        r['previous']=old_row.get('previous',[]).copy()
+        if old_row['result']!=r['result'] or old_row['status']!=r['status']:
+            r['previous'].append({'date':DAY,'was':old_row['result'],'status':old_row['status']})
 (LAB / "sota.json").write_text(json.dumps(S, indent=1), encoding="ascii")
 from collections import Counter
 print(sorted(Counter(n["id"].split(".")[0] for n in nodes).items()))

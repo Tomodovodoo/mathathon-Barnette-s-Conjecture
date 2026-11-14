@@ -115,11 +115,11 @@ for v in sorted(A_multi):
 
 # sizes beyond the enumeration: parity, obstructed roots and the rarity family only
 rar = json.loads(RARITY.read_text(encoding="utf-8")) if RARITY.exists() else None
-for v in (17, 18, 23, 28, 33):
+for v in (*range(17,25), 28, 33):
     n = v - 3
     hi = int(3 ** (n / 2))
     row = {"size": v, "label": f"|V(T)| = {v}", "lo": 0, "hi": hi, "step": 1, "realized": [], "intervals": [],
-           "bounds": {"upper": hi, "upper_kind": "3^(n/2)"}, "note": "beyond every enumeration in the repository"}
+           "bounds": {"upper": hi, "upper_kind": "3^(n/2)"}, "note": "Beyond the independently cross-checked full invariant-value frontier; newer censuses track C1, not the complete value spectrum"}
     row["realized"].append([0, "glue an octahedron into a face so that t0 is on the white side "
                                "of the separating triangle (trees paper Thm 1.2)"])
     if (v - 3) % 5 == 0:
@@ -166,3 +166,15 @@ for v, c in cross.items():
           + ("" if c["agree"] in (True, None) else f"  only_in_A={c['only_in_A'][:4]} only_in_B={c['only_in_B'][:4]}"))
 print("sizes:", [s["size"] for s in sizes])
 print("scatter points:", len(pts), " below-bound points:", sum(1 for p in pts if p["series"] == "lt"))
+
+# Record statistic coverage separately from invariant-value resolution. Larger C1
+# censuses do not enumerate the whole admissible TM-count spectrum in this file.
+fp=LAB/'frontier.json'
+f=json.loads(fp.read_text())
+f['statistic_coverage']=[
+ {'statistic':'complete realized spectrum of TM counts, states and pairs cross-check','class':'all facial roots of Eulerian triangulations','through_dual_order':16,'tier':'T3','by':['fable_route-combinatorics','sol_route-algebra','astra_referee-combinatorics'],'source':'labyrinth/frontier_crosscheck.json'},
+ {'statistic':'C1 and equality iff one factor; TM and pair totals','class':'all facial roots of Eulerian triangulations','through_dual_order':22,'tier':'T3','by':['opus_conjectures','sol_referee-conjectures'],'source':'research/2026-11-14_sol_referee-conjectures/data/fast_census_summary.json','note':'independent complete implementations agree; not imported as full TM value spectrum'},
+ {'statistic':'C1, equality iff one factor and c_min distribution','class':'4-connected Eulerian triangulations, every facial root','through_dual_order':24,'rooted_instances':23824742,'tier':'T4','review':'under-review','by':['astra_cycle-covers'],'source':'research/2026-11-14_astra_cycle-covers/data/census.json','note':'inherited C engine; no independent order-24 replay; maximum c_min=6 at order 23'},
+ {'statistic':'ML1 pair-preserving merge existence','class':'separator-free rooted triangulations','through_dual_order':19,'tier':'T4','by':['fable_induction-completion'],'source':'research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md'},
+ {'statistic':'rainbow exchange X, all rainbow trees','class':'all feasible facial roots','through_dual_order':17,'tier':'T4','by':['fable_referee-topology'],'source':'research/2026-11-14_fable_referee-topology/REPORT.md'}]
+fp.write_text(json.dumps(f,indent=1))

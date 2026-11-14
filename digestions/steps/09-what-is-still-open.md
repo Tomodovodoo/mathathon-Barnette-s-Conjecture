@@ -1,130 +1,103 @@
-# 09. What is still open
+﻿# 09. What is still open
 
-Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
+The supplied 2026 preprints prove the existence theorem. The questions here concern a shorter proof, an efficient construction, and the structure of its certificates. No claim in this project is human-checked. `PROVED-HERE` means T2, even after an AI referee; `COMPUTED` states only a finite result. Independent exhaustive implementations can justify T3 for their stated range. Unchecked numerical campaigns remain T4.
 
-## What we want at this point and why
+Throughout, V is the dual order |V(T)|. A feasible root has at least one pair. A cover is the unoriented D of a pair, equivalently a degree-two factor of the incidence graph. Its two directions per component give 2^c ordered pairs. The minimum c over covers is c_min. It is not the number of cycles in Q_s. A tree matching is a state whose spoke complement is a tree, equivalently a state with exactly one partner.
 
-The proof shows that a Hamiltonian cycle exists. It does not say how to find one fast, how many there are, or whether a simpler argument could replace the signed count. This file collects the open questions that the project has met, each with what is known and how firmly. It is the place to start for anyone who wants to add something new.
+## What c_min measures now
 
-Nothing here is needed for the proof. Unlike the other files, most of the content is unrefereed or conjectural, and every item says so.
+`PROVED-HERE`, T2 unreviewed, [cycle-cover proofs](../../research/2026-11-14_astra_cycle-covers/PROOFS.md). Under the primal dictionary, an admissible edge set S has c(D)=components(G-S)-1. Thus c_min asks how few components such a deletion can leave, less one. This is a connectivity invariant, not merely the order at which an analytic trick begins to work.
 
-A finite check supports only its stated range. A proof supplied by an agent, a second-model referee verdict and a machine-checked theorem are different kinds of evidence; the status beside each claim records which is available.
+The same run gives a separator-free family T_m on 3m+2 dual vertices, with one cover, m-2 triangles and one pentagon. It has c_min=m-1 and #TM=2^(m-1). The construction is unreviewed. Its [family data](../../research/2026-11-14_astra_cycle-covers/data/family.json) include independent corner enumeration through m=10 and reference pair checks through m=6, all by the author. Separator-free unboundedness should therefore be marked as an author-proved result awaiting review, rather than an untouched conjecture. Unboundedness with bounded primal face sizes and no separating triangles remains open. The two large faces in this family prevent that conclusion.
 
-## 1. Algorithms and complexity
+## Ten open doors
 
-### What is known
+### 1. C1, the exponential number of tree matchings
 
-The existence proof is a counting argument and gives no efficient procedure. The OpenAI paper says so itself. The trees paper adds two procedures, both exponential.
+`CONJECTURE`, T5. Every feasible rooted triangulation has #TM >= 2^c_min. The proposed equality characterization says equality holds exactly when there is one cover. The forward implication from one cover is `PROVED-HERE` and independently AI-refereed in [the conjecture referee](../../research/2026-11-14_sol_referee-conjectures/REFEREE.md). The converse remains open.
 
-| Procedure | What it does | Bound | Status |
-| --- | --- | --- | --- |
-| enumeration with pruning | tries states face by face, rejects a partial state when the remaining spokes are already disconnected or when it cannot be completed to a state | $O(n^3 M)$ with $M$ the number of states, and $M \le 3^{n/2}$, so $O(\mathrm{poly}(N)\, 3^{N/4})$ for a graph on $N$ vertices | published, trees paper Proposition 6.2 |
-| marked walk | follows the two cancelling involutions of step 06 alternately, starting from any pair. Ends at a forest pair or restarts with at least two fewer cycles | $2^{O(n \log n)}$ time, polynomial space | published, trees paper Theorem 5.3. Not refereed in this project |
-| generic search in cubic graphs | Eppstein's algorithm | $O(2^{N/3})$ | published, cited in the trees paper. It ignores all structure and has the smaller exponent, since $2^{1/3} < 3^{1/4}$ |
+`COMPUTED`, T3 for the independently reproduced finite statement. All 9,531,638 facial roots through V=22 were enumerated, including 4,656,948 feasible ones. There were no violations of either assertion. The [per-order outputs](../../research/2026-11-14_sol_referee-conjectures/data/fast_census_summary.json) and `code/count.cpp` record the replay. `COMPUTED`, T4 under review, the [cycle-cover census](../../research/2026-11-14_astra_cycle-covers/CENSUS.md) extends evidence to V=24 on 23,824,742 facial roots of 4-connected triangulations. This does not extend the all-triangulation census to 24.
 
-The bound $M \le 3^{n/2}$ comes from a pleasant fact. All states have the same permutation sign, by the parity of the disk identity, so the number of states is the absolute value of the determinant of the $0/1$ incidence matrix of faces against vertices, and Hadamard's inequality bounds that.
+The moment route has a precise limitation. Low-degree vanishing plus one nonzero degree-c_min moment does not force 2^c_min atoms. The referee's small integer examples prove that barrier. They do not settle what follows from the full prescribed family of minimal-cover counts N(w). The next useful step is to exclude the one exceptional planar overlap in the unreviewed two-cover proof, then extend its shared-state calculation to more covers.
 
-A certificate is easy to check. Given a state, testing that the remaining spokes form a tree takes linear time, and step 07 turns it into the cycle in linear time. So the search problem is of the kind where a solution always exists and is easy to verify.
+### 2. ML1, a pair-preserving contraction
 
-### What is not known
+`CONJECTURE`, T5. If T has no separating triangle and V>6, some non-root degree-four vertex has an opposite-neighbour merge producing a simple rooted triangulation with a pair. Simplicity alone is insufficient. A merge can create a black-inner separating triangle.
 
-**No polynomial-time construction is known**, deterministic or randomised. The specific gaps are these.
+`COMPUTED`, T4, all 62,416 separator-free facial roots with 8<=V<=19 pass, in [MISSING-LEMMA.md](../../research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md). The new reductions to short 4- and 5-cycles, deficiency and tight sets are T2 unreviewed. The earlier local contraction propositions were independently AI-refereed. The next step is to check the minimal-tight-set reduction and prove that one interior degree-four vertex escapes the bad boundary-apex pattern. A graph generation theorem does not supply this rooted statement.
 
-- *Sampling.* The determinant counts states, and it also counts completions of a partial state. So one can sample a uniform random state in polynomial time. That is proved in `research/2026-11-14_sol_route-constructive/ALGORITHMS.md` and was found correct by the referee `research/2026-11-14_fable_referee-determinants/`. It does not help directly, because a random state need not be a tree matching, and tree matchings can be rare, see below.
-- *One determinant for the signed sum.* The signed sum of step 06 is one coefficient of a determinant with a variable for each black face. Extracting that coefficient takes $2^n$ determinants. A polynomial-size formula for it, for instance a Pfaffian, would give a polynomial algorithm by fixing the state one face at a time and keeping a non-zero branch. Nobody has one. Status of the idea: a hunch. Status of the obstruction: the plain determinant fails on the hexagonal prism, computed and refereed.
-- *The length of the walks.* Every component of the exchange graph contains a forest pair. That gives reachability and no bound on the distance. In the experiments of the constructive report all 320 random or greedy walks from ten bad starting pairs finished within ten moves. That is a small computed sample, not refereed beyond the claims listed in the referee's report, and it says nothing about worst cases.
-- *The complexity class.* The marked walk follows a path in a graph of degree at most two with alternating signs, which is the shape of the problems in the class PPAD. The report `research/2026-11-14_opus_route-graph-theory/REPORT.md` suggests that finding a tree matching lies in $\mathrm{FP}^{\mathrm{PPAD}}$. A hunch, not worked out.
+### 3. ML2, the two-sided lifting step
 
-### Tree matchings can be exponentially rare
+`CONJECTURE`, T5. At a non-root degree-four vertex, if both opposite merges have tree matchings, not every tree matching of either contraction is exceptional in the precise sense of [the residual-case analysis](../../research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md). Equivalently, some matching lifts or rotates successfully. The one-sided case is T2 unreviewed and proved there.
 
-There are rooted triangulations with $n = 5q$ that have exactly $3^q$ states and exactly $2^q$ tree matchings. They are built by inserting $q$ copies of the dual of the hexagonal prism into white faces. States factor over the copies, because the new black faces must be matched to the new vertices, and each copy has three states of which two are tree matchings. So a uniformly random state is a tree matching with probability $(2/3)^q$.
+`COMPUTED`, T4. The stronger counting inequality #TM(T)>=#TM(T/M) passes 1,202,792 rooted contractions through V=18. Direct lifting is false. At V=18, graph 309, root (5,0,6), x=11, merge {10,2}, both contracted tree matchings fail to lift and both rotate. There are 50 such rooted contractions in [nolift_18.jsonl](../../research/2026-11-14_fable_induction-completion/data/nolift_18.jsonl). No smaller direct-lift existence failure was found in that census. An injection from exceptional into non-exceptional matchings would prove more than existence; start by testing the proposed one-half bound. The later induction-lemmas run must be checked before claiming that these two doors remain unchanged.
 
-Status. Proved in `research/2026-11-14_astra_limits/HYPOTHESES.md` and checked by a second model, with the local enumeration reproduced, in section 6 of `research/2026-11-14_sol_referee-structure/INTEGRATION.md`. Not yet read by a human. The counts for $q \le 6$ are computed.
+### 4. C3, monotone descent among pairs
 
-This does not make these instances hard. Their tree matchings are products and easy to write down. It only rules out the naive plan of sampling states until one works.
+`CONJECTURE`, T5. Every ordered pair reaches a forest pair by D-swaps and Q-reversals along a path on which the number of cyclic Q-components never increases. Plateaus are allowed. This is an existence statement about paths, with no polynomial bound on finding them.
 
-### The three-matroid remark
+`COMPUTED`. The author reports 940 successful starts. Independent reverse reachability checks every one of the 24,744 ordered pairs through V=16 and all pairs on both saved plateau traps. See [REFEREE.md](../../research/2026-11-14_sol_referee-conjectures/REFEREE.md) and [cancellations_16.json](../../research/2026-11-14_sol_referee-conjectures/data/cancellations_16.json). Strict descent already fails. The next step is to search for a closed plateau component with positive Q-cycle count, rather than run another greedy trajectory that might miss an exit.
 
-A tree matching is a set of spokes that is a common basis of three matroids. One says that the remaining spokes form a spanning tree. One says that each black face loses one spoke. One says that each non-root vertex loses one spoke. Two matroids can be intersected in polynomial time by Edmonds' theorem. Three in general cannot.
+### 5. Rainbow exchange X
 
-What has been established and what has not, according to the referee's integration notes.
+`CONJECTURE`, T5. Every point-rainbow white spanning tree reaches a tree matching by exchanges that never increase black excess. The new Rado-Euler existence criterion and the unique-factor completion theorem are T2 unreviewed in [RAINBOW.md](../../research/2026-11-14_fable_referee-topology/RAINBOW.md). The older topology dictionary and Gauss-Bonnet proof were independently AI-refereed, with corrections.
 
-| Claim | Status |
-| --- | --- |
-| tree matchings are exactly the common bases of these three matroids | proved in `opus_route-graph-theory/PROOFS.md` Lemma 1.1, accepted by the referee as a valid formulation |
-| no one of the three conditions is implied by the other two | computed on the octahedron and the prism, accepted |
-| a relaxation to two of the three matroids already fails on the hexagonal prism, where 4 of its 6 solutions are not states | computed in the constructive report, corrected and confirmed by the determinant referee |
-| the natural linear programming relaxation has a half-integral vertex at 13 vertices | computed and confirmed. The referee adds that 13 should not be called the smallest size, since the search used random objectives, and that the fractional point is the average of one tree matching and one other state, not of two non-tree states as the report said |
-| the general problem, given a planar bipartite graph of maximum degree 3, decide whether some perfect matching has a spanning tree as its complement, is NP-hard under polynomial-time Turing reductions | proved in `PROOFS.md` Proposition 1.2 from the NP-completeness of Hamiltonicity for cubic bipartite planar graphs (Akiyama, Nishizeki, Saito 1980). The referee's notes restate the NP-hardness as a conclusion, and the referee's folder contains the 1980 paper, which the original report had cited from memory |
-| therefore no description by two matroids and no min-max theorem exists | **not established.** The referee marks this inference as a gap. The results above concern the natural encodings and the wider problem class. They do not exclude a cleverer encoding that uses the special shape of spoke graphs |
-| the spanning-tree condition on spokes is the same matroid as the graphic matroid on opposite edges with the roots contracted | **refuted** as a statement about arbitrary subsets. The two tree conditions agree only after one spoke per black face has been removed |
+`COMPUTED`, T4. X passes every rainbow tree through V=17. The report enumerates about 69 million trees, with singleton-factor cases handled by its proposition, and samples to V=120. The surplus walk alone is false: periods 48 and 68 occur at V=38. The minimum failure is only bounded between 17 and 38. Certificates are in `data/cycles_hunt_*.json` and [cycles_analyse.json](../../research/2026-11-14_fable_referee-topology/data/cycles_analyse.json). Strict descent fails at V=8, and load M-convexity at V=12. The next proof must use both types of plateau move. Establishing X would still leave a runtime bound open.
 
-The NP-hardness result does not make Barnette graphs hard. In our setting the answer is always yes once the single-triangle obstruction is absent. It says that an efficient algorithm has to use the structure, the hexagonal faces of the spoke graph and the colour balance, since the bare combinatorial problem is hard.
+### 6. Two-tree packing and exact rounding
 
-## 2. Counting
+`CONJECTURE`, T5 at this snapshot. Every selected pair support partitions into two white spanning trees. The [probabilistic report](../../research/2026-11-14_sol_route-probabilistic/REPORT.md) has 278 nonvacuous small rank tests and 27 larger checked packings through V=120, all T4 unreviewed. The dedicated two-tree-packing run has not yet delivered a REPORT at the initial integration.
 
-Let $m = c_{\min}$ be the least number of cycles formed by a pair, and write TM for the number of tree matchings and HC for the number of Hamiltonian cycles of $G$.
+Packing would give fractional feasibility. Exact joint-degree rounding is another problem. The full-H target mean cannot be attained by finite positive weights, already on the cube; the target forces root spokes. The joint degree support is not M-convex. Work on the conditioned face and prove the relevant rank inequalities first. Do not treat a fractional point as a tree matching.
 
-| Statement | Status |
-| --- | --- |
-| tree matchings of sign $+1$ and $-1$ are equally many, so TM is even and never 1 | published, trees paper Theorem 5.2 |
-| $\mathrm{TM} \ge 2m$ | proved in `research/2026-11-14_fable_route-combinatorics/PROOF.md`, Corollary 3, and checked by a second model. Not yet read by a human |
-| $3\,\mathrm{TM} \le \mathrm{HC}$ | proved in the same file, Proposition 7, and checked by a second model |
-| $\mathrm{TM} \ge 2^{m}$ | **conjecture.** True for all 5,088 rooted triangulations with a pair and at most 16 vertices, with equality in 4,609 of them. Two independent enumerations agree. A rooted triangulation with a pair and fewer tree matchings would refute it |
-| tree matchings split into cubes of dimension $m$ | refuted. The running example has 6 tree matchings and $m = 2$ |
-| $m$ can be large | The earlier census only reached 4. The new older-approaches report supplies a proof that end-rooted chains of k octahedra have m=k. This allows separating triangles; PROVED-HERE, unreviewed, `research/2026-11-14_astra_older-approaches/BRIDGES.md` |
+### 7. Direction choice and lattice structure
 
-The conjecture $\mathrm{TM} \ge 2^m$ says that instances whose cycle covers need many cycles have more tree matchings, not fewer. A proof would have to explain the moment identities of step 06 by some structure finer than a partition into cubes.
+`CONJECTURE`, an algorithmic problem. Given a factor u, decide whether some direction of each D-cycle gives a forest pair, and find one if it exists. Testing a specified pair takes linear time by the independently AI-refereed directed-cycle criterion, checked on every pair through V=18. The forbidden-cycle SAT formulation can have exponentially many clauses. It gives no efficient direction-selection algorithm and no hardness theorem for this planar class.
 
-One more counting question has a precise form. Li counts objects with $m$ distinct marked crossings. The linear-weight version of step 06 counts the same pairs through an elementary symmetric function of the weights. The determinant referee conjectures that these are the same count for unit marks and proposes a test on an instance with $m = 2$. The running-example lab replay in step 06 gives absolute signed count 9, matching its lowest coefficient. A general identification remains unproved.
+Canonical boundary choices have failed. C2 first fails at V=18, with a four-element lattice, 54 states, 20 pairs and 12 tree states. Both extremes fail. Independent exhaustive minimality and the full certificate are in [v18.json](../../research/2026-11-14_sol_referee-conjectures/data/v18.json). R2, extreme or join/meet irreducible, fails at V=33, in [R2_glued_V33.json](../../research/2026-11-14_sol_referee-conjectures/data/R2_glued_V33.json) and its independent second certificate. All ten candidates fail. The lattice is B_4 and successes occur only at rank two. This witness has separating triangles; the restriction of R2 to separator-free inputs remains a new question. Test that restriction while searching for a direction-selection theorem on a fixed factor.
 
-## 3. Canonical choices and the lattice of pairs
+### 8. A determinant without extraction
 
-Step 06 lists the canonical choices that fail. Two questions survive.
+`HUNCH`, T6. A structured determinant or Pfaffian might evaluate the signed sum without an exponential squarefree extraction. Existing formulas express the sum as a coefficient, not a polynomial-time evaluation procedure. Raw block determinants, doubled edges, positive-semidefinite blocks and scalar factorization have explicit failures in [the determinant referee](../../research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md). A new candidate must reproduce the small signed polynomials and the orientation cube over each lattice element. The signed sum is not the ordinary rank polynomial of the base lattice, even when that lattice is a singleton. Test a local turn signature against matchgate identities before pursuing another global determinant.
 
-**The lattice-extreme conjecture, now reported refuted.** `research/2026-11-14_opus_conjectures/PREDICTIONS.md` reports joint failures at 18 vertices, in 26 rooted instances from two triangulations. Independent replay and the final report are pending. The following describes the older evidence, not the current verdict.
+### 9. Which cycles are recovered?
 
-**Original statement.** A 2-factor of the incidence graph, that is a pair up to reversing cycles, is the same as an orientation of the spoke graph with prescribed out-degrees. By a theorem of Felsner such orientations form a distributive lattice with a least and a greatest element. The conjecture says that the least or the greatest element always contains a forest pair.
+`CONJECTURE`, T5. Find a criterion in G alone for a Hamiltonian cycle avoiding the prescribed edge to lie in forest-pair recovery. Recovery is injective on tree matchings and is not surjective on all avoiding cycles. On the hexagonal prism four cycles avoid a given edge, two are recovered, and the other two can give the same unpartnered state. The small replay is [spotcheck.py](../../research/2026-11-14_fable_labyrinth-map/spotcheck.py). The revised primal compatible-state theorem concerns a broader correspondence and does not prove forest-pair surjectivity. Compare the two excluded cycles locally, then test the proposed criterion on the saved census.
 
-- Source: `opus_route-graph-theory/ROUTES.md`, route O6. In 180 random instances with 80, 100 and 120 vertices the least element failed 14 times, the greatest 11 times, and never both.
-- The referee confirms that each extreme alone can fail, with certified examples at 40 and 120 vertices. The referee also found that the saved 80-vertex "maximum" is not a lattice maximum, since it still has directed cycles in both senses. So the experiment tested orientations where no further face flip was possible, and those need not be the extremes of the lattice. That correction weakened the original evidence. The subsequent conjecture campaign reports a counterexample to the precisely defined joint-extreme statement.
-- Felsner's theorem was cited from memory in the report. Whether face flips generate the whole lattice for these graphs is itself open there.
-- If true, the conjecture would give an explicit candidate. It would not by itself give a polynomial algorithm, since one would still search among the orientations of the cycles of the extreme 2-factor.
+### 10. Formal and human verification
 
-**Monotone descent.** For a pair $(r,s)$ let $k$ be the number of cycles of $Q_s$. The conjecture says that from every pair some sequence of cycle reversals reaches $k = 0$ without ever increasing $k$. It would prove that every exchange component contains a forest pair without any signs. The single-step versions are false. A reversal along a cycle through all of $X$ swaps $r$ and $s$, so it cannot lower $k$ in both directions, and a 50-vertex example has a pair from which no single reversal lowers $k$. Two steps suffice in every example found. Source: `opus_route-graph-theory/PROOFS.md` section 8 and `ROUTES.md` D3. The referee lists it as a conjecture.
+`COMPUTED`. The upstream Lean theorem builds locally with only `propext`, `Classical.choice` and `Quot.sound`, as recorded in [the Lean report](../../research/2026-11-14_opus_lean-formalisation/REPORT.md). This machine check does not certify every new exposition or research lemma. The exact merged, primal and involution texts still need human review. Corollary 7.2 has an unreviewed named-theorem deduction through GSW 4.16, not a new Lean formalisation.
 
-**Induction on the triangulation.** Every triangulation without separating triangles other than the octahedron has a vertex of degree 4 that can be removed by merging two of its neighbours. States lift bijectively. A tree matching of the larger triangulation may contract to a state that is not a tree matching, and the other direction needs a side condition that the induction does not supply. The referee refuted the "if and only if" form of the lifting lemma in the report. So this route is open at best.
+The primal revision disputes referee M4. It simplifies the referee's phase ratio to i^n, a constant; the referee had claimed circuit-count dependence. Record both sources, [the original referee](../../research/2026-11-14_fable_referee-primal/REFEREE.md) and [the revision](../../research/2026-11-14_astra_primal-revision/REPORT.md). The revision's self-audit is not an independent resolution of the dispute. A focused re-referee of that calculation and the inside-cycle connectivity lemma is the next useful review.
 
-## 4. Simpler or different proofs of the hard step
+## Unsigned proofs: the graveyard
 
-- **A proof inside one cycle cover.** Impossible, by the 16-vertex example of step 06.
-- **A proof by a positivity theorem for determinants.** The matrices involved are not positive semidefinite. Open, with no lead.
-- **A probabilistic proof.** The two reversals look like cycle popping in Wilson's algorithm. A hunch in `research/2026-11-14_fable_dependency-graph/skeleton.md`, edge D4.
-- **A topological proof of the disk identity** as a statement about the degree of the colouring map. The topology report now supplies a combinatorial Gauss-Bonnet proof, checked with boundary and outer-face clarifications in `research/2026-11-14_fable_referee-topology/REFEREE.md`. It is a different reading of Euler counting, not a replacement for it.
+Each entry closes the stated shortcut. It does not prove that every method in its area fails. The generated [route inventory](../route-map/ROUTE-MAP.md) supplies the full provenance and lesson for every dead end.
 
-## 5. Stronger statements
+| Shortcut | Where it died |
+|---|---|
+| Natural two-matroid intersection | The third state constraint is indispensable. Hexagonal prism common bases include four nonstates among six. `sol_referee-structure/INTEGRATION.md` and determinant referee corrections. |
+| Natural LP integrality or automatic rounding | Half-integral vertex at V=13, not proved minimal. No standard rounding theorem preserves both endpoint degree constraints. |
+| Lattice extremes C2 | V=18, `sol_referee-conjectures/data/v18.json`, independently minimal. |
+| Extreme or irreducible R2 | V=33, `sol_referee-conjectures/data/R2_glued_V33.json`, two implementations. |
+| Distance one, every maximal chain, at least half the lattice | Saved R1/R3/R5 witnesses at V=24/60/70 in `data/r1.json`, `r3.json`, `r5.json` of that referee. Gluing gives R3/R5 failure at V=33 and no fixed distance bound in general. Those larger original sizes are not minimum claims. |
+| Sign gauge and universal congruences | `sol_route-algebra/REPORT.md`. Pair signs cannot be removed by a state gauge; the unweighted signed total is zero. This excludes those proposed invariants, not every modular argument. |
+| Canonical extremal states and rank differences | `fable_route-combinatorics/ROUTES.md`, corrected first failures at V=12 by its referee; graph-theory greedy terminals need not be genuine lattice extremes. |
+| A single minimal cover supplies a forest pair | A cover can have no successful direction. V=16 saved bad cover; V=18 lattice extremes provide independently replayed examples. Counting all covers remains essential to the known proof. |
+| Fixed-c flip connectivity | V=18 squares, `astra_cycle-covers/data/levels.json`; even minimum levels can disconnect. |
+| Direct local lifting | V=18, `fable_induction-completion/data/nolift_18.jsonl`; rotation rescues these examples. Earlier “every matching lifts” fails already at V=8. |
+| Strict rainbow descent or surplus walk termination | Strict descent fails at V=8; periodic surplus walks at V=38. Both need plateaus or additional moves. |
+| Positive full-spoke mean fitting | Cube forced-degree boundary obstruction, `sol_route-probabilistic/PROOFS.md`. |
+| Joint Lorentzian or M-convex support | Cube joint-degree witness; rainbow load vectors fail at V=12. One-sided closure is insufficient. |
+| Unit-circle or real-rooted polynomials | V=12 factors `(z-1)(z^2+3)` and `x(x+1)(2x+1)(2x^2+5x+4)`; real z roots fail at V=10. Probabilistic run `code/secondary.py`. |
+| Uniform state rejection as an efficient algorithm | Width-four tubes have two successes among Fib_(2L+3) states without separating triangles. `sol_counting-families/FAMILIES.md`. |
+| Forest Q without the partner | Hexagonal prism, V=8: three acyclic-Q states, only two tree matchings. Root connectivity cannot be omitted. |
+| Mate of a tree matching is a tree matching | Refuted in the topology referee's `data/ref_mate.json`; signed balance is not that involution. New surplus-walk involutions are a different construction, unreviewed. |
+| Ordinary lattice rank polynomial | Singleton base lattice already loses the two opposite signs and the graph-dependent weights. `sol_referee-conjectures/LATTICE-READING.md`. |
+| Automatic nonplanar state proof | Heawood root-free torus: 24 states, 48 pairs, odd-cycle cancellation survives, polynomial zero. `astra_route-pfaffian/data/results.json`. |
+| Universal boundary condition at longer cuts | Length-five cut with nine vertices, categorical `PROOF.md`. Even quadrilateral six-pattern completeness needs the chord qualification. |
+| Commuting reversal bicomplex or topological Hall | Reversals fail to commute in 12 of 624 tested pairs; octahedral partial-tree complex disconnected. Categorical `REPORT.md`. |
 
-| Statement | Status |
-| --- | --- |
-| a Hamiltonian cycle avoiding any one edge | published, Corollary 7.1 |
-| a Hamiltonian cycle through any path with two edges | follows at once, see step 08 |
-| a Hamiltonian cycle through any path with three edges | published as Corollary 7.2, through an equivalence of Gorsky, Steiner and Wiederrecht. It rests on their paper as well as on the proof |
-| a Hamiltonian cycle through any path with four edges | false on the cube |
-| a Hamiltonian cycle through one given edge and avoiding another | true for all 55 Barnette graphs with at most 24 vertices. A finite test. The referee asks that it be reported as nothing more, since the project did not settle what the literature says |
-| a Hamiltonian path between any black vertex and any white vertex | same status |
-| analogues on the torus or the projective plane | the states of this proof do not exist there. A different definition would be needed. Open |
+## What survives
 
-## 6. Review and formal verification
-
-- **The OpenAI proof.** A Lean 4 formalisation by OpenAI exists. An agent of this project rebuilt it and found that the main theorem depends only on the three standard axioms and that the formal statement matches the conjecture (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, a computation by one agent). The formal proof covers Theorem 1.1 and the edge-avoiding form. It does not cover Corollary 7.2. It takes a different route from the paper in several places. In particular it never states the two-trees theorem and uses a polynomial where the paper uses an exponential.
-- **The three papers.** All are preprints. No journal review is known to the project's literature review as of 14 November 2026.
-- **Li's note and the trees paper.** Not formalised. Within the project, Li's involutions for more than one cycle, the marked walk and the enumeration bounds have been implemented in `workings/barnette_lab` and run on finite ranges. The determinant referee did not review that part. It stays computed and unreviewed.
-- **The project's own proofs.** The weight-free proof of Proposition 5.1, the linear-weight proof, the Euler identity and the pair criterion, the sharp hypothesis in $G$, the description of the cycles produced by recovery and the rarity family have each been checked by a second model. None has been read by a human, and none is formalised. The heights proof is short and uses only the disk identity and signed intersection numbers, which makes it a reasonable first target for a formal check.
-
-## Where to start
-
-Three suggestions, in order of how well posed they are.
-
-1. Prove or refute $\mathrm{TM} \ge 2^{c_{\min}}$. The data and two programs are in `fable_route-combinatorics/` and `astra_referee-combinatorics/`.
-2. Independently replay the reported 18-vertex joint failures of the true lattice extremes, then test the proposed distance-one and join/meet-irreducible replacements.
-3. Look for a polynomial-size formula for the signed sum, or show that the coefficient extraction is hard in some precise sense.
+The contraction induction would close with ML1 and ML2. Its local splitting, lifting and rotation statements have an independent AI referee; the new one-sided extension still needs one. C3 and rainbow exchange X survive finite tests with plateaus. Two-tree packing remains a promising fractional statement pending its dedicated report, and exact rounding is still separate. C1 survives all tested sizes, with an unreviewed two-cover proof and sharp infinite families. None of these is a replacement proof of the key existence lemma yet.

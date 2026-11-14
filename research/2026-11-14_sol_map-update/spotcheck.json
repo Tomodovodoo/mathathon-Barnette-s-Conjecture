@@ -1,0 +1,11 @@
+{
+  "command": "python -X utf8 -B research/2026-11-14_sol_map-update/add_failures.py",
+  "V33_elements": 16,
+  "R2_candidates": 10,
+  "candidate_tree_pairs": 0,
+  "V33_total_tree_pairs": 144,
+  "roots_through_22": 9531638,
+  "feasible_through_22": 4656948,
+  "separator_free_roots_through_24": 23824742,
+  "scope": "Checks saved certificate order and arithmetic; does not independently enumerate graphs or replay all pair tests."
+}

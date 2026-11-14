@@ -26,7 +26,7 @@ A strand between two boxes is an argument that crosses that step.
 
 | Style | Status | Meaning |
 | --- | --- | --- |
-| black, solid | `LIT` | published. One strand per distinct argument, so a single black strand means the papers agree up to translation |
+| black, solid | `LIT` | supplied source result; 2026 preprints are unrefereed. One strand per distinct argument, so a single black strand means the papers agree up to translation |
 | blue, solid | `PROVED-HERE` | full proof written in an agent folder. Review state is given in the table of the step |
 | green, dash-dot | `COMPUTED` | checked by a script on a stated range |
 | orange, dotted | `CONJECTURE` | precise statement with a test |

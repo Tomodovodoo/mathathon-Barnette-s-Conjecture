@@ -530,6 +530,132 @@
    "updated": "2026-11-14"
   },
   {
+   "id": "src.agent.rc",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_sol_referee-conjectures",
+   "statement": "Agent archive research/2026-11-14_sol_referee-conjectures/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.covers",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_astra_cycle-covers",
+   "statement": "Agent archive research/2026-11-14_astra_cycle-covers/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_cycle-covers/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.ind",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_opus_route-induction",
+   "statement": "Agent archive research/2026-11-14_opus_route-induction/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.ri",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_fable_induction-completion",
+   "statement": "Agent archive research/2026-11-14_fable_induction-completion/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_induction-completion/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.prob",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_sol_route-probabilistic",
+   "statement": "Agent archive research/2026-11-14_sol_route-probabilistic/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_sol_route-probabilistic/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.pf",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_astra_route-pfaffian",
+   "statement": "Agent archive research/2026-11-14_astra_route-pfaffian/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_route-pfaffian/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.main",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "main",
+   "statement": "Agent archive paper/main/. Review state of its proofs: under-review.",
+   "where": [
+    "paper/main/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.inv",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "involutions",
+   "statement": "Agent archive proofs/involutions/. Review state of its proofs: under-review.",
+   "where": [
+    "proofs/involutions/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
+   "id": "src.agent.revp",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_astra_primal-revision",
+   "statement": "Agent archive research/2026-11-14_astra_primal-revision/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_primal-revision/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
    "id": "wp.G",
    "kind": "theorem",
    "tier": "T2",
@@ -1055,7 +1181,7 @@
    "status": "forced",
    "title": "Step B: Prove the disk identity",
    "statement": "Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.",
-   "note": "One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). A second derivation, as the theorem of turning tangents for an angle structure, is proved in the topology folder and unreviewed.",
+   "note": "Euler double count in the sources; the signed-angle Gauss-Bonnet derivation is independently AI-refereed with boundary corrections. No human check.",
    "tags": [
     "step"
    ],
@@ -1202,7 +1328,7 @@
    "status": "open",
    "title": "Step U: Unsigned routes (bypass)",
    "statement": "Find a tree matching with no signed sum: as a prescribed-degree spanning tree, a three-matroid intersection, a constrained white tree, a point of the state lattice.",
-   "note": "Many exact reformulations are proved. None has an existence argument. Every relaxation tried drops a constraint and is refuted by a small example.",
+   "note": "Contraction induction stops at ML1 and ML2; rainbow exchange and two-tree packing remain conjectural at this snapshot. The natural two-matroid and LP shortcuts fail.",
    "tags": [
     "step"
    ],
@@ -2148,6 +2274,9 @@
    "evidence": [
     "research/2026-11-14_astra_limits/code/campaign.py 14 (1206 roots); research/2026-11-14_sol_route-constructive/VERIFICATION.md (77 runs); gt (all 7868 rooted instances up to 16 vertices against max-flow)"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.A",
@@ -2354,6 +2483,9 @@
    "evidence": [
     "research/2026-11-14_astra_limits/data/roots.json"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.A",
@@ -2501,6 +2633,9 @@
    "evidence": [
     "research/2026-11-14_sol_route-constructive/VERIFICATION.md (1466 directed cycles); research/2026-11-14_fable_dependency-graph/scripts/check_nodes.py; research/2026-11-14_fable_referee-determinants/code/results.json"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.B",
@@ -3193,6 +3328,9 @@
    "evidence": [
     "research/2026-11-14_sol_route-constructive/VERIFICATION.md; research/2026-11-14_fable_dependency-graph/scripts/check_nodes.py (35 cases); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_fable_referee-determinants/code/results.json"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.K",
@@ -3536,6 +3674,9 @@
    "evidence": [
     "research/2026-11-14_sol_route-constructive/supplemental.py (49 groups); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_astra_route-dimers/code/linear.py; research/2026-11-14_fable_referee-determinants/code/results.json; research/2026-11-14_opus_lean-formalisation/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices)"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.N",
@@ -4381,9 +4522,9 @@
   {
    "id": "k.D.3",
    "title": "at least 2^cmin tree matchings",
-   "statement": "Every rooted triangulation with a pair has at least 2^cmin tree matchings. True for all 5088 cases up to 16 vertices; equality in 4609.",
+   "statement": "C1: every feasible root has #TM >= 2^c_min. Independently replayed on all rooted Eulerian triangulations through V=22; extended evidence on 23,824,742 separator-free facial roots through V=24. Equality iff one cover is also open beyond this range.",
    "where": [
-    "research/2026-11-14_fable_route-combinatorics/ROUTES.md 11; labyrinth/scatter.json"
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_astra_cycle-covers/CENSUS.md"
    ],
    "tags": [
     "step D"
@@ -4393,7 +4534,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Find a rooted triangulation with a pair and fewer than 2^cmin tree matchings; start at 17 vertices with cmin = 3.",
+   "test": "Prove the two-cover exceptional-overlap exclusion, then extend the overlap calculation to several covers.",
    "links": [
     {
      "to": "m.step.D",
@@ -4473,14 +4614,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (under review)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
-    "date": "2026-11-14",
+    "state": "refereed",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC). Not covered by that verdict: 2026-11-14_fable_route-categorical"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -4626,14 +4767,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (under review)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
-    "date": "2026-11-14",
+    "state": "refereed",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC). Not covered by that verdict: 2026-11-14_sol_machinery-literature"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -4668,10 +4809,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-structure"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -4705,11 +4850,11 @@
    "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
     "state": "refereed",
-    "date": "2026-11-14",
     "by": [
-     "research/2026-11-14_astra_referee-combinatorics"
+     "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_astra_limits, 2026-11-14_opus_route-graph-theory"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -4752,10 +4897,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-structure"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -5126,6 +5275,9 @@
    "evidence": [
     "research/2026-11-14_fable_route-combinatorics/lab/extra2.py 16; research/2026-11-14_sol_route-constructive/VERIFICATION.md"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.R",
@@ -5496,11 +5648,11 @@
    "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
     "state": "refereed",
-    "date": "2026-11-14",
     "by": [
-     "research/2026-11-14_astra_referee-combinatorics"
+     "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_fable_route-combinatorics: FOLLOWS, with corrections to domain, normalisation and the scope of the negative conclusions (REFEREE.md); human check pending. Not covered by that verdict: 2026-11-14_astra_limits"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -5539,6 +5691,9 @@
    "evidence": [
     "research/2026-11-14_sol_route-constructive/VERIFICATION.md (744 recoveries); research/2026-11-14_astra_limits/code/campaign.py 14 (3618 certificates)"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.F",
@@ -5801,10 +5956,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-structure"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -6413,6 +6572,9 @@
    "evidence": [
     "research/2026-11-14_opus_lean-formalisation/REPORT.md item 1; research/2026-11-14_opus_lean-formalisation/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.G2",
@@ -6442,14 +6604,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (under review)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
-    "date": "2026-11-14",
+    "state": "refereed",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC)"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -6723,9 +6885,9 @@
   {
    "id": "k.N.11",
    "title": "non-increasing exchange path to a tree pair",
-   "statement": "From every pair there is a path of exchanges along which the number of Q-cycles never increases and reaches 0. A sign-free form of T Theorem 5.2.",
+   "statement": "C3: from every ordered pair, D-swaps and Q-reversals that never increase the number of Q-cycles reach a forest pair. Independent exhaustive reachability through V=16 and on both saved plateau traps; author reports 940 successful starts.",
    "where": [
-    "research/2026-11-14_opus_route-graph-theory/ROUTES.md D3"
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_opus_conjectures/REPORT.md"
    ],
    "tags": [
     "step N"
@@ -6735,7 +6897,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Search exchange graphs at 20 to 30 vertices for a pair with no non-increasing path; at 80 vertices look for pairs with no decrease within two swaps.",
+   "test": "Find a potential on plateau components, or search for a closed positive-cycle component at larger orders.",
    "links": [
     {
      "to": "m.step.N",
@@ -6823,9 +6985,9 @@
   {
    "id": "k.D.7",
    "title": "extremes of Felsner's lattice of pairs",
-   "statement": "The claim that one of the two true lattice extremes always carries a forest pair is reported refuted. Independent replay is pending.",
+   "statement": "C2 is false. Both true lattice extremes can have no forest pair. Independent exhaustive minimum-order check finds 26 failures at V=18 and none below.",
    "where": [
-    "research/2026-11-14_opus_conjectures/PREDICTIONS.md items 1-2"
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_sol_referee-conjectures/data/v18.json; research/2026-11-14_sol_referee-conjectures/data/census_18.json"
    ],
    "tags": [
     "step D"
@@ -6835,8 +6997,8 @@
    "kind": "deadend",
    "tier": null,
    "status": "refuted",
-   "lesson": "Single-face terminal orientations need not be lattice extremes; even the true two extremes are reported insufficient. Test distance-one and irreducible replacements.",
-   "note": "Smallest known counterexample: Reported at 18 vertices: 26 rooted instances in two triangulations. Provisional computation, no final report yet.",
+   "lesson": "Exact extremes are computable by two shortest paths, but neither must succeed. Greedy facial terminals are not necessarily extremes.",
+   "note": "Smallest known counterexample: V=18, four-element diamond lattice, 54 states, 20 pairs and 12 tree states.",
    "links": [
     {
      "to": "m.step.D",
@@ -6898,14 +7060,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (under review)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "under-review",
-    "date": "2026-11-14",
+    "state": "refereed",
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_opus_route-graph-theory: pending (audit started 10:50 UTC)"
+    "date": "2026-11-14",
+    "verdict": "Named surrounding structural claim checked in INTEGRATION.md; use its corrected scope, not the refuted broad degree-four converse or matroid isomorphism. Human check pending."
    },
    "links": [
     {
@@ -6943,7 +7105,7 @@
      "research/2026-11-14_fable_referee-topology"
     ],
     "date": "2026-11-14",
-    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+    "verdict": "Original topology claim checked with corrections; new RAINBOW.md theorems have separate unreviewed entries. Human check pending."
    },
    "links": [
     {
@@ -6981,7 +7143,7 @@
      "research/2026-11-14_fable_referee-topology"
     ],
     "date": "2026-11-14",
-    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+    "verdict": "Original topology claim checked with corrections; new RAINBOW.md theorems have separate unreviewed entries. Human check pending."
    },
    "links": [
     {
@@ -7019,7 +7181,7 @@
      "research/2026-11-14_fable_referee-topology"
     ],
     "date": "2026-11-14",
-    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+    "verdict": "Original topology claim checked with corrections; new RAINBOW.md theorems have separate unreviewed entries. Human check pending."
    },
    "links": [
     {
@@ -7039,9 +7201,9 @@
   {
    "id": "p.U.7",
    "title": "sutured Floer support; point-rainbow white trees",
-   "statement": "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. The referee announces a Rado/Euler proof of the point-rainbow criterion in RAINBOW.md, but that file was not yet present when integrated; that new proof was not inspected here.",
+   "statement": "The topology dictionary was AI-refereed. New Theorem R in reft/RAINBOW.md proves the point-rainbow criterion by Rado plus Euler, independent of signed nonvanishing. That new proof is T2 unreviewed.",
    "where": [
-    "research/2026-11-14_opus_route-topology/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices; research/2026-11-14_fable_referee-topology/REFEREE.md"
+    "research/2026-11-14_opus_route-topology/REPORT.md; research/2026-11-14_fable_referee-topology/REFEREE.md; research/2026-11-14_fable_referee-topology/RAINBOW.md"
    ],
    "tags": [
     "step U"
@@ -7057,7 +7219,7 @@
      "research/2026-11-14_fable_referee-topology"
     ],
     "date": "2026-11-14",
-    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+    "verdict": "Original topology claim checked with corrections; new RAINBOW.md theorems have separate unreviewed entries. Human check pending."
    },
    "links": [
     {
@@ -7077,9 +7239,9 @@
   {
    "id": "k.U.7h",
    "title": "local search from a point-rainbow tree",
-   "statement": "Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma.",
+   "statement": "Conjecture X: every point-rainbow tree reaches a tree matching by exchanges never increasing black excess, allowing plateaus. Exhaustive through V=17; sampled to V=120. Surplus walk alone can cycle.",
    "where": [
-    "research/2026-11-14_opus_route-topology/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices"
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/REPORT.md"
    ],
    "tags": [
     "step U"
@@ -7089,7 +7251,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Measure plateaus and step counts at 18 to 20 vertices (1543 triangulations at 18); look for a potential such as black excess plus a white-tree distance.",
+   "test": "Use both kinds of plateau moves; analyze periodic witnesses at V=38 before proposing another deterministic rule.",
    "links": [
     {
      "to": "m.step.U",
@@ -7151,6 +7313,9 @@
    "evidence": [
     "research/2026-11-14_fable_labyrinth-map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.U",
@@ -7169,9 +7334,9 @@
   {
    "id": "p.G.6",
    "title": "boundary states of a cut; complete at lengths 3 and 4",
-   "statement": "Cut T along a cycle, record a finite boundary state on each side, glue: the number of Hamiltonian cycles is the linear term of a Temperley-Lieb pairing of two disk vectors. O Theorem 2.2 says every piece with triangular boundary realises all 3 boundary patterns; for quadrilaterals all 6 patterns allowed by a parity rule occur (conditional on O; one sub-case by a finite computation).",
+   "statement": "Boundary vectors glue by the Temperley-Lieb pairing. Triangular cuts realise all three patterns conditional on the supplied theorem. For quadrilateral ++-- boundaries, six patterns requires chordlessness; a chorded piece can have five (pf/REPORT.md replay).",
    "where": [
-    "research/2026-11-14_fable_route-categorical/PROOF.md Prop. 1, Theorem 3; research/2026-11-14_fable_route-categorical/CATEGORICAL.md"
+    "research/2026-11-14_fable_route-categorical/PROOF.md; research/2026-11-14_astra_route-pfaffian/REPORT.md"
    ],
    "tags": [
     "step G"
@@ -7380,9 +7545,9 @@
   {
    "id": "k.D.9",
    "title": "contraction inequality tau(T) >= tau(T/ac)",
-   "statement": "Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would lift tree matchings along vertex splits.",
+   "statement": "Contraction inequality #TM(T) >= #TM(T/M), conjectural on the rooted degree-four merge class. Checked on 1,202,792 rooted contractions through V=18. It does not imply that any contracted tree matching lifts directly.",
    "where": [
-    "research/2026-11-14_fable_route-categorical/REPORT.md (table); 948 contractions"
+    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md; research/2026-11-14_fable_induction-completion/data/census_*.json"
    ],
    "tags": [
     "step D"
@@ -7392,7 +7557,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Look for a local rule extending a tree matching across a vertex split on the 948 cases (cat/code/recursion.py contract).",
+   "test": "Prove an injection from exceptional to non-exceptional matchings; distinguish direct lift from rotation.",
    "links": [
     {
      "to": "m.step.D",
@@ -7411,9 +7576,9 @@
   {
    "id": "p.G2.primal",
    "title": "primal proof with flows and real signs",
-   "statement": "A full primal route using disk cut counts, linear-weight nonvanishing, recovery and 3-cut gluing. Author audit and finite checks exist; independent review pending.",
+   "statement": "Full primal proof, independently AI-refereed before revision; missing local sign calculation and map conventions repaired. Revision disputes referee M4: its phase ratio simplifies to i^n, constant in the circuit count. Revised supplementary claims and this disagreement have author verification only.",
    "where": [
-    "proofs/research/2026-11-14_astra_primal-proof/PRIMAL-PROOF.md; proofs/research/2026-11-14_astra_primal-proof/STATUS.md"
+    "proofs/primal/STATUS.md; research/2026-11-14_astra_primal-revision/REPORT.md; research/2026-11-14_fable_referee-research/2026-11-14_astra_primal-proof/REFEREE.md"
    ],
    "tags": [
     "step G2"
@@ -7422,10 +7587,14 @@
    "updated": "2026-11-14",
    "kind": "theorem",
    "tier": "T2",
-   "status": "proof supplied (unreviewed)",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
    "review": {
-    "state": "unreviewed",
-    "date": "2026-11-14"
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_referee-primal"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Earlier proof FOLLOWS with repairs; subsequent revision and M4 disagreement are not independently re-refereed. Human check pending."
    },
    "links": [
     {
@@ -7545,21 +7714,22 @@
    ]
   },
   {
-   "id": "k.D.ext1",
+   "id": "x.D.ext1",
    "title": "distance one from a lattice extreme",
-   "statement": "Some element at rank distance at most one from a true extreme carries a forest pair.",
+   "statement": "R1: success within cover-distance one of an extreme.",
    "where": [
-    "research/2026-11-14_opus_conjectures/PREDICTIONS.md item 3"
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_sol_referee-conjectures/data/r1.json"
    ],
    "tags": [
     "step D"
    ],
    "created": "2026-11-14",
    "updated": "2026-11-14",
-   "kind": "conjecture",
-   "tier": "T5",
-   "status": "open",
-   "test": "Enumerate true extremes and their rank-one neighbours through 24 vertices.",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "No fixed distance bound works in the general class; separating-triangle-free restriction remains a separate test.",
+   "note": "Smallest known counterexample: Saved V=24 witness has nearest success at distance two; glued V=33 family gives unbounded distance.",
    "links": [
     {
      "to": "m.step.D",
@@ -7568,29 +7738,26 @@
     {
      "to": "src.agent.conjectures",
      "rel": "cites"
-    },
-    {
-     "to": "wp.FP",
-     "rel": "suggests"
     }
    ]
   },
   {
-   "id": "k.D.ext2",
-   "title": "join or meet irreducible pair cover",
-   "statement": "Some join-irreducible or meet-irreducible lattice element carries a forest pair.",
+   "id": "x.D.ext2",
+   "title": "R2: extreme or irreducible",
+   "statement": "A bottom, top, join-irreducible or meet-irreducible element need not carry a tree pair.",
    "where": [
-    "research/2026-11-14_opus_conjectures/PREDICTIONS.md item 4"
+    "research/2026-11-14_sol_referee-conjectures/LATTICE-READING.md Section 6; research/2026-11-14_sol_referee-conjectures/data/R2_glued_V33.json"
    ],
    "tags": [
     "step D"
    ],
    "created": "2026-11-14",
    "updated": "2026-11-14",
-   "kind": "conjecture",
-   "tier": "T5",
-   "status": "open",
-   "test": "Enumerate irreducibles and all cover orientations through 22 vertices.",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Success need not occur at lattice boundary elements. This witness has separating triangles and does not settle a separator-free restriction.",
+   "note": "Smallest known counterexample: V=33 rigid-face sum of two V=18 witnesses; lattice B_4, 400 pairs, 144 tree pairs, all ten candidates fail. Two implementations agree. No minimum-order claim.",
    "links": [
     {
      "to": "m.step.D",
@@ -7599,10 +7766,6 @@
     {
      "to": "src.agent.conjectures",
      "rel": "cites"
-    },
-    {
-     "to": "wp.FP",
-     "rel": "suggests"
     }
    ]
   },
@@ -7656,6 +7819,9 @@
    "evidence": [
     "research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json"
    ],
+   "review": {
+    "state": "unreviewed"
+   },
    "links": [
     {
      "to": "m.step.N",
@@ -7763,6 +7929,1241 @@
     },
     {
      "to": "src.agent.older",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.G2.main",
+   "title": "merged dual exposition",
+   "statement": "Written dual route uses product of local signs, heights along face paths, and an explicit connectivity lemma inside a selected cycle. Under two AI reader reviews; no final verdict at integration.",
+   "where": [
+    "paper/main/; research/2026-11-14_opus_manuscript-merge/"
+   ],
+   "tags": [
+    "step G2"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (under review)",
+   "review": {
+    "state": "under-review",
+    "date": "2026-11-14",
+    "by": [
+     "research/2026-11-14_sol_referee-main",
+     "research/2026-11-14_fable_coldread-main"
+    ]
+   },
+   "links": [
+    {
+     "to": "m.step.G2",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.main",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.HC",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.G2.inv",
+   "title": "complete marked involution exposition",
+   "statement": "Written bijective route through marked objects and two involutions. Under independent AI referee; no final verdict at integration.",
+   "where": [
+    "proofs/involutions/; research/2026-11-14_sol_li-completion/"
+   ],
+   "tags": [
+    "step G2"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (under review)",
+   "review": {
+    "state": "under-review",
+    "date": "2026-11-14",
+    "by": [
+     "research/2026-11-14_opus_referee-involutions"
+    ]
+   },
+   "links": [
+    {
+     "to": "m.step.G2",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.inv",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.HC",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.U.directed",
+   "title": "linear test of a specified pair",
+   "statement": "A pair is a tree pair iff its selected centre-exit digraph has no directed cycle. DFS tests a given pair in linear time. Choosing directions for all cycles of a specified factor is unresolved. Exhaustively verified through V=18.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/LATTICE-READING.md Section 2; research/2026-11-14_sol_referee-conjectures/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-conjectures"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Submitted criterion independently proved and checked on every pair through V=18. Human check pending."
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.conjectures",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.N.rank-dead",
+   "title": "signed sum as base-lattice rank polynomial",
+   "statement": "Read the pair sum from the ordinary rank polynomial of the factor lattice.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/LATTICE-READING.md; research/2026-11-14_sol_referee-conjectures/data/examples.json"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The orientation cube above each lattice element carries indispensable sign and weight data.",
+   "note": "Smallest known counterexample: Octahedron and hexagonal-prism dual have identical singleton lattice but different signed polynomials; opposite signs already lie above one ideal.",
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.rc",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.D.unique",
+   "title": "one cover gives equality in C1",
+   "statement": "If there is one factor, Q-cycle reversal would create another factor. All its 2^c orientations are tree pairs, and unique partners make their second states distinct. Thus #TM=2^c_min. Converse open.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-conjectures"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Submitted proof independently closed. Human check pending."
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.conjectures",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.D.covers",
+   "title": "primal meaning and unbounded c_min without separators",
+   "statement": "For an admissible edge deletion S, c(D)=components(G-S)-1. Explicit T_m, V=3m+2, has no separating triangle, one cover with m-2 triangles and one pentagon, c_min=m-1 and #TM=2^(m-1). Author proof and finite checks, unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_cycle-covers/PROOFS.md; research/2026-11-14_astra_cycle-covers/data/family.json"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.covers",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "c.D.cover-census",
+   "title": "C1 and equality census through dual order 24",
+   "statement": "23,824,742 facial roots of 4-connected Eulerian triangulations, V<=24: no C1 or equality-characterization violation. Maximum c_min=6 at V=23. T4 under review, not an independent certification of the inherited C engine.",
+   "where": [
+    "research/2026-11-14_astra_cycle-covers/code/README.md; research/2026-11-14_astra_cycle-covers/data/census.json"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "evidence",
+   "tier": "T4",
+   "status": "computed",
+   "evidence": [
+    "research/2026-11-14_astra_cycle-covers/code/README.md; research/2026-11-14_astra_cycle-covers/data/census.json"
+   ],
+   "review": {
+    "state": "unreviewed"
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.covers",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "tests"
+    }
+   ]
+  },
+  {
+   "id": "x.D.level-dead",
+   "title": "fixed-cycle-count flip connectivity",
+   "statement": "Covers with the same c, including minimum-c covers, form a connected flip level.",
+   "where": [
+    "research/2026-11-14_astra_cycle-covers/data/levels.json; research/2026-11-14_astra_cycle-covers/PROOFS.md"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Do not assume that minimizing c gives a convex or connected lattice level.",
+   "note": "Smallest known counterexample: V=18 flip squares with labels 3,1,5,3 and 1,3,3,1; no smaller failure in the separator-free search.",
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.covers",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.D.two-covers",
+   "title": "two-cover exponential bound",
+   "statement": "Two covers with c1,c2 cycles and j shared component cycles have overlap a either zero or 2^j and TM=2^c1+2^c2-2a. This proves C1 for two covers. Strictness has one unexcluded planar overlap configuration. Unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_cycle-covers/PROOFS.md"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.covers",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.U.induction",
+   "title": "degree-four contraction and rotation",
+   "statement": "State splitting, exact lift criterion, local sufficient condition, rotation and partial injection are AI-refereed. One-sided existence lifting is proved in ri/RESIDUAL-CASES.md; this new extension is unreviewed. Full induction has two missing lemmas.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/PROOFS.md; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (1 independent AI referee; human check pending)",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_induction-completion"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Submitted local propositions correct; one-sided extension is new referee work, unreviewed. Human check pending."
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "k.U.G",
+   "title": "ML1: preserve a pair in some merge",
+   "statement": "Every separator-free rooted T with V>6 has a non-root degree-four vertex and a simple opposite-neighbour merge with a pair. All 62,416 separator-free facial roots, 8<=V<=19, pass.",
+   "where": [
+    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Use short-cycle obstructions and minimal tight sets in MISSING-LEMMA.md; referee the reduction first.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ri",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
+    }
+   ]
+  },
+  {
+   "id": "k.U.ML2",
+   "title": "ML2: two-sided existence lifting",
+   "statement": "If both contractions at a non-root degree-four vertex have tree matchings, not all matchings of either contraction are exceptional. One-sided case is proved; all tested cases through V=18 pass.",
+   "where": [
+    "research/2026-11-14_fable_induction-completion/MISSING-LEMMA.md; research/2026-11-14_fable_induction-completion/RESIDUAL-CASES.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Bound the exceptional fraction by one half, or construct a sign-free injection into non-exceptional matchings.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ri",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
+    }
+   ]
+  },
+  {
+   "id": "x.U.lift-dead",
+   "title": "some contracted tree matching lifts directly",
+   "statement": "If T/M has tree matchings, at least one lifts directly to T.",
+   "where": [
+    "research/2026-11-14_fable_induction-completion/data/nolift_18.jsonl; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Direct lifting is stronger than existence lifting. Rotation is essential, and counting inequality does not imply direct lift.",
+   "note": "Smallest known counterexample: V=18 graph 309, root (5,0,6), x=11, merge {10,2}; both matchings fail to lift, both rotate. 50 such rooted contractions.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ri",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.U.rainbow",
+   "title": "Rado-Euler rainbow tree and unique factor",
+   "statement": "Theorem R proves rainbow existence exactly at feasible roots. Theorem S completes each rainbow tree to a unique incidence 2-factor. Reversible surplus walks give fixed-point-free involutions on tree matchings. New proofs T2 unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.U.walk-dead",
+   "title": "surplus walk always terminates",
+   "statement": "The surplus walk alone reaches smaller black excess.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Conjecture X needs both plateau moves; a deterministic walk can miss the exit.",
+   "note": "Smallest known counterexample: Periodic walks at V=38, periods 48 and 68; minimum order unresolved in 17..38.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.mean-dead",
+   "title": "positive full-spoke UST mean fitting",
+   "statement": "Finite positive weights attain the target degrees on all of H.",
+   "where": [
+    "research/2026-11-14_sol_route-probabilistic/PROOFS.md Sections 1-3"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Condition to the forced-spoke face before fitting means; fractional feasibility still does not round exact joint degrees.",
+   "note": "Smallest known counterexample: Cube: root and outer-centre target degrees are maximal, but every spoke can be absent.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.prob",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.support-dead",
+   "title": "joint Lorentzian rounding",
+   "statement": "Joint endpoint degree support inherits M-convexity from the spanning-tree polynomial.",
+   "where": [
+    "research/2026-11-14_sol_route-probabilistic/PROOFS.md; research/2026-11-14_sol_route-probabilistic/code/campaign.py"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The joint substitution is bilinear. One-sided Lorentzian closure supplies no joint-degree theorem.",
+   "note": "Smallest known counterexample: Six-cycle hand witness; cube spoke graph among 128 spanning trees.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.prob",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "k.U.packing",
+   "title": "two white trees in every pair support",
+   "statement": "Every selected pair support partitions into two white spanning trees. 278 nonvacuous rank tests and 27 larger packings through V=120 support it. Packing supplies fractional feasibility, not degree-preserving rounding.",
+   "where": [
+    "research/2026-11-14_sol_route-probabilistic/NEXT-PREDICTION.md; research/2026-11-14_sol_route-probabilistic/REPORT.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Check Nash-Williams rank inequalities by the disk count; consume the dedicated packing report when available.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.prob",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
+    }
+   ]
+  },
+  {
+   "id": "x.N.zeros-dead",
+   "title": "universal analytic root locations",
+   "statement": "Signed z-polynomials have unit-circle roots or linear-weight polynomials have only real roots.",
+   "where": [
+    "research/2026-11-14_sol_route-probabilistic/PROOFS.md; research/2026-11-14_sol_route-probabilistic/code/secondary.py"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Family product factorizations do not establish a universal zero-location argument.",
+   "note": "Smallest known counterexample: V=12 exact factors (z-1)(z^2+3) and x(x+1)(2x+1)(2x^2+5x+4); real-rooted z already fails at V=10.",
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.prob",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.G2.pf",
+   "title": "Pfaffian corollary through GSW 4.16",
+   "statement": "Conditional on the supplied planar theorem, the opened GSW Theorems 4.4, 4.9, 4.12, 1.7 and 4.16 imply Corollary 7.2. One-step trisum gluing uses six path signatures. New inference unreviewed.",
+   "where": [
+    "research/2026-11-14_astra_route-pfaffian/GSW-CHAIN.md"
+   ],
+   "tags": [
+    "step G2"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.G2",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.pf",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.HC",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.N.heawood",
+   "title": "root-free torus nonvanishing",
+   "statement": "Transfer spherical signed nonvanishing directly to Heawood on the torus.",
+   "where": [
+    "research/2026-11-14_astra_route-pfaffian/PROOFS.md; research/2026-11-14_astra_route-pfaffian/data/results.json; research/2026-11-14_astra_route-pfaffian/data/verification.json"
+   ],
+   "tags": [
+    "step N"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Cancellation survives while nonvanishing fails; the spherical disk value is indispensable for this route.",
+   "note": "Smallest known counterexample: Heawood: 24 states, 48 pairs, D seven-cycles, odd Q cycles; every state contribution cancels and polynomial is identically zero.",
+   "links": [
+    {
+     "to": "m.step.N",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.pf",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.TG.edge",
+   "title": "through an edge from avoidance",
+   "statement": "At an endpoint of a prescribed edge e, avoid either other incident edge. Degree two then forces e. Through-edge Hamiltonicity follows from universal edge avoidance. Unreviewed conditional deduction.",
+   "where": [
+    "research/2026-11-14_astra_older-approaches/BRIDGES.md; research/2026-11-14_astra_older-approaches/NOVELTY.md"
+   ],
+   "tags": [
+    "step TG"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.TG",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.older",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.2T",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.D.tubes",
+   "title": "separator-free exponential rarity",
+   "statement": "Width-four nanotubes have S_L=Fib_(2L+3), #TM=2 and c_min=1. Stationary transfer certificates also cover width six. All-length transfer reasoning is author proved; finite arithmetic and matrices remain unreviewed.",
+   "where": [
+    "research/2026-11-14_sol_counting-families/FAMILIES.md; research/2026-11-14_sol_counting-families/data/"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "proof supplied (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.families",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "c.D.C1-census",
+   "title": "independent C1 census through V=22",
+   "statement": "All 9,531,638 facial roots through V=22, 4,656,948 feasible: C1 and equality iff one factor pass. Independent Python and C++ implementations agree through V=18; author and referee totals agree through V=22.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/code/count.cpp; research/2026-11-14_sol_referee-conjectures/data/fast_census_summary.json; research/2026-11-14_sol_referee-conjectures/REFEREE.md"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "exhaustive",
+   "tier": "T3",
+   "status": "computed",
+   "evidence": [
+    "research/2026-11-14_sol_referee-conjectures/code/count.cpp; research/2026-11-14_sol_referee-conjectures/data/fast_census_summary.json; research/2026-11-14_sol_referee-conjectures/REFEREE.md"
+   ],
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_sol_referee-conjectures"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Independent replay of submitted C1 computation; human check pending."
+   },
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.rc",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "tests"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R1",
+   "title": "induction R1: Lift lemma, only-if half (route-graph-theory PROOFS Lemma 6.",
+   "statement": "Lift lemma, only-if half (route-graph-theory PROOFS Lemma 6.2(iii)): if the lift s of s' is a TM then s' is a TM R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "splitting v can open a cycle of tau'; s TM iff split(tau')+a v1 is a spanning tree of T-x (PROOFS Prop 2.1)",
+   "note": "Smallest known counterexample: smallest={'V': 6, 'gid': 0, 't0': 0, 'x': 3, 'merge': '5->0', 'note': 'T/M has a parallel pair'}; smallest_simple={'V': 11, 'gid': 1, 't0': 0, 'x': 5, 'merge': '6->4'}; range=V<=17, 13,210 of 131,336 simple contractions",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R2",
+   "title": "induction R2: Degree-4 contraction preserves the existence of a pair",
+   "statement": "Degree-4 contraction preserves the existence of a pair R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "contraction can create a black-inner separating triangle; choose the contraction (conjecture G)",
+   "note": "Smallest known counterexample: smallest_simple={'V': 11, 'gid': 1, 't0': 0, 'x': 5, 'merge': '6->4'}; range=V<=17, fails in 7,510 of 131,336 simple contractions",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R3",
+   "title": "induction R3: Every TM of T/M lifts to a TM of T",
+   "statement": "Every TM of T/M lifts to a TM of T R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "the lift condition a in K2 is global; failing TMs must be sent to N-type TMs (rotation rho)",
+   "note": "Smallest known counterexample: smallest={'V': 8, 'gid': 0, 't0': 0, 'x': 4, 'merge': '5->0'}; smallest_root_free={'V': 10, 'gid': 1, 't0': 3, 'x': 8, 'merge': '9->7'}; range=V<=17, fails in 41,873 of 131,336 simple contractions",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R4",
+   "title": "induction R4: Failing lifts are compensated within the same type (B >= b)",
+   "statement": "Failing lifts are compensated within the same type (B >= b) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "compensation comes from the other contraction's type (C >= b holds)",
+   "note": "Smallest known counterexample: smallest={'V': 8, 'gid': 0, 't0': 0, 'x': 4, 'merge': '5->0'}; range=V<=17",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R5",
+   "title": "induction R5: Some TM of T/M satisfies the local condition LC (edge a v in",
+   "statement": "Some TM of T/M satisfies the local condition LC (edge a v in Q) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "a one-edge local prescription is too strong as an induction hypothesis",
+   "note": "Smallest known counterexample: smallest={'V': 10, 'gid': 1, 't0': 3, 'x': 9, 'merge': '2->8'}; range=V<=17, fails in 6,474 of 131,336 simple contractions",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R6",
+   "title": "induction R6: rho(lift) is a TM for every failing lift",
+   "statement": "rho(lift) is a TM for every failing lift R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "rotation covers 98.3%; the case b in K2' needs a second rule",
+   "note": "Smallest known counterexample: smallest={'V': 13, 'gid': 7, 't0': '(0,4,5)', 'x': 10, 'merge': '8->4', 'note': 'x has a root neighbour'}; smallest_root_free={'V': 14, 'gid': 12, 't0': '(5,11,6)', 'x': 2, 'merge': '9->0'}; range=V<=16: 466 of 28,189 failing lifts",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R7",
+   "title": "induction R7: TM(T) >= 2 TM(T/M)",
+   "statement": "TM(T) >= 2 TM(T/M) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "contraction inequality is tight: TM(T) = TM(T/M) occurs often",
+   "note": "Smallest known counterexample: smallest={'V': 8, 'gid': 0, 't0': 0, 'x': 4, 'merge': '5->0'}; range=V<=17",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R8",
+   "title": "induction R8: lowest coefficient lc = sum over D with c_min cycles of prod",
+   "statement": "lowest coefficient lc = sum over D with c_min cycles of prod_C (white faces inside C) is monotone under contraction R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "c_min can drop under expansion (1 vs 3), resetting lc; signed-polynomial data is not monotone",
+   "note": "Smallest known counterexample: smallest={'V': 14, 'gid': 12, 't0': 3, 'x': 2, 'merge': '3->1', 'values': 'lc 5 vs 7'}; range=V<=17, 86 failures",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R9",
+   "title": "induction R9: c_min(T) = c_min(T/M) (when both have pairs)",
+   "statement": "c_min(T) = c_min(T/M) (when both have pairs) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "expansion can merge D-cycles",
+   "note": "Smallest known counterexample: smallest={'V': 14, 'gid': 7, 't0': 1, 'x': 12, 'merge': '10->6', 'values': 'c_min 1 vs 3'}; range=V<=17; c_min(T) <= c_min(T/M) always holds, equality fails in 358 simple contractions",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R10",
+   "title": "induction R10: Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges define",
+   "statement": "Skein relation TM(T) = TM(T/M) + TM(T/N) (both merges defined) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "only #states satisfies the deletion-contraction identity (PROOFS Prop 1.1); TM and pairs do not, because pairs mix M- and N-types",
+   "note": "Smallest known counterexample: smallest={'V': 6, 'gid': 0, 't0': 0, 'x': 3}; smallest_strict_less={'V': 13, 'gid': 7, 't0': 3, 'x': 10}; range=V<=17: fails in 24,600 of 172,436 vertex-root pairs, in both directions; least squares over V<=16 leaves max residual 14.5",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R11",
+   "title": "induction R11: Prescribed corner: for every face t in A and non-root corner",
+   "statement": "Prescribed corner: for every face t in A and non-root corner u, some TM has s(t)=u (HCs); same for the mate r (HCr) R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "local prescriptions at a face are generally impossible; consistent with NP-completeness of prescribing edge sets",
+   "note": "Smallest known counterexample: smallest={'V': 8, 'gid': 0, 't0': 0, 'face': '(3,6,5)', 'corner': 3}; range=V<=17: HCs holds in only 20 of 13,130 rooted instances with a pair (8 of them octahedron roots)",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R12",
+   "title": "induction R12: A good contraction (result has a pair) always exists",
+   "statement": "A good contraction (result has a pair) always exists R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "separating triangles must be handled by gluing (multiplicativity), not contraction",
+   "note": "Smallest known counterexample: smallest={'V': 9, 'gid': 0, 't0': 1, 'note': 'T has a separating triangle'}; range=V<=17; no failure without separating triangles",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.ind-R13",
+   "title": "induction R13: Inverse P-operation (Batagelj) preserves pairs",
+   "statement": "Inverse P-operation (Batagelj) preserves pairs R8 lowest-coefficient claim was not independently replayed; R13 checked only at V=6. Other specified witnesses confirmed in ri/REFEREE.md.",
+   "where": [
+    "research/2026-11-14_opus_route-induction/data/failed_inductions.json; research/2026-11-14_fable_induction-completion/REFEREE.md"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "P-reduction is less useful than Q-reduction; TM(T) >= TM(T'') still holds",
+   "note": "Smallest known counterexample: smallest={'V': 6, 'note': 'octahedron: every P-reduction is non-simple and loses the pair'}; range=V<=17: 15,226 of 58,593 P-reductions (rooted, avoiding t0) lose the pair",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.ind",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.loads-dead",
+   "title": "rainbow loads are M-convex",
+   "statement": "Rainbow load vectors satisfy simultaneous M-exchange.",
+   "where": [
+    "research/2026-11-14_fable_referee-topology/RAINBOW.md; research/2026-11-14_fable_referee-topology/data/loads_sampled_6_13.json"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Singleton-factor tests made the exchange property vacuous; include instances with several factors.",
+   "note": "Smallest known counterexample: V=12, first instances with two factors; author search, unreviewed.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.reft",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.D.chain-dead",
+   "title": "every maximal lattice chain hits success",
+   "statement": "Every maximal chain contains an element carrying a tree pair.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_sol_referee-conjectures/data/r3.json; research/2026-11-14_sol_referee-conjectures/data/R2_glued_V33.json"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "A chain can complete one coordinate block before entering the next and miss every success.",
+   "note": "Smallest known counterexample: Saved V=60 chain of seven elements; V=33 gluing already refutes it. No minimum claim.",
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.rc",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.D.fraction-dead",
+   "title": "at least half the lattice succeeds",
+   "statement": "At least half the factor lattice admits a successful direction choice.",
+   "where": [
+    "research/2026-11-14_sol_referee-conjectures/REFEREE.md; research/2026-11-14_sol_referee-conjectures/data/r5.json; research/2026-11-14_sol_referee-conjectures/data/R2_glued_V33.json"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Independent witness blocks multiply the successful fraction down to 2^-q.",
+   "note": "Smallest known counterexample: Saved V=70 gives 654/1410=109/235; V=33 gluing gives 4/16. No minimum claim.",
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.rc",
      "rel": "cites"
     }
    ]
@@ -8096,9 +9497,9 @@
    "tier": null,
    "status": "open",
    "title": "Is there a canonical forest pair?",
-   "statement": "Seven extremal rules are refuted. Only 'lattice min or max' survives, on random samples.",
-   "why": "Seven extremal rules are refuted. Only 'lattice min or max' survives, on random samples.",
-   "next": "First test: independently replay the reported 18-vertex joint failures of k.D.7; apply the Hine-Kalman bijection to the 8 tree matchings of f.cls6-12 (k.D.6).",
+   "statement": "No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.",
+   "why": "No universal canonical forest pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.",
+   "next": "Test the separator-free restriction of R2; keep direction search separate from testing a pair.",
    "links": [
     {
      "to": "k.D.7",
@@ -8118,9 +9519,9 @@
    "tier": null,
    "status": "open",
    "title": "How many tree matchings must there be?",
-   "statement": "Proved here: at least 2 cmin. Conjectured: at least 2^cmin (no exception among 5088 cases; equality in 4609).",
-   "why": "Proved here: at least 2 cmin. Conjectured: at least 2^cmin (no exception among 5088 cases; equality in 4609).",
-   "next": "First test: extend the census to 17 and 18 vertices restricted to cmin >= 3 and look for a count below 8.",
+   "statement": "C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.",
+   "why": "C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.",
+   "next": "Exclude the exceptional two-cover overlap; then treat more covers.",
    "links": [
     {
      "to": "k.D.3",
@@ -8186,11 +9587,11 @@
    "id": "q.disk",
    "kind": "question",
    "tier": null,
-   "status": "open",
+   "status": "answered",
    "title": "Is there a second proof of the disk identity?",
-   "statement": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity from the theorem of turning tangents (p.B.6); nobody has refereed that.",
-   "why": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity from the theorem of turning tangents (p.B.6); nobody has refereed that.",
-   "next": "First test: referee p.B.6 on the 9-vertex non-bijective disk (lim/examples/nonbijective_disk.json), where the angle structure must fail to be flat.",
+   "statement": "Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.",
+   "why": "Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.",
+   "next": "Human-check the corrected flat-angle proof.",
    "links": [
     {
      "to": "p.B.6",
@@ -8252,9 +9653,9 @@
    "tier": null,
    "status": "open",
    "title": "Do Li's higher-mark involutions match the polynomial coefficient?",
-   "statement": "Li's Appendix B leaves three verifications to the reader; li.py was not refereed.",
-   "why": "Li's Appendix B leaves three verifications to the reader; li.py was not refereed.",
-   "next": "First test: k.N.12 on an instance with cmin = 2.",
+   "statement": "A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.",
+   "why": "A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.",
+   "next": "Finish the independent referee and reconcile distinct-mark conventions.",
    "links": [
     {
      "to": "k.N.12",
@@ -8274,9 +9675,9 @@
    "tier": null,
    "status": "open",
    "title": "What is the right statement on other surfaces?",
-   "statement": "States need |A| = |X|, which fails by 2g. The topology-free target is one edge per triangle with connected complementary dual.",
-   "why": "States need |A| = |X|, which fails by 2g. The topology-free target is one edge per triangle with connected complementary dual.",
-   "next": "First test: on the 3 x 3 torus enumerate root-free pairs and classify Q by its cycle rank against the 36 Hamiltonian cycles.",
+   "statement": "Rooted cardinality fails by 2g. Root-free Heawood has odd-cycle cancellation but identically zero polynomial.",
+   "why": "Rooted cardinality fails by 2g. Root-free Heawood has odd-cycle cancellation but identically zero polynomial.",
+   "next": "Find a replacement for spherical nonvanishing; compare the six trisum signatures.",
    "links": [
     {
      "to": "x.S0.x3",
@@ -8314,9 +9715,9 @@
    "tier": null,
    "status": "open",
    "title": "Has a human checked any of the proofs written here?",
-   "statement": "No. Two folders are AI-refereed (combinatorics, determinants), two are under review, the rest unreviewed.",
-   "why": "No. Two folders are AI-refereed (combinatorics, determinants), two are under review, the rest unreviewed.",
-   "next": "First test: a human reads refc/REWRITTEN-PROP-5-1.md and refd/SIGNIFICANCE.md Section 2, the two candidates for the main text.",
+   "statement": "No human-checked claim is recorded. Claim-specific AI reviews are in the route nodes; new referee discoveries remain unreviewed.",
+   "why": "No human-checked claim is recorded. Claim-specific AI reviews are in the route nodes; new referee discoveries remain unreviewed.",
+   "next": "Check the merged exposition and revised primal sign normalization.",
    "links": [
     {
      "to": "p.N.H",

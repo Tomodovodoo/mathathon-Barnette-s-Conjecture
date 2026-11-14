@@ -99,3 +99,14 @@ Every claim that is not in one of the three papers carries its review status in 
 - "Conjecture" means there is evidence and no proof.
 
 Shared notation is that of `research/BRIEF.md`. It is collected in the [glossary](GLOSSARY.md).
+
+
+## Where the project stands now
+
+The three current written routes are [the merged dual paper](../../paper/main/barnette.tex), [the revised primal proof](../../proofs/primal/PRIMAL-PROOF.md), and [the marked-involution proof](../../proofs/involutions/INVOLUTIONS.md). The first and third are under independent AI review. The original primal note was AI-refereed; its revision is self-audited and disputes the referee's circuit-dependent phase normalization, simplifying the proposed ratio to i^n. The dispute is recorded in `research/2026-11-14_astra_primal-revision/REPORT.md`. None is human-checked. The upstream Lean theorem was machine-checked in a local build.
+
+The merged paper uses the sign as a product of local signs, heights measured along face paths, and a connectivity lemma for the inside of a selected cycle. The last point supplies the connectedness hypothesis needed before Euler's formula is used. These are changes to the presentation, not an unsigned existence proof.
+
+For sentence 8, c_min is the minimum number of components in the unoriented D-cover of a pair. It differs from the number of cycles in Q_s. The cycle-cover run supplies an unreviewed primal interpretation, c(D)=components(G-S)-1, and a separator-free family on 3m+2 dual vertices with c_min=m-1 and #TM=2^(m-1). Large c_min is therefore not an effect of separating triangles alone. Its census tests the exponential bound through dual order 24 only in the 4-connected class; the independent all-root census reaches 22.
+
+Several hoped-for simplifications are false. Both lattice extremes can fail at V=18; extrema together with irreducibles can all fail at V=33. Direct contraction lifting fails at V=18. The contraction route still needs ML1 and a two-sided lifting lemma, and monotone pair descent C3 and rainbow exchange X remain conjectural. Their exact statements and finite ranges are in [09](09-what-is-still-open.md).

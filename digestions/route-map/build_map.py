@@ -214,7 +214,7 @@ def draw(detail, stem):
         ax.annotate("", xy=q, xytext=p, arrowprops=dict(arrowstyle="-|>", color=col, lw=1.0, ls=ls, mutation_scale=9), zorder=2)
         if text:
             ax.text(p[0] + (q[0] - p[0]) * tpos + dx, p[1] + (q[1] - p[1]) * tpos + dy, text, fontsize=6.4, color=col,
-                    ha=ha, va="center", style="italic", zorder=6)
+                    ha=ha, va="center", style="italic", zorder=6, bbox=dict(facecolor="white", edgecolor="none", pad=2))
 
     def verdict_text(sid):
         s = STEP[sid]
@@ -260,11 +260,11 @@ def draw(detail, stem):
         """Overview only: the step id and its verdict next to the bundle."""
         s = STEP[sid]
         c = Counter(r["status"] for r in BY_STEP[sid])
-        ax.text(x, y + 0.11, f"{sid}  {s['title']}", fontsize=7.0, weight="bold", ha=ha, va="center", zorder=6)
+        ax.text(x, y + 0.11, f"{sid}  {s['title']}", fontsize=7.0, weight="bold", ha=ha, va="center", zorder=6, bbox=dict(facecolor="white", edgecolor="none", pad=2))
         ax.text(x, y - 0.07, verdict_text(sid), fontsize=5.8, weight="bold", ha=ha, va="center",
-                color=VERDICT_COLOUR[s["verdict"]], zorder=6)
+                color=VERDICT_COLOUR[s["verdict"]], zorder=6, bbox=dict(facecolor="white", edgecolor="none", pad=2))
         ax.text(x, y - 0.23, f"{c['REFUTED']} refuted, {c['CONJECTURE'] + c['HUNCH']} open", fontsize=5.6, ha=ha, va="center",
-                color="#666666", zorder=6)
+                color="#666666", zorder=6, bbox=dict(facecolor="white", edgecolor="none", pad=2))
 
     hh = nh / 2
     # ---- left arm
@@ -338,7 +338,7 @@ def draw(detail, stem):
     ax.text(midx + (0.6 if detail else 0.2), midy - 0.42,
             "the goal, as an equivalence (Stein 1971). No direct proof: every route here stops or is partial." if detail else
             "the goal (Stein 1971). No direct proof:\nevery route here stops or is partial.",
-            fontsize=6.6 if detail else 5.8, color="#555555", style="italic", ha="center", va="center", zorder=6)
+            fontsize=6.6 if detail else 5.8, color="#555555", style="italic", ha="center", va="center", zorder=6, bbox=dict(facecolor="white", edgecolor="none", pad=2))
     if detail:
         n = len(BY_STEP["TG"])
         rows("TG", 3.2, yt + 0.62 + n * RH)
@@ -575,14 +575,12 @@ def export_md():
             e, o, x_ = cells.get((s["id"], key), [0, 0, 0])
             row.append(f"{e} · {o} · {x_}" if e + o + x_ else "")
         L.append(f"| {s['id']} {s['title']} | " + " | ".join(row) + " |")
-    L += ["", "Read from the picture, with the counts of the table.", "",
-          "- At the nonvanishing step N only polynomial arguments are established in number (5). Determinant arguments there stand at 0 established, 4 open and 4 refuted. "
-          "Nobody has tried a matroid, topological or inductive argument at N.",
-          "- The established entries in row U are exact reformulations of the target, not existence arguments. Matroid ideas are concentrated there (2 reformulations, 2 open, 3 refuted).",
-          "- Topology has established readings at six steps (goal, disk identity, cancellation, bypass, last step, sides of the curve). The classical ones are the Jordan-curve statements and Li's innermost cycle. The newer ones (B.6, K.4, U.7, F.6) come from one unreviewed folder.",
-          "- Induction carries the gluing and nothing else. At A, B and F it is an untested hunch or conjecture, at U it is refuted, and its entries at D are the rarity family, which is a construction, and an untested contraction inequality.",
-          "- Empty cells that look worth a first test: a linear-algebra or polynomial criterion for the first pair (A), a topological argument for the nonvanishing (N), "
-          "and a search or sampling argument for the first pair that would make step A constructive without flows.", ""]
+    L += ["", "The cells count supplied proofs, open routes and refutations, not independently established theorems. Review states are attached to the written route entries.", "",
+          "- Induction now has local contraction and rotation proofs at U, with ML1 and ML2 still open; gluing alone is no longer the whole column.",
+          "- Topological disk and Morse readings are AI-refereed with corrections. The newer Rado-Euler rainbow and unique-factor proofs are unreviewed; exchange X remains conjectural.",
+          "- Probability has a mean-fitting obstruction, failed zero-location shortcuts and the two-tree packing question. Exact rounding remains separate.",
+          "- The lattice column retains the failed extreme and irreducible rules and the linear test of a specified pair. It does not assert an efficient direction-choice algorithm.",
+          "- Matroid reformulations do not prove existence. The natural two-matroid relaxation and the natural integral-LP claim fail.", ""]
     L += [tail.rstrip(), ""]
     (HERE / "ROUTE-MAP.md").write_text("\n".join(L), encoding="utf-8")
 
