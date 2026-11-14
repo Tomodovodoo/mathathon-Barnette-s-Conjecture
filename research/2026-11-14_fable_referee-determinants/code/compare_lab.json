@@ -1,0 +1,1173 @@
+{
+ "instances": [
+  {
+   "name": "cube",
+   "orientation": "lab delta equals my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    2,
+    2
+   ],
+   "state sets equal": true,
+   "pairs": [
+    2,
+    2
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    2,
+    2
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    1,
+    1
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "0": 1,
+     "1": -1
+    },
+    {
+     "0": 1,
+     "1": -1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 3,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": true,
+    "lab says valid": true,
+    "repeated nonroots": []
+   },
+   "sampling": {
+    "states hit": 2,
+    "of": 2,
+    "chi2": 0.03,
+    "dof": 1
+   },
+   "lab Hamiltonian cycles valid and avoid the forbidden edge": [
+    true,
+    6
+   ]
+  },
+  {
+   "name": "hexagonal_prism",
+   "orientation": "lab delta equals my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    3,
+    3
+   ],
+   "state sets equal": true,
+   "pairs": [
+    2,
+    2
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    2,
+    2
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    1,
+    1
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "1": -1,
+     "3": 1
+    },
+    {
+     "1": -1,
+     "3": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 5,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": true,
+    "lab says valid": true,
+    "repeated nonroots": []
+   },
+   "sampling": {
+    "states hit": 3,
+    "of": 3,
+    "chi2": 0.17,
+    "dof": 2
+   },
+   "lab Hamiltonian cycles valid and avoid the forbidden edge": [
+    true,
+    6
+   ]
+  },
+  {
+   "name": "truncated_octahedron",
+   "orientation": "lab delta equals my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    16,
+    16
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    1,
+    1
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "5": 1,
+     "6": 1,
+     "10": -1,
+     "11": -1
+    },
+    {
+     "5": 1,
+     "6": 1,
+     "10": -1,
+     "11": -1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 11,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     3,
+     4
+    ]
+   },
+   "sampling": {
+    "states hit": 16,
+    "of": 16,
+    "chi2": 19.33,
+    "dof": 15
+   },
+   "lab Hamiltonian cycles valid and avoid the forbidden edge": [
+    true,
+    6
+   ]
+  },
+  {
+   "name": "truncated_cuboctahedron",
+   "orientation": "lab delta equals my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    384,
+    384
+   ],
+   "state sets equal": true,
+   "pairs": [
+    22,
+    22
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    22,
+    22
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    1,
+    1
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "13": 1,
+     "14": 1,
+     "15": 2,
+     "16": 3,
+     "17": 2,
+     "18": 1,
+     "19": 1,
+     "24": -1,
+     "25": -1,
+     "26": -2,
+     "27": -3,
+     "28": -2,
+     "29": -1,
+     "30": -1
+    },
+    {
+     "13": 1,
+     "14": 1,
+     "15": 2,
+     "16": 3,
+     "17": 2,
+     "18": 1,
+     "19": 1,
+     "24": -1,
+     "25": -1,
+     "26": -2,
+     "27": -3,
+     "28": -2,
+     "29": -1,
+     "30": -1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 23,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     3,
+     4,
+     9,
+     10,
+     18,
+     23
+    ]
+   },
+   "lab Hamiltonian cycles valid and avoid the forbidden edge": [
+    true,
+    6
+   ]
+  },
+  {
+   "name": "cyclic_12",
+   "orientation": "lab delta equals my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    9,
+    9
+   ],
+   "state sets equal": true,
+   "pairs": [
+    10,
+    10
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    8,
+    8
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    1,
+    1
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "4": -3,
+     "5": 3,
+     "6": -1,
+     "7": 1
+    },
+    {
+     "4": -3,
+     "5": 3,
+     "6": -1,
+     "7": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 9,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     3
+    ]
+   },
+   "sampling": {
+    "states hit": 9,
+    "of": 9,
+    "chi2": 3.41,
+    "dof": 8
+   }
+  },
+  {
+   "name": "glued_root_0",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "2": 1,
+     "3": -2,
+     "4": 1
+    },
+    {
+     "2": 1,
+     "3": -2,
+     "4": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_1",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     1,
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 5.43,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_2",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    },
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     1
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_3",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "0": 1,
+     "1": -2,
+     "2": 1
+    },
+    {
+     "0": 1,
+     "1": -2,
+     "2": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     1
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_4",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     1,
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 5.43,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_5",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "2": 1,
+     "3": -2,
+     "4": 1
+    },
+    {
+     "2": 1,
+     "3": -2,
+     "4": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_6",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    },
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_7",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    },
+    {
+     "1": 1,
+     "2": -2,
+     "3": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": true,
+    "lab says valid": true,
+    "repeated nonroots": []
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 7.22,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_8",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_9",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0,
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 5.54,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_10",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0,
+     1
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 4.23,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_11",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    0,
+    0
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    0,
+    0
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    null,
+    null
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {},
+    {}
+   ],
+   "Z polynomial equal": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0,
+     1
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 7.35,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_12",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "0": 1,
+     "1": -1,
+     "4": -1,
+     "5": 1
+    },
+    {
+     "0": 1,
+     "1": -1,
+     "4": -1,
+     "5": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     1,
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 7.22,
+    "dof": 3
+   }
+  },
+  {
+   "name": "glued_root_13",
+   "orientation": "lab delta is the mirror of my default",
+   "delta agrees with one orientation": true,
+   "states": [
+    4,
+    4
+   ],
+   "state sets equal": true,
+   "pairs": [
+    4,
+    4
+   ],
+   "J multisets equal": true,
+   "tree matchings": [
+    4,
+    4
+   ],
+   "tree sets equal": true,
+   "cmin": [
+    2,
+    2
+   ],
+   "lab weights: circulation around bounded spoke faces": [
+    1
+   ],
+   "lab weights valid": true,
+   "lab weights: all cycle gaps have one sign": true,
+   "Z polynomial": [
+    {
+     "0": 1,
+     "1": -1,
+     "4": -1,
+     "5": 1
+    },
+    {
+     "0": 1,
+     "1": -1,
+     "4": -1,
+     "5": 1
+    }
+   ],
+   "Z polynomial equal": true,
+   "P equal": true,
+   "classes equal": true,
+   "lab dual cycle is Hamiltonian and avoids P": true,
+   "two-matroid candidate": {
+    "size": 6,
+    "one spoke per face": true,
+    "white forest": true,
+    "spanning": true,
+    "distinct nonroots": false,
+    "lab says valid": false,
+    "repeated nonroots": [
+     0,
+     2
+    ]
+   },
+   "sampling": {
+    "states hit": 4,
+    "of": 4,
+    "chi2": 0.42,
+    "dof": 3
+   }
+  }
+ ],
+ "hexagonal_prism": {
+  "sol: i^n det M at z=5/4": "(45/64)*y0*y1*y2*y3*y4 + (-25/64)*y0*y1^2*y2*y4 + (-5/16)*y0^2*y1*y3*y4",
+  "sol polynomial reproduced exactly": true,
+  "sol squarefree coefficient": "45/64",
+  "sol all-ones value": "0",
+  "astra: det N at z=5/4": "(45/64)*y0*y1*y2*y3*y4 + (-25/64)*y0*y1^2*y2*y4 + (-5/16)*y0^2*y1*y3*y4",
+  "astra squarefree coefficient at z=5/4": "45/64",
+  "astra all-ones value at z=5/4": "0",
+  "astra: det N at q=2": "(6)*y0*y1*y2*y3*y4 + (-4)*y0*y1^2*y2*y4 + (-2)*y0^2*y1*y3*y4",
+  "astra squarefree coefficient at q=2": "6",
+  "astra all-ones value at q=2": "0",
+  "squarefree coefficients agree (i^n sol == astra)": true,
+  "full y-polynomials agree": true
+ }
+}
