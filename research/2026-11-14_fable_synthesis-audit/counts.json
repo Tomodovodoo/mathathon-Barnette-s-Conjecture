@@ -1,17 +1,18 @@
 {
-  "timestamp": "2026-11-14T13:26:38+00:00",
-  "head": "97e50e2",
-  "run_folders": 66,
+  "timestamp": "2026-11-14T13:27:43+00:00",
+  "head": "0bed820",
+  "run_folders": 67,
   "reports": 64,
   "models": {
     "GPT-6 Astra": 17,
-    "Fable 5.2": 17,
+    "Fable 5.2": 18,
     "Opus 5.5": 16,
     "GPT-6.1 Sol": 16
   },
   "runs_without_report": [
     "2026-11-14_astra_lean-check",
-    "2026-11-14_fable_atlas-final"
+    "2026-11-14_fable_atlas-final",
+    "2026-11-14_fable_final-polish"
   ],
   "routes": 227,
   "route_status": {
@@ -96,7 +97,7 @@
   "current_product_pages_total": 85,
   "step_files": 11,
   "step_words_total": 27984,
-  "synthesis_words": 5165,
+  "synthesis_words": 5181,
   "index_rows": 46,
   "report_inventory": [
     {
@@ -256,8 +257,8 @@
     },
     {
       "path": "research/2026-11-14_fable_synthesis-audit/REPORT.md",
-      "sha256": "ba17dd63ef037166",
-      "bytes": 8495
+      "sha256": "addc342354f34444",
+      "bytes": 8607
     },
     {
       "path": "research/2026-11-14_opus_blueprint/REPORT.md",

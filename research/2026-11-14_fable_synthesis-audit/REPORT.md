@@ -2,8 +2,8 @@
 
 Fable 5.2, 14 November 2026. Folder `research/2026-11-14_fable_synthesis-audit/`. I also own, for this task, `digestions/SYNTHESIS.md` and `digestions/synthesis-figures/`. No subagents.
 
-1. Every number, size and "refuted" in the first version of the synthesis agrees with its source. I found no wrong counterexample size and no wrong census figure.
-2. Eleven statements were wrong, out of date or wider than their source. The ones that matter: the referee of the main paper read version 1, not version 2; two "referee" reports are by the same model as the author; a parity condition was credited to the wrong paper; the blueprint's numbers (4, 25, 5 of 34) were missing.
+1. Every mathematical number in the first version of the synthesis agrees with its source. I found no wrong counterexample size, no wrong census figure and no "refuted" that its counterexample does not support.
+2. Of 105 ledger rows, 20 are corrected or softened. About half of those were only out of date when I read them. The others were wrong or wider than their source. The ones that matter: the referee of the main paper had read version 1, not version 2; two "referee" reports are by the same model as the author; a parity condition was credited to the wrong paper; the blueprint's numbers (4, 25, 5 of 34) were missing.
 3. The document is rewritten in the main paper's names, with a first page that answers five questions, a table of who wrote and who checked each piece of work, and a housekeeping section for the owner.
 4. Nine late runs are folded in: version 2 of the paper, its cold read and its referee, the second involution referee, the consistency edits, the atlas audit, the Lean devices run and the descent study. Two runs were still open at my last scan.
 5. Both figures are regenerated from a recount (`count.py`, `figures.py`). `inventory.py` writes the snapshot numbers into the text and `check.py` verifies them.
@@ -54,13 +54,13 @@ All claims below are about the repository, not new mathematics. Mathematical sta
 
 1. When the open runs report, run `count.py`, `inventory.py`, `figures.py` and `check.py`, and update by hand "What is solid" on page one, the two Lean paragraphs of section 4 and the review table of section 10.
 2. Have a different model referee the Sol-on-Sol items (prism and tube family counts, the Hamiltonian lower bounds $2^b$ and $3\cdot2^b$, the probabilistic claims) so that every "proved" in section 3 has a second model.
-3. Give the owner the three files a human should read, in order: the main paper, the version 1 referee report, and section 10 of the synthesis.
+3. Give the owner the three files a human should read, in order: the main paper, the version 2 referee report, and section 10 of the synthesis.
 
 ## Leads for others
 
 - `digestions/atlas/`: the atlas audit (`sol_atlas-audit`) found that page 10 states an implication that is false as written (an acyclic $Q_s$ is not enough without a partner). Its edits were not applied when I finished.
-- `proofs/blueprint/BLUEPRINT.md` was extracted from version 1 of the paper. Version 2 kept the statement numbers when I checked, but the cold read of version 2 added a figure and text after that, and the Lean devices run changes the status column. The blueprint needs a rerun on the final text.
-- `research/INDEX.md` lists 46 rows for 64 folders, and several rows still say "running".
+- `proofs/blueprint/BLUEPRINT.md` was extracted from version 1 of the paper. The final version 2 keeps every statement number (I recomputed them from both sources after the last edits). The Lean devices run changes the status column, so the blueprint needs a rerun.
+- `research/INDEX.md` lists 46 rows for 66 folders, and several rows still say "running".
 - `research/2026-11-14_opus_cross-audit/CLEANUP-PROPOSAL.md` measured the two literature PDF folders at 41.6 MB and 11.4 MB. They are now 38.8 MB and 11.3 MB, 28 and 25 tracked files.
 
 ## Files

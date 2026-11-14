@@ -14,9 +14,9 @@ Nobody knows how to point to a good state, so the proof counts. A pair is two st
 
 **What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 19-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 227 attempted routes, 67 of them recorded as refuted.
 
-**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author.
+**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author. All of these checks are by AI models. No human has checked any of it.
 
-**What is open.** A proof that avoids the signed count. We have none, and section 6 says why the obvious shortcuts fail. A polynomial-time way to find the cycle. The bound that there are at least $2^m$ good states. A direct proof for non-planar Pfaffian graphs. A formal proof of our own route.
+**What is open.** A proof that avoids the signed count. We have none, and section 6 says why the obvious shortcuts fail. A polynomial-time way to find the cycle. The bound that there are at least $2^m$ good states. A direct proof for non-planar Pfaffian graphs. A complete formal proof of our own route.
 
 **What a human should read first.** The [main paper](../paper/main/barnette.pdf), whose first two pages give the plan on the cube. Then the [referee's report](../research/2026-11-14_sol_referee-main-v2/REFEREE.md) on version 2, which lists every obligation it checked. For a ten-minute tour of the mechanism, [how it works](route-map/HOW-IT-WORKS.md).
 
@@ -197,9 +197,9 @@ Two disputes were settled by a model that was not a party, and referees correcte
 ## 11. Numbers and snapshot
 
 <!-- inventory-start -->
-The inventory was taken at 2026-11-14 13:26 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
+The inventory was taken at 2026-11-14 13:27 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
 
-There are 66 run folders and 64 of them hold a final report. By folder name, 17 are GPT-6 Astra, 17 Fable 5.2, 16 Opus 5.5 and 16 GPT-6.1 Sol. The route map has 227 records: 46 arguments from the sources, 58 proofs written here, 12 computations, 19 conjectures, 25 hunches and 67 refutations. Those are recorded statuses, not review verdicts.
+There are 67 run folders and 64 of them hold a final report. By folder name, 17 are GPT-6 Astra, 18 Fable 5.2, 16 Opus 5.5 and 16 GPT-6.1 Sol. The route map has 227 records: 46 arguments from the sources, 58 proofs written here, 12 computations, 19 conjectures, 25 hunches and 67 refutations. Those are recorded statuses, not review verdicts.
 
 | PDF | Pages |
 |---|---:|
@@ -226,7 +226,7 @@ The censuses cover different populations and must not be added up. The numbers a
 | Main paper's identities | to 12 vertices | 262 rooted faces of 15 triangulations | Sol |
 
 <!-- late-start -->
-**Runs still open at this snapshot.** Two folders hold no final report: `astra_lean-check`, `fable_atlas-final`. Nothing from them is counted as a result above.
+**Runs still open at this snapshot.** Three folders hold no final report: `astra_lean-check`, `fable_atlas-final`, `fable_final-polish`. Nothing from them is counted as a result above.
 <!-- late-end -->
 
 ## Housekeeping for the owner
