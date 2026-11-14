@@ -1,5 +1,5 @@
 """`python -m barnette`: the proof at work on the cube and on the example of
-Figure 3 of the paper."""
+Figure 2 of the paper."""
 from . import *
 from . import examples
 

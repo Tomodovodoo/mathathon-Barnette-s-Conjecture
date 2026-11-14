@@ -43,10 +43,10 @@ This is the argument sketched by Li in an appendix of his note on the proof, wri
 \section{Introduction}
 
 This note accompanies the paper \emph{The proof of Barnette's conjecture}~\cite{P}, and it uses the notation and the terminology of that paper throughout.
-So $T$ is an Eulerian triangulation with $n+1$ black faces, drawn with the black face $t_0$ as the unbounded face, $A$ is the set of the other black faces and $X$ the set of vertices other than the roots; we use states, good states and the graphs $Q_s$, pairs $(r,s)$ with the third corners $u(t)$ and the graphs $D(r,s)$, the graph $H$ and its $2$-factors $F$ with $c(F)$ cycles, the sign $\eps(r,s)$, the weight $\omega(s)$, and the number $a(C)$ of white faces inside a cycle $C$, all as defined in \cite[Sections~2 and~3]{P}.
+So $T$ is an Eulerian triangulation with $n+1$ black faces, drawn with the black face $t_0$ as the unbounded face, $A$ is the set of the other black faces and $X$ the set of vertices other than the roots; we use states, good states and the graphs $Q_s$, pairs $(r,s)$ with the third corners $u(t)$ and the graphs $D(r,s)$, the graph $H$ and its $2$-factors $F$ with $c(F)$ cycles, the sign $\eps(r,s)$, the weight $\omega(s)$, and the number $a(C)$ of white faces inside a cycle $C$, all as defined in \cite[Sections~2, 3 and~4]{P}.
 We prove the following.
 
-\begin{theorem}[{\cite[Proposition~3.5]{P}}]\label{main}
+\begin{theorem}[{\cite[Proposition~4.9]{P}}]\label{main}
 If $T$ has a pair, then $T$ has a good state.
 \end{theorem}
 
@@ -59,10 +59,10 @@ Here we count instead.
 The weight $\omega(s)$ is a signed number of points in which certain arcs $\gamma_y$ cross the arcs that represent $s$ in a drawing of $H$.
 A \emph{marked pair} is a pair $(r,s)$ together with a set of $m$ of these crossings, and it has a sign.
 We define two involutions on the set of marked pairs, each of which reverses the sign of every marked pair that it does not fix.
-The first, $\iota_1$, keeps the second state and the marks; it is the involution of \cite[Lemma~3.3]{P}, and its fixed points are the marked pairs in which $s$ is good.
+The first, $\iota_1$, keeps the second state and the marks; it is the involution of \cite[Lemma~3.5]{P}, and its fixed points are the marked pairs in which $s$ is good.
 The second, $\iota_2$, either reverses a cycle of $D(r,s)$ or moves one mark along its arc $\gamma_y$; it has exactly $\Phi$ fixed points, and they all have the same sign.
 So the signed number of marked pairs is $\pm\Phi\neq0$, and $\iota_1$ must have a fixed point.
-Proposition~\ref{moment} shows that the signed number of marked pairs is $(-1)^m$ times the value of $Z(z)/(1-z)^m$ at $z=1$; the two involutions are thus a bijective form of the computation in~\cite{P}, with $\iota_2$ in the place of \cite[Lemma~3.4]{P} and of the product formula for $Z$.
+Proposition~\ref{moment} shows that the signed number of marked pairs is $(-1)^m$ times the value of $Z(z)/(1-z)^m$ at $z=1$; the two involutions are thus a bijective form of the computation in~\cite{P}, with $\iota_2$ in the place of \cite[Lemma~4.6]{P} and of the product formula for $Z$.
 Following the two involutions alternately from a fixed point of $\iota_2$ leads to a good state (Lemma~\ref{walk}).
 
 The method is due to Li~\cite{Li}, who works in the dual graph $G$.
@@ -71,14 +71,14 @@ Li carries out the case $m=1$, in which there is one mark, and he sketches the g
 That appendix states the sign, the rule for a cycle without a mark, the rule for moving a mark, and the fixed points and their sign.
 It does not prove that the map so described is an involution or that it reverses the sign, it does not say that the cycle has to be reversed when a mark whose white face lies inside its cycle moves to an arc of the first state, and it does not show that there is a fixed point when $m>1$, which needs an independent choice of direction for each cycle.
 Lemmas~\ref{two} and~\ref{fixed} supply these steps for every $m$.
-Li obtains a $2$-factor of $H$ under a connectivity assumption on $G$; Theorem~\ref{main} assumes only that $T$ has a pair, and \cite[Proposition~4.2]{P} gives one if $T$ has no separating triangle.
+Li obtains a $2$-factor of $H$ under a connectivity assumption on $G$; Theorem~\ref{main} assumes only that $T$ has a pair, and \cite[Proposition~5.5]{P} gives one if $T$ has no separating triangle.
 
 \section{Marked pairs}
 
 We assume throughout that $T$ has a pair.
 Then $H$ has a $2$-factor, and we let $m\ge1$ be the least number of cycles of a $2$-factor of $H$.
 
-As in \cite[Section~3]{P}, we fix a point $p_t$ in every face $t\in A$ and arcs inside $t$ from $p_t$ to the corners of $t$ in $X$, which draw $H$ in the plane, and for every white face $y$ an arc $\gamma_y$ from a point of $y$ to a point of $t_0$.
+As in \cite[Section~4]{P}, we fix a point $p_t$ in every face $t\in A$ and arcs inside $t$ from $p_t$ to the corners of $t$ in $X$, which draw $H$ in the plane, and for every white face $y$ an arc $\gamma_y$ from a point of $y$ to a point of $t_0$.
 The arc $\gamma_y$ avoids the vertices of $T$ and the points $p_t$, and it meets the arcs of $H$ in finitely many points, in each of which it crosses the arc of $H$.
 A \emph{crossing} is a pair $x=(y,q)$ in which $q$ is a point of $\gamma_y$ on an arc of $H$.
 If this arc joins $p_t$ to the corner $v$ of $t$, we say that $x$ \emph{lies on} this arc, and that $x$ is a crossing \emph{of} the state $s$ if $s(t)=v$.
@@ -101,7 +101,7 @@ The \emph{sign} of a marked pair is
 Let $(r,s)$ be a pair with $2$-factor $F$, and let $C$ be a cycle of $D(r,s)$.
 The corresponding cycle of $F$ is drawn as the closed curve $\Gamma$ that consists of the arcs from $p_t$ to $r(t)$ and to $s(t)$ for the faces $t$ with a side on $C$.
 It is obtained from $C$ by pushing every edge of $C$ into its black face, and the region between an edge and its detour through $p_t$ lies in that face.
-Hence, as in the proof of \cite[Lemma~3.4]{P}, $\Gamma$ is a simple closed curve with the same white faces inside as $C$, and when $\Gamma$ is run through from $r(t)$ to $p_t$ and on to $s(t)$ in each of these faces, it runs clockwise or counterclockwise as $C$ does.
+Hence, as in the proof of \cite[Lemma~4.6]{P}, $\Gamma$ is a simple closed curve with the same white faces inside as $C$, and when $\Gamma$ is run through from $r(t)$ to $p_t$ and on to $s(t)$ in each of these faces, it runs clockwise or counterclockwise as $C$ does.
 We give $\Gamma$ this direction.
 The curve $\Gamma$ depends only on $F$.
 Reversing $C$ reverses the direction of $\Gamma$ and exchanges the arcs of $r$ and of $s$ on $\Gamma$, and it changes nothing on the other cycles of $F$.
@@ -132,7 +132,7 @@ This proves~(3).
 \section{The two involutions}
 
 \subsection*{The first involution}
-For every state $s$ such that $Q_s$ contains a cycle, choose one cycle $K_s$ of $Q_s$, as in the proof of \cite[Lemma~3.3]{P}.
+For every state $s$ such that $Q_s$ contains a cycle, choose one cycle $K_s$ of $Q_s$, as in the proof of \cite[Lemma~3.5]{P}.
 For a marked pair $(r,s,\mu)$ put
 \[
 \iota_1(r,s,\mu)=\begin{cases}(r^{K_s},s,\mu)&\text{if $Q_s$ contains a cycle,}\\(r,s,\mu)&\text{otherwise,}\end{cases}
@@ -146,10 +146,10 @@ Its fixed points are the marked pairs $(r,s,\mu)$ in which $s$ is good, and $\si
 
 \begin{proof}
 Let $K=K_s$.
-As shown in \cite[Section~3]{P}, $r^K$ is a state, $(r^K,s)$ is a pair, and $(r^K)^K=r$.
+As shown in \cite[Lemma~3.4(2)]{P}, $r^K$ is a state, $(r^K,s)$ is a pair, and $(r^K)^K=r$.
 The second state is unchanged; so $\mu$ is a set of crossings of the second state of $(r^K,s)$, the same cycle $K$ is chosen for the image, and $\iota_1$ is an involution.
-A marked pair in which $Q_s$ contains a cycle is not fixed, because $r^K\ne r$, and its sign is reversed: $\eps(r^K,s)=-\eps(r,s)$ by \cite[Lemma~3.2(1)]{P}, and the numbers $\chi(x)$ are the same.
-Finally, $Q_s$ contains no cycle if and only if $s$ is good, by \cite[Lemma~3.1(1)]{P}.
+A marked pair in which $Q_s$ contains a cycle is not fixed, because $r^K\ne r$, and its sign is reversed: $\eps(r^K,s)=-\eps(r,s)$ by \cite[Lemma~3.4(2)]{P}, and the numbers $\chi(x)$ are the same.
+Finally, $Q_s$ contains no cycle if and only if $s$ is good, by \cite[Lemma~3.4(1)]{P}.
 \end{proof}
 
 \subsection*{The second involution}
@@ -181,7 +181,7 @@ A pair obtained from $(r,s)$ by reversing a cycle has the same $2$-factor $F$, s
 Suppose that rule (1) applies, to the cycle $\Gamma$.
 The state $s'$ agrees with $s$ on all faces without an arc on $\Gamma$, and no crossing of $\mu$ is carried by $\Gamma$; so $\mu$ is a set of crossings of $s'$, and $(r',s',\mu)$ is a marked pair.
 The same cycles of $F$ carry no crossing of $\mu$, so rule (1) applies to $\iota_2(o)$ with the same cycle $\Gamma$ and gives back $o$.
-The pairs $(r,s)$ and $(r',s')$ have the same number of cycles, and the numbers of their counterclockwise cycles differ by one; so $\eps(r',s')=-\eps(r,s)$ by \cite[Lemma~3.2(2)]{P}, while the product of the $\chi(x)$ is the same.
+The pairs $(r,s)$ and $(r',s')$ have the same number of cycles, and the numbers of their counterclockwise cycles differ by one; so $\eps(r',s')=-\eps(r,s)$ by \cite[Lemma~4.2(3)]{P}, while the product of the $\chi(x)$ is the same.
 Hence $\iota_2(o)\neq o$ and $\sigma(\iota_2(o))=-\sigma(o)$.
 
 Suppose that rule (3) applies, to the cycle $\Gamma$ with the crossing $x$ and its partner $x'$.
@@ -211,14 +211,14 @@ The involution $\iota_2$ has exactly $\Phi$ fixed points, where $\Phi\ge1$ is th
 
 \begin{proof}
 Let $F$ be a $2$-factor of $H$ with $m$ cycles, and choose for each cycle $\Gamma$ of $F$ a white face $y_\Gamma$ inside it; the same white face may be chosen for different cycles.
-For each cycle there are $a(C)$ choices, where $C$ is the corresponding cycle of $D(r,s)$ for any pair $(r,s)$ with $2$-factor $F$, and $a(C)\ge1$ by \cite[Lemma~3.1(3)]{P}.
+For each cycle there are $a(C)$ choices, where $C$ is the corresponding cycle of $D(r,s)$ for any pair $(r,s)$ with $2$-factor $F$, and $a(C)\ge1$ by \cite[Lemma~4.2(1)]{P}.
 We show that exactly one fixed point of $\iota_2$ has the $2$-factor $F$ and these white faces; by Lemma~\ref{two} every fixed point arises in this way, so there are $\Phi$ of them.
 By Lemma~\ref{crossings}(1), $\gamma_{y_\Gamma}$ has a first crossing $x_\Gamma$ carried by $\Gamma$, and by Lemma~\ref{two} the set $\mu$ of a fixed point must consist of these $m$ crossings, which are distinct because they are carried by distinct cycles.
 The triple $(r,s,\mu)$ is a marked pair if and only if every $x_\Gamma$ lies on an arc of $s$.
 The pairs with $2$-factor $F$ are obtained from one another by reversing cycles, which exchanges the arcs of $r$ and of $s$ on that cycle only; so exactly one of them has this property.
 
 Let $(r,s,\mu)$ be a fixed point, and suppose that $c^+$ of the $m$ cycles of $D(r,s)$ run counterclockwise.
-Then $\eps(r,s)=(-1)^{(n+m)/2+c^+}$ by \cite[Lemma~3.2(2)]{P}, and by Lemma~\ref{crossings}(3) the crossings of $\mu$ have $\chi(x)=1$ on the counterclockwise cycles and $\chi(x)=-1$ on the $m-c^+$ clockwise cycles.
+Then $\eps(r,s)=(-1)^{(n+m)/2+c^+}$ by \cite[Lemma~4.2(3)]{P}, and by Lemma~\ref{crossings}(3) the crossings of $\mu$ have $\chi(x)=1$ on the counterclockwise cycles and $\chi(x)=-1$ on the $m-c^+$ clockwise cycles.
 So the sign is $(-1)^{(n+m)/2+m}=(-1)^{(n-m)/2}$.
 \end{proof}
 
@@ -259,7 +259,7 @@ So the derivatives of $Z$ of order less than $m$ vanish at $z=1$, and the $m$th 
 Hence $Z(z)=(1-z)^mR(z)$ for a Laurent polynomial $R$, and $R(1)$ is $(-1)^m/m!$ times the $m$th derivative of $Z$ at $z=1$.
 \end{proof}
 
-With~\eqref{count} this gives the value $(-1)^{(n+m)/2}\Phi$ of $Z(z)/(1-z)^m$ at $z=1$ that is computed in the proof of \cite[Proposition~3.5]{P}.
+With~\eqref{count} this gives the value $(-1)^{(n+m)/2}\Phi$ of $Z(z)/(1-z)^m$ at $z=1$ that is computed in the proof of \cite[Proposition~4.9]{P}.
 There the cycles of each $2$-factor contribute the factors $1-z^{a(C)}$; here rule (1) of $\iota_2$ removes the terms that miss a cycle, and rule (3) leaves, for every cycle and every white face inside it, the first crossing of $\gamma_y$ and nothing else.
 
 The number of marks has to be $m$.
@@ -297,7 +297,7 @@ A different exchange procedure, which starts from an arbitrary pair, is describe
 
 \section{An example}
 
-Let $T$ be the triangulation of \cite[Figure~3]{P}, with $n=10$.
+Let $T$ be the triangulation of \cite[Figure~2]{P}, with $n=10$.
 It has twelve states and eight pairs, and $H$ has two $2$-factors, each with two cycles; so $m=2$, and $\Phi=6\cdot1+3\cdot1=9$.
 By~\eqref{count} the signed number of marked pairs is $9$, which is the value of $Z(z)/(1-z)^2=z^{\omega_0}\bigl((1+z+\dots+z^5)+z^2(1+z+z^2)\bigr)$ at $z=1$.
 Figures~\ref{fig:marked} and~\ref{fig:second} show this triangulation in another drawing, with straight edges and with parallel segments as the arcs $\gamma_y$.
@@ -308,7 +308,7 @@ Figure~\ref{fig:first} shows the first involution in a triangulation with $m=1$.
 \begin{figure}[tbp]
 \centering
 \input{figures/marked.tex}
-\caption{A marked pair $(r,s,\mu)$ in the triangulation of \cite[Figure~3]{P}. Left: the triangulation, with the roots drawn as circles and the edges of $D(r,s)$ as arrows; they form a cycle of length $7$ and a cycle of length $3$. Right: the same picture enlarged. The thin segment in each black face is the arc of $H$ to the corner chosen by $s$. The dashed lines are the arcs $\gamma_y$ and $\gamma_{y'}$. The two black dots are the crossings in $\mu$; they lie on the arcs of $s$ in the faces $t$ and $t'$, which are drawn thick. Both are carried by the cycle of the $2$-factor that corresponds to the cycle of length $7$. The other cycle carries no crossing of $\mu$, so $\iota_2$ reverses the cycle of length $3$ and keeps $\mu$.}
+\caption{A marked pair $(r,s,\mu)$ in the triangulation of \cite[Figure~2]{P}. Left: the triangulation, with the roots drawn as circles and the edges of $D(r,s)$ as arrows; they form a cycle of length $7$ and a cycle of length $3$. Right: the same picture enlarged. The thin segment in each black face is the arc of $H$ to the corner chosen by $s$. The dashed lines are the arcs $\gamma_y$ and $\gamma_{y'}$. The two black dots are the crossings in $\mu$; they lie on the arcs of $s$ in the faces $t$ and $t'$, which are drawn thick. Both are carried by the cycle of the $2$-factor that corresponds to the cycle of length $7$. The other cycle carries no crossing of $\mu$, so $\iota_2$ reverses the cycle of length $3$ and keeps $\mu$.}
 \label{fig:marked}
 \end{figure}
 

@@ -1,5 +1,5 @@
 """The plane graph G, its validation, and the dual Eulerian triangulation T
-(Section 2 of the paper, Lemma 2.1).
+(Section 2 of the paper, Lemma 2.4).
 
 G is a cubic, bipartite, 3-connected planar graph.  Its dual T is a simple
 triangulation of the sphere with all degrees even, so the faces of T can be

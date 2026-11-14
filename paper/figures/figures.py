@@ -95,7 +95,7 @@ def is_good(m, s):
 
 
 def recover(m, s):
-    """Proposition 2.4 for a good state: the tree Y, the matching M and the cycle G - M."""
+    """Lemma 2.11 and Proposition 2.12 for a good state: the tree Y, the matching M and the cycle G - M."""
     good, S = is_good(m, s)
     assert m.is_state(s) and good
     Y = m.G.copy()
@@ -459,7 +459,7 @@ def fig_overview():
 
 
 def one_face(m, xy, r, s, t, height):
-    """Figure 2(a): the face t of the pair (r, s), turned so that r(t) -> s(t) points to the right."""
+    """Figure 3(a): the face t of the pair (r, s), turned so that r(t) -> s(t) points to the right."""
     k = m.A.index(t)
     vr, vs = r[k], s[k]
     vu = m.third(t, vr, vs)

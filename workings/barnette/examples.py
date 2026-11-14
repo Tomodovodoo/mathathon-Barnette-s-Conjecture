@@ -58,7 +58,7 @@ def two_cubes():
 
 
 def running_example():
-    """The example of Figure 3 of the paper: a triangulation with 13 vertices
+    """The example of Figure 2 of the paper: a triangulation with 13 vertices
     and 22 faces, with roots 0, 4, 5 and e0 = {0, 4}.  It has 12 states, two
     2-factors of H with two cycles each, hence 8 pairs, and 6 good states."""
     data = json.loads((Path(__file__).parent / 'running.json').read_text())

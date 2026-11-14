@@ -1,5 +1,5 @@
 """States, good states, and the Hamiltonian cycle of a good state
-(Section 2 of the paper, Proposition 2.3).
+(Section 2 of the paper, Proposition 2.12).
 
 A state s chooses a corner s(t) in X of every black face t in A, using every
 vertex of X once.  It is stored as a dict {t: s(t)}.
@@ -113,14 +113,14 @@ def incidence_matrix(T):
     """The n x n matrix with entry 1 where the face t in A has the corner x in X.
 
     States are the nonzero terms of its determinant; they all have the same
-    sign, by the disk identity (Lemma 2.2), so the number of states is the
+    sign, by the disk identity (Lemma 2.9), so the number of states is the
     absolute value of the determinant.
     """
     return [[int(x in T.faces[t]) for x in T.X] for t in T.A]
 
 
 def selection(T, s):
-    """The edge set M^* of a good state s (Proposition 2.3): one side of
+    """The edge set M^* of a good state s (Lemma 2.11): one side of
     every face of T, without cycles.
 
     M^* contains e0 and, in every t in A, a side with end s(t).  The faces of

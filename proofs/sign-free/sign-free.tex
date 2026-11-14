@@ -64,7 +64,7 @@ Both cannot always be met in one $2$-factor, as a triangulation with $16$ vertic
 \section{Introduction}\label{sec:intro}
 
 This note is a companion to the exposition \cite{Paper} of the proof of Barnette's conjecture, and we use the notation and terminology of that paper throughout.
-Its central step is \cite[Proposition~3.5]{Paper}: if $T$ has a pair, then $T$ has a good state.
+Its central step is \cite[Proposition~4.9]{Paper}: if $T$ has a pair, then $T$ has a good state.
 The proof given there, like those of \cite{OpenAI,Li,Constructive}, gives every pair a sign, shows that the pairs whose second state is not good cancel, and shows by a second evaluation that the signed sum is not zero.
 It does not construct a good state, and no polynomial algorithm for finding one is known.
 We collect here what can be proved about good states with no sign and no weight, and show where such arguments stop.
@@ -82,7 +82,7 @@ Section~\ref{sec:wall} gives the example with $16$ vertices mentioned in \cite{P
 
 As in \cite[Section~2]{Paper}, $T$ is an Eulerian triangulation with $n+1$ black faces, $t_0$ is a black face, drawn as the unbounded face, the corners of $t_0$ are the roots, $A$ is the set of the other black faces and $X$ the set of the other vertices.
 The side $e_0$ plays no role in this note.
-The graph $H$ is drawn as in \cite[Section~3]{Paper}, with a point $p_t$ in every face $t\in A$.
+The graph $H$ is drawn as in \cite[Section~4]{Paper}, with a point $p_t$ in every face $t\in A$.
 We add a point $p_{t_0}$ in $t_0$ and the missing arcs: let $\Hp$ be the plane graph whose vertices are the $n+3$ vertices of $T$ and the $n+1$ points $p_t$, and whose edges are the $3n+3$ arcs that join $p_t$ to the three corners of $t$, for every black face $t$.
 We write $vt$ for the arc from the corner $v$ of $t$ to $p_t$.
 So $H$ is obtained from $\Hp$ by deleting the roots and $p_{t_0}$.
@@ -137,7 +137,7 @@ A spanning tree with the face condition is, by the proof of Lemma~\ref{lem:good}
 \begin{figure}[H]
 \centering
 \scalebox{.9}{\begin{minipage}{\textwidth}\centering\input{figures/fig-rainbow.tex}\end{minipage}}
-\caption{Two rainbow trees in the example of \cite[Figure~3]{Paper}, with $13$ vertices and roots $0,4,5$. Black faces are shaded and the grey ring stands for $t_0$. A wedge in the face $\sigma(x)$ at $x$ marks each removed arc $x\sigma(x)$, and the dash-dotted edges $(x\sigma(x))^*$ form a spanning tree of $W$, whose $11$ vertices are drawn as small circles. (a) Excess $2$: the dark face $\{1,2,9\}$ has load $2$ and the face $\{0,2,3\}$ with the dashed outline has load $0$. (b) Excess $0$, a good state. The example has $1792$ rainbow trees, six of them good states.}
+\caption{Two rainbow trees in the example of \cite[Figure~2]{Paper}, with $13$ vertices and roots $0,4,5$. Black faces are shaded and the grey ring stands for $t_0$. A wedge in the face $\sigma(x)$ at $x$ marks each removed arc $x\sigma(x)$, and the dash-dotted edges $(x\sigma(x))^*$ form a spanning tree of $W$, whose $11$ vertices are drawn as small circles. (a) Excess $2$: the dark face $\{1,2,9\}$ has load $2$ and the face $\{0,2,3\}$ with the dashed outline has load $0$. (b) Excess $0$, a good state. The example has $1792$ rainbow trees, six of them good states.}
 \label{fig:rainbow}
 \end{figure}
 
@@ -263,7 +263,7 @@ The last sentence follows from (2).
 \end{figure}
 
 For a pair $(r,s)$ and $\sigma=s^{-1}$ we have $\sigma'=r^{-1}$, and the arcs of Theorem~\ref{thm:S}(2) are $r(t)\to u(t)$.
-This is the orientation of $Q_s$ by $r$ in \cite[Section~3]{Paper}, and \cite[Lemma~3.1(1)]{Paper} is the case of excess $0$ of Lemma~\ref{lem:orient}.
+This is the orientation of $Q_s$ by $r$ in \cite[Section~3]{Paper}, and \cite[Lemma~3.4(1)]{Paper} is the case of excess $0$ of Lemma~\ref{lem:orient}.
 By Theorem~\ref{thm:S}(1), a good state $s$ forms a pair with exactly one state $r$, namely $r^{-1}=\parent_{s^{-1}}$.
 
 \begin{corollary}\label{cor:pair}
@@ -280,7 +280,7 @@ So at most $3+2(I-2)=2I-1$ edges of a $2$-factor meet the $I$ vertices on the in
 \end{proof}
 
 The equivalence of the first and the third statement is part of \cite[Theorem~1.2]{Constructive} and is quoted in the Remarks of \cite{Paper}.
-The paper proves that a pair exists when $T$ has no separating triangle at all \cite[Proposition~4.2]{Paper}: the max-flow min-cut theorem reduces this to the inequality $e(U)-b(U)\le2|U|-4$ for the sets $U$ that contain the roots \cite[Lemma~4.1]{Paper}.
+The paper proves that a pair exists when $T$ has no separating triangle at all \cite[Proposition~5.5]{Paper}: the max-flow min-cut theorem reduces this to the inequality $e(U)-b(U)\le2|U|-4$ for the sets $U$ that contain the roots \cite[Lemma~5.3]{Paper}.
 Here Rado's theorem reduces it to \eqref{eq:rado}, which concerns only the complements of connected sets and follows from the identity \eqref{eq:euler}.
 The result is more than a pair: a rainbow tree already has the acyclicity that a good state needs, and lacks only the face condition.
 
@@ -368,7 +368,7 @@ Figure~\ref{fig:orbit} shows one orbit.
 The proof uses no sign and no weight, and of the embedding of $T$ only the graph $\Hp$.
 In \cite{Paper} the evenness follows from $Z(1)=0$; here every $t\in A$ gives a pairing of the good states.
 Neither argument gives existence.
-With \cite[Proposition~3.5]{Paper}, a triangulation that has a pair has at least two good states.
+With \cite[Proposition~4.9]{Paper}, a triangulation that has a pair has at least two good states.
 
 \begin{figure}[H]
 \centering
@@ -379,13 +379,13 @@ With \cite[Proposition~3.5]{Paper}, a triangulation that has a pair has at least
 
 \section{Each condition alone, in every \texorpdfstring{$2$}{2}-factor}\label{sec:packing}
 
-As in \cite[Section~4]{Paper}, for $U\subseteq V(T)$ let $e(U)$ be the number of edges of $T$ with both ends in $U$ and $b(U)$ the number of black faces of $T$, $t_0$ included, with all three corners in $U$.
+As in \cite[Section~5]{Paper}, for $U\subseteq V(T)$ let $e(U)$ be the number of edges of $T$ with both ends in $U$ and $b(U)$ the number of black faces of $T$, $t_0$ included, with all three corners in $U$.
 Let $\rho(U)$ be the number of roots in $U$, and for a black face $t$ write $j_t=|V(t)\cap U|$.
 Every edge of $T$ lies on exactly one black face, and a black face with $3,2,1,0$ corners in $U$ has $3,1,0,0$ sides with both ends in $U$, so
 \begin{equation}\label{eq:shortfall}
 e(U)-b(U)=\sum_{t\ \mathrm{black}}\max(0,j_t-1).
 \end{equation}
-The next lemma is the computation in the proof of \cite[Lemma~4.1]{Paper}, kept as an identity and without the assumption that $T$ has no separating triangle.
+The next lemma is the computation in the proof of \cite[Lemma~5.3]{Paper}, kept as an identity and without the assumption that $T$ has no separating triangle.
 
 \begin{lemma}\label{lem:identity}
 Let $K$ be a connected induced subgraph of $T$ with $p\ge3$ vertices and $q$ edges.
@@ -415,7 +415,7 @@ e(U)-b(U)+\max(0,\rho(U)-1)\ \le\ 2|U|-2 .
 \end{equation}
 \end{lemma}
 
-For sets $U$ that contain the roots this is the inequality of \cite[Lemma~4.1]{Paper}, under a weaker assumption.
+For sets $U$ that contain the roots this is the inequality of \cite[Lemma~5.3]{Paper}, under a weaker assumption.
 
 \begin{proof}
 Edges and black faces with corners in $U$ lie in one component of $T[U]$, and so do the roots in $U$, which are pairwise adjacent.
@@ -554,8 +554,8 @@ The numbers of $2$-factors, good states and rainbow trees are found by enumerati
 
 By enumeration, every $2$-factor contains a good state when $T$ has at most $12$ vertices and a pair.
 Theorems~\ref{thm:twotrees} to~\ref{thm:edmonds} hold for every $2$-factor, the one of Proposition~\ref{prop:bad} included, and so cannot tell a $2$-factor that contains a good state from one that does not.
-Hence no argument that stays in one $2$-factor can prove \cite[Proposition~3.5]{Paper}.
-The signed proof does not stay in one $2$-factor either: the cancellation of \cite[Lemma~3.3]{Paper} replaces $r$ by $r^K$ for a cycle $K$ of $Q_s$, which changes the $2$-factor, and the evaluation in \cite[Proposition~3.5]{Paper} sums over all $2$-factors with $m$ cycles.
+Hence no argument that stays in one $2$-factor can prove \cite[Proposition~4.9]{Paper}.
+The signed proof does not stay in one $2$-factor either: the cancellation of \cite[Lemma~3.5]{Paper} replaces $r$ by $r^K$ for a cycle $K$ of $Q_s$, which changes the $2$-factor, and the evaluation in \cite[Proposition~4.9]{Paper} sums over all $2$-factors with $m$ cycles.
 
 \subsection*{The missing step}
 
@@ -564,7 +564,7 @@ Suppose that no separating triangle of $T$ has three black faces along its inner
 Then for every rainbow tree $\sigma$ there are rainbow trees $\sigma=\sigma_0,\sigma_1,\dots,\sigma_k$ such that $\sigma_{i+1}$ arises from $\sigma_i$ by one exchange, $\exc(\sigma_{i+1})\le\exc(\sigma_i)$ for all $i$, and $\exc(\sigma_k)=0$.
 \end{conjecture}
 
-With Theorem~\ref{thm:R} and Lemma~\ref{lem:good} this implies \cite[Proposition~3.5]{Paper}.
+With Theorem~\ref{thm:R} and Lemma~\ref{lem:good} this implies \cite[Proposition~4.9]{Paper}.
 By enumeration, the conjecture holds for every choice of $t_0$ in every Eulerian triangulation with at most $17$ vertices.
 It also holds when $H$ has only one $2$-factor $F$.
 Then all maps that lie in $F$ are rainbow trees by Theorem~\ref{thm:S}(3), and one can move a vertex of a face of load $2$ to its other face in $F$, then the vertex that was already in that face onwards in the same direction along the cycle of $F$, and so on; this reaches a face of load $0$ without raising the excess.
@@ -586,7 +586,7 @@ The axiom fails in a triangulation with $12$ vertices in which $H$ has two $2$-f
 
 The involutions $\iota_t$ do not connect the good states either: there are triangulations with $13$ and with $14$ vertices in which the group they generate is not transitive on the good states.
 
-A statement of the same kind can be made for pairs, with the two modifications of \cite[Section~3]{Paper}: replacing $r$ by $r^K$ for a cycle $K$ of $Q_s$, and reversing a cycle of $D(r,s)$.
+A statement of the same kind can be made for pairs, with the two modifications of \cite[Sections~3 and~4]{Paper}: replacing $r$ by $r^K$ for a cycle $K$ of $Q_s$, and reversing a cycle of $D(r,s)$.
 By enumeration up to $20$ vertices, every pair can be turned by such modifications into a pair with a good second state without ever raising the number of cycles of $Q_s$.
 A modification that lowers this number need not exist, first for $16$ vertices, and for $16$ vertices it is not always possible to proceed without raising $c(F)$.
 So here too the number that should reach zero cannot be lowered step by step, the modifications that keep it constant change the $2$-factor, and we know no quantity that decreases along them.
@@ -595,14 +595,14 @@ The exchange procedure of \cite{Constructive} mentioned in the Remarks of \cite{
 \subsection*{What a proof of the conjecture would give}
 Suppose that Conjecture~\ref{conj:X} were proved.
 Theorem~\ref{thm:R} supplies a rainbow tree whenever no separating triangle has three black faces along its inner side, and the conjecture leads from it to a good state.
-That is \cite[Proposition~3.5]{Paper} with no sign, no weight and no sum over $2$-factors, and Theorem~\ref{thm:even} then gives a second good state.
-The rest of the proof in \cite{Paper} uses no cancellation: \cite[Proposition~2.3]{Paper} leads from a good state to a Hamiltonian cycle, and the induction in \cite[Theorem~4.3]{Paper} deals with the separating triangles.
+That is \cite[Proposition~4.9]{Paper} with no sign, no weight and no sum over $2$-factors, and Theorem~\ref{thm:even} then gives a second good state.
+The rest of the proof in \cite{Paper} uses no cancellation: \cite[Proposition~2.12]{Paper} leads from a good state to a Hamiltonian cycle, and the induction in \cite[Theorem~5.6]{Paper} deals with the separating triangles.
 A proof of the conjecture would not give a polynomial algorithm, since the conjecture only asserts that a sequence of exchanges exists and nothing bounds the search among rainbow trees of equal excess.
 Nor would it count the good states or explain why the signed sum does not vanish.
 
 The place to look is the exchange that leaves the $2$-factor, which Section~\ref{sec:packing} does not see.
 A rainbow tree in $F$ is an acyclic choice of arcs in $D_F$, its excess is the number of faces with both arcs or no arc chosen, and correcting a face along a cycle of $F$ works until the new arc closes a directed cycle.
-In the signed proof this is a cycle of $Q_s$, and the disk identity \cite[Lemma~2.2]{Paper} controls it there.
+In the signed proof this is a cycle of $Q_s$, and the disk identity \cite[Lemma~2.9]{Paper} controls it there.
 The disk identity is not used in this note, and we expect that a proof of Conjecture~\ref{conj:X} has to use it.
 
 \begin{thebibliography}{9}
