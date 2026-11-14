@@ -1,0 +1,390 @@
+{
+  "per_V": {
+    "6": {
+      "graphs": 1,
+      "rooted_with_TM": 8,
+      "black_faces": 24,
+      "TMs": 16,
+      "vertices": 24,
+      "minimum_patterns_2": 24,
+      "seconds": 0.01
+    },
+    "7": {
+      "seconds": 0.01
+    },
+    "8": {
+      "graphs": 1,
+      "rooted_with_TM": 12,
+      "black_faces": 60,
+      "TMs": 24,
+      "vertices": 48,
+      "minimum_patterns_2": 48,
+      "not_all_feasible_patterns": 24,
+      "seconds": 0.01
+    },
+    "9": {
+      "graphs": 1,
+      "rooted_with_TM": 8,
+      "black_faces": 48,
+      "TMs": 32,
+      "vertices": 36,
+      "not_all_feasible_patterns": 18,
+      "minimum_patterns_2": 36,
+      "seconds": 0.01
+    },
+    "10": {
+      "graphs": 2,
+      "rooted_with_TM": 32,
+      "black_faces": 224,
+      "TMs": 64,
+      "vertices": 168,
+      "minimum_patterns_2": 168,
+      "not_all_feasible_patterns": 112,
+      "seconds": 0.03
+    },
+    "11": {
+      "graphs": 2,
+      "rooted_with_TM": 28,
+      "black_faces": 224,
+      "TMs": 112,
+      "vertices": 140,
+      "not_all_feasible_patterns": 97,
+      "minimum_patterns_2": 140,
+      "seconds": 0.03
+    },
+    "12": {
+      "graphs": 8,
+      "rooted_with_TM": 120,
+      "black_faces": 1080,
+      "TMs": 372,
+      "vertices": 706,
+      "minimum_patterns_2": 700,
+      "not_all_feasible_patterns": 514,
+      "mate_not_TM": 4,
+      "minimum_patterns_3": 6,
+      "seconds": 0.11
+    },
+    "13": {
+      "graphs": 8,
+      "rooted_with_TM": 126,
+      "black_faces": 1260,
+      "TMs": 520,
+      "vertices": 778,
+      "not_all_feasible_patterns": 578,
+      "minimum_patterns_2": 760,
+      "minimum_patterns_3": 16,
+      "minimum_patterns_4": 2,
+      "mate_not_TM": 8,
+      "exceptions": 8,
+      "exception_mate_L": 8,
+      "seconds": 0.17
+    },
+    "14": {
+      "graphs": 32,
+      "rooted_with_TM": 546,
+      "black_faces": 6006,
+      "TMs": 2100,
+      "vertices": 3721,
+      "minimum_patterns_2": 3592,
+      "not_all_feasible_patterns": 2824,
+      "mate_not_TM": 28,
+      "minimum_patterns_3": 101,
+      "exceptions": 20,
+      "exception_mate_L": 20,
+      "minimum_patterns_4": 28,
+      "seconds": 0.81
+    },
+    "15": {
+      "graphs": 57,
+      "rooted_with_TM": 914,
+      "black_faces": 10968,
+      "TMs": 4672,
+      "vertices": 6454,
+      "not_all_feasible_patterns": 5033,
+      "minimum_patterns_2": 6212,
+      "mate_not_TM": 130,
+      "minimum_patterns_3": 222,
+      "minimum_patterns_4": 20,
+      "exceptions": 80,
+      "exception_mate_L": 80,
+      "seconds": 1.68
+    },
+    "16": {
+      "graphs": 185,
+      "rooted_with_TM": 3294,
+      "black_faces": 42822,
+      "TMs": 16178,
+      "vertices": 25315,
+      "minimum_patterns_2": 24306,
+      "not_all_feasible_patterns": 20224,
+      "mate_not_TM": 452,
+      "minimum_patterns_3": 916,
+      "minimum_patterns_4": 93,
+      "exceptions": 358,
+      "exception_mate_L": 348,
+      "exception_mate_not_TM": 10,
+      "seconds": 7.58
+    }
+  },
+  "first": {
+    "missing_pattern": {
+      "V": 8,
+      "gid": 0,
+      "root": [
+        1,
+        0,
+        2
+      ],
+      "setup": [
+        5,
+        4,
+        1,
+        6,
+        3
+      ],
+      "patterns": [
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "feasible": [
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "rot": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          4,
+          5,
+          6,
+          7,
+          2
+        ],
+        [
+          0,
+          1,
+          7,
+          3
+        ],
+        [
+          0,
+          2,
+          7,
+          6,
+          5,
+          4
+        ],
+        [
+          0,
+          3,
+          5,
+          1
+        ],
+        [
+          1,
+          4,
+          3,
+          6
+        ],
+        [
+          1,
+          5,
+          3,
+          7
+        ],
+        [
+          1,
+          6,
+          3,
+          2
+        ]
+      ]
+    },
+    "mate_not_TM": {
+      "V": 12,
+      "gid": 2,
+      "root": [
+        8,
+        3,
+        10
+      ],
+      "faces": [
+        [
+          3,
+          0,
+          4
+        ],
+        [
+          10,
+          4,
+          5
+        ],
+        [
+          5,
+          0,
+          6
+        ],
+        [
+          10,
+          6,
+          11
+        ],
+        [
+          11,
+          7,
+          8
+        ],
+        [
+          6,
+          1,
+          7
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          8,
+          1,
+          9
+        ],
+        [
+          9,
+          2,
+          3
+        ]
+      ],
+      "s": [
+        4,
+        5,
+        0,
+        11,
+        7,
+        6,
+        1,
+        9,
+        2
+      ],
+      "r": [
+        4,
+        6,
+        5,
+        0,
+        9,
+        2,
+        11,
+        1,
+        7
+      ]
+    },
+    "mate_repair_fails": {
+      "V": 16,
+      "gid": 22,
+      "root": [
+        14,
+        9,
+        10
+      ],
+      "setup": [
+        2,
+        1,
+        0,
+        3,
+        9
+      ],
+      "outer": [
+        [
+          8,
+          1,
+          9
+        ],
+        [
+          14,
+          7,
+          8
+        ],
+        [
+          6,
+          1,
+          7
+        ],
+        [
+          5,
+          0,
+          6
+        ],
+        [
+          3,
+          0,
+          4
+        ],
+        [
+          10,
+          3,
+          11
+        ],
+        [
+          11,
+          4,
+          5
+        ],
+        [
+          11,
+          6,
+          12
+        ],
+        [
+          12,
+          7,
+          13
+        ],
+        [
+          15,
+          10,
+          12
+        ],
+        [
+          15,
+          13,
+          14
+        ]
+      ],
+      "assign": [
+        1,
+        8,
+        7,
+        5,
+        3,
+        11,
+        4,
+        6,
+        12,
+        15,
+        13
+      ],
+      "mate_class": "not_TM"
+    }
+  }
+}

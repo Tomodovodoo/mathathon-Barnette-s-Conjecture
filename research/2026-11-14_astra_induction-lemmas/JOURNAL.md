@@ -10,3 +10,11 @@
 4. Corner avoidance may survive, but all four feasible corner patterns at every usable vertex likely fail. Test all rooted instances through V=16. Test whether the mate of an exceptional matching is a nonexceptional tree matching, then the weaker existence of a repairing reversal of one D-cycle.
 
 The requested four-cycle-only picture conflicts with the supplied source, MISSING-LEMMA.md Lemma B. The source uses 4- and 5-cycles. This discrepancy must be resolved before attempting a minimal-region proof.
+
+## First results and revised tests
+
+- Deficiency formula: symbolic residual zero, and all connected eligible complement sets through V=14 pass, including repeated boundary walks.
+- G descent: the prediction that an innermost bad region contains a good degree-4 vertex is false at V=11, graph 1, root 1,0,2. The 4-cycle 0,1,7,5 encloses only vertex 6, and both merges there are bad. Thus the proposed Euler-counting descent cannot close G as stated.
+- X: all feasible patterns is false at V=8. Mate repair of exceptions fails from V=16. Every single D-cycle repair can fail from V=17, graph 451, root 7,1,8, x=2, merge 0,9. The two reversals give a non-tree state and another exception. Through V=18 there are 222 such exceptions in total.
+- Saturation change of parameter: replace a single reversal by the entire direction cube of the fixed cover, then by the graph of tree matchings joined by D-cycle reversals with the mate recomputed after each move. Prediction: some fixed cubes contain only exceptional tree states, but a larger tree-state component may still escape. This tests the actual distinction between keeping a cover and changing it.
+- The inherited no-frozen-face conjecture was already tested by Opus as S7. It was not a new untried hypothesis. Our new test extends it through V=18.

@@ -64,6 +64,14 @@
       "repeated_boundary_regions": 43751,
       "failures": 0,
       "seconds": 1.56
+    },
+    "14": {
+      "graphs": 32,
+      "eligible_colour_subsets": 583166,
+      "regions": 949371,
+      "repeated_boundary_regions": 375801,
+      "failures": 0,
+      "seconds": 13.42
     }
   }
 }
