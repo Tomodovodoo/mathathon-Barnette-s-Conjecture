@@ -30,7 +30,7 @@ By step 04 a counterclockwise cycle of length $h$ has $(h+3)/2$ factors $-1$ and
 
 $$\varepsilon(r,s) = (-1)^{(n+c)/2}\,(-1)^{c^+} = (-1)^{(n+J)/2}, \qquad J = \#\text{clockwise} - \#\text{counterclockwise}.$$
 
-The product of local signs is now the standard form. The paper uses it, the trees paper uses the same real sign written through $J$, and the project's Lean file compiles it. The OpenAI paper uses the complex phase $i^{J}$, with $J = \tfrac13\sum_t \delta(r(t),s(t))$, and $i^J = i^{-n}\varepsilon$: the two differ by a constant that depends only on $n$. This was the "phase dispute" of the project and the cross-audit settled it (`research/2026-11-14_opus_cross-audit/ADJUDICATION.md`). Li uses $(-1)^{\lfloor -J/2 \rfloor}$, which agrees up to a constant by `research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.1 (not refereed).
+The product of local signs is now the standard form. The paper uses it, the trees paper uses the same real sign written through $J$, and the project's Lean file compiles it. The OpenAI paper uses the complex phase $i^{J}$, with $J = \tfrac13\sum_t \delta(r(t),s(t))$, and $i^J = i^{-n}\varepsilon$. The two differ by a constant that depends only on $n$. This was the "phase dispute" of the project and the cross-audit settled it (`research/2026-11-14_opus_cross-audit/ADJUDICATION.md`). Li uses $(-1)^{\lfloor -J/2 \rfloor}$, which agrees up to a constant by `research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.1 (not refereed).
 
 **The signed sum.** Take any function $F$ on states. Put
 

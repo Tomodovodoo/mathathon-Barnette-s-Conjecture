@@ -26,7 +26,7 @@ For each white face $y$ fix a path of faces $y = f_0, f_1, \dots, f_j = t_0$ in 
 
 $$\kappa_y(t,v) = \begin{cases} +1 & \text{the path turns around } v \text{ in } t \text{ with } v \text{ on its left},\\ -1 & \text{it turns around } v \text{ with } v \text{ on its right},\\ 0 & \text{it misses } t \text{ or turns around another corner.}\end{cases}$$
 
-Combinatorially: with $a'$ the far end of the entry side and $b'$ the far end of the exit side, $v$ is on the left exactly when $v, a', b'$ is the counterclockwise order of the corners of $t$. The height of a state at $y$ and its weight are
+In combinatorial terms, with $a'$ the far end of the entry side and $b'$ the far end of the exit side, $v$ is on the left exactly when $v, a', b'$ is the counterclockwise order of the corners of $t$. The height of a state at $y$ and its weight are
 
 $$\eta_s(y) = \sum_{t \in A} \kappa_y\bigl(t, s(t)\bigr), \qquad \omega(s) = \sum_{y \text{ white}} \eta_s(y).$$
 

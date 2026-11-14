@@ -36,7 +36,7 @@ Suppressing the black nodes of degree two gives a tree on the white faces, roote
 
 Root $Y_s$ at $t_0$. Colours alternate along its edges. $t_0$ has one child, every $t \in A$ has a parent and therefore exactly one child, and every white face has a parent, which is black. Let $P_s$ consist of the side that each black face shares with its child (paper Lemma 3.6).
 
-Every black face has exactly one side in $P_s$. A white face $y$ is the only child of its parent, so the side towards its parent is in $P_s$. Any other side of $y$ is shared with a black child $t$ of $y$, and $t$ selects the side towards its own child, which is not $y$; since two faces share at most one side, that side of $y$ is not selected. So every face of $T$ has exactly one side in $P_s$: $P_s$ is a selection, the main paper's word. It contains $e_0$, the side between $t_0$ and $y_0$. For $t \in A$ the side shared with its child is not in $Q_s$, so it is one of the two sides at $s(t)$.
+Every black face has exactly one side in $P_s$. A white face $y$ is the only child of its parent, so the side towards its parent is in $P_s$. Any other side of $y$ is shared with a black child $t$ of $y$, and $t$ selects the side towards its own child, which is not $y$; since two faces share at most one side, that side of $y$ is not selected. So every face of $T$ has exactly one side in $P_s$, which makes $P_s$ a selection, the main paper's word. It contains $e_0$, the side between $t_0$ and $y_0$. For $t \in A$ the side shared with its child is not in $Q_s$, so it is one of the two sides at $s(t)$.
 
 Put $P_0 = P_s \setminus \{e_0\}$. In these digestions "selected" always refers to $P_s$, never to the edges $r(t) \to s(t)$ of $D$; the primal note uses the word for both.
 
