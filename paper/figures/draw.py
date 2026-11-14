@@ -15,7 +15,7 @@ from model import HERE, und
 UNIT = 0.62          # cm per layout unit in the half-width panels of the running example
 COLLAR = 0.55        # width of the grey collar that shows the outer black face
 RING = 0.28          # the centre of t0 and the edges reaching it live at radius R + RING
-LBL = {3: (-0.5, 0.12), 9: (0.42, -0.42), 2: (-0.38, 0.4)}   # label offsets that avoid G and the edges
+LBL = {1: (.50,-.17), 2: (-.38,.4), 3: (-.5,.12), 6: (-.4,.4), 7: (-.50,.12), 8: (.50,.20), 9: (-.42,.48), 10: (-.12,.55), 11: (.38,.4), 12: (.37,.32)}   # labels in white sectors, clear of the state wedges and G vertices
 
 
 def pt(p):
@@ -300,7 +300,7 @@ def make():
     # 01 the cube and the octahedron, worked completely -------------------------
     om, oxy, oR = oc['model'], oc['xy'], oc['R']
     orr, os_, orec = oc['r'], oc['s'], oc['rec']
-    U = 0.34
+    U = 0.41
 
     def O():
         return Panel(om, oxy, oR, unit=U)
@@ -322,23 +322,23 @@ def make():
     for v,q in square.items():
         cp.add(rf'\draw[fill={"black" if v in om.black else "white"},line width=.5pt] {pt(q)} circle[radius=1.5pt];')
     cube2=cp.tex()
-    a = O().base().vertices(labels=True).tex()
+    a = O().base().graphG(dots=False).dotsG(radius=1).vertices(labels=True).tex()
     b = O().base().state(orr, 'bf r').state(os_).arrows(om.D(orr, os_)).vertices(labels=True).tex()
     c = O().base().state(os_).lines(om.Q(os_), 'bf Q').vertices(labels=True).tex()
     f0 = om.F[om.t0]
     Ss = om.Q(os_) + [(x, y) for x, y in zip(f0, f0[1:] + f0[:1]) if und(x, y) != om.e0]
     d = O().base().lines(Ss, 'bf kept').white_tree(orec, os_).vertices(labels=True).tex()
     e = O().base().lines(orec['P'], 'bf P').graphG('bf cycle', orec['hamiltonian'], dots=False).vertices(classes=orec['parts'], labels=True).tex()
-    body = (r'\begin{tabular}{@{}c@{}}' + row([cube2, a, b], ['(a) two cycles, degree two', '(b) its dual, the octahedron $T$', '(c) two states and $D$'], '1mm')
-            + r'\\[2mm]' + '\n'
-            + row([c, d, e], ['(d) $Q_s$, opposite the wedges', '(e) $S_s$ and the tree of faces', '(f) $P$, two trees, one cycle'], '1mm') + r'\end{tabular}')
+    body = (r'\begin{tabular}{@{}c@{}}' + row([cube2, a, c], ['(a) two cycles', '(b) the dual', '(c) a state and opposite sides'], '2mm')
+            + r'\\ \noalign{\vskip4mm}' + '\n'
+            + row([d, e, b], ['(d) avoided edges and face tree', '(e) selected sides and one cycle', '(f) two states and arrows'], '2mm') + r'\end{tabular}')
     fig('01-cube', body,
-        r'The complete construction on the cube. (a) The square-in-square cube has a degree-two subgraph with two cycles. '
-        r'(b) Its dual is the octahedron, in the disk embedding used below; shaded faces are black and hollow vertices are roots. '
-        r'(c) Outlined choices $r$ and solid choices $s$ are disjoint states; the arrows $r(t)\to s(t)$ form $D$. '
-        r'(d) The sides opposite $s$ form the forest $Q_s$. '
-        r'(e) The bold edges $S_s$ are $Q_s$ and the two sides of the outer face other than $e_0=\{0,1\}$; they form a spanning tree. The dash-dotted tree joins the white faces across the other edges, rooted at the ring. '
-        r'(f) That tree selects one bold side per face. The selected edges $P$ induce two trees, and their complementary dual is one Hamiltonian cycle.',
+        r'The construction on the cube, read along the rows. (a) Degree two can leave two cycles. '
+        r'(b) The dual octahedron, with the cube in grey and black triangles shaded; the grey collar represents the outer black triangle. Its hollow corners are $0,1,2$, and $e_0=\{0,1\}$. '
+        r'(c) A state, shown by solid wedges, and its opposite sides, dashed. '
+        r'(d) The avoided edges form a spanning tree, and the dash-dotted tree joins the white triangles, with black nodes suppressed; the ring marks its root. '
+        r'(e) One bold side per triangle, and the Hamiltonian cycle crossing all other sides. Disks and squares distinguish the two trees of bold edges. '
+        r'(f) Two states, outlined and solid, and the arrows between their chosen corners.',
         'cube and octahedron; all objects from check.octahedron()')
 
     # 02 degree two is not enough ------------------------------------------------
@@ -351,7 +351,7 @@ def make():
         'G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 13')
 
     # 03 the dual triangulation ----------------------------------------------------
-    a = P().base().graphG().vertices(labels=LBL).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
+    a = P(unit=.78).base().graphG(dots=False).dotsG(radius=1.1).vertices(labels=LBL).label((0, -(R + RING) - 0.05), r'$t_0$', 'anchor=west,xshift=3pt').tex()
     fig('03-dual', a,
         r'The dual triangulation $T$ of the running example, with $G$ in grey. Each vertex of $G$ sits in a face of $T$ and each edge of $G$ crosses one edge of $T$. '
         r'Shaded faces are black. The outer face $t_0$ is black as well, which the grey collar shows, and the vertex of $G$ inside it is drawn below. '
@@ -418,7 +418,8 @@ def make():
     yx = {v: (n - 1 - i) * 0.62 for i, v in enumerate(order_x)}
     yt = {t: (n - 1 - i) * 0.62 - 0.31 for i, t in enumerate(order_t)}
     L = [r'\begin{tikzpicture}[bf,x=1cm,y=1cm]']
-    ys, xs0, xx, xa, xt = (n - 1) * 0.31 - 0.15, 0.0, 2.6, 6.0, 8.6
+    ys, xs0, xx, xa, xt = (n - 1) * 0.31 - 0.15, 0.0, 2.6, 6.0, 9.0
+    L.append(rf'\fill[black!8] ({xs0-.12},{ys-.18}) -- ({xx-.2},{yx[2]-.25}) -- ({xx+.18},{yx[2]-.25}) -- ({xx+.18},{yx[2]+.25}) -- ({xx-.2},{yx[2]+.25}) -- ({xs0-.12},{ys+.18}) -- cycle;')
     for v in order_x:
         L.append(rf'\draw[draw=black!55,line width=.9pt] ({xs0},{ys}) -- ({xx},{yx[v]:.2f});')
     for t in order_t:
@@ -431,12 +432,12 @@ def make():
         L.append(rf'\draw[draw=bfR,line width=1.3pt,double=white,double distance=.7pt] ({xx},{yx[v]:.2f}) -- ({xa},{yt[t]:.2f});')
         L.append(rf'\draw[draw=bfS,line width=1.5pt] ({xx},{yx[w]:.2f}) -- ({xa},{yt[t]:.2f});')
     for v in order_x:
-        L.append(rf'\fill ({xx},{yx[v]:.2f}) circle[radius=1.5pt]; \node[anchor=south,inner sep=2.5pt] at ({xx},{yx[v]:.2f}) {{${v}$}};')
+        L.append(rf'\fill ({xx},{yx[v]:.2f}) circle[radius=1.5pt]; \node[anchor=east,fill=white,inner sep=2pt] at ({xx},{yx[v]:.2f}) {{${v}$}};')
     for t in order_t:
-        L.append(rf'\fill ({xa},{yt[t]:.2f}) ++(-2pt,-2pt) rectangle ++(4pt,4pt); \node[anchor=west,inner sep=4pt] at ({xa},{yt[t]:.2f}) {{$\{{{",".join(map(str, sorted(m.F[t])))}\}}$}};')
+        L.append(rf'\fill ({xa},{yt[t]:.2f}) ++(-2pt,-2pt) rectangle ++(4pt,4pt); \node[anchor=east,fill=white,inner sep=2pt,xshift=-4pt] at ({xa},{yt[t]:.2f}) {{$\{{{",".join(map(str, sorted(m.F[t])))}\}}$}};')
     L += [rf'\draw[fill=white,line width=.6pt] ({xs0},{ys}) circle[radius=3pt]; \draw[fill=white,line width=.6pt] ({xt},{ys}) circle[radius=3pt];',
           rf'\node[anchor=east,inner sep=5pt] at ({xs0},{ys}) {{source}}; \node[anchor=west,inner sep=5pt] at ({xt},{ys}) {{sink}};',
-          rf'\node at ({xx / 2 - .1},{(n - 1) * 0.62 + .55}) {{capacity $2$}}; \node at ({(xx + xa) / 2},{(n - 1) * 0.62 + .55}) {{capacity $1$}}; \node at ({(xa + xt) / 2 + .45},{(n - 1) * 0.62 + .55}) {{capacity $2$}};',
+          rf'\node[fill=white] at ({(xs0+xx)/2},{(ys+yx[order_x[0]])/2}) {{$2$}}; \node[fill=white] at ({(xx+xa)/2},{(yx[order_x[0]]+yt[order_t[0]])/2}) {{$1$}}; \node[fill=white] at ({(xa+xt)/2},{(ys+yt[order_t[0]])/2}) {{$2$}};',
           rf'\node at ({xx},{-0.95}) {{vertices $X$}}; \node at ({xa + .35},{-0.95}) {{black triangles $A$}};',
           r'\end{tikzpicture}']
     fig('06-flow', '\n'.join(L),
@@ -446,13 +447,10 @@ def make():
         r'Such a flow exists if every set $S$ of vertices satisfies $\sum_t \min(2,|V(t)\cap S|)\ge 2|S|$. Here equality holds for $S=\{2\}$, a vertex in only two black triangles.',
         'incidence graph of running.json; cut inequality (3.1) checked for all 1024 subsets S')
 
-    # 07 a pair and D --------------------------------------------------------------------
-    a = P().base().state(r, 'bf r').state(s).vertices(labels=LBL).tex()
-    b = P().base().state(r, 'bf r').state(s).arrows(m.D(r, s)).vertices(labels=LBL).tex()
-    fig('07-pair-D', row([a, b], ['(a) the pair $(\\beta,\\alpha)$: outlined $\\beta$, solid $\\alpha$', '(b) $D(\\beta,\\alpha)$']),
-        r'(a) Two states $\beta$ (outlined) and $\alpha$ (solid) that choose different corners in every bounded black triangle. '
-        r'(b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles: '
-        r'the counterclockwise $7$-cycle $1,2,3,9,10,11,6$ and the clockwise triangle $8,7,12$.',
+    # 07 one pair panel; retain the checked data and encoding.
+    b = P(unit=.70).base().state(r, 'bf r').state(s).arrows(m.D(r, s), 'bf D,-{Stealth[length=6pt,width=4.8pt]}').vertices(labels=LBL).tex()
+    fig('07-pair-D', row([b], [r'Outlined: first state $\beta$; solid: second state $\alpha$']),
+        r'The pair $(\beta,\alpha)$ and its arrows. The counterclockwise cycle has length seven; the clockwise cycle is a triangle.',
         'the displayed pair; D-cycles from check.running')
 
     # 08 the disk identity ------------------------------------------------------------------
@@ -501,16 +499,21 @@ def make():
     ch = set(run['changed'])
 
     def canc(rr_, qc):
-        inside = m.disk(qc)['faces']
-        p = P().base(tint={i: 'bfR!22' for i in inside})
-        on = {(x, y) for x, y in zip(qc, qc[1:] + qc[:1])}
-        qd = m.Q_directed(rr_, s)
-        p.lines([e for e in qd if e not in on], 'bf Q')
-        p.arrows([e for e in qd if e in on], 'bf Qdir,line width=1.7pt')
-        p.state(s).state(rr_, 'bf r')
-        return p.vertices(labels=LBL).tex()
+        localxy = dict(xy)
+        localxy.update({v:np.array(q,float) for v,q in {1:(-2,1.2),8:(2,1.2),9:(0,-2),7:(0,3.5),2:(-3.7,-1.5),10:(3.7,-1.5)}.items()})
+        p = Panel(m, localxy, R, unit=.78, collar=False)
+        p.box = [-4.1,-2.6,4.1,3.9]
+        for t in ch:
+            p.add(rf'\fill[bfblack] {p.face_path(t)};')
+            p.add(rf'\draw[bf edge] {p.face_path(t)};')
+        white = next(i for i in m.white if set(m.F[i])=={1,8,9})
+        p.add(rf'\fill[bfR!22] {p.face_path(white)};')
+        on = {und(x,y) for x,y in zip(qc,qc[1:]+qc[:1])}
+        p.arrows([e for e in m.Q_directed(rr_,s) if und(*e) in on], 'bf Qdir,line width=1.7pt')
+        p.state(s,only=ch).state(rr_,'bf r',only=ch)
+        return p.vertices(labels={1:(-.4,.1),8:(.4,.1),9:(0,-.4),7:(0,.35),2:(-.3,-.2),10:(.3,-.2)},skip=set(m.V)-{1,8,9,7,2,10}).tex()
     fig('10-cancellation', row([canc(r, run['Q_cycle']), canc(r2, run['Q_cycle_rev'])],
-                              [rf'(a) $(\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J"])//2):+d}$', rf'(b) $(\tilde\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J2"])//2):+d}$']),
+                              [rf'(a) $(\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J"])//2):+d}$', rf'(b) $(\tilde\beta,\alpha)$, $\varepsilon={(-1)**((len(m.A)+run["J2"])//2):+d}$'], '8mm'),
         r'The two partners of the state $\alpha$, whose $Q_\alpha$ has a cycle. Dashed edges are $Q_\alpha$. Those on its cycle $1,8,9$, around the tinted face, are heavier and directed from the outlined corner to the third corner. '
         r'Going from (a) to (b), each outlined wedge on the cycle moves to the third corner of its triangle. The cycle reverses and the solid wedges stay. '
         r'Three local signs change, so the sign $\varepsilon$ changes, and the two pairs cancel in any sum weighted by a function of the second state.',
@@ -575,7 +578,12 @@ def make():
         'P, the two induced trees and the Hamiltonian cycle (check.recover asserts each property)')
 
     # 14 gluing -----------------------------------------------------------------------------------------
-    T, gxy = gl['T'], gl['xy']
+    T, gxy = gl['T'], {v:q.copy() for v,q in gl['xy'].items()}
+    for v in gl['cap']:
+        gxy[v] *= 1.9
+    for v in set(T.V)-set(gl['m1'].V):
+        gxy[v] *= 2.3
+    check.check_layout(T, gxy, gl['R'])
     U2 = 0.44
 
     def gp(mm, xx, parts, PP, tintface=None, only=None):
@@ -589,7 +597,7 @@ def make():
     cap1 = next(i for i, f in enumerate(gl['m1'].F) if set(f) == capset)
     a = gp(gl['m1'], gl['xy1'], gl['parts1'], gl['P1'], {cap1: 'bfR!25'})
     b = gp(gl['m2'], gl['xy2'], gl['parts'], gl['P2'])
-    c = gp(T, gxy, gl['parts'], gl['P'], only=set(gl['m1'].V))
+    c = gp(T, gxy, gl['parts'], gl['P'], only=set(T.V))
     fig('14-gluing', row([a, b, c], ['(a) outer piece, cap tinted', '(b) inner piece, cap as outer face', '(c) glued'], '1mm'),
         r'A separating triangle, here $\{3,4,5\}$ in a triangulation with $9$ vertices. Cut along it and cap each side with a face. '
         r'(a) Solve the piece that contains $t_0$. On the cap, vertices $3$ and $5$ get the same class. (b) Solve the other piece with the cap as outer face and $\{3,5\}$ as prescribed edge, so the two solutions agree on the triangle. '
@@ -700,10 +708,9 @@ Separating triangles are handled by cutting and gluing with a prescribed edge, a
             a_, b_ = sorted(set(m.F[f1]) & set(m.F[f2]))
             pts.append(p.mid(a_, b_))
             gates[len(pts) - 1] = (xy[a_], xy[b_])
-            if f2 != m.t0:
-                pts.append(p.cen[f2])
+            # A straight segment between successive gates stays in their common face.
         pts.append(pts[-1] * (R + COLLAR * 0.85) / np.hypot(*pts[-1]))
-        p.add(r'\draw[bf wtree,-{Stealth[length=4.5pt,width=4pt]}] ' + p.curve_tex(p.smooth_route(pts, gates)) + ';')
+        p.add(r'\draw[bf wtree,-{Stealth[length=4.5pt,width=4pt]}] ' + ' -- '.join(pt(q) for q in pts) + ';')
         for t, (v, sg) in turns.items():
             q = xy[v] + 0.5 * (p.cen[t] - xy[v])
             p.label(q, rf'${"+" if sg > 0 else "-"}$', 'fill=white,draw=bfW,circle,inner sep=.3pt,line width=.5pt,minimum size=9pt')
@@ -719,6 +726,22 @@ Separating triangles are handled by cutting and gluing with a prescribed edge, a
         r'(a) The pair with the $7$-cycle of $D$ clockwise. Only $\{0,1,6\}$ has its solid wedge at the turned corner $6$, so the height is $-1$. '
         r'(b) After reversing the $7$-cycle the pair is $(\beta,\alpha)$ and the wedge in $\{0,1,6\}$ sits at $1$. The height is $0$, one more, because $y$ lies inside the cycle.',
         'face path = shortest path in G, ties by face index; heights asserted (-1, 0); pair with 7-cycle clockwise obtained from (beta, alpha)')
+
+    fig('18-groupings', r'''\begin{tikzpicture}[x=2.93cm,y=1.6cm,font=\footnotesize,
+  pair/.style={draw=black!62,line width=.4pt,minimum width=2.53cm,minimum height=0.9cm,align=center,inner sep=2pt},
+  bad/.style={pair,fill=bfblack}]
+\foreach \i/\o/\e/\w in {0/{cw, cw}/{+}/{-4},1/{cw, ccw}/{-}/{-3},3/{ccw, ccw}/{+}/{3}}
+  \node[pair] (a\i) at (\i,1) {\o\\$\varepsilon=\e1$, $\omega=\w$};
+\node[bad] (a2) at (2,1) {ccw, cw\\$\varepsilon=-1$, $\omega=2$};
+\foreach \i/\o/\e/\w in {0/{cw, cw}/{+}/{-2},1/{cw, ccw}/{-}/{-1},2/{ccw, cw}/{-}/{1}}
+  \node[pair] (b\i) at (\i,0) {\o\\$\varepsilon=\e1$, $\omega=\w$};
+\node[bad] (b3) at (3,0) {ccw, ccw\\$\varepsilon=+1$, $\omega=2$};
+\draw[bfR,line width=1.1pt] (a2.south) -- (b3.north) node[midway,fill=white,inner sep=1.5pt,text=black] {same $s=\alpha$};
+\node[anchor=west] at (3.5,1) {$\sum\varepsilon\,\omega^2=12$};
+\node[anchor=west] at (3.5,0) {$\sum\varepsilon\,\omega^2=6$};
+\end{tikzpicture}''',
+        r'The same eight pairs grouped by undirected cycles (rows) and by their second state (the shaded pair).',
+        'Table 2; checked by the main-paper example scripts')
 
     return run, oc, gl
 

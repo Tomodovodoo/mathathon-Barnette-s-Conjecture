@@ -1,0 +1,18 @@
+\documentclass[10pt,border=6pt]{standalone}
+\usepackage{amsmath}
+\usepackage{barnette-figs}
+\begin{document}%
+\begin{tikzpicture}[x=2.93cm,y=1.6cm,font=\footnotesize,
+  pair/.style={draw=black!62,line width=.4pt,minimum width=2.53cm,minimum height=0.9cm,align=center,inner sep=2pt},
+  bad/.style={pair,fill=bfblack}]
+\foreach \i/\o/\e/\w in {0/{cw, cw}/{+}/{-4},1/{cw, ccw}/{-}/{-3},3/{ccw, ccw}/{+}/{3}}
+  \node[pair] (a\i) at (\i,1) {\o\\$\varepsilon=\e1$, $\omega=\w$};
+\node[bad] (a2) at (2,1) {ccw, cw\\$\varepsilon=-1$, $\omega=2$};
+\foreach \i/\o/\e/\w in {0/{cw, cw}/{+}/{-2},1/{cw, ccw}/{-}/{-1},2/{ccw, cw}/{-}/{1}}
+  \node[pair] (b\i) at (\i,0) {\o\\$\varepsilon=\e1$, $\omega=\w$};
+\node[bad] (b3) at (3,0) {ccw, ccw\\$\varepsilon=+1$, $\omega=2$};
+\draw[bfR,line width=1.1pt] (a2.south) -- (b3.north) node[midway,fill=white,inner sep=1.5pt,text=black] {same $s=\alpha$};
+\node[anchor=west] at (3.5,1) {$\sum\varepsilon\,\omega^2=12$};
+\node[anchor=west] at (3.5,0) {$\sum\varepsilon\,\omega^2=6$};
+\end{tikzpicture}%
+\end{document}

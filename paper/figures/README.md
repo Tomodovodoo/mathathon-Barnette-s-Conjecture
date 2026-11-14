@@ -1,6 +1,6 @@
 # Figures for the Barnette exposition
 
-Sixteen vector figures and a gallery. `gallery.pdf` sets every figure at its final size in the paper's text block (10pt `amsart`, A4, 1in margins, 15.92cm wide), at most two per page, with a line of body text between them so scale can be judged.
+Eighteen vector figures and a gallery. `gallery.pdf` sets each figure in the paper's text block (10pt `amsart`, A4, 1in margins, 15.92cm wide), at most two per page. The main paper uses a subset and sets their final widths explicitly.
 
 ## Build
 
@@ -11,7 +11,7 @@ python -m pip install networkx numpy scipy pymupdf pillow
 python paper/figures/build.py
 ```
 
-`build.py` runs `check.py` (every assertion), then `draw.py`, compiles the sixteen standalone files and the gallery, and renders each PDF to `renders/` at 150 dpi (gallery pages at 100 dpi). It stops at the first failed assertion or TeX error. `python paper/figures/build.py 08 gallery` rebuilds only the files whose names contain those strings.
+`build.py` runs `check.py` (every assertion), then `draw.py`, compiles the eighteen standalone files and the gallery, and renders each PDF to `renders/` at 150 dpi (gallery pages at 100 dpi). It stops at the first failed assertion or TeX error. `python paper/figures/build.py 08 gallery` rebuilds only the files whose names contain those strings.
 
 Optional:
 
@@ -32,7 +32,7 @@ Normal builds read the saved coordinates in `layout-*.json`, so the pictures do 
 | `model.py` | Combinatorics: states, pairs, `Q`, `D`, `J`, cycle reversal, disk counts, the recovery of Section 6, the incidence graph and cut inequality. |
 | `layout.py` | Disk layout: roots on a circle, interior relaxed for corner angles and face areas. |
 | `check.py` | Computes and asserts every drawn object. Writes `checked.json` and `validation.json`. |
-| `draw.py` | Layers (`Panel`) and the fifteen figures. Writes `NN-name.tex`, `NN-name-body.tex`, `gallery.tex`, `captions.json`. |
+| `draw.py` | Layers (`Panel`) and the eighteen figures. Writes `NN-name.tex`, `NN-name-body.tex`, `gallery.tex`, `captions.json`. |
 | `barnette-figs.sty` | All visual encodings. |
 | `crosscheck_lab.py`, `lab-crosscheck.json` | Comparison with the lab implementation. |
 
@@ -79,7 +79,7 @@ Colours are Okabe-Ito. Every pair of objects that appear together also differs i
 
 ## Using a figure in the paper
 
-Put this directory on TeX's input path, load `barnette-figs`, and write `\input{08-disk-body.tex}` inside a centred `figure`. Captions are in `captions.json` (field `caption`; `drawn_from` says which checked object the figure shows). Do not rescale: the bodies are at final size, labels are `\footnotesize`, and line weights match across figures. Half-width panels are 7.2cm, which is 0.45 of the text width.
+Put this directory on TeX's input path, load `barnette-figs`, and write `\input{08-disk-body.tex}` inside a centred `figure`. Captions are in `captions.json` (field `caption`; `drawn_from` says which checked object the figure shows). The main paper includes standalone PDFs at explicit widths, checked at their final scale. Labels are `\footnotesize`; ordinary labels remain approximately 8 points or larger in the main PDF. Half-width running-example panels are about 7.2cm wide.
 
 The first pass (14 figures on the 14-vertex example in a straight outer triangle) is at commit `af6c63a`.
 
@@ -139,3 +139,19 @@ and `generated(12)`, each with every face as outer face. Provenance duplicates
 are retained. This verifies the second-pass HUNCH on that range, not in general.
 The region counts in Figure 11 are separately asserted for the running example
 by `check.py`.
+
+## Main paper version 2
+
+The revision rebuilds `01-cube` in the plan's order at full text width, lightens
+the primal overlay in `03-dual`, and places running-example labels in white
+sectors away from state wedges. `06-flow` puts triangle labels before their
+nodes, labels one capacity of each kind and shades the tight cut. `07-pair-D`
+uses one panel with larger arrowheads. `10-cancellation` enlarges the affected
+three-face patch. `14-gluing` enlarges and labels the inner triangulation.
+`17-heights` follows the same face path through crossed-edge midpoints with
+straight segments. `18-groupings` records the new eight-pair comparison.
+
+COMPUTED: `research/2026-11-14_astra_main-revision/verify_final.py` checks the
+main paper's final figure scales and reruns the example and toolkit assertions.
+The same folder contains all before/after page renders and selected grey print
+proofs. Existing filenames and the checked mathematical data are unchanged.
