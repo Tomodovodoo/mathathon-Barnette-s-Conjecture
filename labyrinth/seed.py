@@ -307,9 +307,9 @@ frontier_history = [
 updates = {
  'q.structural': ('No unsigned existence proof yet. Contraction has ML1 and ML2 open; C3 and rainbow exchange require plateaus. Two-tree packing is proved but does not see the states; its face-side twin P2 and exact rounding are open.', 'Referee the new local, packing and induction-lemma arguments.'),
  'q.canonical': ('No universal canonical good pair is known. C2 fails first at V=18; R2 fails at V=33. The signed sum is not a rank polynomial of the base lattice.', 'Test the separator-free restriction of R2; keep direction search separate from testing a pair.'),
- 'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'Exclude the exceptional two-cover overlap; then treat more covers.'),
+ 'q.tm-lower': ('C1 is open. Independent all-root census through V=22; separator-free evidence through V=24. One cover implies equality; converse open.', 'The AI-refereed two-cover weak bound is proved; exclude its equality overlap, then treat more covers.'),
  'q.disk': ('Signed-angle Gauss-Bonnet derivation independently AI-refereed with boundary corrections. No human check.', 'Human-check the corrected flat-angle proof.'),
- 'q.li-b': ('A complete marked-involution writeup now exists in proofs/involutions/, under independent AI review.', 'Finish the independent referee and reconcile distinct-mark conventions.'),
+ 'q.li-b': ('The marked-involution writeup has two AI referees, FOLLOWS on rays and drawing-free face paths.', 'Human-check the note and formalise the path-mark dictionary.'),
  'q.surface': ('Rooted cardinality fails by 2g. Root-free Heawood has odd-cycle cancellation but identically zero polynomial.', 'Find a replacement for spherical nonvanishing; compare the six trisum signatures.'),
  'q.human': ('No human-checked claim is recorded. Claim-specific AI reviews are in the route nodes; new referee discoveries remain unreviewed.', 'Check the merged exposition and revised primal sign normalization.')}
 for node in nodes:
@@ -487,6 +487,26 @@ for entry in S['entries']:
 for id,cls,rid in [('induction','Unsigned contraction induction','U.ML2'),('rainbow','Rainbow exchange','U.7h'),('packing','Two-tree packing','U.packing'),('covers','Meaning and range of m','D.covers'),('census24','Separator-free C1 census','D.cover-census'),('pfaffian','Pfaffian corollary','G2.pf')]:
     r=next(r for r in RT.ROUTES if r['id']==rid)
     S['entries'].append(row(id,G2,cls,r['text'],r['status']+'; new claims unreviewed, human check pending','computed' if r['status']=='COMPUTED' else 'conjecture' if r['status']=='CONJECTURE' else 'partial',[nid(r)],[]))
+# Final rows consume the authoritative route statements and their claim-specific reviews.
+by_route={r['id']:r for r in RT.ROUTES}
+for entry in S['entries']:
+    if entry['id']=='new-presentations':
+        entry['result']='Three complete written routes. Main version 2 and both involution routes FOLLOWS; primal route ACCEPT.'
+        entry['status']='Independent AI referees and completed main-v2 cold read; human check pending.'
+    if entry['id']=='rarity': entry['status']='T2 independently AI-refereed all-length transfer at the specified lateral root; no human check.'
+    if entry['id']=='formal':
+        entry.update(result=by_route['G2.devices']['text'],status='COMPUTED T4; compiled by its author; independent check pending.',refs=['c.G2.c','c.G2.devices'])
+    if entry['id']=='algorithm':
+        entry['result']+=' Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.'
+        entry['status']='Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked.'
+    if entry['id']=='cancellation': entry['result']=by_route['N.11']['text']
+    for key,rid in [('induction','U.ML2'),('rainbow','U.7h'),('packing','U.packing'),('covers','D.covers'),('census24','D.cover-census')]:
+        if entry['id']==key:
+            r=by_route[rid]; rv=review_of(r) if r['status']=='PROVED-HERE' else r.get('review',{'state':'unreviewed'})
+            entry.update(result=r['text'],status=r['status']+'; '+rv['state']+'; human check pending')
+for key,cls,rid in [('packing-P2','Face-side rainbow packing P2','U.packing-P2'),('pair-descent','Monotone pair descent C3','N.11'),('rainbow-R','Unsigned rainbow existence','U.rainbow'),('partial-G','Short-cycle obstruction and partial G','U.G-partial')]:
+    r=by_route[rid]
+    S['entries'].append(row(key,G2,cls,r['text'],r['status']+'; '+r.get('review',{'state':'unreviewed'})['state']+'; human check pending','conjecture' if r['status']=='CONJECTURE' else 'partial',[nid(r)],[]))
 prior_path=LAB/'sota.json'
 prior=json.loads(prior_path.read_text(encoding='utf8')) if prior_path.exists() else {'entries':[]}
 prior_by_id={r['id']:r for r in prior['entries']}

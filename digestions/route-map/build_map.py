@@ -568,10 +568,19 @@ def export_md():
                 fs = [f.strip() for f in r["src"].split(",") if f.strip() in RT.FOLDERS]
                 ref = [f for f in fs if RT.REVIEW.get(f, {}).get("state") == "refereed"]
                 und = [f for f in fs if RT.REVIEW.get(f, {}).get("state") == "under-review"]
-                rev = ", " + (f"AI-refereed ({', '.join(ref)})" if ref else f"under review ({', '.join(und)})" if und else "unreviewed")
+                rv = r.get("review")
+                if rv:
+                    state = rv["state"]
+                    rev = ", " + {"refereed": "AI-refereed; human check pending", "under-review": "under review", "unreviewed": "unreviewed"}[state]
+                    if rv.get("by"):
+                        rev += " by " + ", ".join(rv["by"])
+                else:
+                    rev = ", " + (f"AI-refereed ({', '.join(ref)})" if ref else f"under review ({', '.join(und)})" if und else "unreviewed")
+            elif r["status"] == "COMPUTED":
+                rev = ", " + r.get("tier", "T4") + ", " + r.get("review", {}).get("state", "unreviewed").replace("-", " ")
             L.append(f"| {r['id']} | {md_escape(r['label'])}{tag} | `{r['status']}`{rev} | {md_escape(r['where'])} | {md_escape(r['text'])} |")
             if r["status"] == "REFUTED":
-                notes.append(f"- **{r['id']}, refuted.** Lesson: {r['lesson']} Smallest known counterexample: {r['cex']}")
+                notes.append(f"- **{r['id']}, refuted.** Lesson: {r['lesson']} Saved counterexample or reported minimum: {r['cex']}")
             elif r["status"] in ("CONJECTURE", "HUNCH"):
                 extra = f" {r['vivid']}" if r.get("vivid") else ""
                 notes.append(f"- **{r['id']}, {r['status'].lower()}.**{extra} Test: {r['test']}")
@@ -591,7 +600,7 @@ def export_md():
     L += ["", "The cells count supplied proofs, open routes and refutations, not independently established theorems. Review states are attached to the written route entries.", "",
           "- Induction now has local contraction and rotation proofs at U, with ML1 and ML2 still open; gluing alone is no longer the whole column.",
           "- Topological disk and Morse readings are AI-refereed with corrections. The newer Rado-Euler rainbow and unique-factor proofs are unreviewed; exchange X remains conjectural.",
-          "- Probability has a mean-fitting obstruction, failed zero-location shortcuts and the two-tree packing question. Exact rounding remains separate.",
+          "- Probability has a mean-fitting obstruction, failed zero-location shortcuts and proved ordinary two-tree packing. Face-side P2 and exact rounding remain open.",
           "- The lattice column retains the failed extreme and irreducible rules and the linear test of a specified pair. It does not assert an efficient direction-choice algorithm.",
           "- Matroid reformulations do not prove existence. The natural two-matroid relaxation and the natural integral-LP claim fail.", ""]
     L += [tail.rstrip(), ""]
