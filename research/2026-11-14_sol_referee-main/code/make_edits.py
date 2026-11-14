@@ -62,5 +62,7 @@ for label,old,new in pairs:
 (BASE/'EDITS.md').write_text('\n'.join(out),encoding='utf-8')
 (BASE/'code/edits.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
 files=['paper/main/barnette.tex','paper/main/barnette.pdf','paper/figures/running.json','papers/OpenAI-Barnette.pdf','papers/barnette_trees.pdf','papers/A-Note-On-Barnette.pdf','papers/equivalents/2023-Gorsky-Matching-theory-and-Barnettes-conjecture.pdf']
+hist='research/2026-11-14_opus_history-literature/pdf/'
+files += [hist+f for f in ['2005_Hertel_Survey-and-strengthening-Barnette.pdf','2013_Alt-Payne-Schmidt-Wood_Thoughts-on-Barnette_arXiv1312.3783.pdf','2021_Brinkmann-Goedgebeur-McKay_Minimality-Georges-Kelmans_arXiv2101.00943.pdf','2025_Schnieders_Barnette-faces-up-to-8_arXiv2508.03531.pdf']]
 (BASE/'code/fingerprints.json').write_text(json.dumps({f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files},indent=2))
 print('Validated',len(pairs),'unique old strings. No manuscript changes made.')

@@ -1,0 +1,527 @@
+PAGE 1
+A Survey & Strengthening of Barnette’s Conjecture
+Alexander Hertel ∗
+Department of Computer Science
+University of Toronto
+April 29th, 2005
+Abstract
+Tait and Tutte made famous conjectures stating that all members of certain graph classes contain
+Hamiltonian Cycles. Although the Tait and Tutte conjectures were disproved, Barnette continued
+this tradition by conjecturing that all planar, cubic, 3-connected, bipartite graphs are Hamiltonian,
+a problem that has remained open since its formulation in the late 1960s. This paper has a twofold
+purpose. The ﬁrst is to provide a survey of the literature surrounding the conjecture. The second
+is to prove a new strengthened form of Barnette’s Conjecture by showing that it holds if and only
+if for any arbitrary path P of length 3 that lies on a face in a planar, cubic, 3-connected, bipartite
+graph, there is a Hamiltonian Cycle which passes through the middle edge in P, and avoids both its
+leading and trailing edges. When combined with previous results, this has implications which further
+strengthen the conjecture.
+Terminology
+For the purpose of this paper, we assume that the reader is familiar with standard graph theoretic
+terminology. All graphs are undirected, with no self loops nor any multiple edges. Barnette’s Conjec-
+ture states that all planar, cubic, 3-connected, bipartite graphs are Hamiltonian. For the sake of not
+having to constantly repeat these adjectives, these graphs will henceforth be referred to as Barnette
+graphs. A planar graph is one that can be drawn on a two-dimensional plane such that no two edges
+cross. A cubic graph is one in which all vertices have degree 3. A k-connected graph is one that cannot
+be disconnected by the removal of fewer than k vertices. A graph whose vertices can be coloured using
+exactly two diﬀerent colours such that no two adjacent vertices have the same colour is called bipartite.
+A Hamiltonian Cycle is a simple cycle which passes through every vertex in a graph exactly once. A
+graph that contains a Hamiltonian Cycle is said to be Hamiltonian. A Hamiltonian Path between
+two vertices u and v is a path which contains every vertex in a graph exactly once and has endpoints u
+and v. The number of sides of a face refers to the number of edges surrounding it. A marked edge is
+one that has been marked as having to be included in every Hamiltonian Cycle in a graph, even if its
+inclusion is not necessary. A forced edge is one which must necessarily be included in every Hamiltonian
+Cycle.
+Introduction
+Barnette’s Conjecture, ﬁrst announced in [6] and later in [21], is part of a series of conjectures stating
+that all members of certain graph classes contain Hamiltonian Cycles. In [33] Tait conjectured that all
+planar, cubic, 3-connected graphs are Hamiltonian. Had this been true, it would have supported a short,
+elegant proof of the Four-Colour Theorem. Tait’s Conjecture stood for more than 60 years, but was
+∗This research supported by NSERC & the University of Toronto
+1
+
+PAGE 2
+disproved by Tutte, who in [35] cleverly constructed a counterexample. In [37] Tutte conjectured that all
+cubic, 3-connected, bipartite graphs are Hamiltonian. Tutte’s Conjecture fell due to a counterexample
+by Horton, published in [8].
+Barnette’s Conjecture subsumes the other two conjectures in that any
+counterexample would have to be a simultaneous counterexample to both the Tait and Tutte Conjectures.
+Despite considerable eﬀort to prove otherwise, Barnette’s Conjecture has stood since its publication
+almost 40 years ago. Many partial and related results have been obtained and are described below, but
+it still remains unclear whether the conjecture is true or false. The ﬁrst part of this paper is dedicated to
+providing a survey of these results. The second part of this paper contains a new result which strengthens
+Barnette’s Conjecture, the hope being that a stronger conjecture may be easier to settle. Speciﬁcally,
+we prove that the conjecture is true if and only if for any arbitrary path P of length 3 that lies on a
+face in a Barnette graph, there is a Hamiltonian Cycle which passes through the middle edge in P, and
+avoids both its leading and trailing edges. When combined with a previous result, this theorem yields a
+number of interesting corollaries which further strengthen Barnette’s Conjecture.
+Survey of Partial & Related Results
+Some Useful Facts
+Although the following are too obvious and simplistic to be called theorems, they are nevertheless
+important facts pertaining to Barnette graphs:
+- A plane graph is bipartite if and only if each of its faces has an even number of sides [22].
+- The minimum size of any face in a Barnette graph is 4.
+- Every Barnette graph has an even number of vertices.
+- The bipartitions of every Barnette graph have equal size. This follows directly from the fact that
+Barnette graphs are cubic, so if one had unequal partitions, the number of edges leaving one
+partition would not equal the number of edges entering the other one, a clear contradiction. The
+relevance of this fact is that any eﬀort to construct a non-Hamiltonian Barnette graph by using
+the obvious method of making it unevenly bipartite will fail.
+- Every Barnette graph is 2-colourable.
+The Tait & Tutte Conjectures in More Detail
+Tait’s Conjecture
+As already mentioned, Barnette’s Conjecture is similar to Tait and Tutte’s conjectures, both of which
+have been settled. The Tait conjecture [33] stated that all planar, cubic, 3-connected graphs are Hamil-
+tonian, and was disproved by Tutte [35], who constructed the non-Hamiltonian counterexample shown
+below in Figure 1.
+2
+
+PAGE 3
+Figure 1: Tutte’s Counterexample To Tait’s Conjecture
+Once this graph was discovered, many others followed; the literature contains dozens of interesting
+counterexamples to Tait’s Conjecture. One of the more noteworthy ones was discovered by Grinberg, who
+proved a necessary condition for Hamiltonicity, and applied it to show that his graph is non-Hamiltonian.
+His necessary condition applies to planar graphs and can be stated as follows:
+Theorem 1 (Grinberg’s Theorem [8]). Every planar graph G = (V, E) containing a Hamiltonian
+Cycle C satisﬁes the following equation:
+n
+X
+i=3
+(i −2)(f ′
+i −f ′′
+i ) = 0,
+(1)
+where f ′
+i represents the number of faces of size i on the interior of C, and f ′′
+i represents the number of
+faces of size i on the exterior of C.
+Grinberg’s Graph, shown below in Figure 2, does not satisfy its associated equation, and is therefore
+not Hamiltonian.
+Figure 2: The Grinberg Graph
+Using Grinberg’s theorem to ﬁnd a counterexample to Barnette’s Conjecture seems to be diﬃcult; since
+all faces in Barnette graphs have an even number of sides, constructing a graph with a contradictory
+associated equation may require some clever trick, if it is at all possible.
+3
+
+PAGE 4
+With Tait’s conjecture so well studied, the only remaining problem was to ﬁnd the smallest coun-
+terexample. With 46 vertices, both the Tutte and Grinberg graphs seem quite large. According to [23],
+Lederberg, Barnette, and Bos´ak together contributed 6 diﬀerent counterexamples containing 38 vertices
+each. The papers [3] and [25] together showed that these are the only such graphs on 38 vertices, and
+furthermore that they are the smallest counterexamples to Tait’s conjecture. Since Tait’s Conjecture
+contains Barnette graphs as a proper subset, it follows that all Barnette graphs on 36 or fewer vertices
+are Hamiltonian.
+The literature contains a considerable amount of work concerning cyclically connected planar graphs,
+both Hamiltonian and non-Hamiltonian. This research is peripherally related to Barnette’s Conjecture,
+but too expansive to be included here. An interested reader should consult [4, 23].
+Tutte’s Conjecture
+As already mentioned, Tutte’s Conjecture [37], which stated that all cubic, 3-connected, bipartite
+graphs are Hamiltonian was disproved by Horton [8], who constructed the non-Hamiltonian counterex-
+ample shown below in Figure 3.
+Figure 3: The Horton Graph
+Much like Tait’s conjecture, the Tutte conjecture has also been well-studied. The deﬁnitive survey on
+this topic is [20]. In it Gropp describes the search for ever smaller counterexamples to Tutte’s Conjecture.
+With 96 vertices, Horton’s graph is quite large. In 1982, Horton discovered a smaller one having 92
+vertices [26]. In the same year, Ellingham discovered an inﬁnite family of counterexamples, the smallest
+having 78 vertices. The following year, Ellingham, Horton, and Culberson discovered a counterexample
+with 54 vertices [13]. Finally, in 1989 Georges discovered a graph with 50 vertices [17]. This is the
+smallest counterexample currently known. Working from the other direction, in 1981 Ellingham proved
+that all cubic, 3-connected, bipartite graphs on 22 or fewer vertices are Hamiltonian [11]. This result
+includes Barnette graphs as a proper subset, but is subsumed by the lower bound of 36 vertices given by
+the work on Tait’s Conjecture.
+It turns out that there is a slight twist to this timeline. In fact, all of the above results pertaining to
+Tutte’s Conjecture had ﬁrst been proved by Soviet mathematicians, but remained unknown to researchers
+4
+
+PAGE 5
+in the West. This was due mainly to the fact that most of the Soviet results were published in Russian,
+and appeared only in obscure journals which did not circulate outside of the Iron Curtain. The political
+climate in which other forms of information did not ﬂow freely only added to the problem. The most
+important results worth mentioning belong to Kelmans, who published two papers. The ﬁrst, published
+in 1986 [28] is rich with many results and contains a series of counterexamples to Tutte’s conjecture,
+the smallest of which has 50 vertices. In a second paper [29], Kelmans constructs 4 non-isomorphic
+50-vertex counterexamples, one of which is isomorphic to that of Georges. Kelmans’ result therefore not
+only came before that of Georges, but also subsumes it, giving him clear precedence. Working from the
+other direction, Baraev and Faradzhev [5] in 1978 proved exactly the same result that Ellingham would
+later prove in [11]. According to [20], Kelmans and Lomonosov proved without the aid of a computer
+that Tutte’s Conjecture holds for up to and including 30 vertices. Unfortunately, no reference is given.
+If this is true, then it is the strongest result known. Whether or not the graphs on 50 vertices are the
+smallest counterexamples to Tutte’s Conjecture remains an open problem.
+Other Related Results
+Complexity results closely related to Barnette’s Conjecture are also known; in [1] Akiyama et al. proved
+that the Hamiltonian Cycle problem remains NP-Complete even when the input is restricted to planar,
+cubic, 2-connected, bipartite graphs. Nobody has been able to show that it remains NP-Complete when
+restricted to Barnette graphs. Such a result would clearly disprove the conjecture because the reduction
+would allow us to take an unsatisﬁable formula and convert it to a non-Hamiltonian Barnette graph.
+There are two ﬁnal related results worth mentioning. In [36], Tutte proved that all planar 4-connected
+graphs are Hamiltonian, and in [34] Thomassen extends this result by showing that every planar 4-
+connected graph is Hamiltonian connected, that is, for any pair of vertices, there is a Hamiltonian Path
+with those vertices as endpoints.
+Results Directly Concerning Barnette’s Conjecture
+Support For The Conjecture
+From the results on Tait’s Conjecture, we know that a minimal counterexample to Barnette’s conjecture
+must have at least 36 vertices. In fact, we have a much better lower bound; in [24], Holton et al. conﬁrmed
+through a combination of clever analysis and computer search that all Barnette graphs with up to and
+including 64 vertices are Hamiltonian. In an announcement [14, 2], McKay et al. used computer search to
+extend this result to 84 vertices, inclusive. This implies that if Barnette’s Conjecture is indeed false, then
+a minimal counterexample must contain at least 86 vertices, and is therefore considerably larger than
+the minimal counterexamples to Tait and Tutte’s conjectures. This is not all we know about a possible
+counterexample; another interesting result is that of Fowler, who in an unpublished manuscript [15]
+provides a list of subgraphs that cannot appear in any minimal counterexample to Barnette’s Conjecture.
+Also supporting Barnette’s Conjecture, Goodey in [18] considered proper subsets of the Barnette
+graphs and proved the following:
+Theorem 2. Every Barnette graph which has faces consisting exclusively of quadrilaterals and hexagons
+is Hamiltonian, and furthermore in all such graphs, any edge that is common to both a quadrilateral and
+a hexagon is part of some Hamiltonian Cycle.
+Theorem 3. Every Barnette graph which has faces consisting of 7 quadrilaterals, 1 octagon, and any
+number of hexagons is Hamiltonian, and furthermore in all such graphs, any edge that is common to both
+a quadrilateral and an octagon is part of some Hamiltonian Cycle.
+5
+
+PAGE 6
+The proof of Goodey’s theorems proceeds by induction on the number of faces in the respective graph
+classes. These results tell us a little about what any counterexamples to Barnette’s Conjecture must look
+like. For example, we know that it must contain at least one face that has 8 or more sides.
+Barnette’s Conjecture & Graph Colouring
+In [27], Jensen and Toft report that Barnette’s Conjecture is equivalent to two other open problems:
+Theorem 4. Barnette’s Conjecture is true if and only if for every Barnette graph G, it is possible to
+partition its vertex set into two subsets so that each induces an acyclic subgraph of G.
+[This theorem is probably not correct as stated, or else it trivially settles Barnette’s conjecture, since
+for any bipartite graph, you can simply delete one partition, and the remainder is acyclic, making the
+conjecture true.]
+Theorem 5. Barnette’s Conjecture is false if and only if there exists a planar graph G satisfying χ(G) =
+ϱ(G) = 3, where χ(G) is G’s chromatic number, and ϱ(G) is G’s point arboricity, that is, the minimum
+number of colours used in a coloring of the vertices of G such that each colour class induces an acyclic
+subgraph.
+The second result is particularly interesting because it provides a connection between Barnette’s Con-
+jecture and the seemingly unrelated area of graph colouring. In [14], Feder and Subi proved another
+result relating Barnette’s Conjecture to graph colouring:
+Theorem 6. For any Barnette graph, if its faces can be 3-coloured such that two of the three colour
+classes contain only squares and hexagons, and the third colour class contains faces surrounded by an
+even number of squares, then that graph is Hamiltonian.
+In addition, at least one relevant connection between edge colouring and Barnette’s conjecture is
+known. In a 1916 paper [31], K¨onig proved the following:
+Theorem 7. The edges of any bipartite graph G can be coloured with ∆colours, where ∆is the maximum
+degree of any vertex in G.
+Since Barnette graphs are bipartite and cubic, this implies that all Barnette graphs are 3-edge-
+colourable. This has an immediate corollary pertaining to cycles:
+Corollary 1. Every Barnette graph contains at least 3 distinct 2-factors.
+One strategy for proving Barnette’s Conjecture might be to show that for every Barnette graph, it is
+always possible to take some 2-facto and amalgamate its cycles to form a Hamiltonian Cycle.
+Strengthening Barnette’s Conjecture
+A diﬀerent direction of research into Barnette’s Conjecture parallels Tutte’s search for a counterexam-
+ple to Tait’s Conjecture. In [38], Tutte describes a series of results which repeatedly strengthened Tait’s
+Conjecture until a counterexample ﬁnally became apparent. Researchers working on Barnette’s Con-
+jecture have adopted the same strategy. In [22], this author proved the following strengthening result,
+which immediately yields an interesting corollary:
+Theorem 8. Barnette’s Conjecture holds if and only if any arbitrary edge in a Barnette graph is part
+of some Hamiltonian Cycle.
+Corollary 2. Barnette’s conjecture holds if and only if for every pair of adjacent vertices in a Barnette
+graph, there is a Hamiltonian Path with those vertices as endpoints.
+This corollary is interesting because it is similar to Thomassen’s result pertaining to Hamltonian
+connectivity.
+6
+
+PAGE 7
+Shortly afterwards, Braverman [9] further strengthened Barnette’s Conjecture with the following result,
+which subsumes the previous result and again yields a useful corollary:
+Theorem 9. Barnette’s Conjecture holds if and only if for any arbitrary face in a Barnette graph, there
+is a Hamiltonian Cycle which passes through any two arbitrary edges on that face.
+Corollary 3. Barnette’s Conjecture holds if and only if for any arbitrary edge in a Barnette graph, there
+is a Hamiltonian Cycle which avoids that edge.
+Proof: ⇒Suppose that Barnette’s Conjecture holds. Then from Theorem 9, we know that there is a
+Hamiltonian Cycle which passes through any two adjacent edges of any Barnette graph. This means
+that the remaining edge is avoided. ⇐Trivial.
+History was to repeat itself.
+It turns out that the strengthening results above had already been
+proved by the same A.K. Kelmans that proved all of the results pertaining to Tutte’s Conjecture results
+before they had been discovered in the West. Kelmans published his strengthening result of Barnette’s
+Conjecture in [28], the same paper which contains his results on Tutte’s Conjecture. In fact, Kelmans’
+strengthening result is strictly stronger than those above in the sense that it subsumes both results:
+Theorem 10. Barnette’s Conjecture holds if and only if for any arbitrary face in a Barnette graph, and
+for any arbitrary edges e1 and e2 on that face, there is a Hamiltonian Cycle which passes through e1 and
+avoids e2.
+Kelmans’ result has since been translated into English [30], but remains strangely obscure and is hardly
+ever referenced. Perhaps one of the goals of this paper should be to draw attention to Kelmans’ publi-
+cation, which contains many more interesting results. Not only would this give Kelmans the recognition
+that he deserves, but it would also make it less likely that future researchers overlook it.
+One important note about the strengthening results is that instead of talking about Hamiltonian
+Cycles which “pass through” or “avoid” certain edges, it is often useful to word the theorems more
+prescriptively. For example, instead of saying that “a Hamiltonian Cycle passes through edge ei”, we
+might say “we may mark edge ei as having to be included in any Hamiltonian Cycle found without
+destroying Hamiltonicity”. Likewise, instead of saying “a Hamiltonian Cycle avoids edge ej”, we can say
+“we may delete edge ej without destroying Hamiltonicity”.
+With that in mind, Kelmans’ Theorem also yields an interesting Corollary:
+Corollary 4. Barnette’s Conjecture holds if and only if in any Barnette graph, any path of length 3
+which has two edges on a face F, and the ﬁnal edge leaving that face is part of some Hamiltonian Cycle.
+Proof: ⇒Suppose that Barnette’s Conjecture holds. Let P be any arbitrary path of length 3 that
+has two edges on a face F, and the ﬁnal edge leaving F. By Theorem 10 we may delete any edge and
+mark any other edge on F without destroying Hamiltonicity; simply delete a relevant edge on F in order
+to force the portion of the path that has one edge on F and the other leaving it, and then mark the
+remaining edge on F in order to extend the path to length 3. Since P was arbitrary, this result generalizes
+to all such paths, as required. ⇐Trivial.
+Barnette’s Other Conjecture
+Barnette’s less-famous Hamiltonicity conjecture [32] states that all planar, cubic, 3-connected (bipartite
+omitted) graphs with all faces having 6 or fewer sides are Hamiltonian. This conjecture is of interest
+because this class of graphs contains the Fullerenes as a proper subset.
+They are planar, cubic, 3-
+connected graphs with exactly 12 faces of degree 5, and all other faces having degree 6, and are of
+interest to chemists because they represent possible molecular structures of pure carbon [23].
+7
+
+PAGE 8
+Partial results have also been achieved here. In [19], Goodey proved that the conjecture holds for a
+proper subset of graphs:
+Theorem 11. Every planar, cubic, 3-connected graph which has faces consisting exclusively of triangles
+and hexagons is Hamiltonian.
+In [4], Aldred et al. proved that Barnette’s Second Conjecture holds for up to 176 vertices, inclusive.
+In [10], this result was extended by Brinkmann et al., who conﬁrm that it holds for up to 250 vertices,
+inclusive.
+A relevant complexity-related result is that of Garey, Johnson, and Tarjan, who in [16] proved that the
+Hamiltonian Cycle problem remains NP-Complete when restricted to planar, cubic, 3-connected graphs
+with no face having fewer than 5 sides.
+Commentary on Results
+The above results show that Barnette graphs seem to exist on a knife-edge between Hamiltonicity and
+non-Hamiltonicity. As shown by Goodey [18], we can further restrict the set by placing constraints on
+the face sizes, and show that all of the resulting graphs are Hamiltonian. Similarly, if we omit some of
+Barnette’s adjectives, and strengthen others, again we can prove that the resulting set is Hamiltonian;
+for example, as Tutte showed in [36], all planar 4-connected graphs are Hamiltonian.
+On the other hand, if we remove any of the adjectives from Barnette’s Conjecture, then the resulting
+set contains non-Hamiltonian graphs. The Tutte and Horton graphs show this to be true for the removal
+of bipartiteness and planarity, respectively.
+The Kirkman graph [7], shown below in Figure 4, is a
+non-Hamiltonian, planar, 3-connected, bipartite graph, showing that the set resulting from removing
+the cubic condition contains non-Hamiltonian graphs. This fact in and of itself is interesting, because
+the minimum degree in Kirkman’s graph is 3, and it contains three degree-4 vertices. Since its average
+degree is higher than that of a Barnette graph, one would expect that if anything, Kirkman’s graph
+would be more Hamiltonian. Instead, the opposite is true, showing that this area of research has some
+counterintuitive aspects.
+Figure 4: Kirkman’s Planar, 3-Connected, Bipartite, Non-Hamiltonian Graph
+Finally, if we relax the 3-connectivity condition, we again end up with a set containing non-Hamiltonian
+graphs; as already mentioned, from [1] we know that the Hamiltonian Cycle problem remains NP-
+Complete even when the input is restricted to planar, cubic, 2-connected, bipartite graphs, so it is
+8
+
+PAGE 9
+possible to take an unsatisﬁable formula and map it to a non-Hamiltonian planar, cubic, 2-connected
+graph.
+In eﬀect, the surrounding results seem to give some insight into why Barnette’s Conjecture has been
+so hard to settle; the Barnette graphs are very close to both Hamiltonicity and non-Hamiltonicity, and
+border cases are often the hardest ones.
+New Strengthening Result
+We now present our new result. It was inspired by a technique that Tutte used in the construction
+of his counterexample to Tait’s Conjecture [38]. Tutte showed that it is possible to add some edges and
+vertices to any face in a planar, cubic, 3-connected graph without destroying any of those properties. He
+then applied one of his strengthened versions of Tait’s Conjecture in order to prove another strengthened
+version. Our result follows this template. We show that it is possible to add edges to any face in a
+Barnette graph G in such a way that the result G∗will always be a Barnette graph. We then apply
+Theorem 10, which allows us to delete one edge, and mark another one on any face without destroying
+Hamiltonicity. The resulting Hamiltonian Cycle in G∗corresponds to a Hamiltonian Cycle in G which
+passes through the middle edge in a path P of length 3, and avoids its other two edges. Since the face
+that we chose was arbitrary, the result holds for any path P of length 3 on any face of a Barnette graph.
+Theorem 12. Barnette’s Conjecture holds if and only if for any arbitrary path P of length 3 that lies
+on a face in a Barnette graph, there is a Hamiltonian Cycle which passes through the middle edge in P,
+and avoids both its leading and trailing edges.
+Proof: ⇒Suppose that Barnette’s Conjecture is true. Let P = (A, B, C) be any arbitrary path of
+length 3 lying on the face of a Barnette graph G, as shown below in Figure 5.1. P lies on the face F2,
+which is separated from face F1 by edge B. We know that every face in a Barnette graph has an even
+number of sides, and that the smallest possible face has 4 edges surrounding it, so the dotted arc on F1
+represents a path with an odd number of edges in it. We will show that there is a Hamiltonian Cycle in
+G which avoids edges A and C, and passes through B. The construction proceeds as follows: subdivide
+F1 by adding vertices and edges as shown in ﬁgure 5.2 in order to create G∗. Note that every face created
+inside F1 has an even number of sides, including the face bordered by the dotted arc, which contains an
+odd number of edges. In addition, we always add two vertices onto edges surrounding F1, so the adjacent
+faces remain even. Since all faces aﬀected or created by this construction are even and the construction
+also clearly preserves planarity, 3-regularity, and 3-connectivity, we know that G∗is a Barnette graph.
+Since we assumed that Barnette’s Conjecture is true, Theorem 10 applies, so we may delete any edge
+and mark any other edge on any face in G∗without destroying Hamiltonicity. We will therefore delete
+edge x, and mark edge y. This allows us to force further edges, and delete others, as shown in Figure 5.3,
+based on the principles that any edges incident on degree-2 vertices is forced, and that any unmarked
+edges incident on degree-3 vertices which already have 2 marked edges incident on them may be deleted
+without destroying any Hamiltonian Cycles. The last edge to be deleted is z; the justiﬁcation for its
+removal is that if it had been included, it would have created a small cycle. Since G∗with x removed
+and y marked was Hamiltonian, so is the resulting graph G∗′, shown in Figure 5.4. It is not hard to see
+that the original graph G
+′, shown in Figure 5.5, therefore must also contain a Hamiltonian Cycle and
+furthermore that it avoids edges A and C while passing through B. Since P was arbitrary, the result
+generalizes to all paths of length 3 on faces of Barnette graphs, as required.
+9
+
+PAGE 10
+G
+1F
+2F
+G
+*
+3
+z
+y
+x
+C
+A
+*
+G
+2
+x
+y
+z
+A
+C
+F1
+F2
+C
+B
+A
+G
+1
+’
+*’
+G
+C
+A
+4
+B
+5
+A
+C
+Figure 5: The Construction for the Proof of Theorem 12
+⇐Trivial.
+This theorem gives rise to some interesting corollaries:
+Corollary 5. Barnette’s Conjecture holds if and only if in any Barnette graph, any arbitrary path of
+length 3 lying on a face is part of some Hamiltonian Cycle.
+Proof: ⇒This follows immediately from the construction shown in Figure 5 above.
+The result of
+deleting the two edges on face F2 was that a path of length 3 was forced on F1. Since we may control
+where we apply Theorem 12, we can use it to force any path of length 3 lying on any arbitrary face, as
+required. ⇐Trivial.
+Corollary 6. Barnette’s Conjecture holds if and only if in any Barnette graph, any arbitrary path of
+length 3 is part of some Hamiltonian Cycle.
+Proof: ⇒Suppose that Barnette’s Conjecture holds. There are only two possibilities for a path of
+length 3 in a Barnette graph; either all of its edges lie on one face, or two of its edges lie on a face,
+and one leaves it. The ﬁrst case is handled by Corollary 5, which allows us to mark any path of length
+3 that has all of its edges on a face without destroying Hamiltonicity. The second case is handled by
+Corollary 4, which allows us to mark any path of length 3 that has two edges on a face, and one leaving
+it. Therefore, in either case there is a Hamiltonian Cycle which includes the path of length 3, as required.
+⇐Trivial.
+10
+
+PAGE 11
+Corollary 7. Barnette’s Conjecture holds if and only if any Barnette graph which contains a quadrilateral
+face contains at least 6 distinct Hamiltonian Cycles.
+Proof: ⇒Suppose that Barnette’s Conjecture holds. We may therefore apply both Corollary 5 and
+Theorem 12. Let G be any arbitrary Barnette graph that contains a quadrilateral face. There are exactly
+6 ways in which a Hamiltonian Cycle may pass through the square face; either the cycle includes 3 edges
+on that face, or it only uses 2. Figure 6.1 below shows one way in which a Hamiltonian Cycle may use
+3 edges. There are exactly 4 such ways. By applying Corollary 5, we may mark any path of length
+3 on a face without destroying Hamiltonicity, and thereby cause any of these 4 ways to occur. Figure
+6.2 shows one way in which a Hamiltonian Cycle may use 2 edges. There are exactly 2 such ways. By
+applying Theorem 12, we may take any path of length 3 on a face, and delete its leading and trailing
+edges without destroying Hamiltonicity. This lets us delete any two opposite edges on a quadrilateral
+face, allowing each of the 2 ways to occur. Therefore, all 6 ways in which a Hamiltonian Cycle may pass
+through a square face may occur. Since G was arbitrary, the result generalizes to all Barnette graphs
+containing quadrilateral faces, as required.
+2
+1
+Figure 6: The Diﬀerent Ways in Which a Hamiltonian Cycle May Pass Through a Quadrilateral Face
+⇐Trivial.
+Future Research
+It is diﬃcult to say whether any of the techniques described above will aid in settling Barnette’s
+Conjecture. Certainly many of them seem to be useful and worth extending. One strategy is to keep
+chipping away at it; if Barnette’s Conjecture is true, then perhaps Goodey’s results can be extended to
+show that successively larger and larger subsets of Barnette graphs are Hamiltonian.
+If Barnette’s Conjecture is false, then any one of the many strategies above may help to settle it.
+We know some of the characteristics that a minimal counterexample must have. For example, we know
+that it must contain at least one face of with 8 or more sides.
+We have a list of subgraphs which
+it cannot contain. In addition, we know that it must have at least 86 vertices. This last result was
+proved using computers, but the days of computers being very helpful with Barnette’s Conjecture may
+be drawing to a close. Not only is the number of graphs to be investigated becoming enormous, but
+any potential candidates are becoming so large that even proving non-Hamiltonicity may be diﬃcult in
+a computational sense. It stands to reason that future research will most likely involve more theoretical
+analysis and proportionally less computer power.
+11
+
+PAGE 12
+The strategy of strengthening Barnette’s Conjecture seems to hold some promise. The known results
+are quite strong; if Barnette’s Conjecture is false, then it probably won’t take many more strengthening
+results before a counterexample is found. On the other hand, if the conjecture is true, then such robust
+characteristics in sparse, planar graphs may have some practical applications.
+Then again, the key to settling Barnette’s Conjecture may lie in a diﬀerent area of graph theory
+altogether; perhaps we have better tools for tackling one of its equivalent problems.
+References
+[1] T. Akiyama, T. Nishizeki, and N. Saito. NP-Completeness of the Hamiltonian Cycle Problem for
+Bipartite Graphs. Journal of Information Processing, Vol. 3 No. 2:73–76, 1980.
+[2] R. Aldred, G. Brinkmann, and B.D. McKay. Announcement, March 2000.
+[3] R.E.L. Aldred, S. Bau, D.A. Holton, and B.D. McKay. Cycles Through 23 Vertices in 3-Connected
+Cubic Planar Graphs. Graphs and Combinatorics, 15:373–376, 1999.
+[4] R.E.L. Aldred, S. Bau, D.A. Holton, and B.D. McKay. Nonhamiltonian 3-Connected Cubic Planar
+Graphs. SIAM J. Disc. Math., 13:25–32, 2000.
+[5] A.M. Baraev and I.A. Faradzhev. Postroenie I Issledovanie Na EVM Odnorodnyh I Odnorodnyh
+Dvudolnyh Grafov. Algoritmicheskie Issledovaniya V Kombinatorike, Nauka, pages 25–60, 1978.
+[6] D. Barnette. Conjecture 5. In W.T. Tutte, editor, Recent Progress in Combinatorics, page 343.
+Academic Press, New York, 1969.
+[7] N.L. Biggs, E.K. Lloyd, and R.J. Wilson. Graph Theory 1736 - 1936. Clarendon Press, Oxford,
+1976.
+[8] J.A. Bondy and U.S.R Murty. Graph Theory With Applications. Macmillan, London, 1976.
+[9] M. Braverman. Personal Communication, 2004.
+[10] G. Brinkmann, B.D. McKay, and U. von Nathusius.
+Backtrack Search and Look-ahead for the
+Construction of Planar Cubic Graphs With Restricted Face Sizes. MATCH, pages 163–177, 2003.
+[11] M.N. Ellingham. Constructing Certain Cubic Graphs. Comb. Math., 9, 1981.
+[12] M.N. Ellingham. Cycles in 3-Connected Cubic Graphs. Master’s thesis, University of Melbourne,
+1982.
+[13] M.N. Ellingham and J.D. Horton. Non-Hamiltonian 3-Connected Cubic Bipartite Graphs. Journal
+of Combinatorial Theory, Series B, 34:350–353, 1983.
+[14] T.
+Feder
+and
+C.
+Subi.
+On
+Barnette’s
+Conjecture.
+Published
+On
+Internet:
+http://theory.stanford.edu/ tomas/bar.ps. Submitted to Journal of Graph Theory.
+[15] T. Fowler. Reducible Conﬁgurations For The Barnette Conjecture. Unpublished Manuscript, August
+2001.
+[16] M.R. Garey, D.S. Johnson, and R.E. Tarjan.
+The Planar Hamiltonian Circuit Problem is NP-
+Complete. SIAM Journal of Computing, Vol. 5 No. 4:704–714, 1976.
+[17] J.P. Georges. Non-Hamiltonian Bicubic Graphs. Journal of Combinatorial Theory, Series B, 46:121–
+124, 1989.
+12
+
+PAGE 13
+[18] P.R. Goodey. Hamiltonian Circuits in Polytopes With Even Sided Faces. Israel Journal of Mathe-
+matics, 22:52–56, 1975.
+[19] P.R. Goodey. A Class of Hamiltonian Polytopes. Journal of Graph Theory, 1:181–185, 1977.
+[20] H. Gropp. Conﬁgurations and the Tutte Conjecture. Ars Combinatoria A, 29:171–177, 1990.
+[21] B. Gr¨unbaum. Polytopes, Graphs and Complexes. Bull. Amer. Math. Soc., 76:1131–1201, 1970.
+[22] A. Hertel. Hamiltonian Cycles In Sparse Graphs. Master’s thesis, University of Toronto, 2004.
+[23] D.A. Holton and E.L. Aldred. Planar Graphs, Regular Graphs, Bipartite Graphs and Hamiltonicity.
+Australasian Journal of Combinatorics, 20:111–131, 1999.
+[24] D.A. Holton, B. Manvel, and B.D. McKay. Hamiltonian Cycles in Cubic 3-Connected Bipartite
+Planar Graphs. Journal of Combinatorial Theory, Series B, 38:279–297, 1985.
+[25] D.A. Holton and B.D. McKay. The Smallest Non-Hamiltonian 3-Connected Cubic Planar Graphs
+Have 38 Vertices. Journal of Combinatorial Theory, Series B, 45:305–319, 1988.
+[26] J.D. Horton. On 2-Factors of Bipartite Regular Graphs. Discrete Math., 41:35–41, 1982.
+[27] T.R. Jensen and B. Toft. Graph Coloring Problems. J. Wiley & Sons, New York, 1985.
+[28] A.K. Kelmans. Konstruktsii Kubicheskih Dvudolnyh 3-Svyaznyh Bez Gamiltonovyh Tsiklov. Sb.
+Tr. VNII Sistem. Issled., 10:64–72, 1986.
+[29] A.K. Kelmans. Kubicheskie Dvudolnye Tsiklicheski 4-Svyaznye Grafy Bez Gamiltonovyh Tsiklov.
+Usp. Mat. Nauk, Vol. 43 No. 3:181–182, 1988.
+[30] A.K. Kelmans. Constructions of Cubic Bipartite 3-Connected Graphs Without Hamiltonian Cycles.
+Amer. Math. Soc. Transl., Vol. 158 No. 2:127–140, 1994.
+[31] D. K¨onig. ¨Uber Graphen und ihre Anwendung auf Determinantentheorie und Mengenlehre. Math-
+ematische Annalen, 77:453–465, 1916.
+[32] J. Malkevitch. Polytopal graphs. In L.W. Beineke and R.J. Wilson, editors, Selected Topics in
+Graph Theory 3, pages 169–188. Academic Press, New York, 1988.
+[33] P.G. Tait. Listing’s Topologie. Phil. Mag., 17:30–46, 1884.
+[34] C. Thomassen. A Theorem on Paths in Planar Graphs. Journal of Graph Theory, 7:169–176, 1983.
+[35] W.T. Tutte. On Hamiltonian Circuits. J. London Math. Soc., 21:98–101, 1946.
+[36] W.T. Tutte. A Theorem on Planar Graphs. Trans. Amer. Math. Soc., 82:99–116, 1956.
+[37] W.T. Tutte. On The 2-Factors of Bicubic Graphs. Discrete Mathematics, Vol. 1, No. 2:203–208,
+1971.
+[38] W.T. Tutte. Graph Theory As I have Known It. Oxford University Press, Inc., New York, 1998.
+13

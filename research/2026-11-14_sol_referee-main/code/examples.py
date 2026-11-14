@@ -54,6 +54,16 @@ def main():
     assert sorted(sorted(c) for c in nx.connected_components(graph(oc.V,target)))==[[0,1,4],[2,3,5]]
     # Verify face-by-face rather than only the union.
     assert all(next(e for e in target if set(e)<=set(f))==e for f,e in [((1,3,5),(3,5)),((2,3,4),(2,3)),((0,4,5),(0,4))])
+    # Figure 11's exact labelled selections, not just some gluable pair.
+    inner=[[3,4,8],[4,5,6],[5,3,7],[3,8,7],[4,6,8],[5,7,6],[6,7,8]]
+    p2=M([[5,4,3]]+inner,0)
+    inner_selected={(3,5),(4,8),(7,8),(5,6)}
+    assert frozenset(inner_selected) in p2.selections()
+    assert nx.is_forest(graph(p2.V,inner_selected))
+    glued=M([list(f) for f in oc.f if set(f)!={3,4,5}]+inner,0)
+    glued_P=target|inner_selected
+    assert frozenset(glued_P) in glued.selections() and nx.is_forest(graph(glued.V,glued_P))
+    assert sorted(sorted(c) for c in nx.connected_components(graph(glued.V,glued_P)))==[[0,1,4,7,8],[2,3,5,6]]
 
     # The two proof-of-necessity examples in the closing remarks.
     tri_bipyramid=nx.complete_multipartite_graph(2,1,1,1)
@@ -83,7 +93,7 @@ def main():
     for n in [6,8]:
         fs=rotation_faces((OUT/f'plantri-{n}.txt').read_text().splitlines()[0]); t=M(fs,0)
         assert all(frozenset(c) in {frozenset(f) for f in fs} for c in it.combinations(t.V,3) if all(edge(a,b) in t.E for a,b in it.combinations(c,2)))
-    result=dict(table2=expected,alpha=alpha,beta=beta,tilde_beta=tilde,figure5=d,figure9_heights=[-1,0],Q_beta=sorted(m.q(beta)),P_beta=sorted(P),signed_moments=[sum(m.eps(r,s)*m.weight(s)**j for r,s in pairs) for j in range(3)],Laurent_coefficients={str(k):v for k,v in sorted(Z.items()) if v},cube_state=cst,cube_selection=sorted(target),double_octahedron_roots=roots,necessity_examples=dict(incidence_vertices=11,incidence_classes=[5,6],theta_vertices=26,theta_connectivity=2))
+    result=dict(table2=expected,alpha=alpha,beta=beta,tilde_beta=tilde,figure5=d,figure9_heights=[-1,0],figure11=dict(inner_selection=sorted(inner_selected),glued_selection=sorted(glued_P),components=[[0,1,4,7,8],[2,3,5,6]]),Q_beta=sorted(m.q(beta)),P_beta=sorted(P),signed_moments=[sum(m.eps(r,s)*m.weight(s)**j for r,s in pairs) for j in range(3)],Laurent_coefficients={str(k):v for k,v in sorted(Z.items()) if v},cube_state=cst,cube_selection=sorted(target),double_octahedron_roots=roots,necessity_examples=dict(incidence_vertices=11,incidence_classes=[5,6],theta_vertices=26,theta_connectivity=2))
     (OUT/'examples.json').write_text(json.dumps(result,indent=2)); print('Every explicit table entry, state, cycle, height, and auxiliary finite example checked.')
 
 if __name__=='__main__': main()

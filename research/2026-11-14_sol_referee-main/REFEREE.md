@@ -12,7 +12,7 @@ The proof under audit is only paper/main/barnette.tex, read first in its PDF for
 
 Accepted background consists of the Jordan curve theorem for embedded cycles; Euler's formula for a connected sphere graph; elementary plane dual construction and vertex rotation order; integral max-flow/min-cut for a finite integral network; elementary finite graph theory and polynomial algebra. Elementary graph facts include tree edge counts, uniqueness of paths in a tree, a connected 2-regular graph being a cycle, an even nonempty edge set containing a cycle, and the even intersection of a cycle with a cut. I check connectedness before each Euler application. I do not accept the disk identity, the pair-to-good-state assertion, tree recovery, or the restriction-to-a-disk claim as background.
 
-The proof of C0 has no dependency on the unverified historical citations in Section 1 or the off-route statements in Section 7. SOURCES.md distinguishes checked statements from unavailable originals.
+The proof of C0 has no dependency on the historical citations in Section 1 or the off-route statements in Section 7. SOURCES.md records every checked numbered citation and distinguishes unavailable historical originals.
 
 ## Obligation graph
 
@@ -124,6 +124,77 @@ The table lists eight pairs and describes their second states, not the twelve st
 
 All exact replacement text is in EDITS.md, E1 through E8. Its generator checks that every old string occurs exactly once. No edits are proposed to a core theorem or lemma statement.
 
+## Exact replacement texts
+
+These are the exact proposed new strings. EDITS.md supplies their unique old strings. Status PROVED-HERE for mathematical repairs and COMPUTED for the added range.
+
+### E1 for F1, source line 751
+
+```tex
+The unsigned manuscript \cite{constructive2026} uses nonnegative integer incidence weights to obtain an integer polynomial of this form.
+For our signed heights, $\sum\eps(r,s)z^{\omega(s)}$ is an integer Laurent polynomial.
+Its expansion at $z=1$ has coefficient $\sum\eps(r,s)\binom{\omega(s)}{m}=\Sigma/m!$ in degree $m$, where the binomial coefficient has its usual polynomial meaning also for negative integers $\omega(s)$; the lower moments vanish by Lemma~\ref{lem:difference}.
+```
+
+### E2 for F3, source line 918
+
+```tex
+When a pair exists, Proposition~\ref{prop:good} proves $F\neq0$.
+This can also be read off at $w_{t,v}=1+\xi\kappa(t,v)$ with $\kappa=\sum_y\kappa_y$: each factor is then $\xi L(C)+O(\xi^2)$, and the classes with the fewest cycles have a common leading sign.
+```
+
+### E3 for F4, source line 896
+
+```tex
+If $s_C$ is good, the complement $P$ of $C$ avoids $S_{s_C}$, because its side in each $t\in A$ contains $s_C(t)$ and its side in $t_0$ is $e_0$.
+Thus $P$ and $P_{s_C}$ are perfect matchings of the tree $Y_{s_C}$, and a tree has at most one perfect matching, so $P=P_{s_C}$.
+Conversely, when $C$ comes from a good state $s$, directing $P_s\setminus\{e_0\}$ out of $s(t)$ gives outdegree one at each nonroot and zero at each root.
+On each rooted tree this is its orientation towards the root, so Lemma~\ref{lem:selections-give-states} recovers $s_C=s$.
+This also proves that different good states give different cycles.
+```
+
+### E4 for F7, source line 100
+
+```tex
+It has $12$ states and $8$ pairs; all eight pairs are listed in Table~\ref{tab:pairs}.
+```
+
+### E5 for F5, source line 908
+
+```tex
+Two octahedra glued along a face ($9$ vertices) give the smallest examples, with a pair for one choice of $t_0$ and none for another of the same colour (computed over every face rooting of every Eulerian sphere triangulation with at most $12$ vertices).
+```
+
+### E6 for F2, source line 906
+
+```tex
+The incidence graph of the vertices and faces of the triangular bipyramid has classes of sizes $5$ and $6$, so it has $11$ vertices and no Hamiltonian cycle.
+It is planar by drawing each face centre joined to its three corners.
+Here is also a check of $3$-connectivity.
+The bipyramid has equatorial vertices $a,b,c$, apices $u,v$, and faces $uab,ubc,uca,vab,vbc,vca$.
+Deleting at most two of its five vertices leaves a connected graph, as is seen directly from the equatorial triangle and the two apices.
+If at most one face centre is deleted from the incidence graph, every surviving bipyramid edge is still represented by a two-edge path through one of its incident face centres, and every remaining face centre has a surviving corner.
+If two face centres are deleted, no original vertex is deleted, and at most one bipyramid edge loses both its incident face centres, since two faces share at most one side.
+The bipyramid stays connected after deleting one edge, and the surviving face centres all attach to it.
+Thus the incidence graph stays connected after any two vertex deletions.
+```
+
+### E7 for F2, source line 907
+
+```tex
+The result is cubic, bipartite and planar with $26$ vertices.
+To check $2$-connectivity, each cube with an edge removed is $2$-connected and joins the two new vertices by a path.
+Deleting a new vertex leaves the three copies connected through the other new vertex.
+Deleting a vertex of a copy leaves that copy connected to at least one new vertex, while the other two copies still connect the new vertices.
+Deleting both new vertices leaves three components, so the graph is $2$-connected but has no Hamiltonian cycle.
+```
+
+### E8 for F6, source line 753
+
+```tex
+These nonvanishing arguments do not by themselves give an efficient construction.
+```
+
 ## Verification of the core obligations
 
 All deductions in this section are PROVED-HERE. Computational corroboration is COMPUTED, with the exact limits below. These paragraphs explain discharged nodes rather than silently supply alternative routes.
@@ -191,7 +262,7 @@ COMPUTED. The running example has 13 vertices, 22 faces, 33 edges, 11 faces of e
 
 LIT comparison. I read the requested notes after the independent PDF pass. The face-path proof adopts the simplification in fable_review-draft-B, replacing the spoke isotopy in astra's REWRITTEN-PROP-5-1 rather than omitting its job. The product sign and linear polynomial agree with fable_referee-determinants/SIGNIFICANCE.md. The density translation, exact pair criterion, gluing and recovery characterization agree with sol_referee-structure/INTEGRATION.md. The merge DECISIONS.md accurately describes these adoptions. Its assertion that the disk repair closes the earlier problem is supported by the independent argument above. NOTATION.md has harmless local reuse of c as a root and a cycle count, but neither use is ambiguous in a mathematical assertion. The author's AUDIT.md reaches the same theorem verdict. I did not use that agreement to discharge a node.
 
-LIT citation check. OpenAI Theorem 1.1 and Corollaries 7.1 and 7.2, Gorsky-Steiner-Wiederrecht Theorems 4.3 and 4.16, and the unsigned Theorem 1.2 all have the cited numbers and the required statements in the held PDFs. OpenAI Lemma 5.3 and Section 5.3, Li Sections 4 and 6 and Appendix C were opened and checked for the attributed constructions. The original Hertel Corollary 3 and Alt-Payne-Schmidt-Wood Lemma 5 are not held in papers/, so their exact original statements remain unverifiable in this local audit. The held OpenAI and Gorsky sources quote the relevant facts, but that is secondary verification. SOURCES.md lists this explicitly. None of these unavailable originals is a missing C0 proof premise, since the manuscript proves its own duality, recovery and induction.
+LIT citation check. OpenAI Theorem 1.1 and Corollaries 7.1 and 7.2, Gorsky-Steiner-Wiederrecht Theorems 4.3 and 4.16, and the unsigned Theorem 1.2 all have the cited numbers and the required statements in the held PDFs. OpenAI Lemma 5.3 and Section 5.3, Li Sections 4 and 6 and Appendix C were opened and checked for the attributed constructions. Hertel Corollary 3 and Alt-Payne-Schmidt-Wood Lemma 5 were absent from papers/ but a final repository-wide search found both PDFs in the history-literature research folder. I opened their original statements and rendered pages: Hertel page 7 has exactly the universal edge-avoidance equivalence; Alt et al. pages 3 and 4 have the two-permeating-induced-trees equivalence. Alt et al. Section 5, pages 8 through 10, supports the cut-reduction attribution. All numbered external citations in the merged manuscript are therefore verified. SOURCES.md gives paths and scopes. The history source also holds Brinkmann-Goedgebeur-McKay, whose Theorem 1.1 and Section 4 confirm the 50-vertex minimum and the 90-vertex computation range, and Schnieders, whose Corollary 1.13 confirms the face-size-eight assertion.
 
 ## Dependency table
 

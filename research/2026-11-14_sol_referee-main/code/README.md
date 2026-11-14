@@ -7,6 +7,7 @@ python research/2026-11-14_sol_referee-main/code/check.py
 python research/2026-11-14_sol_referee-main/code/examples.py
 python research/2026-11-14_sol_referee-main/code/supplement.py
 python research/2026-11-14_sol_referee-main/code/make_edits.py
+python research/2026-11-14_sol_referee-main/code/insert_replacements.py
 ```
 
 The full census took about five minutes in this environment. Each other command took seconds. The initial attempt to generate order 4 failed because plantri's Eulerian generator requires order at least 6; the script was corrected before the successful run. There are no missing coloured inputs at orders 4 and 5: alternating face colours force even vertex degree, triangular simple faces force degree at least 3, hence at least 4, whereas the total degree is 6V-12. This is impossible at V=4 or 5. Order 7 is generated and returns zero classes.
@@ -20,10 +21,11 @@ The full census took about five minutes in this environment. Each other command 
 | running.json | `check.py`, all states, pairs, heights along specified shortest paths, and all acyclic selections of paper/figures/running.json. Includes the 12 state tuples and every avoiding-cycle complement. |
 | cube.json | `check.py`, the unique six-vertex triangulation with one root. The exact labels of the printed cube are separately checked in examples.py. |
 | prism.json | `check.py`, hexagonal bipyramid, equator 0 through 5 and apices 6,7; one root, all three prescribed sides. |
-| examples.json | `examples.py`, all printed rows of Table 2, both named running states, changed partner, listed vertex sets and cycles, both Figure 9 heights, exact labelled cube selection, 9-vertex double octahedron at every root, and the 11- and 26-vertex examples. Table 1's reversal properties are checked by the census. |
+| examples.json | `examples.py`, all printed rows of Table 2, both named running states, changed partner, listed vertex sets and cycles, both Figure 9 heights, exact labelled cube selection, exact Figure 11 selections and their union, 9-vertex double octahedron at every root, and the 11- and 26-vertex examples. Table 1's reversal properties are checked by the census. |
 | supplement.json | `supplement.py`, direct max-flow and generic corner-weight polynomial evaluations on all 262 roots; S_s tree equivalence on 5,118 state-side choices; 290 representative D disks; 560 finite-difference examples, c=0 through 6 and m=0 through c, 20 integral choices each. Includes a complete 9-vertex no-pair witness for the suppressed hypothesis in the polynomial remark. |
 | edits.json, ../EDITS.md | `make_edits.py`, eight exact replacements with source line numbers, asserting one occurrence of each old string. Never writes paper/. |
 | fingerprints.json | `make_edits.py`, SHA256 of audited PDF and TeX, example input, and held sources. |
+| environment.json | Python command below, dependency versions and interpreter. |
 
 The combined census checks 1,723 states, 636 pairs, 1,140 D-cycle reversals, 6 Q-cycle reversals, 707,952 arbitrary chosen-side systems, 239,180 chosen directed cycles, 97,640 density subsets, 1,890 good-state recoveries, 4,826 rooted acyclic selections and 3,336 compatible pairs of acyclic selections over 152 rooted separator occurrences. These counts include repeated underlying graphs under different roots and the three extra example calls. They count checks, not nonisomorphic mathematical objects.
 
@@ -43,6 +45,14 @@ The held PDF text files in this folder are extraction aids produced by PyMuPDF, 
 
 ```powershell
 python research/2026-11-14_sol_referee-main/code/render_sources.py
+```
+
+This includes PDFs found in the history-literature folder after the first papers/ inventory: Hertel, Alt et al., Brinkmann-Goedgebeur-McKay and Schnieders. The indexed papers/ holdings alone are incomplete.
+
+The environment record was generated with:
+
+```powershell
+python -c "import sys,json,networkx,fitz,pathlib; pathlib.Path('research/2026-11-14_sol_referee-main/code/environment.json').write_text(json.dumps(dict(python=sys.version,networkx=networkx.__version__,pymupdf=fitz.VersionBind),indent=2))"
 ```
 
 No server, browser preview, external theorem database, or external model was used. The input rotation systems and the independent scripts are sufficient to rerun the mathematical checks with the stated dependencies.
