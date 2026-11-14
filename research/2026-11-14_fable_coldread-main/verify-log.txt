@@ -1,0 +1,11 @@
+sha256 of barnette.tex: 992104f4ab6c2478b42e4b440ec441de2cd92e83cfdee238956feaa670056e16
+edit 6 op 3 (move): anchor created by this edit
+edit 10 op 5 (move): anchor created by this edit
+edit 27 op 3 (move): anchor created by this edit
+40 edits: 59 replace, 7 move, 8 instruct
+all old strings and anchors occur exactly once; no overlaps; sequential application succeeds
+wrote EDITS.md
+pdflatex: exit 0
+bibtex: exit 0
+pdflatex: exit 0
+pdflatex: exit 0

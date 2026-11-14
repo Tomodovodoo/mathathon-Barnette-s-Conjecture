@@ -1,0 +1,8 @@
+trial/pages/
+trial/*.aux
+trial/*.log
+trial/*.out
+trial/*.blg
+trial/*.bbl
+trial/refs.bib
+code/__pycache__/

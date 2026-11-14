@@ -1,0 +1,188 @@
+r"""Verify the edit list against paper/main/barnette.tex, write EDITS.md, build a trial copy.
+
+Run from the repository root:
+    python research/2026-11-14_fable_coldread-main/code/verify_edits.py            # verify + EDITS.md
+    python research/2026-11-14_fable_coldread-main/code/verify_edits.py --trial    # also apply and build
+
+Checks (all against the ORIGINAL file):
+  1. the sha256 of barnette.tex equals the one recorded in edits.json;
+  2. every `old` of a replace, and every `start`, `end` of a move, occurs exactly once;
+  3. every `after` of a move occurs exactly once in the original, or is created by an
+     earlier replace of the same edit (reported as "anchor created by this edit");
+  4. the old strings of different replace operations do not overlap.
+Then the edits are applied in order to a copy; each string must again occur exactly once
+at the time it is used. The copy goes to trial/barnette.tex; paper/ is never written.
+"""
+import hashlib
+import json
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+HERE = Path(__file__).resolve().parents[1]
+TEX = ROOT / "paper" / "main" / "barnette.tex"
+data = json.loads((HERE / "edits.json").read_text(encoding="utf-8"))
+src = TEX.read_text(encoding="utf-8")
+
+fail = []
+log = []
+
+
+def say(s):
+    log.append(s)
+    print(s)
+
+
+sha = hashlib.sha256(src.encode("utf-8")).hexdigest()
+say(f"sha256 of barnette.tex: {sha}")
+if sha != data["sha256"]:
+    fail.append("barnette.tex changed since edits.json was written")
+
+# ---- checks against the original
+spans = []
+for e in data["edits"]:
+    created = ""
+    for i, op in enumerate(e["ops"]):
+        tag = f"edit {e['n']} op {i + 1} ({op['op']})"
+        if op["op"] == "replace":
+            c = src.count(op["old"])
+            if c != 1:
+                fail.append(f"{tag}: old string occurs {c} times in the original")
+            else:
+                a = src.index(op["old"])
+                spans.append((a, a + len(op["old"]), tag))
+            created += op["new"]
+        elif op["op"] == "move":
+            for k in ("start", "end"):
+                c = src.count(op[k])
+                if c != 1:
+                    fail.append(f"{tag}: {k} occurs {c} times in the original")
+            c = src.count(op["after"])
+            if c == 1:
+                pass
+            elif c == 0 and created.count(op["after"]) == 1:
+                say(f"{tag}: anchor created by this edit")
+            else:
+                fail.append(f"{tag}: anchor occurs {c} times in the original")
+spans.sort()
+for (a0, a1, t0), (b0, b1, t1) in zip(spans, spans[1:]):
+    if b0 < a1:
+        fail.append(f"overlap between {t0} and {t1}")
+
+n_rep = sum(1 for e in data["edits"] for op in e["ops"] if op["op"] == "replace")
+n_mov = sum(1 for e in data["edits"] for op in e["ops"] if op["op"] == "move")
+n_ins = sum(1 for e in data["edits"] for op in e["ops"] if op["op"] == "instruct")
+say(f"{len(data['edits'])} edits: {n_rep} replace, {n_mov} move, {n_ins} instruct")
+
+# ---- sequential application
+cur = src
+for e in data["edits"]:
+    for i, op in enumerate(e["ops"]):
+        tag = f"edit {e['n']} op {i + 1} ({op['op']})"
+        if op["op"] == "replace":
+            if cur.count(op["old"]) != 1:
+                fail.append(f"{tag}: old occurs {cur.count(op['old'])} times at apply time")
+                continue
+            cur = cur.replace(op["old"], op["new"])
+        elif op["op"] == "move":
+            if cur.count(op["start"]) != 1 or cur.count(op["end"]) != 1 or cur.count(op["after"]) != 1:
+                fail.append(f"{tag}: start/end/after not unique at apply time "
+                            f"({cur.count(op['start'])}, {cur.count(op['end'])}, {cur.count(op['after'])})")
+                continue
+            a = cur.index(op["start"])
+            b = cur.index(op["end"]) + len(op["end"])
+            if b <= a:
+                fail.append(f"{tag}: end before start")
+                continue
+            block = cur[a:b]
+            if "spec" in op:
+                block = block.replace("[tb]", op["spec"], 1)
+            cur = cur[:a].rstrip("\n") + "\n\n" + cur[b:].lstrip("\n")
+            k = cur.index(op["after"]) + len(op["after"])
+            cur = cur[:k] + "\n\n" + block + "\n" + cur[k:]
+
+if fail:
+    say("FAILURES:")
+    for f in fail:
+        say("  " + f)
+else:
+    say("all old strings and anchors occur exactly once; no overlaps; sequential application succeeds")
+
+(HERE / "verify-log.txt").write_text("\n".join(log) + "\n", encoding="utf-8")
+
+
+# ---- EDITS.md
+def block(s):
+    fence = "````"
+    return f"{fence}latex\n{s}\n{fence}"
+
+
+md = []
+md.append("# Edits to `paper/main/barnette.tex`\n")
+md.append("Forty edits, ordered by value to the reader. Generated from `edits.json` by `code/verify_edits.py`; "
+          "the authoring file is `code/edits_src.py`. Do not edit this file by hand.\n")
+md.append(f"Source file: `paper/main/barnette.tex`, sha256 `{data['sha256']}`. "
+          "Line numbers in the reasons (l.) refer to that version.\n")
+md.append("Three kinds of operation.\n\n"
+          "- **replace**: the old string occurs exactly once in the file; put the new string in its place.\n"
+          "- **move**: cut the block that begins with the first string and ends with the second (each occurs once), "
+          "paste it immediately after the anchor line, and change its float specifier as stated.\n"
+          "- **instruction**: a structural change that is not a string replacement (figure regeneration, renaming).\n")
+md.append(f"Verification (`verify-log.txt`): {n_rep} replace and {n_mov} move operations checked against the file, "
+          + ("**with failures, see the log**" if fail else "every old string, block boundary and anchor occurs exactly once, no two old strings overlap, and the edits apply in the order given")
+          + f". {n_ins} instructions are not machine-checked.\n")
+md.append("Apply in order. Edits 9 and 29 belong together (the new label `fig:localpair`), "
+          "as do 4 and 13 (the source note), and 2, 30, 36 (panel letters of Figure 1).\n")
+md.append("A trial copy with all replace and move operations applied is `trial/barnette.tex`, built as `trial/barnette.pdf`. "
+          "`REPORT.md` says where the floats land in it.\n")
+for e in data["edits"]:
+    md.append(f"\n## Edit {e['n']}. {e['title']}\n")
+    md.append(e["why"] + "\n")
+    for i, op in enumerate(e["ops"]):
+        lab = f"{e['n']}.{i + 1}"
+        if op["op"] == "replace":
+            md.append(f"**{lab} replace.** Old:\n")
+            md.append(block(op["old"].rstrip("\n")))
+            if op["new"].strip() == "":
+                md.append("\nNew: nothing (delete the old string"
+                          + (" and its line break" if op["old"].endswith("\n") else "") + ").\n")
+            else:
+                md.append("\nNew:\n")
+                md.append(block(op["new"].rstrip("\n")) + "\n")
+        elif op["op"] == "move":
+            md.append(f"**{lab} move.** The block that begins\n")
+            md.append(block(op["start"]))
+            md.append("\nand ends\n")
+            md.append(block(op["end"]))
+            md.append("\ngoes immediately after\n")
+            md.append(block(op["after"]))
+            if "spec" in op:
+                md.append(f"\nChange its float specifier `[tb]` to `{op['spec']}`.\n")
+            else:
+                md.append("")
+        else:
+            md.append(f"**{lab} instruction.** {op['text']}\n")
+(HERE / "EDITS.md").write_text("\n".join(md), encoding="utf-8")
+say("wrote EDITS.md")
+
+# ---- trial build
+if "--trial" in sys.argv:
+    trial = HERE / "trial"
+    trial.mkdir(exist_ok=True)
+    t = cur.replace(r"\newcommand{\FIG}{../figures/}", r"\newcommand{\FIG}{../../../paper/figures/}")
+    (trial / "barnette.tex").write_text(t, encoding="utf-8")
+    shutil.copy(ROOT / "paper" / "main" / "refs.bib", trial / "refs.bib")
+    for cmd in (["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "barnette.tex"],
+                ["bibtex", "barnette"],
+                ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "barnette.tex"],
+                ["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "barnette.tex"]):
+        r = subprocess.run(cmd, cwd=trial, capture_output=True, text=True, errors="replace")
+        say(f"{' '.join(cmd[:1])}: exit {r.returncode}")
+        if r.returncode != 0:
+            say(r.stdout[-1500:])
+            break
+    (HERE / "verify-log.txt").write_text("\n".join(log) + "\n", encoding="utf-8")
+
+sys.exit(1 if fail else 0)

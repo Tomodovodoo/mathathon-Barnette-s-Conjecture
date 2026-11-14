@@ -12,7 +12,7 @@ Tags: **H** hesitated. **E** expected one thing, got another. **Q** question in 
 
 - **W** No author line. The page gives a title, an abstract, a date and an MSC code. A reader cannot tell who is speaking when the text says "we" and "our account".
 
-### Abstract (seven sentences)
+### Abstract (five sentences)
 
 1. "A spanning subgraph in which every vertex has degree two need not be a single cycle." **E** I expected the first sentence to say what is proved. This one states a difficulty before the problem has been named. Barnette's conjecture is named only in the title.
 2. "We explain OpenAI's proof that every cubic, bipartite, 3-connected planar graph has a Hamiltonian cycle avoiding any given edge, working in the dual triangulation, where such a cycle is an acyclic set of edges containing exactly one side of every triangle." **H** "such a cycle is an acyclic set" reads as a contradiction on first pass. It took a second reading to see that the cycle lives in the graph and the acyclic set in the dual. **U** "the dual triangulation".
