@@ -1,0 +1,110 @@
+[
+  {
+    "file": "certificates.json",
+    "width": 4,
+    "quantity": "states",
+    "dimension": 4,
+    "checked_discrepancies": 4,
+    "initial": [
+      13,
+      34
+    ],
+    "ok": true
+  },
+  {
+    "file": "certificates.json",
+    "width": 4,
+    "quantity": "TM",
+    "dimension": 2,
+    "checked_discrepancies": 2,
+    "initial": [
+      2
+    ],
+    "ok": true
+  },
+  {
+    "file": "certificates.json",
+    "width": 6,
+    "quantity": "states",
+    "dimension": 15,
+    "checked_discrepancies": 15,
+    "initial": [
+      91,
+      513,
+      2881,
+      16171
+    ],
+    "ok": true
+  },
+  {
+    "file": "certificates.json",
+    "width": 6,
+    "quantity": "TM",
+    "dimension": 39,
+    "checked_discrepancies": 39,
+    "initial": [
+      12,
+      34,
+      82,
+      194,
+      464,
+      1104,
+      2642,
+      6290
+    ],
+    "ok": true
+  },
+  {
+    "file": "HC-certificates.json",
+    "width": 4,
+    "quantity": "HC",
+    "dimension": 12,
+    "checked_discrepancies": 12,
+    "initial": [
+      6,
+      14,
+      30
+    ],
+    "ok": true
+  },
+  {
+    "file": "HC-certificates.json",
+    "width": 6,
+    "quantity": "HC",
+    "dimension": 64,
+    "checked_discrepancies": 64,
+    "initial": [
+      8,
+      44,
+      176,
+      752,
+      3200,
+      13568
+    ],
+    "ok": true
+  },
+  {
+    "file": "pair-certificates.json",
+    "width": 4,
+    "quantity": "pairs",
+    "dimension": 2,
+    "checked_discrepancies": 2,
+    "initial": [
+      2
+    ],
+    "ok": true
+  },
+  {
+    "file": "pair-certificates.json",
+    "width": 6,
+    "quantity": "pairs",
+    "dimension": 36,
+    "checked_discrepancies": 36,
+    "initial": [
+      16,
+      56,
+      176
+    ],
+    "ok": true
+  }
+]
