@@ -87,4 +87,4 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | done | No proof gap. Seven wording edits and a bibliography clean-up, applied by the coordinator. |
 | `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | done | Process residue removed; no mathematical change. Label defects in four figures listed in `PROBLEMS.md`. |
 | `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | running | |
-| `fable_notes-figures/` | Fable 5.2 | Label defects in the companion notes' figures | running | |
+| `fable_notes-figures/` | Fable 5.2 | Label defects in the companion notes' figures | done | Nine defects fixed; page counts unchanged. |

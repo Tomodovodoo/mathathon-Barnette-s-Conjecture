@@ -5,3 +5,6 @@
 *.fls
 *.fdb_latexmk
 build-output.txt
+involutions.aux
+involutions.log
+involutions.out
