@@ -18,6 +18,8 @@
    "involution_ok": 28300,
    "trees": 1327360,
    "states": 7233536,
+   "iota_graph_connected": 648,
+   "instances_with_tm": 672,
    "instances_with_cycle": 0
   },
   "max_path_states_by_V": {

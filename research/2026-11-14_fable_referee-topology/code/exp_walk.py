@@ -158,6 +158,21 @@ def exhaust_instance(I, rb, trees):
     res['involution_ok'] = sum(1 for (m, f), m2 in inv.items() if inv.get((m2, f)) == m and m2 != m)
     res['trees'] = N
     res['states'] = sum(len(p) for p in partner)
+    # is the graph on tree matchings with edges s -- iota_t(s) connected?
+    if tms:
+        comp = {tms[0]}
+        st = [tms[0]]
+        nb = {}
+        for (m, f), m2 in inv.items():
+            nb.setdefault(m, []).append(m2)
+        while st:
+            a_ = st.pop()
+            for b_ in nb.get(a_, []):
+                if b_ not in comp:
+                    comp.add(b_)
+                    st.append(b_)
+        res['iota_graph_connected'] = int(len(comp) == len(tms))
+        res['instances_with_tm'] = 1
     return res, maxlen, lens, cyc_examples
 
 

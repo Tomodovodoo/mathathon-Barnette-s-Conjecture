@@ -1,0 +1,108 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_selection.py 6 13",
+ "result": {
+  "range": [
+   6,
+   13
+  ],
+  "counts": {
+   "instances": 334,
+   "two_factors": 342,
+   "rainbow_trees": 208320,
+   "selections": 209088,
+   "selections_not_trees": 768,
+   "trees_not_selections": 0,
+   "families_equal": 326,
+   "unique_two_factor": 326,
+   "unique_iff_N_pow2": 334,
+   "every_tree_is_a_selection": 334,
+   "every_selection_is_a_tree": 326
+  },
+  "examples_where_families_differ": [
+   {
+    "V": 12,
+    "plantri_index": 2,
+    "outer_face_vertices": [
+     0,
+     1,
+     6
+    ],
+    "two_factors": 2,
+    "N": 896,
+    "selections": 960,
+    "selections_not_trees": 64,
+    "trees_not_selections": 0
+   },
+   {
+    "V": 12,
+    "plantri_index": 2,
+    "outer_face_vertices": [
+     3,
+     10,
+     8
+    ],
+    "two_factors": 2,
+    "N": 896,
+    "selections": 960,
+    "selections_not_trees": 64,
+    "trees_not_selections": 0
+   },
+   {
+    "V": 13,
+    "plantri_index": 7,
+    "outer_face_vertices": [
+     0,
+     1,
+     6
+    ],
+    "two_factors": 2,
+    "N": 1920,
+    "selections": 1984,
+    "selections_not_trees": 64,
+    "trees_not_selections": 0
+   },
+   {
+    "V": 13,
+    "plantri_index": 7,
+    "outer_face_vertices": [
+     0,
+     5,
+     4
+    ],
+    "two_factors": 2,
+    "N": 1792,
+    "selections": 1920,
+    "selections_not_trees": 128,
+    "trees_not_selections": 0
+   },
+   {
+    "V": 13,
+    "plantri_index": 7,
+    "outer_face_vertices": [
+     1,
+     9,
+     8
+    ],
+    "two_factors": 2,
+    "N": 1920,
+    "selections": 1984,
+    "selections_not_trees": 64,
+    "trees_not_selections": 0
+   },
+   {
+    "V": 13,
+    "plantri_index": 7,
+    "outer_face_vertices": [
+     4,
+     10,
+     9
+    ],
+    "two_factors": 2,
+    "N": 1792,
+    "selections": 1920,
+    "selections_not_trees": 128,
+    "trees_not_selections": 0
+   }
+  ]
+ }
+}

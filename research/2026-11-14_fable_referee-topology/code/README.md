@@ -44,11 +44,13 @@ The code is independent of `research/2026-11-14_opus_route-topology/code/topo.py
 | `python P/exp_walk.py random 40 60 1`, `random 60 30 2`, `random 80 20 3`, `random 120 8 4`, `random 45 30 5 0.15` | random triangulations, last one with glued octahedra | 1 to 3 s | `walk_random_*.json` |
 | `python P/exp_walk.py saved` | 11 saved instances of the graph-theory run, `V = 40` to `120` | 5 s | `walk_saved.json` |
 | `python P/exp_cycles.py analyse` | re-examines every failure recorded by `exp_walk.py`: exact periods, plateau search | 1 s | `cycles_analyse.json` |
-| `python P/exp_cycles.py hunt 24 400 1`, `hunt 28 400 2`, `hunt 32 300 3`, `hunt 36 300 4`, `hunt 40 200 5`, `hunt 50 100 6`, `hunt 44 100 7 0.1` | random instances, every walker classified exactly | 6 to 22 s | `cycles_hunt_*.json` |
+| `python P/exp_cycles.py hunt 24 400 1`, `hunt 28 400 2`, `hunt 32 300 3`, `hunt 36 300 4`, `hunt 40 200 5`, `hunt 50 100 6`, `hunt 44 100 7 0.1`, `hunt 50 400 16`, `hunt 60 250 17`, `hunt 70 120 18`, `hunt 38 400 19` | random instances, every walker classified exactly, plateau search from trees whose walkers are all periodic | 6 to 63 s | `cycles_hunt_*.json` |
 | `python P/exp_structure.py identity 12` | Lemma X2 on a sample of at most 60 trees per instance, every move | 3 s | `identity_12.json` |
 | `python P/exp_structure.py loads 12` | load vectors: exchange towards all-ones (all instances), M-convexity when `|L| <= 400` | 15 s | `loads_12.json` |
 | `python P/exp_structure.py potential 12` | four candidate secondary potentials | 6 s | `potential_12.json` |
 | `python P/exp_average.py 6 14` | number of rainbow trees, slot identity, mean load | 30 s | `average_6_14.json` |
+| `python P/exp_selection.py 6 13` | all 2-factors of `B` against all rainbow trees (Theorem S, Proposition U) | 20 s | `selection_6_13.json` |
+| `python P/exp_structure.py loads_sampled 6 13` | M-convexity on 4,000 random pairs of load vectors per instance, no size limit | 60 s | `loads_sampled_6_13.json` |
 
 Earlier runs of `exp_rainbow.py exist`, `exp_structure.py identity 10`, `loads 10` and `potential 10` left `identity_10.json`, `loads_10.json` and `potential_10.json`. They are superseded by the `_12` files.
 
@@ -56,7 +58,7 @@ Earlier runs of `exp_rainbow.py exist`, `exp_structure.py identity 10`, `loads 1
 
 ## Exploratory scripts
 
-`scratch_chir.py`, `scratch_revisit.py`, `scratch_levels.py`, `scratch_alt.py` are one-off probes. They print to the console and write no data. What they showed: the orientation of (arrival, resident, pivot) is not constant along a surplus walk; a surplus walk can visit a face twice (13 of 86,060 walks with `V <= 13`); the level counts of rainbow trees; and the slot identity, later rerun properly as `exp_average.py`.
+`scratch_chir.py`, `scratch_revisit.py`, `scratch_levels.py`, `scratch_alt.py`, `scratch_mconv_vs_factors.py` are one-off probes. They print to the console and write no data. What they showed: the orientation of (arrival, resident, pivot) is not constant along a surplus walk; a surplus walk can visit a face twice (13 of 86,060 walks with `V <= 13`); the level counts of rainbow trees; the slot identity, later rerun properly as `exp_average.py`; and that the sampled M-convexity test fails exactly in the instances with two 2-factors (326 with one 2-factor all pass, 8 with two all fail).
 
 ## Limits
 

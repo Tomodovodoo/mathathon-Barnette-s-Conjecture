@@ -165,6 +165,57 @@ def exp_loads(vmax):
     save('loads_%d' % vmax, {'vmax': vmax, 'counts': dict(cnt)})
 
 
+def exp_loads_sampled(vmin, vmax, npairs=4000):
+    """M-convexity on random pairs of load vectors, every instance (no size limit)."""
+    import random
+    rng = random.Random(11)
+    cnt = Counter()
+    bad = []
+    for V, idx, f0, I in etri.all_rooted(vmin, vmax):
+        rb = RB(I)
+        trees = rb.all_trees()
+        if not trees:
+            continue
+        cnt['instances'] += 1
+        Aidx = {t: i for i, t in enumerate(I.A)}
+        n = I.n
+        L = set()
+        for s in trees:
+            c = [0] * n
+            for t in s:
+                c[Aidx[t]] += 1
+            L.add(tuple(c))
+        Ls = sorted(L)
+        cnt['load_vectors'] += len(Ls)
+        ok_inst = True
+        for _ in range(npairs):
+            c = rng.choice(Ls)
+            c2 = rng.choice(Ls)
+            for i in range(n):
+                if c[i] > c2[i]:
+                    good = False
+                    for j in range(n):
+                        if c[j] < c2[j]:
+                            a = list(c)
+                            a[i] -= 1
+                            a[j] += 1
+                            b = list(c2)
+                            b[i] += 1
+                            b[j] -= 1
+                            if tuple(a) in L and tuple(b) in L:
+                                good = True
+                                break
+                    cnt['exchange_tests'] += 1
+                    cnt['exchange_ok'] += good
+                    if not good:
+                        ok_inst = False
+                        if len(bad) < 5:
+                            bad.append({'V': V, 'plantri_index': idx, 'outer_face_vertices': list(I.R),
+                                        'faces': [list(I.faces[t]) for t in I.A], 'c': c, 'c2': c2, 'i': i})
+        cnt['instances_ok'] += ok_inst
+    save('loads_sampled_%d_%d' % (vmin, vmax), {'range': [vmin, vmax], 'pairs_per_instance': npairs, 'counts': dict(cnt), 'violations': bad})
+
+
 def exp_potential(vmax):
     cnt = Counter()
     for V, idx, f0, I in etri.all_rooted(6, vmax):
@@ -273,6 +324,8 @@ if __name__ == '__main__':
         exp_identity(int(sys.argv[2]))
     elif cmd == 'loads':
         exp_loads(int(sys.argv[2]))
+    elif cmd == 'loads_sampled':
+        exp_loads_sampled(int(sys.argv[2]), int(sys.argv[3]))
     elif cmd == 'potential':
         exp_potential(int(sys.argv[2]))
     elif cmd == 'replicate':
