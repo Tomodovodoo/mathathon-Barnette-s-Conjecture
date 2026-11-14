@@ -1,50 +1,24 @@
-"""Combinatorics of a rooted Eulerian triangulation, as used by the figures.
+"""An Eulerian triangulation with an outer black face, and its disk layout.
 
-Everything a figure draws is computed here and asserted in check.py.
-Notation follows research/BRIEF.md and the OpenAI paper (Sections 2 to 6).
+Notation follows paper/barnette.tex.
 
 A triangulation is a list of faces, each a triple of vertices. All faces are
 listed with the same orientation, so every directed edge (u, v) lies in exactly
 one face. The layout draws every bounded face counterclockwise in this order,
 so "the face of (u, v)" is the face on the left of the directed edge u -> v.
 """
-import itertools as it
 import json
+import math
 from pathlib import Path
 
 import networkx as nx
+import numpy as np
 
 HERE = Path(__file__).parent
 
 
 def und(u, v):
     return (u, v) if u < v else (v, u)
-
-
-def oriented_faces(graph):
-    """Faces of a planar graph, consistently oriented."""
-    ok, emb = nx.check_planarity(graph)
-    assert ok
-    seen, faces = set(), []
-    for u, v in emb.edges():
-        if (u, v) not in seen:
-            faces.append(tuple(emb.traverse_face(u, v, seen)))
-    return faces
-
-
-def dual_of_cubic(primal):
-    """Faces (as vertex triples) of the dual triangulation of a cubic plane graph.
-
-    Dual vertices are numbered by the faces of the primal graph in the order
-    networkx reports them, so the numbering is only fixed up to that order.
-    Use `isomorphic_to_dual` to compare with a stored triangulation.
-    """
-    pf = oriented_faces(primal)
-    T = nx.Graph()
-    for i, j in it.combinations(range(len(pf)), 2):
-        if len(set(pf[i]) & set(pf[j])) == 2:
-            T.add_edge(i, j)
-    return oriented_faces(T)
 
 
 class Model:
@@ -91,7 +65,7 @@ class Model:
         return a if a in self.white else b
 
     def delta(self, u, v):
-        """+1 if the black face of uv is on the left of u -> v (paper, Section 4).
+        """+1 if the black face of uv is on the left of u -> v (the sign delta_t).
 
         The outer face t0 is drawn as the unbounded region, and it also lies on
         the left of its own boundary in the stored order, so no special case.
@@ -146,21 +120,9 @@ class Model:
     def D(self, r, s):
         return list(zip(r, s))
 
-    def J(self, r, s):
-        total = sum(self.delta(a, b) for a, b in zip(r, s))
-        assert total % 3 == 0
-        return total // 3
-
     @staticmethod
     def directed_cycles(arcs):
         return [c for c in nx.simple_cycles(nx.DiGraph(arcs))]
-
-    def reverse_Q_cycle(self, r, s, cycle):
-        """The involution of Lemma 5.2: on the triangles supplying the directed
-        cycle of Q_s, replace r(t) by u(t)."""
-        on = {(a, b) for a, b in zip(cycle, cycle[1:] + cycle[:1])}
-        return tuple(self.third(t, a, b) if (a, self.third(t, a, b)) in on else a
-                     for t, a, b in zip(self.A, r, s))
 
     # -- disks ----------------------------------------------------------------
     def disk(self, cycle):
@@ -187,109 +149,129 @@ class Model:
                     l=len(inner_black), inner_black_edges=inner_black,
                     delta_sum=sum(self.delta(a, b) for a, b in arcs), ccw=ccw)
 
-    # -- recovery (Section 6) ---------------------------------------------------
-    def spoke_graph(self):
-        H = nx.Graph()
-        for t in self.black:
-            for v in self.F[t]:
-                H.add_edge(('t', t), ('v', v))
-        return H
 
-    def recover(self, s):
-        """From a state with Q_s a forest: white tree, selected edges P, the two
-        induced trees and the Hamiltonian cycle of G. Asserts every claim."""
-        H = self.spoke_graph()
-        H.remove_edges_from((('t', t), ('v', v)) for t, v in zip(self.A, s))
-        assert nx.is_tree(H), 'H - s is not a tree'
-        WT = nx.Graph()
-        WT.add_nodes_from(self.white)
-        link = {}
-        for t, x in zip(self.A, s):
-            sides = [(x, v) for v in self.F[t] if v != x]
-            ws = [self.white_face(*e) for e in sides]
-            assert ws[0] != ws[1]
-            WT.add_edge(*ws)
-            link[t] = dict(corner=x, sides=sides, whites=ws)
-        assert nx.is_tree(WT)
-        y0 = self.white_face(*self.e0)
-        depth = nx.single_source_shortest_path_length(WT, y0)
-        P = [self.e0]
-        chosen = {}
-        for t, x in zip(self.A, s):
-            ws, sides = link[t]['whites'], link[t]['sides']
-            k = 0 if depth[ws[0]] > depth[ws[1]] else 1      # the endpoint farther from y0
-            chosen[t] = dict(edge=und(*sides[k]), child=ws[k], parent=ws[1 - k], corner=x)
-            P.append(und(*sides[k]))
-        assert len(set(P)) == len(P)
-        for f in self.F:
-            sides = {und(a, b) for a, b in zip(f, f[1:] + f[:1])}
-            assert len(sides & set(P)) == 1, 'not exactly one selected side per face'
-        PF = nx.Graph()
-        PF.add_nodes_from(self.V)
-        PF.add_edges_from(P)
-        assert nx.is_forest(PF) and nx.number_connected_components(PF) == 2
-        parts = [sorted(c) for c in nx.connected_components(PF)]
-        parts.sort(key=lambda c: self.e0[0] not in c)          # class of e0 first
-        for c in parts:
-            assert nx.is_tree(self.T.subgraph(c)), 'class does not induce a tree'
-        assert set(self.e0) <= set(parts[0]) and (set(self.roots) - set(self.e0)) <= set(parts[1])
-        HC = nx.Graph()
-        HC.add_nodes_from(self.G)
-        HC.add_edges_from(g for g, te in self.cross.items() if und(*te) not in P)
-        assert nx.is_connected(HC) and all(d == 2 for _, d in HC.degree())
-        order = [self.t0]
-        prev = None
-        while True:
-            nxt = [w for w in HC[order[-1]] if w != prev]
-            prev = order[-1]
-            if nxt[0] == self.t0 and len(order) > 1:
+# -- layout ------------------------------------------------------------------
+# The outer black face t0 is the unbounded region. Its three edges are drawn as
+# arcs of one circle of radius R with the roots on it, 120 degrees apart, so the
+# bounded faces fill a disk and each root has a half-plane of directions for its
+# edges. (Inside a straight outer triangle a root has only 60 degrees, which is
+# what made the first layout full of slivers.)
+#
+# Interior coordinates start from a Tutte embedding and are then relaxed to
+# minimise
+#
+#     sum over corners of 1/sin(angle/2)^2  +  AREA_WEIGHT * sum over faces of log(area/mean)^2,
+#
+# with the true angles and areas of the three faces that have an arc as a side.
+# The search is a plain coordinate descent that never accepts a flipped face.
+
+R = 5.0
+ROOT_ANGLES = (210.0, 330.0, 90.0)          # e0 = first two roots is the bottom arc
+AREA_WEIGHT = 6.0
+CAP = 3.0                                    # target area of the three faces on the outer arcs, in units of the others
+SEGMENT = R * R / 2 * (2 * math.pi / 3 - math.sin(2 * math.pi / 3))   # area between a chord and its arc
+
+
+def cross(a, b):
+    return a[0] * b[1] - a[1] * b[0]
+
+
+def tutte(m, fixed):
+    inner = [v for v in m.V if v not in fixed]
+    L = nx.laplacian_matrix(m.T, nodelist=inner + list(fixed)).toarray().astype(float)
+    k = len(inner)
+    sol = np.linalg.solve(L[:k, :k], -L[:k, k:] @ np.array([fixed[v] for v in fixed]))
+    return {**{v: np.array(p) for v, p in fixed.items()}, **dict(zip(inner, sol))}
+
+
+def face_measures(m, xy):
+    """For every bounded face: (area, [three corner angles in radians]).
+
+    A face with an outer edge has a circular arc as that side: its area gains
+    the circular segment, and its two root corners gain 60 degrees each.
+    Returns None if some straight triangle with no outer side is flipped.
+    """
+    roots = set(m.roots)
+    out = {}
+    for i, f in enumerate(m.F):
+        if i == m.t0:
+            continue
+        p = [xy[v] for v in f]
+        area = cross(p[1] - p[0], p[2] - p[0]) / 2
+        outer = sum(v in roots for v in f) == 2
+        ang = []
+        for k in range(3):
+            a, b, c = p[k], p[(k + 1) % 3], p[(k + 2) % 3]
+            th = math.atan2(cross(b - a, c - a), float(np.dot(b - a, c - a)))   # signed
+            if outer and f[k] in roots:
+                th += math.pi / 3
+            elif outer and th < 0:
+                th += 2 * math.pi                                    # reflex corner inside the segment
+            ang.append(th)
+        if outer:
+            area += SEGMENT
+        if area <= 0 or min(ang) <= 0.02:
+            return None
+        out[i] = (area, ang)
+    return out
+
+
+def energy(m, xy):
+    fm = face_measures(m, xy)
+    if fm is None:
+        return math.inf
+    if any(np.hypot(*xy[v]) > R * 0.985 for v in m.X):
+        return math.inf
+    roots = set(m.roots)
+    unit = math.pi * R * R / (len(fm) - 3 + 3 * CAP)
+    e = 0.0
+    for i, (area, ang) in fm.items():
+        cap = sum(v in roots for v in m.F[i]) == 2
+        e += AREA_WEIGHT * math.log(area / (unit * (CAP if cap else 1))) ** 2
+        e += sum(1 / math.sin(min(a, math.pi - 1e-3) / 2) ** 2 for a in ang) / 10
+    return e
+
+
+def relax(m, xy, rounds=400):
+    xy = {v: p.copy() for v, p in xy.items()}
+    best = energy(m, xy)
+    assert math.isfinite(best), 'start layout is not a valid drawing'
+    step = 0.4
+    dirs = [np.array([math.cos(t), math.sin(t)]) for t in np.linspace(0, 2 * math.pi, 12, endpoint=False)]
+    for _ in range(rounds):
+        moved = False
+        for v in m.X:
+            for d in dirs:
+                old = xy[v].copy()
+                xy[v] = old + step * d
+                e = energy(m, xy)
+                if e < best - 1e-12:
+                    best, moved = e, True
+                else:
+                    xy[v] = old
+        if not moved:
+            step /= 2
+            if step < 1e-4:
                 break
-            order.append(nxt[0])
-            if len(order) > len(self.F):
-                raise AssertionError
-        assert len(order) == len(self.F)
-        return dict(white_tree=sorted(und(*e) for e in WT.edges()), y0=y0, depth=depth,
-                    chosen=chosen, P=sorted(P), parts=parts, hamiltonian=sorted(HC.edges()),
-                    cycle_order=order)
+    return xy, best
 
-    # -- Proposition 3.1 ---------------------------------------------------------
-    def incidence_graph(self):
-        """The bipartite incidence graph B on A and X."""
-        B = nx.Graph()
-        B.add_nodes_from(('t', t) for t in self.A)
-        B.add_nodes_from(('v', v) for v in self.X)
-        X = set(self.X)
-        for t in self.A:
-            for v in self.F[t]:
-                if v in X:
-                    B.add_edge(('t', t), ('v', v))
-        return B
 
-    def cut_inequality(self, S):
-        """Both sides of (3.1) for S a subset of X."""
-        S = set(S)
-        return sum(min(2, len(set(self.F[t]) & S)) for t in self.A), 2 * len(S)
-
-    def two_factors(self, components=None):
-        """2-factors of G (complements of perfect matchings); optionally only
-        those with a given number of components."""
-        out = []
-
-        def rec(left, es):
-            if not left:
-                h = self.G.copy()
-                h.remove_edges_from(es)
-                if components is None or nx.number_connected_components(h) == components:
-                    out.append(sorted(und(*e) for e in h.edges()))
-                return
-            u = min(left)
-            for v in self.G[u]:
-                if v in left:
-                    rec(left - {u, v}, es + [(u, v)])
-        rec(set(self.G), [])
-        return out
+def layout(m):
+    """Coordinates of the vertices: roots on the circle of radius R, e0 at the bottom."""
+    third = next(v for v in m.roots if v not in m.e0)
+    a, b = m.e0
+    if m.left[a, b] == m.t0:            # outer face on the left of a -> b means a -> b runs clockwise
+        a, b = b, a
+    fixed = {v: R * np.array([math.cos(math.radians(t)), math.sin(math.radians(t))])
+             for v, t in zip((a, b, third), ROOT_ANGLES)}
+    xy = tutte(m, fixed)
+    for i, f in enumerate(m.F):
+        if i != m.t0:
+            assert cross(xy[f[1]] - xy[f[0]], xy[f[2]] - xy[f[0]]) > 0, 'drawing is mirrored'
+    return relax(m, xy)[0]
 
 
 def load(name):
     d = json.loads((HERE / name).read_text())
-    return Model(d['faces'], d['t0'], d.get('e0'))
+    m = Model(d['faces'], d['t0'], d.get('e0'))
+    return m, layout(m)
