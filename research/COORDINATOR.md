@@ -52,7 +52,7 @@ Remaining plan
 
 Exploration is finished. Audit phase: eight audits or finishing runs in progress (see INDEX.md). Remaining coordinator work: check the paper's formal-verification sentence against research/2026-11-14_opus_lean-integration/PAPER-SENTENCE.md once both land; final INDEX update; final summary at 16:00 UTC. E:\lbb must be kept (it now holds the Lean work).
 
-## Final state, 16:00 UTC (machine 17:00)
+## State at 15:20 UTC (machine 16:20)
 
-All runs finished; none running. Every row of INDEX.md has a final status. Open decisions for the owner are listed in the coordinator's final message and in digestions/SYNTHESIS.md (housekeeping). The two-hourly alarm is removed.
+Two closing runs in progress (synthesis final update; recheck of the final commit from a clean clone). No further launches after 16:00 UTC. Open decisions for the owner are listed in the coordinator's final message and in digestions/SYNTHESIS.md (housekeeping). The two-hourly alarm is removed.
 

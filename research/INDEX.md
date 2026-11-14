@@ -89,3 +89,5 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `sol_referee-sign-free/` | GPT-6.1 Sol | Referee of the sign-free note | done | Every proved result follows. One false sentence and stale ranges corrected. Counts reproduced with own code. |
 | `fable_notes-figures/` | Fable 5.2 | Label defects in the companion notes' figures | done | Nine defects fixed; page counts unchanged. |
 | `fable_sign-free-figure/` | Fable 5.2 | Figure 5 of the sign-free note redrawn | done | Planar layout; 76 figure assertions pass. Reports that the note's Figures 1 to 4 draw the outer triangle's sides across inner edges. |
+| `opus_synthesis-final/` | Opus 5.5 | Synthesis brought to its final state and length | running | |
+| `astra_final-recheck/` | GPT-6 Astra | Clean-clone recheck of the final commit | running | |
