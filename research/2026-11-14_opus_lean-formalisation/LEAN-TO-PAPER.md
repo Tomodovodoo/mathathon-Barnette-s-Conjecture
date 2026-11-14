@@ -3,7 +3,7 @@
 Summary.
 1. Every numbered statement of the OpenAI paper on the route to Theorem 1.1 has a Lean counterpart, except Theorem 2.2 in its stated form (two induced trees), which is replaced by its primal equivalent. Corollary 7.2 (Pfaffian, `P4`) is not formalised.
 2. Two blocks of the Lean (about 2,050 counted lines of 7,015, 29%) correspond to single sentences of the paper: "fix a sphere embedding" / "the sphere dual" (1,078 lines), and the tacit facts about duals of plane graphs (974 lines).
-3. One-sentence steps that cost the most: the inside of a cycle is a disk with connected sides (Lemma 4.1, about 500 lines including the Jordan-type facts), "the dual T is a simple triangulation" (Theorem 1.1 proof, about 540 lines), and splitting along a separating triangle with the cap colouring (about 430 lines).
+3. One-sentence steps that cost the most: the inside of a cycle is a disk with connected sides (Lemma 4.1, about 500 lines including the Jordan-type facts), the proof of Theorem 1.1 ("no edge cut of size one or two", "the dual T is a simple triangulation", "the 2-factor is one cycle", about 540 lines together), and splitting along a separating triangle with the cap colouring (about 430 lines).
 4. Paper devices replaced by simpler ones: the exponential sum (by a polynomial), the spoke circulations (by a flow on `G`), max-flow (by Hall), the white-face tree rooting (by Hall plus a forest count), the Jordan-curve labelling of Section 6.2 (by "complement of a dual forest is connected").
 5. The complete per-declaration table (697 rows) is generated in `graph/lean-to-paper-full.md`. This file is the curated version.
 
