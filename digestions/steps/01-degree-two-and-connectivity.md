@@ -10,6 +10,8 @@ A Hamiltonian cycle is a set of edges with two properties. Every vertex lies on 
 
 In a cubic graph, choosing a 2-factor is the same as choosing the edges you leave out. Each vertex has three edges and keeps two, so it drops one. The dropped edges form a perfect matching, a set of edges that touches every vertex once. Bipartite cubic graphs have many perfect matchings. So 2-factors are cheap. What we cannot control by choosing a matching is how many cycles the leftover has.
 
+A 2-factor can have several cycles. Whenever this guide says connected, it means all its vertices lie in a single component; that is the extra property the proof must force.
+
 ## Precise statements
 
 **Lemma 1** (standard). In a cubic graph, $F \mapsto E(G) \setminus F$ is a bijection between 2-factors and perfect matchings.

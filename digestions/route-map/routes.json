@@ -16,7 +16,14 @@
   "refd": "research/2026-11-14_fable_referee-determinants",
   "map": "research/2026-11-14_fable_labyrinth-map",
   "refs": "research/2026-11-14_sol_referee-structure",
-  "cat": "research/2026-11-14_fable_route-categorical"
+  "cat": "research/2026-11-14_fable_route-categorical",
+  "primal": "research/2026-11-14_astra_primal-proof",
+  "families": "research/2026-11-14_sol_counting-families",
+  "conjectures": "research/2026-11-14_opus_conjectures",
+  "older": "research/2026-11-14_astra_older-approaches",
+  "drafta": "paper/draft-A",
+  "draftb": "paper/draft-B",
+  "reft": "research/2026-11-14_fable_referee-topology"
  },
  "waypoints": [
   {
@@ -1340,7 +1347,7 @@
    "status": "PROVED-HERE",
    "src": "mach,gt",
    "where": "mach/REFORMULATIONS.md 6; gt/PROOFS.md Section 1",
-   "text": "A common independent set of size n in two partition matroids and the graphic matroid of opposite edges with the roots identified. Duality maps the triple to a triple of the same kind, so it never becomes a two-matroid problem (gt).",
+   "text": "A tree matching is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.",
    "role": "equiv"
   },
   {
@@ -1941,8 +1948,8 @@
    "src": "gt,mach",
    "where": "gt/ROUTES.md M1-M4; posed in mach/ROUTE-IDEAS.md 5",
    "text": "Perfect matchings of B intersected with complements of spanning trees of H form an integral polytope.",
-   "lesson": "Not matroid intersection. No constraint is redundant, tree matchings are not the bases of a matroid, and the abstract problem (a perfect matching with spanning-tree complement in a planar bipartite graph of maximum degree 3) is NP-hard. Any min-max must use the hexagonal faces of spoke graphs.",
-   "cex": "13 vertices: a fractional vertex, the average of two non-tree states.",
+   "lesson": "The natural LP is not integral. This does not exclude all encodings of the special spoke class; the broad hardness result is under polynomial Turing reductions.",
+   "cex": "A half-integral vertex at 13 vertices; minimality not proved. A feasible completion has one tree state and one non-tree state (structure referee INTEGRATION.md).",
    "role": "route"
   },
   {
@@ -2041,11 +2048,13 @@
    "id": "D.7",
    "step": "D",
    "label": "extremes of Felsner's lattice of pairs",
-   "status": "CONJECTURE",
-   "src": "gt",
-   "where": "gt/ROUTES.md O4-O6",
-   "text": "The face-flip minimum or the face-flip maximum of the lattice of pairs always carries a tree pair. Each extreme alone fails (at 40 and at 80 vertices); they never failed together in 180 random instances.",
+   "status": "REFUTED",
+   "src": "gt,conjectures",
+   "where": "conjectures/PREDICTIONS.md items 1-2",
+   "text": "The claim that one of the two true lattice extremes always carries a forest pair is reported refuted. Independent replay is pending.",
    "test": "Exhaustive census of Eulerian triangulations up to about 24 vertices, where one-cycle covers start to appear.",
+   "lesson": "Single-face terminal orientations need not be lattice extremes; even the true two extremes are reported insufficient. Test distance-one and irreducible replacements.",
+   "cex": "Reported at 18 vertices: 26 rooted instances in two triangulations. Provisional computation, no final report yet.",
    "role": "route"
   },
   {
@@ -2073,11 +2082,19 @@
   {
    "id": "B.6",
    "step": "B",
-   "label": "Hopf's Umlaufsatz for a flat angle structure",
+   "label": "combinatorial Gauss-Bonnet with signed angles",
    "status": "PROVED-HERE",
    "src": "topo",
-   "where": "topo/REPORT.md item 1; topo/ROUTES.md",
-   "text": "The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1.",
+   "where": "topo/REPORT.md item 1; topo/ROUTES.md; reft/REFEREE.md",
+   "text": "The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. The proof uses Euler counting, not a smooth turning-tangents theorem. Boundary flatness and exclusion of the outer face are required.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_referee-topology"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+   },
    "role": "route"
   },
   {
@@ -2086,8 +2103,16 @@
    "label": "cancellation as a Morse matching",
    "status": "PROVED-HERE",
    "src": "topo",
-   "where": "topo/REPORT.md item 2",
-   "text": "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed.",
+   "where": "topo/REPORT.md item 2; reft/REFEREE.md",
+   "text": "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. Correct grading: J = J_ccw - 2 times the number of clockwise Q-cycles. Pair each root with its outer-centre spoke in the Forman reading. Numerical checks of the Boolean levels only reach k <= 1.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_referee-topology"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+   },
    "role": "fact"
   },
   {
@@ -2096,8 +2121,16 @@
    "label": "Alexander duality: #cycles = 1 + b1(P)",
    "status": "PROVED-HERE",
    "src": "topo",
-   "where": "topo/REPORT.md item 2",
-   "text": "The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P.",
+   "where": "topo/REPORT.md item 2; reft/REFEREE.md",
+   "text": "The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_referee-topology"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+   },
    "role": "fact"
   },
   {
@@ -2106,8 +2139,16 @@
    "label": "sutured Floer support; point-rainbow white trees",
    "status": "PROVED-HERE",
    "src": "topo",
-   "where": "topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices",
-   "text": "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree.",
+   "where": "topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices; reft/REFEREE.md",
+   "text": "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree. Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant. The referee announces a Rado/Euler proof of the point-rainbow criterion in RAINBOW.md, but that file was not yet present when integrated; that new proof was not inspected here.",
+   "review": {
+    "state": "refereed",
+    "by": [
+     "research/2026-11-14_fable_referee-topology"
+    ],
+    "date": "2026-11-14",
+    "verdict": "Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected."
+   },
    "role": "equiv"
   },
   {
@@ -2231,6 +2272,125 @@
    "where": "cat/REPORT.md (table); 948 contractions",
    "text": "Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would lift tree matchings along vertex splits.",
    "test": "Look for a local rule extending a tree matching across a vertex split on the 948 cases (cat/code/recursion.py contract).",
+   "role": "route"
+  },
+  {
+   "id": "G2.primal",
+   "step": "G2",
+   "label": "primal proof with flows and real signs",
+   "status": "PROVED-HERE",
+   "src": "primal",
+   "where": "proofs/primal/PRIMAL-PROOF.md; proofs/primal/STATUS.md",
+   "text": "A full primal route using disk cut counts, linear-weight nonvanishing, recovery and 3-cut gluing. Author audit and finite checks exist; independent review pending.",
+   "role": "route"
+  },
+  {
+   "id": "G2.drafta",
+   "step": "G2",
+   "label": "draft A: heights proof",
+   "status": "PROVED-HERE",
+   "src": "drafta",
+   "where": "paper/draft-A/barnette.tex; research/2026-11-14_opus_review-draft-A/REFEREE.md",
+   "text": "Manuscript route through signed intersection heights. The draft referee reports FOLLOWS with sentence repairs; this entry does not certify that every repair is applied.",
+   "role": "route"
+  },
+  {
+   "id": "G2.draftb",
+   "step": "G2",
+   "label": "draft B: scalar height moments",
+   "status": "PROVED-HERE",
+   "src": "draftb",
+   "where": "paper/draft-B/barnette.tex; research/2026-11-14_opus_manuscript-B/REPORT.md",
+   "text": "A manuscript route entirely in T. It uses the scalar height moment sum epsilon times omega(s)^m and an m-fold finite difference, then recovers via the tree of faces Y_s from Q_s plus two root sides. No plane spoke graph is needed. Author audit exists; final independent review pending.",
+   "role": "route"
+  },
+  {
+   "id": "D.families",
+   "step": "D",
+   "label": "exact even-prism counts",
+   "status": "PROVED-HERE",
+   "src": "families",
+   "where": "families/FAMILIES.md Section 1",
+   "text": "For a prism of order 4m: m states, two tree matchings, c_min=1 and normalized polynomial z^(m-1)-1. Full proof supplied, independent review pending.",
+   "partial": true,
+   "role": "partial"
+  },
+  {
+   "id": "D.ext1",
+   "step": "D",
+   "label": "distance one from a lattice extreme",
+   "status": "CONJECTURE",
+   "src": "conjectures",
+   "where": "conjectures/PREDICTIONS.md item 3",
+   "text": "Some element at rank distance at most one from a true extreme carries a forest pair.",
+   "test": "Enumerate true extremes and their rank-one neighbours through 24 vertices.",
+   "role": "route"
+  },
+  {
+   "id": "D.ext2",
+   "step": "D",
+   "label": "join or meet irreducible pair cover",
+   "status": "CONJECTURE",
+   "src": "conjectures",
+   "where": "conjectures/PREDICTIONS.md item 4",
+   "text": "Some join-irreducible or meet-irreducible lattice element carries a forest pair.",
+   "test": "Enumerate irreducibles and all cover orientations through 22 vertices.",
+   "role": "route"
+  },
+  {
+   "id": "TG.older",
+   "step": "TG",
+   "label": "older approaches: tests in progress",
+   "status": "HUNCH",
+   "src": "older",
+   "where": "older/BRIDGES.md; older/REPORT.md",
+   "text": "The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.",
+   "vivid": "A classical reduction could transport the missing root data.",
+   "test": "Replay the named prism, truncated-octahedron and Pfaffian tests when the report is available.",
+   "role": "route"
+  },
+  {
+   "id": "N.li-check",
+   "step": "N",
+   "label": "Li two-mark involutions on running example",
+   "status": "COMPUTED",
+   "src": "map",
+   "where": "research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json",
+   "text": "213 marked objects; iota1 fixes 141, iota2 fixes 9 of one sign; signed count -9. Closure, involutivity and sign reversal checked exhaustively on this instance.",
+   "role": "route"
+  },
+  {
+   "id": "B.height",
+   "step": "B",
+   "label": "signed white area is additive",
+   "status": "PROVED-HERE",
+   "src": "reft",
+   "where": "reft/REFEREE.md Section (h)",
+   "text": "The referee supplies a winding-number proof of height equals signed white area without separating triangles. This new proof has not itself had a second referee.",
+   "partial": true,
+   "role": "partial"
+  },
+  {
+   "id": "D.unbounded",
+   "step": "D",
+   "label": "unbounded c_min in Goodey chains",
+   "status": "PROVED-HERE",
+   "src": "older",
+   "where": "older/BRIDGES.md; older/REPORT.md",
+   "text": "End-rooted chains of k octahedra have k D-components in every pair, while primal faces have size four or six. Separating triangles are allowed. Author proof, not yet independently refereed.",
+   "partial": true,
+   "role": "partial"
+  },
+  {
+   "id": "TG.parity",
+   "step": "TG",
+   "label": "BF21 parity equals black-inner obstruction",
+   "status": "REFUTED",
+   "src": "older",
+   "where": "older/BRIDGES.md; older/REPORT.md",
+   "text": "Identify the even-interior condition of the older contracted graph with the black-inner separator obstruction.",
+   "lesson": "The two conditions belong to different incidence constructions; the radial tree is not H-s.",
+   "cex": "Truncated-octahedron contraction, author certificate not yet independently replayed.",
    "role": "route"
   }
  ]

@@ -14,6 +14,8 @@ Draw $G$ on the sphere. Put a new vertex in every face of $G$ and join two new v
 
 A Hamiltonian cycle of $G$ is a closed curve on the sphere. It has two sides. Every face of $G$, that is every vertex of $T$, lies on one side. On each side the faces must hang together like a tree. If they formed a ring, the ring would surround a vertex of $G$ that the curve never reaches. This is Stein's observation from 1971, and it turns the search for one long cycle into the search for two trees.
 
+Keep the two vertex sets separate: vertices of G become faces of T. A cycle through vertices of T would solve a different problem.
+
 ## Precise statements and proofs
 
 ### The dual is a simple triangulation with a face colouring
@@ -40,7 +42,7 @@ Now choose one black face $t_0$ and call it the outer face. Its three vertices a
 
 $$|A| = k - 1 = |X|.$$
 
-Call this number $n$. The equality is the reason states exist in step 03. It uses planarity through Euler's formula. On a torus the same count gives $|A| - |X| = 2$, and the proof stops before it starts. That remark is from `research/2026-11-14_astra_limits/HYPOTHESES.md`, proved in this project, not yet refereed. The count itself is two lines.
+Call this number $n$. The equality is necessary for a state to be a bijection. It does not alone prove that an incidence matching exists; step 03 supplies the matching argument. It uses planarity through Euler's formula. On a torus the same count gives $|A| - |X| = 2$, and the proof stops before it starts. That remark is from `research/2026-11-14_astra_limits/HYPOTHESES.md`, proved in this project, not yet refereed. The count itself is two lines.
 
 ### Tree/cotree duality
 
@@ -77,7 +79,7 @@ The extra condition on $e_0$ says that $e_0$ is a plain edge, so the Hamiltonian
 
 ## Worked example: the octahedron
 
-The dual of the cube is the octahedron. With the labels of `paper/figures/octahedron.json` its faces, listed counterclockwise, are
+The dual of the cube is the octahedron. With the labels of `paper/figures/octahedron.json` its coherently oriented face boundaries are listed below. Bounded faces run counterclockwise in the chosen drawing; the outer boundary has the opposite planar orientation. The faces are
 
 | Face | Corners | Colour | | Face | Corners | Colour |
 | --- | --- | --- | --- | --- | --- | --- |

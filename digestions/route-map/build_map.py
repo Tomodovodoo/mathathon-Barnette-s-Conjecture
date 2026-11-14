@@ -220,11 +220,11 @@ def draw(detail, stem):
         s = STEP[sid]
         v, k = s["verdict"], n_published_args(sid)
         if v == "forced":
-            return "FORCED: one published argument" if k <= 1 else f"FORCED: {k} wordings of one argument"
+            return "SHARED: one source argument" if k <= 1 else f"SHARED: {k} source formulations"
         if v == "rigid":
             return "RIGID"
         if v == "free":
-            return f"FREE: {k} published arguments"
+            return f"CHOICE: {k} source arguments"
         return "OPEN: no route known"
 
     def rows(sid, x, ytop, width=LISTW):
@@ -389,7 +389,7 @@ def draw(detail, stem):
         lx, ly = 3.2, yn + 1.75
     else:
         lx, ly = xmin + 0.4, pos["IT"][1] - 0.8
-    items = [("LIT", "published (2026 papers: unrefereed preprints)"), ("PROVED-HERE", "proved in this project (AI-refereed at best)"),
+    items = [("LIT", "source proof (2026 preprints: unrefereed)"), ("PROVED-HERE", "proved in this project (AI-refereed at best)"),
              ("COMPUTED", "computed check"), ("CONJECTURE", "conjecture with a stated test"), ("HUNCH", "hunch"),
              ("REFUTED", "refuted (kept, with its lesson)"), ("PARTIAL", "published, partial (stops short)")]
     lw_ = 3.7 if detail else 2.9
@@ -449,7 +449,7 @@ def draw_kinds():
     ax.set_ylim(0, H)
     ax.axis("off")
     ax.text(0.2, H - 0.3, "Kinds of argument tried at each step", fontsize=12, weight="bold", va="center")
-    ax.text(0.2, H - 0.58, "Each cell: established · open · refuted routes (published or proved here · conjecture or hunch · refuted). "
+    ax.text(0.2, H - 0.58, "Each cell: proof supplied · open · refuted (source or project proof; review status is in the written map). "
             "Darker = more routes. Blank = nobody has tried that kind of argument there.", fontsize=7.2, color="#444444", va="center")
     for j, (key, name) in enumerate(kinds):
         x = left + cw * (j + 0.5)

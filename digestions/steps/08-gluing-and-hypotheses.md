@@ -12,6 +12,8 @@ The second half of this file goes through the hypotheses of the theorem and of t
 
 A separating triangle cuts the sphere into two disks. Close each disk with a new triangular face, the cap. This gives two smaller triangulations of the same kind. Solve the piece that contains $t_0$. Its solution splits the three vertices of the triangle two against one. Now solve the other piece, asking for the same split on its cap. That request is an instance of the prescribed-edge condition, with the cap as outer face. The two solutions agree on the triangle and nowhere else do the pieces touch, so they glue.
 
+The induction solves the outer piece first. Its boundary split then determines the prescription for the inner piece. Choosing the two solutions independently would not justify gluing.
+
 ## Statement and proof
 
 **Theorem** (OpenAI Theorem 2.2). Let $T$ be a simple sphere triangulation with faces properly coloured black and white, $t_0$ a face and $e_0$ an edge of $t_0$. Then $V(T)$ splits into two sets, each inducing a tree, with the ends of $e_0$ in one set and the third vertex of $t_0$ in the other.
@@ -78,7 +80,7 @@ Status of the table. The first place each hypothesis is used can be read off the
 ## What does not work
 
 - **Choosing the root to avoid cutting.** For Hamiltonicity alone the root is free. In the double octahedron 8 of the 14 roots have a pair, so no cut is needed if one starts from one of them. Whether every triangulation has such a root is not known in the project. `research/2026-11-14_fable_dependency-graph/skeleton.md`, lead G1, expects it to fail when several separating triangles have their black sides arranged against each other and gives no example. Even where it works it does not give the prescribed edge at a prescribed face.
-- **Roots that are not the corners of one face.** Tutte's theory allows any three roots of three different colours. Lead G2 in the same file conjectures that a suitable triple always admits a pair. Untested, and the recovery of step 07 would need a replacement for the three spokes of $t_0$.
+- **Roots that are not the corners of one face.** Lead G2 proposes roots of three different colours away from one face, but does not specify which black face to omit. Without that omission there are k black faces and k-1 nonroot vertices, so a bijection is impossible by counting. A corrected formulation and a replacement for the three outer spokes are needed before testing it.
 - **Stronger prescriptions.** A Hamiltonian cycle through any given edge follows at once from avoidance. Avoid another edge at one of its ends, and the cycle must use the other two. A cycle through any path with three edges follows from a published equivalence of Gorsky, Steiner and Wiederrecht, which the OpenAI paper uses for Corollary 7.2. A cycle through any path with four edges is false already on the cube. In the cube two vertices at distance two have two common neighbours. Take a path $v_0 v_1 v_2 v_3 v_4$ in which neither end is the second common neighbour $x$ of $v_1$ and $v_3$. A Hamiltonian cycle through the path uses both of its edges at $v_1$ and at $v_3$ inside the path. So $x$ has one usable edge left and cannot lie on the cycle. The observation is from `astra_limits/STRENGTHENINGS.md`, with an explicit path in `examples/P5_cube.json`. It is not refereed, and the argument here is complete as written.
 
 ## Other routes

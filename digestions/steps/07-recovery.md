@@ -14,6 +14,8 @@ A state removes one spoke from every black face. If what remains of the spoke gr
 
 A rooted tree is the same as a way to give every non-root node its own edge, the edge to its parent. Here that gives every white face one black face, across one edge of $T$. Select those edges. Every face of $T$, black or white, now has exactly one selected edge. In $G$ this is a perfect matching, and by step 01 its complement is a 2-factor. The disk identity shows that the selected edges contain no cycle, and by duality that means the 2-factor is connected.
 
+There are two different roots here. The three vertices of t0 root the components of Q_s; the single white face y0 roots the white-face tree.
+
 ## The six links
 
 Fix a pair $(r,s)$ with $Q_s$ a forest, the outer face $t_0$, an edge $e_0$ of $t_0$, and let $y_0$ be the white face on the other side of $e_0$.

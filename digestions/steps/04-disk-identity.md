@@ -50,6 +50,8 @@ Put $E = 3B + h - \ell$ into Count 3. The $h$ cancels and $I + \ell - 2B + W = 1
 
 One point that the papers pass over quickly. The proof uses that the inside of $C$ is a disk whose faces and vertices can be counted by Euler's formula. In the Lean formalisation this costs about 500 lines (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, item 4 of its summary). On paper it is the Jordan curve theorem for a simple cycle in a plane graph.
 
+The bounded disk always means the side away from the outer face. Reversing a traversal changes its delta-sum, but does not change B, W, I or the number of black-inside boundary edges.
+
 ## Worked examples
 
 **Octahedron.** For the pair $r = (5,3,4)$, $s = (3,4,5)$ the edges $r(t) \to s(t)$ are $5 \to 3$, $3 \to 4$, $4 \to 5$. They form the cycle $3 \to 4 \to 5 \to 3$ around the white face $(3,4,5)$, counterclockwise. Here $h = 3$, $\ell = 0$, $B = 0$, $W = 1$, $I = 0$. Each step has its black face on the right, so the $\delta$-sum is $-3$.

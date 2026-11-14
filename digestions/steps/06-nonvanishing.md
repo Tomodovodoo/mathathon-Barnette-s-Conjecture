@@ -78,6 +78,8 @@ The last two came out of this project. Linear weights are section 7 of `research
 
 The trees paper also turns its argument into an algorithm, the marked walk. See step 09.
 
+The selected white faces w_i need not be distinct: nested cycles can use the same face. The indices i remain distinct, so the expansion counts bijections of indices even when face names repeat.
+
 ## Full proof of the heights version
 
 **Proposition** (OpenAI Proposition 5.1). If a pair exists, some pair $(r,s)$ has $Q_s$ a forest.
@@ -155,6 +157,8 @@ The total is $1$. The predicted value is $(-1)^{(n-m)/2} N$ with $N$ the number 
 
 **The cube.** One cover with one cycle, the triangle $3,4,5$ around one white face. $\mathcal F = w^{s_2} - w^{s_1}$, the trees paper's polynomial is $1 - z$, the OpenAI sum is $i(1 - e^{x})$, and $P(x) = -x$.
 
+![Two covers sharing the same cancelling second state](img/two-covers.png)
+
 ## Why cancellation across covers cannot be avoided
 
 A natural hope is to work inside one cover. Fix $D$, look at its $2^c$ orientations, and show that one of them is a forest pair. The data supported this for a long time. It holds for all 1,794 rooted triangulations with a pair and at most 15 vertices. It is false.
@@ -170,6 +174,8 @@ Here $m = 1$, and the cover that makes the lowest coefficient non-zero is exactl
 Status. Found by `fable_route-combinatorics`, reproduced by its referee with independent code, and recomputed by my script from the face list. It is the only failure among the 5,088 rooted triangulations with a pair and at most 16 vertices.
 
 The same lesson was first seen on a larger example in `fable_dependency-graph/skeleton.md`, lead D2. In the octahedron with every face split in four, which has 18 vertices, the 4 pairs with one cycle all have a cycle in $Q_s$, and the 12 forest pairs all have three cycles. That one is computed and not refereed.
+
+![The two orientations of the bad 16-vertex cover](img/bad-cover-16.png)
 
 ## Why extremal choices fail
 

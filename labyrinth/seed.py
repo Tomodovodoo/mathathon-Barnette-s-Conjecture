@@ -9,8 +9,8 @@ Command:  python -X utf8 -B labyrinth/seed.py
 Then:     python -X utf8 -B labyrinth/lab.py check && python -X utf8 -B labyrinth/lab.py build
 
 Tier policy (see labyrinth/README.md):
-  T1  LIT. Classical results are published. The three 2026 papers are unrefereed preprints; the brief of this
-      run files them as literature, and each such node says so in its status.
+  T1  Peer-reviewed literature or standard facts. LIT identifies provenance, not tier.
+      Supplied 2026 preprint claims are conservatively T2 with explicit review status.
   T2  PROVED-HERE, with the review state of the agent folder it comes from. Referees are AI agents; no node is
       human-checked.
   T3  only the census cross-check, where two independent implementations agree instance by instance.
@@ -31,7 +31,7 @@ PREFIX = {"LIT": "th", "PROVED-HERE": "p", "COMPUTED": "c", "CONJECTURE": "k", "
 
 
 def nid(r):
-    return f"{PREFIX[r['status']]}.{r['id']}"
+    return "k.D.7" if r["id"] == "D.7" else f"{PREFIX[r['status']]}.{r['id']}"
 
 
 def srcs(r):
@@ -48,6 +48,7 @@ def expand(where):
 def review_of(r):
     """Review state of a PROVED-HERE route: the best state among the folders that hold a written proof of it.
     The verdict names the folder whose proof the referee read, so a mixed provenance stays visible."""
+    if r.get("review"): return r["review"]
     order = ["unreviewed", "under-review", "refereed"]
     fs = [f for f in srcs(r) if f in RT.FOLDERS]
     best = max(fs, key=lambda f: order.index(RT.REVIEW.get(f, {"state": "unreviewed"})["state"]))
@@ -108,8 +109,8 @@ for w in RT.WAYPOINTS:
         if s["id"] in ("U", "TG"):
             continue
         links += [{"to": f"wp.{f}", "rel": "uses"} for f in s["frm"]]
-    nodes.append(dict(id=f"wp.{w['id']}", kind="theorem", tier="T1",
-                      status="established (LIT: waypoint of the 2026 proofs; the papers are unrefereed preprints)",
+    nodes.append(dict(id=f"wp.{w['id']}", kind="theorem", tier="T2", review={"state":"unreviewed"},
+                      status="source waypoint; unrefereed preprint, not a peer-review claim",
                       title=w["name"], statement=w["what"], links=links, tags=["waypoint"],
                       where=["digestions/route-map/ROUTE-MAP.md"], created=DAY, updated=DAY))
 for s in RT.STEPS:
@@ -132,15 +133,16 @@ for r in RT.ROUTES:
              created=DAY, updated=DAY)
     if st == "LIT":
         pre = all(f in ("O", "L", "T", "Lean") or f in RT.FOLDERS for f in srcs(r))
-        n.update(kind="theorem", tier="T1",
+        n.update(kind="theorem", tier="T2" if pre else "T1",
                  status=("established (LIT: 2026 preprint or its formalisation, unrefereed)" if pre else "established (LIT: published)")
                  + (", partial result" if r.get("partial") else ""))
+        if pre: n["review"] = {"state": "unreviewed", "verdict": "Supplied preprint or formal source; no journal review claimed."}
         links.append({"to": f"wp.{s['to']}", "rel": "supports"})
     elif st == "PROVED-HERE":
         rv = review_of(r)
         label = {"unreviewed": "unreviewed", "under-review": "under review",
                  "refereed": "1 independent AI referee; human check pending"}[rv["state"]]
-        n.update(kind="theorem", tier="T2", status=f"established: proved here ({label})", review=rv)
+        n.update(kind="theorem", tier="T2", status=f"proof supplied ({label})", review=rv)
         links.append({"to": f"wp.{s['to']}", "rel": "supports"})
     elif st == "COMPUTED":
         n.update(kind="evidence", tier="T4", status="computed", evidence=[expand(r["where"])])
@@ -249,7 +251,7 @@ DOORS = [
      "then k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.", ["k.U.7h", "k.N.11", "h.U.1h", "h.N.5"]),
     ("q.canonical", "Is there a canonical forest pair?",
      "Seven extremal rules are refuted. Only 'lattice min or max' survives, on random samples.",
-     "First test: exhaustive census to 24 vertices for k.D.7; apply the Hine-Kalman bijection to the 8 tree matchings of f.cls6-12 (k.D.6).", ["k.D.7", "k.D.6"]),
+     "First test: independently replay the reported 18-vertex joint failures of k.D.7; apply the Hine-Kalman bijection to the 8 tree matchings of f.cls6-12 (k.D.6).", ["k.D.7", "k.D.6"]),
     ("q.tm-lower", "How many tree matchings must there be?",
      "Proved here: at least 2 cmin. Conjectured: at least 2^cmin (no exception among 5088 cases; equality in 4609).",
      "First test: extend the census to 17 and 18 vertices restricted to cmin >= 3 and look for a count below 8.", ["k.D.3", "p.D.2"]),
@@ -363,13 +365,12 @@ ev("2026-11-14T10:55:00Z", "answered", "Dependency-graph conjecture A2 answered:
 ev("2026-11-14T10:48:00Z", "computed", "Cross-check for this map: the two independent enumerations agree on all 7868 rooted triangulations up to 16 vertices", ["e.census16"], ["labyrinth/frontier_crosscheck.json"])
 ev("2026-11-14T11:05:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
 E.sort(key=lambda e: e["ts"])
-old = []
 pth = LAB / "events.jsonl"
-if pth.exists():
-    for line in pth.read_text(encoding="utf-8").splitlines():
-        if line.strip() and not json.loads(line).get("backfilled"):
-            old.append(line)
-pth.write_text("\n".join([json.dumps(e) for e in E] + old) + "\n", encoding="ascii")
+old = pth.read_text(encoding="utf-8").splitlines() if pth.exists() else []
+known = {(json.loads(line)["ts"], json.loads(line)["type"]) for line in old if line.strip()}
+with pth.open("a", encoding="utf-8") as f:
+    for e in E:
+        if (e["ts"], e["type"]) not in known: f.write(json.dumps(e) + "\n")
 
 # ---------------------------------------------------------------- state of the art
 G1, G2, G3, G4 = "The theorem and its proofs", "Structure of tree matchings", "Formulas and algorithms", "Verification"
@@ -397,7 +398,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
          row("pair", G1, "Exact hypothesis for the first pair",
              "A pair exists iff no separating triangle has black inner boundary, iff t0 is on the black side of every separating triangle. "
              "One exact Euler identity proves both directions.",
-             "LIT (trees paper Thm 1.2); short proof proved here (gt, under review); computed on all 7868 roots up to 16 vertices", "proved",
+             "LIT (trees paper Thm 1.2); short proof checked in structure referee INTEGRATION.md; final REPORT still provisional; computed on all 7868 roots up to 16 vertices", "proved",
              ["th.A.T", "p.A.GT", "c.A.c"], ["trees paper 2026"], [("2026-10-06", "sufficient: no separating triangle (OpenAI Prop. 3.1)")]),
          row("disk", G1, "What the disk identity is used for",
              "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
@@ -410,10 +411,10 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              "2 cmin proved here (1 AI referee; human check pending); 2^cmin conjecture", "proved", ["p.D.2", "k.D.3", "e.census16"], [],
              [("2026-10-18", "at least 2: both signs occur in every exchange component (trees paper Thm 5.2)")]),
          row("rarity", G2, "Fraction of states that are tree matchings", "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings.",
-             "proved here (lim, under review); computed for q <= 6", "proved", ["p.D.5", "f.rarity"], []),
+             "proved here, checked in structure referee INTEGRATION.md Section 6; computed for q <= 6", "proved", ["p.D.5", "f.rarity"], []),
          row("canonical", G2, "Canonical forest pair", "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, "
-             "each lattice extreme alone: all refuted. 'Lattice minimum or maximum' has no joint failure in 180 random instances.",
-             "conjecture", "conjecture", ["k.D.7", "x.N.x4", "x.N.x5", "x.N.x6"], []),
+             "each lattice extreme alone: all refuted. The conjecture campaign reports joint failures of the true minimum and maximum at 18 vertices; independent replay pending.",
+             "reported refuted; finite computation under review", "partial", ["k.D.7", "x.N.x4", "x.N.x5", "x.N.x6"], []),
          row("which-hc", G2, "Which Hamiltonian cycles arise from tree matchings",
              "Exactly the cycles avoiding e0* whose state has a partner. Recovery is injective, not onto (prism: 2 of 4). 3 #TM <= #HC(G).",
              "proved here (comb: 1 AI referee; lim, gt: under review)", "proved", ["p.U.5", "p.F.3", "x.A.x1"], []),
@@ -447,6 +448,17 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
 for e in S["entries"]:
     for ref in e["refs"]:
         assert ref in IDS, (e["id"], ref)
+# Keep prior state-of-the-art results when a row changes.
+prior_path = LAB / "sota.json"
+prior = json.loads(prior_path.read_text(encoding="utf-8")) if prior_path.exists() else {"entries": []}
+prior_by_id = {r["id"]: r for r in prior["entries"]}
+for r in S["entries"]:
+    old_row = prior_by_id.get(r["id"])
+    if old_row:
+        r["previous"] = old_row.get("previous", [])
+        if old_row["result"] != r["result"]:
+            r["previous"].append({"date": DAY, "was": old_row["result"], "status": old_row["status"]})
+S["entries"].append(dict(id="new-presentations", updated=DAY, group=G1, cls="Additional manuscript routes", result="Primal proof, draft A heights proof, draft B scalar-height-moment proof; exact prism families as a separate structural route.", status="Proofs supplied; draft A referee reports sentence repairs; remaining independent reviews pending.", kind="partial", refs=["p.G2.primal", "p.G2.drafta", "p.G2.draftb", "p.D.families"], lit=[], previous=[]))
 (LAB / "sota.json").write_text(json.dumps(S, indent=1), encoding="ascii")
 from collections import Counter
 print(sorted(Counter(n["id"].split(".")[0] for n in nodes).items()))

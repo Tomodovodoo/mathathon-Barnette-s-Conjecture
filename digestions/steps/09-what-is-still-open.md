@@ -8,6 +8,8 @@ The proof shows that a Hamiltonian cycle exists. It does not say how to find one
 
 Nothing here is needed for the proof. Unlike the other files, most of the content is unrefereed or conjectural, and every item says so.
 
+A finite check supports only its stated range. A proof supplied by an agent, a second-model referee verdict and a machine-checked theorem are different kinds of evidence; the status beside each claim records which is available.
+
 ## 1. Algorithms and complexity
 
 ### What is known
@@ -70,7 +72,7 @@ Let $m = c_{\min}$ be the least number of cycles formed by a pair, and write TM 
 | $3\,\mathrm{TM} \le \mathrm{HC}$ | proved in the same file, Proposition 7, and checked by a second model |
 | $\mathrm{TM} \ge 2^{m}$ | **conjecture.** True for all 5,088 rooted triangulations with a pair and at most 16 vertices, with equality in 4,609 of them. Two independent enumerations agree. A rooted triangulation with a pair and fewer tree matchings would refute it |
 | tree matchings split into cubes of dimension $m$ | refuted. The running example has 6 tree matchings and $m = 2$ |
-| $m$ can be large | $m$ reaches 4 in the range computed. The referee points out that this does not prove that $m$ is unbounded |
+| $m$ can be large | The earlier census only reached 4. The new older-approaches report supplies a proof that end-rooted chains of k octahedra have m=k. This allows separating triangles; PROVED-HERE, unreviewed, `research/2026-11-14_astra_older-approaches/BRIDGES.md` |
 
 The conjecture $\mathrm{TM} \ge 2^m$ says that instances whose cycle covers need many cycles have more tree matchings, not fewer. A proof would have to explain the moment identities of step 06 by some structure finer than a partition into cubes.
 
@@ -98,7 +100,7 @@ Step 06 lists the canonical choices that fail. Two questions survive.
 - **A proof inside one cycle cover.** Impossible, by the 16-vertex example of step 06.
 - **A proof by a positivity theorem for determinants.** The matrices involved are not positive semidefinite. Open, with no lead.
 - **A probabilistic proof.** The two reversals look like cycle popping in Wilson's algorithm. A hunch in `research/2026-11-14_fable_dependency-graph/skeleton.md`, edge D4.
-- **A topological proof of the disk identity** as a statement about the degree of the colouring map. A hunch, same file, edge B2.
+- **A topological proof of the disk identity** as a statement about the degree of the colouring map. The topology report now supplies a combinatorial Gauss-Bonnet proof, checked with boundary and outer-face clarifications in `research/2026-11-14_fable_referee-topology/REFEREE.md`. It is a different reading of Euler counting, not a replacement for it.
 
 ## 5. Stronger statements
 

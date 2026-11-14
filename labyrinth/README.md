@@ -36,9 +36,9 @@ python -X utf8 -B labyrinth/lab.py event computed "summary" --nodes k.D.3 --evid
 
 | Kind | Count | Where they come from |
 | --- | --- | --- |
-| waypoints `wp.*` (theorem, T1) | 16 | the stations of the proof |
+| waypoints `wp.*` (source claims, T2) | 16 | the stations of the proof |
 | steps `m.step.*` (method) | 17 | the arguments between stations, each with a verdict forced, free, rigid or open |
-| published routes `th.*` (theorem, T1) | 46 | the three papers, the Lean proof, older literature |
+| source routes `th.*` (theorem, T1 or T2) | 46 | the three papers, the Lean proof, older literature |
 | proved here `p.*` (theorem, T2) | 40 | agent folders, with review state |
 | computed `c.*` (evidence, T4) and `e.census16` (exhaustive, T3) | 10 | scripts named in `evidence` |
 | conjectures `k.*` (T5) | 17 | each with a test |
@@ -49,7 +49,7 @@ python -X utf8 -B labyrinth/lab.py event computed "summary" --nodes k.D.3 --evid
 
 ## Tier policy used here
 
-- **T1** is `LIT`. Classical results (Stein, Kelmans, Hertel, Tutte's trinity, Thomason) are published. The three 2026 papers are unrefereed preprints. The brief of this run files them as literature, so they are T1, and the status of every such node says "2026 preprint, unrefereed". Read T1 on those nodes as "stated and proved in a paper we hold", not as "peer reviewed".
+- **T1** is reserved for peer-reviewed literature or standard results. Supplied 2026 preprint claims and source waypoints are conservatively T2 with review status stated. LIT records provenance and does not by itself assign a tier.
 - **T2** is `PROVED-HERE`. The review state is that of the agent folder: `refereed` for route-combinatorics and for the determinant claims of route-constructive and route-dimers (one independent AI referee each), `under-review` for route-graph-theory and limits, `unreviewed` otherwise (dependency-graph, machinery-literature, route-algebra, route-topology, route-categorical, lean-formalisation, and what the referees added themselves). No node is human-checked. A referee changed review states only. No tier was promoted.
 - **T3** is used once, for the census of states, pairs and tree matchings up to 16 vertices, where two independent implementations agree on every one of the 7868 rooted triangulations (`frontier_crosscheck.json`).
 - **T4** is every other computation, **T5** every conjecture, **T6** every hunch.

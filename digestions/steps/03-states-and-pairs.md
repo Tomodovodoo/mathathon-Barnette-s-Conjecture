@@ -38,6 +38,8 @@ This equivalence is (3) of the trees paper. Step 07 turns a tree matching into t
 
 ![A state as a matching, and a second disjoint state](../../paper/figures/renders/05-state.png)
 
+The edge of Q_s is opposite s(t); the edge of D is incident with s(t). They are different edges of the same triangle. Reversing Q_s changes r only, while reversing D changes both states.
+
 ## Why a second state
 
 A single state does not tell you much about $Q_s$. A partner does three jobs.

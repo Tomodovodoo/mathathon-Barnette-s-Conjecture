@@ -945,3 +945,53 @@ _KIND_IDS = {
     "duality": "A.x2 TG.7 S0.1 S0.2 S0.3 TG.6 A.2 U.x4 E.1 E.Lean E2.1 E2.2 F.2 J2.2",
 }
 KIND_OF = {i: k for k, ids in _KIND_IDS.items() for i in ids.split()}
+# Audit integration, 14 November 2026. Source reports remain immutable.
+FOLDERS.update(primal='research/2026-11-14_astra_primal-proof', families='research/2026-11-14_sol_counting-families', conjectures='research/2026-11-14_opus_conjectures', older='research/2026-11-14_astra_older-approaches', drafta='paper/draft-A', draftb='paper/draft-B', reft='research/2026-11-14_fable_referee-topology')
+for tag in ('primal','families','conjectures','older','drafta','draftb'):
+    REVIEW[tag]={'state':'unreviewed'}
+REVIEW['topo']={'state':'under-review','by':[FOLDERS['reft']], 'verdict':'Code and outputs exist; no written referee verdict available.'}
+_upd('D.7', status='REFUTED', src='gt,conjectures', where='conjectures/PREDICTIONS.md items 1-2',
+     text='The claim that one of the two true lattice extremes always carries a forest pair is reported refuted. Independent replay is pending.',
+     lesson='Single-face terminal orientations need not be lattice extremes; even the true two extremes are reported insufficient. Test distance-one and irreducible replacements.',
+     cex='Reported at 18 vertices: 26 rooted instances in two triangulations. Provisional computation, no final report yet.')
+_upd('U.3', text='A tree matching is a common basis of the stated three matroids. The natural triple is irredundant. This does not rule out a different two-matroid encoding or a min-max theorem.')
+_upd('U.x5', cex='A half-integral vertex at 13 vertices; minimality not proved. A feasible completion has one tree state and one non-tree state (structure referee INTEGRATION.md).',
+     lesson='The natural LP is not integral. This does not exclude all encodings of the special spoke class; the broad hardness result is under polynomial Turing reductions.')
+route('G2.primal','G2','primal proof with flows and real signs','PROVED-HERE','primal','proofs/primal/PRIMAL-PROOF.md; proofs/primal/STATUS.md',
+      'A full primal route using disk cut counts, linear-weight nonvanishing, recovery and 3-cut gluing. Author audit and finite checks exist; independent review pending.')
+route('G2.drafta','G2','draft A: heights proof','PROVED-HERE','drafta','paper/draft-A/barnette.tex; research/2026-11-14_opus_review-draft-A/REFEREE.md',
+      'Manuscript route through signed intersection heights. The draft referee reports FOLLOWS with sentence repairs; this entry does not certify that every repair is applied.')
+route('G2.draftb','G2','draft B: polynomial proof','PROVED-HERE','draftb','paper/draft-B/',
+      'A separate manuscript presentation of the polynomial route. No final independent referee report available at this snapshot.')
+route('D.families','D','exact even-prism counts','PROVED-HERE','families','families/FAMILIES.md Section 1',
+      'For a prism of order 4m: m states, two tree matchings, c_min=1 and normalized polynomial z^(m-1)-1. Full proof supplied, independent review pending.',partial=True)
+route('D.ext1','D','distance one from a lattice extreme','CONJECTURE','conjectures','conjectures/PREDICTIONS.md item 3',
+      'Some element at rank distance at most one from a true extreme carries a forest pair.',test='Enumerate true extremes and their rank-one neighbours through 24 vertices.')
+route('D.ext2','D','join or meet irreducible pair cover','CONJECTURE','conjectures','conjectures/PREDICTIONS.md item 4',
+      'Some join-irreducible or meet-irreducible lattice element carries a forest pair.',test='Enumerate irreducibles and all cover orientations through 22 vertices.')
+route('TG.older','TG','older approaches: tests in progress','HUNCH','older','older/TESTS.md',
+      'Test whether contractions and Pfaffian translations supply the rooted incidence structure needed for nonvanishing.',
+      vivid='A classical reduction could transport the missing root data.',test='Replay the named prism, truncated-octahedron and Pfaffian tests when the report is available.')
+route('N.li-check','N','Li two-mark involutions on running example','COMPUTED','map','research/2026-11-14_astra_audit-digestions/code/verify.py; outputs/verification.json',
+      '213 marked objects; iota1 fixes 141, iota2 fixes 9 of one sign; signed count -9. Closure, involutivity and sign reversal checked exhaustively on this instance.')
+KIND_OF.update({'G2.primal':'polynomial','G2.drafta':'polynomial','G2.draftb':'polynomial','D.families':'count','D.ext1':'order','D.ext2':'order','TG.older':'duality','N.li-check':'bijective'})
+STATUS_NAME['LIT']='source result; 2026 sources are unrefereed preprints'
+# Reports arriving during the audit. Reviews apply to named claims, not whole folders.
+for rid in ('B.6','F.6','K.4','U.7'):
+    _upd(rid, where='+; reft/REFEREE.md', text='+ Independently AI-refereed in the topology referee report; human checking pending. Apply the referee corrections where relevant.')
+_upd('B.6', label='combinatorial Gauss-Bonnet with signed angles', text='+ The proof uses Euler counting, not a smooth turning-tangents theorem. Boundary flatness and exclusion of the outer face are required.')
+_upd('K.4', text='+ Correct grading: J = J_ccw - 2 times the number of clockwise Q-cycles. Pair each root with its outer-centre spoke in the Forman reading. Numerical checks of the Boolean levels only reach k <= 1.')
+_upd('U.7', text='+ The referee announces a Rado/Euler proof of the point-rainbow criterion in RAINBOW.md, but that file was not yet present when integrated; that new proof was not inspected here.')
+route('B.height','B','signed white area is additive','PROVED-HERE','reft','reft/REFEREE.md Section (h)',
+      'The referee supplies a winding-number proof of height equals signed white area without separating triangles. This new proof has not itself had a second referee.',partial=True)
+route('D.unbounded','D','unbounded c_min in Goodey chains','PROVED-HERE','older','older/BRIDGES.md; older/REPORT.md',
+      'End-rooted chains of k octahedra have k D-components in every pair, while primal faces have size four or six. Separating triangles are allowed. Author proof, not yet independently refereed.',partial=True)
+route('TG.parity','TG','BF21 parity equals black-inner obstruction','REFUTED','older','older/BRIDGES.md; older/REPORT.md',
+      'Identify the even-interior condition of the older contracted graph with the black-inner separator obstruction.',
+      lesson='The two conditions belong to different incidence constructions; the radial tree is not H-s.',cex='Truncated-octahedron contraction, author certificate not yet independently replayed.')
+_upd('TG.older', where='older/BRIDGES.md; older/REPORT.md',text='The final report gives a radial/permeating-tree dictionary and rejects a direct identification with H-s. A direct Pfaffian transfer still lacks balanced incidence objects, disk identity and recovery.')
+KIND_OF.update({'B.height':'topology','D.unbounded':'induction','TG.parity':'duality'})
+for r in R:
+    if r['id'] in ('B.6','F.6','K.4','U.7'):
+        r['review']={'state':'refereed','by':[FOLDERS['reft']], 'date':'2026-11-14','verdict':'Named claim checked with corrections in REFEREE.md; human check pending. Newly announced RAINBOW.md proof not inspected.'}
+_upd('G2.draftb', label='draft B: scalar height moments', where='paper/draft-B/barnette.tex; research/2026-11-14_opus_manuscript-B/REPORT.md', text='A manuscript route entirely in T. It uses the scalar height moment sum epsilon times omega(s)^m and an m-fold finite difference, then recovers via the tree of faces Y_s from Q_s plus two root sides. No plane spoke graph is needed. Author audit exists; final independent review pending.')

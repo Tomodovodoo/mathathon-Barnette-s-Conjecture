@@ -70,7 +70,7 @@
    "group": "The theorem and its proofs",
    "cls": "Exact hypothesis for the first pair",
    "result": "A pair exists iff no separating triangle has black inner boundary, iff t0 is on the black side of every separating triangle. One exact Euler identity proves both directions.",
-   "status": "LIT (trees paper Thm 1.2); short proof proved here (gt, under review); computed on all 7868 roots up to 16 vertices",
+   "status": "LIT (trees paper Thm 1.2); short proof checked in structure referee INTEGRATION.md; final REPORT still provisional; computed on all 7868 roots up to 16 vertices",
    "kind": "proved",
    "refs": [
     "th.A.T",
@@ -85,6 +85,11 @@
     {
      "date": "2026-10-06",
      "was": "sufficient: no separating triangle (OpenAI Prop. 3.1)"
+    },
+    {
+     "date": "2026-11-14",
+     "status": "LIT (trees paper Thm 1.2); short proof proved here (gt, under review); computed on all 7868 roots up to 16 vertices",
+     "was": "A pair exists iff no separating triangle has black inner boundary, iff t0 is on the black side of every separating triangle. One exact Euler identity proves both directions."
     }
    ]
   },
@@ -113,7 +118,7 @@
    "group": "The theorem and its proofs",
    "cls": "Existence proof with no signed count",
    "result": "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
-   "status": "open; 39 dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)",
+   "status": "open; 41 dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)",
    "kind": "partial",
    "refs": [
     "q.structural",
@@ -123,7 +128,13 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "status": "open; 39 dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)",
+     "was": "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted."
+    }
+   ]
   },
   {
    "id": "tm-lower",
@@ -151,7 +162,7 @@
    "group": "Structure of tree matchings",
    "cls": "Fraction of states that are tree matchings",
    "result": "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings.",
-   "status": "proved here (lim, under review); computed for q <= 6",
+   "status": "proved here, checked in structure referee INTEGRATION.md Section 6; computed for q <= 6",
    "kind": "proved",
    "refs": [
     "p.D.5",
@@ -159,15 +170,21 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "status": "proved here (lim, under review); computed for q <= 6",
+     "was": "Can be (2/3)^q on 5q + 3 vertices: 3^q states, 2^q tree matchings."
+    }
+   ]
   },
   {
    "id": "canonical",
    "group": "Structure of tree matchings",
    "cls": "Canonical forest pair",
-   "result": "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, each lattice extreme alone: all refuted. 'Lattice minimum or maximum' has no joint failure in 180 random instances.",
-   "status": "conjecture",
-   "kind": "conjecture",
+   "result": "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, each lattice extreme alone: all refuted. The conjecture campaign reports joint failures of the true minimum and maximum at 18 vertices; independent replay pending.",
+   "status": "reported refuted; finite computation under review",
+   "kind": "partial",
    "refs": [
     "k.D.7",
     "x.N.x4",
@@ -176,7 +193,13 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
-   "previous": []
+   "previous": [
+    {
+     "date": "2026-11-14",
+     "status": "conjecture",
+     "was": "None known. Highest state, lowest state, one-way minimal cover, largest rank difference, each lattice extreme alone: all refuted. 'Lattice minimum or maximum' has no joint failure in 180 random instances."
+    }
+   ]
   },
   {
    "id": "which-hc",
@@ -302,6 +325,23 @@
    ],
    "lit": [],
    "updated": "2026-11-14",
+   "previous": []
+  },
+  {
+   "id": "new-presentations",
+   "updated": "2026-11-14",
+   "group": "The theorem and its proofs",
+   "cls": "Additional manuscript routes",
+   "result": "Primal proof, draft A heights proof, draft B scalar-height-moment proof; exact prism families as a separate structural route.",
+   "status": "Proofs supplied; draft A referee reports sentence repairs; remaining independent reviews pending.",
+   "kind": "partial",
+   "refs": [
+    "p.G2.primal",
+    "p.G2.drafta",
+    "p.G2.draftb",
+    "p.D.families"
+   ],
+   "lit": [],
    "previous": []
   }
  ]

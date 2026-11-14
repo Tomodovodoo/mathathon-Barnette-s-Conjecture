@@ -4,6 +4,8 @@ A plain account for a graduate student, written from the route map (`ROUTE-MAP.m
 
 Status tags. `LIT` means stated and proved in one of the three 2026 papers (unrefereed preprints: O is the OpenAI paper, L is Li's note, T is the trees paper) or in older published work. `PROVED-HERE` means a full proof sits in an agent folder of this project. None of those has been checked by a human, and I say which ones an AI referee has passed. `COMPUTED` gives the range. `CONJECTURE`, `HUNCH` and `REFUTED` mean what they say.
 
+The diagram records routes supplied by these sources. Its words "forced" and "free" describe that inventory, not a theorem that other proofs are impossible. A route ID such as N.H is only a lookup key; the explanation below can be read without following those links.
+
 ## 1. What must be shown
 
 A Barnette graph `G` is cubic, bipartite, planar and 3-connected. The claim is that `G` has a Hamiltonian cycle. The proof gives more. For any edge of `G` there is a Hamiltonian cycle that avoids it [`LIT`, O Corollary 7.1].
@@ -12,7 +14,7 @@ Work in the dual. `T = G*` is a triangulation of the sphere. It is simple becaus
 
 A Hamiltonian cycle of `G` is a closed curve on the sphere that passes through every triangle of `T` once. It cuts the vertices of `T` into an inside set and an outside set, and each set induces a tree in `T`. The converse holds too, so the goal has been known since 1971 in this form, to split `V(T)` into two induced trees [`LIT`, Stein 1971; Alt, Payne, Schmidt, Wood 2016].
 
-For 57 years people tried to cross that one edge of the map directly. Face-size bounds reached 8, computers reached 90 vertices, and several equivalent forms were found [`LIT`]. None of it produced a way to make the two trees exist. The obstacle is that 3-connectivity is a global property, and the conjecture is false without it from face size 10 on [`LIT`, Schnieders 2025]. A local reduction cannot see it.
+For 57 years people tried to cross that one edge of the map directly. Face-size bounds reached 8, computers reached 90 vertices, and several equivalent forms were found [`LIT`]. None of it produced a way to make the two trees exist. The obstacle is that 3-connectivity is a global property, and the conjecture is false without it from face size 10 on [`LIT`, Schnieders 2025]. This explains an obstacle for those local reductions; it does not exclude every possible local method.
 
 The 2026 proof does not cross that edge. It goes down through a dozen other waypoints and comes back up. The rest of this note explains why each waypoint is there.
 
@@ -60,7 +62,7 @@ The proof counts instead. Attach a sign to every pair, add up the signs of all p
 
 **The sign.** Going from `r(t)` to `s(t)` along the boundary of the black face `t` is either counterclockwise or clockwise. Write `δ = +1` or `-1`. The sign of the pair is the product of these `n` numbers [`PROVED-HERE`, route-dimers, AI-refereed; it agrees with the phase `i^J` of O and the signs of L and T up to a constant depending on `n` only, dependency-graph, unreviewed].
 
-**The disk identity.** The sign is only useful if both moves flip it. Reversing a cycle of `D` of length `h` changes `h` of the factors `δ`, so the sign is multiplied by `(-1)^h`. The same happens for a cycle of `Q_s`. So everything rests on one fact. These cycles have odd length. That is a consequence of the only new lemma in the proof [`LIT`, O Lemma 4.1]:
+**The disk identity.** The sign is only useful if both moves flip it. Reversing a cycle of `D` of length `h` changes `h` of the factors `δ`, so the sign is multiplied by `(-1)^h`. The same happens for a cycle of `Q_s`. So everything rests on one fact. These cycles have odd length. That is a consequence of the disk-counting lemma [`LIT`, O Lemma 4.1]:
 
 > Let a state choose a corner in each black face, and let a directed cycle run through edges that leave their black face from the chosen corner. Then the disk bounded by the cycle, on the side away from `t0`, contains exactly one more white face than black faces.
 
@@ -111,7 +113,7 @@ The map as a whole, step by step. `ROUTE-MAP.md` has the details in its section 
 | --- | --- | --- | --- |
 | dual, states, count | 1 (the Lean proof builds the dual algebraically) | hypotheses each shown necessary by a witness | forced |
 | first pair | 4 | one exact Euler identity | free |
-| disk identity | 1 | readings (one more white face; winding of the 3-colouring); a derivation from the theorem of turning tangents, unreviewed | forced |
+| disk identity | 1 | readings (one more white face; winding of the 3-colouring); a signed-angle Gauss-Bonnet derivation, AI-refereed with boundary corrections | forced |
 | sign, cancellation with `s` fixed | 1 | determinant form | forced |
 | nonvanishing | 5 | heights; linear weights | free |
 | forest pair to incidence tree to white tree to `P` | 1 | none sought | forced |

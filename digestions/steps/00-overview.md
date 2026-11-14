@@ -25,6 +25,8 @@ The proof gives more. For every edge $e$ of $G$ there is a Hamiltonian cycle tha
 
 Sentences 6 to 8 carry the new mathematics, the disk identity and the signed count it makes possible. The dual, the two trees, the avoided edge and the gluing were in the literature by 2016. States come from Tutte's theory of trinity and had not been used on this problem. This division is the reading of the project's literature review, `research/2026-11-14_opus_history-literature/WHAT-WAS-HARD.md` section 9, which marks it as its own judgement.
 
+The count in steps 05 and 06 is an existence proof. A nonzero signed sum forces at least one tree matching, but does not identify one efficiently. Step 07 is an explicit construction once that matching is supplied.
+
 ## Dependency diagram
 
 ```mermaid

@@ -63,6 +63,8 @@ What was used. Of the pair, that $r$ is injective, that $r(t) \neq s(t)$, and th
 
 The OpenAI paper proves the flip in another way. It uses $\delta(u,s) - \delta(r,s) = 2\delta(r,u)$ and then the exact value $\pm 3$ of the $\delta$-sum of $Z$ to get $J(r',s) = J(r,s) \pm 2$. The parity version above is shorter and is what `SIGNIFICANCE.md` recommends. That write-up has had no second reader. The two-line computation above is all it needs, and the flip was confirmed on every pair of every instance by two independent programs (`fable_referee-determinants/code/extra_checks.py` and my `examples.py`, which asserts $\varepsilon = (-1)^{(n+J)/2}$ on every pair).
 
+Here a cube is a finite set of independent binary choices, not a subgraph of the triangulation. Its dimension counts cycles that can be reversed independently.
+
 ## The two families of cubes
 
 The picture behind the proof is that the set of all pairs is cut into cubes in two different ways.
@@ -107,7 +109,7 @@ Status. The determinant formula is Proposition 5 of `fable_route-combinatorics/P
 ## What does not work
 
 - **A rule for $Z$ that depends on $r$.** Then the map need not be an involution, and the pairing of terms breaks. Nobody recorded a smallest counterexample, because a rule has to be specified first (`research/2026-11-14_astra_limits/HYPOTHESES.md`, not yet refereed).
-- **A weight that depends on $r$.** The twins must have equal weight. Only functions of $s$ are allowed.
+- **A weight that depends on $r$.** The twins must have equal weight. A function of $s$ guarantees this. More general weights are possible if they are invariant under the chosen involution.
 - **Counting without signs.** A state is a tree matching exactly when it has an odd number of partners, namely one. So the number of tree matchings has the parity of the number of pairs. That number is even, because $(r,s) \mapsto (s,r)$ has no fixed point. Counting modulo 2 proves nothing (`fable_dependency-graph/skeleton.md`, edge D3, proved there and not refereed).
 - **Constant weight.** With $F = 1$ the cancellation works and the total is zero for a different reason. Each cube of the first kind sums to zero. The conclusion is that tree matchings of sign $+1$ and $-1$ are equally many. In particular there are never exactly one. This says nothing about whether there are any. It is the reason step 06 needs weights.
 
