@@ -1,6 +1,6 @@
 # What the mathathon found
 
-Snapshot of 14 November 2026. GPT-6 Astra wrote this document. Fable 5.2 then checked every claim against its source and edited it ([ledger](../research/2026-11-14_fable_synthesis-audit/FACT-CHECK.md), [change log](../research/2026-11-14_fable_synthesis-audit/CHANGELOG.md)). No human has checked this document or any proof it describes.
+Snapshot of 14 November 2026. GPT-6 Astra wrote this document. Fable 5.2 then checked every claim against its source and edited it ([ledger](../research/2026-11-14_fable_synthesis-audit/FACT-CHECK.md), [change log](../research/2026-11-14_fable_synthesis-audit/CHANGELOG.md)). Opus 5.5 later updated the Lean paragraphs after the independent Lean check and folded in the runs that reported after Fable's last pass ([report](../research/2026-11-14_opus_lean-integration/REPORT.md)). No human has checked this document or any proof it describes.
 
 Names follow the main paper. A **good state** is what most research reports call a tree matching. A **good pair** is their forest pair or tree pair. A **cover** is the set of undirected cycles of a pair, and $m$ is the least number of cycles in a cover, their $c_{\min}$.
 
@@ -12,9 +12,9 @@ Fix a black triangle $t_0$ at $e_0$ and call its corners roots. A state chooses 
 
 Nobody knows how to point to a good state, so the proof counts. A pair is two states that differ in every triangle. Each pair gets a sign, and a weight that depends only on its second state. If the opposite sides of the second state contain a cycle, reversing that cycle changes the first state, keeps the weight and flips the sign, so all such pairs cancel. The same sum, grouped by the cycles along which the two states differ, is a repeated difference. Its first surviving term is a product of positive numbers, the counts of white triangles inside those cycles. So the sum is nonzero, and a good state exists as soon as one pair exists. A flow argument gives a pair when $T$ has no separating triangle. Otherwise the induction cuts along a separating triangle, and the prescribed side makes the two halves agree.
 
-**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 19-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 244 attempted routes, 77 of them recorded as refuted.
+**What we added.** No new theorem about Barnette's conjecture. The proof is OpenAI's. We wrote a 20-page exposition with one running example, two companion proofs, a statement-by-statement link to the Lean formalisation, and Lean files that check the paper's own sign and counting step, which a second model rebuilt and audited. Four changes shorten the argument: the disk identity stated as "one more white than black", a real sign that is a product of local signs, weights read as heights along paths of faces, and a finite difference in place of the exponential sum. One step the OpenAI paper leaves tacit is now proved: the inside of a cycle is a connected plane graph, so Euler's formula applies. Around the proof we have an exact criterion for the first pair, the set of Hamiltonian cycles the construction finds, counts on explicit families, and a map of 246 attempted routes, 77 of them recorded as refuted.
 
-**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Of the 34 statements on the paper's route, the blueprint matched 4 to a Lean declaration exactly, 25 after a translation nobody has formalised, and 5 not at all. A late Lean run then checked the sign, the cancellation and the nonvanishing step in the paper's form. By the checker's count from its list, that leaves 8 exact, 24 translated and 2 without a counterpart. Each companion proof passed two reviews by models other than its author. All of these checks are by AI models. No human has checked any of it.
+**What is solid.** The theorem itself: OpenAI's Lean proof builds locally and uses only the three standard axioms. That certifies OpenAI's formal route, not our text. Our main paper: Sol, a different model from its authors, refereed version 1 and found the route sound, with eight corrections off the route. Version 2 applies them. Sol's second audit, of the final text of version 2, again returns "follows", after eight small corrections of wording and scope. Opus added Lean for the paper's sign, cancellation and nonvanishing step, and Astra rebuilt it from a fresh clone and audited it statement by statement. With that audit, the 34 statements on the paper's route stand at 5 with an exact Lean counterpart, 17 after a translation to Lean's model that nobody has formalised, 10 where Lean has only a weaker or different form, and 2 with none. Section 4 says exactly what that covers. Each companion proof passed two reviews by models other than its author. All of these checks are by AI models. No human has checked any of it.
 
 **What is open.** A proof that avoids the signed count. We have none, and section 6 says why the obvious shortcuts fail. A polynomial-time way to find the cycle. The bound that there are at least $2^m$ good states. A direct proof for non-planar Pfaffian graphs. A complete formal proof of our own route.
 
@@ -28,14 +28,14 @@ Nobody knows how to point to a good state, so the proof counts. A pair is two st
 
 | Product | What it is, and its review status |
 |---|---|
-| [Main paper](../paper/main/barnette.pdf) | Version 2, 19 pages: target, corner choices, disk identity, signed count, first pair, gluing. Refereed in both versions. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is kept. |
-| [Primal companion](../proofs/primal/primal.pdf) | 15 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
+| [Main paper](../paper/main/barnette.pdf) | Version 2, 20 pages: target, corner choices, disk identity, signed count, first pair, gluing. Refereed in both versions. [Version 1](../paper/main/history/barnette-v1.pdf), 18 pages, is kept. |
+| [Primal companion](../proofs/primal/primal.pdf) | 16 pages. The whole proof in $G$, without the dual, close to the Lean route. Refereed, then accepted in a final review. |
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 pages. Li's argument for general $m$, written out as two sign-reversing involutions. Refereed twice. |
-| [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean. Not reviewed. |
-| [Lean devices](../proofs/lean/README.md) | 866 lines of Lean that prove the paper's sign lemma, cancellation, finite difference and nonvanishing step on top of OpenAI's proof. Checked by the Lean kernel. The reading against the paper is not reviewed. |
+| [Proof blueprint](../proofs/blueprint/BLUEPRINT.md) | Each statement of the main paper beside its counterparts in the OpenAI paper, the companions and Lean, with a status for each. Rebuilt on version 2 with the Lean audit's verdicts. The judgements are one model's reading. |
+| [Lean devices](../proofs/lean/README.md) | 866 lines of Lean on top of OpenAI's proof: the paper's sign, the cancellation in the case the proof uses, the finite difference and the nonvanishing step, with Lean's flow weights in place of heights. Rebuilt and audited by Astra. |
 | [Step digestions](steps/00-overview.md) | Eleven files with longer proofs, worked examples and failed alternatives for each step. Audited once. |
-| [Route map](route-map/ROUTE-MAP.md) | 244 route records sorted by the step they address. Start with [how it works](route-map/HOW-IT-WORKS.md). |
-| [Atlas](atlas/atlas.pdf) | 31 pages of computed pictures of 28 routes. Readings of one proof, not 28 proofs. Audited, and rebuilt with the audit's corrections. |
+| [Route map](route-map/ROUTE-MAP.md) | 246 route records sorted by the step they address. Start with [how it works](route-map/HOW-IT-WORKS.md). |
+| [Atlas](atlas/atlas.pdf) | 34 pages of computed pictures of 30 routes. Readings of one proof, not 30 proofs. Audited, and rebuilt with the audit's corrections. |
 | [Labyrinth](../labyrinth/README.md) | Claims, dependencies, evidence and open frontiers as structured data. |
 | [Reference lab](../workings/barnette_lab/README.md) | Code that enumerates states and pairs, evaluates the count and recovers cycles. |
 | [Library](../papers/INDEX.md) | 87 sources with access status, and a bibliography. |
@@ -80,9 +80,7 @@ The papers differ in substance at four steps: how the first pair is found, the w
 
 The Lean proof never uses faces or the Jordan curve theorem. It turns a drawing into an algebraic dual, treats the inside of a cycle as one shore of a bond of $G$, uses one flow and linear polynomial factors, recovers the cycle in $G$, and runs its induction on the avoided edge. It never states the two-induced-trees theorem and does not formalise the Pfaffian corollary. Opus built its 31 files, 8,936 lines, locally. The build prints only `propext`, `Classical.choice` and `Quot.sound`. [Lean report](../research/2026-11-14_opus_lean-formalisation/REPORT.md)
 
-The blueprint compares the main paper with that build. It was extracted from version 1, and version 2 keeps the statement numbers. Of the 34 statements on the route, four have an exact Lean counterpart: the definitions of state and pair, the two reversals, and the max-flow step. Twenty-five have a counterpart in another form and rest on five translations that are written down but not formalised. Five have none: connectivity from faces bounded by cycles, the two induced trees, a component count, the sign as a product, and the finite difference. Statements match more often than proofs. Only ten proofs follow Lean's argument, and the paper glues two trees where Lean glues matchings. Nobody has reviewed the blueprint's judgements. [Blueprint](../proofs/blueprint/BLUEPRINT.md)
-
-A later run by the same author closed part of that gap. In Lean's model it proves the sign as a product with both reversals, the cancellation with the real sign, the finite difference, and the nonvanishing step by $\epsilon\,\omega^m$. OpenAI's main theorem then rebuilds with its phase-and-polynomial lemma replaced by this one, on the same three axioms, and no longer uses the phase or the polynomial. Still unchecked: the heights as the paper defines them, since the Lean statement uses Lean's flow weights, and the two statements that need the Jordan curve theorem, connectivity from faces and the two induced trees. The blueprint is not yet updated, and no second model had finished reading the new statements against the paper. [Lean devices report](../research/2026-11-14_opus_lean-devices/REPORT.md), [blueprint delta](../proofs/lean/BLUEPRINT-DELTA.md)
+Opus then wrote 866 lines of Lean on top of that build, and Astra, a different model, rebuilt them from a fresh clone and audited each of the 29 theorems against the paper. What is checked, in Lean's algebraic model of the dual: the sign as a product of local signs with both reversals and its closed formula; the relation $\epsilon = i^n$ times OpenAI's phase; the cancellation, but only in the case where no pair has an acyclic $Q_s$, which is all the existence proof uses; the finite difference; and the nonvanishing step by $\epsilon\,\omega^m$, with Lean's flow weights as $\omega$ and not the paper's heights along paths of faces. With these, OpenAI's main theorem rebuilds unchanged on the three standard axioms, and Astra's own dependency walk confirms that it no longer reaches the six phase and polynomial lemmas it replaced. It still reaches general polynomial algebra from Mathlib through the unchanged dual construction. Not checked: the heights, Lemma 4.5 in full with the partner of a good state, the topological Lemma 2.2, the two induced trees, and the drawing itself. Astra also showed that one proposed target, that every Hamiltonian cycle avoiding the edge comes from a good state, is false on the hexagonal prism. The paper never claimed it. The blueprint, rebuilt on version 2 with these verdicts, counts the 34 route statements as 5 exact, 17 after an unformalised translation, 10 weaker or different and 2 without a counterpart. [Lean README](../proofs/lean/README.md), [independent check](../research/2026-11-14_astra_lean-check/REPORT.md), [blueprint](../proofs/blueprint/BLUEPRINT.md)
 
 ## 5. Proof routes and failures
 
@@ -94,7 +92,7 @@ Sizes count vertices of $T$ unless marked primal. "First" means an exhaustive se
 | Graph-theoretic | The exact pair criterion and the three-matroid description are refereed. Two-tree packing has a proof nobody has reviewed. | A two-matroid relaxation fails on the hexagonal prism, 8 vertices: four of its six solutions are not states. The linear program has a half-integral vertex at 13, a witness. A cover with no good state occurs at 16. [Determinants](../research/2026-11-14_fable_referee-determinants/REPORT.md), [structure](../research/2026-11-14_sol_referee-structure/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |
 | Constructive | The lab enumerates, runs marked walks and recovers cycles. | No polynomial bound. Strict descent fails first at 16 for pairs and at 8 for rainbow trees. The surplus walk cycles at 38, a witness. A search over plateaus has not failed yet. [Lab](../workings/barnette_lab/README.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
 | Algebraic | Two equivalent determinants and the linear weights are refereed. | The plain determinant fails on the hexagonal prism, and doubled edges fail at 9. No sign change on incidences removes the cancellation, by a 13-vertex witness. The number of good states can vanish modulo 2, 3, 4, 5, 7 and 11, witnesses at 6, 13, 9, 14, 16 and 26. The algebra report is not reviewed. [Referee](../research/2026-11-14_fable_referee-determinants/REPORT.md), [algebra](../research/2026-11-14_sol_route-algebra/REPORT.md) |
-| Topological | Signed angles give a Gauss-Bonnet reading of the disk identity, and a dual rank formula counts the cycles a selection leaves. Opus derived both and Fable refereed them. They are intuition, not a second proof. | The plain Euler characteristic loses the grading. The referee's own new results, that a rainbow tree exists and lies in a unique cover, are not reviewed. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
+| Topological | Signed angles give a Gauss-Bonnet reading of the disk identity, and a dual rank formula counts the cycles a selection leaves. Opus derived both and Fable refereed them. They are intuition, not a second proof. | The plain Euler characteristic loses the grading. The referee's own new results, that a rainbow tree exists and lies in a unique cover, were then refereed by Opus and hold. Exchange descent is open. [Topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md) |
 | Probabilistic | Explicit families show that good states can be exponentially rare. | Positive weights on all spanning trees cannot match the target degrees, already on the cube, primal order 8. That excludes full-support measures only. Real roots and roots on the unit circle both fail at 12. Opus checked the degree obstruction, and otherwise only a second run of the author's model reviewed this. [Probability](../research/2026-11-14_sol_route-probabilistic/REPORT.md), [packing](../research/2026-11-14_opus_two-tree-packing/REPORT.md) |
 | Categorical | Cutting along a cycle and recording a boundary pattern composes: 3 patterns on triangles, 6 on quadrilaterals, given the theorem. | On 5-cycles the patterns depend on the piece, witness at 9. Homology and Belyi maps gave vocabulary only. Not reviewed. [Report](../research/2026-11-14_fable_route-categorical/REPORT.md) |
 | Inductive | Splitting of states, a lift criterion and a rotation are refereed. A one-sided induction step has a written proof. | The converse of the lift criterion fails at 11. "Some good state lifts" fails at 18. Selecting inward fails at 11, 13 and 14. Repair by the partner fails at 16, by one cycle at 17, by any reorientation of a fixed cover at 18. Lemmas G and X are open. [Referee](../research/2026-11-14_fable_induction-completion/REPORT.md), [later lemmas](../research/2026-11-14_astra_induction-lemmas/REPORT.md) |
@@ -103,7 +101,7 @@ Sizes count vertices of $T$ unless marked primal. "First" means an exhaustive se
 
 ![Route records by kind and recorded status](synthesis-figures/route-outcomes.png)
 
-[Vector PDF](synthesis-figures/route-outcomes.pdf). The chart counts the records of [routes.py](route-map/routes.py). Keyword rules in [count.py](../research/2026-11-14_fable_synthesis-audit/count.py) give each record one kind, and the kinds overlap, so the rows are a rough guide. "Proved" joins source arguments and proofs written here, reviewed or not. "Open" joins conjectures and hunches.
+[Vector PDF](synthesis-figures/route-outcomes.pdf). The chart counts the records of [routes.py](route-map/routes.py). Keyword rules in [count.py](../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py), copied from Fable's audit, give each record one kind, and the kinds overlap, so the rows are a rough guide. "Proved" joins source arguments and proofs written here, reviewed or not. "Open" joins conjectures and hunches.
 
 ## 6. Why the signed count seems necessary
 
@@ -119,13 +117,13 @@ A 16-vertex cover contains no good state. No reorientation of its cycles helps. 
 
 2. **Prove at least $2^m$ good states.** It holds on all 4,656,948 rooted instances with a pair through 22 vertices, computed by Opus and reproduced by Sol with separate code. Astra's census without separating triangles reports no failure on 23,824,742 rooted faces through 24 vertices, and Sol replayed it through 16. The cases of one cover and of two covers are proved and refereed. Explicit families attain equality for every $m$, and $m$ is unbounded even without separating triangles. The next step is the two-cover calculation for more covers. An induction on levels with a fixed number of cycles cannot work, because such levels can be disconnected. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [cover referee](../research/2026-11-14_sol_referee-covers/REFEREE-covers.md)
 
-3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 49,325,864 pairs through 22 vertices. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Neither study is reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
+3. **Prove descent with plateaus.** There are two conjectures. Pair descent says that reversals reach a good pair without ever increasing the number of cycles of $Q_s$. Fable's descent study confirms it for all 193,623,384 pairs through 23 vertices and on 230 random triangulations up to 80. Every sharper rule it tried fails: strict descent first at 16, a lookahead of two moves first at 21, and 27 of 28 potentials. Rainbow descent says the same for exchanges on rainbow trees. It holds for every root through 17 vertices, for 1,485 of the 1,543 triangulations at 18, and in samples to 120. Astra's referee has reproduced the census through 16 and is still running. The rainbow study is not reviewed. [Descent study](../research/2026-11-14_fable_descent/REPORT.md), [topology referee](../research/2026-11-14_fable_referee-topology/REPORT.md)
 
 4. **Find a polynomial-time construction.** Testing one orientation of a cover is linear. Finding a good one among all covers has no polynomial bound. Sampling states at random cannot work in general, because good states can be exponentially rare even without separating triangles. [Conjecture referee](../research/2026-11-14_sol_referee-conjectures/REPORT.md), [families](../research/2026-11-14_sol_counting-families/REPORT.md)
 
 5. **Prove the non-planar statement directly.** The Pfaffian corollary rests on the planar theorem and a structure theorem. Start from the Heawood graph, where the count vanishes. [Pfaffian report](../research/2026-11-14_astra_route-pfaffian/REPORT.md)
 
-6. **Finish formalising our route.** The sign and the counting step are done. Next comes the bridge from the paper's heights to Lean's flow weights. The connectivity lemma and the two induced trees need a Jordan curve theorem, which Mathlib lacks. The paper could drop the second by gluing matchings as Lean does. [Lean devices report](../research/2026-11-14_opus_lean-devices/REPORT.md)
+6. **Finish formalising our route.** The sign and the counting step are done and independently rebuilt. Section 4 as written still needs the bridge from the paper's heights to Lean's flow weights and Lemma 4.5 in full, about 530 to 1,010 Lean lines by Opus's estimate. The connectivity lemma needs a Jordan curve theorem, which Mathlib lacks. The paper could drop the two induced trees by gluing matchings as Lean does. [What remains](../proofs/blueprint/FORMALISATION.md)
 
 ## 8. What the literature review established
 
@@ -140,7 +138,7 @@ These points summarise the project's library. Several older originals were never
 7. A proposed link between the parity condition of Bagheri Gh., Feder, Fleischner and Subi and the black-inner triangle obstruction is false on the truncated octahedron. [Older approaches](../research/2026-11-14_astra_older-approaches/REPORT.md)
 8. The constructive manuscript is unsigned. No author or public source was found. [Library report](../research/2026-11-14_astra_literature-consolidation/REPORT.md)
 9. How the 1969 Waterloo proceedings attribute the conjecture is unresolved. The original page was not obtained, and the two drafts disagreed. [Index](../papers/INDEX.md)
-10. The OpenAI proof is a preprint that no journal has refereed. A third party reports that two Lean kernels accept the formal proof, and our own build agrees.
+10. The OpenAI proof is a preprint that no journal has refereed. A third party reports that two Lean kernels accept the formal proof, and our two builds, Opus's and Astra's fresh one, agree.
 
 ## 9. What the earlier rewrite taught us
 
@@ -165,30 +163,30 @@ The merge followed these, and a cold reader still found the opening overloaded, 
 
 | Work | Written by | Checked by | Not covered |
 |---|---|---|---|
-| OpenAI's Lean proof | OpenAI | Lean kernel, built locally by Opus | Our texts |
+| OpenAI's Lean proof | OpenAI | Lean kernel, built locally by Opus and again from a fresh clone by Astra | Our texts |
 | Main paper, version 1 | Opus, merging drafts by Astra and Opus | Sol: follows, eight corrections. Fable: cold read, 40 edits | |
 | Main paper, version 2 | Astra, then 17 finishing edits by Opus | Sol, on the final text: follows, eight small corrections. Opus: cold read, no mathematical problem | |
 | Primal companion | Astra | Fable: follows, one gap closed. Opus: final review, accept | |
 | Involution companion | Sol | Opus: follows, 15 edits. Fable, on the revision: follows, new lemma correct after a fix | |
-| Blueprint | Opus | Nobody | The 25 matches in another form |
-| Lean devices | Opus | Lean kernel | Whether each Lean statement says what the paper says |
+| Blueprint | Opus, statuses from Astra's Lean audit | Nobody | The 27 matches after translation or in weaker form |
+| Lean devices | Opus | Lean kernel. Astra: fresh rebuild, axioms, dependency walk, all 29 statements against the paper | The heights, Lemma 4.5 in full, the drawing |
 | Weight-free proof, counts | Fable | Astra | |
 | Pair criterion, gluing, recovery | Opus, Astra | Sol | |
 | Determinants, linear weights | Sol, Astra | Fable | Parts of the lab |
-| Topology | Opus | Fable | Fable's new rainbow results |
+| Topology | Opus | Fable. Opus refereed Fable's rainbow results: correct | Step X |
 | Lattice conjectures | Opus | Sol | Sol's 33-vertex refutation |
 | Induction | Opus | Fable | Fable's and Astra's later lemmas |
-| Descent study | Fable | Nobody | |
+| Descent study | Fable | Astra, at a checkpoint: census through 16 reproduced | The larger checks |
 | Cycle covers | Astra | Sol | The census from 17 to 24 vertices |
-| Families, probability | Sol | A second Sol run. Opus checked one probability result | A different model, for the rest |
+| Families, probability | Sol | A second Sol run. Fable: every replayed number agrees, one count needs its gluing rule stated | |
 | Packing, algebra, category, Pfaffian | Opus, Sol, Fable, Astra | Nobody | |
-| Step digestions | Fable | Astra, then Opus for names | |
-| Atlas | Sol, rebuilt by Fable | Sol: 78 computed checks pass, wording errors on several pages. Fable applied the corrections | The rebuilt pages |
+| Step digestions | Fable | Astra, then Opus twice: names, then a final audit with recomputed examples | |
+| Atlas | Sol, rebuilt and finished by Fable | Sol: 78 computed checks pass, wording errors on several pages. Fable applied the corrections | The two new pages |
 | This synthesis | Astra | Fable | |
 
 Two disputes were settled by a model that was not a party, and referees corrected two sets of first-failure claims.
 
-**Real sign against Lean's phase.** The primal referee warned that the two differ by a factor depending on the number of cycles. The reviser disagreed. Opus adjudicated for the reviser. The ratio is the constant $i^n$, or $i^{-n}$ if the corner order is reversed. The referee's formula was right and simplifies to that constant. Opus proved it, checked 24,856 pairs with its own code, and later proved it in Lean. [Adjudication](../research/2026-11-14_opus_cross-audit/ADJUDICATION.md)
+**Real sign against Lean's phase.** The primal referee warned that the two differ by a factor depending on the number of cycles. The reviser disagreed. Opus adjudicated for the reviser. The ratio is the constant $i^n$, or $i^{-n}$ if the corner order is reversed. The referee's formula was right and simplifies to that constant. Opus proved it, checked 24,856 pairs with its own code, and later proved it in Lean. Astra rebuilt that Lean proof and checked the identity again on 174,763 sign words. [Adjudication](../research/2026-11-14_opus_cross-audit/ADJUDICATION.md)
 
 **279 against 213 marked objects.** Two runs counted Li's marked objects on the running example and disagreed. Opus reproduced both. They use the same input and two drawings that swap the positions of roots 4 and 5. The count depends on the drawing: 69 drawings give 35 values from 103 to 363. The signed sum, $-9$, and the number of surviving objects, nine, never change. The same referee found one wrong sign in a side formula, for odd $m$, and the revision corrects it. [Discrepancy note](../research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md), [second referee](../research/2026-11-14_fable_referee-involutions-v2/REPORT.md)
 
@@ -197,19 +195,19 @@ Two disputes were settled by a model that was not a party, and referees correcte
 ## 11. Numbers and snapshot
 
 <!-- inventory-start -->
-The inventory was taken at 2026-11-14 13:48 UTC by [count.py](../research/2026-11-14_fable_synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_fable_synthesis-audit/counts.json). It counts folders and files. It reruns no census.
+The inventory was taken at 2026-11-14 14:18 UTC by [count.py](../research/2026-11-14_opus_lean-integration/synthesis-audit/count.py), with output in [counts.json](../research/2026-11-14_opus_lean-integration/synthesis-audit/counts.json). It counts folders and files. It reruns no census.
 
-There are 69 run folders and 66 of them hold a final report. By folder name, 17 are GPT-6 Astra, 19 Fable 5.2, 16 Opus 5.5 and 17 GPT-6.1 Sol. The route map has 244 records: 46 arguments from the sources, 64 proofs written here, 13 computations, 19 conjectures, 25 hunches and 77 refutations. Those are recorded statuses, not review verdicts.
+There are 76 run folders and 74 of them hold a final report. By folder name, 18 are GPT-6 Astra, 20 Fable 5.2, 19 Opus 5.5 and 19 GPT-6.1 Sol. The route map has 246 records: 46 arguments from the sources, 65 proofs written here, 14 computations, 19 conjectures, 25 hunches and 77 refutations. Those are recorded statuses, not review verdicts.
 
 | PDF | Pages |
 |---|---:|
-| [Main paper, version 2, at the time of the count](../paper/main/barnette.pdf) | 19 |
+| [Main paper, version 2, at the time of the count](../paper/main/barnette.pdf) | 20 |
 | [Main paper, version 1](../paper/main/history/barnette-v1.pdf) | 18 |
 | [Primal companion](../proofs/primal/primal.pdf) | 15 |
 | [Involution companion](../proofs/involutions/involutions.pdf) | 18 |
-| [Atlas](atlas/atlas.pdf) | 31 |
+| [Atlas](atlas/atlas.pdf) | 34 |
 
-The eleven step files hold about 32,000 words, counting headings and link text.
+The eleven step files hold about 29,000 words, counting headings and link text.
 <!-- inventory-end -->
 
 The censuses cover different populations and must not be added up. The numbers are quoted from the reports, not rerun. [Ledger of computations](../research/2026-11-14_astra_synthesis/EVIDENCE.md)
@@ -218,7 +216,7 @@ The censuses cover different populations and must not be added up. The numbers a
 |---|---|---|---|
 | At least $2^m$ good states | every root, to 22 vertices | 4,656,948 rooted instances with a pair | Opus, reproduced by Sol |
 | The same, no separating triangle | to 24 vertices | 23,824,742 rooted faces | Astra. Sol replayed 3,374 through 16 |
-| Pair descent | every root, to 22 vertices | 49,325,864 pairs | Fable, not reviewed |
+| Pair descent | every root, to 23 vertices | 193,623,384 pairs | Fable. Astra reproduced it through 16 |
 | Rainbow descent | every root, to 17 vertices | 69,458,112 rainbow trees, the rest by a proposition | Fable, not reviewed |
 | Lemma G | 8 to 19 vertices | 62,416 rooted instances | Fable. Astra's criterion agrees |
 | Contraction inequality | to 18 vertices | 1,202,792 contractions | Fable |
@@ -226,7 +224,7 @@ The censuses cover different populations and must not be added up. The numbers a
 | Main paper's identities | to 12 vertices | 262 rooted faces of 15 triangulations | Sol |
 
 <!-- late-start -->
-**Runs still open at this snapshot.** Three folders hold no final report: `astra_lean-check`, `fable_atlas-finish`, `fable_final-polish`. Nothing from them is counted as a result above.
+**Runs still open at this snapshot.** Two folders hold no final report: `fable_final-polish`, `sol_digest-fixes`. Nothing from them is counted as a result above. `astra_referee-descent` has only a checkpoint report and is still running; only its checkpoint is used above.
 <!-- late-end -->
 
 ## Housekeeping for the owner
@@ -235,5 +233,5 @@ Four decisions are yours.
 
 1. **The author line.** The main paper has an empty `\author{}` and a comment that marks it for you.
 2. **Third-party PDFs.** Two research folders hold 53 PDFs of other people's papers, about 50 MB: [machinery literature](../research/2026-11-14_sol_machinery-literature/pdf/) and [history literature](../research/2026-11-14_opus_history-literature/pdf/). The repository is private, but nobody established the right to redistribute them. The [cleanup proposal](../research/2026-11-14_opus_cross-audit/CLEANUP-PROPOSAL.md), items C3 to C5, suggests moving the few the proof uses into the library and replacing the rest by links. Decide before the repository is shared.
-3. **The Lean build directory.** `E:\lbb`, about 7.7 GB, lies outside the repository. Delete it when no more Lean work is planned. The [Lean README](../proofs/lean/README.md) says how to rebuild it.
+3. **The Lean build directory.** `E:\lbb`, about 7.7 GB, lies outside the repository. Astra's fresh clone `E:\lb2` is already deleted. Delete `E:\lbb` when no more Lean work is planned. The [Lean README](../proofs/lean/README.md) says how to rebuild it.
 4. **Drafts A and B.** `paper/draft-A/` and `paper/draft-B/` are superseded by the main paper and kept as records. Leave them, or move them under a history folder.

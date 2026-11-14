@@ -7,7 +7,9 @@ Two single-page vector PDFs, each with a PNG rendered from the PDF by PyMuPDF. B
 
 To rebuild, run from the repository root:
 
-    python research/2026-11-14_fable_synthesis-audit/count.py
-    python research/2026-11-14_fable_synthesis-audit/figures.py
+    python research/2026-11-14_opus_lean-integration/synthesis-audit/count.py
+    python research/2026-11-14_opus_lean-integration/synthesis-audit/inventory.py
+    python research/2026-11-14_opus_lean-integration/synthesis-audit/figures.py
+    python research/2026-11-14_opus_lean-integration/synthesis-audit/check.py
 
-The first script writes the counts and the per-record assignments into [the audit folder](../../research/2026-11-14_fable_synthesis-audit/). The second draws both figures from those counts. The first version of these figures, by GPT-6 Astra, was built by the scripts in [the synthesis folder](../../research/2026-11-14_astra_synthesis/). Neither chart is a mathematical result.
+These are Fable's scripts from [the audit folder](../../research/2026-11-14_fable_synthesis-audit/), copied unchanged except for paths and the Lean box of `products`, so that a rerun writes into the copying run's folder. The first script writes the counts and the per-record assignments next to itself. The second draws both figures from those counts. The first version of these figures, by GPT-6 Astra, was built by the scripts in [the synthesis folder](../../research/2026-11-14_astra_synthesis/). Neither chart is a mathematical result.
