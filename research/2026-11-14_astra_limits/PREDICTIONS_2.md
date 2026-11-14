@@ -7,3 +7,5 @@ REFUTED. The first rarity run put the pieces into black faces and produced obstr
 CONJECTURE T5 before more.py. Exact maximum cuts of K4, BBL38 and Tutte46 will leave monochromatic edges, making delta undefined there. The cube may already refute P5 containment. A root-free torus pair exists by periodic translation, but Q has as many edges as vertices and cannot be a forest.
 
 CONJECTURE T5 before certificates.py. The radial graph of the triangular bipyramid has 11 vertices, is bipartite and 3-connected planar, and cannot be Hamiltonian because its bipartition sizes differ. The nonbijective disk witness should have B-I-l=-1.
+
+CONJECTURE T5 before multimap.py. The theta26 root0 incidence graph violates the capacity-two Hall inequality. All eight H-s graphs fail to be trees. Enumerate all subsets of X for a concrete deficient cut and all state complements.

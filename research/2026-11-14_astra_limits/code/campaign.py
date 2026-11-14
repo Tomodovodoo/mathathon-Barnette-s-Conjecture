@@ -1,6 +1,7 @@
 """Exhaustive small rooted tests; independent primal matching-complement cycle enumeration."""
 import sys,json,time,itertools,collections
 from pathlib import Path
+sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'workings/barnette_lab'))
 import networkx as nx
@@ -16,7 +17,6 @@ def matchings(g,remaining=None):
  u=min(remaining)
  for v in sorted(set(g[u])&remaining):
   for m in matchings(g,remaining-{u,v}):yield [edge(u,v)]+m
- def unused():pass
 def cycles(g):
  result=[]
  for m in matchings(g):

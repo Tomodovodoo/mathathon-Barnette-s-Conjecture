@@ -1,0 +1,8 @@
+{
+  "python": "3.14.5",
+  "networkx": "3.6.1",
+  "sympy": "1.14.0",
+  "scipy": "1.17.1",
+  "plantri_sha256": "3c64211e712a67004e02cee409eb1e65b6064ab176bd9572e0d444fbc71d2a41",
+  "reference_core_sha256": "6f63f938b11c333c4c00d9a8be21358c0204d5654e41f734d198968062b7f354"
+}

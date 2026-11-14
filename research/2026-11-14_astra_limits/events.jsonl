@@ -73,3 +73,4 @@
 {"time": 1794652442.0828679, "event": "computed", "summary": "White-inner prism sums counted through six pieces", "review": "under-review"}
 {"time": 1794652557.7868524, "event": "computed", "summary": "Maximum-cut relaxations solved for K4, BBL38, Tutte46; torus unrooted pair and zero-weight cancellation checked", "review": "under-review"}
 {"time": 1794652612.3623714, "event": "computed", "summary": "Adjacency certificates checked; stored prism recovery failure and noncubic11", "review": "under-review"}
+{"time": 1794652917.4132166, "event": "computed", "summary": "Theta26 root0 capacity obstruction and all eight incidence complements checked", "review": "under-review"}

@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "size_name": "dual vertices",
+    "value_name": "failed strengthening type"
+  },
+  "sizes": [
+    {
+      "size": 6,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "1 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 7,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "0 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 8,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "1 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 9,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "1 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 10,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "2 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 11,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "2 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 12,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "8 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 13,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "8 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    },
+    {
+      "size": 14,
+      "lo": 0,
+      "hi": 2,
+      "step": 1,
+      "realized": [],
+      "intervals": [],
+      "note": "32 graphs tested, no failures; T4 evidence not a certified impossibility interval"
+    }
+  ]
+}
