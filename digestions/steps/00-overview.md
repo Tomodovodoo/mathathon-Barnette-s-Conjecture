@@ -1,112 +1,71 @@
 # 00. The whole proof in two pages
 
-These digestions explain the proof of Barnette's conjecture one step at a time. This file is the map. It states the theorem, runs through the argument once without proofs, and shows which step depends on which.
+These digestions explain the proof one step at a time. This overview follows the final route of the [project paper](../../paper/main/barnette.pdf), with its vocabulary collected in the [glossary](GLOSSARY.md).
 
-## The theorem
+## The theorem and the target
 
-**Theorem** (Barnette's conjecture, OpenAI 2026, Theorem 1.1). Every finite simple graph that is cubic, bipartite, planar and 3-connected has a Hamiltonian cycle.
+`LIT`, OpenAI, Theorem 1.1 and Corollary 7.1 in the [supplied preprint](../../papers/OpenAI-Barnette.pdf). Every finite simple cubic, bipartite, planar, 3-connected graph has a Hamiltonian cycle avoiding any prescribed edge. Cubic means three neighbours per vertex; bipartite means every edge joins opposite vertex colours; 3-connected means deleting any two vertices leaves a connected graph. A Hamiltonian cycle visits every vertex once.
 
-Cubic means every vertex has three neighbours. Bipartite means the vertices split into black and white with every edge joining the two colours. Planar means the graph can be drawn in the plane without crossings. 3-connected means it has at least four vertices and stays connected when any two are removed. A Hamiltonian cycle passes through every vertex once. We call a graph with the four properties a Barnette graph and write $G$ for it. The cube is the smallest one.
-
-The proof gives more. For every edge $e$ of $G$ there is a Hamiltonian cycle that does not use $e$ (Corollary 7.1). That stronger form is what makes the induction work, see step 08.
+The theorem has a Lean proof. The [independent rebuild](../../research/2026-11-14_astra_lean-check/REPORT.md) confirms the formal theorem and the replacement real-sign route, but several translations from the paper remain unformalised. AI referees have checked the written arguments; no human check is recorded. `LIT` here records a supplied preprint, not journal review. New finite checks are marked `COMPUTED`; open claims are `CONJECTURE`.
 
 ## The argument in ten sentences
 
-1. A Hamiltonian cycle is a spanning subgraph with degree two everywhere that is also connected. Degree two is easy to arrange. Connectivity is the whole problem (step 01).
-2. Pass to the dual $T = G^*$. It is a triangulation of the sphere whose faces are coloured black and white, opposite colours across every edge. A Hamiltonian cycle of $G$ is the same thing as a split of the vertices of $T$ into two sets that each induce a tree (step 02).
-3. Pick a black face $t_0$ as the outer face. Its corners are the roots. There are as many other black faces as non-root vertices. A state gives every such black face one of its corners, using every non-root vertex once (step 03).
-4. A state $s$ picks, in each black face, the edge opposite the chosen corner. Call this edge set $Q_s$. If $Q_s$ is a forest with one root in each component, the state can be turned into a Hamiltonian cycle. Such a state is called good, following the main paper (the trees paper says tree matching).
-5. To certify and control $Q_s$ we use a second state $r$ that differs from $s$ in every face. The two together are a pair. A pair exists exactly when no separating triangle of $T$ has black faces along all three edges on the side away from $t_0$ (step 03).
-6. One counting lemma, the disk identity, says that a cycle built from edges leaving the corners chosen by a state encloses one more white face than black faces (step 04).
-7. Give every pair a sign. For a fixed second state $s$ whose $Q_s$ has a cycle, reversing that cycle changes the first state and flips the sign, so all such pairs cancel (step 05).
-8. Regroup the same signed sum by the cycles that $r$ and $s$ form together. With suitable weights the groups with the fewest cycles all contribute with one sign, so the sum is not zero. Hence some pair survives the cancellation. Its $Q_s$ is a forest, and because the state has a partner each tree of that forest holds one root, so $s$ is good (step 06).
-9. Delete the spokes of that state from the graph joining black-face centres to corners. What remains is a spanning tree. Its dual is a tree on the white faces, which selects one edge in every face. The unselected edges, read in $G$, are a Hamiltonian cycle (step 07).
-10. If $T$ has separating triangles, cut along one, solve the two pieces with matching boundary conditions, and glue (step 08).
+1. A spanning subgraph of degree two is a union of cycles; Hamiltonicity asks that it have just one component.
+2. Pass to the dual sphere triangulation $T=G^*$, whose triangular faces have alternating black and white colours; two vertex sets that each induce a tree in $T$ give a Hamiltonian cycle in $G$.
+3. Fix a black root face $t_0=abo$ and its side $e_0=ab$; a state $s$ assigns each other black face a corner, using each non-root vertex exactly once.
+4. Let $Q_s$ contain the side opposite each assigned corner; a state is good when $Q_s$ is a forest with one root per component, equivalently when $S_s=Q_s\cup\{ao,bo\}$ is a spanning tree of $T$.
+5. A pair consists of states $r,s$ differing at every black face; the paper's density argument supplies a pair when there is no separating triangle, and the sharper criterion excludes exactly triangles with black inner boundary.
+6. The disk identity counts the faces enclosed by a directed cycle of sides leaving assigned corners and gives one more white face than black face.
+7. Give each pair the product of its local signs; for fixed $s$ with cyclic $Q_s$, a reversal changes $r$, preserves the weight and reverses the sign, so those pairs cancel.
+8. Group the same sum by covers, the unoriented cycles of $D(r,s)$; face-path heights and a finite difference make every minimum-cycle cover contribute with the same sign, so the sum is nonzero and some surviving $s$ is good.
+9. The edges outside $S_s$ join the faces of $T$ into a tree $Y_s$; root it at $t_0$ and let each black face select its side shared with its child, obtaining one selected side per face, whose crossing edges form a perfect matching in $G$ and whose complement is a Hamiltonian cycle avoiding $e_0^*$.
+10. Cut along a separating triangle, solve the smaller pieces with the prescribed avoided edge, and glue their cycles.
 
-Sentences 6 to 8 carry the new mathematics, the disk identity and the signed count it makes possible. The dual, the two trees, the avoided edge and the gluing were in the literature by 2016. States come from Tutte's theory of trinity and had not been used on this problem. This division is the reading of the project's literature review, `research/2026-11-14_opus_history-literature/WHAT-WAS-HARD.md` section 9, which marks it as its own judgement.
+These statements are `LIT` in the supplied preprints and proved in the project paper at the locations below. The disk identity has two distinct exact-count uses. Its value three enters the sign formula and the nonvanishing calculation; recovery also compares that value with the face excess one to exclude a selected cycle. Oddness alone does not justify the paper's recovery argument. The pair certifies both cancellation and the one-root-per-component conclusion. A forest without a partner need not be good.
 
-The count in steps 05 and 06 is an existence proof. A nonzero signed sum forces at least one good state, but does not identify one efficiently. Step 07 is an explicit construction once that state is supplied.
-
-## Dependency diagram
+## Dependencies
 
 ```mermaid
 flowchart TD
-    A["01 Hamiltonian = degree two + connected"] --> B["02 Dual triangulation T, black and white faces"]
-    B --> C["02 Two induced trees = Hamiltonian cycle (Stein)"]
-    B --> D["02 Counts: as many inner black faces as non-root vertices"]
-    B --> L["02 Tree/cotree duality (Lemma 2.1)"]
-    D --> E["03 States and pairs"]
-    E --> F["03 A pair exists iff no black-inner separating triangle"]
-    E --> G["04 Disk identity: W = B + 1"]
-    G --> G1["04 parity: state cycles are odd"]
-    G --> G3["04 exact value: delta-sum is -3 or +3"]
-    G1 --> H["05 Cancellation for fixed s (Lemma 5.2)"]
-    G3 --> I["06 Nonvanishing: covers with fewest cycles share one sign"]
-    F --> J["06 Some pair has Q_s a forest (Prop. 5.1)"]
-    H --> J
-    I --> J
-    J --> K["07 Spokes minus s is a spanning tree"]
-    L --> K
-    K --> M["07 White-face tree, selection P"]
-    G1 --> N["07 P is a forest (Lemma 6.2)"]
+    A["01 Degree two and connectivity"] --> B["02 Dual triangulation and two induced trees"]
+    B --> C["03 States, Q_s and good states"]
+    C --> D["03 Pair existence, paper Section 5"]
+    C --> E["04 Disk identity: W-B=1, h-2l=3"]
+    E --> F["05 Local signs and cancellation"]
+    E --> H["06 Face-path heights and finite differences"]
+    D --> I["06 Nonzero sum gives a good state"]
+    F --> I
+    H --> I
+    I --> J["07 S_s is a spanning tree of T"]
+    B --> K["02 Tree/cotree duality"]
+    J --> L["07 Tree of faces Y_s, rooted at t0"]
+    K --> L
+    L --> M["07 Selection P_s: one side per face"]
+    E --> N["07 Exact disk count excludes a cycle of P_s"]
     M --> N
-    N --> O["07 Hamiltonian cycle avoiding e0*, two induced trees"]
-    L --> O
-    C --> O
-    O --> P["08 Glue across separating triangles"]
-    P --> Q["Theorem 1.1 and Corollary 7.1"]
+    N --> O["07 Two induced trees and Hamiltonian cycle avoiding e0*"]
+    B --> O
+    O --> P["08 Separating-triangle gluing"]
 ```
 
-Two things in this picture are worth a second look. The disk identity feeds three later steps, and two of them need only its parity. The exact value three is needed once, in step 06. And the pair is used twice, once to make the cancellation possible and once more to know that a forest $Q_s$ has one root per component.
+## Reading links
 
-## The documents
+The section and lemma numbers refer to the [project paper](../../paper/main/barnette.pdf). Atlas page numbers name route pages; the combined [atlas](../atlas/atlas.pdf) also has a contents page before them.
 
-| File | Step | Sections of the papers |
+| Digestion | Paper location | Current atlas page |
 | --- | --- | --- |
-| [01](01-degree-two-and-connectivity.md) | why this is a connectivity problem | OpenAI 1; trees paper 1 |
-| [02](02-dual-and-two-trees.md) | dual, colouring, two induced trees, tree/cotree | OpenAI 1.1, 2, proof of Thm 1.1 |
-| [03](03-states-and-pairs.md) | states, pairs, existence of a pair | OpenAI 2, 3; Li Lemma 9; trees 2, 3 |
-| [04](04-disk-identity.md) | the disk identity | OpenAI 4; Li Claim 25; trees Lemma 4.1 |
-| [05](05-cancellation.md) | sign of a pair, reversal of a $Q_s$ cycle | OpenAI 5.1; Li Lemma 17; trees Lemma 4.2 |
-| [06](06-nonvanishing.md) | the sum is not zero | OpenAI 5.2, 5.3; Li 4 and App. B; trees 5 |
-| [07](07-recovery.md) | from a good pair to the cycle | OpenAI 6; Li Lemma 30; trees 7 |
-| [08](08-gluing-and-hypotheses.md) | separating triangles, role of each hypothesis | OpenAI 7; Li App. C; trees 7.3 |
-| [09](09-what-is-still-open.md) | what nobody knows yet | trees 5.1, 6 |
-| [GLOSSARY](GLOSSARY.md) | every term and symbol in the three papers' names | |
+| [01 Connectivity](01-degree-two-and-connectivity.md) | Introduction; Proposition 2.6, part 1 | [1 Chain](../atlas/pages/01-chain.pdf) |
+| [02 Dual and two trees](02-dual-and-two-trees.md) | Section 2 | [1 Chain](../atlas/pages/01-chain.pdf), [24 Older methods](../atlas/pages/24-earlier.pdf) |
+| [03 States and pairs](03-states-and-pairs.md) | Lemma 3.1, Definitions 3.2 and 3.4, Lemmas 3.5 and 4.2; Section 5 | [2 States](../atlas/pages/02-pairs.pdf) |
+| [04 Disk identity](04-disk-identity.md) | Lemmas 3.7 and 3.8 | [3 Disk](../atlas/pages/03-disk.pdf) |
+| [05 Cancellation](05-cancellation.md) | Lemmas 4.3 to 4.5 | [5 Sum](../atlas/pages/05-sum.pdf), [7 Involutions](../atlas/pages/07-involutions.pdf) |
+| [06 Nonvanishing](06-nonvanishing.md) | Lemmas 4.6 and 4.7; Proposition 4.8 | [4 Heights](../atlas/pages/04-heights.pdf), [5 Sum](../atlas/pages/05-sum.pdf) |
+| [07 Recovery](07-recovery.md) | Lemma 3.6, Proposition 3.9; Section 7 | [8 Recovery](../atlas/pages/08-recovery.pdf), [25 Image](../atlas/pages/25-produced.pdf) |
+| [08 Gluing](08-gluing-and-hypotheses.md) | Sections 6 and 7 | [22 Cuts](../atlas/pages/22-cuts.pdf), [27 Hypotheses](../atlas/pages/27-hypotheses.pdf) |
+| [09 Open questions](09-what-is-still-open.md) | Section 7 | [30 Open](../atlas/pages/30-open.pdf) |
 
-"OpenAI" is `papers/OpenAI-Barnette.pdf`, "Li" is `papers/A-Note-On-Barnette.pdf`, "trees paper" is `papers/barnette_trees.pdf`.
+## Which example is smallest?
 
-## Examples used throughout
+`COMPUTED`, [fresh lab enumeration](../../research/2026-11-14_sol_digest-fixes/recompute.json), using [this script](../../research/2026-11-14_sol_digest-fixes/code/recompute.py). Among all plantri Eulerian sphere triangulations and all facial roots through dual order 12, the first partnered state with cyclic $Q_s$ occurs at 12. Such a state has cancelling partners. This agrees with the [combinatorics census](../../research/2026-11-14_fable_route-combinatorics/DATA.md).
 
-All numbers were computed by `research/2026-11-14_fable_digestions/code/examples.py`, which shares no code with the project's reference implementation `workings/barnette_lab`. The script `crosscheck.py` in the same folder compares the two on the first three examples below. They agree on states, pairs, good states and the signed polynomial.
-
-| Name | $T$ | $G$ | Why it is here |
-| --- | --- | --- | --- |
-| cube | octahedron, 6 vertices | cube, 8 vertices | smallest case, everything can be done by hand |
-| prism | double wheel with rim 6, 8 vertices | hexagonal prism, 12 vertices | smallest case where a state with a forest $Q_s$ is not a good state |
-| double octahedron | 9 vertices | 14 vertices | smallest separating triangle |
-| running example | 13 vertices, no separating triangle | 22 vertices | smallest case with a cancelling pair and a cycle that encloses a vertex. It is the example of `paper/figures/` |
-| 16-vertex example | 16 vertices | 28 vertices | a set of cycles none of whose orientations works |
-
-## How claims are marked
-
-Every claim that is not in one of the three papers carries its review status in plain words where it is used. The words mean the following.
-
-- "Published" in the original wording meant stated and proved in a supplied paper, not peer review. Below we call these supplied-preprint results. All three are preprints. None has been through journal review. The OpenAI argument has a Lean 4 formalisation. An agent of this project rebuilt it and found that the main theorem depends only on the three standard axioms (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, a computation, not refereed).
-- "Proved in this project and checked by a second model" means a full proof is written in a research folder and a different model refereed it line by line and recomputed its claims with its own code. No human has read it.
-- "Proved in this project, not yet refereed" means the proof exists in a research folder and nobody has checked it. Treat it as a lead.
-- "Computed" means checked by a program on a stated finite range. It says nothing beyond that range.
-- "Conjecture" means there is evidence and no proof.
-
-Shared notation is that of `research/BRIEF.md`. It is collected in the [glossary](GLOSSARY.md).
-
-
-## Where the project stands now
-
-Snapshot of 2026-11-14. Nothing is human-checked. The [main paper version 2](../../paper/main/barnette.tex) has a fresh independent AI referee, verdict FOLLOWS, and a completed fresh cold read. The [primal proof](../../proofs/primal/PRIMAL-PROOF.md) is accepted in the cross-audit. The [involution proof](../../proofs/involutions/INVOLUTIONS.md) has a second AI referee, verdict FOLLOWS for both ray and drawing-free face-path routes. Review changes the review state, never the proof tier.
-
-The phase dispute is settled: real sign divided by the formal phase is the constant $i^n$. The [Lean devices](../../proofs/lean/README.md) compile the real sign, finite differences and a replacement main theorem on OpenAI's development whose dependency closure excludes the complex phase and polynomial. This is compiled by its author; independent check pending. It does not formalise every statement or every topological translation of the paper. The earlier blueprint counts are a dated baseline, not the final coverage of the new devices.
-
-For sentence 8, $m$ is the minimum cycle count of a cover, and $q(s)$ counts cycles of $Q_s$. An independently AI-refereed separator-free family on $3j+2$ dual vertices has one cover, $m=j-1$ and $2^{j-1}$ good states. Its primal deletion interpretation is $c(D)=components(G-S)-1$. The forcing family has growing face sizes. A different width-four tube family has only square and hexagonal primal faces and exactly two good states among $Fib_{2L+3}$ states, at its specified root. The all-root counting census reaches dual order 22; the separate separator-free evidence reaches 24. Larger invariant calculations in the latter were not independently replayed by the covers referee beyond 16.
-
-The unsigned routes have gained several proofs but no replacement existence proof. Rainbow Step R follows from Rado and Euler and supplies a pair by unique-factor completion; these new proofs are unreviewed. Step X remains conjectural, with all rooted instances through 17, 1,485 of 1,543 triangulations at 18, and samples to 120. The contraction induction still needs G and X, also called ML1 and ML2. G is proved without chordless five-cycles; the remaining repair must sometimes change the cover. Ordinary two-tree packing and each rainbow constraint separately are proved, unreviewed; the face-side packing P2 and simultaneous integrality remain open. Monotone pair descent C3 passes all pairs through 22, but strict descent, lookahead two and lookahead three fail at 16, 21 and 40. No polynomial-time constructor follows. Exact statements, review provenance, data and the ranked ten open doors are in [09](09-what-is-still-open.md).
+The paper chooses a 13-vertex triangulation as its running example. Its depicted pair has a cycle of $D$ enclosing vertices. That choice illustrates the disk count and cancellation together; we make no smallest-order claim for that conjunction. The [recomputation](../../research/2026-11-14_sol_digest-fixes/worked-examples.txt) also checks the running example, cube and hexagonal prism against the independent second audit. See [09](09-what-is-still-open.md) for what efficient construction and alternative proofs still lack.

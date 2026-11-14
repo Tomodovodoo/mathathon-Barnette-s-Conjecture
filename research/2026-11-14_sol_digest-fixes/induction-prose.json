@@ -1,0 +1,67 @@
+[
+  [
+    "R1",
+    "A good lifted state must come from a good contracted state.",
+    "V=11, graph 1, root 0, vertex 5, merge 6 into 4"
+  ],
+  [
+    "R2",
+    "Every simple degree-four contraction preserves a pair.",
+    "V=11, graph 1, root 0, vertex 5, merge 6 into 4"
+  ],
+  [
+    "R3",
+    "Every contracted good state lifts to a good state.",
+    "V=8, graph 0, root 0, vertex 4, merge 5 into 0"
+  ],
+  [
+    "R4",
+    "Failed lifts can be compensated by good states of the same contraction type.",
+    "V=8, graph 0, root 0, vertex 4, merge 5 into 0"
+  ],
+  [
+    "R5",
+    "Some contracted good state uses the prescribed local opposite edge.",
+    "V=10, graph 1, root 3, vertex 9, merge 2 into 8"
+  ],
+  [
+    "R6",
+    "The original rotation repairs every failed lift.",
+    "V=13, graph 7, root {0,4,5}, vertex 10, merge 8 into 4"
+  ],
+  [
+    "R7",
+    "$g(T)\\geq2g(T/M)$.",
+    "V=8, graph 0, root 0, vertex 4, merge 5 into 0"
+  ],
+  [
+    "R8",
+    "The lowest nonzero cover-area coefficient is monotone under contraction.",
+    "V=14, graph 12, root 3, vertex 2, merge 3 into 1; coefficients 5 and 7, author-only"
+  ],
+  [
+    "R9",
+    "$m(T)=m(T/M)$ whenever both admit pairs.",
+    "V=14, graph 7, root 1, vertex 12, merge 10 into 6; minima 1 and 3"
+  ],
+  [
+    "R10",
+    "$g(T)=g(T/M)+g(T/N)$ for the two contractions.",
+    "V=6, graph 0, root 0, vertex 3"
+  ],
+  [
+    "R11",
+    "Every allowed non-root corner can be prescribed in a good state.",
+    "V=8, graph 0, root 0, face {3,6,5}, corner 3"
+  ],
+  [
+    "R12",
+    "Some pair-preserving contraction always exists, even with separators.",
+    "V=9, graph 0, root 1"
+  ],
+  [
+    "R13",
+    "Every inverse Batagelj P-operation preserves a pair.",
+    "V=6, octahedron; all such reductions are non-simple and lose the pair"
+  ]
+]

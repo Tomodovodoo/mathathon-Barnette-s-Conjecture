@@ -1,0 +1,182 @@
+[
+  {
+    "route_page": 1,
+    "pdf_page": 2,
+    "file": "01-chain.pdf",
+    "title": "The chain, and where the routes branch"
+  },
+  {
+    "route_page": 2,
+    "pdf_page": 3,
+    "file": "02-pairs.pdf",
+    "title": "Two states from one count"
+  },
+  {
+    "route_page": 3,
+    "pdf_page": 4,
+    "file": "03-disk.pdf",
+    "title": "The disk identity, three ways"
+  },
+  {
+    "route_page": 4,
+    "pdf_page": 5,
+    "file": "04-heights.pdf",
+    "title": "The exponent is a volume"
+  },
+  {
+    "route_page": 5,
+    "pdf_page": 6,
+    "file": "05-sum.pdf",
+    "title": "Eight terms, grouped twice"
+  },
+  {
+    "route_page": 6,
+    "pdf_page": 7,
+    "file": "06-polynomial.pdf",
+    "title": "The same sum as an integer polynomial"
+  },
+  {
+    "route_page": 7,
+    "pdf_page": 8,
+    "file": "07-involutions.pdf",
+    "title": "Cancellation as a pairing of objects"
+  },
+  {
+    "route_page": 8,
+    "pdf_page": 9,
+    "file": "08-recovery.pdf",
+    "title": "From a good state to the cycle"
+  },
+  {
+    "route_page": 9,
+    "pdf_page": 10,
+    "file": "09-primal.pdf",
+    "title": "The same proof inside the cubic graph"
+  },
+  {
+    "route_page": 10,
+    "pdf_page": 11,
+    "file": "10-keystep.pdf",
+    "title": "Three written proofs of the key step"
+  },
+  {
+    "route_page": 11,
+    "pdf_page": 12,
+    "file": "11-rowdep.pdf",
+    "title": "Cancellation is a dependent set of rows"
+  },
+  {
+    "route_page": 12,
+    "pdf_page": 13,
+    "file": "12-determinant.pdf",
+    "title": "One determinant is not enough"
+  },
+  {
+    "route_page": 13,
+    "pdf_page": 14,
+    "file": "13-dimers.pdf",
+    "title": "Two matchings laid on top of each other"
+  },
+  {
+    "route_page": 14,
+    "pdf_page": 15,
+    "file": "14-lattice.pdf",
+    "title": "Twelve states under clock moves"
+  },
+  {
+    "route_page": 15,
+    "pdf_page": 16,
+    "file": "15-pairlattice.pdf",
+    "title": "The lattice of covers"
+  },
+  {
+    "route_page": 16,
+    "pdf_page": 17,
+    "file": "16-canonical.pdf",
+    "title": "The extreme state can have a cycle"
+  },
+  {
+    "route_page": 17,
+    "pdf_page": 18,
+    "file": "17-matroids.pdf",
+    "title": "Three conditions, and any two are easy"
+  },
+  {
+    "route_page": 18,
+    "pdf_page": 19,
+    "file": "18-lp.pdf",
+    "title": "The relaxed problem has a fractional corner"
+  },
+  {
+    "route_page": 19,
+    "pdf_page": 20,
+    "file": "19-rainbow.pdf",
+    "title": "A tree that uses every black face once"
+  },
+  {
+    "route_page": 20,
+    "pdf_page": 21,
+    "file": "20-random.pdf",
+    "title": "A random spanning tree with the right degrees"
+  },
+  {
+    "route_page": 21,
+    "pdf_page": 22,
+    "file": "21-trinity.pdf",
+    "title": "Three graphs inside one triangulation"
+  },
+  {
+    "route_page": 22,
+    "pdf_page": 23,
+    "file": "22-cuts.pdf",
+    "title": "What a small cut has to remember"
+  },
+  {
+    "route_page": 23,
+    "pdf_page": 24,
+    "file": "23-induction.pdf",
+    "title": "Induction by removing a vertex of degree four"
+  },
+  {
+    "route_page": 24,
+    "pdf_page": 25,
+    "file": "24-earlier.pdf",
+    "title": "Where the older methods meet this proof"
+  },
+  {
+    "route_page": 25,
+    "pdf_page": 26,
+    "file": "25-produced.pdf",
+    "title": "Which Hamiltonian cycles the proof can produce"
+  },
+  {
+    "route_page": 26,
+    "pdf_page": 27,
+    "file": "26-families.pdf",
+    "title": "Two families, counted"
+  },
+  {
+    "route_page": 27,
+    "pdf_page": 28,
+    "file": "27-hypotheses.pdf",
+    "title": "What breaks when a hypothesis is dropped"
+  },
+  {
+    "route_page": 28,
+    "pdf_page": 29,
+    "file": "28-pfaffian.pdf",
+    "title": "Off the sphere: the Heawood graph on a torus"
+  },
+  {
+    "route_page": 29,
+    "pdf_page": 30,
+    "file": "29-blueprint.pdf",
+    "title": "What is machine-checked"
+  },
+  {
+    "route_page": 30,
+    "pdf_page": 31,
+    "file": "30-open.pdf",
+    "title": "What is still open, and how far it was tested"
+  }
+]

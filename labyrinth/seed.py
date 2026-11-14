@@ -267,7 +267,7 @@ DOORS = [
      "Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.",
      "First test: on the hexagonal prism compare the 2 partnered and 2 unpartnered avoiding cycles face by face (k.U.6h).", ["k.U.6h", "p.U.5"]),
     ("q.disk", "Is there a second proof of the disk identity?",
-     "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity "
+     "All papers use one double count. The final paper needs the exact count for signs and nonvanishing and for recovery. The topology agent derives the identity "
      "from the theorem of turning tangents (p.B.6); nobody has refereed that.",
      "First test: referee p.B.6 on the 9-vertex non-bijective disk (lim/examples/nonbijective_disk.json), where the angle structure must fail to be flat.",
      ["p.B.6", "h.B.3", "h.B.2", "h.B.1", "p.C.5"]),
@@ -423,7 +423,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              "LIT (trees paper Thm 1.2); short proof checked in structure referee INTEGRATION.md; final REPORT still provisional; computed on all 7868 roots up to 16 vertices", "proved",
              ["th.A.T", "p.A.GT", "c.A.c"], ["trees paper 2026"], [("2026-10-06", "sufficient: no separating triangle (OpenAI Prop. 3.1)")]),
          row("disk", G1, "What the disk identity is used for",
-             "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
+             "The final paper uses the exact disk count in its sign and nonvanishing route, and again to exclude selected cycles during recovery; parity alone does not justify that recovery count.",
              "proved here (refd, unreviewed)", "proved", ["p.C.5", "p.B.0"], [], [("2026-11-14", "four uses of the full identity (dependency-graph audit)")]),
          row("structural", G1, "Existence proof with no signed count", "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
              "open; %d dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)" % sum(1 for r in RT.ROUTES if r["status"] == "REFUTED"),
@@ -479,7 +479,7 @@ for entry in S['entries']:
     if entry['id']=='rarity': entry.update(result='Exponential rarity also without separating triangles: width-four nanotubes have two good states among Fib_(2L+3) states.',status='T2 author proof and T4 transfer arithmetic unreviewed; older prism-sum proof AI-refereed.')
     if entry['id']=='which-hc': entry['status']='Earlier recovery image and injectivity independently AI-refereed; revised compatible-state converse is separate, unreviewed.'
     if entry['id']=='canonical':
-        entry.update(result='No canonical rule known. C2 false first at V=18; extreme-or-irreducible R2 false at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.',status='Independent AI referee and two V=33 implementations; no human check.',kind='refuted',refs=['k.D.7','x.D.ext2'])
+        entry.update(result='No canonical rule known. Felsner pair-lattice extremes fail at V=18; Propp state-clock extremes can lack partners at V=10; extreme-or-irreducible R2 fails at V=33. R1/R3/R5 witnesses at V=24/60/70; gluing also defeats R3/R5 at V=33.',status='Independent AI referee and two V=33 implementations; no human check.',kind='refuted',refs=['k.D.7','x.D.ext2'])
     if entry['id']=='review':
         entry.update(result='Claim-specific AI referee states recorded on routes. New referee theorems remain T2 unreviewed. None human-checked.',status='See named review objects; the primal M4 question is settled in the cross-audit adjudication.')
     if entry['id']=='tm-lower' or entry['cls']=='Number of good states':
@@ -495,7 +495,7 @@ for entry in S['entries']:
         entry['status']='Independent AI referees and completed main-v2 cold read; human check pending.'
     if entry['id']=='rarity': entry['status']='T2 independently AI-refereed all-length transfer at the specified lateral root; no human check.'
     if entry['id']=='formal':
-        entry.update(result=by_route['G2.devices']['text'],status='COMPUTED T4; compiled by its author; independent check pending.',refs=['c.G2.c','c.G2.devices'])
+        entry.update(result=by_route['G2.devices']['text'],status='COMPUTED; independently rebuilt and statement-checked; retain the four qualifications in the review.',refs=['c.G2.c','c.G2.devices'])
     if entry['id']=='algorithm':
         entry['result']+=' Conditional PPADS reduction for TREE-PAIR supplied; C3 gives no automatic PLS membership or polynomial bound.'
         entry['status']='Supplied preprint time bounds; new PPADS proof T2 unreviewed, conditional on Theorem 5.3; recalled complexity citations not independently checked.'
@@ -507,6 +507,9 @@ for entry in S['entries']:
 for key,cls,rid in [('packing-P2','Face-side rainbow packing P2','U.packing-P2'),('pair-descent','Monotone pair descent C3','N.11'),('rainbow-R','Unsigned rainbow existence','U.rainbow'),('partial-G','Short-cycle obstruction and partial G','U.G-partial')]:
     r=by_route[rid]
     S['entries'].append(row(key,G2,cls,r['text'],r['status']+'; '+r.get('review',{'state':'unreviewed'})['state']+'; human check pending','conjecture' if r['status']=='CONJECTURE' else 'partial',[nid(r)],[]))
+for entry in S['entries']:
+    if entry['id']=='canonical': entry['result']=by_route['D.7']['text']+' '+by_route['D.ext2']['text']
+    if entry['id']=='rainbow-R': entry['status']='PROVED-HERE; independently AI-refereed with corrections; no human check.'
 prior_path=LAB/'sota.json'
 prior=json.loads(prior_path.read_text(encoding='utf8')) if prior_path.exists() else {'entries':[]}
 prior_by_id={r['id']:r for r in prior['entries']}

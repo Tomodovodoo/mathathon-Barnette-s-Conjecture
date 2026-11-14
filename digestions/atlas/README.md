@@ -82,6 +82,8 @@ The audit left seven proposed figures in `digestions/atlas/proposed/`. All seven
 
 ## Index
 
+Route-page numbers below match the current combined PDF. The contents is PDF page 1, so route page 1 is PDF page 2. This index was checked against the PDF after the renumbering.
+
 | Page | Route | PDF | Figure, cm | Words |
 | --- | --- | --- | --- | --- |
 | 1 | The chain, and where the routes branch | [PDF](pages/01-chain.pdf) | 14.97 x 14.82 | 145 |
