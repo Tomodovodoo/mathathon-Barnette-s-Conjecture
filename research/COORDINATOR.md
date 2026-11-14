@@ -37,3 +37,13 @@ Cross-audits
 14. Referee each wave-1 report with a different model (own code, own reasoning).
 15. Reverse-Lamport audit of the manuscript draft.
 16. Figure review in context (scale against text width, legibility).
+
+## State at 12:10 UTC (machine 13:10)
+
+All of the first queue is launched or done. See `INDEX.md`. Eight running.
+
+Remaining plan
+1. When `paper/main/` lands: cold reader (model that has seen neither draft), then a rewrite pass, then unslop and notation audit, then a reverse-Lamport audit by a third model.
+2. When the referees of induction, conjectures, topology and packing land: fold verdicts into `digestions/route-map/` and `labyrinth/` (one agent).
+3. From 14:05 UTC: cross-audits of `paper/main/`, `proofs/primal/`, `proofs/involutions/`, `digestions/`; repository cleanup (build artefacts, stale drafts flagged not deleted); top-level README update with the final layout.
+4. `E:\lbb` (7.4 GB Lean build, outside the repo) could not be deleted from this session. Tell the user.

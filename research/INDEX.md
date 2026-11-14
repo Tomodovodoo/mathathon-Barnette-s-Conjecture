@@ -25,14 +25,28 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `sol_figures-polish/` | GPT-6.1 Sol | Figure third pass | done | Crossing checks, greyscale proofs, cube layout, six-panel introduction strip. |
 | `fable_route-categorical/` | Fable 5.2 | Categorical and structural reformulations | done | Cutting along cycles is substantive (3 patterns on triangles, 6 on quadrilaterals, fails at 5). The rest is vocabulary. |
 | `opus_manuscript-B/` | Opus 5.5 | Second manuscript draft in `paper/draft-B/` | done, under review | 16 pages, all in the dual triangulation. |
-| `fable_digestions/` | Fable 5.2 | `digestions/steps/`, eleven documents | done, under audit | |
-| `sol_referee-structure/` | GPT-6.1 Sol | Referee of graph-theory and limits reports | running | |
-| `opus_conjectures/` | Opus 5.5 | Lattice-extreme, 2^cmin and descent conjectures | running | |
-| `opus_review-draft-A/` | Opus 5.5 | Cold-reader review of draft A | running | |
-| `astra_primal-proof/` | GPT-6 Astra | Proof entirely in G, `proofs/primal/` | running | |
+| `fable_digestions/` | Fable 5.2 | `digestions/steps/`, eleven documents | done, audited | 23,000 words; audited and corrected by `astra_audit-digestions/`. |
+| `sol_referee-structure/` | GPT-6.1 Sol | Referee of graph-theory and limits reports | done | Euler criterion, sharp gluing, recovery image and rarity confirmed. Degree-4 converse and matroid isomorphism refuted. `INTEGRATION.md`. |
+| `opus_conjectures/` | Opus 5.5 | Lattice-extreme, 2^cmin and descent conjectures | done, under review | Lattice-extreme conjecture FALSE (V=18). Irreducible-element variant survives to V=24. 2^cmin holds to V=22. Directed-cycle criterion for tree pairs. |
+| `opus_review-draft-A/` | Opus 5.5 | Cold-reader review of draft A | done | Proof follows; four sentences missing; 9 of 22 style rules pass; 25 edits. |
+| `astra_primal-proof/` | GPT-6 Astra | Proof entirely in G, `proofs/primal/` | done, refereed | 13 lemmas, no dual. Revised in `astra_primal-revision/`. |
 | `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | running | |
-| `sol_counting-families/` | GPT-6.1 Sol | Exact counts on infinite families | running | |
-| `astra_older-approaches/` | GPT-6 Astra | Earlier methods re-read through the new proof | running | |
-| `fable_review-draft-B/` | Fable 5.2 | Cold-reader review of draft B, merge plan | running | |
-| `opus_route-induction/` | Opus 5.5 | Inductive routes | running | |
-| `astra_audit-digestions/` | GPT-6 Astra | Audit of digestions, route map and labyrinth | running | |
+| `sol_counting-families/` | GPT-6.1 Sol | Exact counts on infinite families | done | Prism formulas, nanotube recurrences, exponentially rare tree matchings without separators, 2^cmin tight on prism-sums. |
+| `astra_older-approaches/` | GPT-6 Astra | Earlier methods re-read through the new proof | done | Feder-Subi parity link refuted. Through-an-edge follows from avoidance. `NOVELTY.md`. |
+| `fable_review-draft-B/` | Fable 5.2 | Cold-reader review of draft B, merge plan | done | One unchecked hypothesis (connectivity for Euler), fixed by a five-line lemma. 13 of 22 rules pass. `COMPARISON.md`. |
+| `opus_route-induction/` | Opus 5.5 | Inductive routes | done, under review | Contraction induction reduced to statements G and L, both true to V=17; L proved in 98.3% of hard cases. 13 schemes refuted. |
+| `astra_audit-digestions/` | GPT-6 Astra | Audit of digestions, route map and labyrinth | done | 27 findings fixed; map rebuilt with 186 routes. |
+| `fable_referee-primal/` | Fable 5.2 | Referee of the primal proof | done | FOLLOWS; one gap closed, three fixes; recommends primal backbone with dual pictures. |
+| `astra_route-pfaffian/` | GPT-6 Astra | Non-planar Pfaffian corollary and a direct route | done | Corollary 7.2 follows via GSW 4.16. On Heawood cancellation survives, nonvanishing fails. |
+| `sol_route-probabilistic/` | GPT-6.1 Sol | Probabilistic and positive-measure routes | done, under review | No unsigned proof. Mean obstruction. Two-tree packing conjecture. |
+| `astra_literature-consolidation/` | GPT-6 Astra | `papers/INDEX.md`, `papers/barnette.bib` | done | 87 sources indexed; no theorem-number mismatch. |
+| `astra_primal-revision/` | GPT-6 Astra | Primal note with referee fixes and figures | done | 15 pages, 8 figures, dictionary; three observations proved. |
+| `sol_route-atlas/` | GPT-6.1 Sol | `digestions/atlas/`, first pass | done | 28 pages, too schematic. |
+| `opus_manuscript-merge/` | Opus 5.5 | Merged manuscript in `paper/main/` | running | |
+| `fable_referee-topology/` | Fable 5.2 | Referee of topology report, rainbow-exchange attack | running | |
+| `fable_induction-completion/` | Fable 5.2 | Referee and completion of the contraction induction | running | |
+| `fable_atlas-review/` | Fable 5.2 | Atlas second pass | running | |
+| `sol_referee-conjectures/` | GPT-6.1 Sol | Referee of the conjecture report; lattice reading of the signed sum | running | |
+| `astra_cycle-covers/` | GPT-6 Astra | What cycle covers and c_min are | running | |
+| `opus_two-tree-packing/` | Opus 5.5 | Two-tree packing conjecture | running | |
+| `sol_li-completion/` | GPT-6.1 Sol | Complete bijective proof in `proofs/involutions/` | running | |
