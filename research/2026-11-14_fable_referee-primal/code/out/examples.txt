@@ -1,0 +1,39 @@
+
+== The cube
+ok   printed facial cycles are coherently oriented and give a rotation system
+ok   rotation system has genus 0 and the printed edge set  |V|=8 |E|=12 |F|=6
+ok   traced faces are exactly the printed facial cycles
+ok   printed potentials satisfy (5.2) with the printed flow  orientation convention 1
+ok   B, W, A, R, X as printed
+ok   printed flow has divergence |W| at b0, -1 at whites, 0 elsewhere
+ok   state list  2 states, 2 printed
+ok   every printed Q_s
+ok   every printed c_s
+ok   set of ordered pairs  2 pairs
+ok   every printed pair sign, circuit, cut side, count tuple, delta-sum and slope  2 circuits
+ok   the printed polynomial Z(z)  mine [0, -1], note [0, -1]
+ok   printed removed set and recovery tree
+ok   printed perfect matching P
+ok   printed Hamiltonian cycle is G - P and avoids e0
+
+== A 20-vertex cancellation example
+ok   printed facial cycles are coherently oriented and give a rotation system
+ok   rotation system has genus 0 and the printed edge set  |V|=20 |E|=30 |F|=12
+ok   traced faces are exactly the printed facial cycles
+ok   printed potentials satisfy (5.2) with the printed flow  orientation convention 1
+ok   B, W, A, R, X as printed
+ok   printed flow has divergence |W| at b0, -1 at whites, 0 elsewhere
+ok   state list  9 states, 9 printed
+ok   every printed Q_s
+ok   every printed c_s
+ok   set of ordered pairs  10 pairs
+ok   every printed pair sign, circuit, cut side, count tuple, delta-sum and slope  26 circuits
+ok   the printed polynomial Z(z)  mine [0, 4, 9, -2, -9, -2], note [0, 4, 9, -2, -9, -2]
+ok   the printed cancelling state, its partners and its Q-circuit  circuits of Q_s: [{9, 10, 5}]
+ok   reversing that circuit exchanges the two partners
+ok   states with a circuit in Q_s  [1]
+ok   printed removed set and recovery tree
+ok   printed perfect matching P
+ok   printed Hamiltonian cycle is G - P and avoids e0
+
+33 comparisons, 0 failed
