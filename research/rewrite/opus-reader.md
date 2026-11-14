@@ -1,6 +1,6 @@
 # A first reading of paper/barnette.tex
 
-I read the draft once, as a graph theorist who knows the conjecture but none of the 2026 papers, and then checked every step. The proof holds up. One lemma is misstated, the introduction asserts one fact that nothing proves, and the body never says why a second state or a weight is needed. Line numbers refer to paper/barnette.tex at commit 06ebcfa.
+I read it as a graph theorist new to the 2026 papers, then checked every step. The proof holds up, with one misstated lemma and one unproved claim. Line numbers refer to commit 06ebcfa.
 
 ## Must change
 
@@ -41,27 +41,19 @@ After reading it I could tell a colleague the following:
 4. The same sum can also be grouped by the cycles r(t)→s(t). Reversing one of these flips the sign and raises a height-function weight by the number of white faces inside, so each group is ±z^ω∏(1−z^a).
 5. Near z = 1 the groups with the fewest cycles dominate and all have the same sign, so the sum is not zero. A pair exists by a flow argument unless there is a separating triangle, where one glues.
 
-The order is right. Three things were unclear:
-
-- "rules out" (l.62) needs its reason, which is that the side of t in M\* contains s(t). Also write "the two sides of $t_0$ other than $e_0$".
-- The disk identity is named twice (l.63, l.74) with no content. Give it once, in a clause: `a cycle along which every edge carries its face's chosen corner encloses one more white than black face`.
-- l.80 "they all carry the same sign" needs a reason: the sign depends only on the number of cycles and how many run counterclockwise.
-
-Replace "Here a second structure enters." (l.72) with `With $f=1$ the sum vanishes, for a reason that also shows how to choose $f$.` Then "although $Z(1)=0$" in l.81 is already explained.
-
-The sentence "In the rest of this introduction we describe the argument." (l.47) can go.
+The order is right. At l.62, "rules out" needs its reason, which is that the side of t in M\* contains s(t); also write "the two sides of $t_0$ other than $e_0$". The disk identity is named twice (l.63, l.74) but never stated. State it once: `a cycle along which every edge carries its face's chosen corner encloses one more white than black face`. At l.80, "the same sign" needs its reason, which is that the sign depends only on the number of cycles and how many run counterclockwise. Replace "Here a second structure enters." (l.72) with `With $f=1$ the sum vanishes, for a reason that also shows how to choose $f$.` That also explains "although $Z(1)=0$".
 
 ## 2. Section by section
 
-**Section 2.** Lemma 2.2 is one line. Fold it into the proof of Proposition 2.4 at l.173. At l.127, "a cycle can run clockwise" should be "a directed cycle runs clockwise". The disk identity arrives with r instead of s and no hint why. Add "(we state it for an arbitrary state $r$, as it will be applied to both states of a pair)". The proof of Proposition 2.4 is good, and the black-to-child matching is the nicest step in the paper.
+**Section 2.** Lemma 2.2 is one line. Fold it into the proof of Proposition 2.4 at l.173. At l.127, "a cycle can run clockwise" should be "a directed cycle runs clockwise". The black-to-child matching in Proposition 2.4 is the nicest step in the paper.
 
-**Section 3.** I re-read l.190. Q_s gets a direction that depends on r, but the notation does not show r. Say "directed by $r$". l.288 belongs inside the proof of Proposition 3.4, where it is used. l.328 is the key reason for working at z = 1, and it should come before the proof, not after it.
+**Section 3.** At l.190 I had to re-read: Q_s gets a direction that depends on r, so say "directed by $r$". l.288 belongs inside the proof of Proposition 3.4. l.328 is the reason for working at z = 1 and should come before that proof.
 
-**Section 4.** Lemma 4.1 comes before anything that needs it. The reader meets e(U)−b(U) cold. Put Proposition 4.2 first and the density lemma after it, or open with `A pair is a $2$-factor of $H$; Hall's condition for it becomes, after complementation, the following edge count.` At l.360, "on its far side" made me stop. Use "outside it".
+**Section 4.** The reader meets e(U)−b(U) in Lemma 4.1 before anything needs it. Put Proposition 4.2 first, or open with `Hall's condition for a $2$-factor of $H$ becomes, after complementation, the following edge count.`
 
 ## 3. The core
 
-The mechanism is visible, but only once Proposition 3.4 starts. The cancellation sits inside that proof, after the weight has been built. The intro tells it in the order sign, cancellation, weight, count. The body should follow the same order. Make the first paragraph of the proof of 3.4 a lemma right after Lemma 3.2: `For every function $f$ on states, $\sum\eps(r,s)f(s)$ over all pairs equals the same sum over the pairs in which $s$ is good.` OpenAI says it outright: "The cancellation works for arbitrary weights; we will choose them afterwards to establish nonvanishing."
+The mechanism only becomes visible inside Proposition 3.4, where the cancellation is buried after the weight. The body should follow the intro's order: sign, cancellation, weight, count. Make the first paragraph of the proof of 3.4 a lemma right after Lemma 3.2: `For every function $f$ on states, $\sum\eps(r,s)f(s)$ over all pairs equals the same sum over the pairs in which $s$ is good.` OpenAI says it outright: "The cancellation works for arbitrary weights; we will choose them afterwards to establish nonvanishing."
 
 The weight would read better as a sum of local weights, matching the sign as a product of local signs. Replace l.263–266 by:
 `For $t\in A$ and a corner $v\in X$ of $t$ let $a(t,v)=\sum_y\cross{p_t\to v}{\gamma_y}$, the sum being over the white faces, and call $\omega(s)=\sum_{t\in A}a(t,s(t))$ the \emph{weight} of $s$.`
@@ -69,40 +61,31 @@ Move the Thurston sentence (l.289) to the head of the subsection. A reader who k
 
 Li's half-rays are easier to picture than arcs to t_0. "the half-ray of w intersects C an odd number of times if w is in the interior of C".
 
-Lemma 3.3 convinced me. At l.278 add why the white faces inside are unchanged: `the region between an edge of $C$ and its detour through $p_t$ lies in the black face $t$`. The manuscript says it more carefully: "Each detour and the edge it replaces bound a triangular subdisk excluding the third corner."
+Lemma 3.3 convinced me. At l.278 add why the white faces inside are unchanged: `the region between an edge of $C$ and its detour through $p_t$ lies in the black face $t$`.
 
 ## 4. Figures
 
-Figure 1 is right in scope. In (d), use the same s as in (b) and draw Q_s directed by r, so the reader sees the forest oriented to the roots. Next to it, draw D(r,s). In the octahedron D(r,s) is the boundary of one white face, so a(C) = 1. Say so, and say that both states are good and give the cube's two Hamiltonian cycles avoiding e.
+Figure 1 is right in scope. In (d), use the same s as in (b) and draw both Q_s, directed by r towards the roots, and D(r,s). In the octahedron D(r,s) bounds one white face, so a(C) = 1, and both states are good. Say so in the caption.
 
-Figure 2: in (a), mark the left side of r(t)→s(t), so that δ_t can be read off. In (c), add one γ_y from a white face inside C, crossing Γ once from left to right. That is the picture I wanted most. No disk-identity figure is needed; it is a count.
-
-Figure 3 is only worth its space if it shows the cancellation. Add a panel (c) with the non-good second state, its cycle K of Q_s, and its two first states.
+Figure 2: in (a), mark the left side of r(t)→s(t) so that δ_t can be read off. In (c), add one γ_y from a white face inside C, crossing Γ once. That is the picture I wanted most. The disk identity needs no figure. Figure 3 earns its space only with a panel (c) showing the non-good second state, its cycle K and its two first states.
 
 ## 5. Remarks and the example
 
-The example is worth keeping if it says what it shows. Expanded, the polynomial is 1−z+z²−z³−z⁵+z⁷ times z^{ω0}. The z⁶ terms cancel, one from each 2-factor. That shows the involution changing the 2-factor, which the remark at l.436 relies on. Replace l.334 by:
+The example is worth keeping if it says what it shows. The z⁶ terms cancel, one from each 2-factor, so the involution visibly changes the 2-factor, which l.436 relies on. Replace l.334 by:
 `Expanded, $Z(z)=z^{\omega_0}(1-z+z^2-z^3-z^5+z^7)$. The two terms $z^6$, one from each $2$-factor, come from the two pairs with the same second state, which is not good; the six remaining monomials are the six good states.`
 
-Two things are missing from the remarks. The first is that states are Tutte's states from trinity and Kauffman's clock theorem; OpenAI cites Hine–Kálmán, and it is in papers/. The second is the exact criterion in the manuscript, Theorem 1.2: a pair exists if and only if "no separating triangle has black inner boundary". That tells the reader how necessary the induction is.
+Two things are missing from the remarks. States are Tutte's states from trinity theory, as in Kauffman's clock theorem; OpenAI cites Hine–Kálmán. And the manuscript's Theorem 1.2 gives the exact criterion: a pair exists if and only if "no separating triangle has black inner boundary". That tells the reader how much of the induction is needed.
 
-At l.429, NP-completeness only shows non-Hamiltonian 2-connected examples exist if P ≠ NP. Cite an explicit example instead. The phase detail at l.421 is fine. At l.442, "We do not know either whether" should be "It is open whether".
+At l.429, NP-completeness only shows that non-Hamiltonian 2-connected examples exist if P ≠ NP, so cite an explicit example. At l.442, "We do not know either whether" should be "It is open whether".
 
 ## 6. Tone
 
-Most of the prose is plain and good. These parts read like a report:
+Most of the prose is plain and good. l.45–47 and l.138 describe the paper instead of doing the work. For l.50 I would borrow the manuscript's opener: "The difficulty is connectivity. A spanning subgraph of degree two at every vertex is a disjoint union of cycles. The task is to make it connected."
 
-- l.45–47 and l.138 ("The argument needs a count that will be used again") describe the paper instead of doing the work.
-- l.83 "Two points remain." and l.324 "up to a sign" are fine.
-
-The manuscript has an opener I would borrow for l.50: "The difficulty is connectivity. A spanning subgraph of degree two at every vertex is a disjoint union of cycles. The task is to make it connected."
-
-The title "The proof of Barnette's conjecture" reads as a claim to the proof. I suggest "Barnette's conjecture by a signed count of states" or "A short account of the proof of Barnette's conjecture". The abstract is five sentences, which is within the limit. Fix sentence four as above. Sentence five could drop "a generating function with" and read "a weight with one factor $1-z^{a}$ for every cycle".
+The title "The proof of Barnette's conjecture" reads as a claim to the proof. I suggest "A short account of the proof of Barnette's conjecture". The abstract is five sentences, which is within the limit. Fix sentence four as above.
 
 ## 7. From the sources
 
 OpenAI's overview states the mechanism better than l.66–81: "We analyze one finite exponential sum over pairs in two different ways. First fix s. … To prove that the whole sum is nonzero, instead fix the undirected edge set D". The draft should say "the same sum, grouped two ways" in so many words, in the introduction and at l.310.
 
 The manuscript has a cleaner wording of goodness: "We seek a tree matching, meaning that H − s is a spanning tree. The matching fixes the degrees of the retained graph; the tree condition ensures that it is connected." Here H is the full incidence graph, including t_0 and the roots. This is equivalent to the draft's definition and needs no special pair of sides of t_0. It would also shorten l.135 and the abstract.
-
-Li's contribution is the half-ray picture cited in section 3.
