@@ -81,7 +81,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `astra_referee-descent/` | GPT-6 Astra | Referee of the descent study and induction partial results | done | C3 confirmed on 3,373,400 pairs through 20 vertices. 27 alternative potentials refuted. 7,940 induction exceptions reproduced. C3, G and X open. |
 | `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | done, referee running | 11 pages, five figures; statements checked by own code through 12 vertices. |
 | `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | done | `FACTS.md`. Four documents agree; atlas repaired in `fable_atlas-repair/`. |
-| `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | running | |
+| `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | done | Every document builds from a fresh clone; 14 tests and 1,209 rooted runs pass. Two editorial gates red (synthesis length, one gallery caption). `requirements.txt` added. |
 | `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | done | 63 cite commands, 23 keys, none missing; numbered citations match their sources. Kelmans and the 1969 Waterloo page are known only through secondary sources. `PDF-RIGHTS.md`. |
 | `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | done | `verify.py` passes; pages 26, 29, 30 corrected; evidence chart redrawn. Not audited. |
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | done | No proof gap. Seven wording edits and a bibliography clean-up, applied by the coordinator. |
