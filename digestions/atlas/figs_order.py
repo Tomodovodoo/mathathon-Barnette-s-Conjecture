@@ -210,6 +210,7 @@ def rooted_forest(mod, edges):
 
 @fig('matroids')
 def matroids_fig():
+    U2 = 0.585          # this page is full: smaller panels leave room under the text
     X = set(m.X)
     opp = lambda t, v: tuple(u for u in m.F[t] if u != v)
     # face + forest, vertex condition dropped
@@ -271,6 +272,7 @@ def matroids_fig():
 # ---------------------------------------------------------------------------
 @fig('lp')
 def lp_fig():
+    U2 = 0.585          # this page is full: smaller panels leave room under the text
     choices = [(t, v) for t in m.A for v in m.F[t] if v in m.X]
     qedges = [tuple(0 if u in m.roots else 1 + m.X.index(u) for u in m.F[t] if u != v) for t, v in choices]
     Aeq = np.array([[int(tt == t) for tt, v in choices] for t in m.A] + [[int(vv == v) for t, vv in choices] for v in m.X], float)

@@ -211,6 +211,7 @@ def determinant_fig():
 # ---------------------------------------------------------------------------
 @fig('dimers')
 def dimers_fig():
+    U2 = 0.585          # this page is full: smaller panels leave room under the text
     def overlay(a_, b_):
         p = P(U2).base().spokes(style='bf spoke', centres=False)
         same = [t for t, x, y in zip(m.A, a_, b_) if x == y]

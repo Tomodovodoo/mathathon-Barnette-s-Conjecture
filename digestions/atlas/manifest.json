@@ -126,8 +126,8 @@
    "slug": "dimers",
    "title": "Two matchings laid on top of each other",
    "figure_cm": [
-    14.64,
-    20.5
+    14.57,
+    19.81
    ],
    "words": 150
   },
@@ -166,8 +166,8 @@
    "slug": "matroids",
    "title": "Three conditions, and any two are easy",
    "figure_cm": [
-    14.64,
-    19.87
+    14.57,
+    19.18
    ],
    "words": 147
   },
@@ -176,8 +176,8 @@
    "slug": "lp",
    "title": "The relaxed problem has a fractional corner",
    "figure_cm": [
-    14.64,
-    19.82
+    14.57,
+    19.12
    ],
    "words": 144
   },
@@ -287,7 +287,7 @@
    "title": "What is machine-checked",
    "figure_cm": [
     14.78,
-    17.19
+    16.85
    ],
    "words": 149
   },

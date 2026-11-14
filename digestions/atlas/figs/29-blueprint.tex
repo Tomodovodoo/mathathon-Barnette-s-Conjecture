@@ -1,5 +1,5 @@
 \documentclass[10pt,border=1pt]{standalone}
-\usepackage{amsmath,amssymb,booktabs}
+\usepackage{amsmath,amssymb,booktabs,array}
 \usepackage{atlas-figs}
 \begin{document}%
 \begin{tabular}{@{}c@{}}\begin{tikzpicture}[bf,x=1cm,y=1cm]
@@ -64,9 +64,9 @@
 \node[fill=white,draw=black,line width=.9pt,dash pattern=on 2.2pt off 1.4pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-1.48) {2.2 connected};
 \node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-2.2199999999999998) {(2.3) counts};
 \node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-2.96) {2.4 selection};
-\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-3.7) {2.5(2) acyclic, connected};
-\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-4.4399999999999995) {2.5(1) cycle, cut};
-\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-5.18) {2.6(1) selection to cycle};
+\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-3.7) {2.5(2) no cycle};
+\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-4.4399999999999995) {2.5(1) cycle and cut};
+\node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-5.18) {2.6(1) to a cycle};
 \node[fill=white,draw=black,line width=.9pt,dash pattern=on 2.2pt off 1.4pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (0.0,-5.92) {2.6(2) two trees};
 \node[fill=black!78,text=white,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (3.72,0.0) {3.2 state};
 \node[fill=black!13,draw=black,line width=.6pt,rounded corners=1.2pt,minimum width=3.05cm,minimum height=0.5cm,inner sep=1pt,font=\footnotesize] at (3.72,-0.74) {3.4 good state};
@@ -140,5 +140,5 @@
 \node[font=\footnotesize,text=white] at (0.8470588235294118,.25) {4};
 \node[font=\footnotesize] at (6.988235294117647,.25) {25 after a translation that is not machine-checked};
 \node[font=\footnotesize] at (13.341176470588236,.25) {5};
-\end{tikzpicture}\\\noalign{\vskip 1.5mm}\begin{minipage}{14.4cm}\centering\footnotesize (b) The same count as one bar, a box for each statement.\end{minipage}\\\noalign{\vskip 4mm}\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}p{3.3cm}p{10.7cm}@{}}\toprule \textbf{The paper says} & \textbf{The Lean proof says instead}\\\midrule a triangulation drawn on the sphere, inside and outside of a cycle & a graph with an algebraic dual, and a set of faces cut off from the root\\a sign $\pm1$, the product of local signs & a power of $i$; the later Lean version works with the sign and relates the two\\heights along paths of faces & weights from a flow\\a cycle that avoids a given edge & a cycle; avoiding an edge is proved for the algebraic dual and not restated for the drawn graph\\\bottomrule\end{tabular}\end{minipage}\end{tabular}%
+\end{tikzpicture}\\\noalign{\vskip 1.5mm}\begin{minipage}{14.4cm}\centering\footnotesize (b) The same count as one bar, a box for each statement.\end{minipage}\\\noalign{\vskip 4mm}\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{10.4cm}@{}}\toprule \textbf{The paper says} & \textbf{The Lean proof says instead}\\\midrule a triangulation drawn on the sphere, inside and outside of a cycle & a graph with an algebraic dual, and a set of faces cut off from the root\\a sign $\pm1$, the product of local signs & a power of $i$; the later Lean version works with the sign and relates the two\\heights along paths of faces & weights from a flow\\a cycle that avoids a given edge & a cycle; avoiding an edge is proved for the algebraic dual and not restated for the drawn graph\\\bottomrule\end{tabular}\end{minipage}\end{tabular}%
 \end{document}

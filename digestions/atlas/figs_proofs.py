@@ -216,7 +216,7 @@ def keystep_fig():
     c = cell(p.tex(), rf'(c) Bijective note. Pick a white face inside each cycle of a cover and ring the first corner on that cycle where its path turns. '
              rf'Orient the cycle so that this corner carries the wedge of $s$. Such objects have no partner. The two covers give ${per_cover[0]}+{per_cover[1]}={prodsum}$ of them, all of one sign.', CW)
     sg_ = lambda v_: ('+' if v_ > 0 else '-') + str(abs(v_))
-    led = (r'\begin{minipage}[b][6.9cm][c]{6.6cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}p{1.45cm}p{3.6cm}r@{}}\toprule '
+    led = (r'\begin{minipage}[b][6.9cm][c]{6.6cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.45cm}>{\raggedright\arraybackslash}p{3.6cm}r@{}}\toprule '
            r'\textbf{Proof} & \textbf{What it adds up} & \textbf{Here}\\\midrule '
            rf'main paper & $\sum\varepsilon(r,s)\,\omega(s)^{mm}$ over pairs, $\omega$ the total height & ${sg_(Sigma)}$\\'
            rf'primal note & lowest coefficient of $\sum\varepsilon\prod(1+a\,z)$, weights $a$ from the flow & ${sg_(int(Z.nth(2)))}$\\'
@@ -235,8 +235,8 @@ def keystep_fig():
 # ---------------------------------------------------------------------------
 BP_SHORT = {
     'thm:main': '1.1 cycle avoiding $e$', 'lem:dual': '2.1 dual triangulation', 'txt:two-faces': 'two faces, one side', 'lem:connected': '2.2 connected',
-    'eq:counts': '(2.3) counts', 'def:selection': '2.4 selection', 'lem:duality.2': '2.5(2) acyclic, connected', 'lem:duality.1': '2.5(1) cycle, cut',
-    'prop:target.1': '2.6(1) selection to cycle', 'prop:target.2': '2.6(2) two trees', 'def:state': '3.2 state', 'def:good': '3.4 good state',
+    'eq:counts': '(2.3) counts', 'def:selection': '2.4 selection', 'lem:duality.2': '2.5(2) no cycle', 'lem:duality.1': '2.5(1) cycle and cut',
+    'prop:target.1': '2.6(1) to a cycle', 'prop:target.2': '2.6(2) two trees', 'def:state': '3.2 state', 'def:good': '3.4 good state',
     'lem:good': '3.5 spanning tree', 'lem:Y': '3.6 tree and selection', 'lem:outdegree': '3.7 outdegree', 'txt:inside': 'inside of a cycle',
     'lem:disk': '3.8 disk identity', 'prop:recover': '3.9 recovery', 'def:pair': '4.1 pair', 'lem:partner': '4.2 partner', 'txt:D': 'cycles of $D$',
     'lem:reversals': '4.3 two reversals', 'txt:delta': 'local sign $\\delta$', 'lem:sign': '4.4 sign', 'lem:cancel': '4.5 cancellation', 'txt:heights': 'heights on paths',
@@ -327,7 +327,7 @@ def blueprint_fig():
     capa = (r'\begin{minipage}{14.4cm}\centering\footnotesize (a) The ' + str(tot) + r' statements on the main paper\textquotesingle s route to its theorem, by section. An arrow runs from a statement to one that uses it '
             rf'({red.number_of_edges()} arrows, after dropping those implied by others). Dark: the Lean proof has a declaration that says the same. Grey: it has one after a translation. Dashed: none. Dot: the {len(moved)} statements that a later Lean version covers better, which gives {counts2["exact"]}, {counts2["form"]} and {counts2["none"]}.\end{{minipage}}')
     capb = (r'\begin{minipage}{14.4cm}\centering\footnotesize (b) The same count as one bar, a box for each statement.\end{minipage}')
-    led = (r'\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}p{3.3cm}p{10.7cm}@{}}\toprule '
+    led = (r'\begin{minipage}{14.4cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{10.4cm}@{}}\toprule '
            r'\textbf{The paper says} & \textbf{The Lean proof says instead}\\\midrule '
            r'a triangulation drawn on the sphere, inside and outside of a cycle & a graph with an algebraic dual, and a set of faces cut off from the root\\'
            r'a sign $\pm1$, the product of local signs & a power of $i$; the later Lean version works with the sign and relates the two\\'

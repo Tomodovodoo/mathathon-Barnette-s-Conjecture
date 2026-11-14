@@ -45,7 +45,7 @@ for p in PAGES:
     if only and not any(o in slug for o in only) and tex.with_suffix('.pdf').exists():
         continue
     body = lib.FIGS[slug]()
-    src = ('\\documentclass[10pt,border=1pt]{standalone}\n\\usepackage{amsmath,amssymb,booktabs}\n\\usepackage{atlas-figs}\n\\begin{document}%\n'
+    src = ('\\documentclass[10pt,border=1pt]{standalone}\n\\usepackage{amsmath,amssymb,booktabs,array}\n\\usepackage{atlas-figs}\n\\begin{document}%\n'
            + body + '%\n\\end{document}\n')
     for old in FD.glob(f'*-{slug}.*'):
         if not old.name.startswith(name + '.'):
@@ -112,7 +112,7 @@ for p in PAGES:
     out.append(r'\vfill{\centering\includegraphics{figs/' + name + r'.pdf}\par}')
     if p.get('caption'):
         out.append(r'igcap{' + p['caption'] + '}')
-    out.append(r'\vfill\vfill ' + p['text'] + r'\par\smallskip ' + p['status'] + r'\par\vfill')
+    out.append(r'\vfill\vfill ' + p['text'] + r'\par\smallskip ' + p['status'] + r'\par\vskip 2.5mm plus 1fill')
     out.append(r'{\small\textbf{See also}\quad ' + see(p) + r'.\par}')
 out.append(r'\clearpage\noindent{\Large\bfseries Sources}\par\vspace{1mm}\hrule\medskip')
 out.append(r'{\small ' + pages.SOURCES_INTRO + r'\par}\medskip')

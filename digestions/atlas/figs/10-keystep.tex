@@ -1,5 +1,5 @@
 \documentclass[10pt,border=1pt]{standalone}
-\usepackage{amsmath,amssymb,booktabs}
+\usepackage{amsmath,amssymb,booktabs,array}
 \usepackage{atlas-figs}
 \begin{document}%
 \begin{tabular}{@{}c@{\hspace{3mm}}c@{}}
@@ -301,6 +301,6 @@
 \draw[af halo,line width=3.4pt] (-0.900,0.896) circle[radius=5.2pt];\draw[line width=1.5pt] (-0.900,0.896) circle[radius=5.2pt];
 \draw[af halo,line width=3.4pt] (-2.434,2.399) circle[radius=5.2pt];\draw[line width=1.5pt] (-2.434,2.399) circle[radius=5.2pt];
 \end{tikzpicture}\\[.6mm]\begin{minipage}[t]{6.6cm}\centering\footnotesize (c) Bijective note. Pick a white face inside each cycle of a cover and ring the first corner on that cycle where its path turns. Orient the cycle so that this corner carries the wedge of $s$. Such objects have no partner. The two covers give $6+3=9$ of them, all of one sign.\end{minipage}\end{tabular} &
-\begin{minipage}[b][6.9cm][c]{6.6cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}p{1.45cm}p{3.6cm}r@{}}\toprule \textbf{Proof} & \textbf{What it adds up} & \textbf{Here}\\\midrule main paper & $\sum\varepsilon(r,s)\,\omega(s)^2$ over pairs, $\omega$ the total height & $+18$\\primal note & lowest coefficient of $\sum\varepsilon\prod(1+a\,z)$, weights $a$ from the flow & $+9$\\bijective note & pairs carrying 2 marks, counted with sign & $-9$\\\bottomrule\end{tabular}\par\smallskip Each number is $9=6\cdot1+3\cdot1$ up to the factor $2!$ and a sign: white faces inside the cycles of the two covers. The flow in (b) is the sum of the paths in (a), so its weights are the heights added over all white faces. A mark in (c) is one term of a height. (d) All three were recomputed here on the running example with the same paths, 43 marked objects in all.\end{minipage}
+\begin{minipage}[b][6.9cm][c]{6.6cm}\footnotesize\renewcommand{\arraystretch}{1.3}\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.45cm}>{\raggedright\arraybackslash}p{3.6cm}r@{}}\toprule \textbf{Proof} & \textbf{What it adds up} & \textbf{Here}\\\midrule main paper & $\sum\varepsilon(r,s)\,\omega(s)^2$ over pairs, $\omega$ the total height & $+18$\\primal note & lowest coefficient of $\sum\varepsilon\prod(1+a\,z)$, weights $a$ from the flow & $+9$\\bijective note & pairs carrying 2 marks, counted with sign & $-9$\\\bottomrule\end{tabular}\par\smallskip Each number is $9=6\cdot1+3\cdot1$ up to the factor $2!$ and a sign: white faces inside the cycles of the two covers. The flow in (b) is the sum of the paths in (a), so its weights are the heights added over all white faces. A mark in (c) is one term of a height. (d) All three were recomputed here on the running example with the same paths, 43 marked objects in all.\end{minipage}
 \end{tabular}%
 \end{document}
