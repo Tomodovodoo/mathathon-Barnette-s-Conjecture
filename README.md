@@ -35,6 +35,12 @@ Nothing produced in that campaign has been read by a human. "Refereed" in these 
 | `research/` | One folder per agent run, with its report, code and data. `INDEX.md` lists them. `BRIEF.md` is the protocol agents follow. |
 | `skills/` | Skills for writing and auditing the paper. |
 
+## Reproduce the products
+
+Install the tested Python dependencies from the repository root with `python -m pip install -r requirements.txt`. Document builds need a TeX distribution with `pdflatex` and `bibtex`. Figure and graph rendering also use MiKTeX packages; the blueprint uses Graphviz, and the optional plantri setup uses GCC.
+
+Build instructions are in [the main paper](paper/main/README.md), [draft A](paper/draft-A/README.md), [draft B](paper/draft-B/README.md), [the figure toolkit](paper/figures/README.md), [the primal note](proofs/primal/README.md), [the involution note](proofs/involutions/README.md), [the sign-free note](proofs/sign-free/README.md), [the atlas](digestions/atlas/README.md), [the blueprint](proofs/blueprint/README.md), [the reference lab](workings/barnette_lab/README.md), and [Labyrinth](labyrinth/README.md). Follow each command's stated working directory. These commands reproduce finite computations and documents; they do not constitute an independent proof review.
+
 ## Contributing
 
 Work in the appropriate subfolder. Keep ongoing investigations in `workings/`, proof developments in `proofs/`, and manuscript updates in `paper/`. Explain what an argument establishes, which assumptions it uses, and what remains open. Cite the literature that supports it.
