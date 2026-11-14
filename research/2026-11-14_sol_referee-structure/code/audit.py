@@ -70,7 +70,9 @@ class Tri:
     def valid(self,s):
         return len(s)==self.n and set(s)==self.X and all(v in self.fs[t] for t,v in zip(self.A,s))
     def pairs(self,ss): return [(r,s) for r in ss for s in ss if all(a!=b for a,b in zip(r,s))]
-    def Q(self,s): return graph(len(self.g),[tuple(set(self.fs[t])-{v}) for t,v in zip(self.A,s)])
+    def Q(self,s):
+        q=nx.Graph(); q.add_nodes_from(self.g)
+        q.add_edges_from(tuple(set(self.fs[t])-{v}) for t,v in zip(self.A,s)); return q
     def tree(self,s):
         h=self.H.copy(); h.remove_edges_from(((0,t),(1,v)) for t,v in zip(self.A,s)); return nx.is_tree(h)
     def k(self,s):

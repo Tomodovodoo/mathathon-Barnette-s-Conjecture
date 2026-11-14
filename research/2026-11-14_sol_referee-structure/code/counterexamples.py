@@ -85,13 +85,15 @@ def large():
                             i=next(i for i,f in enumerate(t.A) if set(t.fs[f])-{s[i]}=={a,b})
                             rr[i]=next(iter(set(t.fs[t.A[i]])-{r[i],s[i]}))
                 mates.append(tuple(rr))
-            moves=[]
+            moves=[]; details=[]; cycverts=set(v for c in nx.cycle_basis(q) for v in c)
             for rr in mates:
                 for c in t.dc(rr,s):
                     ss=list(s)
                     for i in c: ss[i]=rr[i]
                     moves.append(t.k(ss))
+                    details.append({'D_length':len(c),'meets_Q_cycle':bool({rr[i] for i in c}&cycverts),'new_k':t.k(ss),'current_mate':rr==r})
             row['mates']=len(mates); row['all_swap_k']=moves
+            row['swap_details']=details
             if name.startswith('deep'):
                 assert min(moves)==row['k_s']
                 start=(r,s); todo=deque([(start,0)]); seen={start}; found=None
@@ -118,7 +120,29 @@ def lattice():
                     if not tests['has_ccw_cycle'] or not tests['has_cw_cycle']:
                         extrema.append({'state':s,'tree':t.tree(s),'no_ccw':not tests['has_ccw_cycle'],'no_cw':not tests['has_cw_cycle']})
                 if any(not e['tree'] for e in extrema):
-                    rows.append({'V':N,'graph':gi,'outer':outer,'rot':rot,'root_face':t.fs[t.outer],'extremes':extrema})
+                    rows.append({'V':N,'graph':gi,'outer':outer,'rot':rot,'root_face':t.fs[t.outer],'bounded_black_faces':[t.fs[f] for f in t.A],'extremes':extrema})
         save('matching-extremes.json',rows)
+
+def fable():
+    text=(ROOT/'research/2026-11-14_fable_route-combinatorics/data/counterexamples.txt').read_text()
+    part=text.split('E3 refuted: a cycle cover D with no forest pair among its orientations')[1]
+    fs=ast.literal_eval(part.split('faces (counterclockwise):\n')[1].splitlines()[0].strip())
+    t=Tri(fs=fs,outer=8); ss=t.states(); pairs=t.pairs(ss)
+    factors={}
+    for r,s in pairs:
+        u=tuple(next(iter(set(t.fs[f])-{a,b})) for f,a,b in zip(t.A,r,s))
+        factors.setdefault(u,[]).append((r,s))
+    bad=[p for ps in factors.values() if not any(t.tree(s) for r,s in ps) for p in ps]
+    assert len(bad)==2
+    rev={p:[] for p in pairs}
+    for p in pairs:
+        for q in t.neighbors(p):
+            if t.k(q[1])<=t.k(p[1]): rev[q].append(p)
+    good={p for p in pairs if t.k(p[1])==0}; todo=list(good)
+    while todo:
+        for p in rev[todo.pop()]:
+            if p not in good: good.add(p); todo.append(p)
+    assert len(good)==len(pairs)
+    save('fable16.json',{'V':16,'faces':fs,'outer':8,'states':len(ss),'pairs':len(pairs),'tree_matchings':sum(t.tree(s) for s in ss),'factors':len(factors),'bad_factor_orientations':[{'r':r,'s':s,'k_s':t.k(s),'D_lengths':list(map(len,t.dc(r,s)))} for r,s in bad],'D3_all_pairs_pass':True})
 
 if __name__=='__main__': globals()[sys.argv[1]]()

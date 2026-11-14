@@ -37,10 +37,21 @@ def examples():
         t,d=from_example(p/f'rarity_{q}.json'); ss=t.states(); tm=[s for s in ss if t.tree(s)]
         assert len(ss)==3**q and len(tm)==2**q
         result[f'rarity_{q}']={'dual_V':len(t.g),'states':len(ss),'tree_matchings':len(tm),'root':list(t.R)}
+        if q==1: result['local_prism']={'root':t.fs[t.outer],'bounded_black_faces':[t.fs[f] for f in t.A],'states':ss,'tree_flags':[t.tree(s) for s in ss]}
     t,d=from_example(p/'prism_recovery.json'); e0=edge(*d['e0']); ss=t.states(); tm=[s for s in ss if t.tree(s)]
     images={t.construct(s,e0) for s in tm}; parts=list(t.partitions(e0))
-    result['prism']={'states':ss,'tree_matchings':tm,'Q_forest':[nx.is_forest(t.Q(s)) for s in ss], 'images':len(images),'all_avoiding':len(parts),'e0':e0,'root':list(t.R)}
+    result['prism']={'bounded_black_faces':[t.fs[f] for f in t.A],'states':ss,'tree_matchings':tm,'Q_forest':[nx.is_forest(t.Q(s)) for s in ss], 'Q_components':[[sorted(c) for c in nx.connected_components(t.Q(s))] for s in ss], 'images':len(images),'all_avoiding':len(parts),'e0':e0,'root':list(t.R)}
     assert len(images)==2 and len(parts)==4
+    primal=nx.Graph(d['primal_edges']); forbidden=edge(*d['forbidden_primal_edge']); avoiding=[c for c in hcycles(primal) if forbidden not in c]
+    assert set(map(frozenset,primal.edges()))==set(map(frozenset,t.dual.edges()))
+    saved={frozenset(edge(*e) for e in c) for c in d['all_avoiding']}
+    assert set(avoiding)==saved and len(avoiding)==4
+    recovered={frozenset(edge(*t.inc[e]) for e in set(t.inc)-set(P)) for P in images}
+    assert recovered=={frozenset(edge(*e) for e in rec['edges']) for rec in d['image']}
+    result['prism']['saved_cycles_independently_verified']=True
+    cube,_=from_example(p/'t6_0.json'); cps=cube.pairs(cube.states()); Js=[sum(1 if cube.sides[a,b] in cube.black else -1 for a,b in zip(r,s))//3 for r,s in cps]
+    assert sorted(Js)==[-1,1] and sum((1j)**J for J in Js)==0
+    result['zero_weights_cube']={'pairs':len(cps),'J':Js,'zero_sum':True,'constant_spoke_weights_give_equal_state_weights':True}
     d=json.loads((p/'P5_cube.json').read_text()); g=nx.Graph(d['primal_edges']); cs=hcycles(g); path=d['path']; pe={edge(a,b) for a,b in zip(path,path[1:])}
     assert not any(pe<=c for c in cs)
     result['P5_cube']={'hamiltonian_cycles':len(cs),'path':path,'vertex_5_neighbors':list(g[5]),'containing_cycles':0}
@@ -59,8 +70,18 @@ def examples():
     assert sigma==0 and [B,W,I,ell]==[2,2,1,2]
     # Torus uses its supplied cellular faces, never a plane embedding.
     d=json.loads((p/'torus_3x3.json').read_text()); fs=d['black_faces']+d['white_faces']; g=nx.Graph(d['edges']); dual=nx.Graph(d['primal_edges']); cs=hcycles(dual)
+    sidefaces={}; darts=Counter()
+    for i,f in enumerate(fs):
+        for a,b in zip(f,f[1:]+f[:1]): sidefaces.setdefault(edge(a,b),[]).append(i); darts[a,b]+=1
+    assert set(sidefaces)=={edge(a,b) for a,b in g.edges()}
+    assert all(len(owners)==2 and (owners[0]<9)!=(owners[1]<9) for owners in sidefaces.values())
+    assert all(darts[a,b]==darts[b,a]==1 for a,b in sidefaces)
+    assert {edge(a,b) for a,b in dual.edges()}=={edge(*owners) for owners in sidefaces.values()}
+    for v in g:
+        link=nx.Graph(tuple(w for w in f if w!=v) for f in fs if v in f)
+        assert nx.is_connected(link) and set(dict(link.degree()).values())=={2}
     parts=[]
-    for mask in range(1,1<<8):
+    for mask in range(1<<8):
         U={0}|{v for v in range(1,9) if mask>>(v-1)&1}; V=set(g)-U
         if V and nx.is_tree(g.subgraph(U)) and nx.is_tree(g.subgraph(V)): parts.append(sorted(U))
     assert not parts and len(cs)==36
@@ -87,9 +108,46 @@ def examples():
         for s in choices:
             H=nx.Graph(((0,f),(1,v)) for f in triangles if cc[f]==cc[root] for v in triangles[f]); H.remove_edges_from(((0,f),(1,v)) for f,v in zip(A,s))
             assert not nx.is_connected(H); cycle_ranks.append(len(H.edges())-len(H)+nx.number_connected_components(H))
-        rootrows.append({'root':root,'states':8,'pairs':0,'cycle_ranks':cycle_ranks})
+        row={'root':root,'states':8,'pairs':0,'cycle_ranks':cycle_ranks}
+        if root==0:
+            S=set(range(6,15)); assert S<=X
+            deficit=2*len(S)-sum(min(2,len(set(triangles[f])&S)) for f in A)
+            row['author_named_S']=sorted(S); row['named_S_deficit_with_saved_triangle_labels']=deficit
+            cuts=[]; xx=sorted(X)
+            for mask in range(1<<len(xx)):
+                S={v for j,v in enumerate(xx) if mask>>j&1}
+                cuts.append((2*len(S)-sum(min(2,len(set(triangles[f])&S)) for f in A),sorted(S)))
+            best=max(v for v,S in cuts); row['maximum_capacity_deficit']=best; row['deficient_S']=next(S for v,S in cuts if v==best)
+        rootrows.append(row)
     result['theta']={'connectivity':2,'components_after_0_1':3,'roots':rootrows}
+    d=json.loads((p/'t9_0.json').read_text()); rootrows=[]
+    for outer in [0,2]:
+        t=Tri(fs=d['faces'],outer=outer); ss=t.states(); ps=t.pairs(ss)
+        rootrows.append({'outer':outer,'root_face':t.fs[outer],'states':len(ss),'pairs':len(ps),'tree_matchings':sum(t.tree(s) for s in ss),'black_faces':t.black})
+    assert rootrows[0]['black_faces']==rootrows[1]['black_faces']
+    assert [(r['states'],r['pairs'],r['tree_matchings']) for r in rootrows]==[(4,4,4),(4,0,0)]
+    result['root_dependence_t9']=rootrows
     save('limits-examples.json',result)
+
+def reduction():
+    rows=[]
+    for name,path,key in [('cube','P5_cube.json','primal_edges'),('prism','prism_recovery.json','primal_edges'),('theta','theta_cube_26.json','edges')]:
+        g=nx.Graph(json.loads((ASTRA/'examples'/path).read_text())[key]); cs=hcycles(g)
+        tested=[]
+        for a,b in g.edges():
+            K=g.copy(); K.remove_edge(a,b); found=[]
+            def rec(left,M):
+                if not left:
+                    h=K.copy(); h.remove_edges_from(M)
+                    if nx.is_tree(h): found.append(M)
+                    return
+                v=min(left,key=lambda v:len(set(K[v])&left))
+                for w in set(K[v])&left: rec(left-{v,w},M+[edge(v,w)])
+            rec(set(K),[])
+            assert bool(found)==any(edge(a,b) in c for c in cs)
+            tested.append([edge(a,b),len(found)])
+        rows.append({'name':name,'hamiltonian_cycles':len(cs),'edge_deletion_tests':tested})
+    save('NP-reduction-small.json',rows)
 
 def maxcuts():
     rows=[]

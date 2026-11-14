@@ -1,0 +1,13989 @@
+{
+  "O6_joint_failures": 0,
+  "factors": 932,
+  "roots": 1206,
+  "rows": [
+    [
+      6,
+      0,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      6,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      8,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      0,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      3,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      6,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      9,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      10,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      9,
+      0,
+      12,
+      0,
+      []
+    ],
+    [
+      9,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      0,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      10,
+      1,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      0,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      2,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      4,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      7,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      10,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      12,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      15,
+      0,
+      []
+    ],
+    [
+      11,
+      0,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      0,
+      17,
+      0,
+      []
+    ],
+    [
+      11,
+      1,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      11,
+      1,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      0,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      1,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      2,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      3,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      0,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      17,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      4,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      12,
+      5,
+      0,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      1,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      5,
+      3,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      5,
+      5,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      6,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      5,
+      8,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      9,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      5,
+      11,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      12,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      13,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      14,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      15,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      16,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      17,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      18,
+      0,
+      []
+    ],
+    [
+      12,
+      5,
+      19,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      0,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      2,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      5,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      7,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      8,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      10,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      11,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      12,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      14,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      15,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      6,
+      17,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      18,
+      0,
+      []
+    ],
+    [
+      12,
+      6,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      0,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      1,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      3,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      5,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      6,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      8,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      9,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      10,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      12,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      14,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      16,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      12,
+      7,
+      18,
+      0,
+      []
+    ],
+    [
+      12,
+      7,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      0,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      2,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      4,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      7,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      10,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      12,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      15,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      17,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      19,
+      0,
+      []
+    ],
+    [
+      13,
+      0,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      0,
+      21,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      1,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      3,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      4,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      7,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      10,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      12,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      15,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      17,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      1,
+      20,
+      0,
+      []
+    ],
+    [
+      13,
+      1,
+      21,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      0,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      2,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      4,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      6,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      8,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      10,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      13,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      17,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      2,
+      19,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      20,
+      0,
+      []
+    ],
+    [
+      13,
+      2,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      3,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      4,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      0,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      2,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      6,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      9,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      10,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      12,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      15,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      17,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      19,
+      0,
+      []
+    ],
+    [
+      13,
+      5,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      5,
+      21,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      0,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      2,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      4,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      6,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      8,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      10,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      13,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      15,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      18,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      6,
+      20,
+      0,
+      []
+    ],
+    [
+      13,
+      6,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      2,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 3
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 3
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      5,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 3
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 3
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      7,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 4
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      10,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 4
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      16,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 3
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 3
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 4
+        }
+      ]
+    ],
+    [
+      13,
+      7,
+      21,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 3
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 3
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      0,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      1,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      2,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      3,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      4,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      5,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      6,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      7,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      0,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 8
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      3,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 8
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      6,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 7
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      8,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 7
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      11,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      16,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 7
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      19,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      21,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      8,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      0,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      17,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      9,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      10,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      11,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      12,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      20,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      22,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      13,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      1,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 8
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      4,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      5,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      7,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 8
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      10,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      11,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 7
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 1
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      15,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      21,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 8
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      14,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      0,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      1,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      2,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      3,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      4,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      5,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      6,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      7,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      8,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      9,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      10,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      11,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      12,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      13,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      14,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      15,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      16,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      17,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      18,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      19,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      20,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      21,
+      2,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        },
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      22,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      15,
+      23,
+      2,
+      [
+        {
+          "no_ccw": false,
+          "no_cw": true,
+          "trees": 2
+        },
+        {
+          "no_ccw": true,
+          "no_cw": false,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      16,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 2
+        }
+      ]
+    ],
+    [
+      14,
+      17,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      17,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      17,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      17,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      17,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      17,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      5,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      18,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      18,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      19,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      19,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      20,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      20,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      20,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      5,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      20,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      9,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      11,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      20,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      20,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      21,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      21,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      11,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      22,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      22,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      5,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      11,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      23,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      23,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      5,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      9,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      24,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      24,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      20,
+      0,
+      []
+    ],
+    [
+      14,
+      25,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      25,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      11,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      13,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      26,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      26,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      27,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      27,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      28,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      7,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      8,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      10,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      12,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      14,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      19,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      21,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      28,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      1,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      3,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      4,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      5,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      6,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      9,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      11,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      17,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      18,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      29,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      29,
+      23,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      0,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      2,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      15,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      16,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      30,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      22,
+      0,
+      []
+    ],
+    [
+      14,
+      30,
+      23,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      0,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      1,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      2,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      3,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      4,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      5,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      6,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      7,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      8,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      9,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      10,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      11,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      12,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      13,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      14,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      15,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      16,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      17,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      18,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      19,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      20,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      21,
+      0,
+      []
+    ],
+    [
+      14,
+      31,
+      22,
+      1,
+      [
+        {
+          "no_ccw": true,
+          "no_cw": true,
+          "trees": 8
+        }
+      ]
+    ],
+    [
+      14,
+      31,
+      23,
+      0,
+      []
+    ]
+  ]
+}

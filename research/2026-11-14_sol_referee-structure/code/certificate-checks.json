@@ -1,0 +1,9 @@
+{
+  "LP_subset_inequalities": 2047,
+  "LP_full_rank_active_matrix_determinant": "-2",
+  "LP_vertex": true,
+  "degree_four_reverse_implication_refuted": true,
+  "local_rarity_enumeration_rechecked": true,
+  "zero_first_coefficient_nonzero_polynomial": true,
+  "output_count_sanity_checks": true
+}

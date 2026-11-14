@@ -15,6 +15,68 @@
       7
     ]
   },
+  "local_prism": {
+    "bounded_black_faces": [
+      [
+        0,
+        5,
+        6
+      ],
+      [
+        0,
+        3,
+        4
+      ],
+      [
+        2,
+        7,
+        3
+      ],
+      [
+        1,
+        6,
+        7
+      ],
+      [
+        4,
+        7,
+        5
+      ]
+    ],
+    "root": [
+      0,
+      1,
+      2
+    ],
+    "states": [
+      [
+        5,
+        3,
+        7,
+        6,
+        4
+      ],
+      [
+        5,
+        4,
+        3,
+        6,
+        7
+      ],
+      [
+        6,
+        4,
+        3,
+        7,
+        5
+      ]
+    ],
+    "tree_flags": [
+      true,
+      false,
+      true
+    ]
+  },
   "nonbijective": {
     "B": 2,
     "I": 1,
@@ -36,12 +98,89 @@
     "connectivity": 3
   },
   "prism": {
+    "Q_components": [
+      [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5,
+          7
+        ],
+        [
+          2,
+          3,
+          6
+        ]
+      ],
+      [
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      [
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    ],
     "Q_forest": [
       true,
       true,
       true
     ],
     "all_avoiding": 4,
+    "bounded_black_faces": [
+      [
+        0,
+        4,
+        3
+      ],
+      [
+        1,
+        5,
+        4
+      ],
+      [
+        1,
+        7,
+        6
+      ],
+      [
+        2,
+        3,
+        7
+      ],
+      [
+        3,
+        5,
+        6
+      ]
+    ],
     "e0": [
       0,
       2
@@ -52,6 +191,7 @@
       1,
       2
     ],
+    "saved_cycles_independently_verified": true,
     "states": [
       [
         3,
@@ -152,11 +292,64 @@
     "states": 729,
     "tree_matchings": 64
   },
+  "root_dependence_t9": [
+    {
+      "black_faces": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        10,
+        13
+      ],
+      "outer": 0,
+      "pairs": 4,
+      "root_face": [
+        0,
+        6,
+        1
+      ],
+      "states": 4,
+      "tree_matchings": 4
+    },
+    {
+      "black_faces": [
+        0,
+        2,
+        4,
+        7,
+        9,
+        10,
+        13
+      ],
+      "outer": 2,
+      "pairs": 0,
+      "root_face": [
+        0,
+        4,
+        5
+      ],
+      "states": 4,
+      "tree_matchings": 0
+    }
+  ],
   "theta": {
     "components_after_0_1": 3,
     "connectivity": 2,
     "roots": [
       {
+        "author_named_S": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
         "cycle_ranks": [
           3,
           3,
@@ -167,6 +360,19 @@
           3,
           3
         ],
+        "deficient_S": [
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14
+        ],
+        "maximum_capacity_deficit": 3,
+        "named_S_deficit_with_saved_triangle_labels": 2,
         "pairs": 0,
         "root": 0,
         "states": 8
@@ -568,5 +774,14 @@
     "rooted_X": 6,
     "rootfree_Q_edges": 9,
     "two_tree_partitions": 0
+  },
+  "zero_weights_cube": {
+    "J": [
+      1,
+      -1
+    ],
+    "constant_spoke_weights_give_equal_state_weights": true,
+    "pairs": 2,
+    "zero_sum": true
   }
 }

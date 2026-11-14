@@ -143,7 +143,33 @@
     "k_s": 1,
     "mates": 2,
     "name": "strongviol_50_seed50",
-    "separating_black_triangles": []
+    "separating_black_triangles": [],
+    "swap_details": [
+      {
+        "D_length": 27,
+        "current_mate": true,
+        "meets_Q_cycle": true,
+        "new_k": 0
+      },
+      {
+        "D_length": 5,
+        "current_mate": true,
+        "meets_Q_cycle": true,
+        "new_k": 0
+      },
+      {
+        "D_length": 15,
+        "current_mate": true,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      },
+      {
+        "D_length": 47,
+        "current_mate": false,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      }
+    ]
   },
   {
     "D_cycle_lengths": [
@@ -165,6 +191,44 @@
     "mates": 2,
     "name": "deeptrap_50_1",
     "nonincreasing_distance_at_most_5": 2,
-    "separating_black_triangles": []
+    "separating_black_triangles": [],
+    "swap_details": [
+      {
+        "D_length": 15,
+        "current_mate": true,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      },
+      {
+        "D_length": 3,
+        "current_mate": true,
+        "meets_Q_cycle": false,
+        "new_k": 1
+      },
+      {
+        "D_length": 29,
+        "current_mate": true,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      },
+      {
+        "D_length": 33,
+        "current_mate": false,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      },
+      {
+        "D_length": 3,
+        "current_mate": false,
+        "meets_Q_cycle": false,
+        "new_k": 1
+      },
+      {
+        "D_length": 11,
+        "current_mate": false,
+        "meets_Q_cycle": true,
+        "new_k": 1
+      }
+    ]
   }
 ]
