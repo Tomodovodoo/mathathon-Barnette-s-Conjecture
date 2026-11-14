@@ -12,6 +12,8 @@ LIT. The strongest known same-sign statements concern three different objects. C
 
 REFUTED. All surviving tree monomials already have the same sign, or a positive real incidence rescaling makes them have that property. The cube has two tree states with opposite signs. PROOF 1 proves the global obstruction. A signed or complex gauge is not excluded by this claim.
 
+REFUTED, COMPUTED. The stronger signed-incidence-gauge route fails too. Exact GF2 elimination in code/gauge.py finds inconsistent sign equations on 68 of the initial 7,940 rooted examples. The first is plantri_13_7, root 2, with six tree states. Every incidence occurs an even number of times across those six states, but their coefficient signs have product minus one. PROOF 2 proves that such a certificate obstructs every incidence sign flip, even with a global sign. The exact lists and face order are in gauges.json. Arbitrary complex gauges remain untested.
+
 HUNCH. A new Alon-Tarsi interpretation could encode the marked minimum-cycle coefficient as an Eulerian-subgraph imbalance. Test by constructing a specific directed graph whose Eulerian-subgraph polynomial equals that marked coefficient, first on the cube and on a two-D-cycle example. No such graph or independent coefficient theorem was found. Calling the existing signed imbalance an Alon-Tarsi count without that construction would only rename it.
 
 ## Modular counts

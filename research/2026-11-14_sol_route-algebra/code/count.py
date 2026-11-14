@@ -78,6 +78,11 @@ def main():
         rows.append(dict(name=name,vertices=len(b.T),edges=sorted(b.T.edges()),primal=pc,roots=roots))
         print(name, len(roots),flush=True)
         (OUT/'counts.json').write_text(json.dumps(dict(moduli=MODS,graphs=rows),indent=2))
+    fixture=json.loads((ROOT/'workings/barnette_lab/tests/fixtures/restart.json').read_text())
+    t=nx.Graph();t.add_edges_from(fixture['T_edges']);b=Instance(t);pc=primal_counts(b.G)
+    roots=[rooted(t,o,pc) for o in range(len(b.faces))]
+    rows.append(dict(name='fixture_restart',vertices=len(t),edges=sorted(t.edges()),primal=pc,roots=roots))
+    (OUT/'counts.json').write_text(json.dumps(dict(moduli=MODS,graphs=rows),indent=2))
     events=OUT/'events.jsonl'
     with events.open('a') as f:
         f.write(json.dumps(dict(type='computed',summary='Exact counts completed',graphs=len(rows),roots=sum(len(r['roots']) for r in rows),tier='T4',review='unreviewed'))+'\n')

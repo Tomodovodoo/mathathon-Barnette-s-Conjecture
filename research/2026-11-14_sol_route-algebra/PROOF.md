@@ -31,6 +31,8 @@ Proof. For each v the exponent records in binary the face choosing v. A state ch
 
 ## 2. Exact parity statements and their limits
 
+PROVED-HERE, conditional on the explicit six-state certificate verified in `gauges.json`. A signed incidence gauge need not make the forest polynomial coefficientwise positive. Suppose six supported state monomials have coefficient signs with product minus one, and every incidence occurs an even number of times across them. After replacing w_i by g_i w_i with g_i in {+1,-1}, the product of these six coefficient signs stays minus one: its extra factor is product_i g_i^(even)=1. Six positive signs would instead have product plus one. A common global sign also has no effect on a product of six signs. This proves the obstruction from that certificate. The general implication is a complete proof; existence and signs of these six states on the 13-vertex example remain COMPUTED, T4, pending independent verification. The explicit state lists and face order are saved, so the obstruction is independently testable. This does not exclude arbitrary complex gauges.
+
 PROVED-HERE. Let N_j be the number of states s admitting 2^j mates, and let P be the ordered-pair count and T the tree-matching count. States with no mates are omitted from N_j. Then
 
 \[
@@ -111,7 +113,7 @@ Proof. V_t squared is zero because every term contains bar(psi)_t and bar(chi)_t
 
 PROVED-HERE. This quartic interaction admits an exact real Gaussian auxiliary-field decoupling. It does not require planarity, apart from the identification of the resulting integral with F via common matching signs. The decoupled integrand has no assured sign.
 
-Proof. At each t write C_t[u,v]=delta(u,v)w_tv for u!=v and zero on the diagonal. Choose a real c_t larger than the operator norm of C_t. The real symmetric covariance matrix
+Proof. First specialize to arbitrary real incidence weights. At each t write C_t[u,v]=delta(u,v)w_tv for u!=v and zero on the diagonal. Choose a real c_t larger than the operator norm of C_t. The real symmetric covariance matrix
 
 \[
  \Sigma_t=\begin{pmatrix}c_t I&C_t\\ C_t^{\mathsf T}&c_t I\end{pmatrix}
@@ -130,7 +132,7 @@ The same-species covariance terms vanish because AA=BB=0. Independence across fa
  F(w)=\mathbb E[\det K(\xi)\det K(\eta)],
 \]
 
-where each matrix has the allowed incidences as entries and zeros elsewhere. All interchanges are finite polynomial operations with Gaussian moments. Realizing this as an expected square by setting eta=xi is impossible with this local covariance when both transitions u->v and v->u are allowed: C_t is not symmetric and has opposite-sign cross entries. In particular F(1)=0 even when trees exist, so strict positivity for all positive weights would itself be false. Planarity has not removed the sign issue.
+where each matrix has the allowed incidences as entries and zeros elsewhere. All interchanges are finite polynomial operations with Gaussian moments. Their values are independent of c_t because same-species contractions vanish. The resulting moment identity therefore extends as a polynomial identity to formal incidence weights as well. Realizing this as an expected square by setting eta=xi is impossible with this local covariance when both transitions u->v and v->u are allowed: C_t is not symmetric and its two cross entries have opposite signs for positive weights. In particular F(1)=0 even when trees exist, so strict positivity for all positive weights would itself be false. Planarity has not removed the sign issue.
 
 ## 6. The positive norm does not finish existence
 

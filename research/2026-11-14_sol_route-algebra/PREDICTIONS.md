@@ -10,3 +10,5 @@ All predictions start as HUNCH, T6. Tests use exact integer arithmetic.
 6. Tree counts will differ from unrestricted spanning-tree counts, state counts, Tait colorings, and nowhere-zero Z3 flows. Test cube first, then hexagonal prism. Standard invariant comparisons are for these precise graphs, not unspecified normalizations.
 
 Scope: use installed plantri read-only. Counts remain COMPUTED, T4, pending independent validation. No subagents, per the brief.
+
+Second iteration, after the order-16 count run and before gauge testing. HUNCH: allowing incidence sign flips rather than positive rescaling may make every surviving forest monomial positive. Test consistency of the exact GF2 equations sum_{incidences of s} g_tv = signbit(s), using all rooted examples through order 14 first and the larger named graph. A linear dependency with odd sign sum is a refutation certificate. The local six-entry factorization obstruction from the sibling report does not by itself settle this global forest-only question.

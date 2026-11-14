@@ -1,0 +1,727 @@
+{
+  "meta": {
+    "size_name": "T vertices",
+    "value_name": "tree count, window 0..16; T4 observations",
+    "value_scale": "linear"
+  },
+  "sizes": [
+    {
+      "size": 6,
+      "label": "6 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 8,
+      "label": "8 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 9,
+      "label": "9 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 10,
+      "label": "10 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 11,
+      "label": "11 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 12,
+      "label": "12 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          8,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 13,
+      "label": "13 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          6,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          8,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 14,
+      "label": "14 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          8,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          10,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 15,
+      "label": "15 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          6,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          8,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          16,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    },
+    {
+      "size": 16,
+      "label": "16 vertices; observed counts only",
+      "lo": 0,
+      "hi": 16,
+      "step": 1,
+      "realized": [
+        [
+          0,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          2,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          4,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          8,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          10,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          12,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          14,
+          "e.counts, T4 witness evidence"
+        ],
+        [
+          16,
+          "e.counts, T4 witness evidence"
+        ]
+      ],
+      "intervals": [
+        {
+          "v0": 1,
+          "v1": 1,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 3,
+          "v1": 3,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 5,
+          "v1": 5,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 7,
+          "v1": 7,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 9,
+          "v1": 9,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 11,
+          "v1": 11,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 13,
+          "v1": 13,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        },
+        {
+          "v0": 15,
+          "v1": 15,
+          "status": "impossible",
+          "why": "Tree-count parity, PROOF 2"
+        }
+      ]
+    }
+  ]
+}

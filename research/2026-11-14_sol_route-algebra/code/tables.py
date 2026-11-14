@@ -4,8 +4,8 @@ from pathlib import Path
 from collections import defaultdict
 OUT=Path(__file__).resolve().parents[1]
 d=json.loads((OUT/'counts.json').read_text())
-lines=['# Counts and residues','','COMPUTED, T4, unreviewed. Exact integers from `code/count.py --max 14`. The corpus has 55 plantri graphs through 14 vertices, with every one of their 1,206 facial roots, plus the two larger named graphs and all their 72 roots. No enumeration beyond order 14 is claimed. `counts.json` stores edges, roots, mate histograms, all residues, and every primal edge avoidance count.','',
-'Commands from repository root:','','```powershell','python -B research/2026-11-14_sol_route-algebra/code/count.py --max 14','python -B research/2026-11-14_sol_route-algebra/code/invariants.py','python -B research/2026-11-14_sol_route-algebra/code/check.py','python -B research/2026-11-14_sol_route-algebra/code/tables.py','```','',
+lines=['# Counts and residues','','COMPUTED, T4, unreviewed. Exact integers from `code/count.py --max 16`. The corpus has 297 plantri graphs through 16 vertices, with every one of their 7,868 facial roots, plus the two larger named graphs and all their 72 roots, and all 30 roots of the saved 17-vertex restart fixture. Total: 300 graph records and 7,970 roots. No exhaustive enumeration beyond order 16 is claimed. `counts.json` stores edges, roots, mate histograms, all residues, and every primal edge avoidance count.','',
+'Commands from repository root:','','```powershell','python -B research/2026-11-14_sol_route-algebra/code/count.py --max 16','python -B research/2026-11-14_sol_route-algebra/code/invariants.py','python -B research/2026-11-14_sol_route-algebra/code/check.py','python -B research/2026-11-14_sol_route-algebra/code/tables.py','```','',
 '## Graph totals','','COMPUTED. H counts undirected Hamiltonian cycles without a marked start or direction. Tait counts proper edge colorings with three labeled colors. H avoidance is tabulated per edge in JSON. For a prescribed dual facial edge, the avoided primal edge is its dual.','',
 '| Graph | T vertices | Facial roots | States | Tree counts over roots | Pair counts over roots | H | H avoidance values | Tait |',
 '|---|---:|---:|---:|---|---|---:|---|---:|']
@@ -29,6 +29,8 @@ lines+=['','## Specific failures','','COMPUTED. Smallest here means smallest in 
 '- Universal nonzero tree count mod 3 fails at plantri_13_7, outer face 2, with S=12, P=8, T=6.',
 '- Universal nonzero tree count mod 4 fails at plantri_9_0, with T=4 at its unobstructed roots.',
 '- Universal nonzero tree count mod 5 fails at a 14-vertex rooted example, as the full table records.',
+'- Universal nonzero tree count mod 7 fails at plantri_16_27, outer 19, with S=26, P=18, T=14.',
+'- Universal nonzero tree count mod 11 fails on the named truncated cuboctahedron, outer 0, with S=384, P=22, T=22.',
 '- Unrooted invariant equality fails on plantri_12_2, whose tree counts vary between 2 and 8 with the root even though all roots admit pairs.',
 '- All unweighted signed counts vanish. Positive existence certificates must retain a statistic or select another coefficient.','',
 '## Independent small checks','','COMPUTED. `code/check.py` uses all permutations for states, disjoint-set cycle detection after root contraction for trees, and path DFS for Hamiltonian cycles and avoidance. See `checks.json` for its completed range. This is a second implementation by the author, not an independent referee.','',

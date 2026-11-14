@@ -46,4 +46,30 @@ for row in d['graphs']:
     cycles+=1
 result=dict(roots_independent_permutations_DSU=checked,graphs_independent_path_DFS=cycles,
             note='Author-written second implementation, not an independent referee or code certification')
+if (OUT/'gauges.json').exists():
+    cert=json.loads((OUT/'gauges.json').read_text())['first']
+    row=next(g for g in d['graphs'] if g['name']==cert['graph'])
+    t=nx.Graph();t.add_edges_from(row['edges']); fs=Instance(t).faces
+    b=Instance(t,next(i for i,f in enumerate(fs) if set(f)==set(cert['root'])))
+    faces=cert['faces_in_state_order']; witnesses=cert['witness']
+    for w in witnesses:
+        s=w['state'];assert set(s)==set(b.X)
+        assert all(v in f for f,v in zip(faces,s))
+        q=nx.Graph();q.add_nodes_from(t)
+        for i,(f,v) in enumerate(zip(faces,s)):
+            u,z=set(f)-{v};q.add_edge(u,z,index=i)
+        assert q.number_of_edges()==len(faces)
+        assert nx.is_forest(q)
+        r=[None]*len(s)
+        for comp in nx.connected_components(q):
+            roots=set(comp)&b.R;assert len(roots)==1
+            root=next(iter(roots))
+            for parent,child in nx.bfs_edges(q,root):r[q[parent][child]['index']]=child
+        assert set(r)==set(b.X)
+        sign=1
+        for u,v in zip(r,s):sign*=b.delta(u,v)
+        assert sign==w['sign']
+    assert sum(w['sign']==-1 for w in witnesses)%2
+    assert all(sum(w['state'][i]==v for w in witnesses)%2==0 for i,f in enumerate(faces) for v in f)
+    result['gauge_certificate_trees_and_signs_rebuilt']=len(witnesses)
 (OUT/'checks.json').write_text(json.dumps(result,indent=2));print(result)
