@@ -1,218 +1,169 @@
 # 06. Nonvanishing: why the signed count is not zero
 
+Where this step lives elsewhere. Paper: Section 4 from "Heights" on of [`barnette.pdf`](../../paper/main/barnette.pdf): Lemma 4.6 (heights), Lemma 4.7 (finite differences), Proposition 4.8, Example 4.9, Remark 4.10, Table 2, Figures 10 and 11, and "The polynomial behind the count" in Section 7. Primal note: Lemmas 6 and 8 of [`PRIMAL-PROOF.md`](../../proofs/primal/PRIMAL-PROOF.md) (row "White vertices on cut side" of [`DICTIONARY.md`](../../proofs/primal/DICTIONARY.md)). Blueprint nodes `txt:heights`, `lem:height`, `lem:difference`, `prop:good`, `rem:other-sums`, `rem:poly` in [`BLUEPRINT.md`](../../proofs/blueprint/BLUEPRINT.md). Atlas: page 4, [eight terms, grouped twice](../atlas/pages/04-sum.pdf); page 5, [the integer polynomial](../atlas/pages/05-polynomial.pdf); page 7, [the exponent is a volume](../atlas/pages/07-heights.pdf); page 16, [the extreme state can have a cycle](../atlas/pages/16-canonical.pdf).
+
+Review status, 14 November 2026. The heights, the finite difference and Proposition 4.8 are in the paper and were refereed with it by a second AI model (verdict: the proof follows). Lemma 4.7 is also proved in Lean (`research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean`), and the project's Lean devices compile a replacement main theorem on OpenAI's development that avoids the complex phase (`proofs/lean/`, compiled by its author, independent check pending). No human has read any of it.
+
 ## What we want at this point and why
 
 Step 05 gave, for any function $F$ on states,
 
-$$S_F \;=\; \sum_{(r,s)} \varepsilon(r,s) F(s) \;=\; \sum_{s \text{ good state}} \mu(s) F(s), \qquad \mu(s) = \pm 1.$$
+$$\sum_{(r,s)} \varepsilon(r,s)\, F(s) \;=\; \sum_{s \text{ good}} F(s)\, \varepsilon(r_s, s),$$
 
-If we find one $F$ with $S_F \neq 0$, the right side is not an empty sum, and a good state exists (a tree matching in the trees paper). That is Proposition 5.1 of the OpenAI paper: if a pair exists, some pair $(r,s)$ has $Q_s$ a forest. For a pair, "forest" is the whole condition, because the partner puts one root in each tree (step 03, Lemma 1).
+where $r_s$ is the one partner of the good state $s$. If some $F$ makes the left side non-zero, the right side is not an empty sum and a good state exists. That is the paper's Proposition 4.8 (OpenAI Proposition 5.1): if a pair exists, a good state exists.
 
-This is the hard step. The three papers do it in three ways, and two simplifications came out of this project. This file puts all five next to each other, proves the shortest one in full, and computes one example by every method. It then explains why no simpler kind of argument can work.
+This is the hard step. With $F = 1$ the sum is always zero: reversing the cycle of $D(r,s)$ through a fixed vertex pairs every pair with one of opposite sign. So $F$ must see the difference between the two orientations of a cycle of $D$. The disk identity offers the handle. Every such cycle encloses at least one white face.
 
 ## The idea in plain words
 
-Add up the same sum in a second way. Sort the pairs by the undirected cycles that the edges $r(t) \to s(t)$ form. Call such a set of cycles a cover, $D$ (a group in the OpenAI paper). The pairs with a given cover are its $2^c$ orientations, where $c$ is the number of cycles, and the sign alternates each time one cycle is reversed. So a cover contributes an alternating sum over a cube, which is a $c$-fold difference of $F$.
+Give each state a number, its weight, that goes up by a positive amount whenever a cycle of $D$ is turned from clockwise to counterclockwise. Then sort the pairs by their cover, the undirected cycles of $D$. A cover with $c$ cycles carries $2^c$ pairs, one per choice of orientations, and the sign flips with every reversal. So the signed sum over one cover is a $c$-fold difference of $F$, taken once along each cycle.
 
-Now choose $F$ so that reversing a cycle from clockwise to counterclockwise always increases it, by an amount that is positive because the cycle has a white face inside. A $c$-fold difference of such a function is small for large $c$. The covers with the fewest cycles dominate, and by the exact form of the disk identity they all carry the same sign. So they cannot cancel each other.
+A $c$-fold difference kills every polynomial of degree below $c$, and on the $c$-th power of the weight it leaves $\pm c!$ times the product of the steps. Take $F = \omega^m$ with $m$ the smallest number of cycles of any cover. Covers with more cycles contribute nothing. Covers with exactly $m$ cycles contribute products of positive steps, all with the same sign. They cannot cancel.
 
-## One polynomial, two expansions
+## Heights along paths of faces
 
-All five arguments are about one object. Take a variable $w_{t,v}$ for every face $t \in A$ and corner $v$, write $w^s = \prod_t w_{t,s(t)}$, and put
+For each white face $y$ fix a path of faces $y = f_0, f_1, \dots, f_j = t_0$ in $G$, consecutive faces sharing a side, no face repeated. A black face $t \in A$ on the path is entered across one side and left across another, and these two sides meet in one corner $v$ of $t$. The path turns around $v$. Put
 
-$$\mathcal F(w) \;=\; \sum_{(r,s)} \varepsilon(r,s)\, w^s .$$
+$$\kappa_y(t,v) = \begin{cases} +1 & \text{the path turns around } v \text{ in } t \text{ with } v \text{ on its left},\\ -1 & \text{it turns around } v \text{ with } v \text{ on its right},\\ 0 & \text{it misses } t \text{ or turns around another corner.}\end{cases}$$
 
-**Expansion over second states.** By step 05,
+Combinatorially: with $a'$ the far end of the entry side and $b'$ the far end of the exit side, $v$ is on the left exactly when $v, a', b'$ is the counterclockwise order of the corners of $t$. The height of a state at $y$ and its weight are
 
-$$\mathcal F(w) = \sum_{s \text{ good state}} \mu(s)\, w^s .$$
+$$\eta_s(y) = \sum_{t \in A} \kappa_y\bigl(t, s(t)\bigr), \qquad \omega(s) = \sum_{y \text{ white}} \eta_s(y).$$
 
-Different states have different monomials. So the monomials of $\mathcal F$ are exactly the good states, with coefficients $\pm 1$, and a good state exists if and only if $\mathcal F$ is not the zero polynomial.
+The height adds up the signs of the turned corners that carry the state's wedge.
 
-**Expansion over covers.** For a cycle $C$ of a cover let $w^{C+}$ be the product of $w_{t,\mathrm{head}}$ over the faces supplying $C$ when $C$ runs counterclockwise, and $w^{C-}$ the same for clockwise. A counterclockwise cycle of length $h$ contributes $(h+3)/2$ factors $-1$ to $\varepsilon$ by the disk identity. The lengths are odd and add up to $n$. So the all-counterclockwise orientation of a cover with $c$ cycles has sign $(-1)^{(n+3c)/2} = (-1)^{(n-c)/2}$, and each reversal flips it. Hence
+![A height in the running example (paper Figure 10)](img/paper-17-heights.png)
 
-$$\mathcal F(w) = \sum_{D} (-1)^{(n - c(D))/2} \prod_{C \in D} \bigl(w^{C+} - w^{C-}\bigr). \tag{$*$}$$
+In the running example take $y = \{1,8,9\}$. The shortest path of faces is $y$, $\{1,7,8\}$, $\{1,6,7\}$, $\{0,1,6\}$, $\{0,5,6\}$, $t_0$. It turns around $1$ in $\{1,7,8\}$, on its left, and around $6$ in $\{0,1,6\}$, on its right. The pair of the clockwise 7-cycle in the paper's figure has its second state's wedge at $6$ in $\{0,1,6\}$ and not at $1$ in $\{1,7,8\}$, so its height at $y$ is $-1$. Reversing the 7-cycle gives $(\beta,\alpha)$, and $\eta_\alpha(y) = 0$. The height went up by one, because $y$ lies inside the 7-cycle. (Recomputed for this audit.)
 
-This is the one place in the whole proof where the exact value $3$ of the disk identity is needed. With parity alone the sign of a cover would not be determined by its number of cycles.
+**Lemma H** (paper Lemma 4.6). Let $(r,s)$ be a pair, $C$ a clockwise cycle of $D(r,s)$, and $(r',s')$ the pair obtained by reversing $C$. Then $\eta_{s'}(y) - \eta_s(y)$ is $1$ if $y$ lies inside $C$ and $0$ otherwise. Hence $\omega(s') - \omega(s) = L(C)$, the number of white faces inside $C$, and $L(C) \ge 1$.
 
-At $w = 1$ every factor vanishes. So $\mathcal F$ vanishes at the all-ones point to order at least $m$, the least number of cycles of any cover. The five arguments differ only in how they probe $\mathcal F$ near that point.
+*Proof sketch.* Only the faces that supply $C$ change, from $s(t)$ to $r(t)$. Fix such a face $t$ and its side $g$ on $C$. If the path misses $t$ or turns around the third corner, it does not cross $g$ and $t$ contributes nothing. Otherwise the path crosses $g$ once inside $t$, and a check of the two cases (it turns around $r(t)$ or around $s(t)$) shows the contribution is $+1$ if that crossing goes from the left of $s(t) \to r(t)$ to its right, and $-1$ the other way. So the change of height counts the signed crossings of the path with $C$. After the reversal $C$ runs counterclockwise, its left is its inside, and by tree/cotree duality (step 02) the path changes sides only when it crosses $C$. It ends in $t_0$, outside. So the count is $1$ if $y$ is inside and $0$ if not. The disk identity gives $L(C) = W \ge 1$. $\square$
 
-## The positivity that every version needs
+Since $\eta_s(y)$ is a sum over faces and different cycles of $D$ use different faces, the effects of reversing several cycles add up.
 
-Every version needs, for each cycle $C$ of each cover, a positive number that measures the difference between its two orientations. There is one source for it.
+**Older forms of the same weights.** OpenAI attach real weights to the spokes from black-face centres to corners, built in their Lemma 5.3 as a circulation that is one around every white face. Li uses vertical rays from the white faces in a straight-line drawing and counts their crossings with spokes. The trees paper shifts integer weights into $[0, 6n]$. Earlier versions of these digestions used paths from each inner white face that cross spokes. All of these change by the same white-face count under a reversal, and the paper's Section 7 notes that its heights are OpenAI's weights for one choice of circulation and Li's crossing counts along fixed paths. The face-path form needs no spokes and no sliding argument, and the paper uses it. One source has the opposite sign: the involution note's $H(s)$ is $-\omega(s)$, so it falls where $\omega$ rises.
 
-Put a centre in each face of $A$ and join it to the three corners by spokes. A white face is inner if it does not share an edge with $t_0$. There are $n - 2$ inner white faces. For each inner white face $y$ fix a path $\gamma_y$ in the plane from a point of $y$ to a point of $t_0$ that avoids vertices and centres and crosses spokes transversally. For a spoke directed from the centre of $t$ to the corner $v$, let $\kappa_y(t,v)$ be the number of times it crosses $\gamma_y$ from right to left minus the number from left to right. The height of a state at $y$ is
+## The finite difference, and the proof
 
-$$\eta_s(y) = \sum_{t \in A} \kappa_y\bigl(t, s(t)\bigr).$$
+**Lemma D** (paper Lemma 4.7). For real numbers $\omega_0, L_1, \dots, L_c$ and an integer $0 \le m \le c$,
 
-It is an integer and can be negative. Changing the paths shifts all heights at $y$ by a constant that does not depend on the state.
+$$\sum_{x \in \{0,1\}^c} (-1)^{x_1 + \dots + x_c}\,\bigl(\omega_0 + x_1 L_1 + \dots + x_c L_c\bigr)^m = \begin{cases} 0 & m < c,\\ (-1)^c\, c!\, L_1 \cdots L_c & m = c.\end{cases}$$
 
-This is the main paper's height $\eta_s(y)$ and the letters follow it. The main paper builds the path from faces of $T$ and counts turn signs instead of crossings, which changes heights only by such constants; in both, the height at $y$ rises by one when a cycle around $y$ turns from clockwise to counterclockwise. Earlier versions of these digestions wrote $h_s(w)$. One source uses the opposite sign: the involution note's $H(s)$ is $-\sum_y \eta_s(y)$, so it falls where $\omega$ below rises, and with Li's rays as paths it agrees with this only up to a constant on each cover.
+*Proof.* Expand and use $x_i^j = x_i$. Each term is a constant times $\prod_{i \in I} x_i$ with $|I| \le m$. The sum over $x$ factors, and $\sum_{x_i} (-1)^{x_i} = 0$ kills every $i \notin I$. So only $I = \{1, \dots, c\}$ survives, which needs $m = c$, and those terms come from picking a different $x_i L_i$ in each of the $c$ factors, in $c!$ ways. $\square$
 
-**Lemma H** (heights; `research/2026-11-14_fable_route-combinatorics/PROOF.md` Lemma 4, with the topological step written out in `research/2026-11-14_astra_referee-combinatorics/REWRITTEN-PROP-5-1.md`). Let $C$ be a cycle of a cover, and let $s_{\mathrm{cw}}$, $s_{\mathrm{ccw}}$ be the second states of two orientations of the cover that differ only in the direction of $C$. Then for every inner white face $y$
+**Proposition** (paper Proposition 4.8; OpenAI Proposition 5.1). If $T$ has a pair, it has a good state.
 
-$$\eta_{s_{\mathrm{ccw}}}(y) - \eta_{s_{\mathrm{cw}}}(y) = \begin{cases} 1 & \text{if } y \text{ lies inside } C,\\ 0 & \text{otherwise.}\end{cases}$$
+*Proof.* Let $m \ge 1$ be the least number of cycles of a cover and $\Sigma = \sum_{(r,s)} \varepsilon(r,s)\, \omega(s)^m$. By step 05, $\Sigma$ is a sum over good states, so it is enough to show $\Sigma \ne 0$.
 
-*Proof.* The two states differ only on the faces that supply $C$. In such a face, with $C$ running counterclockwise from corner $a$ to corner $b$, one state chooses $b$ and the other $a$. The spoke to $b$ minus the spoke to $a$ is the route from $a$ through the centre to $b$. Putting these routes together gives a closed curve $\Gamma$, the cycle $C$ with every edge pushed onto two spokes. The height difference is the signed number of crossings of $\gamma_y$ with $\Gamma$.
+Sort the pairs by cover. If $(r,s)$ has cycles $C_1, \dots, C_c$ and $(r',s')$ has the same undirected edges, then in each face $(r'(t), s'(t))$ is $(r(t),s(t))$ or $(s(t),r(t))$, and consecutive faces along a cycle make the same choice, since otherwise a vertex would be the value of $r'$ at two faces. So the class has exactly $2^c$ pairs, one per orientation, all pairs by the second reversal of step 05. Index them by $x \in \{0,1\}^c$ with $x_i = 1$ when $C_i$ is counterclockwise. By step 05, $\varepsilon = (-1)^{(n+c)/2} (-1)^{\sum x_i}$. By Lemma H, $\omega = \omega_0 + \sum x_i L(C_i)$. Lemma D says the class contributes $0$ if $c > m$, and
 
-$\Gamma$ is a simple closed curve with the orientation of $C$. Each edge of $C$ comes from a different black face, so the routes do not meet except at the vertices of $C$. Each push moves an edge across the part of its black triangle between the edge and the two spokes, which contains no vertex and no other part of the curve. The pushes happen inside black faces, so a white face is inside $\Gamma$ exactly when it is inside $C$.
+$$(-1)^{(n+m)/2}(-1)^m\, m!\, L(C_1) \cdots L(C_m) = (-1)^{(n-m)/2}\, m!\, \prod_i L(C_i)$$
 
-A counterclockwise simple closed curve crosses a path from $p$ to $q$ with signed count $[p \text{ inside}] - [q \text{ inside}]$. Here $p$ is in $y$ and $q$ is in $t_0$, which is outside. $\square$
+if $c = m$. Every $L(C_i) \ge 1$ and at least one class has $c = m$, so
 
-By the disk identity the number of white faces inside $C$ is $W = B + 1 \ge 1$, and all of them are inner, since a white face next to $t_0$ has a root as a corner. So every cycle has an inside to detect.
+$$\Sigma = (-1)^{(n-m)/2}\, m! \sum_{\text{covers with } m \text{ cycles}}\ \prod_{i=1}^m L(C_i) \;\ne\; 0. \qquad\square$$
 
-The weights of the papers come from the same source. Put $a(t,v) = \sum_y \kappa_y(t,v)$ and $\omega(s) = \sum_t a(t,s(t)) = \sum_y \eta_s(y)$. Then reversing $C$ from clockwise to counterclockwise raises $\omega$ by the number of white faces inside $C$. In the OpenAI paper this number is $L^+(C) - L^-(C)$, built in Lemma 5.3 as a circulation that is one around every bounded face of the spoke graph. In Li's note the paths $\gamma_y$ are vertical rays in a straight-line drawing. In the trees paper the weights are shifted to lie between $0$ and $6n$.
-
-## The five arguments side by side
-
-Throughout, $m = m$ and $A_C > 0$ is the white-face count of $C$ or, in a weighted version, $L^+(C) - L^-(C)$.
-
-| Version | What is summed | How it is shown non-zero | Needs |
-| --- | --- | --- | --- |
-| OpenAI, section 5 | $Z(x) = \sum i^{J} e^{x\omega(s)}$ | Taylor coefficient of $x^m$ is $(-i)^m \sum_{c(D) = m} \prod_C A_C$ | complex phases, an exponential, real weights from circulations |
-| Li, section 4 and Appendix B | objects: a pair with $m$ marked crossings of rays with spokes of $s$ | involution $\iota_1$ fixes the objects with $Q_s$ a forest, $\iota_2$ has fixed points and all have one sign | a straight-line drawing in general position |
-| trees paper, Theorem 5.2 | $Z_{\mathcal C}(z) = \sum \varepsilon\, z^{\omega(s)}$ over one exchange component | coefficient of $(z-1)^m$ is $(-1)^{(n-m)/2}\sum \prod A_C$ | integer weights. Gives a good pair in every component |
-| linear weights | $P(x) = \mathcal F(1 + x a)$ | coefficient of $x^m$ is $(-1)^{(n-m)/2}\sum \prod A_C$ | real signs and a polynomial of degree at most $n$ |
-| heights | $F(s) = \prod_{i=1}^m \eta_s(y_i)$ for chosen faces $y_i$ | $S_F = (-1)^{(n-m)/2} N$ with $N \ge 1$ a count | no weights at all |
-
-The first three are published. They are the same computation. Li uses sets of distinct marked crossings, not ordered lists or marks with repetition. Identifying their signed count with a polynomial coefficient requires those multiplicities and signs to be checked. The three pair signs agree up to a constant (`research/2026-11-14_fable_dependency-graph/correspondence.md`, notes 3.1 and 3.3, proved in this project and not refereed).
-
-The last two came out of this project. Linear weights are section 7 of `research/2026-11-14_astra_route-dimers/PROOF.md`. A second model refereed that proof and found it correct, then rewrote it with real signs in `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md` section 2. The rewrite has had no second reader. Heights are sections 1 to 3 of `fable_route-combinatorics/PROOF.md`. A second model refereed them, found that the argument follows, and wrote a self-contained version. For both, no human has read the proof.
-
-The trees paper also turns its argument into an algorithm, the marked walk. See step 09.
-
-The chosen white faces y_i need not be distinct: nested cycles can use the same face. The indices i remain distinct, so the expansion counts bijections of indices even when face names repeat.
-
-## Full proof of the heights version
-
-**Proposition** (OpenAI Proposition 5.1). If a pair exists, some pair $(r,s)$ has $Q_s$ a forest.
-
-*Proof.* Let $m \ge 1$ be the least number of cycles of a cover. Fix a cover $D^*$ with $m$ cycles $C_1, \dots, C_m$ and choose an inner white face $y_i$ inside $C_i$. Put $F(s) = \prod_{i=1}^m \eta_s(y_i)$.
-
-Take any cover $D$ with $c$ cycles. Label its orientations by $x \in \{0,1\}^c$, with $x_C = 1$ when $C$ is counterclockwise. Let $b_i$ be the height at $y_i$ in the all-clockwise orientation. By Lemma H, applied one cycle at a time, the height at $y_i$ in orientation $x$ is $b_i + \sum_C x_C [y_i \text{ inside } C]$. The sign of orientation $x$ is $(-1)^{(n-c)/2} (-1)^{c - \sum x_C}$, which is $(-1)^{(n+c)/2}(-1)^{\sum x_C}$. So the cover contributes
-
-$$(-1)^{(n+c)/2} \sum_{x \in \{0,1\}^c} (-1)^{\sum_C x_C} \prod_{i=1}^m \Bigl(b_i + \sum_C x_C\,[y_i \text{ inside } C]\Bigr).$$
-
-Expand the product into monomials in the $x_C$. Since $x_C^2 = x_C$, each monomial is a product of distinct variables. A monomial that misses some variable $x_C$ sums to zero over $x_C \in \{0,1\}$ because of the alternating sign. A monomial that contains all $c$ variables needs $c \le m$ factors. Since $c \ge m$, only covers with $c = m$ contribute, and for them each factor supplies a different variable. The surviving terms are the bijections $\beta$ from $\{1,\dots,m\}$ to the cycles of $D$ with $y_i$ inside $\beta(i)$, each with coefficient $(-1)^m$ from $x = (1,\dots,1)$. So the cover contributes $(-1)^{(n-m)/2}$ times the number of such bijections.
-
-All covers contribute with the same sign or contribute zero. $D^*$ contributes at least one, the bijection $i \mapsto C_i$. Hence $S_F \neq 0$. By step 05, $S_F$ is a sum over good states. So a good state $s$ exists, and with its partner it is a pair with $Q_s$ a forest. $\square$
-
-What was used. The disk identity three times, for the alternation of the sign on a cover, for the common sign of all covers with $m$ cycles, and for a white face inside each cycle. Planarity once more, in the fact that a counterclockwise closed curve winds once and never minus once around each point inside. The minimum over $c$ because covers whose cycle numbers differ by two have opposite leading signs.
-
-The same computation with $j < m$ factors gives zero. So the signed measure $\sum \mu(s)\delta_s$ on good states kills every polynomial of degree less than $m$ in the heights. One consequence is that there are at least $2m$ good states (`fable_route-combinatorics/PROOF.md`, Corollary 3, confirmed by the referee).
+What was used. The disk identity three times: odd cycle lengths for the sign flip, the exact value $\pm 3$ for the sign formula that gives all $m$-cycle covers the same leading sign, and a white face inside every cycle for $L(C) \ge 1$. The minimum is needed: a class with $c$ cycles leads with sign $(-1)^{(n-c)/2}$, which alternates as $c$ grows by two. Only the covers with the fewest cycles are sure to agree.
 
 ## Worked example, computed in full
 
-The running example has $n = 10$, eight pairs and two covers, each with two cycles. So $m = 2$. White faces are named by their index in `paper/figures/running.json`.
+The running example has $n = 10$, eight pairs and two covers, each with two cycles, so $m = 2$. All numbers below were recomputed for this audit with the paper's face paths (shortest paths, ties broken by the smallest face index); they agree with the paper's Table 2.
 
-| Cover | Cycle, counterclockwise | Length | White faces inside |
-| --- | --- | --- | --- |
-| $D_1$ | $2, 3, 9, 10, 11, 6, 1$ | 7 | $6, 8, 10, 16, 18, 20$ |
-| $D_1$ | $8, 12, 7$ | 3 | $18$ |
-| $D_2$ | $7, 12, 8, 10, 11, 6, 1$ | 7 | $6, 16, 20$ |
-| $D_2$ | $3, 9, 2$ | 3 | $10$ |
+| Cover | Cycles, with $L$ = white faces inside |
+| --- | --- |
+| first | 7-cycle $6,1,2,3,9,10,11$ with $L = 6$; triangle $7,8,12$ with $L = 1$ |
+| second | 7-cycle $1,7,12,8,10,11,6$ with $L = 3$; triangle $2,3,9$ with $L = 1$ |
 
-The eight pairs, with $\omega(s) = \sum_y \eta_s(y)$ for the paths chosen by the script:
-
-| Cover | Counterclockwise cycles | $J$ | $\varepsilon$ | $\omega(s)$ | $Q_s$ |
+| Cover | 7-cycle | triangle | $\varepsilon$ | $\omega(s)$ | second state |
 | --- | --- | --- | --- | --- | --- |
-| $D_1$ | none | $2$ | $+1$ | $-4$ | forest |
-| $D_1$ | triangle | $0$ | $-1$ | $-3$ | forest |
-| $D_1$ | 7-cycle | $0$ | $-1$ | $2$ | has a cycle |
-| $D_1$ | both | $-2$ | $+1$ | $3$ | forest |
-| $D_2$ | none | $2$ | $+1$ | $-2$ | forest |
-| $D_2$ | triangle | $0$ | $-1$ | $-1$ | forest |
-| $D_2$ | 7-cycle | $0$ | $-1$ | $1$ | forest |
-| $D_2$ | both | $-2$ | $+1$ | $2$ | has a cycle |
+| first | cw | cw | $+1$ | $-4$ | good |
+| first | cw | ccw | $-1$ | $-3$ | good, $\beta$ |
+| first | ccw | cw | $-1$ | $2$ | cycle in $Q$, $\alpha$ |
+| first | ccw | ccw | $+1$ | $3$ | good |
+| second | cw | cw | $+1$ | $-2$ | good |
+| second | cw | ccw | $-1$ | $-1$ | good |
+| second | ccw | cw | $-1$ | $1$ | good |
+| second | ccw | ccw | $+1$ | $2$ | cycle in $Q$, $\alpha$ |
 
-The two rows with a cycle have the same second state $s^*$ of step 05. Reversing the triangle raises $\omega$ by 1 in both covers. Reversing the 7-cycle raises it by 6 in $D_1$ and by 3 in $D_2$. These are the white-face counts.
+Reversing the triangle raises $\omega$ by 1 in both covers, reversing the 7-cycle raises it by 6 or 3. The values of $\varepsilon\,\omega^2$ add up to $16 - 9 - 4 + 9 = 12 = 2 \cdot 6 \cdot 1$ and $4 - 1 - 1 + 4 = 6 = 2 \cdot 3 \cdot 1$, so $\Sigma = 18$, while $\sum \varepsilon = \sum \varepsilon\,\omega = 0$. The two pairs with a cycle in $Q_s$ share the second state $\alpha$ and cancel. The six good states have three signs $+1$ and three $-1$.
 
-**As an integer polynomial** (trees paper). Sum $\varepsilon z^{\omega(s)}$.
+![The two covers as squares of four pairs (paper Figure 11)](../../paper/figures/renders/18-groupings.png)
 
-$$D_1:\ z^{-4}(1 - z)(1 - z^6) = z^{-4} - z^{-3} - z^{2} + z^{3}, \qquad D_2:\ z^{-2}(1 - z)(1 - z^3) = z^{-2} - z^{-1} - z + z^{2}.$$
+**The cube.** One cover, the triangle $3,4,5$ around one white face, so $m = 1$. With the labels of step 02 the two states $(3,4,5)$ and $(5,3,4)$ have weights $0$ and $-1$. The pair with second state $(3,4,5)$ has the triangle counterclockwise and $\varepsilon = -1$; the other has $\varepsilon = +1$. So $\Sigma = \sum \varepsilon\,\omega = -1 = (-1)^{(3-1)/2} \cdot 1! \cdot 1$, as the proof predicts.
 
-The term $-z^2$ of $D_1$ and the term $+z^2$ of $D_2$ cancel. These are the two partners of $s^*$. What is left is
+## The same sum in other dress
 
-$$Z(z) = z^{-4} - z^{-3} + z^{-2} - z^{-1} - z + z^{3},$$
+All versions probe one polynomial. Give each corner choice $(t,v)$ a variable $w_{t,v}$ and put $\Pi(w) = \sum_{(r,s)} \varepsilon(r,s) \prod_t w_{t,s(t)}$. By step 05 its monomials are exactly the good states, with coefficients $\pm 1$. Grouped by covers (paper, Section 7),
 
-six terms, one for each good state. $Z(1) = 0$ and $Z'(1) = 0$, and the coefficient of $(z-1)^2$ is $6 \cdot 1 + 3 \cdot 1 = 9$, with sign $(-1)^{(10-2)/2} = +1$. The lab run recorded in `research/2026-11-14_astra_audit-digestions/outputs/verification.json` gives $1-z^2-z^4+z^5-z^6+z^7=z^3 Z(z^{-1})$. Its embedding reverses orientation and its weights add a state-independent shift. Comparison must allow reflection as well as a monomial factor; a shift alone does not describe this run.
+$$\Pi(w) = \sum_{D} (-1)^{(n - c(D))/2} \prod_{C \in D} \bigl(w^{C+} - w^{C-}\bigr),$$
 
-**As an exponential sum** (OpenAI). $Z(x) = \sum i^J e^{x\omega(s)} = -\bigl(e^{-4x} - e^{-3x} + e^{-2x} - e^{-x} - e^{x} + e^{3x}\bigr)$. Its Taylor series starts with $-9x^2$, and $-9 = (-i)^2(6 \cdot 1 + 3 \cdot 1)$.
+where $w^{C\pm}$ is the product of $w_{t,v}$ over the faces of $C$ with $v$ the head of its edge when $C$ runs counterclockwise $(+)$ or clockwise $(-)$. Every factor vanishes at $w = 1$, so $\Pi$ vanishes there to order $m$. The versions differ in how they look near that point.
 
-**With linear weights.** $P(x) = \mathcal F(1 + xa) = 9x^2 + 5x^3$, computed exactly by the script. The lowest coefficient is again 9.
+| Version | Sum | Lowest coefficient in the running example | Status |
+| --- | --- | --- | --- |
+| paper | $\sum \varepsilon\, \omega(s)^m$ | $\Sigma = 18 = 2!\,(6 + 3)$ | refereed with the paper |
+| integer polynomial (trees paper, Remark 4.10) | $\sum \varepsilon\, z^{\omega(s)} = z^{-4} - z^{-3} + z^{-2} - z^{-1} - z + z^{3}$ | coefficient of $(z-1)^2$ is $9$ | published; recomputed |
+| OpenAI | $\sum i^J e^{x\omega(s)}$, with $i^J = i^{-n}\varepsilon$ | $-9x^2$ | published; recomputed |
+| linear substitution | $\sum \varepsilon \prod_t (1 + x\,\kappa(t,s(t)))$, $\kappa = \sum_y \kappa_y$ | $9x^2 + 5x^3$ | paper Section 7; recomputed |
+| heights product | $\sum \varepsilon \prod_{i=1}^m \eta_s(y_i)$ for chosen white faces $y_i$ | $1$ for $y_1 = \{1,8,9\}$, $y_2 = \{7,8,12\}$; $2$ for $y_1 = y_2 = \{7,8,12\}$ | proved in this project, refereed |
+| Li | signed count of pairs with $m$ distinct marked crossings of rays with spokes | $-9$ | published; reproduced by two programs |
 
-**With heights.** Take $D^* = D_1$, $y_1 = 8$ inside the 7-cycle and $y_2 = 18$ inside the triangle. The six good states give
+The heights-product version needs no weights at all. The same expansion as in the proof shows that $\sum \varepsilon \prod_i \eta_s(y_i) = (-1)^{(n-m)/2} N$, where $N$ counts the ways to send $y_1, \dots, y_m$ bijectively to the cycles of an $m$-cycle cover with $y_i$ inside its cycle. In the example $\{1,8,9\}$ lies only inside the first 7-cycle and $\{7,8,12\}$ inside both cycles of the first cover, so $N = 1$, and with $y_1 = y_2 = \{7,8,12\}$, $N = 2$. The chosen faces may repeat; the indices stay distinct. Source: `research/2026-11-14_fable_route-combinatorics/PROOF.md`, refereed in `research/2026-11-14_astra_referee-combinatorics/`. The same computation with fewer than $m$ factors gives zero, which implies at least $2m$ good states (Corollary 3 there, refereed).
 
-| $\mu(s)$ | $\omega(s)$ | $\eta_s(8)$ | $\eta_s(18)$ | $\mu(s)\,\eta_s(8)\,\eta_s(18)$ |
-| --- | --- | --- | --- | --- |
-| $+1$ | $3$ | $0$ | $0$ | $0$ |
-| $-1$ | $1$ | $0$ | $-1$ | $0$ |
-| $-1$ | $-1$ | $0$ | $-1$ | $0$ |
-| $+1$ | $-2$ | $0$ | $-1$ | $0$ |
-| $-1$ | $-3$ | $-1$ | $-1$ | $-1$ |
-| $+1$ | $-4$ | $-1$ | $-2$ | $+2$ |
-
-The total is $1$. The predicted value is $(-1)^{(n-m)/2} N$ with $N$ the number of ways to send $8$ and $18$ to different cycles of one cover that contain them. Face 8 lies only in the 7-cycle of $D_1$ and face 18 lies in both cycles of $D_1$ and in no cycle of $D_2$. So $N = 1$. With $y_1 = y_2 = 18$ the same sum is $2$, for the two bijections in $D_1$.
-
-**Li's version, independently rerun with the lab.** There are 213 objects with two distinct marks. The involution note counts 279 on the same file, and both counts are right. The two runs use the same `running.json` and the same Tutte drawing recipe, except that roots 4 and 5 go to each other's anchor points, which reflects the drawing. Li's objects are crossings of rays with spokes, so their number depends on the drawing: 69 drawings give 35 different counts between 103 and 363. The signed sum $-9$ and the nine second-fixed objects do not change (`research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md`, computed). The first involution fixes 141 objects, of signs 66 positive and 75 negative. The second fixes 9 objects, all negative. Both signed sums are $-9$. Every image remains in the object set, each map squares to the identity, and every nonfixed orbit reverses sign. These are finite checks, not a general referee verdict on the implementation. All fixed points and the translation from lab face IDs to `running.json` are in `research/2026-11-14_astra_audit-digestions/outputs/verification.json`; the command is in that folder's README. The sign differs from the real-sign coefficient $+9$ by the convention-dependent global factor.
-
-![The two cycles pushed onto spokes, with their white-face counts](../../paper/figures/renders/11-spokes.png)
-
-**The cube.** One cover with one cycle, the triangle $3,4,5$ around one white face. $\mathcal F = w^{s_2} - w^{s_1}$, the trees paper's polynomial is $1 - z$, the OpenAI sum is $i(1 - e^{x})$, and $P(x) = -x$.
-
-![Two covers sharing the same cancelling second state](img/two-covers.png)
+Li's objects depend on the drawing. The project's two runs of his construction count 213 and 279 marked objects on the same file, because one drawing is the mirror of the other; across 69 drawings the count ranges from 103 to 363, while the signed sum $-9$ never changes (`research/2026-11-14_opus_referee-involutions/DISCREPANCY-279-213.md`, computed). The sign $-9$ against $+9$ is the convention-dependent global factor.
 
 ## Why cancellation across covers cannot be avoided
 
-A natural hope is to work inside one cover. Fix $D$, look at its $2^c$ orientations, and show that one of them is a good pair. The data supported this for a long time. It holds for all 1,794 rooted triangulations with a pair and at most 15 vertices. It is false.
+A natural hope is to work inside one cover: show that one of its $2^c$ orientations is a good pair. It held on all 1,794 rooted triangulations with a pair and at most 15 vertices. It is false.
 
-**The 16-vertex example.** Take the triangulation with 16 vertices listed as class 158 in `research/2026-11-14_fable_route-combinatorics/data/counterexamples.txt`, rooted at the face $(2,7,3)$. Then $n = 13$. There are 26 states, 18 pairs, 12 good states and three covers. One cover is a single cycle through all 13 non-roots,
+**The 16-vertex example.** The triangulation listed as class 158 in `research/2026-11-14_fable_route-combinatorics/data/counterexamples.txt`, rooted at the face $(2,7,3)$, has $n = 13$, 26 states, 18 pairs, 12 good states and three covers. One cover is a single cycle through all 13 non-roots,
 
 $$0,\ 4,\ 9,\ 8,\ 14,\ 13,\ 12,\ 15,\ 10,\ 11,\ 6,\ 5,\ 1,$$
 
-with 6 white faces inside. Counterclockwise, $Q_s$ contains the triangle $4, 5, 10$. Clockwise, $Q_s$ contains the triangle $9, 13, 10$. Neither orientation is a good pair. All 12 good states come from the other two covers, which have three cycles each and six good pairs each.
+with 6 white faces inside. Counterclockwise, $Q_s$ contains the triangle $4, 5, 10$; clockwise, the triangle $9, 13, 10$. Neither orientation is a good pair. The other two covers have three cycles each and six good pairs each. (Recomputed for this audit: the counts, the three covers and where the good pairs sit.)
 
-Here $m = 1$, and the cover that makes the lowest coefficient non-zero is exactly the one that contains no solution. The coefficient of $x$ in $P(x) = \mathcal F(1 + xa)$ is 6, the white-face count of the long cycle. The proof shows that the terms of this cover cannot all be cancelled by the others. It does not say that they survive themselves. They do not. Both are cancelled, and the good states sit in the covers with three cycles.
+Here $m = 1$, and the cover that makes $\Sigma = 6$ non-zero is exactly the one that contains no solution. The proof shows that its terms cannot all be cancelled by the others. It does not say that they survive themselves. They do not. Status: found by `fable_route-combinatorics`, reproduced by its referee with independent code. It is the only failure among the 5,088 rooted triangulations with a pair and at most 16 vertices.
 
-Status. Found by `fable_route-combinatorics`, reproduced by its referee with independent code, and recomputed by my script from the face list. It is the only failure among the 5,088 rooted triangulations with a pair and at most 16 vertices.
-
-The same lesson was first seen on a larger example in `fable_dependency-graph/skeleton.md`, lead D2. In the octahedron with every face split in four, which has 18 vertices, the 4 pairs with one cycle all have a cycle in $Q_s$, and the 12 good pairs all have three cycles. That one is computed and not refereed.
+![Two covers sharing the same cancelling second state](img/two-covers.png)
 
 ![The two orientations of the bad 16-vertex cover](img/bad-cover-16.png)
 
-## Why extremal choices fail
+## Why canonical choices fail
 
-If the count cannot be avoided, maybe a canonical choice can replace it. Every candidate that was tried fails on a small example. Sizes are numbers of vertices of $T$. The tests ran over all rooted triangulations up to 16 vertices.
+If the count cannot be avoided, maybe a canonical choice can replace it. Each candidate below was tested and refuted; sizes are numbers of vertices of $T$, and unless said otherwise they are the smallest failures in an exhaustive search.
 
-| Candidate | Fails at | Evidence |
+| Candidate | First failure | Source and review |
 | --- | --- | --- |
-| the state with a partner of largest $\omega$ is a good state | 12 | fails in 95 of 5,088 cases |
-| the same with smallest $\omega$ | 12, on the mirror image | fails in 56 of 5,088 |
-| a cover with $m$ cycles, all counterclockwise | 12 | fails in 163 |
-| the same, all clockwise | 12, on the mirror image | fails in 119 |
-| the pair maximising $\omega(s) - \omega(r)$ | 12 | fails in 101 |
-| among the pairs with fewest cycles one is a good pair | 16 | the example above |
-| every cover contains a good pair | 16 | 1 of 5,088 |
-| good states split into cubes of dimension $m$ | 13 | 6 good states and $m = 2$, as in the running example |
-| the sign of a good state is the parity of $\omega$ | 8 | fails in 3,837 |
+| the partnered state of largest (or smallest) weight is good | 12 (its mirror image for smallest) | `fable_route-combinatorics/ROUTES.md`, sizes corrected by the referee |
+| an $m$-cycle cover with all cycles counterclockwise (or all clockwise) | 12 (mirror) | same |
+| the pair maximising $\omega(s) - \omega(r)$ | 12 | same |
+| some cover with $m$ cycles contains a good pair; every cover does | 16 | the example above |
+| good states split into cubes of dimension $m$ | 13: the running example has 6 good states and $m = 2$ | same, referee |
+| the sign of a good state is the parity of its weight | 8 | same |
+| the top or bottom of Felsner's lattice of pairs | 18 (no minimality claim) | `research/2026-11-14_sol_referee-conjectures/`, two implementations |
+| an extreme or join-irreducible element of that lattice | 33, with separating triangles; separator-free case untested | same |
+| a good pair within bounded lattice distance of an extreme | 24 needs distance two; a glued family needs unbounded distance | same |
+| single-move descent in the number $q(s)$ of $Q$-cycles; lookahead two; lookahead three | 16; 21; 40 (not known least) | `research/2026-11-14_fable_descent/`, author census |
 
-All rows are computed in `fable_route-combinatorics/ROUTES.md`. The referee reproduced the explicit examples and corrected two sizes. The original report gave 14 and 13 for the second and fourth rows because its enumeration identified mirror images, and these statements are sensitive to orientation. I checked this on the 12-vertex example. As listed, nine states have a partner, and the one with the largest $\omega$ is the only one that is not a good state. The all-counterclockwise orientation of its one-cycle cover is not a good pair. On the mirror image the state with the smallest $\omega$ fails and the all-clockwise orientation fails. The failure counts in the table are for one orientation of each triangulation. The referee also warned that these examples refute the stated rules, not every conceivable rule.
-
-The reason given in `ROUTES.md` for the first row is convincing. For an extreme $s$, every partner gives a cover with all cycles one way. Reversing a cycle of $Q_s$ changes the number of cycles of the cover by two, and nothing forbids that.
+The reason given for the first row is convincing. For an extreme state every partner gives a cover with all cycles one way. Reversing a cycle of $Q_s$ changes the number of cycles of the cover by two, and extremality does not forbid that.
 
 ## What else does not work
 
-- **Weights that do not separate orientations.** With all weights zero the cube gives $Z(x) = i + (-i) = 0$ for all $x$. The same happens for any weights that give all states the same $\omega$. What is needed is a positive circulation around cycles, not positive weights (`research/2026-11-14_astra_limits/HYPOTHESES.md`, not yet refereed, and a two-line check). Positivity is a convenient sufficient condition and not a necessary one. With arbitrary weights the lowest coefficient can vanish while the sum does not. The referee of that report saved a 14-vertex example with integer weights in `research/2026-11-14_sol_referee-structure/code/weights-leading-zero.json`. I did not rerun it.
-- **One determinant.** The signed sum is the coefficient of $y_1 \cdots y_n$ in the determinant of a matrix with one variable $y_t$ per black face. Setting all $y_t = 1$ does not give that coefficient. For the hexagonal prism the determinant with $y = 1$ is zero while the wanted coefficient is $45/64$ at the test point used. Extracting the coefficient takes $2^n$ determinants. The matrices are not positive semidefinite, so no known positivity theorem applies. Refereed in `fable_referee-determinants/` and found correct.
-- **The coefficient norm.** The number of good states is the sum of the squares of the coefficients of $\mathcal F$, and nothing cancels in a sum of squares. That formula is correct and useless for existence. It says that the number of good states is the number of non-zero coefficients, and existence means showing that one is non-zero (`SIGNIFICANCE.md` section 1).
-- **Positive terms in a matrix-tree count.** A constrained spanning-tree count has one positive term per good state. Positive terms do not make a sum non-empty. At the six roots of the double octahedron that have no pair there are 360 spanning trees of the restricted white-face graph, 16 use each face once, and none is a good state (same source).
+- **Weights that do not separate orientations.** With all weights zero the cube gives $0$. Any weights that give every state the same total are pure gauge. What is needed is a positive step around cycles, not positive weights. With arbitrary weights the lowest coefficient can vanish while the polynomial does not (a 14-vertex example in `research/2026-11-14_sol_referee-structure/code/weights-leading-zero.json`).
+- **Counting modulo a prime.** The number of good states is always even, since the two signs balance. No residue modulo 2, 3, 4, 5, 7 or 11 is non-zero in general (`research/2026-11-14_sol_route-algebra/`, computed).
+- **One determinant.** The signed sum is one coefficient of a determinant with one variable per black face, and setting all variables to 1 does not give it. For the hexagonal prism the all-ones value is 0 while the wanted coefficient is $45/64$ at the test point used. The blocks are not positive semidefinite, so no positivity theorem applies (refereed in `research/2026-11-14_fable_referee-determinants/`).
+- **Sums of squares and matrix-tree counts.** The number of good states is the sum of the squares of the coefficients of $\Pi$, and a restricted matrix-tree count has one positive term per good state. Both are positive exactly when $\Pi \ne 0$, which is what has to be shown. At the six roots of the double octahedron with no pair there are 360 restricted white trees, 16 use each face once, and none is a good state.
 
 ## Other routes, with status
 
-- **Per component.** The trees paper proves the stronger statement that every component of the exchange graph contains a good pair. Published.
-- **A walk instead of a count.** The marked walk of the trees paper follows the two involutions alternately. Published, exponential bound. Step 09.
-- **A Pfaffian or determinant for $\mathcal F$ without coefficient extraction.** A hunch. Nothing supports or excludes it.
-- **Descent.** From every pair there is a path of cycle reversals along which the number of cycles of $Q_s$ never increases and reaches zero. A conjecture in `research/2026-11-14_opus_route-graph-theory/REPORT.md`, with the stronger single-step version refuted at 50 vertices. Not yet refereed.
+- **Per component.** The trees paper proves that every component of the exchange graph contains a good pair. Published.
+- **Two involutions.** The project's involution note (`proofs/involutions/`) turns Li's argument into two sign-reversing involutions, with rays or with face paths. A second AI referee found that both routes follow. No human reader.
+- **A walk instead of a count.** The trees paper's marked walk follows the two involutions alternately. Published, with an exponential time bound. Step 09, door 7.
+- **Monotone descent, C3.** From every pair, some sequence of reversals of $D$-cycles and $Q$-cycles reaches a good pair without ever increasing $q(s)$, plateaus allowed. Conjecture. All 49,325,864 pairs through 22 vertices pass, and every bounded variant tested is dead (the last row of the table above). It would not give a polynomial algorithm by itself. Step 09, door 5.
+- **At least $2^m$ good states, C1.** Conjecture; the proved bound is $2m$. For one cover equality holds, and for two covers the count is known exactly (both refereed by a second model). A separator-free family on $3j + 2$ vertices has one cover, $m = j - 1$ and exactly $2^{j-1}$ good states (refereed). Step 09, door 4.
+- **A Pfaffian or determinant for $\Pi$ without coefficient extraction.** A hunch. Nothing supports or excludes it.
 
 ## Where this is used next
 
-We now have a pair $(r,s)$ with $Q_s$ a forest, hence a good state $s$. Step 07 turns it into the Hamiltonian cycle.
+We now have a good state $s$, with its unique partner. Step 07 turns it into the Hamiltonian cycle.
