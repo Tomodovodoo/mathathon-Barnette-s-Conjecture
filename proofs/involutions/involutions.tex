@@ -1,623 +1,345 @@
-\documentclass[a4paper,11pt]{amsart}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,longtable,booktabs,graphicx}
-\usepackage{../../paper/figures/barnette-figs}
+\documentclass[a4paper]{amsart}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amssymb,graphicx,tikz}
 \usepackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta}
+
+% styles of the three figures
+\definecolor{bfS}{HTML}{0072B2}
+\definecolor{bfW}{HTML}{009E73}
+\colorlet{bfblack}{black!17}
+\tikzset{
+  bf/.style={line cap=round,line join=round,every node/.style={font=\footnotesize,inner sep=1.2pt}},
+  bf edge/.style={draw=black!62,line width=.4pt},
+  bf vertex/.style={fill=black},
+  bf root/.style={draw=black,fill=white,line width=.7pt},
+  bf D/.style={draw=bfS,line width=1.1pt,shorten >=1.6pt,shorten <=1.2pt,-{Stealth[length=4.2pt,width=3.6pt]}},
+  bf spoke/.style={draw=black!70,line width=.4pt},
+  bf kept/.style={draw=black,line width=1.1pt},
+}
+
 \newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
-\newcommand{\Int}{\operatorname{Int}}
-\newcommand{\sgn}{\operatorname{sgn}}
-\title{Two involutions for the good-pair lemma}
-% AUTHOR LINE: to be decided by the project owner
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\cP}{\mathcal P}
+
+\title{Two sign-reversing involutions for the existence of a good state}
 \author{}
+
 \begin{document}
+
 \begin{abstract}
-We prove that a coloured sphere triangulation with a pair of states has a
-good pair (Theorem~\ref{main}). The proof is the multi-mark argument sketched
-in Appendix B of Zhentao Li's note, written out in full. It uses finite signed
-sets and two explicit involutions, and no generating function, limiting
-argument or complex number. Section~\ref{paths} gives a version that needs no
-drawing; in that form the proof unpacks, term by term, the height argument for
-Proposition~4.8 of the main exposition. A finite alternating path between the
-two involutions constructs a good pair. The coefficient comparison in
-Section~\ref{compare} is a separate check, not part of the proof.
-Section~\ref{example} lists every object of the main paper's running example.
+The proof of Barnette's conjecture rests on the fact that an Eulerian triangulation with a pair of states has a good state.
+In the paper that this note accompanies, this is proved by evaluating a generating function at $z=1$.
+We give a bijective proof instead: two sign-reversing involutions on the set of pairs with $m$ marked crossings, where $m$ is the least number of cycles of a $2$-factor.
+This is the argument sketched by Li in an appendix of his note on the proof, written out in full.
 \end{abstract}
+
 \maketitle
-\raggedbottom
 
-\section{Setting and notation}
-Let $T$ be a finite simple sphere triangulation whose faces have a proper
-black and white colouring. Put a black face $t_0$ outside, and let $R$ be its
-three corners. Write $A$ for the other black faces and $X=V(T)\setminus R$.
-Counting sides gives equally many black and white faces. Euler's formula
-then gives $|A|=|X|=n$.
-A state is a bijection $s:A\to X$ selecting a corner of each face.
-A pair $p=(r,s)$ is an ordered pair of states with $r(t)\ne s(t)$ everywhere.
-Let $Q_s$ have the side opposite $s(t)$ in every $t\in A$ and all vertices of $T$.
+\section{Introduction}
 
-\begin{theorem}[Good-pair lemma]\label{main}
-If a pair exists, a pair exists for which $Q_s$ is a forest.
+This note accompanies the paper \emph{The proof of Barnette's conjecture}~\cite{P}, and it uses the notation and the terminology of that paper throughout.
+So $T$ is an Eulerian triangulation with $n+1$ black faces, drawn with the black face $t_0$ as the unbounded face, $A$ is the set of the other black faces and $X$ the set of vertices other than the roots; we use states, good states and the graphs $Q_s$, pairs $(r,s)$ with the third corners $u(t)$ and the graphs $D(r,s)$, the graph $H$ and its $2$-factors $F$ with $c(F)$ cycles, the sign $\eps(r,s)$, the weight $\omega(s)$, and the number $a(C)$ of white faces inside a cycle $C$, all as defined in \cite[Sections~2 and~3]{P}.
+We prove the following.
+
+\begin{theorem}[{\cite[Proposition~3.5]{P}}]\label{main}
+If $T$ has a pair, then $T$ has a good state.
 \end{theorem}
 
-We call a pair $(r,s)$ for which $Q_s$ is a forest a \emph{good pair}.
+In \cite{P} this is proved by showing that the Laurent polynomial $Z(z)=\sum_{(r,s)}\eps(r,s)z^{\omega(s)}$, to which only the pairs with a good second state contribute, is not zero: it is divisible by $(1-z)^m$, where $m$ is the least number of cycles of a $2$-factor of $H$, and the quotient takes at $z=1$ the value $\pm\Phi$, where
+\begin{equation}\label{Phi}
+\Phi=\sum_{F\,:\,c(F)=m}\ \prod_{C\in\mathcal C_F}a(C)
+\end{equation}
+is a positive integer.
+Here we count instead.
+The weight $\omega(s)$ is a signed number of points in which certain arcs $\gamma_y$ cross the arcs that represent $s$ in a drawing of $H$.
+A \emph{marked pair} is a pair $(r,s)$ together with a set of $m$ of these crossings, and it has a sign.
+We define two involutions on the set of marked pairs, each of which reverses the sign of every marked pair that it does not fix.
+The first, $\iota_1$, keeps the second state and the marks; it is the involution of \cite[Lemma~3.3]{P}, and its fixed points are the marked pairs in which $s$ is good.
+The second, $\iota_2$, either reverses a cycle of $D(r,s)$ or moves one mark along its arc $\gamma_y$; it has exactly $\Phi$ fixed points, and they all have the same sign.
+So the signed number of marked pairs is $\pm\Phi\neq0$, and $\iota_1$ must have a fixed point.
+Proposition~\ref{moment} shows that the signed number of marked pairs is $(-1)^m$ times the value of $Z(z)/(1-z)^m$ at $z=1$; the two involutions are thus a bijective form of the computation in~\cite{P}, with $\iota_2$ in the place of \cite[Lemma~3.4]{P} and of the product formula for $Z$.
+Following the two involutions alternately from a fixed point of $\iota_2$ leads to a good state (Lemma~\ref{walk}).
 
-This note accompanies \emph{The proof of Barnette's conjecture: an
-exposition}, called the main paper below, which is
-\nolinkurl{paper/main/barnette.pdf} in the same repository.
-The second state of a good pair is a good state in the sense of the main
-paper, by its Lemma~4.2, and through that lemma Theorem~\ref{main} is its
-Proposition~4.8. The proof
-here is Li's intended proof written out in full, and in the form of
-Section~\ref{paths} it is a term-by-term unpacking of the main paper's
-Lemmas~4.5 to~4.7 for one particular height.
+The method is due to Li~\cite{Li}, who works in the dual graph $G$.
+His objects correspond to our marked pairs, with vertical half-lines as the arcs $\gamma_y$, and his two involutions to $\iota_1$ and $\iota_2$.
+Li carries out the case $m=1$, in which there is one mark, and he sketches the general case in his Appendix~B.
+That appendix states the sign, the rule for a cycle without a mark, the rule for moving a mark, and the fixed points and their sign.
+It does not prove that the map so described is an involution or that it reverses the sign, it does not say that the cycle has to be reversed when a mark whose white face lies inside its cycle moves to an arc of the first state, and it does not show that there is a fixed point when $m>1$, which needs an independent choice of direction for each cycle.
+Lemmas~\ref{two} and~\ref{fixed} supply these steps for every $m$.
+Li obtains a $2$-factor of $H$ under a connectivity assumption on $G$; Theorem~\ref{main} assumes only that $T$ has a pair, and \cite[Proposition~4.2]{P} gives one if $T$ has no separating triangle.
 
-Theorem~\ref{main} is OpenAI's Proposition 5.1 \cite{OAI}, and the
-cancellation part of Li's Key Lemma 7 \cite{Li}. Li's preliminary existence of a pair requires additional graph
-hypotheses; Theorem~\ref{main} does not. Throughout the proof we assume a pair
-exists. We do not assume that $T$ has no separating triangle.
-In Li's incidence language delete the outer black centre and its three
-root corners, obtaining the balanced incidence graph on $A$ and $X$.
-The union of the two states is a 2-factor there. After deleting the second
-matching, each remaining black centre joins the two corners of its
-opposite side, with root endpoints removed. A cycle is therefore exactly
-a subdivided cycle of $Q_s$ avoiding roots. Every cycle of a partnered
-$Q_s$ avoids roots by the outdegree argument in Lemma~\ref{one} below.
-Consequently the forest conclusion is exactly Li's cycle-breaking condition.
+\section{Marked pairs}
 
-Place a centre in each bounded black face and join it to its corners by
-spokes. A plane straight-line drawing exists, and a small rotation makes
-every vertical line through a white-face point miss all vertices and centres.
-Choose a point $w$ in each white face, also in this general position.
-Write $\rho_w$ for the upward ray starting at $w$. All its intersections with
-spokes are transverse and in their interiors. This choice is fixed once.
-The proof also works with fixed simple paths to infinity, provided each
-individual crossing is retained as a separate token.
+We assume throughout that $T$ has a pair.
+Then $H$ has a $2$-factor, and we let $m\ge1$ be the least number of cycles of a $2$-factor of $H$.
 
-\section{The disk count and the sign}
-For an oriented edge $u\to v$ of $T$, put $\delta(u,v)=1$ when its black
-face lies to its left, and $-1$ otherwise.
+As in \cite[Section~3]{P}, we fix a point $p_t$ in every face $t\in A$ and arcs inside $t$ from $p_t$ to the corners of $t$ in $X$, which draw $H$ in the plane, and for every white face $y$ an arc $\gamma_y$ from a point of $y$ to a point of $t_0$.
+The arc $\gamma_y$ avoids the vertices of $T$ and the points $p_t$, and it meets the arcs of $H$ in finitely many points, in each of which it crosses the arc of $H$.
+A \emph{crossing} is a pair $x=(y,q)$ in which $q$ is a point of $\gamma_y$ on an arc of $H$.
+If this arc joins $p_t$ to the corner $v$ of $t$, we say that $x$ \emph{lies on} this arc, and that $x$ is a crossing \emph{of} the state $s$ if $s(t)=v$.
+Let $\chi(x)=1$ if $\gamma_y$ crosses the arc, directed from $p_t$ to $v$, from its left to its right in $q$, and $\chi(x)=-1$ otherwise.
+The number $\chi(x)$ depends only on the crossing, not on a state.
+By the definition of the local weights $\omega(t,v)$ in~\cite{P}, the weight of a state $s$ is
+\begin{equation}\label{weight}
+\omega(s)=\sum_{x}\chi(x),
+\end{equation}
+the sum being over the crossings of $s$.
 
-\begin{lemma}[Disk identity]\label{disk}
-Select one outgoing side from the corner chosen by a state in every face
-of $A$. A simple directed cycle among these sides encloses no root. If it
-has length $h$ and $\ell$ of its boundary sides have their black face inside,
-then $h-2\ell=3$. Its length is odd, its disk contains a white face, and its
-$\delta$-sum is $-3$ counterclockwise and $3$ clockwise.
-\end{lemma}
-\begin{proof}
-Roots lie on the outside triangle and no selected side has a root as tail.
-Thus the cycle avoids roots and its bounded disk contains none.
-Let $I$ count strictly interior vertices and $B,W$ the black and white faces
-inside the disk. State bijectivity gives $B=I+\ell$.
-Indeed the state is injective, and an inside triangle selects a vertex of
-the closed disk. An interior vertex is selected by some triangle, which
-contains it and so lies inside. A boundary vertex is selected by the
-triangle supplying its outgoing boundary side, which lies inside exactly
-for the $\ell$ specified sides. So the inside triangles correspond to the
-$I$ interior vertices and those $\ell$ boundary vertices.
-If $E$ counts disk edges, side counting gives
+A \emph{marked pair} is a triple $(r,s,\mu)$ in which $(r,s)$ is a pair and $\mu$ is a set of exactly $m$ crossings of $s$.
+Different crossings in $\mu$ may belong to the same white face $y$, and they may lie on the same arc of $H$.
+The set $\cP$ of all marked pairs is finite.
+The \emph{sign} of a marked pair is
 \[
- E=3B+h-\ell=3W+\ell.
+\sigma(r,s,\mu)=\eps(r,s)\prod_{x\in\mu}\chi(x).
 \]
-The closed disk with its triangulation is connected: its underlying space is a disk,
-and its triangles join along their edges and vertices. Its faces are exactly
-the triangles counted above. Euler's disk formula is $I+h-E+B+W=1$. Substitute $B=I+\ell$
-and the first edge count to get $W=B+1$. Equating edge counts now gives
-$h-2\ell=3$. The asserted signs follow by traversing the disk boundary.
-In particular $W\ge1$.
+
+Let $(r,s)$ be a pair with $2$-factor $F$, and let $C$ be a cycle of $D(r,s)$.
+The corresponding cycle of $F$ is drawn as the closed curve $\Gamma$ that consists of the arcs from $p_t$ to $r(t)$ and to $s(t)$ for the faces $t$ with a side on $C$.
+It is obtained from $C$ by pushing every edge of $C$ into its black face, and the region between an edge and its detour through $p_t$ lies in that face.
+Hence, as in the proof of \cite[Lemma~3.4]{P}, $\Gamma$ is a simple closed curve with the same white faces inside as $C$, and when $\Gamma$ is run through from $r(t)$ to $p_t$ and on to $s(t)$ in each of these faces, it runs clockwise or counterclockwise as $C$ does.
+We give $\Gamma$ this direction.
+The curve $\Gamma$ depends only on $F$.
+Reversing $C$ reverses the direction of $\Gamma$ and exchanges the arcs of $r$ and of $s$ on $\Gamma$, and it changes nothing on the other cycles of $F$.
+We say that a cycle of $F$ \emph{carries} the crossings that lie on its arcs; every crossing of $s$ is carried by exactly one cycle of $F$.
+
+\begin{lemma}\label{crossings}
+Let $(r,s)$ be a pair, $C$ a cycle of $D(r,s)$ and $\Gamma$ the corresponding cycle of its $2$-factor.
+Let $y$ be a white face, and let $x_1,\dots,x_k$ be the crossings of the form $(y,q)$ carried by $\Gamma$, in the order in which $\gamma_y$ passes through them, starting in $y$.
+\begin{enumerate}
+\item The number $k$ is odd if $y$ lies inside $C$, and even otherwise.
+\item Let $1\le i<k$. If $x_i$ and $x_{i+1}$ lie both on arcs of $s$ or both on arcs of $r$, then $\chi(x_{i+1})=-\chi(x_i)$; if one of them lies on an arc of $s$ and the other on an arc of $r$, then $\chi(x_{i+1})=\chi(x_i)$.
+\item If $y$ lies inside $C$ and $x_1$ lies on an arc of $s$, then $\chi(x_1)=1$ if $C$ runs counterclockwise, and $\chi(x_1)=-1$ if $C$ runs clockwise.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The arc $\gamma_y$ meets $\Gamma$ exactly in the points of $x_1,\dots,x_k$, and it passes from one side of $\Gamma$ to the other in each of them.
+It starts in $y$, which is inside $\Gamma$ if and only if it is inside $C$, and it ends in $t_0$, which is outside.
+So $\gamma_y$ leaves and enters the inside of $\Gamma$ alternately, the last crossing leaves it, and this gives~(1); if $y$ is inside $C$, then $\gamma_y$ leaves the inside in $x_1$.
+For a crossing $x$ carried by $\Gamma$ let $\lambda(x)=1$ if $\gamma_y$ crosses the directed curve $\Gamma$ from its left to its right, and $\lambda(x)=-1$ otherwise.
+Then $\lambda(x_{i+1})=-\lambda(x_i)$.
+The direction of $\Gamma$ is the direction away from $p_t$ on the arcs of $s$ and the direction towards $p_t$ on the arcs of $r$; so $\chi(x)=\lambda(x)$ if $x$ lies on an arc of $s$, and $\chi(x)=-\lambda(x)$ if $x$ lies on an arc of $r$.
+This proves~(2).
+If $C$ runs counterclockwise, then so does $\Gamma$, its inside is on its left, and $\lambda(x)=1$ where $\gamma_y$ leaves the inside; if $C$ runs clockwise, then $\lambda(x)=-1$ there.
+This proves~(3).
 \end{proof}
 
-Direct the side in $t$ from $r(t)$ to $s(t)$. These sides form a directed
-cycle cover $D_p$ of $X$. There are no repeated undirected edges, since each
-edge has exactly one black face. As in the main paper, the undirected edge
-set of $D_p$ is the \emph{cover} of $p$. The cycles are simple, have odd length,
-and enclose a white face by Lemma~\ref{disk}. Define
+\section{The two involutions}
+
+\subsection*{The first involution}
+For every state $s$ such that $Q_s$ contains a cycle, choose one cycle $K_s$ of $Q_s$, as in the proof of \cite[Lemma~3.3]{P}.
+For a marked pair $(r,s,\mu)$ put
 \[
- J(p)=\tfrac13\sum_{t\in A}\delta(r(t),s(t)).
+\iota_1(r,s,\mu)=\begin{cases}(r^{K_s},s,\mu)&\text{if $Q_s$ contains a cycle,}\\(r,s,\mu)&\text{otherwise,}\end{cases}
 \]
-It is the number of clockwise cycles minus the number of counterclockwise
-cycles. If $c(p)$ counts cycles then $J(p)\equiv c(p)\equiv n\pmod2$.
-Let $m=\min_p c(p)$. Thus $m\ge1$. This is the $m$ of the main paper, and a
-cover with $m$ cycles is a minimum cover.
-
-Replace every directed side $r(t)\to s(t)$ by the two-spoke route
-$r(t)\to t\to s(t)$. Its cycles have the same orientation and enclose the
-same white-face points. Indeed, each detour lies in the interior of its
-own black triangle apart from its two ends, and distinct triangles have
-disjoint interiors, so the route is a simple closed polygon. It differs
-from the side cycle by the boundaries of the small triangles
-$r(t),t,s(t)$, which contain no white-face point. Winding numbers at
-white-face points are therefore equal. Lemma~\ref{disk} puts a
-white-face point inside, where both winding numbers are $\pm1$, so the
-orientations agree. We call these the spoke cycles of $p$.
-
-\begin{definition}\label{objects}
-A token is a crossing $(w,t)$ of $\rho_w$ with the spoke $t\to s(t)$.
-An object is $o=(p,M)$, where $M$ is an unordered set of exactly $m$ distinct
-tokens. The same white face may occur more than once, with different spokes.
-The same spoke may occur more than once, with different white faces.
-The identical crossing may not occur twice. Let $\Omega$ be this finite set.
-It depends on the drawing, since a ray swept past a vertex or a centre
-gains or loses crossings. Only its signed size is used, and
-Lemma~\ref{fixed} shows that the signed size does not depend on the drawing.
-For a token let $d(w,t)=0$ if the spoke $t\to s(t)$ goes left to right
-across the ray and $1$ otherwise. Give the object sign
-\[
- \sigma(o)=(-1)^{\lfloor J(p)/2\rfloor+\sum_{(w,t)\in M}d(w,t)}.
-\]
-\end{definition}
-
-This is the set convention in Li's Definition 14. Li orients his incidence
-cycles oppositely to our two-spoke routes: his $\mathrm{cw}'=-J$ and each
-of his crossing directions is the opposite of ours. These changes multiply
-our sign by $(-1)^{n+m}=1$. Our sign therefore agrees with Li's.
-An ordered list convention also works, including repeated tokens. Its
-fixed objects are $m!$ labelled versions of ours. We use sets to avoid that
-extra multiplicity.
-
-\section{First involution: keep the second state}
-Fix total orders on unoriented simple cycles. Both maps compare only
-cycles of one $Q_s$ or of one $D_p$, which use disjoint sets of faces,
-so the lexicographic order on sorted supplying-face sets suffices.
-Cycle choices below never use their current direction.
-If $Q_s$ is a forest, define $\iota_1(o)=o$. Otherwise choose its first cycle
-$K$ using $s$ alone. Write $u(t)$ for the third corner of $t$.
-On faces supplying $K$, replace $r(t)$ by $u(t)$; retain $s$ and all tokens.
+where $r^K$ is the state that agrees with $r$ except that $r^K(t)=u(t)$ for the faces $t$ whose side in $Q_s$ lies on $K$.
 
 \begin{lemma}\label{one}
-The map $\iota_1$ is an involution. Its fixed objects are exactly those with
-$Q_s$ a forest, and it reverses sign at every other object.
+The map $\iota_1$ is an involution on $\cP$.
+Its fixed points are the marked pairs $(r,s,\mu)$ in which $s$ is good, and $\sigma(\iota_1(o))=-\sigma(o)$ for every other marked pair $o$.
 \end{lemma}
+
 \begin{proof}
-Orient every side of $Q_s$ from $r(t)$ to $u(t)$. Every nonroot has outdegree
-one and every root has outdegree zero. On a simple cycle, its $h$ edges
-have distinct tails among its $h$ vertices. Hence each vertex is a tail
-exactly once, and the cycle is directed. Reversing it permutes the selected
-vertices cyclically and preserves the bijection $r$. The third corner is
-never $s(t)$, so the resulting states remain disjoint. Since $s$ is fixed,
-tokens stay valid and the same cycle is selected again. Reversing twice
-restores $r$.
-For each changed triangle the cyclic orders give
-\[
- \delta(u(t),s(t))-\delta(r(t),s(t))=2\delta(r(t),u(t)).
-\]
-Lemma~\ref{disk} on $K$ changes $J$ by $2$ or $-2$. Its floor half changes
-by an odd integer, while all crossing directions stay fixed. This proves
-sign reversal. A nonempty cycle changes $r$, so it creates no fixed object.
+Let $K=K_s$.
+As shown in \cite[Section~3]{P}, $r^K$ is a state, $(r^K,s)$ is a pair, and $(r^K)^K=r$.
+The second state is unchanged; so $\mu$ is a set of crossings of the second state of $(r^K,s)$, the same cycle $K$ is chosen for the image, and $\iota_1$ is an involution.
+A marked pair in which $Q_s$ contains a cycle is not fixed, because $r^K\ne r$, and its sign is reversed: $\eps(r^K,s)=-\eps(r,s)$ by \cite[Lemma~3.2(1)]{P}, and the numbers $\chi(x)$ are the same.
+Finally, $Q_s$ contains no cycle if and only if $s$ is good, by \cite[Lemma~3.1(1)]{P}.
 \end{proof}
 
-\section{Second involution: pair successive crossings}
-For an unoriented spoke cycle $C$, list its crossings with $\rho_w$ starting
-at $w$, with indices $1,\ldots,k$. If $w$ is outside $C$, $k$ is even;
-pair indices $1\leftrightarrow2,3\leftrightarrow4,\ldots$.
-If $w$ is inside, $k$ is odd; leave index $1$ unpaired and pair
-$2\leftrightarrow3,4\leftrightarrow5,\ldots$.
-Call this partial pairing $P_{C,w}$. It depends only on the drawing, $C$,
-and $w$. When $C$ is directed it is traversed $r(t)\to t\to s(t)$, so an
-$s$-spoke is traversed away from its centre and an $r$-spoke towards it;
-after reversal of $C$ the old $r$-spoke is an $s$-spoke traversed away
-from the centre. Two paired crossings have opposite directions of
-traversal, because consecutive crossings alternate entry and exit.
+\subsection*{The second involution}
+Fix a total order on the set of all cycles of $H$; the \emph{first} cycle with some property is the first in this order.
+Let $(r,s)$ be a pair with $2$-factor $F$, let $\Gamma$ be a cycle of $F$, $C$ the corresponding cycle of $D(r,s)$, and $y$ a white face.
+List the crossings $(y,q)$ carried by $\Gamma$ as $x_1,\dots,x_k$, as in Lemma~\ref{crossings}.
+If $y$ lies outside $C$, then $k$ is even, and we call $x_1$ and $x_2$, $x_3$ and $x_4$, and so on, \emph{partners}.
+If $y$ lies inside $C$, then $k$ is odd; $x_1$ has no partner, and $x_2$ and $x_3$, $x_4$ and $x_5$, and so on, are partners.
+The list and the partners depend only on $\Gamma$ and $y$, not on the pair.
 
-Here is $\iota_2$ on $o=(p,M)$, in priority order.
+For a marked pair $o=(r,s,\mu)$ with $2$-factor $F$ we define $\iota_2(o)$ by the first of the following rules that applies.
 \begin{enumerate}
-\item If a spoke cycle carries no token, reverse the first such cycle,
-exchanging $r$ and $s$ on it; retain $M$.
-\item Otherwise every cycle carries a token. There are at least $m$ cycles
-and exactly $m$ tokens. Consequently there are exactly $m$ cycles and one
-token on each. Write that token on $C$ as $(w_C,t_C)$.
-Choose the first cycle for which $w_C$ is outside $C$, if any.
-If none exists, choose the first cycle whose token is not crossing number $1$.
-If neither exists, fix the object.
-\item On the chosen cycle, move its sole token to its partner under
-$P_{C,w_C}$. If the partner spoke currently belongs to $s$, retain the pair.
-If it belongs to $r$, reverse that cycle, then retain the moved token as
-an $s$-token. Leave the other tokens unchanged.
+\item If some cycle of $F$ carries no crossing of $\mu$, let $\Gamma$ be the first such cycle, and let $(r',s')$ be obtained from $(r,s)$ by reversing the corresponding cycle of $D(r,s)$. Then $\iota_2(o)=(r',s',\mu)$.
+\item Otherwise every cycle of $F$ carries a crossing of $\mu$. As $F$ has at least $m$ cycles and $\mu$ has $m$ elements, $F$ has exactly $m$ cycles, and each cycle $\Gamma$ carries exactly one crossing $x_\Gamma=(y_\Gamma,q_\Gamma)$ of $\mu$. If there is a cycle $\Gamma$ such that $y_\Gamma$ lies outside it, choose the first such cycle. If there is none, choose the first cycle $\Gamma$ such that $x_\Gamma$ is not the first crossing of $\gamma_{y_\Gamma}$ carried by $\Gamma$, that is, $x_\Gamma\ne x_1$ in the list for $\Gamma$ and $y_\Gamma$. If there is no such cycle either, then $\iota_2(o)=o$.
+\item Let $\Gamma$ be the cycle chosen in (2), $x=x_\Gamma$, and let $x'$ be the partner of $x$. Put $\mu'=(\mu\setminus\{x\})\cup\{x'\}$. If $x'$ lies on an arc of $s$, then $\iota_2(o)=(r,s,\mu')$. If $x'$ lies on an arc of $r$, let $(r',s')$ be obtained from $(r,s)$ by reversing the cycle of $D(r,s)$ that corresponds to $\Gamma$; then $\iota_2(o)=(r',s',\mu')$.
 \end{enumerate}
+Here a white face lies inside or outside a cycle $\Gamma$ of $F$ according as it lies inside or outside the corresponding cycle of $D(r,s)$.
+In (3) the crossing $x$ has a partner: if $y_\Gamma$ lies outside $\Gamma$ every crossing in the list has one, and otherwise $x\neq x_1$.
 
 \begin{lemma}\label{two}
-This defines an involution on $\Omega$ which reverses sign off its fixed set.
-Its fixed objects have exactly $m$ cycles, one token on each, whose white-face
-point is inside that cycle and whose crossing is first along its ray.
+The map $\iota_2$ is an involution on $\cP$, and $\sigma(\iota_2(o))=-\sigma(o)$ for every marked pair $o$ that is not fixed.
+The fixed points of $\iota_2$ are the marked pairs $(r,s,\mu)$ with the following property: the $2$-factor of $(r,s)$ has exactly $m$ cycles, and each of them carries exactly one crossing $(y,q)$ of $\mu$, for which $y$ lies inside the cycle and which is the first crossing of $\gamma_y$ carried by the cycle.
 \end{lemma}
+
 \begin{proof}
-Cycle reversal exchanges two perfect matchings on an alternating cycle,
-so it preserves valid pairs and the underlying unoriented cycles.
-In case 1 the reversed cycle carries no token, so every token keeps its
-spoke as an $s$-spoke and $M$ is a token set of the new pair. The same
-cycles remain unmarked. The same first cycle is chosen twice, and no
-token changes membership or direction. Reversal changes $J$
-by $2$ or $-2$, so the sign reverses.
+Let $o=(r,s,\mu)$ be a marked pair with $2$-factor $F$.
+A pair obtained from $(r,s)$ by reversing a cycle has the same $2$-factor $F$, so the cycles of $F$, the crossings they carry and the white faces inside them are the same for $o$ and for $\iota_2(o)$ in all cases.
 
-In case 2 exactly one token is assigned to each cycle. The partner exists
-because the sole unpaired crossing is excluded by the selection rule.
-If its spoke is an $r$-spoke, reversal makes it an $s$-spoke. No other token
-on that cycle can become invalid, because there is no other token there.
-Tokens on distinct cycles have distinct spokes, so the moved token cannot
-collide with another token. Its white point and assigned cycle stay the same.
+Suppose that rule (1) applies, to the cycle $\Gamma$.
+The state $s'$ agrees with $s$ on all faces without an arc on $\Gamma$, and no crossing of $\mu$ is carried by $\Gamma$; so $\mu$ is a set of crossings of $s'$, and $(r',s',\mu)$ is a marked pair.
+The same cycles of $F$ carry no crossing of $\mu$, so rule (1) applies to $\iota_2(o)$ with the same cycle $\Gamma$ and gives back $o$.
+The pairs $(r,s)$ and $(r',s')$ have the same number of cycles, and the numbers of their counterclockwise cycles differ by one; so $\eps(r',s')=-\eps(r,s)$ by \cite[Lemma~3.2(2)]{P}, while the product of the $\chi(x)$ is the same.
+Hence $\iota_2(o)\neq o$ and $\sigma(\iota_2(o))=-\sigma(o)$.
 
-Thus the first selection test, exterior white point, is invariant. If that
-test selects no cycle, the second test, nonfirst crossing, is invariant:
-the paired indices are both different from $1$. All earlier cycles keep
-their status. The same first cycle is therefore selected on the second
-application. The geometric crossing pairing reverses itself. If no reversal
-was made, its old spoke is still an $s$-spoke, so the return move makes no
-reversal. If a reversal was made, the old spoke is now an $r$-spoke, so the
-return move reverses the same cycle again. In both cases the original object
-returns.
+Suppose that rule (3) applies, to the cycle $\Gamma$ with the crossing $x$ and its partner $x'$.
+The crossings of $\mu$ other than $x$ are carried by other cycles of $F$.
+So they are different from $x'$, and they are crossings of the second state of $\iota_2(o)$, which agrees with $s$ on the faces without an arc on $\Gamma$.
+The crossing $x'$ is a crossing of the second state of $\iota_2(o)$ as well: if it lies on an arc of $s$ the pair is not changed, and if it lies on an arc of $r$ then this arc belongs to $s'$.
+Hence $\iota_2(o)$ is a marked pair, and every cycle of $F$ carries exactly one of its marked crossings.
+For every cycle of $F$ this crossing belongs to the same white face as before.
+So the first test in (2) chooses the same cycle $\Gamma$ for $\iota_2(o)$, if it chose $\Gamma$ for $o$.
+If that test chooses no cycle, then $y_\Gamma$ lies inside $\Gamma$, both $x$ and $x'$ are different from the first crossing of $\gamma_{y_\Gamma}$ carried by $\Gamma$, the crossings on the other cycles are unchanged, and the second test again chooses $\Gamma$.
+Therefore rule (3) applies to $\iota_2(o)$ with the same cycle $\Gamma$, and it moves the mark from $x'$ back to its partner $x$.
+If the pair was not changed, then $x$ still lies on an arc of $s$, and the pair is not changed the second time.
+If the cycle was reversed, then $x$ now lies on an arc of the first state $r'$, and the cycle is reversed again, which gives back $(r,s)$.
+In both cases $\iota_2(\iota_2(o))=o$, and $\iota_2(o)\neq o$ because $\mu'\neq\mu$.
 
-If no reversal is made, $J$ is unchanged and the direction of the moved
-token flips, because paired crossings have opposite directed crossings.
-If reversal is made, the geometric pairing and the cycle reversal each
-flip that direction, so its final direction is unchanged; meanwhile
-$\lfloor J/2\rfloor$ changes parity. Other tokens lie on other cycles and
-keep their directions. Both cases reverse sign. Every nonfixed rule changes
-the pair or token, which also proves the asserted fixed-set description.
+For the sign we use Lemma~\ref{crossings}(2); partners are consecutive in the list of that lemma.
+If $x'$ lies on an arc of $s$, then so does $x$, hence $\chi(x')=-\chi(x)$, and the pair and the other crossings are unchanged.
+If $x'$ lies on an arc of $r$, then $\chi(x')=\chi(x)$, since $x$ lies on an arc of $s$, and $\eps(r',s')=-\eps(r,s)$ as before.
+In both cases $\sigma(\iota_2(o))=-\sigma(o)$.
+
+So $o$ is fixed only if rule (2) applies and neither of its tests chooses a cycle, and this is the property stated in the lemma.
 \end{proof}
 
 \begin{lemma}\label{fixed}
-The fixed set of $\iota_2$ is nonempty and every member has sign
-$(-1)^{\lfloor m/2\rfloor}$.
-In fact its cardinality is
-\[
- F=\sum_{\substack{D\text{ unoriented cover}\\c(D)=m}}
-       \prod_{C\subset D} a(C),
- \qquad a(C)=\#\{\text{white faces inside }C\}.
-\]
+The involution $\iota_2$ has exactly $\Phi$ fixed points, where $\Phi\ge1$ is the number defined in~\eqref{Phi}, and each of them has sign $(-1)^{(n-m)/2}$.
 \end{lemma}
-\begin{proof}
-For any minimum cover choose a white face inside each cycle, possible by
-Lemma~\ref{disk}. Different cycles may choose the same white face. The first
-crossing of its ray with its spoke cycle exists. Orient each cycle so that
-this spoke belongs to $s$. The two orientations exchange the spoke labels,
-so exactly one orientation works. The choices on distinct cycles are
-independent. The resulting tokens are distinct, even for repeated white
-faces, since their spokes are on distinct cycles. They give a fixed object.
-Conversely the fixed-set description recovers these choices uniquely,
-which proves the cardinality formula.
 
-If $q$ cycles are counterclockwise, their first exits cross right to left,
-and clockwise first exits cross left to right. Thus the direction sum is
-$q$ and $J=m-2q$. The sign exponent is
-$\lfloor(m-2q)/2\rfloor+q=\lfloor m/2\rfloor$.
+\begin{proof}
+Let $F$ be a $2$-factor of $H$ with $m$ cycles, and choose for each cycle $\Gamma$ of $F$ a white face $y_\Gamma$ inside it; the same white face may be chosen for different cycles.
+For each cycle there are $a(C)$ choices, where $C$ is the corresponding cycle of $D(r,s)$ for any pair $(r,s)$ with $2$-factor $F$, and $a(C)\ge1$ by \cite[Lemma~3.1(3)]{P}.
+We show that exactly one fixed point of $\iota_2$ has the $2$-factor $F$ and these white faces; by Lemma~\ref{two} every fixed point arises in this way, so there are $\Phi$ of them.
+By Lemma~\ref{crossings}(1), $\gamma_{y_\Gamma}$ has a first crossing $x_\Gamma$ carried by $\Gamma$, and by Lemma~\ref{two} the set $\mu$ of a fixed point must consist of these $m$ crossings, which are distinct because they are carried by distinct cycles.
+The triple $(r,s,\mu)$ is a marked pair if and only if every $x_\Gamma$ lies on an arc of $s$.
+The pairs with $2$-factor $F$ are obtained from one another by reversing cycles, which exchanges the arcs of $r$ and of $s$ on that cycle only; so exactly one of them has this property.
+
+Let $(r,s,\mu)$ be a fixed point, and suppose that $c^+$ of the $m$ cycles of $D(r,s)$ run counterclockwise.
+Then $\eps(r,s)=(-1)^{(n+m)/2+c^+}$ by \cite[Lemma~3.2(2)]{P}, and by Lemma~\ref{crossings}(3) the crossings of $\mu$ have $\chi(x)=1$ on the counterclockwise cycles and $\chi(x)=-1$ on the $m-c^+$ clockwise cycles.
+So the sign is $(-1)^{(n+m)/2+m}=(-1)^{(n-m)/2}$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{main}]
-Partition $\Omega$ into positive and negative objects. If $\iota_1$ had
-no fixed point it would biject these two sets. But $\iota_2$ pairs opposite
-signs except for its nonempty fixed set of one sign. The two cardinalities
-therefore differ by $(-1)^{\lfloor m/2\rfloor}F\ne0$. A fixed object of
-$\iota_1$ exists, and its underlying pair has $Q_s$ a forest.
+By Lemma~\ref{two}, the marked pairs that are not fixed by $\iota_2$ cancel in pairs in the sum of the signs of all marked pairs; so by Lemma~\ref{fixed}
+\begin{equation}\label{count}
+\sum_{o\in\cP}\sigma(o)=(-1)^{(n-m)/2}\,\Phi\neq0.
+\end{equation}
+By Lemma~\ref{one}, the marked pairs that are not fixed by $\iota_1$ cancel in the same sum.
+Hence $\iota_1$ has a fixed point $(r,s,\mu)$, and $s$ is a good state.
 \end{proof}
 
+\section{The relation to the polynomial $Z$}
 
-\section{Marks without a drawing}\label{paths}
-The following version uses only the oriented sphere map, its face incidences,
-and a fixed tree in the dual graph rooted at $t_0$. No coordinates, rays,
-or general-position choices enter its definitions. A side of a simple
-cycle is inside when it does not contain $t_0$, and the cycle is
-counterclockwise when its inside lies to its left; with this reading
-Lemma~\ref{disk} and $J$ need no drawing. For each white face $w$
-let $w=f_0,f_1,\ldots,f_j=t_0$ be its tree path. Its faces are distinct,
-and only the last is $t_0$. At each black
-face $t=f_i$ with $0<i<j$, the entering and leaving sides meet in a corner $v$.
-Set $\kappa_w(i)=1$ if this turn has $v$ on its left and $-1$ if
-it has $v$ on its right, using the orientation of the sphere map.
-This is the turn convention of the main paper, Section 4.
-A token for $s$ is the incidence $(w,i)$ with $f_i\in A$ and $s(f_i)=v$.
-Its direction bit is $d(w,i)=(1+\kappa_w(i))/2$.
-Keep exactly $m$ distinct tokens and the same sign formula as before.
-Since a tree path visits a face at most once, $(w,i)$ also determines its
-black face; retaining the step makes the definition explicit.
+\begin{proposition}\label{moment}
+The Laurent polynomial $Z(z)=\sum_{(r,s)}\eps(r,s)z^{\omega(s)}$ of \cite{P} is divisible by $(1-z)^m$, and
+\[
+\sum_{o\in\cP}\sigma(o)\;=\;\frac1{m!}\sum_{(r,s)}\eps(r,s)\,\omega(s)^m\;=\;(-1)^m\,\frac{Z(z)}{(1-z)^m}\bigg|_{z=1},
+\]
+where the sums on the right are over all pairs.
+\end{proposition}
 
-For a spoke cycle $C$, its list at $w$ consists of the steps turning
-around either $r(t)$ or $s(t)$ for $t$ on $C$, in increasing path order.
-A spoke here means the formal incidence of a triangle with a corner.
-Such incidences have their cyclic order from the sphere map.
-
-\begin{lemma}\label{path-crossings}
-Let $C$ be a spoke cycle of a pair and $w$ a white face.
-\begin{enumerate}
-\item The list of $C$ at $w$ has odd length exactly when $w$ is inside $C$.
-\item At consecutive entries of the list, $C$ crosses the path in opposite
-directions.
-\item If $w$ is inside $C$, then at the first entry $C$ crosses the path
-from right to left when $C$ is counterclockwise, and from left to right
-when it is clockwise.
-\end{enumerate}
-Consequently Lemmas~\ref{one}, \ref{two}, \ref{fixed} and \ref{walk} and
-the proof of Theorem~\ref{main} hold for path tokens, with these lists in
-place of the ray lists and with the same number $F$.
-\end{lemma}
 \begin{proof}
-Subdivide every black triangle of $A$ into three sectors by its formal
-centre-to-corner incidences. Each sector contains one side of the
-triangle, and the sectors on two sides share the incidence at their
-common corner. A step that enters $t$ by one side and leaves by another
-therefore passes from one sector to the next. It crosses the incidence
-at their common corner $v$ once and neither of the other two. If $v$ is
-on the left of the step, the incidence directed away from the centre
-points to the left, so it crosses the path from right to left. With left
-to right counted positive, its signed crossing is $-\kappa_w(i)$.
-Reversing the incidence changes this sign. This is a check of the two
-cyclic orders of the entering and leaving sides, so it uses no lengths
-or angles.
-
-The incidence cycle $C$ is simple, since its corners and its centres are
-distinct. Cut the subdivided sphere map along it. The two components are
-its inside disk and its outside disk. They contain the same white faces as
-the two sides of the side cycle, because the two cycles differ only by
-the sectors on the sides $r(t)s(t)$. The refined face path changes
-components exactly when it crosses an incidence of $C$. In a triangle
-$t$ on $C$ these are the incidences at $r(t)$ and $s(t)$, crossed by the
-turns around $r(t)$ and $s(t)$; a turn around $u(t)$ crosses neither.
-In white faces, in $t_0$ and in triangles off $C$ the path crosses no
-incidence of $C$. So the path changes components exactly at the listed
-steps, and successive listed steps alternate exit and entry. The path ends
-in $t_0$ on the outside, so its list is odd exactly when $w$ is inside.
-At a first exit, a counterclockwise cycle traverses the incidence from
-right to left relative to the path, and a clockwise cycle from left to
-right. These statements can also be read directly from the oriented
-boundary of the inside disk. If the incidence is an $s$-incidence its
-traversal is away from the centre; an $r$-incidence is traversed towards it.
-Thus the direction bit above has exactly the convention of Definition~\ref{objects}.
-
-The first map retains $s$, so it retains token eligibility and every bit.
-In the second map an unmarked cycle can still be reversed without changing
-any token. Otherwise minimality again forces one token on each of $m$
-cycles. Pair consecutive list entries with the same index rules as before.
-The common white face, the unoriented cycle, and the status of an entry
-as first or nonfirst are unchanged by this pairing and any cycle reversal.
-The partner lies on $r$ or $s$ exactly as before; reversal when it lies on
-$r$ makes it eligible. Distinct cycles have distinct incidences, so no
-other token is lost or duplicated. The return move makes the same reversal
-decision. Alternating traversal signs give the same two sign-reversal
-cases in Lemma~\ref{two}.
-
-For each enclosed white face the odd list has a first entry. Exactly one
-orientation of its cycle makes this an $s$-incidence. Independent choices
-on distinct cycles give exactly the same product $F$. If $q$ cycles are
-counterclockwise, the first-exit rule gives direction sum $q$ and
-$J=m-2q$, so every fixed sign is $(-1)^{\lfloor m/2\rfloor}$.
-The counting proof and the finite alternating-path proof now apply without
-any further change.
+Let $0\le j\le m$.
+By~\eqref{weight}, $\omega(s)^j$ is the sum of the products $\chi(x_1)\cdots\chi(x_j)$ over all sequences $(x_1,\dots,x_j)$ of crossings of $s$, in which a crossing may occur several times.
+So $\sum_{(r,s)}\eps(r,s)\omega(s)^j$ is a sum over the triples $(r,s,(x_1,\dots,x_j))$, each with the sign $\eps(r,s)\chi(x_1)\cdots\chi(x_j)$.
+Consider the triples in which fewer than $m$ different crossings occur.
+For such a triple some cycle of the $2$-factor of $(r,s)$ carries none of $x_1,\dots,x_j$, as there are at least $m$ cycles.
+Reversing the first such cycle and keeping the sequence gives a triple of the same kind, and, as for rule (1) of $\iota_2$, this is an involution that reverses the sign.
+Hence these triples cancel.
+For $j<m$ these are all triples, and for $j=m$ the remaining triples are the $m!$ orderings of the sets $\mu$ of the marked pairs.
+Therefore
+\[
+\sum_{(r,s)}\eps(r,s)\,\omega(s)^j=0\quad(j<m),\qquad \sum_{(r,s)}\eps(r,s)\,\omega(s)^m=m!\sum_{o\in\cP}\sigma(o).
+\]
+The $j$th derivative of $z^k$ at $z=1$ is $k(k-1)\cdots(k-j+1)$, for every integer $k$, and this is a polynomial in $k$ of degree $j$ with leading coefficient one.
+So the derivatives of $Z$ of order less than $m$ vanish at $z=1$, and the $m$th derivative equals $\sum_{(r,s)}\eps(r,s)\omega(s)^m$ there.
+Hence $Z(z)=(1-z)^mR(z)$ for a Laurent polynomial $R$, and $R(1)$ is $(-1)^m/m!$ times the $m$th derivative of $Z$ at $z=1$.
 \end{proof}
 
-The tree is a convenience. The proof uses only that each path is simple
-and ends at $t_0$, so any fixed family of such paths serves, as in the
-main paper. The marked-set size, first-fixed count, and path lengths depend on the
-chosen paths, even though they require no drawing. The
-minimum $m$, the enclosed-face counts, $F$, the common fixed sign and the
-signed sum depend only on the rooted oriented triangulation. The identities
-of fixed marked objects depend on the paths; their number does not.
-Let $H(s)$ be the signed number of tokens of $s$, a token counting $+1$
-when $\kappa_w(i)=-1$ and $-1$ when $\kappa_w(i)=1$; Section~\ref{compare}
-defines the same quantity for rays.
-For this version $H(s)=-\sum_w\eta_s(w)=-\omega(s)$ exactly, with the
-main paper's turn heights for the same paths and the same orientation of the sphere.
-So $H$ has the opposite sign to the main paper's weight $\omega$. For rays the same cycle-reversal increments
-hold; an additive constant may differ between covers.
-This is a term-by-term bijective unpacking of the height proof for this
-particular height. The first involution is its cancellation lemma on
-marked objects. The second proves its height and finite-difference
-lemmas together by pairing the terms of the expansion.
+With~\eqref{count} this gives the value $(-1)^{(n+m)/2}\Phi$ of $Z(z)/(1-z)^m$ at $z=1$ that is computed in the proof of \cite[Proposition~3.5]{P}.
+There the cycles of each $2$-factor contribute the factors $1-z^{a(C)}$; here rule (1) of $\iota_2$ removes the terms that miss a cycle, and rule (3) leaves, for every cycle and every white face inside it, the first crossing of $\gamma_y$ and nothing else.
 
-The number of marks matters. With fewer than $m$ marks every object has
-an unmarked cycle, so the signed count is zero. With more than $m$, the
-one-token-per-cycle deduction fails and the second map is undefined on
-some objects. In computed examples with one generic family of ray
-drawings, with $m-1$ marks the count is zero on all 880 paired roots with
-at most 14 vertices, as it must be; with $m+1$ marks it is zero on 57 of
-them, and on 78 with another family of drawings.
-These higher-order counts depend on the rays. Thus arbitrary mark counts cannot replace $m$.
+The number of marks has to be $m$.
+With fewer than $m$ marks some cycle carries no mark, rule (1) always applies, and the signed number of marked pairs is zero, as in the proof of Proposition~\ref{moment}.
+With more than $m$ marks a pair with $m$ cycles can have two marks on one cycle while every cycle carries a mark, and rule (3) is not defined.
 
-\section{An explicit constructor}
-Enumerate pairs to determine $m$ and a minimum cover. Choose its white
-faces and orient its first crossings as in Lemma~\ref{fixed}, obtaining
-an $\iota_2$-fixed object. Apply $\iota_1$; if it fixes the object, return
-the pair. Otherwise apply $\iota_2$, then $\iota_1$, and continue, stopping
-before a fixed move.
+The arcs $\gamma_y$ enter the proof only through the crossings, their order along each arc $\gamma_y$ and the numbers $\chi(x)$.
+The set $\cP$ and the fixed points of the two involutions depend on the choice of the arcs, but the two sides of~\eqref{count} do not.
+One can also choose the arcs without reference to a drawing.
+For a white face $y$ take a path $y=f_0,f_1,\dots,f_j=t_0$ of distinct faces in which consecutive faces share a side, and let $\gamma_y$ pass through these faces in turn.
+In a face $f_i\in A$ the sides by which $\gamma_y$ enters and leaves have a common corner $v$, and $\gamma_y$ can be drawn so that in $f_i$ it crosses the arc from $p_{f_i}$ to $v$ once and no other arc of $H$; it crosses no arc there if $v$ is a root.
+The crossings are then the pairs $(y,i)$ with $f_i\in A$ and $v\in X$, such a crossing is a crossing of $s$ if $s(f_i)=v$, its place in the order along $\gamma_y$ is given by $i$, and $\chi(y,i)=1$ if $v$ lies to the left of the path at $f_i$, and $-1$ if it lies to the right.
+
+\section{From a fixed point of the second involution to a good state}
+
+The proof of Theorem~\ref{main} can be turned into a procedure.
+Take a $2$-factor of $H$ with $m$ cycles and a white face inside each of its cycles, and let $o_0$ be the corresponding fixed point of $\iota_2$, as in the proof of Lemma~\ref{fixed}.
+Put $o_1=\iota_1(o_0)$, $o_2=\iota_2(o_1)$, $o_3=\iota_1(o_2)$ and so on, and stop at the first $o_k$ that is fixed by the map that is to be applied to it.
 
 \begin{lemma}\label{walk}
-This procedure terminates at a good pair without repeating an object.
+The marked pairs $o_0,o_1,\dots$ are distinct, the procedure stops, and the second state of the marked pair $o_k$ at which it stops is good.
 \end{lemma}
+
 \begin{proof}
-Put an undirected edge of label $i$ between distinct objects exchanged by
-$\iota_i$. Retain parallel edges if the two maps have the same image.
-Each vertex has at most one edge of either label. The starting point has
-no edge of label 2. Its component is therefore a finite alternating path
-or a single vertex; a degree-one vertex cannot lie on a cycle, including
-a two-edge parallel cycle. Traversal never repeats a vertex.
-If the other endpoint also lacked label 2, the path would start and end
-with label 1 and have odd length. Every edge reverses sign. The endpoint
-would therefore be an $\iota_2$-fixed object of opposite sign, contrary to
-Lemma~\ref{fixed}. The other endpoint must lack label 1 and yields a forest.
-An isolated starting object already has that property.
+Consider the graph on $\cP$ in which every marked pair $o$ that is not fixed by $\iota_i$ is joined to $\iota_i(o)$ by an edge with label $i$, for $i=1,2$; two marked pairs may be joined by two edges.
+Every vertex lies on at most one edge of each label, and $o_0$ lies on no edge with label $2$.
+So the component of $o_0$ is a path that begins in $o_0$, its edges have the labels $1,2,1,\dots$ in this order, and $o_0,\dots,o_k$ are its vertices.
+If $k$ is odd, the last edge has label $1$ and $o_k$ is fixed by $\iota_2$; but $\sigma(o_k)=(-1)^k\sigma(o_0)=-\sigma(o_0)$ by Lemmas~\ref{one} and~\ref{two}, and this contradicts Lemma~\ref{fixed}.
+Hence $k$ is even, $o_k$ is fixed by $\iota_1$, and its second state is good by Lemma~\ref{one}.
 \end{proof}
 
-This is the finite path argument of the Garsia--Milne involution principle,
-proved here rather than invoked as a black box. It requires a minimum cover
-at initialization. The marked construction in \emph{A constructive proof} \cite{trees},
-Section 5.1, starts at an arbitrary pair, uses ordered weight tokens and
-may restart with fewer cycles. We make no efficiency claim for our
-minimum search. A bound on the subsequent path is $|\Omega|-1$ moves.
+This is the argument of the involution principle of Garsia and Milne~\cite{GM}.
+The procedure takes at most $|\cP|-1$ steps, and it needs a $2$-factor with the least number of cycles to begin with.
+A different exchange procedure, which starts from an arbitrary pair, is described in~\cite{Constructive}.
 
-\section{What Li's note leaves unwritten}
-Li's Definitions 13--23 and Lemmas 34--35 give exactly the one-token
-version. Claim 25 is the disk count and Lemma 17 is our first sign change.
-Definition 14 states the set convention. Appendix B states the rule for an unmarked cycle,
-the case of exactly $c_{\min}$ cycles with one mark each, the priority
-rule (using the total order on cycles fixed in Li's Section 4.3), the
-reversal along a single cycle in the exterior case, the fixed set and
-its sign. It does not prove that all-marked objects have one mark per
-cycle, that the map is an involution, or that it reverses sign; it says
-only ``switch to the other edge'' in the interior nonfirst case, where
-the cycle must also be reversed when the partner belongs to the other
-matching; and it does not show that the fixed set is nonempty, which
-needs an independent orientation choice on each minimum cycle.
-An audit of Li's note made for this project first identified these
-steps and sketched them.
-Lemmas~\ref{two} and \ref{fixed} write them out for every $m$.
+\section{An example}
 
-These cases occur early. At $m=2$ a set of two tokens can lie entirely
-on one cycle, so Li's unmarked-cycle rule is used. At $m=3$ a reversal on
-a singly marked cycle must leave the other two token directions intact,
-as Li's $M_1\triangle C_i$ does; the global interchange $(M_2,M_1)$ of
-Li's one-cycle case would not. Concrete pairs
-and their images are recorded in \texttt{witnesses.json}, one of the
-verification data files listed in the README beside this note. They use the
-9-vertex class 0 root 0 and the 12-vertex class 0 root 0, respectively,
-in the canonical census encoding. Their marked sets have 40 and 1200
-objects and their second fixed sets have 4 and 28 objects.
-The first separator-free example in this census with $m=3$ is the
-14-vertex class 27, root 0. It has 826 marked objects and eight second-fixed
-objects. Its full face list and a nonfixed move are recorded in
-\texttt{nonseparating-witness.json}. Thus the multi-mark checks cannot be
-bypassed by restricting to triangulations without separating triangles.
-The interior nonfirst-crossing branch occurs already at $m=2$ on
-11-vertex class 1, root 0. Its exact object and image appear in
-\texttt{polynomial-comparison.json}.
+Let $T$ be the triangulation of \cite[Figure~3]{P}, with $n=10$.
+It has twelve states and eight pairs, and $H$ has two $2$-factors, each with two cycles; so $m=2$, and $\Phi=6\cdot1+3\cdot1=9$.
+By~\eqref{count} the signed number of marked pairs is $9$, which is the value of $Z(z)/(1-z)^2=z^{\omega_0}\bigl((1+z+\dots+z^5)+z^2(1+z+z^2)\bigr)$ at $z=1$.
+Figures~\ref{fig:marked} and~\ref{fig:second} show this triangulation in another drawing, with straight edges and with parallel segments as the arcs $\gamma_y$.
+For these arcs there are $279$ marked pairs, in $273$ of which the second state is good.
+Nine of them are fixed by $\iota_2$; they have sign $+1$, and in all nine the second state is good, so that the procedure of Lemma~\ref{walk} stops at once.
+Figure~\ref{fig:first} shows the first involution in a triangulation with $m=1$.
 
-Li also invokes the bipartite 2-factor criterion without explicitly
-counting the two sides. For a cubic bipartite plane graph on $N$ vertices,
-Euler gives $N/2+2$ faces. Removing the root black vertex and its three
-incident faces leaves $N/2-1$ vertices on each incidence side. This supplies
-the required balance condition. Our theorem assumes a pair and does not
-use that criterion.
+\begin{figure}[tbp]
+\centering
+\input{figures/marked.tex}
+\caption{A marked pair $(r,s,\mu)$ in the triangulation of \cite[Figure~3]{P}. Left: the triangulation, with the roots drawn as circles and the edges of $D(r,s)$ as arrows; they form a cycle of length $7$ and a cycle of length $3$. Right: the same picture enlarged. The thin segment in each black face is the arc of $H$ to the corner chosen by $s$. The dashed lines are the arcs $\gamma_y$ and $\gamma_{y'}$. The two black dots are the crossings in $\mu$; they lie on the arcs of $s$ in the faces $t$ and $t'$, which are drawn thick. Both are carried by the cycle of the $2$-factor that corresponds to the cycle of length $7$. The other cycle carries no crossing of $\mu$, so $\iota_2$ reverses the cycle of length $3$ and keeps $\mu$.}
+\label{fig:marked}
+\end{figure}
 
-\section{Relations and computational checks}\label{compare}
-Every statement of the preceding proof is proved in full here; the file
-\texttt{STATUS.md} beside this note gives the source of each. The disk
-identity and the first cancellation are OpenAI's Lemmas 4.1 and 5.2. The two
-geometric maps are in Li's note; their complete multi-mark verifications are
-written here. The finite-path construction is also used in the constructive paper,
-but its ordered token model differs from ours.
+\begin{figure}[tbp]
+\centering
+\input{figures/second.tex}
+\caption{The second involution moves a mark. Left: the pair $(r,s)$ of Figure~\ref{fig:marked} with the crossings of $\gamma_y$ in $t$ and of $\gamma_{y''}$ in $t''$ as marks (black dots). Each of the two cycles of the $2$-factor carries one of them. The face $y$ lies outside the cycle of length $7$, and $\gamma_y$ meets the corresponding cycle of the $2$-factor twice, on the arcs of $s$ in $t$ and in $t'$; these two crossings are partners. Right: the image under $\iota_2$, when this cycle is the first. The mark has moved along $\gamma_y$ to the partner; the hollow dot is the crossing without the mark. Both arcs belong to $s$, so no cycle is reversed, and the sign changes because the two crossings have different values of $\chi$.}
+\label{fig:second}
+\end{figure}
 
-Heights at white faces are signed crossing counts of the same spokes.
-Pairing successive crossings on a directed cycle leaves one first exit
-for each interior white face and none for exterior faces. This explains
-why the fixed-set formula is a product of enclosed-white-face counts.
-The height proof in the main paper (Section 4) measures heights
-along fixed paths of faces and expands $\omega(s)^m$ algebraically. Here
-the paths are rays, and the expansion is replaced by marking $m$ actual
-crossings. The second involution is a bijective form of its
-finite-difference lemma: case 1 kills the monomials that miss a cycle,
-and case 2 reduces each remaining factor to one first exit per enclosed
-white face.
-
-For comparison only, put $H(s)$ equal to the sum, over all white rays,
-of the signed crossings with the selected spokes, left-to-right positive.
-This $H$ has the opposite sign to the weight $\omega$ of the main paper.
-Let $\varepsilon(p)=(-1)^{(n+J(p))/2}$.
-The signed moment of order $j<m$ is zero: expand into ordered lists of
-$j$ crossings and reverse an unmarked cycle. At order $m$, lists with a
-repeated crossing also leave a cycle unmarked and cancel. Every remaining
-set has exactly $m!$ orderings. Since
-$\varepsilon(p)=(-1)^{\lceil n/2\rceil}(-1)^{\lfloor J(p)/2\rfloor}$,
-\[
- \frac1{m!}\sum_p\varepsilon(p)H(s)^m
- =(-1)^{\lceil n/2\rceil}\sum_{o\in\Omega}\sigma(o)
- =(-1)^{(n+m)/2}F.
-\]
-The last signs agree since $\lceil n/2\rceil+\lfloor m/2\rfloor=(n+m)/2$
-when $n\equiv m\pmod2$. The height $H$ falls by $a(C)$ when a cycle $C$
-turns from clockwise to counterclockwise, while the height $\omega$ of
-the main paper rises by the same amount. This accounts for the
-factor $(-1)^m$ between this formula and its Proposition~4.8. This is the lowest
-coefficient of the height polynomial with unit charge at every
-white face, or of its exponential version after the standard phase
-normalization. It is not an assertion that arbitrary choices of weights
-have the same numerical coefficient.
-
-We also checked the construction by computer. A first program checks
-all roots of all 55 unrooted classes with at most 14 triangulation vertices. The class list was compared
-as canonical maps, not only by cardinality, with \texttt{plantri -ba}.
-There are 1206 rooted instances, 880 with a pair. On all 221050 marked
-objects it checks both involution identities, membership, sign reversal,
-the forest fixed-set criterion, the second fixed-set count, and the
-moment identity above. There are 4658 second fixed points. In our
-drawings, alternating paths from all of them have length zero or two.
-Path lengths depend on the drawing: a census with a
-different generic direction finds a path of four moves, and the running
-example with unsheared vertical rays has paths of six moves.
-A second program checks all these roots with two breadth-first
-face-path trees, breaking ties by increasing and decreasing face ID.
-Their marked sets have 17832 and 18362 objects, respectively; both have
-4658 second-fixed objects and maximum path length four. It checks every
-object, all fixed starts, the turn-sign rules, the coefficient formula above,
-and agreement of $F$ and the signed sum across both trees and the rays.
-A third program, written from the text of this note alone, reproduces
-every count in this paragraph in the same encoding. It repeats all checks
-of the face-path version with a depth-first tree, a random spanning tree,
-and independent random simple paths that form no tree. The code, commands
-and raw outputs of all three programs are listed in the README beside this
-note.
-These are bounds in triangulation vertices; the corresponding cubic
-graphs have at most 24 vertices.
-A further comparison computes, on all 880 paired roots, the coefficients
-of the integer-weight polynomial of a separate implementation at $z=1$.
-Lower coefficients vanish and the absolute lowest coefficient agrees in
-every case. That implementation serves only as an external comparator; it
-does not implement our maps.
-
-The hard-family check includes circumference 4 and 6 tubes of lengths
-0 through 2, stacks of 2 and 3 pieces, and the subdivided octahedron.
-It measures every second-fixed starting object for each indicated root,
-up to 20 triangulation vertices. The longest ray path in those particular drawings is two moves.
-On the subdivided octahedron all 14 ray starts take two moves, whereas
-the existing constructive walk, run from every pair, has maximum three
-moves and eight total restarts. The starting conventions differ, so this
-does not establish a speed advantage. Exact parameters and histograms
-are in \texttt{families.json}.
-
-\section{A completely listed example}\label{example}
-The example is the main paper's running example, stored as
-\texttt{paper/figures/running.json}, with outer face 4 and roots $0,4,5$;
-a copy is kept beside this note.
-The exact rational layout is specified by \texttt{running-geometry.json}:
-solve the uniform Dirichlet equations at nonroots with root positions
-$(0,0),(100,0),(0,100)$ for roots $0,5,4$, respectively, in stored face order, then take the first positive
-integer shear making all crossings generic. Centres are barycentres.
-The listing uses that geometry, not the manuscript's optimized disk layout.
-In it the stored triples of \texttt{running.json} run clockwise. The main
-paper draws them counterclockwise, so our pictures of this example are
-mirror images of the main paper's, and each turn sign $\kappa$ in
-Figure~\ref{fig:paths} is the negative of the sign that the main paper's
-height figure shows at the same turn. The signed sum is the same in
-both orientations.
-A separate implementation of Li's construction uses the same
-recipe with roots $4$ and $5$ interchanged. That drawing is the mirror
-image of ours, its rays cross other spokes, and it has $213$ objects,
-none of them among our $279$. Both lists are correct. The number of
-objects, the first fixed set and the path lengths depend on the drawing.
-The signed sum $-9$ and the second-fixed count of nine do not, by
-Lemma~\ref{fixed}: over 69 generic drawings the object count ranges
-from $103$ to $363$, taking 35 values; path lengths range from zero to six moves.
-
-This example has 12 states, 8 pairs, $m=2$, and 279 objects. Exactly nine
-objects are second-fixed, all negative. Their signed sum is $-9$ and the
-normalized lowest coefficient is $9$. All nine are already first-fixed.
-The tables below identify every state, pair, token set, and both images.
-A token $w:t$ means the white face with ID $w$ and the selected spoke in
-black face $t$. Object and pair IDs start at zero. The two mark entries
-form a set, not an ordered list. Figures~\ref{fig:marked}
-and~\ref{fig:second} show two of these objects and one move of the second
-map. Figure~\ref{fig:first} shows the first map on a smaller
-triangulation.
-
-\input{figures/panels.tex}
-\clearpage
-\input{example-table.tex}
+\begin{figure}[tbp]
+\centering
+\input{figures/first.tex}
+\caption{The first involution, in an Eulerian triangulation with $12$ vertices in which $m=1$. The two marked pairs have the same second state $s$ and the same mark, a crossing of $\gamma_y$ on the arc of $s$ in the face $t$; this arc is drawn thick, and $\gamma_y$ is not drawn. The first state differs on the faces with a side on a cycle of $Q_s$, so the arrows of $D(r,s)$ differ between the two panels.}
+\label{fig:first}
+\end{figure}
 
 \begin{thebibliography}{9}
-\bibitem{OAI} OpenAI, \emph{Paired states and Hamiltonian cycles in cubic
-bipartite planar graphs}, OpenAI Math Release preprint, family 180, 24 September 2026,
-\url{https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf}, Lemmas 4.1, 5.2 and Proposition 5.1.
-\bibitem{Li} Zhentao Li, \emph{A note on the proof of Barnette's conjecture},
-arXiv:2610.30490v1, 21 October 2026, Definitions 13--23, Claims 25--26,
-Lemmas 34--35 and Appendix B.
-\bibitem{trees} \emph{A constructive proof of Barnette's conjecture}, unsigned manuscript, 18 October 2026, Section 5.1, Theorem 5.3.
+
+\bibitem{Constructive}
+\emph{A constructive proof of Barnette's conjecture}, anonymous unpublished manuscript, 18 October 2026.
+
+\bibitem{GM}
+A.~M. Garsia and S.~C. Milne, \emph{A Rogers--Ramanujan bijection}, J. Combin. Theory Ser. A \textbf{31} (1981), 289--339.
+
+\bibitem{Li}
+Z.~Li, \emph{A note on the proof of Barnette's conjecture}, preprint, arXiv:2610.30490, 2026.
+
+\bibitem{P}
+\emph{The proof of Barnette's conjecture}, the paper that this note accompanies.
+
 \end{thebibliography}
+
 \end{document}
