@@ -1,0 +1,170 @@
+[
+  {
+    "family": "tube4",
+    "method": "optimized",
+    "observations": 3,
+    "censored": 1,
+    "exponent": 4.163891657967606
+  },
+  {
+    "family": "tube4",
+    "method": "reference",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.5740072320514072
+  },
+  {
+    "family": "tube4",
+    "method": "hybrid",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.6223160528362094
+  },
+  {
+    "family": "tube4",
+    "method": "path-dp",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.7095666465257584
+  },
+  {
+    "family": "tube4",
+    "method": "baseline",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 2.5390921859434443
+  },
+  {
+    "family": "tube4",
+    "method": "sat",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.10740357664658556
+  },
+  {
+    "family": "tube6",
+    "method": "hybrid",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.8930607658853483
+  },
+  {
+    "family": "tube6",
+    "method": "path-dp",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 1.4629342151204086
+  },
+  {
+    "family": "tube6",
+    "method": "sat",
+    "observations": 3,
+    "censored": 1,
+    "exponent": 0.0595436052660869
+  },
+  {
+    "family": "prism-sum",
+    "method": "optimized",
+    "observations": 3,
+    "censored": 1,
+    "exponent": 3.976835780365149
+  },
+  {
+    "family": "prism-sum",
+    "method": "reference",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.5990294227920465
+  },
+  {
+    "family": "prism-sum",
+    "method": "hybrid",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.6216148163078437
+  },
+  {
+    "family": "prism-sum",
+    "method": "path-dp",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.6833553455798552
+  },
+  {
+    "family": "prism-sum",
+    "method": "baseline",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 2.3067084964400753
+  },
+  {
+    "family": "prism-sum",
+    "method": "sat",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.07363432873382
+  },
+  {
+    "family": "trap-chain",
+    "method": "optimized",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.7961477668667993
+  },
+  {
+    "family": "trap-chain",
+    "method": "reference",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.6933828651447002
+  },
+  {
+    "family": "trap-chain",
+    "method": "hybrid",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.6976615316154039
+  },
+  {
+    "family": "trap-chain",
+    "method": "path-dp",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 1.580631815051582
+  },
+  {
+    "family": "trap-chain",
+    "method": "sat",
+    "observations": 4,
+    "censored": 0,
+    "exponent": 0.02424850658672011
+  },
+  {
+    "family": "split",
+    "method": "optimized",
+    "observations": 9,
+    "censored": 3,
+    "exponent": 2.033246381162149
+  },
+  {
+    "family": "split",
+    "method": "reference",
+    "observations": 11,
+    "censored": 1,
+    "exponent": 1.5899873919744014
+  },
+  {
+    "family": "split",
+    "method": "hybrid",
+    "observations": 12,
+    "censored": 0,
+    "exponent": 0.848993972170791
+  },
+  {
+    "family": "split",
+    "method": "sat",
+    "observations": 12,
+    "censored": 0,
+    "exponent": 0.4216119763490034
+  }
+]

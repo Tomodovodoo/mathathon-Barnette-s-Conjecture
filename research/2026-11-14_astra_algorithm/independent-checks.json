@@ -1,0 +1,42 @@
+{
+  "census": 1048,
+  "families": 246,
+  "hybrid": 49,
+  "hunt": 60,
+  "prefix-counterexample.json": {
+    "states": 3,
+    "good": 2,
+    "extensions": [
+      [
+        2,
+        7,
+        6,
+        5,
+        3
+      ]
+    ],
+    "individually_compatible_extensions": []
+  },
+  "filtered-prefix-counterexample.json": {
+    "states": 3,
+    "good": 2,
+    "extensions": [
+      [
+        2,
+        5,
+        1,
+        7,
+        6
+      ]
+    ],
+    "individually_compatible_extensions": [
+      [
+        2,
+        5,
+        1,
+        7,
+        6
+      ]
+    ]
+  }
+}
