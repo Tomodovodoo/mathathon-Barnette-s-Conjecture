@@ -1,0 +1,566 @@
+                                                  On Barnette’s Conjecture and H +− property
+                                                                                 Jan Florek
+arXiv:1208.4332v1 [math.CO] 21 Aug 2012
+
+
+
+
+                                                                           Institute of Mathematics,
+                                                                            University of Economics
+                                                                           ul. Komandorska 118/120
+                                                                            53–345 Wroclaw, Poland
+
+
+
+
+                                          Abstract
+                                          A conjecture of Barnette states that every 3-connected cubic bipartite plane
+                                          graph has a Hamilton cycle, which is equivalent to the statement that every
+                                          simple even plane triangulation admits a partition of its vertex set into two
+                                          subsets so that each induces a tree.
+                                              Let G be a simple even plane triangulation and suppose that V1 , V2 , V3 is
+                                          a 3-coloring of the vertex set of G. Let Bi , i = 1, 2, 3, be the set of all vertices
+                                          in Vi of the degree at least 6. We prove that if induced graphs G[B1 ∪ B2 ]
+                                          and G[B1 ∪ B3 ] are acyclic, then the following properties are satisfied:
+                                          (1) For every path abc there is possible to partition the vertex set of G into
+                                          two subsets so that each induces a tree, and one of them contains the edge
+                                          ab and avoids the vertex c,
+                                          (2) For every path abc with vertices a, c of the same color there is possible
+                                          to partition the vertex set of G into two subsets so that each induces a tree,
+                                          and one of them contains the path abc.
+
+
+                                          1. Introduction
+                                              All graphs considered in this paper are simple plane graphs. We use [1]
+                                          for general reference.
+                                              Let P be the family of all 3-connected cubic bipartite plane graphs. Bar-
+                                          nette ([11], Problem 5) conjectured that every graph in P is Hamiltonian.
+
+                                               Email address: jan.florek@ue.wroc.pl (Jan Florek)
+                                             0
+                                               2010 Mathematics Subject Classiﬁcation: 05C45, 05C10.
+                                             0
+                                               Key words and phrases: Barnette’s conjecture, Hamilton cycle, induced tree.
+
+                                          Preprint submitted to Elsevier                                            June 19, 2018
+In [4], Goodey proved that if a graph in P has only faces with 4 or 6 sides,
+then it is Hamiltonian. Feder and Subi [2] generalized Goodey‘s result by
+showing that when the faces of a graph in P are 3-colored, if two of the three
+color classes contain only faces with either 4 or 6 sides the conjecture holds.
+Holton, Manvel and McKay [6] used computer search to confirm Barnette’s
+conjecture for graphs up to 64 vertices, and also to confirm the following
+properties H +− and H −− for graphs up to 40 vertices:
+H +− If any two edges are chosen on the same face, there is a Hamilton
+cycle through one and avoiding the other,
+H −− If any two edges are chosen which are an even distance apart on the
+same face, there is a Hamilton cycle which avoids both.
+Kelmans [7] proved that Barnette’s conjecture holds if and only if every graph
+in P has the property H +− .
+    Let E be the dual family of P. Thus E is the family of of all simple even
+plane triangulations. It is known that Barnette’s conjecture is equivalent
+to the following statement : every graph in E has a partition of its vertex
+set into two subsets so that each induces a tree (see Stein [10]). The dual
+approach to Barnette’s conjecture was used by the author [3] and Lu [8], [9].
+Let G ∈ E, and suppose that V1 , V2 , V3 is a 3-coloring of V (G). Notice that
+properties H +− and H −− are equivalent to the following dual versions:
+(1) For every path abc there is possible to partition the vertex set of G into
+two subsets so that each induces a tree, and one of them contains the edge
+ab and avoids the vertex c,
+(2) For every path abc with vertices a, c of the same color there is possible
+to partition the vertex set of G into two subsets so that each induces a tree,
+and one of them contains the path abc.
+Denote by Bi , i = 1, 2, 3, the set of all vertices in Vi of the degree at least 6
+in G. The purpose of this paper is to prove Theorem 2.1: if induced graphs
+G[B1 ∪B2 ] and G[B1 ∪B3 ] are acyclic, then the properties (1)–(2) are satisfied
+(which generalize results obtained by the author in [3]). Notice that if one
+of the above induced graphs is acyclic, then by Corollary 2.1 the dual graph
+G∗ is Hamiltonian.
+
+
+
+
+                                        2
+2. Main results
+    Let G be a simple even plane triangulation, and suppose that V1 , V2 , V3 is
+a 3-coloring of V (G); it is well know that such coloring exists (see Heawood
+[5]). We say that a vertex v is small (big) in G if degG (v) = 4 (degG (v) ≥ 6,
+respectively). Denote by Bi (or Si ) the set of all big (or small, respectively)
+vertices in Vi , i = 1, 2, 3.
+
+Lemma 2.1. Let X, Y be disjoint sets of vertices in the graph G such that:
+    (a) B1 ⊆ X, B2 ⊆ Y , and B3 ⊆ X ∪ Y ,
+    (b) for every induced path with big ends and small its all inner vertices,
+the set of inner vertices is contained in or is disjoint with X ∪ Y .
+    If the induced graphs G[X] and G[Y ] are acyclic, then it is possible to
+partition the vertex set of G into two subsets S, T so that each induces a
+tree, X ⊆ S, and Y ⊆ T .
+
+Proof If G has at most two big vertices, then theorem yields. Therefore we
+assume that G has at least three big vertices. Let v be a small vertex which
+not belongs to X ∪ Y . There are two possibilities:
+    (i) v belongs to a maximum induced path P , with big ends in G (say a,
+b), and small its all inner vertices. Moreover, there exist two big vertices (say
+c, d) which are adjacent to all vertices of the path P .
+    (ii) v belongs to a subgraph H ∼  = K4 (octahedron).
+    Case (i). Notice that vertices c and d belong to the same color class.
+Hence, by (a), if c ∈ X and d ∈ Y , then c, d ∈ V3 . Thus the vertices of P
+belong to V1 ∪ V2 . By (b), X ′ = X ∪ (V (P ) ∩ S1 ) and Y ′ = Y ∪ (V (P ) ∩ S2 )
+are disjoint. Notice that for X ′ and Y ′ the conditions (a)–(b) are satisfied,
+and the induced graphs G[X ′ ] and G[Y ′ ] are disjoint and acyclic.
+    If c, d ∈ X and doesn’t exist a cd-path consisting of vertices in X, we
+choose a small vertex e belonging to the path P . Then for X ′ = X ∪ {e}
+and Y ′ = Y ∪ V (P − e) the conditions (a)–(b) are satisfied, and the induced
+graphs G[X ′ ] and G[Y ′ ] are disjoint and acyclic.
+    If c, d ∈ X and there is a cd-path consisting of vertices in X, then for
+X ′ = X and Y ′ = Y ∪ (V (P )\X) the conditions (a)–(b) are satisfied, and
+the induced graphs G[X ′ ] and G[Y ′ ] are disjoint and acyclic.
+    Case (ii). The subgraph H is bounded by a 3-cycle (say C) consisting
+of big vertices in G, and has three small vertices in G (say x, y and z).
+Assume that C has two vertices in Y which both are adjacent to x. Then
+
+
+                                       3
+for X ′ = X ∪ {x, z} and Y ′ = Y ∪ {y} the conditions (a)–(b) are satisfied,
+and the induced graphs G[X ′ ] and G[Y ′ ] are disjoint and acyclic.
+    Continuing the process for the sets X ′ , Y ′ as for the sets X, Y we obtain
+a partitioning of V (G) into two subsets S, T each of which induces a tree,
+X ⊆ X ′ ⊆ S, and Y ⊆ Y ′ ⊆ T .                                                 
+
+
+
+
+Corollary 2.1. Let X, Y be disjoint sets of big vertices in G such that
+B1 ⊆ X, B2 ⊆ Y , and B3 ⊆ X ∪ Y . If the induced graphs G[X] and G[Y ]
+are acyclic, then it is possible to partition the vertex set of G into two subsets
+S, T so that each induces a tree.
+If G is 4-connected and has at least three big vertices, then for every small
+vertex s, which is adjacent to a small vertex in G, there exists just one
+maximum induced path Ps containing s, with big ends and small its all inner
+vertices. If a small vertex s is adjacent with four big vertices in G, then there
+are two such paths of the length 2 containing the vertex s. In such case we
+indicate which one of these two paths has been chosen as Ps .
+
+Lemma 2.2. Let G be 4-connected with at least three big vertices, and sup-
+pose that the induced graphs G[B1 ∪ B2 ] and G[B1 ∪ B3 ] are acyclic. For
+every path abc with vertices a, c of the same color there are disjoint sets
+X, Y ⊂ V (G) such that :
+    (a) the induced graphs G[X] and G[Y ] are acyclic, and one of them con-
+tains the edge ab and avoids the vertex c,
+    (b) there is a permutation (i, j, k) of {1, 2, 3} and a vertex v ∈ Bj such
+that Bi ∪ Bj \{v} ⊆ X and Bk ∪ {v} ⊆ Y , or Bi ∪ Bj ⊆ X and Bk ⊆ Y ,
+    (c) for every induced path with big ends in G and small its all inner
+vertices, the set of inner vertices is contained in or is disjoint with X ∪ Y .
+
+Proof Assume that the induced graphs G[B1 ∪ B2 ] and G[B1 ∪ B3 ] are
+acyclic. Fix a path abc. Suppose first that the vertices of the path abc are
+big. By symmetry of the assumption, it is sufficient to consider the following
+cases:
+(α) a ∈ B1 , b ∈ B2 and c ∈ B1 ,
+(β) a ∈ B2 , b ∈ B1 and c ∈ B2 ,
+(γ) a ∈ B2 , b ∈ B3 and c ∈ B2 .
+We set
+    X = (B1 ∪ B2 )\{c} and Y = B3 ∪ {c}, for the case (α) and (β),
+
+                                        4
+    X = B1 ∪ B2 \{a} and Y = B3 ∪ {a}, for the case (γ).
+Since G[B1 ∪ B2 ] is acyclic and B3 is independent, G[X] and G[Y ] are acyclic
+too. Notice that G[X] (G[Y ]) contains the edge ab and avoids the vertex c for
+the case (α) and (β) (for the case (γ), respectively). Hence, the conditions
+(a)–(c) are satisfied.
+    Let now the path abc has a small vertex in G. By symmetry of the
+assumption, it is sufficient to consider the following cases :
+                           / V (Pa ) and c ∈ S1 ,
+(α, 1) a ∈ S1 , b ∈ B2 , b ∈
+(α, 2) a ∈ S1 , b ∈ B2 , b ∈ V (Pa ) and c ∈ S1 ,
+(α, 3) a ∈ V1 , b ∈ S2 and c ∈ V1 ,
+(α, 4) a ∈ B1 , b ∈ B2 and c ∈ S1 ,
+(α, 5) a ∈ S1 , b ∈ B2 and c ∈ B1 ,
+(β, 1) a ∈ S2 , b ∈ B1 and c ∈ B2 ,
+(β, 2) a ∈ B2 , or b ∈ S1 , or c ∈ S2 ,
+(γ, 1) a ∈ S2 , b ∈ B3 and c ∈ S2 ,
+(γ, 2) a ∈ V2 , b ∈ S3 and c ∈ V2 ,
+(γ, 3) a ∈ B2 , b ∈ B3 and c ∈ S2 ,
+(γ, 4) a ∈ S3 , b ∈ B2 and c ∈ B3 .
+    Case (α, 1). There is a vertex d ∈ B2 \{b} which is adjacent to every
+vertex of the path Pa . Since B1 ∪ B2 is acyclic there exists at most one
+bd-path consisting of vertices in B1 ∪ B2 . If such path exists, let be, e ∈ B1 ,
+be an edge of this path (if such path not exist we replace {e} by the empty
+           / V (Pc ) and Pa 6= Pc , then we set
+set). If b ∈
+X = B1 \{e}∪B2 ∪{a},      Y = B3 ∪V (Pa −a)∪(V (Pc )\B1 )∪{e} and v := e.
+Since G is 4-connected, e is not adjacent to both ends of Pc . Hence, G[X]
+and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is independent.
+Notice that X, Y are disjoint, ab ⊂ G[X], (B1 \{e}) ∪ B2 ⊂ X, B3 ∪{e} ⊂ Y ,
+and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pa ) ∪ V (Pc ). Hence, conditions (a)–(c) yield.
+   If b ∈ V (Pc ), then we set
+X = B1 \{e}∪B2 ∪{a}∪V (Pc −c),       Y = B3 ∪V (Pa −a)∪{c, e} and v := e.
+Since G is 4-connected, e is not adjacent to both vertices in B3 which are ad-
+jacent to every vertex of Pc . Hence, G[X] and G[Y ] are acyclic and conditions
+(a)–(c) yield.
+    If Pa = Pc , then we set
+    X = B1 \{e} ∪ B2 ∪ {a},     Y = B3 ∪ V (Pa − a) ∪ {e} and v := e.
+
+                                       5
+    Case (α, 2). If a is adjacent with four big vertices in G, then the case
+(α, 2) follows from the case (α, 1). Thus we assume that the path Pa has the
+                                                                        / V (Pc ),
+length at least 3. Hence, there exists a vertex d ∈ V (Pa ) ∩ S2 . If b ∈
+then we set
+
+        X = B1 ∪ B2 ∪ V (Pa − d) and Y = B3 ∪ {d} ∪ V (Pc )\B1 .
+
+If b ∈ V (Pc ), then we set
+
+       X = B1 ∪ B2 ∪ V (Pa − d) ∪ V (Pc − c) and Y = B3 ∪ {c, d}.
+
+                        / V (Pb ), then we set
+   Case (α, 3). If a, c ∈
+
+X = B1 \{c}∪B2 ∪(V (Pb )∩S2 ),       Y = B3 ∪{c}∪(V (Pb )∩S3 ) and v := c.
+
+Let a, c ∈ V (Pb ). If c is small (big) in G, then we set
+
+X = B2 ∪ (B1 ∪ V (Pb ))\{c},      Y = B3 ∪ {c},      (and v := c, respectively).
+
+                     / V (Pc ), then we set
+   Case (α, 4). If b ∈
+
+                  X = B1 ∪ B2      and Y = B3 ∪ V (Pc )\B1 .
+
+If b ∈ V (Pc ), then we set
+
+               X = B1 ∪ B2 ∪ V (Pc − c) and Y = B3 ∪ {c}.
+
+                               / V (Pa ). Then we set
+   Case (α, 5). Suppose that b ∈
+
+               X = B1 ∪ B3 ∪ V (Pa − a) and Y = B2 ∪ {a}.
+
+Suppose that b ∈ V (Pa ). Then we set
+
+                  X = B1 ∪ B3      and Y = B2 ∪ V (Pa )\B1 .
+
+   Case (β,1). Suppose that b ∈  / V (Pa ). Since G[B1 ∪ B2 ] and G[B1 ∪ B3 ]
+are acyclic, exactly one end of the path Pa (say d) belongs to B3 . We set
+
+       X = B1 ∪ B3 \{d} ∪ {a},       Y = B2 ∪ V (Pa − a) and v := d.
+
+There is a vertex e ∈ B1 \{b} which is adjacent to every vertex of Pa . Since
+G[B1 ∪ B3 ] is acyclic, bde is the only be-path consisting of vertices in B1 ∪ B3 .
+
+                                        6
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B3 ] is acyclic and B2 is
+independent. Notice that X, Y are disjoint, ab ⊂ G[X], B1 ∪ B3 \{d} ⊂ X,
+B2 ∪ {d} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pa ). Therefore the conditions
+(a)–(c) yield.
+   Suppose that b ∈ V (Pa ). Since G[B1 ∪ B3 ] is acyclic, there is a vertex
+d ∈ V (Pa ) ∩ S1 . Since G[B1 ∪ B2 ] is acyclic there exists at most one path
+connecting the ends of the path Pa and consisting of vertices in B1 ∪ B2 . If
+such path exists, we set
+
+      X = B1 ∪ B2 \{c} ∪ V (Pa − d),        Y = B3 ∪ {c, d} and v := c.
+
+If such path not exists, we set
+
+         X = B1 ∪ B2 \{c} ∪ V (Pa ),        Y = B3 ∪ {c} and v := c.
+
+    Case (β,2). For the cases (α, 1)–(α, 4), Lemma 2.2 follows from the as-
+sumption that the induced graph G[B1 ∪ B2 ] is acyclic. Hence, for the case
+(β, 2), Lemma 2.2 yields.
+    Case (γ,1). Suppose that b ∈ V (Pa ) ∩ V (Pc ). There is a vertex d ∈ B1
+which is adjacent to every vertex of Pc . Then we set
+
+                      X = B1 \{d} ∪ B2 ∪ (V (Pc ) ∩ S2 ),
+
+         Y = B3 ∪ {d} ∪ (V (Pa )\B2 ) ∪ (V (Pc ) ∩ S3 ) and v := d.
+Since G[B1 ∪ B3 ] is acyclic, the path Pa has one end belonging to B2 . Hence,
+G[X] and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is inde-
+pendent. Notice that X, Y are disjoint, ab ⊂ G[Y ], B1 \{d} ∪ B2 ⊂ X,
+B3 ∪ {d} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pa ) ∪ V (Pc ). Hence, conditions
+(a)–(c) yield.
+   Let b ∈/ V (Pa ) and b ∈ V (Pc ). Since G[B1 ∪ B3 ] is acyclic, the path Pc
+has one end (say d) belonging to B2 . Then we set
+
+X = B1 ∪B2 \{d}∪V (Pa −a)∪{c},         Y = B3 ∪{a}∪V (Pc −c) and v := d.
+
+There are vertices e, f ∈ B1 which are adjacent to every vertex of Pc . Since
+G[B1 ∪B2 ] is acyclic, edf is the only ef -path consisting of vertices in B1 ∪B2 .
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is
+independent. Notice that X, Y are disjoint, ab ⊂ G[Y ], B1 ∪ B2 \{d} ⊂ X,
+B3 ∪ {d} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pa ) ∪ V (Pb ). Therefore the
+conditions (a)–(c) yield.
+
+                                        7
+   Let b ∈ V (Pa ) and b ∈  / V (Pc ). Since G[B1 ∪ B3 ] is acyclic, there is a
+vertex d ∈ V (Pc ) ∩ S1 . Then we set
+
+       X = B1 ∪ B2 ∪ V (Pc − d) and Y = B3 ∪ {d} ∪ (V (Pa )\B2 ).
+
+      / V (Pa ) ∪ V (Pc ) and Pa 6= Pc . Since G[B1 ∪ B3 ] is acyclic, there is a
+Let b ∈
+vertex d ∈ V (Pc ) ∩ S1 . Then we set
+
+      X = B1 ∪ B2 ∪ V (Pa − a) ∪ V (Pc − d) and Y = B3 ∪ {a, d}.
+
+     / V (Pa ) and Pa = Pc , then we set
+If b ∈
+
+              X = B1 ∪ B2 ∪ V (Pa − a) and Y = B3 ∪ {a}.
+
+                       / V (Pb ), then we set
+   Case (γ,2). If a, c ∈
+
+X = B1 ∪B2 \{a}∪(V (Pb )∩S1 ),      Y = B3 ∪{a}∪(V (Pb )∩S3 ) and v := a.
+
+Let a, c ∈ V (Pb ). Since G[B1 ∪ B2 ] and G[B1 ∪ B3 ], exactly one end of the
+path Pb (say d) belongs to B2 . If d 6= c, then we set
+
+       X = B1 ∪ B2 \{d} ∪ {c},      Y = B3 ∪ V (Pb − c) and v := d.
+
+There are vertices e, f ∈ B1 which are adjacent to every vertex of Pb . Since
+G[B1 ∪B2 ] is acyclic, edf is the only ef -path consisting of vertices in B1 ∪B2 .
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is
+independent. Notice that X, Y are disjoint, ab ⊂ G[Y ], B1 ∪ B2 \{d} ⊂ X,
+B3 ∪ {d} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pb ). Hence, conditions (a)–(c)
+yield. If d = c, then we set X = B1 ∪ B2 and Y = B3 ∪ V (Pb − c).
+    Case (γ,3). Suppose that b ∈ V (Pc ). Then we set
+
+       X = B1 ∪ B3 \{b} ∪ {c},      Y = B2 ∪ V (Pc − c) and v := b.
+
+There are vertices e, f ∈ B1 which are adjacent to every vertex of Pc . Since
+G[B1 ∪B3 ] is acyclic, ebf is the only ef -path consisting of vertices in B1 ∪B3 .
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B3 ] is acyclic and B2 is
+independent. Notice that X, Y are disjoint, ab ⊂ G[Y ], B1 ∪ B3 \{b} ⊂ X,
+B2 ∪ {b} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pc ). Hence, conditions (a)–(c)
+yield.
+    Suppose that b ∈ / V (Pc ). Since G[B1 ∪ B3 ] is acyclic, there is a vertex
+d ∈ V (Pc ) ∩ S1 . Since G[B1 ∪ B2 ] is acyclic there exists at most one path
+
+                                        8
+connecting ends of the path Pc and consisting of vertices in B1 ∪ B2 . If such
+path exists, we set
+
+     X = B1 ∪ B2 \{a} ∪ V (Pc − d),       Y = B3 ∪ {a, d} and v := a.
+
+If such path not exists, we set X = B1 ∪ B2 \{a} ∪ V (Pc ) and Y = B3 ∪ {a}.
+    Case (γ,4). For the case (α, 5), Lemma 2.3 follows from the assumption
+that the induced graph G[B1 ∪ B3 ] is acyclic. Hence, for the case (γ, 4),
+Lemma 2.3 yields.                                                          
+
+
+
+
+Lemma 2.3. Let G be 4-connected with at least three big vertices, and sup-
+pose that the induced graphs G[B1 ∪ B2 ] and G[B1 ∪ B3 ] are acyclic. For
+every path abc with vertices a, c of the same color there are disjoint sets
+X, Y ⊂ V (G) such that :
+    (a) the induced graphs G[X] and G[Y ] are acyclic and one of them con-
+tains the path abc,
+    (b) there is a permutation (i, j, k) of {1, 2, 3} and a vertex v ∈ Bj such
+that Bi ∪ Bj \{v} ⊆ X and Bk ∪ {v} ⊆ Y , or Bi ∪ Bj ⊆ X and Bk ⊆ Y ,
+    (c) for every induced path with big ends in G and small its all inner
+vertices, the set of inner vertices is contained in or is disjoint with X ∪ Y .
+
+Proof Assume that the induced graphs G[B1 ∪ B2 ] and G[B1 ∪ B3 ] are
+acyclic. Fix a path abc. Suppose first that vertices of the path abc are big in
+G . By symmetry of the assumption, it is sufficient to consider the following
+cases:
+(α) a ∈ B1 , b ∈ B3 and c ∈ B1 ,
+(β) a ∈ B3 , b ∈ B1 and c ∈ B3 ,
+(γ) a ∈ B3 , b ∈ B2 and c ∈ B3 .
+We set
+    X = B1 ∪ B3 and Y = B2 , for the cases (α) and (β),
+    X = B1 ∪ B2 \{b} and Y = B3 ∪ {b}, for the case (γ).
+Since G[B1 ∪ B2 ] and G[B1 ∪ B3 ] are acyclic and Bi is independent, G[X]
+and G[Y ] are acyclic too. Notice that the path abc is contained in G[X]
+(G[Y ]) for the cases (α) and (β) (for the case (γ), respectively). Hence, the
+conditions (a)–(c) are satisfied.
+    Let now the path abc has a small vertex in G. By symmetry of the
+assumption, it is sufficient to consider the following cases :
+(α, 1) a ∈ S1 , b ∈ B3 and c ∈ S1 ,
+
+                                      9
+(α, 2) a ∈ V1 , b ∈ S3 and c ∈ V1 ,
+(α, 3) a ∈ S1 , b ∈ B3 and c ∈ B1 ,
+(β, 1) a ∈ S3 , b ∈ B1 and c ∈ S3 ,
+(β, 2) a ∈ V3 , b ∈ S1 and c ∈ V3 ,
+(β, 3) a ∈ S3 , b ∈ B1 and c ∈ B3 ,
+(γ) a ∈ V3 , b ∈ V2 and c ∈ V3 .
+                      / V (Pa ) ∪ V (Pc ) and Pa 6= Pc , then we set
+    Case (α, 1). If b ∈
+
+       X = B1 ∪ B2 ∪ V (Pa − a) ∪ V (Pc − c) and Y = B3 ∪ {a, c}.
+
+If b ∈ V (Pa ) ∩ V (Pc ), then we set
+
+             X = B1 ∪ B2      and Y = B3 ∪ (V (Pa ) ∪ V (Pc ))\B1 .
+
+     / V (Pa ) and b ∈ V (Pc ), then we set
+If b ∈
+
+        X = B1 ∪ B2 ∪ V (Pa − a) and Y = B3 ∪ {a} ∪ V (Pc )\B1 .
+
+Suppose that b ∈/ V (Pa ) and Pa = Pc . There exists a vertex d ∈ B3 \{b}
+which is adjacent to every vertex of the path Pa . Then we set
+
+X = B1 ∪B3 \{d}∪(V (Pa )∩S1 ),          Y = B2 ∪{d}∪(V (Pa )∩S2 ) and v := d.
+
+                         / V (Pb ). Since G[B1 ∪B2 ] and G[B1 ∪B3 ] are acyclic,
+   Case (α, 2). Let a, c ∈
+exactly one end of the path Pb (say d) belongs to B2 . Then we set
+
+       X = B1 ∪ B2 \{d} ∪ {b},          Y = B3 ∪ V (Pb − b) and v := d.
+
+Since G[B1 ∪ B2 ] is acyclic, adc is the only ac-path with vertices in B1 ∪ B2 .
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is
+independent. Notice that X, Y are disjoint, abc ⊂ G[X], B1 ∪ B2 \{d} ⊂ X,
+B3 ∪ {d} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pb ). Therefore the conditions
+(a)–(c) yield.
+    Suppose that a, c ∈ V (Pb ). Since G[B1 ∪ B2 ] is acyclic, at least one end
+of the path Pb (say d) belongs to B3 . Then we set
+
+        X = B1 ∪ (B3 ∪ V (Pb ))\{d},           Y = B2 ∪ {d} and v := d.
+
+                     / V (Pa ), then we set
+   Case (α, 3). If b ∈
+
+      X = B1 \{c} ∪ B2 ∪ V (Pa − a),           Y = B3 ∪ {a, c} and v := c.
+
+                                          10
+Suppose that b ∈ V (Pa ). Let d 6= b be the end of the path Pa . Notice that
+d ∈ B1 ∪ B3 . Then we set
+
+        X = (B1 ∪ B3 ∪ V (Pa ))\{d},           Y = B2 ∪ {d} and v := d.
+
+                     / V (Pa ) and b ∈ V (Pc ), then we set
+   Case (β, 1). If b ∈
+
+X = B1 \{b}∪B2 ∪(V (Pa )∩S2 ),       Y = B3 ∪(V (Pa )∩S3 )∪V (Pc ) and v := b.
+
+Since G[B1 ∪B2 ] is acyclic, Pc has one end belonging to B3 . Hence, G[X] and
+G[Y ] are acyclic, because G[B1 ∪B2 ] is acyclic and B3 is independent. Notice
+that X, Y are disjoint, abc ⊂ G[Y ], (B1 \{b}) ∪ B2 ⊂ X, B3 ∪ {b} ⊂ Y , and
+X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pa ) ∪ V (Pb ). Therefore the conditions (a)–(c)
+yield.
+         / V (Pa ) ∪ V (Pc ) and Pa 6= Pc , then we set
+    If b ∈
+
+               X = B1 \{b} ∪ B2 ∪ (V (Pa ) ∩ S2 ) ∪ (V (Pc ) ∩ S2 ),
+
+         Y = B3 ∪ {b} ∪ (V (Pa ) ∩ S3 ) ∪ (V (Pc ) ∩ S3 ) and v := b.
+If b ∈ V (Pa ) ∩ V (Pc ), then we set
+
+        X = B1 \{b} ∪ B2 ,       Y = B3 ∪ V (Pa ) ∪ V (Pc ) and v := b.
+
+     / V (Pa ) and Pa = Pc , then we set
+If b ∈
+
+X = B1 \{b}∪B2 ∪(V (Pa )∩S2 ),          Y = B3 ∪{b}∪(V (Pa )∩S3 ) and v := b.
+
+                        / V (Pb ), then we set
+   Case (β, 2). If a, c ∈
+
+               X = B1 ∪ B2 ∪ V (Pb − b) and Y = B3 ∪ {b}.
+
+If a, c ∈ V (Pb ), then we set
+
+                  X = B1 ∪ B2       and Y = B3 ∪ V (Pb )\B1 .
+
+   Case (β, 3). Let b ∈ V (Pa ). Since G[B1 ∪ B2 ] is acyclic, there is a vertex
+d ∈ V (Pa ) ∩ S1 . Then we set
+
+       X = B1 \{b} ∪ B2 ∪ {d},          Y = B3 ∪ V (Pa )\{d} and v := b.
+
+There are vertices e, f ∈ B2 which are adjacent to every vertex of Pa . Since
+G[B1 ∪B2 ] is acyclic, ebf is the only ef -path consisting of vertices in B1 ∪B2 .
+
+                                          11
+Hence, G[X] and G[Y ] are acyclic, because G[B1 ∪ B2 ] is acyclic and B3 is
+independent. Notice that X, Y are disjoint, abc ⊂ G[X], (B1 \{b}) ∪ B2 ⊂ X,
+B3 ∪ {b} ⊂ Y , and X ∪ Y = B1 ∪ B2 ∪ B3 ∪ V (Pb ). Therefore the conditions
+(a)–(c) yield.
+        / V (Pa ), then we set
+   If b ∈
+
+X = B1 \{b}∪B2 ∪(V (Pa )∩S2 ),      Y = B3 ∪(V (Pa )∩S3 )∪{b} and v := b.
+
+Case (γ). For the cases (β, 1)–(β, 3), Lemma 2.3 follows from the assumption
+that the induced graph G[B1 ∪ B2 ] is acyclic. Hence, for the case (γ),
+Lemma 2.3 yields.                                                          
+
+
+
+
+Theorem 2.1. If induced graphs G[B1 ∪B2 ] and G[B1 ∪B3 ] are acyclic, then
+the following properties are satisfied:
+    (a) For every path abc there is possible to partition the vertex set of G
+into two subsets so that each induces a tree, and one of them contains the
+edge ab and avoids the vertex c
+    (b) For every path abc with vertices a, c of the same color there is possible
+to partition the vertex set of G into two subsets so that each induces a tree,
+and one of them contains the path abc.
+
+Proof . Fix a path abc. If the vertices a, c have different colors, the condition
+(a) follows from (b). Therefore we assume that a, c have the same color. If G
+has at most two big vertices, then conditions (a) and (b) hold. Thus, assume
+that G has at least three big vertices.
+    Suppose that G is not 4-connected, then there is a separating induced
+3-cycle, say C. Thus, G − C consists of two components of G, say C + and
+C − . Hence, by induction, for graphs G1 = G − C + and G2 = G − C − the
+conditions (a) and (b) follow. Let d be a vertex of C which has the same
+color as a and c. If ab is an edge in G1 , and bc is an edge in G2 , then there
+exits a partitioning of the vertex set of G1 (G2 ) into two subsets X1 and
+Y1 (X2 and Y2 ) each of which induces a tree in G1 (G2 ) such that the tree
+G1 [X1 ] (G2 [X2 ]) contains the path abd (dbc, respectively). If abc is contained
+in G1 , then there exists a partitioning of G1 (G2 ) into two subsets X1 and
+Y1 (X2 and Y2 ) each of which induces a tree in G1 (G2 ) such that the tree
+G1 [X1 ] contains the path abc and X1 ∩ V (C) = X2 ∩ V (C). In the both
+cases a partitioning {X1 ∪ X2 , Y1 ∪ Y2 } of the vertex set of G satisfies the
+
+
+                                       12
+condition (b). By analogy, there exists a partitioning of the vertex set of G
+satisfying the condition (a).
+    If G is 4-connected with at least three big vertices, the conditions (a)
+and (b) follow from Lemmas 2.1–2.2– 2.3.                                    
+
+
+
+
+References
+ [1] R. Diestel, Graph Theory, Springer-Verlag, (2005).
+
+ [2] T. Feder and C. Subi, On Barnette’s conjecture, ECCC, Report No 15
+     (2006).
+
+ [3] J. Florek, On Barnette’s conjecture, Discrete Mathematics, 310 (2010)
+     1531-1535.
+
+ [4] P. R. Goodey, Hamiltonian cycles in polytopes with even sides, Israel J.
+     Math. 22 (1975) 52–56.
+
+ [5] P. J. Heawood, On the four-colour map theorem, Quart. J. Pure Appl.
+     Math. 24 (1898) 270–285.
+
+ [6] D. A. Holton, B. Manvel and B.D. McKay, Hamiltonian cycles in cubic
+     3-connected bipartite planar graphs, J. Combin. Theor. B 38 (1985)
+     279-297.
+
+ [7] A. K. Kelmans, Constructions of cubic bipartite 3-connected graphs
+     without Hamiltonian cycles, Analiz Zadach Formirovaniya i Vybora Al-
+     ternativ, VNIISI, Moscov 10 (1986) 64–72 [in Russian]; (see also AMS
+     Translations, Series 2, 158 (1994) 127–140).
+
+ [8] X. Lu, A note on 3-connected cubic planar graphs, Discrete Math., 310
+     (2010) 2054-2058.
+
+ [9] X. Lu, A note on Barnette’s conjecture, Discrete Math., 311 (2011)
+     2711-2715.
+
+[10] S. K. Stein, B-sets and planar maps, Pacific J. Math. 37 (1971) 217–224.
+
+[11] W. T. Tutte (Ed.), Recent Progress in Combinatorics, Academic Press,
+     New York (1969) 343.
+
+                                     13
+

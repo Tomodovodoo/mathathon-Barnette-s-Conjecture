@@ -1,0 +1,593 @@
+                          On Barnette’s Conjecture
+                                 Tomás Feder∗                Carlos Subi†
+                                           February 20, 2008
+
+
+                                                  Abstract
+              Barnette’s conjecture is the statement that every 3-connected cubic planar bipartite
+          graph is Hamiltonian. Goodey showed that the conjecture holds when all faces of the
+          graph have either 4 or 6 sides. We generalize Goodey’s result by showing that when
+          the faces of such a graph are 3-colored, with adjacent faces having different colors,
+          if two of the three color classes contain only faces with either 4 or 6 sides, then the
+          conjecture holds. More generally, we consider 3-connected cubic planar graphs that are
+          not necessarily bipartite, and show that if the faces of such a graph are 2-colored, with
+          every vertex incident to one blue face and two red faces, and all red faces have either 4
+          or 6 sides, while the blue faces are arbitrary, provided that blue faces with either 3 or 5
+          sides are adjacent to a red face with 4 sides (but without any assumption on blue faces
+          with 4, 6, 7, 8, 9, . . . sides), then the graph is Hamiltonian. The approach is to consider
+          the reduced graph obtained by contracting each blue face to a single vertex, so that
+          the reduced graph has faces corresponding to the original red faces and with either
+          2 or 3 sides, and to show that such a reduced graph always contains a proper quasi
+          spanning tree of faces. In general, for a reduced graph with arbitrary faces, we give
+          a polynomial time algorithm based on spanning tree parity to decide if the reduced
+          graph has a spanning tree of faces having 2 or 3 sides, while to decide if the reduced
+          graph has a spanning tree of faces with 4 sides or of arbitrary faces is NP-complete
+          for reduced graphs of even degree. As a corollary, we show that whether a reduced
+          graph has a noncrossing Euler tour has a polynomial time algorithm if all vertices have
+          degree 4 or 6, but is NP-complete if all vertices have degree 8. Finally, we show that if
+          Barnette’s conjecture is false, then the question of whether a graph in the class of the
+          conjecture is Hamiltonian is NP-complete.
+
+
+1         Introduction
+Let P be the class of 3-connected cubic planar bipartite graphs. Barnette [2] conjectured
+that every graph in P is Hamiltonian. This conjecture was verified for graphs with up to
+64 vertices by Holton, Manvel and McKay [8]. Aldred, Brinkmann and McKay [1] have
+announced that the conjecture still holds for graphs with up to 84 vertices. The conjecture
+    ∗
+        268 Waverley St., Palo Alto, CA 94301. E-mail: tomas@theory.stanford.edu.
+    †
+        E-mail: carlos subi@hotmail.com.
+
+                                                       1
+also holds for the infinite family of graphs where all faces have either 4 or 6 sides, as shown by
+Goodey [6]. Without the assumption of 3-connectivity, it is NP-complete to decide whether
+a graph in P is Hamiltonian, as shown by Takanori, Takao and Nobuji [11]. The same
+conjecture without the assumption of bipartiteness was originally formulated by Tait [10]
+and disproved by Tutte [12].
+    We begin our study of the class P with the well known fact that the faces of any graph
+in P can be colored with three colors. In particular, we get a set of independent faces C
+such that any edge of the graph either joins two faces of C or belongs to a face in C. The
+independent faces in C for a graph in P can be collapsed to single vertices, thus giving a
+reduced graph which is planar and has vertices of even degree at least four, and may have
+parallel edges.
+    We observe that an Eulerian tour of the reduced graph without crossings will give a
+Hamiltonian circuit of the original graph. Such an Eulerian tour corresponds, for a different
+choice of the independent faces C to be collapsed, to a spanning tree of faces. In fact any
+spanning tree of faces in the reduced graph will give a Hamiltonian circuit for the original
+graph, and the same holds when a quasi spanning tree of faces is found in the reduced graph.
+    We may extend the class P to include 3-connected cubic planar graphs that are not
+necessarily bipartite, but which contain a set of independent faces C such that any edge of
+the graph either joins two faces of C or belongs to a face in C, or equivalently, every vertex
+of the graph is incident to one face in C and two faces not in C. For this extended class P ,
+we may again collapse the faces in C to single vertices to obtain a corresponding reduced
+graph, and look for spanning trees or quasi spanning trees of faces to give a Hamiltonian
+circuit for the original graph.
+    We refer to the faces in C as blue faces and to the faces not in C as red faces. We show
+that if a graph in the extended class P has red faces with either 4 or 6 sides, and arbitrary
+blue faces, provided that a blue face with either 3 or 5 sides is ajacent to at least one red face
+with 4 sides (but without any assumption for blue faces with 4, 6, 7, 8, 9, . . . sides), then the
+graph is Hamiltonian. The proof shows that the corresponding reduced graph, with faces
+corresponding to the original red faces, and thus having either 2 or 3 sides, has a proper
+quasi spanning tree of faces. As a special case, if the faces of a graph in the original class
+P of bipartite graphs are 3-colored, so that each vertex is incident to one face of each color,
+and two of the three color classes contain only faces with 4 or 6 sides, then the graph is
+Hamiltonian, as we may let C be the third color class, containing faces with 4, 6, 8, 10, . . .
+sides.
+    We consider more generally the problem of finding a spanning tree or a quasi spanning
+tree of faces for any reduced graph either in the original or in the extended class P , as an
+approach to finding a Hamiltonian cycle for the original graph. We show that the problem
+of deciding whether a reduced graph has a spanning tree of faces that have either 2 or 3
+sides can be solved in polynomial time via a reduction to the spanning tree parity problem,
+which is polynomial as shown by Lovász [9] (see also Gabow and Stellman [4]). This implies
+that one can decide in polynomial time whether a reduced graph with vertices of degrees
+4 and 6 has a noncrossing Eulerian tour. By contrast, we show that deciding whether a
+reduced graph has a spanning tree of faces with 4 sides, or a spanning tree of arbitrary
+faces, is NP-complete, for reduced graphs of even degree (corresponding to graphs in the
+original class P of bipartite graphs). This implies that it is NP-complete to decide whether
+                                                2
+a reduced graph with vertices of degree 8 as a noncrossing Euler tour. Finally, we show that
+if Barnette’s conjecture is false, so that a graph in the original class P of bipartite graphs
+is not Hamiltonian, then deciding whether a graph in the original class P is Hamiltonian is
+NP-complete.
+    An open problem is whether one may remove the assumption that every blue face with
+3 or 5 is adjacent to at least one red face with 4 sides, so that all red faces having 4 or 6
+sides would be enough to obtain a Hamiltonian circuit for graphs in the extended class P .
+A related conjecture of Barnette states that if a 3-connected cubic planar graph only has
+faces with 3,4,5, or 6 sides, then it is Hamiltonian. As mentioned before, this was verified by
+Goodey [6] for the case of faces with 4 or 6 sides; it was also verified by Goodey [7] for the
+case of faces with 3 or 6 sides; and in general by Brinkmann, McKay, and von Nathusius [3]
+for graphs with up to 250 vertices.
+
+
+2    Hamiltonian Cycle from Quasi Spanning Tree of
+     Faces
+Let G be a graph in the class of 3-connected cubic planar graphs that has a set C of faces
+such that every vertex in G is incident to one face in C and to two faces not in C. We
+refer to the faces in C as blue faces and to the faces not in C as red faces. Let H be the
+corresponding reduced graph obtained by contracting the faces in C to single vertices. A
+spanning tree of faces in H is a set D of faces of H such that no two faces in D share an
+edge, and such that if we let T be the graph with vertices corresponding to vertices in H
+and faces in D, and edges joining the vertices corresponding to faces d in D to the vertices
+in H incident to d, then T is a tree. A quasi spanning tree of faces in H is a set D of faces
+of H and a set V of vertices in H such that no two faces in D share an edge, every vertex of
+H not in V has even degree, say 2r, and is surrounded by r faces in D, and such that if we
+let T be the graph with vertices corresponding to vertices in V and faces in D, and edges
+joining the vertices corresponding to faces d in D to the vertices in V incident to d, then T
+is a tree. The vertices of H not in V are called quasi vertices, and a proper quasi vertex is
+a quasi vertex of degree 4 such that none of the 4 faces surrounding it is a digon (i.e., has
+only two sides). A proper quasi spanning tree of faces is a quasi spanning tree of faces all of
+whose quasi vertices are proper quasi vertices.
+    Given a spanning tree of faces in H, we may assume the external face is not in D, and
+traverse the perimeter of the spanning tree of faces, to obtain a Hamiltonian cycle in G that
+has all faces of the collapsed set C inside. Given a quasi spanning tree of faces in H, we may
+assume the external face is not in D, and traverse the perimeter of the quasi spanning tree
+of faces, to obtain a Hamiltonian cycle in G such that the faces of the collaped C are inside
+the cycle for vertices in V and outside the cycle for vertices not in V (quasi vertices). This
+gives the following.
+
+Proposition 1 The reduced graph H has a spanning tree of faces with the external face not
+in D if and only if G has a Hamiltonian cycle with the external red face outside, with all
+blue faces inside and such that no two red faces sharing an edge are both inside. The reduced
+graph H has a quasi spanning tree of faces with the external face not in D if and only if G
+                                              3
+has a Hamiltonian cycle with the external red face outside, with all blue faces corresponding
+to vertices in V inside, with all blue faces corresponding to vertices not in V (quasi vertices)
+outside, and such that no two red faces sharing an edge are both inside.
+
+   We now prove the main result of this section.
+
+Theorem 1 Suppose all red faces have either 4 or 6 sides, while the blue faces are arbitrary,
+and assume also that blue faces with 3 or 5 sides are adjacent to at least one red face with
+4 sides (no assumption is made for blue faces with 4, 6, 7, 8, 9, . . . sides). Then the reduced
+graph H obtained by collapsing blue faces has a proper quasi spanning tree of faces, giving a
+Hamiltonian cycle for G.
+
+      Suppose all red faces of G have either 4 or 6 sides, while the blue faces are arbitrary.
+Suppose the reduced graph H has a triangle T that contains at least one vertex inside, such
+that no triangle inside of T is not a face (i.e., contains at least one vertex inside), and no
+digon inside of T is not a face (i.e., contains at least one vertex inside).
+      We shall successively simplify the inside of the triangle T , while preserving the property
+that there is no digon inside of T that is not a face, but allowing the presence of triangles
+inside of T that are not faces, but with the following requirement. Treat all sets of parallel
+edges as a single edge. Suppose T1 and T2 are distinct triangles inside of T , with T1 containing
+T2 and possibly T1 equal to T , where T2 is not a face, and such that there is no triangle T3
+distinct from T1 and T2 such that T1 contains T3 and T3 contains T2 . In that case, we say
+that T2 is a child of T1 . We shall require that no triangle T1 has three distinct children T2 ,
+T2′ , and T2′′ , at all steps in the simplification of the inside of the triangle T .
+      We define the invariant property for T to be that there is no digon inside of T that is
+not a face, and no triangle inside T has three distinct children.
+
+Lemma 1 If T has at least two vertices inside and satisfies the invariant property, then it
+is possible to select a triangle T ′ that is a face inside of T and collapse T ′ to a single vertex
+in such a way that T still satisfies the invariant property.
+
+    Proof: Suppose triangle T1 inside of T contains at least two vertices inside, and there
+is no triangle inside of T1 that is not a face. Writing T1 = v1 v2 v3 , we claim that v1 has at
+least two distinct neighbors v4 and v5 inside of T1 . Otherwise, if v1 has no such neighbors,
+then v1 belongs to a triangle inside of T1 that has an edge v2 v3 parallel to the side of T1 ,
+contrary to the assumption that there is no digon inside of T that is not a face; and if v1
+has only one such neighbor v4 inside of T1 , then v2 v3 v4 is a triangle inside of T1 that is not a
+face, contrary to assumption. We may then choose v4 and v5 so that v2 , v4 , v5 are consecutive
+neighbors of v1 , and collapse the triangle v1 v4 v5 . This will produce no digons that are not
+faces, since such a digon would come before the collapsing from a triangle that is not a face
+inside of T1 , contrary to assumption. There may however appear triangles that are not faces
+inside of T1 . Such triangles come from quadrilaterals v1 v4 v6 v7 , v1 v5 v8 v9 , and v4 v5 v10 v11 . The
+quadrilaterals v1 v5 v8 v9 are of two kinds, either containing v4 or not containing v4 , but may
+not have diagonal edges v1 v8 or v5 v9 , otherwise either there was a triangle that is not a face
+inside of the quadrilateral, or collapsing the side v1 v5 does not give for the quadrilateral a
+triangle that is not a face. This implies that all such quadrilaterals containing v4 are pairwise
+                                                    4
+contained in each other, and all such quadrilaterals not containing v4 are pairwise contained
+in each other. The analogous properties hold for the quadrilaterals v1 v4 v6 v7 , but these are of
+only one kind, namely containing v5 , otherwise v6 = v2 and we have the diagonal edge v2 v4 .
+The analogous properties also hold for the quadrilaterals v4 v5 v10 v11 , but these are again of
+only one kind, namely not containing v1 , since they are contained in the triangle T1 = v1 v2 v3 .
+Furthermore, a quadrilateral v1 v4 v6 v7 containing v5 must contain any quadrilateral v1 v5 v8 v9
+not containing v4 and must also contain any quadrilateral v4 v5 v10 v11 not containing v1 ,
+and a quadrilateral v1 v5 v8 v9 containing v4 must also contain any quadrilateral v4 v5 v10 v11 not
+containing v1 . This guarantees that these quadrilaterals will not lead, after collapsing v1 v4 v5 ,
+to three triangles that are not faces that do not contain each other inside T1 , thus preserving
+the property that no triangle has three children.
+     In the remaining case for collapsing a triangle, there is a triangle T1 that has either one
+child T2 or two children T2 and T3 , where both T2 and T3 have exactly one vertex inside.
+Suppose T2 shares no sides with either T1 or T3 . Writing T2 = v1 v2 v3 , we must again
+consider quadrilaterals v1 v2 v4 v5 , v1 v3 v6 v7 , and v2 v3 v8 v9 . There may not simulataneously
+exist quadrilaterals v1 v2 v4 v5 containing v3 , v1 v3 v6 v7 containing v2 , v2 v3 v8 v9 containing v1 ,
+and v1 v2 v4′ v5′ not containing v3 . For if v6 = v5 , then v1 v5 v7 is not a face and thus equals
+T1 , so v1 is a vertex of T1 and the quadrilateral v2 v3 v8 v9 cannot contain v1 ; if v7 = v4 then
+v1 v5 v4 is again T1 and the same argument holds; and if v6 = v4 , then v8 = v5 and v9 = v7 ,
+so the triangle v5 v4 v7 is T1 , and the quadrilateral v1 v2 v4′ v5′ would be inside the triangle
+v1 v2 v7 which is a face, and this is not possible. Therefore, by symmetry, we may assume
+that either there is no quadrilateral v1 v2 v4 v5 containing v3 or no quadrilateral v1 v2 v4 v5 not
+containing v3 that will give rise to a new triangle that is not a face after identifying v1
+and v2 . Thus if v1 v2 v3 contains the single vertex v0 , collapsing the triangle v1 v2 v0 identifies
+v1 and v2 and creates only triangles with pairwise containment involving the new vertex
+v1 = v2 , besides the triangle T3 , thus preserving the property that no triangle has three
+children. If T2 = v1 v2 v3 shares one side with T1 , say the side v2 v3 , then one of the other two
+sides is not shared with T3 , say the side v1 v2 , and the quadrilaterals v1 v2 v4 v5 cannot contain
+v3 , so again we may collapse the triangle v1 v2 v0 with v0 inside T2 , creating only triangles
+with pairwise containment involving the new vertex v1 = v2 , besides the triangle T3 , thus
+preserving the property that no triangle has three children. And if T2 shares a side v1 v3 with
+T3 , then every quadrilateral v1 v2 v4 v5 containing v3 also contains T3 , so collapsing v1 v2 v0 with
+v0 inside T2 gives two familes of triangles with pairwise containments involving v1 = v2 , one
+family containing v3 and the other family not containing v3 , again preserving the property
+that no triangle has three children.
+     The following Proposition generalizes a result of Herbert Fleischner.
+Proposition 2 Suppose all red faces of G have either 4 or 6 sides, while the blue faces are
+arbitrary. Suppose the reduced graph H has no triangle that is not a face other than the
+outer triangle, and H has no digon that is not a face either. Suppose H has an odd number
+of vertices. Then H has a spanning tree of faces that are triangles, and so G is Hamiltonian.
+   Proof: Apply Lemma 1 repeatedly to collapse triangle faces to single vertices while
+preserving the invariant property. Each step reduces the number of vertices by two, so this
+number remains odd until we are left with just the outer face. The collapsed triangles form
+a spanning tree of faces.
+                                                   5
+   This result follows from the following main observation.
+
+Lemma 2 Let G be as in Theorem 1. Suppose the reduced graph H has a triangle T that
+contains at least one vertex inside, such that no triangle inside of T is not a face (i.e.,
+contains at least one vertex inside), and no digon inside of T is not a face (i.e., contains at
+least one vertex inside). Then finding a proper quasi spanning tree of faces for H reduces to
+finding a proper quasi spanning tree of faces for H ′ obtained from H by removing all vertices
+inside of T and their incident edges, and adding a parallel edge inside of T to each edge of
+T.
+
+    Proof: We may proceed with a triangle T as in the preceeding Lemma, and end up
+with either a single vertex v inside of T or no vertex inside of T by repeatedly collapsing
+triangle faces. In the case of a single vertex v inside of T , selecting one of the three triangles
+involving v corresponds to selecting one of the three digons added for the sides of T in H ′
+for a quasi spanning tree of faces, and in the case of no vertex v inside of T , we may either
+select or not select the triangle T in H ′ for a quasi spanning tree of faces. The case of a
+single vertex v inside of T is reached when T initially contains an odd number of vertices
+inside of T , and the case of no vertex v inside of T is reached when T initially contains an
+even number of vertices inside of T .
+    It remains to show the two cases that are used to change the parity inside of T . If there is
+initially a digon v1 v2 with at least one endpoint inside of T , then we may select and collapse
+v1 v2 , creating triangles that are not faces from quadrilaterals v1 v2 v4 v5 , and there are again
+two families of such quadrilaterals, given by the two triangle faces v1 v2 v3 and v1 v2 v3′ , namely
+quadrilaterals containing v3 and quadrilaterals containing v3′ . Each of the two families of
+quadrilaterals creates triangles with pairwise containment, thus giving the property that
+no triangle T1 either equal to T or inside of T has three children, satisfying the invariant
+property.
+    If there is no such digon v1 v2 , then we shall show that there is inside of T a vertex v of
+degree 4, belonging to 4 triangles at most one of which shares a side with T . We then make
+v a proper quasi vertex and select two triangles involving v that do not share an edge with
+each other or with T , say vv1 v2 and vv3 v4 , to be included in the proper quasi spanning tree
+of faces. Collapsing both triangles corresponds to removing v, identifying v1 with v2 , and
+identifying v3 with v4 , thus replacing 5 vertices with just 2 vertices and changing the parity
+of the number of vertices inside of T . This will thus complete the proof of the Lemma.
+    If initially there are no such digons inside of T , and we write T = v1 v2 v3 , then there must
+be at least two vertices inside T , otherwise the single vertex v0 inside T would have degree
+3 and would be incident to no digons, contrary to the assumption that every blue face with
+3 sides is adjacent to at least one red face with 4 sides. This implies that v1 must have at
+least two distinct neighbors inside T , otherwise a single neighbor v0 would be the only vertex
+inside of T because there are no triangles that are not faces inside of T . Thus v1 has degree
+at least 4, if we also count the edges v1 v2 and v2 v3 , and similarly both v2 and v3 have degree
+at least 4. Furthermore, there is no vertex inside of T of degree either 3 or 5, since such a
+vertex would be incident to a digon because all blue faces with 3 or 5 sides are adjacent to
+at least one red face with 4 sides. Therefore, by Euler’s formula, the total number of vertices
+of degree 4 either on T or inside of T is at least 6, and there are at least 3 vertices of degree
+                                                 6
+4 inside T . Say v0 inside of T of degree 4 has consecutive neighbors v4 v5 v6 v7 . At most one
+edge of this quadrilateral can be shared with the triangle T = v1 v2 v3 , because if both v1 v2
+and v1 v3 are shared then v1 has a single neighbor v0 inside T and would have only degree
+3, not at least 4. Say only v4 v7 can be shared with T . In that case, we make v0 a proper
+quasi vertex and select the two triangles v0 v4 v5 and v0 v6 v7 , thus removing v0 , identifying v4
+and v5 , and identifying v6 and v7 , reducing the number of vertices by 3. The quadrilaterals
+v4 v5 v8 v9 containing the edge v6 v7 that yield new triangles must contain the quadrilaterals
+v6 v7 v10 v11 that yield new triangles not containing the edge v4 v5 , and in the other direction
+the quadrilaterals v6 v7 v10′    ′
+                               v11 containing the edge v4 v5 that yield new triangles must contain
+the quadrilaterals v4 v5 v8 v9 that yield new triangles not containing the edge v6 v7 , so again
+                             ′ ′
+
+we obtain just two families of new triangles by identification of v4 and v5 , and identification
+of v6 and v7 , with each family giving pairwise containment among its triangles.
+    This gives again the property that no triangle T1 either equal to T or inside of T has three
+children, thus completing the proof that one can change the parity of the number of vertices
+inside of T before proceeding to reduce the number of vertices inside of T by increments
+of 2 until either a single vertex or no vertex is inside of T . As argued above, this reduces
+the problem of finding a proper quasi spanning tree of faces for H to the problem with the
+vertices inside of H removed and parallel edges added to the sides of T to obtain H ′ .
+    This Lemma yields Theorem 1 as follows. The outer face is a digon or a triangle that
+contains vertices inside. There must therefore exist either a triangle that contains vertices
+inside but contains no triangle or digon with vertices inside, or a digon that contains vertices
+inside but contains no triangle or digon with vertices inside. A triangle T that contains
+vertices inside but contains no triangle or digon with vertices inside can be simplified
+according to Lemma 1 by removing the vertices inside and adding parallel edges to the
+sides of T . A digon v1 v2 that contains vertices inside but contains no triangle or digon
+with vertices inside must contain a single vertex v0 inside, otherwise the digon v1 v2 would
+contain a triangle with vertices inside. Either v0 v1 or v0 v2 must be a digon, say v0 v1 is a
+digon, otherwise v0 would have just degree 2. We may thus either select the digon v0 v1 or
+the triangle v0 v1 v2 , which corresponds after removing the vertex v0 to either not selecting or
+selecting the digon v1 v2 which has become a face. The graph H can thus be simplified until
+the outer face contains no vertices inside, in which case selecting the face inside involving all
+vertices completes the proper quasi spanning tree of faces for H and the proof of Theorem
+1.
+    The following Corollary is a special case of Theorem 1 and generalizes Goodey’s result
+for graphs G that only have faces with 4 or 6 sides.
+Corollary 1 Suppose G is a 3-connnected cubic planar bipartite graph, and if the faces of G
+are 3-colored, with each vertex of G incident to one face of each color, then two of the three
+color classes contain only faces that have 4 or 6 sides. Then the reduced graph H obtained
+by collapsing the third color class has a proper quasi spanning tree of faces, and so G has a
+Hamiltonian cycle.
+
+
+3     Polynomial and NP-Complete Problems
+The following result concerns the case where most faces in a spanning tree of faces are digons.
+                                                7
+Theorem 2 Let G be a 3-connected cubic planar bipartite graph. Let H be the reduced
+graph for G, and let H ′ be the subgraph of H obtained by removing all edges that do not have
+consecutive parallel edges. If H ′ has one, two, or three connected components, then H has a
+spanning tree of faces, and thus G has a Hamiltonian cycle. The case of a single component
+for H ′ includes the case where all faces in one of the three color classes are squares.
+
+     Proof: If H ′ is a single connected component, then we can choose a spanning tree of
+H ′ , corresponding to a spanning tree of digons in H.
+     If H ′ has two connected components, then we may choose a face f of H that has vertices
+from both components. Starting with this face f , we also consider two spanning trees of
+digons for the two components of H ′ , and add these digons one at a time as long as they do
+not form a cycle containing f . Eventually, the single face f and the added digons will span
+H.
+     If H ′ has three connected components, then it may be that H has a face f touching
+all three components, and we may proceed from f as for the case for two components, by
+considering the three spanning trees of digons for the two components. Otherwise some
+component, say the first, has faces touching it and the second component and also faces
+touching it and the third component. Both sets of faces have at least four faces, since a cut
+of H has at least four edges by 3-connectivity and the fact that any cut has an even number
+of edges, so we may choose a face f touching the first and second component, and a face f ′
+touching the first and third component, so that these two faces do not share any vertices.
+Starting with these two faces, we may then again add digons from the three spanning trees
+for the three components so long as they do not form a cycle, until a spanning tree of faces
+for H is obtained.
+     The proof for three connected components extends to the case of four connected
+components, but the result does not hold in the case of five connected components.
+     We show next that one can decide whether the reduced graph H has a spanning tree of
+faces that are either digons or triangles in polynomial time. The result easily extends to the
+case of a spanning tree of faces where all but a constant number of faces are either digons
+or triangles.
+
+Theorem 3 Let G be a 3-connected cubic planar graph that has a corresponding reduced
+graph H obtained by collapsing a set of faces C. Let D be a collection of faces in H such that
+all faces in D are either digons or triangles. Then we can decide whether H has a spanning
+tree of faces in D, giving a Hamiltonian cycle for G, in polynomial time, by a spanning tree
+parity algorithm [9, 4].
+
+    Proof: Construct a graph H ′ related to H as follows. The vertex set of H ′ is the same
+as the vertex set for H. If xy is a digon in D, then put an edge xy in H ′ . If xyz is a triangle
+in D, then put edges xy and yz in H ′ . A spanning tree of faces in D for H then corresponds
+to a standard spanning tree in H ′ which must contain either both or none of edges xy and
+yz corresponding to a triangle xyz in D. These conditions on pairs of edges in H ′ make the
+equivalent problem in H ′ a spanning tree parity problem.
+    If D contains faces with four or more sides, say a face xyzt, then we could include three
+edges linking these four vertices, say xy, yz, and zt, and require that a spanning tree contain
+
+                                               8
+either all three or none of these three edges. Such a spanning tree tri-arity problem, as we
+shall later see, turns out to be NP-complete.
+    A noncrossing Euler tour of a reduced graph H is a tour that visits every edge once and
+has the property that a vertex v entered by the Euler tour through some edge e exists the
+vertex through one of the two edges e′ , e′′ incident to v on either side of e. A noncrossing Euler
+tour of H gives a Hamiltonian circuit for G. The following is immediate from Proposition 1.
+
+Proposition 3 Let G be a 3-connected cubic planar bipartite graph whose faces are 3-
+colored. Then G has a Hamiltonian cycle with red faces in one side, blue faces in the other
+side, and green faces in either side, if and only if the reduced graph H obtained by collapsing
+green faces has a noncrossing Euler tour, if and only if the reduced graph H ′ obtained by
+collapsing red faces has a spanning tree of green faces, if and only if the reduced graph H ′′
+obtained by collapsing blue faces has a spanning tree of green faces.
+
+   An application of Theorem 3 and Proposition 2 gives the following.
+
+Corollary 2 Let G be a cubic planar bipartite graph, and let H be the corresponding reduced
+graph. Suppose all vertices of H have degree 4 or 6, so that all green faces of G are either
+squares or hexagons. Then one can decide in polynomial time whether H has a noncrossing
+Euler tour giving a Hamiltonian cycle for G.
+
+    Proof: Let H ′ be the reduced graph for G by collapsing the blue or red faces instead
+of the green faces. Then the green faces give in H ′ digons or triangles. By Proposition 2, a
+noncrossing Euler tour for H corresponds to a spanning tree of green faces in H ′ . Since all
+green faces are either digons or triangles in H ′ , one can decide whether such a spanning tree
+of green faces in polynomial time by Theorem 3.
+    We now obtain several NP-completeness results.
+
+Theorem 4 Let G be a 3-connected cubic planar bipartite graph, and let H be the
+corresponding reduced graph. Suppose that the red faces in H are quadrilaterals and the
+blue faces in H are digons. Then the question of whether H has a spanning tree of red faces
+is NP-complete.
+
+    Proof: The question of whether a 3-connected planar cubic graph R has a Hamiltonian
+cycle is NP-complete, as shown by Garey et al. [5]. Let e = (u, v) be a particular edge in
+R. Then the question of whether R has a Hamiltonian cycle going through e is also NP-
+complete. Let R′ be the graph obtained from R by removing the edge e, so that R′ has two
+vertices of degree 2, namely u and v, and all other vertices of R′ have degree 3. The question
+of whether R′ has a Hamiltonian path from u to v is also NP-complete.
+   Given R′ , construct a reduced graph H of some 3-connected cubic planar bipartite graph
+G as follows. The graph H has vertices V = V1 ∪ V2 , where V1 is the set of vertices w of
+R′ and V2 is the set of faces f of R′ . A vertex w in V1 is joined to a vertex f in V2 by two
+parallel edges in H if and only if the vertex w in R′ is a vertex in the face f of R′ . Thus
+the blue faces are digons joining two vertices w and f , while the red faces are quadrilaterals
+(w, f, w ′, f ′) corresponding to edges (w, w ′) in R′ that separate two faces f and f ′ in R′ .
+
+                                                9
+     We show that a set L of edges in R′ forms a Hamiltonian path from u to v in R′ if and
+only if the set M of red quadrilaterals in H corresponding to the edges M ′ in R′ that are
+not in L has the property that M is a spanning tree of red faces in H. Therefore H has a
+spanning tree of red faces if and only if R′ has a Hamiltonian path from u to v, and so the
+question of whether H has a spanning tree of red faces is NP-complete.
+     Suppose L is a Hamiltonian path from u to v in R′ , let M ′ be the edges in R′ not in
+L, and let M be the corresponding red quadrilaterals in H. Note that for any two edges g
+and h in M ′ , there is a sequence of edges g = e1 , e2 , . . . , ek = h in M ′ such that each pair of
+edges ei , ei+1 share a face. Therefore the red faces in M induce a connected subgraph of H.
+Notice also that every vertex in H belongs to some face in M, since every vertex w in R′ is
+incident to an edge not in L, and every face f in R′ has at least one edge not in L. Finally,
+the red faces in M do not contain a cycle. Otherwise, if we had a cycle u1 , u2 , . . . , uk , u1 of
+red faces in M, then we can observe that every vertex w in V1 belongs to exactly one red face
+in M, so ui and ui+1 share a vertex f in V2 corresponding to a face in R′ . Thus the edges
+e1 , e2 , . . . , ek , e1 in M ′ , corresponding to the faces ui in the cycle of red faces in M, separate
+the graph R′ into two components, so the Hamiltonian path L would have to contain at least
+one of these edges ei in M ′ , a contradiction. Therefore the red faces in M form a spanning
+tree of red faces for H.
+     In the other direction, suppose the red faces in M form a spanning tree of red faces for
+H. Let M ′ be the corresponding edges in R′ , and let L be the set of edges in R′ not in M ′ .
+Each vertex w in V1 belongs to exactly one red face (w, f, w ′, f ′ ) in M, since every other red
+face in M containing w also contains either f or f ′ , and therefore the two red faces form
+a cycle and cannot both be in the spanning tree of red faces M. Therefore every vertex in
+R′ is incident to exactly one edge in M ′ , and so the two vertices u and v of degree 2 in R′
+are incident to exactly one edge in L, while the remaining vertices w of degree 3 in R′ are
+incident to exactly two edges in L. That is, L consists of a path joining u and v in R′ , plus
+a collection of cycles in R′ , such that the path and the cycles are disjoint and cover all the
+vertices in R′ . We show that L cannot contain a cycle in R′ , and so L is just a path joining u
+to v containing all vertices of R′ , that is, L is a Hamiltonian path from u to v in R′ . Suppose
+L contains a cycle e1 , e2 , . . . , ek , e1 in R′ . Let f and f ′ be faces of R′ inside and outside the
+cycle of ei respectively. Since f and f ′ are vertices in the spanning tree of red faces M, there
+is a sequence of red faces u1, u2 , . . . , ul in M such that u1 contains f , ul contains f ′ and each
+pair ui−1 , ui share a vertex fi in V2 . In particular, if we denote f0 = f and fl = f ′ , then for
+some pair fi , fi+1 we must have the face fi in R′ inside and the face fi+1 outside the cycle of
+ei . This implies that the red face ui in M corresponds to one of the edges ei in L and not in
+M ′ , a contradiction. This completes the proof.
+     We obtain two Corollaries from this result.
+Corollary 3 Let G be a 3-connected cubic planar bipartite graph, and let H be the
+corresponding reduced graph. Suppose all vertices of H have degree 8. Then the question
+of whether H has a noncrossing Euler tour is NP-complete.
+    Proof: The reduced graphs H from Theorem 4 have all red faces as quadrilaterals,
+corresponding to octagons in G. If we collapse these red faces, we obtain a reduced graph
+H ′ with vertices of degree 8. By Proposition 2, H ′ has a noncrossing Euler tour if and only
+if H has a spanning tree of red faces, and this problem is NP-complete by Theorem 4.
+                                                   10
+Corollary 4 Let G be a 3-connected cubic planar bipartite graph, and let H be the
+corresponding reduced graph. Suppose that the red faces in H are octagons and digons and
+the blue faces in H are triangles. Then the question of whether H has a spanning tree of
+arbitrary faces is NP-complete.
+
+     Proof: Let H be the reduced graph of Theorem 4, with red quadrilaterals and blue
+digons. If e and f are the two parallel edges of a blue digon, insert a vertex w in the middle
+of e and a vertex x in the middle of f , with w and x joined by two parallel edges. The blue
+digon splits thus into two blue triangles and a red digon, while the red quadrilaterals become
+red octagons, in the new reduced graph H ′ .
+     Suppose H has a spanning tree of red quadrilaterals M. Select the corresponding red
+octagons in H ′ . For a blue digon consisting of two edges e and f in H, if one of the two red
+quadrilaterals containing e or f is in M, then select the red digon joining the middle vertices
+w and x; if neither of the two red quadrilaterals containing e or f is in M, then select one
+of the two blue triangles containing w and x. The red and blue faces in H ′ thus selected,
+involving red octagons, red digons, and blue triangles, for a spanning tree of faces in H ′ .
+     Conversely, suppose H ′ has a spanning tree of faces M ′ . Let M be the set of red
+quadrilaterals in H such that the corresponding red octagon is in M ′ . Note that for each
+digon in H, only one of the corresponding two blue triangles and red digon in H ′ can be in
+M ′ . Thus M is a spanning tree of red faces.
+     Thus H ′ has a spanning tree of arbitrary faces if and only if H has a spanning tree of
+red faces, and NP-completeness follows from Theorem 4.
+     We finally show:
+
+Theorem 5 Suppose there exists a 3-connected cubic planar bipartite graph G0 that is not
+Hamiltonian. Then the question of whether a 3-connected cubic planar bipartite graph G has
+a Hamiltonian cycle is NP-complete.
+
+    Proof: Takanori et al. [11]. showed that the question of whether a 2-connected cubic
+planar bipartite graph G has a Hamiltonian cycle is NP-complete. If such a G has two edges
+e and f that separate it into two components G′ and G′′ , then their endpoints in either side
+are at odd distance (this can be inferred by examining the colors of the faces separated by
+e and f in a 3-coloring of the faces, and the two alternating colors surrounding one of these
+faces), so we may instead join the two endpoints of e and f in G′ and G′′ separately, and
+ask whether G′ and G′′ both contain a Hamiltonian cycle containing the added edge joining
+the endpoints of e and f . Repeating this decomposition process, we eventually reduce the
+question of whether G has a Hamiltonian cycle to the question of whether various Gi each
+contain a Hamiltonian cycle going through certain prespecified edges, with each Gi being
+3-connected. Thus the question of whether a 3-connected cubic planar bipartite graph G
+has a Hamiltonian cycle going through certain prespecified edges is NP-complete.
+    Suppose G0 is a minimal 3-connected cubic planar bipartite graph that is not
+Hamiltonian. We shall construct from G0 a 3-connected cubic planar bipartite graph G1 that
+has a Hamiltonian cycle, such that for some edge e = (u, v) in G1 , every Hamiltonian cycle
+in G1 goes through e. Furthermore, If f and g are the two edges other than e incident to u in
+G1 , then G1 has a Hamiltonian cycle going through f and e and a Hamiltonian cycle going
+
+                                              11
+through g and e. Given a graph G with certain prespecified edges that a Hamiltonian cycle
+must go through, consider each such prespecified edge e′ incident to a vertex u′ , and replace
+u′ with the complement of u in G1 , so that the three edges incident to u′ in G are replaced
+by the three edges incident to u in G, with e′ corresponding to e in G1 . These replacements
+then force a Hamiltonian cycle for the new graph to correspond to a Hamiltonian cycle going
+through the prespecified edges e′ in G. Therefore whether the resulting 3-connected cubic
+planar bipartite graph has a Hamiltonian cycle is NP-complete.
+    We construct G1 . We shall first do so to enforce that every Hamiltonian cycle in G1 goes
+through e, and later guarantee that such a cycle can go through either f or g. Let R be
+a square in G0 . Suppose that if we remove two opposing sides of R from G0 and replace
+the two paths of length 3 resulting from the remaining two sides of R by single edges, then
+we obtain a 3-connected graph G1 . By minimality of G0 , the graph G1 has a Hamiltonian
+cycle. Furthermore, no Hamiltonian cycle for G1 goes through either of the two edges of G1
+corresponding to the edges that were kept for the square R in G0 , since if either edge is in
+a Hamiltonian cycle for G1 , then we can extend this cycle to a Hamiltonian cycle visiting
+the four vertices of the square R in G0 , a contradiction. We have thus guaranteed that a
+Hamiltonian cycle in G1 does not visit a particular edge e0 , and thus must visit an edge e
+adjacent to e0 , as desired.
+    Suppose instead that the two graphs G1 obtained in the preceding construction by either
+of the two choices of two opposing edges of the square R to be removed are both only 2-
+connected. Then each choice of two opposing edges of R belongs to a cut of four edges in G0
+that separate G0 . Removing the two sets of four edges from the two cuts of four edges thus
+separates G0 into four components C1 , C2 , C3 , C4 , with the removed edges of G0 including
+an edge from C1 to C2 , an edge from C2 to C3 , an edge from C3 to C4 , and an edge from
+C4 to C1 , plus four edges from the four Ci going into the four vertices of the square R.
+That is, each Ci has three incoming edges that can be joined to a single vertex, since their
+three endpoints in Ci are at even distance (this can be inferred by examining the colors of
+the three faces surrounding Ci in a 3-coloring of the faces, and the two alternating colors
+surrounding one of these faces). By minimality of G0 each such graph resulting from Ci
+with an additional vertex has a Hamiltonian cycle, yet it is not the case that each of the
+three choices of two edges going into each Ci yields a Hamiltonian cycle, since otherwise we
+would obtain a Hamiltonian cycle for G0 . Thus one of the three edges joining some Ci to the
+additional vertex must belong to every Hamiltonian cycle, thus giving a 3-connected cubic
+planar bipartite graph G1 with an edge e that belongs to every Hamiltonian cycle of G1 .
+    It remains to ensure that a Hamiltonian cycle in G1 , which is forced to take e = (u, v),
+can take either f or g out of u. Suppose instead that every Hamiltonian cycle is forced to
+take f as well. Consider the 3-connected cubic planar bipartite graph K of a cube with
+8 vertices. Replace as before a vertex of K with the complement of u in G1 . This forces
+two particular edges e and f of the cube incident to the replaced vertex to be visited by a
+Hamiltonian cycle, yet the Hamiltonian cycle for the cube can still be chosen in two different
+ways so that either of the two edges f ′ and g ′ sharing the endpoint of e that was not replaced
+can be visited. This produces the required G′1 with edge e forced and the choice between f ′
+and g ′ still available for a Hamiltonian cycle, completing the proof.
+
+
+
+                                              12
+References
+ [1] R. Aldred, G. Brinkmann, and B.D. McKay, personal communication.
+
+ [2] D. Barnette, “Conjecture 5,” Recent Progress in Combinatorics (Ed. W.T. Tutte),
+     Academic Press, New York (1969) 343.
+
+ [3] G. Brinkmann, B.D. McKay, and U. von Nathusius, “Backtrack search and look-
+     ahead for the construction of planar cubic graphs with restricted face sizes,”
+     http://cs.anu.edu.au/˜bdm/papers/plantri ad.pdf
+
+ [4] H.N. Gabow and M. Stellman, “Efficient algorithms for graphic intersection and parity,”
+     Proc. 12th Int. Conf. Automata, Languages, and Programming, Springer-Verlag LNCS
+     194, 1985, 210–220.
+
+ [5] M.R. Garey, D.S. Johnson, and R.E. Tarjan, “The planar Hamiltonian circuit problem
+     is NP-complete,” SIAM J. Comput. 5 (1976), 704–714.
+
+ [6] P.R. Goodey, “Hamiltonian circuits in polytopes with even sides,” Israel Journal of
+     Mathematics 22 (1975), 52–56.
+
+ [7] P.R. Goodey, “A class of Hamiltonian polytopes,” J. Graph Theory 1 (1977), 181–185.
+
+ [8] D.A. Holton, B. Manvel, and B.D. McKay, “Hamiltonian cycles in cubic 3-connected
+     bipartite planar graphs,” Journal of Combinatorial Theory B 38 (1985) 279–297.
+
+ [9] L. Lovász, “Matroid matching and some applications,” J. Combinatorial Theory Ser. B
+     28 (1980), 208–236.
+
+[10] P.G. Tait, “Listing’s topologie,” Phil. Mag. 17 (1884), 30–46.
+
+[11] Akiyama Takanori, Nishizeki Takao, and Saito Nobuji, “NP-completenss of the
+     Hamiltonian cycle problem for bipartite graphs,” Journal of Information Processing
+     Abstract Vol. 03 No. 02–003.
+
+[12] W.T. Tutte, “On Hamiltonian circuits,” J. London Math. Soc. 21 (1946), 98–101.
+
+
+
+
+                                             13
+

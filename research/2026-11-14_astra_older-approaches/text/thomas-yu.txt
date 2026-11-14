@@ -1,0 +1,1112 @@
+   4–CONNECTED PROJECTIVE-PLANAR GRAPHS ARE HAMILTONIAN
+
+
+
+
+                                       Robin Thomas*
+                                       Xingxing Yu**
+
+
+                                   School of Mathematics
+                               Georgia Institute of Technology
+                                Atlanta, Georgia 30332, USA
+
+
+
+
+May 1991, revised 23 October 1993.
+Published in J. Combin. Theory Ser. B 62 (1994), no. 1, 114–132.
+
+
+  * Preparation of this paper was supported in part by NSF under Grant No. DMS-9103480.
+ ** Preparation of this paper was supported in part by NSF under Grant No. DMS-9105173.
+                                         ABSTRACT
+
+
+    We prove the result stated in the title (conjectured by Grünbaum), and a conjecture of Plum-
+
+mer that every graph which can be obtained from a 4–connected planar graph by deleting two
+
+vertices is Hamiltonian. The proofs are constructive and give rise to polynomial–time algorithms.
+
+
+
+
+                                               2
+1. INTRODUCTION
+
+    Whitney [7] proved that every 4–connected planar triangulation has a Hamiltonian circuit,
+
+and Tutte [6] extended this to all 4–connected planar graphs. Thomassen [5] further strengthened
+
+this result by proving that every 4–connected planar graph is Hamiltonian–connected, that is, has
+
+a Hamiltonian path connecting any two prescribed vertices. It in fact follows from Tutte’s result
+
+that the deletion of any vertex from a 4–connected planar graph results in a Hamiltonian graph.
+
+Plummer [3] conjectured that the same is true if two vertices are deleted. We prove Plummer’s
+
+conjecture, as follows.
+
+
+(1.1) Let G be a graph obtained from a 4–connected planar graph by deleting at most two vertices.
+
+Then G is Hamiltonian.
+
+
+    Grünbaum [2] conjectured that every 4–connected projective planar graph is Hamiltonian. A
+
+proof of this conjecture is our second result.
+
+
+(1.2) Let G be a 4–connected graph which admits an embedding in the projective plane. Then G
+
+is Hamiltonian. In fact, G has a Hamiltonian circuit containing any specified edge.
+
+
+    Dean [1] conjectured a strengthening of (1.2) that 4-connected projective-planar graphs are in
+
+fact Hamiltonian–connected.
+
+    Our proof method relies on Thomassen’s result [5] and a generalization which is apparently
+
+new. We state this result and prove its generalization in Section 2. In Section 3 we prove (1.1),
+
+and in Section 4 we prove (1.2).
+
+    We end this section with some terminology. Graphs are finite, undirected and simple, that is,
+
+without loops and multiple edges. Paths and circuits have no “repeated” vertices. Every path has
+
+two endpoints, which are equal for the one–vertex path. If a path P has endpoints u and v, we
+
+say that P is a path between u and v. A block is a 2–connected graph or a graph isomorphic to
+
+K2 , the complete graph on 2 vertices; a block of a graph is a maximal subgraph which is a block.
+
+A vertex v of a graph G is a cut–vertex if its deletion results in a disconnected graph. Let C be
+
+                                                 3
+a path or a circuit, and let u, v ∈ V (C). By a uv–segment of C we mean a path between u and v
+
+which is a subgraph of C. Thus if C is a path, then the uv–segment of C is unique. If C is a circuit,
+
+and a clockwise orientation of C is specified, then by the clockwise uv–segment of C we mean the
+
+uv–segment of C which is encountered when moving on C from u to v in clockwise direction. Thus
+
+if u = v then the clockwise uv–segment is the one–vertex path with vertex–set {u}.
+
+    If G is a graph and u, v are two distinct vertices of G, then by G + uv we mean G if u, v
+
+are adjacent, and the graph obtained from G by adding an edge joining u and v otherwise. If W
+
+is a set, then by G + W we mean the graph with vertex–set V (G) ∪ W , edge–set E(G), and the
+
+incidences of G. If G is a graph and X is a vertex, a set of vertices, an edge, or a set of edges,
+
+then G\X is the graph obtained from G by deleting X. If G1 , G2 are graphs, then G1 ∪ G2 is the
+
+graph with vertex–set V (G1 ) ∪ V (G2 ), edge–set E(G1 ) ∪ E(G2 ) and the obvious incidences. The
+
+graph G1 ∩ G2 is defined similarly. A separation of a graph G is a pair of subgraphs (G 1 , G2 ) with
+
+G1 ∪ G2 = G and E(G1 ) ∩ E(G2 ) = ∅.
+
+    A plane graph is a graph G embedded in the plane (without crossings). A face of G is a
+
+component of the complement of the embedding of G. Thus every face of a plane graph is an open
+
+subset of the plane. We assume that a system of coordinates is set–up in the plane, so that every
+
+circuit of G has a natural clockwise orientation. If G is moreover 2–connected, then every face is
+
+bounded by a circuit, called its facial circuit. The facial circuit bounding the infinite face is called
+
+the outer circuit. If G is not 2–connected, then every face is bounded by a walk, called the facial
+
+walk. An edge e is incident with a face F if e belongs to the facial walk of F . Let G be a plane
+
+block. We wish to extend the definition of outer circuit to include the case when G is isomorphic
+
+to K2 ; in this case we define the outer circuit of G to be G itself.
+
+    Let G be a graph, and let H be a subgraph of G. An H–bridge in G is either a subgraph of G
+
+isomorphic to K2 with both vertices, but not its edge in H, or a connected component of G\V (H)
+
+together with all edges from this component to H and all endpoints of these edges. If K is an
+
+H–bridge, then the vertices in V (K) ∩ V (H) are called the attachments of K.
+
+
+
+                                                   4
+2. A THEOREM OF THOMASSEN
+
+    Let G be a graph, let F ⊆ E(G), and let H be a subgraph of G. We say that H is F –
+
+admissible if every H–bridge has at most three attachments, and every H–bridge containing an
+
+edge of F has at most two attachments. An F –snake is an F –admissible path, and an F –sling
+
+is an F –admissible circuit. Thus if G is 4–connected, then every ∅–sling is a Hamiltonian circuit.
+
+With this terminology, Thomassen’s result [5] can be stated as follows.
+
+
+(2.1) Let G be a 2–connected plane graph with outer circuit C. Let v ∈ V (C), let e ∈ E(C), and
+
+let u ∈ V (G) − {v}. Then there is an E(C)–snake P between u and v with e ∈ E(P ).
+
+
+    The following variation is implicit in [5]. We omit the proof which is easy.
+
+
+(2.2) Let G be a connected plane graph, let F be the set of edges of G which are incident with
+
+the infinite face, and let x, y, z ∈ V (G) be incident with the infinite face. If there exists a path in
+
+G between x and z containing y, then there exists an F –snake between x and z containing y.
+
+
+    We shall prove our results by generalizing (2.1). We shall always prove the existence of an
+
+F –snake in a graph G by pasting together suitable paths in certain subgraphs of G. These paths
+
+will have to satisfy a stronger condition than just being a snake, the following. Let G be a graph,
+
+let H be a subgraph of G, let F ⊆ E(G) and let W ⊆ V (G). We say that H is (F, W )–admissible
+
+if H + W is a F –admissible. Thus H is (F, ∅)–admissible if and only if it is F –admissible. An
+
+(F, W )–admissible path will be called an (F, W )–snake.
+
+
+(2.3) Let G be a graph, let F ⊆ E(G), and let G = G1 ∪G2 ∪· · · ∪Gn . Let W be the set of vertices
+
+which belong to more than one Gi . For each i = 1, 2, . . . , n let Pi be an (F ∩ E(Gi ), W ∩ V (Gi ))–
+
+admissible subgraph of G. Let P = P1 ∪ P2 ∪ · · · ∪ Pn , and assume that W ⊆ V (P ). Then P is
+
+F –admissible.
+
+
+Proof. Let P, P1 , P2 , . . . , Pn be as stated in the lemma, and let K be a P –bridge in G. Then K is
+
+contained in some Gi , and is a Pi0 –bridge in Gi , where Pi0 = Pi + (W ∩ V (Gi )), and has the same
+
+                                                   5
+number of attachments whether regarded as a P –bridge in G, or as a Pi0 –bridge in Gi . The result
+
+now follows.
+
+
+(2.4) Let G be a plane graph, let P be a path in G with endpoints α, β such that every vertex
+
+and every edge of P is incident with the infinite face. Let S ⊆ V (G) − V (P ) be a set of at most
+
+two vertices, all incident with the infinite face. Then there exists an (E(P ), S)–snake Q between
+
+α and β in G with S ∩ V (Q) = ∅.
+
+
+Proof. We shall assume that S consists of two distinct vertices x and y, leaving the other two easier
+
+cases to the reader. The situation is depicted in Figure 1. We may assume that when tracing the
+
+boundary of the infinite face of G, starting from α walking along P towards β and then back to
+
+α, we encounter y before x. Let v0 = α, and let v1 , v2 , . . . , vn−1 be all the cutvertices of G\{x, y}
+
+on P which separate α from β, and assume that they occur on P in the order listed. Let v n = β.
+
+There are blocks B1 , B2 , . . . , Bn of G\{x, y} such that vi−1 , vi ∈ V (Bi ) (i = 1, 2, . . . , n) and such
+
+that the union B = B1 ∪ B2 ∪ · · · ∪ Bn contains P . For j = 1, 2, . . . , n let Dj be the outer circuit
+
+of Bj , and let D be obtained from D1 ∪ D2 ∪ · · · ∪ Dn by deleting V (P ) − {v1 , v2 , . . . , vn }. Then
+
+D is a path between α and β in B. Let H be B + {x, y}. It follows that every H–bridge has at
+
+most one attachment in B, and that this attachment belongs to V (D). Next we want to choose
+
+a suitable vertex z ∈ V (D). Since G is a plane graph there is at most one bridge of H with an
+
+attachment in each of {x}, {y} and V (D). If there is such a bridge we choose z ∈ V (D) to be
+
+the attachment of this bridge. Otherwise we choose z ∈ V (D) in such a way that every H–bridge
+
+with an attachment in {x} has its attachment in V (B) on the αz segment of D, and such that
+
+every H–bridge with an attachment in {y} has its attachment in V (B) on the βz–segment of D.
+
+Such a choice is possible because G is a plane graph and because of our assumption about the
+
+position of x and y. This completes the discussion of the choice of z. We choose an edge e ∈ E(D)
+
+incident with z; let, say e ∈ E(Bi ). For j = 1, 2, . . . , n we define ej = e if j = i, and otherwise we
+
+choose ej ∈ E(Bj ) ∩ E(D) arbitrarily. By (2.1) there exists, for j = 1, 2, . . . , n, an E(D j )–snake
+
+Qj between vj−1 and vj in Bj with ej ∈ E(Qj ). It is easy to see that Q1 ∪ Q2 ∪ · · · ∪ Qn is as
+
+                                                      6
+desired.
+
+
+     Let G be a graph. If X ⊆ V (G) then by an X–bridge we mean a J–bridge, where J is the
+
+graph with V (J) = X and E(J) = ∅. Let C be a circuit or a path in G. A C–flap is either the
+
+null graph, or an {a, b, c}–bridge H such that
+
+ (i) a, b ∈ V (C) ∩ V (H), a 6= b, and c ∈ V (H) − V (C),
+
+(ii) H contains an ab–segment S of C, and
+
+(iii) H has a plane representation with S and c on the boundary of the infinite face.
+
+If H is as above and non–null, we say that a, b, c are its attachments. If H is null, we say that
+
+a, b, c are its attachments if a = b = c ∈ V (C).
+
+     It is easy to see that there need not be an E(C)–snake as in (2.1) which contains two specified
+
+edges of E(C). We overcome this difficulty as follows (see Figure 2).
+
+
+(2.5) Let G be a 2–connected plane graph with outer circuit C, let x, y ∈ V (C) be distinct, let
+
+e, f ∈ E(C), and assume that x, y, e, f occur on C in this clockwise order. Then there exist a C–flap
+
+H with attachments a, b, c and an (E(C)−E(H))–snake P between b and x in G\(V (H)−{a, b, c})
+
+such that x, a, y, b, e, f occur on C in this clockwise order, x 6= a, y ∈ (V (H)−{a})∪{b}, e, f ∈ E(P )
+
+and a, c ∈ V (P ). Also, there exists an F –snake Q between x and y in G with e, f ∈ E(Q), where
+
+F is the set of edges of the clockwise yx–segment of C.
+
+
+Proof. See Figure 3. We proceed by induction on |V (G)|. Let G be as stated and assume that the
+
+lemma holds for all graphs on less than |V (G)| vertices. Let v1 , v2 be the endpoints of e, let u1 , u2
+
+be the endpoints of f , and assume that y, v1 , v2 , u1 , u2 , x occur on C in this clockwise order.
+
+     A separation (G1 , G2 ) of G is said to be friendly if |V (G1 ) ∩ V (G2 )| = 2, V (G1 ) ∩ V (G2 ) ⊆
+
+V (C), x, y ∈ V (G1 ), V (G1 )−V (G2 ) 6= ∅ and V (G2 )−V (G1 ) 6= ∅. We first assume that there exists
+
+a friendly separation (G1 , G2 ) of G; let V (G1 ) ∩ V (G2 ) = {z, z 0 }. For i = 1, 2 let G0i be Gi + zz 0 ,
+
+let ei denote the edge zz 0 of G0i , and let Ci be the outer circuit of G0i . Clearly |V (Gi )| < |V (G)|.
+
+We distinguish four cases depending on which of G1 , G2 contains e, f .
+
+                                                     7
+    If e, f ∈ E(G2 ) we apply the induction hypothesis to G02 to get an (E(C) ∩ E(G2 ))–snake P2
+
+between z and z 0 with e, f ∈ E(P2 ). By (2.1) there exists an (E(C) ∩ E(G1 ))–snake P1 between x
+
+and y in G01 with e1 ∈ E(P1 ). It is easy to see that (P1 \e1 ) ∪ P2 is as desired for G.
+
+    If f ∈ E(G1 ), e ∈ E(G2 ), we apply the induction hypothesis to G01 to get a C1 –flap H with
+
+attachments a, b, c and an (E(C1 ) − E(H))–snake P1 between b and x in G01 \(V (H) − {a, b, c})
+
+such that x 6= a, y ∈ (V (H) − {a}) ∪ {b}, x, a, y, b, e1 , f occur on C1 in this order, e1 , f ∈ E(P1 )
+
+and a, c ∈ V (P1 ). By (2.1) there exists an E(C) ∩ E(G2 )–snake P2 between z and z 0 in G02 with
+
+e ∈ E(P2 ). It is easy to see that (P1 \e1 ) ∪ P2 and H are as desired for G.
+
+    The case when e ∈ E(G1 ), f ∈ E(G2 ) is symmetric to the one just described. It remains to
+
+discuss the case when e, f ∈ E(G1 ). We apply the induction hypothesis to G01 to get a C1 –flap H
+
+with attachments a, b, c and an (E(C1 )−E(H))–snake P1 between b and x in G01 \(V (H)−{a, b, c})
+
+such that x 6= a, y ∈ (V (H) − {a}) ∪ {b}, x, a, y, b, e, f occur on C1 in this order, a, c ∈ V (P1 ) and
+
+                     / E(P1 ) then P1 and H are as desired for G, and so we assume that e1 ∈ E(P1 ).
+e, f ∈ E(P1 ). If e1 ∈
+
+By (2.1) there exists an (E(C) ∩ E(G2 ))–snake P2 between z and z 0 in G02 with e2 ∈
+                                                                                   / E(P2 ). It is
+
+easy to see that (P1 \e1 ) ∪ P2 and H are as desired.
+
+    We have thus shown that if G has a friendly separation, then the lemma holds. We may
+
+therefore assume that
+
+(1) G has no friendly separation.
+
+    Let P be the clockwise yv1 –segment of C, and let H be the graph G\V (P ). It follows from
+
+(1) by exactly the same argument as in [5] that v2 belongs to a unique block B of H, and that
+
+the clockwise v2 x–segment of C is a subgraph of B. Since B is a block it follows that every
+
+(B ∪ P )–bridge of G has at most one attachment in B, and from (1) it in fact follows that
+
+(2) every (B ∪ P )–bridge in G has exactly one attachment in B.
+
+    Let D be the outer circuit of B. From (2.1) there there exists an E(D)–snake Q between
+
+v2 and x in B with f ∈ E(Q). We say that a vertex w ∈ V (B) is a tip if it is an attachment
+
+of a (B ∪ P )–bridge of G. We say that two tips v, v 0 ∈ V (B) are equivalent if either v = v 0 , or
+
+                                                   8
+v, v 0 ∈
+       / V (Q) and v and v 0 belong to the same Q–bridge in B. Let Θ denote the set of equivalence
+
+classes.
+
+     Let θ ∈ Θ. We wish to define Bθ , Jθ , αθ , βθ . If θ = {v}, where v ∈ V (Q) we define Bθ to be
+
+the null graph, otherwise we define Bθ to be the Q–bridge of B with θ ⊆ V (Bθ ). It follows that
+
+in the latter case Bθ contains an edge of the outer circuit of B, and therefore Bθ has exactly two
+
+attachments. Let Jθ0 be the union of all (B ∪ P )–bridges with an attachment in θ, let αθ be the
+
+vertex of P ∩ Jθ0 with the shortest distance (measured on P ) from y, and let βθ be the vertex of
+
+P ∩Jθ0 with the longest distance from y. Let Pθ be the αθ βθ segment of P , and let Jθ = Bθ ∪Jθ0 ∪Pθ .
+
+It follows from planarity that for distinct θ, θ 0 ∈ Θ, Jθ , Jθ0 are either vertex–disjoint, or have at
+
+most one vertex in common, in which case this vertex is either αθ = βθ0 , or αθ0 = βθ .
+                                                              S
+                                                                  θ∈Θ V (Bθ ) − V (Q), and let J
+                                                                                                   0
+     Let J be obtained from B by deleting all vertices in                                              be the
+                                                             S
+graph induced by e and all edges of P which do not belong to θ∈Θ E(Jθ ). Since G has no friendly
+                                                 S
+separation it follows from (1) that G = J ∪ J 0 ∪ θ∈Θ Jθ and that, for some θ1 ∈ Θ, θ1 = {v2 } and
+
+E(Jθ1 ) = {e}. Let W be the set of all vertices which are in more than one of J, J 0 , Jθ (θ ∈ Θ); then
+
+Q is an (F ∩ E(J), W ∩ V (J))–snake in J. Let θ0 be the unique element of Θ with the property
+
+that Jθ0 contains an edge of the clockwise xy–segment of C. By (2.4) there exists, for θ ∈ Θ − {θ 0 },
+
+an (E(C) ∩ E(Jθ ), W ∩ V (Jθ ))–snake Qθ between αθ and βθ in Jθ with Qθ ∩ W ∩ V (Bθ ) = ∅. If
+
+θ0 = {v} and v ∈ V (Q) we define H to be the null graph, put a = b = c = y, let Q0θ0 be an
+
+E(C ∩ Jθ0 )–snake in Jθ0 + vβθ0 between y and v with vβθ0 ∈ V (Q0θ0 ) and put Qθ0 = Q0θ0 \vβθ0 .
+
+Otherwise we put H = Jθ0 , let a, b, c be such that H is an {a, b, c}–bridge of G, and let Qθ0 be the
+                                     S
+null graph. Now by (2.3), Q ∪ J 0 ∪ θ∈Θ Qθ is as desired.
+
+     It remains to prove the last assertion of (2.5). If H is the null graph then it is clearly true, so
+
+we may assume that H is not null and that P is a snake between b and x as in the first part of the
+
+lemma. By (2.4) applied to H there exists an (F ∩ E(H), {a, c})–snake P 0 in H between b and y
+
+          / V (P 0 ). Then P ∪ P 0 is as desired.
+with a, c ∈
+
+
+     We restate the last assertion of (2.5) as a separate theorem.
+
+                                                    9
+(2.6) Let G be a 2–connected plane graph with outer circuit C, let u, v ∈ V (C) be distinct, let
+
+e, f ∈ E(C), assume that u, v, e, f occur on C in this clockwise order, and let F be the set of edges
+
+of the clockwise vu–segment of C. Then there exists an F –snake P between u and v in G with
+
+e, f ∈ E(P ).
+
+
+     The reader will notice that we do not need the full strength of (2.5) in this paper; in fact,
+
+(2.6) would suffice. However, the proof of (2.6) is not much easier, and since we shall need (2.5) in
+
+a later paper we decided to prove it here.
+
+
+(2.7) Let G be a 2–connected plane graph with outer circuit C, and let e 1 , e2 , e3 ∈ E(C). Then
+
+there exists an E(C)–sling D in G with e1 , e2 , e3 ∈ E(D).
+
+
+Proof. Let u, v be the endpoints of e1 . By (2.6) there exists an (E(C) − {e1 })–snake P between u
+
+and v in G with e2 , e3 ∈ E(P ). Then P + e1 is as desired.
+
+
+     Theorem (2.7) has the following corollary.
+
+
+(2.8) Let G be a 4–connected plane graph, let R be a face of G incident with at least four edges
+
+of G, and let e1 , e2 , e3 be edges of G incident with R. Then G has a Hamiltonian circuit C with
+
+e1 , e2 , e3 ∈ E(C).
+
+
+
+
+                                                  10
+3. SLINGS IN PLANAR GRAPHS
+
+
+(3.1) Let G be a 2–connected plane graph with outer circuit C1 and another facial circuit C2 with
+
+V (C1 ) ∩ V (C2 ) 6= ∅, and let e ∈ E(C1 ). Then there exists an (E(C1 ) ∪ E(C2 ))–sling C in G with
+
+e ∈ E(C) and V (C1 ) ∩ V (C2 ) ⊆ V (C) and such that no C–bridge contains edges of both C1 and
+
+C2 .
+
+
+Proof. There exist an integer k ≥ 1, graphs G1 , G2 , . . . , Gk and vertices ai , bi ∈ V (Gi ) (i =
+
+1, 2, . . . k) with the following properties:
+
+ (i) G is obtained from G1 , G2 , . . . , Gk by identifying bi and ai+1 for i = 1, 2, . . . , k, where ak+1
+
+       means a1 .
+
+(ii) Each Gi is either an edge of E(C1 )∩E(C2 ) with endpoints ai , bi , or a 2–connected plane graph
+
+       with outer circuit Di with ai , bi ∈ V (Di ) and such that one of the ai bi –segments of Di is a
+
+       segment of C1 and the other is a segment of C2 .
+
+For i = 1, 2, . . . , k we put Pi = Gi if Gi is isomorphic to K2 . Otherwise there exists, by (2.1), an
+
+E(Di )–snake Pi between ai and bi in Gi such that e ∈ E(Pi ) if e ∈ E(Gi ). It follows that after
+
+the identifications of (i) are made, P1 ∪ P2 ∪ · · · ∪ Pk is as desired.
+
+
+(3.2) Let G be a 2–connected plane graph with outer circuit C1 and another facial circuit C3 , and
+
+let e ∈ E(C1 ). Then there exists an (E(C1 ) ∪ E(C3 ))–sling C such that e ∈ E(C) and such that
+
+no C–bridge contains edges of both C1 and C3 .
+
+
+Proof. We may assume that V (C1 ) ∩ V (C3 ) = ∅, for otherwise the theorem follows from (3.1). We
+
+proceed by induction on |V (G)|. If |V (G)| ≤ 5, then there are no two disjoint circuits, and so we
+
+may and shall assume that |V (G)| ≥ 6 and that the theorem holds for graphs on fewer than |V (G)|
+
+vertices. Let B be the block of G\V (C1 ) containing C3 , and let C2 be the outer circuit of B. We
+
+claim that we may assume that
+
+(1) there is no separation (G1 , G2 ) of G with V (G1 ), V (G2 ) 6= V (G), |V (G1 ) ∩ V (G2 )| = 2 and
+
+with V (G1 ) ∩ V (G2 ) ∩ V (C1 ) 6= ∅.
+
+                                                    11
+      To prove this assume that (G1 , G2 ) is such a separation with V (B) ⊆ V (G2 ), and let V (G1 ) ∩
+
+V (G2 ) = {z, z 0 }. Let f denote the edge zz 0 , and let G0 be G2 + f . Let e0 be e if e ∈ E(G2 ) and let
+
+e0 be f otherwise. From the induction hypothesis there exists an F –sling C 0 in G0 with e0 ∈ E(C 0 )
+
+where F = (E(C1 )∪E(C3 )∪{f })−E(G1 ). If f ∈
+                                            / E(C 0 ) then C 0 is as desired for G. Otherwise, by
+
+(2.1) there exists an (E(C1 ) ∩ E(G1 ))–snake P in G1 between z and z 0 with e ∈ E(P ) if e ∈ E(G1 ).
+
+Then (C 0 \f ) ∪ P is as desired for G. Thus we may assume (1).
+
+      From (1) we deduce that every (B ∪ C1 )–bridge has exactly one attachment in B; if v denotes
+
+this attachment then v ∈ V (C2 ) and we say that the bridge attaches at v. A vertex u ∈ V (C2 ) is
+
+a tip if it is an attachment of a (B ∪ C1 )–bridge. Let u1 , u2 , . . . , un ∈ V (C2 ) be all the tips and
+
+assume that they appear on C2 in this clockwise order. For i = 1, 2, . . . , n let Li be the union of
+
+all (B ∪ C1 )–bridges that attach at ui , let v1i , v2i , . . . , vlii be the vertices of Li ∩ C1 , and assume
+
+that v11 , v21 , . . . vl11 , v12 , v22 , . . . , vl22 , . . . , v1n , v2n , . . . , vlnn occur on C1 in the clockwise order listed. (This
+
+can be arranged because of planarity.) We may further assume that e belongs to the clockwise
+
+vlnn vl11 –segment of C1 . Note that by (1) no Li (i = 1, 2, . . . , n) contains a circuit separating B and
+
+C1 , and so the above quantities are well-defined.
+
+      Let k be such that l2 = l3 = · · · = lk−1 = 1, vl11 = v12 = v13 = · · · = v1k−1 6= vlkk . See
+
+Figure 4. We may assume that such a k exists, for if it did not, we could just replace “clockwise”
+
+by “counterclockwise” in the above paragraph. Let H be obtained from B by adding a new
+
+vertex w ∈
+         / V (G) and edges wu1 , wu2 , . . . , wuk . The embedding of H is defined by saying that
+
+B is embedded in the same way as in G, that w is embedded in the same point as v l11 in G, for
+
+i = 1, 2, . . . , k − 1 the edge wui follows some path between vl11 and ui in some (B ∪ C1 )–bridge
+
+containing ui , and the edge wuk follows C1 clockwise and then some path between vlkk and uk in
+
+some (B ∪ C1 )–bridge containing uk . Let F be the set of edges of the clockwise uk u1 –segment of
+
+C2 . By the induction hypothesis there exists an (E(C3 ) ∪ F )–sling C 0 in H with wuk ∈ E(C 0 ) such
+
+that no C 0 –bridge of H contains edges of both F and E(C3 ). Let i be such that 1 ≤ i ≤ k − 1
+
+and ui w ∈ E(C 0 ). It follows that u1 ∈ V (C 0 ), because otherwise the C 0 –bridge containing u1
+
+would have at least three attachments and would contain an edge of F . Let Q = C 0 \w; then Q
+
+                                                                   12
+is an (E(C3 ) ∪ F )–snake between ui and uk in B containing u1 such that no Q–bridge contains
+
+edges of both E(C3 ) and F . We say that two tips v, v 0 ∈ V (B) are equivalent if either v = v 0 , or
+
+v, v 0 ∈
+       / V (Q) and they belong to the same Q–bridge of B. We denote the set of equivalence classes
+
+by Θ. Let θ1 = {u1 }, θi = {ui } and θk = {uk }; then θ1 , θi , θk ∈ Θ. Let Θ1 be the set of all θ ∈ Θ
+
+with θ ⊆ {u2 , u3 , . . . , uk−1 } − {ui }, and let Θ2 be the set of all θ ∈ Θ with θ ∩ {u1 , u2 , . . . , uk } = ∅.
+
+The following is easy to see.
+
+(2) Θ1 ∪ Θ2 ∪ {θ1 , θi , θk } = Θ, and if θ ∈ Θ1 and K is a Q–bridge of B with θ ⊆ V (K), then K
+
+has at most two attachments and contains no edge of F .
+
+     From planarity we further deduce that
+
+(3) each element of Θ is an unbroken cyclic interval in the cyclic ordering of tips.
+
+     In view of (3), the clockwise ordering of tips induces a clockwise ordering on Θ. Let θ ∈ Θ.
+
+We wish to define Bθ , Jθ , αθ , βθ , Pθ . If θ = {v}, where v ∈ V (Q) we define Bθ to be the null graph,
+
+otherwise we define Bθ to be the Q–bridge of B with θ ⊆ V (Bθ ) − V (Q). Let Jθ0 be the union of all
+
+(B ∪C1 )–bridges which attach at an element of θ. Let θ = {ui , ui+1 , . . . , uj }; we define αθ = v1i and
+
+βθ = vljj . Let Pθ be the clockwise αθ βθ –segment of C1 and let Jθ = Bθ ∪ Jθ0 ∪ Pθ . This completes
+
+the definition of Bθ , Jθ , αθ , βθ , Pθ . From the planarity of G and from (1) we deduce the following
+
+two claims.
+
+(4) If θ, θ 0 ∈ Θ are distinct, then Jθ , Jθ0 are either vertex–disjoint, or have one vertex in common,
+
+in which case this vertex is either αθ = βθ0 or αθ0 = βθ , or have two vertices in common in which
+
+case Θ = {θ, θ 0 } and these vertices are αθ = βθ0 and αθ0 = βθ .
+
+(5) If θ, θ 0 ∈ Θ and θ 0 immediately follows θ in the clockwise ordering on Θ, then either β θ = αθ0 ,
+
+or βθ and αθ0 are adjacent.
+
+                                                                     S
+                                                                         θ∈Θ V (Jθ ) − V (Q), and let J
+                                                                                                           0
+     Let J be obtained from B by deleting all vertices in                                                      be the
+                                                                           S
+graph induced by e and all edges of C1 which do not belong to                  θ∈Θ E(Jθ ). From (5) and the fact
+                                                                                                    S
+that every (B ∪ C1 )–bridge has an attachment in V (B) it follows that G = J ∪ J 0 ∪                    θ∈Θ Jθ . Let
+
+
+                                                        13
+W be the set of all vertices which are in more than one of J, J 0 , Jθ (θ ∈ Θ); since W ∩ V (J) ⊆ V (Q)
+
+it follows that Q is an (E(C3 ), W ∩ V (J))–snake in J. Let θ ∈ Θ. If Bθ is the null graph we let
+
+x = y be the element of θ. Otherwise Bθ is a Q–bridge of B with exactly two attachments x, y
+
+say. Moreover, V (Bθ ) does not meet both {u2 , u3 , . . . , uk−1 } and {uk+1 , uk+2 , . . . , un } by (2). We
+
+deduce that
+
+(6) for every θ ∈ Θ there exist x, y ∈ V (C2 ) ∩ V (Q) such that W ∩ V (Jθ ) ⊆ {αθ , βθ , x, y}.
+
+Moreover, it follows that
+
+(7) for every θ ∈ Θ, Jθ has the structure as described in (2.4) with P = Pθ and S = W ∩ V (Jθ ) −
+
+{αθ , βθ }.
+
+     Let θ1 = {u1 }, θi = {ui } and θk = {uk }. Then θ1 , θi , θk ∈ Θ. On taking S = W ∩ V (Jθ ) −
+
+{αθ , βθ } it follows from (2.4) and (7) that there exists, for θ ∈ Θ − {θ1 , θi , θk }, an (E(C1 ) ∩
+
+E(Jθ ), W ∩ V (Jθ ))–snake Qθ between αθ , βθ in Jθ .
+
+     We wish to define Qθ for θ ∈ {θ1 , θi , θk }. We begin with θk . If αθk 6= βθ1 we let Qθk be,
+
+by (2.2), an E(Pθk )–snake in Jθk between uk and βθk with αθk ∈ V (Qθk ). Now we may assume
+
+that αθk = βθ1 . Then Jθk + αθk uk is 2–connected, because αθk 6= βθk (otherwise Jθk could be
+
+isomorphic to K2 ). By (2.1) there exists an E(Pθk )–snake Q0θk in Jθk + αθk uk between αθk and βθk
+
+with αθk uk ∈ E(Q0θk ). We put Qθk = Q0θk \αθk uk . In either case Qθk is an (E(Pθk ), {αθk })–snake
+
+in Jθk between uk and βθk .
+
+     To define Qθ for θ ∈ {θ1 , θi } we first assume that i = 1. We choose an edge f on the outer
+
+circuit of Jθ1 incident with βθ1 . If Jθ1 is isomorphic to K2 we put Qθ1 = Jθ1 . Otherwise there
+
+exists, by (2.7), an E(Pθ )–sling Cθ1 in Jθ1 + αθ1 u1 with e, f, αθ1 u1 ∈ E(Cθ1 ) if e ∈ E(Jθ ) and with
+
+f, αθ1 u1 ∈ E(Cθ1 ) otherwise. We put Qθ1 = Cθ1 \αθ1 u1 .
+
+     We now assume that i > 1. In Jθi we find an ∅–snake Qθi between αθi = βθi and ui . If
+
+αθ1 = βθ1 we define Qθ1 to be the graph with one vertex αθ1 and no edges. Otherwise we find,
+
+by (2.6), an E(Pθ1 )–snake Q0θ1 in Jθ1 + βθ1 u1 between αθ1 and u1 with βθ1 u1 ∈ E(Q0θ1 ) and with
+
+e ∈ E(Q0θ1 ) if e ∈ E(Jθ1 ). We put Qθ1 = Q0θ1 \βθ1 u1 . We deduce that Qθ1 is an (E(Pθ1 ), {u1 })–
+
+                                                     14
+snake in Jθ1 between αθ1 and βθ1 . This completes the definition of Qθ for all θ ∈ Θ.
+
+     Let J 00 = J 0 \αθk βθ1 if αθk 6= βθ1 (by (5) αθk and βθ1 = βθk−1 are adjacent in this case) and
+                                                    S
+let J 00 = J 0 if αθk = βθ1 . We put C = Q ∪ J 00 ∪ θ∈Θ Qθ . Then C is a circuit in G containing e. It
+
+follows from (2.3) that C is an (E(C1 ) ∪ E(C3 ))–sling, and since no C 0 –bridge of H contains edges
+
+of both F and E(C3 ) it is easy to see that no C–bridge contains edges of both E(C1 ) and E(C3 ).
+
+
+
+
+(3.3) Let G be a 4–connected plane graph, let u1 , u2 ∈ V (G), and let H = G\{u1 , u2 }. For i = 1, 2
+
+let Ci be the facial circuit of H bounding the face of H containing u i , and let e ∈ E(C1 ). Then
+
+there exists a Hamiltonian circuit C in H with e ∈ E(C).
+
+
+Proof. We first assume that C1 = C2 . We leave the case u1 = u2 to the reader, and assume
+
+that u1 6= u2 . If u1 , u2 belong to different faces of H then H = C1 and C1 satisfies the theorem.
+
+Otherwise the vertices of V (C1 ) can be numbered v1 , v2 , . . . , vn according to their cyclic order
+
+on C1 in such a way that for some integer i with 4 ≤ i ≤ n − 2, u2 is not adjacent to vertices
+
+v2 , v3 , . . . , vi−1 and u1 is not adjacent to vertices vi+1 , vi+2 , . . . , vn . Let e1 ∈ E(C1 ) be incident
+
+with v1 and let e2 ∈ E(C1 ) be incident with vi . By (2.7) there exists an E(C1 )–sling C in H with
+
+e, e1 , e2 ∈ E(C). It follows that C is as desired. We now assume that C1 6= C2 . Let C be an
+
+(E(C1 ) ∪ E(C2 ))–sling as in (3.2). Again, it follows that C is as desired.
+
+     Finally we deduce (1.1) which we restate.
+
+
+(3.4) Let G be a 4–connected planar graph and let H be the graph obtained from G by deleting
+
+at most two vertices. Then H is Hamiltonian.
+
+
+Proof. If H is obtained by deleting one or two vertices then the result follows from (3.3). Otherwise
+
+the result follows directly from (2.1).
+
+
+
+
+                                                      15
+4. SLINGS IN THE PROJECTIVE PLANE
+
+Let G be a graph embedded in the projective plane, and let R be a face of G. (We recall that every
+
+face is an open set.) We define the R–width of G to be the maximum integer k such that every
+
+non null–homotopic closed curve in the projective plane that passes through R meets the graph at
+
+least k times (counting multiplicities). More precisely, the R–width of G is the maximum integer
+
+k such that the set {x ∈ S 1 : φ(x) ∈ G} has cardinality at least k for every non null-homotopic
+
+continuous mapping φ from the unit circle S 1 to the projective plane such that φ(x) ∈ R for some
+
+x ∈ S 1 . This number is clearly finite. Moreover, we may assume (by homotopically shifting the
+
+curve) that the curve meets the graph only in vertices.
+
+
+(4.1) Let G be a 2–connected graph embedded in the projective plane, let R be a face of G, let
+
+C1 be the graph consisting of all vertices and edges of G incident with R, and let e ∈ E(C 1 ). Then
+
+there exists an E(C1 )–sling C in G such that
+
+ (i) e ∈ E(C),
+
+(ii) every C–bridge that contains a non null–homotopic circuit is edge-disjoint from C 1 , and
+
+(iii) if G has R–width 1, then C is non null–homotopic.
+
+
+Proof. If G has S–width 0 for some face S, then G can be regarded as a plane graph with E(C 1 )
+
+the set of edges incident with the outer face, and therefore the result follows from (2.1).
+
+     Next we assume that G has R–width 1, and let u ∈ V (G) be such that some non null–
+
+homotopic closed curve φ passes through R and meets G only in u. By cutting open along φ
+
+we obtain a plane graph H which has the following structure. There are an integer n ≥ 1,
+
+distinct vertices v0 , v1 , . . . , vn and distinct blocks B1 , B2 , . . . , Bn of H such that vi−1 , vi ∈ V (Bi )
+
+for i = 1, 2, . . . , n, H = B1 ∪ B2 ∪ · · · ∪ Bn and E(C1 ) = F1 ∪ F2 ∪ · · · ∪ Fn , where Fi is the
+
+edge–set of the outer circuit of Bi . Moreover, G is obtained from H by identifying v0 and vn . We
+
+may assume without loss of generality that e ∈ E(B1 ). By (2.1) we find, for i = 1, 2, . . . , n an
+
+Fi –snake Pi in Bi between vi−1 and vi and such that e ∈ E(Pi ) if i = 1. Let C be obtained from
+
+P1 ∪ P2 ∪ . . . ∪ Pn by identifying v0 and vn ; then C is clearly an E(C1 )–sling in G satisfying (i)
+
+                                                       16
+and (iii). To prove that it satisfies (ii) let B be a C–bridge of G containing a non null-homotopic
+
+circuit. Then v0 , v1 , . . . , vn ∈ V (B), and hence n = 1 and v0 and v1 are attachments of B in H.
+
+Since v0 = v1 in G and G is 2–connected, B has another attachment in G, and hence in H. Thus
+
+B contains no edge of C1 , and so we see that C satisfies the conclusion of the theorem.
+
+     We now assume that G has R–width 2. Then C1 is a circuit. Let φ be a non null–homotopic
+
+closed curve which meets the graph in two vertices u, v ∈ V (C1 ). We assume first that u = v; then
+
+G has S–width 1 for some face S incident with u = v. Let φ0 be a simple closed curve homotopic to
+
+φ which meets G only once at u = v. By cutting open along φ0 we obtain a plane graph H which
+
+has the following structure. There are an integer n ≥ 1, distinct vertices v 0 , v1 , . . . , vn and distinct
+
+blocks B1 , B2 , . . . , Bn of H such that vi−1 , vi ∈ V (Bi ) for i = 1, 2, . . . , n, H = B1 ∪ B2 ∪ · · · ∪ Bn
+
+and G is obtained from H by identifying v0 and vn . We may assume without loss of generality
+
+that u = v = v0 , and that V (C1 ) ⊆ V (B1 ). By (2.1) we find an E(C1 )–snake P1 in B1 between v0
+
+and v1 with e ∈ E(P1 ), and for i = 2, 3, . . . , n we find, again by (2.1) an ∅–snake Pi in Bi between
+
+vi−1 and vi . Let C be obtained from P1 ∪ P2 ∪ . . . ∪ Pn by identifying v0 and vn ; then C is clearly
+
+an E(C1 )–sling in G satisfying (i) and (iii), and it satisfies (ii) by the same argument as in the
+
+previous paragraph. This finishes the case when u = v, and so we turn to the case when u 6= v.
+
+We cut open along φ and obtain a plane graph G0 with vertices u1 , v1 , u2 , v2 on the boundary of
+
+the infinite face with the following property. For i = 1, 2 there is a path P i in G0 between ui and
+
+vi with every edge incident with the unbounded face and such that V (P 1 ) ∩ V (P2 ) = ∅. Moreover,
+
+G is obtained from G0 by identifying u1 , u2 into u and v1 , v2 into v, and P1 ∪ P2 becomes C1 after
+
+these identifications are made. Let G00 be G0 +u2 v1 +u1 v2 . Then G00 is 2–connected. By (2.7) there
+
+exists an E(P1 ) ∪ E(P2 )–sling D in G00 with e, u2 v1 , u1 v2 ∈ E(D). It follows that D\{u2 v1 , u1 v2 }
+
+becomes a desired E(C1 )–sling after the proper identifications are made.
+
+     We may therefore assume that G has R–width at least 3. Then G\V (C1 ) has a non null-
+
+homotopic circuit. We first deal with the case when G\V (C1 ) has more than one block containing
+
+non null-homotopic circuits. It then follows that G has S–width 1 for some face S such that the
+
+closures of S and R have empty intersection, and so there exists a vertex v ∈ V (G) − V (C 1 ) such
+
+                                                      17
+that every non null-homotopic circuit in G contains v. Now G can be re-embedded to become a
+
+plane graph with C1 the outer circuit. Choose f ∈ E(C1 ) in such a way that there is no separation
+
+(G1 , G2 ) of G with |V (G1 )∩V (G2 )| = 2, V (G1 )∩V (G2 ) ⊆ V (C1 ), E(G2 )∩E(C1 ) 6= ∅, e, f ∈ E(G1 )
+
+and v ∈ V (G2 ). Such a choice is clearly possible, because G is 2–connected. (Proof. There are two
+
+paths between {v} and V (C1 ), vertex-disjoint except for v. Let v1 , v2 be the other endpoints of
+
+these paths. Choose f in such a way that e, f belong to different v1 v2 -segments of C1 .) From (2.1)
+
+there exists an E(C1 )–sling C with e, f ∈ E(C); then C satisfies (i) and (iii), and we claim that it
+
+also satisfies (ii). Indeed, let B be a C–bridge of G containing an edge of C 1 . Then B has exactly
+
+two attachments, and they both belong to V (C1 ). Thus from the non-existence of a separation as
+
+above we deduce that v 6∈ V (B), and hence B contains no non null-homotopic circuit, as desired.
+
+    We may therefore assume that G\V (C1 ) has a unique block B containing all non null–
+
+homotopic circuits of G\V (C1 ); let R0 be the face of this block containing R, and let C2 be
+
+the subgraph of B consisting of all vertices and edges incident with R 0 . We remark that R0 is
+
+homeomorphic to an open disk, a fact that will be used later. If the R–width of G is at least 4
+
+then C2 is a circuit. In this case we proceed exactly as we did in the proof of (3.2), interpreting
+
+C3 as the null graph. We omit the details.
+
+    Now we may assume that G has R–width exactly 3. In this case we proceed similarly as in
+
+(3.2), again interpreting C3 as the null graph, but an extra care is needed. Claim (1) can be proved
+
+in exactly the same way as before.
+
+    Let K be a graph embedded in the projective plane, and let v ∈ V (K). We say that v is a
+
+split–vertex of K if every non null–homotopic closed curve in the projective plane meets the graph
+
+at least once, and there exists a non null–homotopic closed curve in the projective plane meeting
+
+K exactly at v. It follows that every non null–homotopic circuit in K uses every split–vertex.
+
+    We choose an orientation of C1 , referred to as the clockwise orientation (see Figure 5). Let
+
+Z be the facial walk of R0 ; the clockwise orientation of C1 induces a clockwise orientation on
+
+Z. This orientation is well–defined, because R 0 is homeomorphic to an open disk. Let X be a
+
+cyclically ordered set obtained as follows. Every vertex in V (C 2 ) which is a split–vertex of B can
+
+                                                  18
+be thought of as having two sides, and (B ∪ C1 )–bridges can be attached at either side. We wish
+
+to split each such vertex into two vertices v+ , v− say, one corresponding to each side. Let X be the
+
+set containing v+ , v− for each split–vertex v ∈ V (C2 ) and all non split–vertices of V (C2 ). Then
+
+the clockwise orientation of Z induces a cyclic ordering on X; moreover subwalks of Z are in 1–1
+
+correspondence with cyclic intervals of X. If v ∈ V (C2 ) is not a split–vertex of B we put v̄ = v, if
+
+v ∈ V (C2 ) is a split–vertex we put v+ = v, v− = v. We shall loosely speak of elements of X as if
+
+they were vertices of G, for instance if v ∈ X then by saying the vertex v we mean v̄. An element
+
+v ∈ X is a tip if there exists a (B ∪ C1 )–bridge K with v̄ ∈ K such that K is embedded on the
+
+v–side of v̄. We say that K attaches at v.
+
+     We now proceed as in (3.2). Let u1 , u2 , . . . , un ∈ X be all the tips listed according to their
+
+clockwise cyclic order. We define Li , v1i , v2i , . . . , vlii , k, w and H in the same way as in (3.2), and
+
+let F be the set of edges encountered when walking along Z clockwise from u k to u1 . Let R00 be
+
+the face of H containing R. We apply the induction hypothesis to get an F –sling C 0 in H with
+
+wuk ∈ E(C 0 ); we remark that if H has R00 –width 1 then C 0 is non null–homotopic. We define
+
+i, θ1 , θi , θk , Q, Θ, Θ1 , Θ2 as before. This time claim (2) needs a proof.
+
+(2) Θ1 ∪ Θ2 ∪ {θ1 , θi , θk } = Θ, and if θ ∈ Θ1 and K is a Q–bridge of B with θ ⊆ V (K), then K
+
+has at most two attachments and contains no edge of F .
+
+     To prove (2) let θ ∈ Θ, and let K be a Q–bridge of B with θ ⊆ V (K) − V (Q), and let
+
+K 0 be the C 0 –bridge of H containing K. Then every attachment of K is an attachment of K 0 ,
+
+and if θ ∩ {u2 , u3 , . . . , uk−1 } − {ui } 6= ∅, then w is also an attachment of K 0 . To prove the first
+
+assertion assume that θ ∩ {uk+1 , uk+2 , . . . , un } 6= ∅. Then K contains an edge of F , and hence
+
+θ ∩ {u2 , u3 , . . . , uk−1 } − {ui } = ∅, for otherwise K 0 would have three attachments, contrary to the
+
+choice of C 0 . To prove the second part assume that θ ∈ Θ1 . Then w is an attachment of K 0 , and
+
+hence K has at most two attachments and contains no edge of F by the choice of C 0 .
+
+     Claim (3) needs to be modified as follows.
+
+(30 ) Each element of Θ − Θ1 is an unbroken cyclic interval in the cyclic ordering of tips.
+
+                                                     19
+     To prove (30 ) let K be a Q–bridge of B with V (K) ∩ {ū1 , ū2 , . . . , ūk } − V (Q) = ∅, and
+
+suppose for a contradiction that v1 , v2 , v3 , v4 are distinct tips listed in their cyclic order such that
+
+                                        / V (K) − V (Q). It follows that K contains an edge of F . Since
+v̄1 , v̄3 ∈ V (K) − V (Q) and v̄2 , v̄4 ∈
+
+V (K) ∩ {ū1 , ū2 , . . . , ūk } − V (Q) = ∅ it follows that in H both v̄1 , v̄3 are incident with R00 . Let
+
+φ be a closed curve passing through R00 and following a path between v̄1 and v̄3 in K\V (Q) and
+
+                                           / V (K) − V (Q) it follows that φ is non null-homotopic.
+otherwise disjoint from H. Since v̄2 , v̄4 ∈
+
+Since in the projective plane any two non null-homotopic closed curves intersect we deduce that C 0
+
+is null–homotopic. Hence H has R00 –width at least two by (iii), and so R00 is bounded by a circuit.
+
+Since v̄2 , v̄4 , ū1 , ūk 6∈ V (K) − V (Q) we deduce that K has at least three attachments, contrary to
+
+the fact that it contains an edge of F . This completes the proof of (3 0 ).
+
+     Let θ ∈ Θ. We define Bθ , Jθ0 , and if θ ∈
+                                              / Θ1 then also αθ , βθ , Pθ in the same way as in (3.2). If
+
+θ ∈ Θ1 then |V (Jθ0 ) ∩ V (C1 )| = 1, say V (Jθ0 ) ∩ V (C1 ) = {x}. We define αθ = βθ = x and let Pθ be
+
+the graph with vertex–set {x} and no edges. We define Jθ as in (3.2). The proof now continues in
+
+the same way as (3.2). In claim (5) we need to replace Θ by Θ − Θ1 (otherwise “follows” is not
+
+defined). We need to revise (7) as follows.
+
+
+(70 ) For every θ ∈ Θ − Θ1 , Jθ has the structure as described in (2.4) with P = Pθ and S =
+
+W ∩ V (Jθ ) − {αθ , βθ }.
+
+
+     To prove (70 ) we may assume that Bθ is non-null, for otherwise the assertion follows imme-
+
+diately. Let x, y be the attachments of Bθ as a Q–bridge of B. Since Bθ contains an edge of
+
+C2 it contains no non null–homotopic circuit by (ii), and so it follows that B θ is contained in a
+
+closed disk. Let W0 be the facial walk of the face of Bθ that contains the boundary of this disk.
+
+Since neither x nor y is a cutvertex of Bθ we deduce that x, y divide W0 into two subwalks; let
+
+W1 , W2 be the vertex-sets of these two subwalks. We claim that one of W1 , W2 is disjoint from
+
+V (C2 ) − {x, y}. To prove this suppose for a contradiction that v1 ∈ W1 ∩ V (C2 ) − {x, y} and
+
+v2 ∈ W2 ∩ V (C2 ) − {x, y}. Let ψ be a closed curve passing through R 00 and following a path in
+
+Bθ \{x, y} between v1 and v2 and otherwise disjoint from H. Since v1 , x, v2 , y occur on W0 in this or
+
+                                                     20
+reverse order and x, y ∈ V (Q) we deduce that ψ is non null–homotopic. Thus C 0 is null–homotopic,
+
+because C 0 and ψ do not meet; hence H has R00 –width at least two and so R00 is bounded by a
+
+circuit. But x, y, u1 , uk 6∈ V (Bθ ) − V (Q) and so Bθ has at least three attachments, a contradiction.
+
+This proves our claim that one of W1 , W2 is disjoint from V (C2 ) − {x, y}, and (70 ) follows.
+
+    For θ ∈ Θ1 we define Qθ to be the graph with vertex–set {αθ } and no edges. The rest of the
+
+construction of C is identical to the rest of the proof of (3.2). Condition (ii) follows from (7 0 ).
+
+    We are now ready to prove (1.2), which we restate.
+
+
+(4.2) Let G be a 4–connected graph which admits an embedding in the projective plane, and let
+
+e be an edge of G. Then G has a Hamiltonian circuit containing e.
+
+
+Proof. We take an arbitrary embedding of G in the projective plane. Let R be a face incident with
+
+e. By (4.1) there exists an ∅–sling C with e ∈ E(C); since G is 4–connected it follows that C is a
+
+Hamiltonian circuit.
+
+    From (4.1) we can also deduce the following.
+
+
+(4.3) Let G be 4–connected graph embedded in the projective plane, and let v ∈ V (G). Let
+
+H = G\v, and let e ∈ E(H) be incident with the face of H which contains v. Then H has a
+
+Hamiltonian circuit C with e ∈ E(C).
+
+
+Proof. By (4.1) H contains an F –sling C with e ∈ E(C), where F is the set of edges incident with
+
+the face of H containing v. It follows that C is as desired.
+
+    We remark that it is easy to construct a 4–connected projective planar graph G such that
+
+G\{u, v} is not Hamiltonian for some u, v ∈ V (G). For instance, take an embedding of K 4 in the
+
+projective plane with every face bounded by a circuit of length four, and insert a vertex into each
+
+face to form a triangulation.
+
+
+
+
+                                                   21
+Acknowledgements
+
+We are indebted to one of the referees for carefully reading the manuscript and for providing many
+
+helpful suggestions. We would also like to acknowledge that Daniel P. Sanders, a graduate student
+
+of the first author, has independently formulated and proved (2.7). He used it to prove a yet
+
+different generalization of (2.1).
+
+
+References
+
+ 1. N. Dean, Lecture at Twenty-First Southeastern Conference on Combinatorics, Graph Theory
+
+    and Computing, Boca Raton, Florida, February 1990
+
+ 2. B. Grünbaum, Polytopes, graphs, and complexes, Bull. Amer. Math. Soc. 76 (1970), 1131–
+
+    1201.
+
+ 3. M. D. Plummer, Problem in infinite and finite sets, A. Hajnal, R. Rado, and V. T. Sós, Eds.
+
+    Coll. Math. Soc. J. Bolyai 10, Vol. III. North-Holland, Amsterdam (1975), 1549–1550.
+
+ 4. D. P. Sanders, On paths in planar graphs, submitted.
+
+ 5. C. Thomassen, A theorem on paths in planar graphs, J. Graph Theory, 7 (1983), 169–176.
+
+ 6. W. T. Tutte, A theorem on planar graphs, Trans. Amer. Math. Soc. 82 (1956), 99–116.
+
+ 7. H. Whitney, A theorem on graphs, Ann. of Math. 32 (1931), 378–390.
+
+
+
+
+                                               22
+List of symbols
+                 S
++, −, \, ∩, ∪,       , ⊆, ∅, <, ≤, 6=, =, |.|, ∈, 6∈
+
+
+
+α, β, θ, Θ, φ, ψ
+
+
+
+
+                                                       23
+

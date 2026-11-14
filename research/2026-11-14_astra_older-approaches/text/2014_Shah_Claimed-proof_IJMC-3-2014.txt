@@ -1,0 +1,659 @@
+International J.Math. Combin. Vol.3(2014), 70-88
+
+
+
+
+    Necessary Condition for Cubic Planar 3-Connected Graph to be
+           Non-Hamiltonian with Proof of Barnette’s Conjecture
+
+                                       Mushtaq Ahmad Shah
+
+             (Department of Mathematics, Vivekananda Global University (Formerly VIT Jaipur))
+
+                                    E-mail: shahmushtaq81@gmail.com
+
+
+    Abstract: A conjecture of Barnette states that, every three connected cubic bipartite pla-
+    nar graph is Hamiltonian. This problem has remained open since its formulation. This paper
+    has a threefold purpose. The first is to provide survey of literature surrounding the conjec-
+    ture. The second is to give the necessary condition for cubic planar three connected graph
+    to be non-Hamiltonian and finally, we shall prove near about 50 year Barnett’s conjecture.
+    For the proof of different results using to prove the results we illustrate most of the results
+    by using counter examples.
+
+    Key Words: Cubic graph, hamiltonian cycle, planar graph, bipartite graph, faces, sub-
+    graphs, degree of graph.
+
+    AMS(2010): 05C25
+
+
+§1. Introduction
+
+It is not an easy task to prove the Barnette’s conjecture by direct method because it is very
+difficult process to prove or disprove it by direct method. In this paper, we use alternative
+method to prove the conjecture. It must be noted that if any one property of the Barnette’s
+graph is deleted graph is non Hamiltonian. A planar graph is an undirected graph that can be
+embedded into the Euclidean plane without any crossings. A planar graph is called polyhedral
+if and only if it is three vertex connected, that is, if there do not exists two vertices the removal
+of which would disconnect the rest of the graph. A graph is bipartite if its vertices can be
+colored with two different colors such that each edge has one end point of each color. A graph
+is cubic if each vertex is the end point of exactly three edges. And a graph is Hamiltonian if
+there exists a cycle that pass exactly once through each of its vertices. Self-loops and parallel
+edges are not allowed in these graphs. Barnett’s conjecture states that every cubic polyhedral
+graph is Hamiltonian. P.G.Tait in (1884) conjectured that every cubic polyhedral graph is
+Hamiltonian; this came to be known as Tait’s conjecture. It was disproved by W.T. Tutte
+(1946), who constructs a counter example with 46 vertices; other researchers later found even
+smaller counterexamples, however, none of these counterexamples is bipartite. Tutte himself
+  1 Received November 13, 2013, Accepted August 27, 2014.
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   71
+
+
+conjectured that every cubic 3-connected bipartite graph is Hamiltonian but this was shown
+to be false by discovery of a counterexample, the Horton graph [16] .David W. Barnett (1969)
+proposed a weakened combination of Tait’s and Tutte’s conjecture, stating that every cubic
+bipartite polyhedral graph is Hamiltonian this conjecture first announced in [12] and later in [3].
+In [10], Tutte proved that all planar 4-connected graphs are Hamiltonian, and in [9] Thomassen
+extended this result by showing that every planar 4-connected graph is Hamiltonian connected,
+that is for any pair of vertices, there is a Hamiltonian path with those vertices as endpoints.
+
+
+§2. Supports for the Conjecture
+
+In [5] Holton confirmed through a combination of clever analysis and computer search that all
+Barnett graphs with up to and including 64 vertices are Hamiltonian. In an announcement
+[14,11], McKay used computer search to extend this result to 84 vertices this implies that if
+Barnett conjecture is indeed false than a minimal counterexample must contain at least 86
+vertices, and is therefore considerable larger than the minimal counterexample to Tait and
+Tutte conjecture. This is not all we know about a possible counterexample; another interesting
+result is that of Fowler, who in an unpublished manuscript [15] provided a list of subgraphs
+that cannot appear in any minimal counterexample to Barnett’s conjecture.
+     Goody in [2] consider proper subsets of the Barnett graphs and proved the following.
+
+Theorem 2.1 Every Barnett graph which has faces consisting exclusively of quadrilaterals, and
+hexagons is Hamiltonian, and further more in all such graphs, any edge that is common to both
+a quadrilateral and a hexagon is a part of some Hamiltonian cycle.
+
+Theorem 2.2 Every Barnett graph which has faces consisting of 7 quadrilaterals, 1 octagon and
+any number of hexagons is Hamiltonian, and any edge that is common to both a quadrilateral
+and an octagon is a part of some Hamiltonian cycle.
+
+     In [6] Jensen and Toft reported that Barnett conjecture is equivalent to following.
+
+Theorem 2.3 Barnett conjecture is true if and only if for every Barnett graph G, it is possible
+to partition its vertices in to two subsets so that each induced an acyclic subgraph of G. ( This
+theorem is not correct)
+
+Theorem 2.4([8]) The edges of any bipartite graph G can be colored with δ(G) colors, where
+δ(G) is the minimum degree of vertices in G.
+
+Theorem 2.5([4]) Barnett conjecture holds if and only if any arbitrary edge in a Barnett graph
+is a part of some Hamiltonian cycle.
+
+Theorem 2.6([13]) Barnett conjecture holds if and only if for any arbitrary face in a Barnett
+graph there is a Hamiltonian cycle which passes through any two arbitrary edges on that face.
+
+Theorem 2.7([7]) Barnett conjecture holds if and only if for any arbitrary face in a Barnett
+graph and for any arbitrary edges e1 and e2 on that face there is a Hamiltonian cycle which
+72                                        Mushtaq Ahmad Shah
+
+
+
+
+passes through e1 and avoids e2 .
+
+     It is difficult to say whether any of the technique described above will aid in settling Barnett
+conjecture. Certainly many of them seems to be useful and worth extending. One strategy is
+to keep chipping away at it; if Barnett conjecture is true then Godey’s result can be extended
+to show that successively large and large subsets of Barnett graphs are Hamiltonian.
+     The Grinberg’s Theorem [1] is not useful to find the counter example to Barnett’s conjecture
+because all faces in Barnett graphs have even number of sides.
+
+
+§3. New Results Supporting the Conjecture
+
+Definition 3.1 Any closed subgraph H of cubic planar three connected graph G is called
+complete cubic planar 3-connected subgraph H C if all possible edges in that subgraph H are
+drawn then it also becomes cubic planar 3-connected graph. Thus we say H C is cubic planar
+3-connected graph.
+
+     We illustrate by counter example following.
+
+
+
+
+    Let G be any cubic planar three connected graph as shown in Fig.1 we take its subgraph H
+shown in Fig.2 then we draw all possible edges in the subgraph as shown in Fig.3 the subgraph
+graph becomes complete cubic planar three connected H C subgraph.
+
+Definition 3.2 Any closed subgraph H of cubic planar 3-connected graph G is called complete
+planar n − 1 cubic 3-connected subgraph and is denoted by H C+ if all possible edges in that
+subgraph H are drawn then it becomes planar n − 1 cubic 3-connected graph. i.e. Only one
+vertex has degree two and remaining graph is cubic planar 3-connected.
+
+     Illustrate by counter example.
+
+    Let G be any cubic planar three connected graph as shown in Fig.4 H be its subgraph as
+shown in Fig.5 we draw all possible edges in the subgraph as shown in Fig.6 but still there exist
+a vertex having degree two only thus we say the subgraph H C+ be its complete planar n − 1
+cubic three connected graph.
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   73
+
+
+
+
+Remark 3.1 A vertex can not have degree one in closed cubic planar three connected subgraphs,
+then it should be pendent vertex which is not possible in closed graphs so the degree of remaining
+vertices is two and degree cannot be more than three because it is the subgraph of cubic planar
+three connected graph so only possibility is that degree of remaining vertex is two.
+
+Definition 3.3 A closed subgraph H of cubic planar 3-connected graph is called complete planar
+n − r cubic and 3-connected if all possible edges in that subgraph H are draw then it becomes
+cubic planar 3-connected, but it is still planar n − r cubic and 3-connected, i,e its r vertices
+have degree two and remaining all vertices are cubic and three connected. It can be represented
+by H Cr+ .
+
+Lemma 3.1 A planar bipartite 3-connected and n − 3 cubic is non hamiltonian. In other words
+a planar graph which is bipartite 3-connected and n − 3 cubic, i.e., only three of its vertices
+are of degree four and remaining graph is cubic then such a graph is non hamiltonian. (Only
+encircle vertices is of degree four and rest of the graph is cubic and 3-connected)
+
+
+
+
+     We shall prove this result by counter example. The main aim behind the result is to prove
+74                                        Mushtaq Ahmad Shah
+
+
+
+
+that if a single property is deleted in cubic planar three connected bipartite graphs then it
+is non-Hamiltonian. This graph can be divided in to three closed subgraphs and an isolated
+vertex such that these closed subgraphs are H C+ sub graphs. Later we use this result in the
+main theorem.
+
+Lemma 3.2 A cubic planar bipartite 2-connected graph is non-hamiltonian. It can be seen in
+this example. (It is not possible for me to give number of counter examples even though we
+can construct number of such examples) Fig.8 below is the cubic planar bipartite 2-connected
+graph but non-hamiltonian.
+
+
+
+
+Remark 3.2 In every cubic planar three connected bipartite graph if any one of the property
+is deleted then the graph is non Hamiltonian.
+
+Remark 3.3 Let [·] denotes the greatest integer function.
+     (1) If a and b are any two positive integers then [a + b] = [a] + [b];
+     (2) If a is any positive integer and b is any positive real number then [a + b] = [a] + [b].
+
+Remark 3.4 Let G be any graph and if G is cubic planar three connected, we know that every
+cubic planar three connected graph, the Degree of each vertex is exactly equal to three. Thus
+the sum of all the degree of the Graph is 3n that is
+                                           n
+                                           X
+                                                 di = 3n.
+                                           i=1
+
+     Since each edge contributes two to the degrees thus the number of edges in the graph is
+                                              P
+                                              n
+                                                     di
+                                              i=1             3n
+                                        E=                =      ,
+                                                 2             2
+where n is the number of vertices of the graph. Thus we conclude that if number of nodes is n
+                     3n                           3n                       2     2 3n
+number of edges is      and if number of edges is    the number of nodes is E = ×        = n.
+                      2                            2                       3     3    2
+Thus we conclude that in any cubic planar three connected graph edges and nodes are connected
+by certain relation.
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   75
+
+
+     The number of edges of any cubic planar three connected graph is always divisible by three
+if we take any planar cubic three connected graph and number of edges is not divisible by three
+then given graph is not H C it is planar n − 1 cubic and three connected, i.e., it contain a vertex
+of degree two only such a graph is denoted by H C+ . There does not exist any two vertices of
+degree two because we can draw an edge between them.
+
+Lemma 3.3 The number of regions in every cubic three connected planar graph and every cubic
+                                                        n+4
+planar bipartite three connected graph of n vertices is     , where n is the number of vertices
+                                                         2
+of the graph.
+
+    Proof Since in every cubic planar three connected graph and every cubic planar three
+connected bipartite graph the degree of each vertices is exactly equal to three as graph is cubic.
+Thus the sum of all the degree of the Graph is 3n that is
+                                                    n
+                                                    X
+                                                           di = 3n.
+                                                     i=1
+
+Since each edge contributes two to the degrees thus the number of edges in these graph is
+                                                        P
+                                                        n
+                                                            di
+                                                                     3n
+                                                 E = i=1         =      ,
+                                                       2              2
+where n is the number vertices of the graph. Thus we conclude that if number of vertices is n
+                   3n                            3n                          2   2 3n
+number of edges is     and if number of edges is    the number of vertices is e = ×     = n,
+                    2                             2                          3   3   2
+i.e., the number of vertices and edges are connected by certain relation. We know by Euler’s
+theorem on planar graphs the number of regions is equal to
+
+                                                   r = e − v + 2.
+
+Since we have a graph of n vertices as we know it is cubic planar three connected or cubic
+                                                                              3n
+planar three connected bipartite graph the number of edges in such graph’s is    as shown
+                                                                               2
+above, now substitute these values in equation (i) we get
+                                                           3n       n+4
+                                    r =e−n+2=                 −n+2=     .
+                                                            2        2
+That proves the result.                                                                                                2
+    Thus from the above result we conclude that in every cubic planar three connected and
+every cubic planar bipartite three connected graph it is true that
+                                                   n+4
+                                                e−v+2=
+                                                     2
+The above result is not true for other planar graphs as we can take a counter example of three
+connected bipartite planar graph known as Herschel graph which contain 11 vertices and 18
+edges. Contain 9 regions does not satisfy the above result.
+
+Note 3.1 In every cubic planar three connected graph G and every cubic planar bipartite three
+connected graph G+
+76                                        Mushtaq Ahmad Shah
+
+
+
+
+     1. The order of graphs G and G+ is even;
+                                                                        n+4
+     2. The number of regions in both the graphs G and G+ are equal to        , where n is the
+                                                                          2
+total number of vertices (See lemma 3);
+     3. The edges and vertices in both the graphs are connected by certain relation i.e
+                                          3n         2E
+                                     E=      and V =    .
+                                           2          3
+     4. In G odd cycles are allowed but in G+ it is bipartite thus odd cycles are not allowed.
+
+
+§4. Necessary Condition for a Cubic Planar 3-Connected Graph to be
+    Non-hamiltonian
+
+Theorem A A cubic planar 3-connected graph is non-hamiltonian if the graph is divided into
+three closed subgraphs of any order and an arbitrary isolated vertex such that these three closed
+subgraphs are planar n − 1 cubic three connected I.e. they are H C+ subgraphs in other words a
+planar 3-connected graph is non-hamiltonian if these three subgraphs are such that
+                                       
+                                       3n
+                                            ≇ 0(mod3),
+                                        2
+                                                    3n
+where [·] denotes the greatest integer function and    is the number of edges in these subgraphs
+                                                     2
+(Remark 3.4 above).
+                                                                                       3n
+    Proof Let G be any cubic planar 3-connected graph of order n number of edges is       .
+                                                                                        2
+Let us suppose that all the three closed subgraphs of G are complete closed planar cubic 3-
+connected, i.e. H C subgraphs then
+                                      
+                                       3n
+                                            ≡ 0(mod3)
+                                        2
+Since odd cycles are allowed so we can take any closed subgraph of any order in such a way that
+these closed subgraphs are necessarily H C+ first of all we shall take order of all closed subgraphs
+is odd if these closed subgraphs are H C+ then we have to stop the process of searching as such
+subgraphs exist but if such closed subgraphs are not H C+ then we try for different orders.
+     Let order of closed subgraph be odd, i.e., n is odd say n = 2m + 1 or n = 2m − 1 and
+                                                                    
+             3n                   3(2m + 1)                       6m + 3
+                   ≡ 0(mod3),                  ≡ 0(mod3),                   ≡ 0(mod3).
+              2                        2                             2
+     Since in graphs the number of vertices and edges represent positive integers so
+                         
+                     6m     3
+                          +     ≡ 0(mod3) ⇒ 3m + 1 ≡ 0(mod3)
+                      2     2
+                                               ⇒ 3/3m + 1 and 3/ − 3m
+                                                 ⇒ 3/3m + 1 − 3m ⇒ 3/1,
+
+which is contradiction similarly if n = 2m − 1. We get 3/3m − 1 − 3m which gives 3/ − 1. This
+again gives contradiction.
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   77
+
+
+     Thus we conclude that                              
+                                                    3n
+                                                             ≇ 0(mod3)
+                                                     2
+(Since such subgraphs exists we shell stop our search). Thus there exists one vertex in all the
+three closed subgraphs having degree 2 only (the degree cannot be one are more than three
+discussed above remark 4) that is these three subgraphs are H C+ subgraphs. If two vertices
+are of degree two we can draw an edge between them and subgraph becomes H C only that is
+these subgraphs are cubic planar three connected which is not possible. When graph satisfy
+these conditions we first of all delete all those edge which we have added in the subgraphs then
+we join these sub graphs together with the arbitrary isolated vertex (it must be noted that
+such graphs does not contain only one arbitrary vertex it may contain more than one arbitrary
+vertex) with those vertices of the subgraphs having degree 2 in such a way that graph becomes
+cubic planar three connected. since odd cycles are allowed when we start from any arbitrary
+vertex it is not possible to travel all the vertices once and reaches back at the stating vertex
+because an arbitrary vertex can be traveled only at once so we can travel at most two of these
+H C+ subgraphs which we have joined to make the graph cubic planar three connected thus the
+graph so obtained is non-Hamiltonian.
+     Now we shall illustrate the result with following graphs and prove that this condition is
+satisfied by these graphs. All these graphs are cubic planar three connected and non Hamiltian
+satisfy the above conditions Fig.9 to 26 below.
+
+
+
+
+     1) First of all let us take Tuttle graph, in which we take an encircle vertex as an isolated
+vertex and divide the remaining graph in three closed subgraphs not necessary of same order
+we shall show that these closed subgraphs are H C+ subgraphs.
+78                                      Mushtaq Ahmad Shah
+
+
+
+
+     Let H be its subgraph shown below
+
+
+
+
+    Again if we draw all possible edges in this closed subgraph the subgraph becomes planar
+n− 1 cubic and three connected, i.e., H C+ subgraph as shown below and a vertex having degree
+two only has been shown by encircling the vertex.
+
+
+
+
+    Since all the three closed subgraphs of this graph are of same order so other two subgraphs
+have same property as discussed above.
+
+
+
+
+     2) Now let us take younger graph of 44 vertices which is cubic planar three connected
+non-Hamiltonian. And isolated vertex is shown by encircle it, and remaining graph is divided
+into three closed subgraphs not necessarily of same order all these closed subgraphs are H C+ .
+     Let H1 be its one closed subgraph as shown
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   79
+
+
+
+
+     If we draw all possible edges in this subgraph it becomes planar n− 1 cubic three connected
+as shown below H C+ only encircle vertex is of degree two.
+
+
+
+
+     Let another subgraph H2 of the graph is given below.
+
+
+
+
+    If we draw all possible edges in the subgraph it also becomes H C+ subgraph as shown
+below.
+80                                      Mushtaq Ahmad Shah
+
+
+
+
+     Let another subgraph H3 of a graph is given as
+
+
+
+
+     If we draw all possible edges in the subgraph it becomes H C+ subgraph as shown below
+
+
+
+
+    3) Now let us take another example of cubic planar three connected non Hamiltonian graph
+known as Grin berg graph 0f 46 vertices as shown below in which encircle vertex is an arbitrary
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   81
+
+
+vertex.
+
+
+
+
+     4) Let us take its closed subgraph H1 as shown below
+
+
+
+
+    Now if we draw all possible edges in the subgraph it becomes H C+ subgraph as shown
+below
+
+
+
+
+     Let us take another subgraph H2 of the graph given below
+82                                      Mushtaq Ahmad Shah
+
+
+
+
+     If we draw all possible edges in the graph it becomes planar n−1 cubic and three connected
+as shown below
+
+
+
+
+     Now again if we take another closed subgraph H3 as below
+
+
+
+
+    If we again draw all possible edges in the closed subgraph it becomes H C+ subgraph as
+shown below
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   83
+
+
+
+
+    Now all other planar cubic three connected non Hamiltonian graphs satisfy this condition
+these graphs are shown in Fig.26 − 1 to Fig.26 − 3.
+
+
+
+
+                                                      Fig.26-1
+
+
+
+
+                                                      Fig.26-2
+84                                           Mushtaq Ahmad Shah
+
+
+
+
+                                                Fig.26-3
+
+Note 4.1 One of the most important thing regarding the cubic planar three connected non-
+Hamiltonian graphs which was proved by professors Linfan Mao and Yanpei Liu in 2001 [17]
+there exists infinite three connected non-Hamiltonian cubic maps on every surface (orient able
+or non-orient able) not only the above graphs but also these infinite graphs satisfy the condition
+which we have proved above.
+     Now we shall show that above result is sharp. We use counter example to prove this
+sharpness. Below example Fig.27 is a graph which is cubic planar three connected contain
+Hamiltonian cycle start from V1 , V2 , V3 , V4 , · · · , V14 , V1 . In this graph if we take V4 as arbitrary
+vertex all the three closed subgraphs are not H C+ as shown below, it is not necessary we take
+V4 as arbitrary vertex we can take any vertex as arbitrary vertex in such a way that remaining
+graph is divided into three closed subgraphs of any order but all such closed subgraphs are
+H C+ which is not possible in this graph.
+
+
+
+
+Thus we conclude that all cubic planar three connected non Hamiltonian graphs can be divided
+in to three closed subgraphs of any order and an isolated vertex satisfying the property that
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   85
+
+
+all the three closed subgraphs are H C+ , But if graph is cubic planar three connected and
+Hamiltonian it is not necessary that all the three closed subgraphs satisfy H C+ property as
+shown below, thus the condition which we use to prove the theorem is sharp. In other words
+every cubic planar three connected graph which is Hamiltonian and can be divided into three
+closed subgraphs of any order and an isolated vertex all the three subgraphs may are may not
+be H C+ subgraphs, but if graph is non Hamiltonian all such closed subgraphs are H C+ (There
+are other examples as well but it is not possible to draw all in this paper).
+
+
+
+     Take a closed subgraph H and its H C+ subgraph
+
+
+
+
+     H                                                                                                   H C+
+
+
+
+
+                                                                                   Fig.29
+                    Fig.28
+
+
+
+
+     Take another closed subgraph H and its H C+ subgraph
+
+
+
+
+      H                                                                                             H C+
+
+
+
+
+                                                                              Fig.31
+                     Fig.30
+
+
+
+
+And finally take a closed subgraph H of order three so it is not H C+ because we cannot draw
+any more edge in this subgraph (these edges are parallel edges).                           2
+86                                       Mushtaq Ahmad Shah
+
+
+
+
+                                H
+
+
+
+
+                                             Fig.32
+
+Remark 4.1 It has been discussed above that number of regions in cubic planar three connected
+                                                              n+4
+graphs and cubic planar three connected bipartite graphs are       , thus it is necessary that
+                                                                2
+every cubic planar three connected bipartite graph is non Hamiltonian if it has at least one
+closed subgraph which is H C+ also in lemma 1. we have given a counter example of n − 3 cubic
+planar three connected bipartite non Hamiltonian graph satisfy H C+ property.
+
+Theorem B Every cubic planar bipartite three connected graph is Hamiltonian (Barnett’s
+conjecture).
+
+     Proof Since every bipartite graph is two colorable and thus without odd cycles so it
+contains only even cycles and number of vertices is also even, we cannot take any closed subgraph
+of odd order because it is not connected as odd cycles are not allowed, so every closed subgraph
+of cubic planar bipartite three connected graph is of even length. Thus in this type of graph n is
+always even, such graphs are non Hamiltonian only if there exist at least one subgraph H of any
+order which is planar n − 1 cubic and three connected, i.e., H C+ subgraph, Then conjecture
+is not true because counter example can be constructed to disprove it if such a condition is
+satisfied. (See theorem A above) and Fig.7 of Lemma 1.
+     Let it is true that such graphs have at least one closed subgraph of H C+ then it must
+satisfy the following condition
+                                       
+                                       3n
+                                            ≇ 0(mod3)
+                                        2
+
+Since n is necessarily even i.e. order of every subgraph is even because graph is bipartite and
+odd cycles are not allowed. Let n = 2m. Then
+
+                                     3n     (2m)
+                                        =3×       = 3m
+                                      2       2
+                                     3n
+                                        ≡ 0(mod3)
+                                      2
+                                     3m ≡ 0(mod3)
+                                          ⇒ 3/3m and3/ − 3m
+                                          ⇒ 3/3m − 3m ⇒ 3/0,
+Necessary Condition for Cubic Planer Three Connected Graph to be Non-Hamiltonian with Proof of Barnette’s Conjecture   87
+
+
+which contradicts the given statement that
+                                     
+                                      3n
+                                           ≇ 0(mod3).
+                                       2
+
+Thus we conclude that there does not exist any subgraph H of cubic planar bipartite three
+connected graph G which is planar n − 1 cubic and three connected, i.e., which is H C+ thus
+there does not exists any counter example which proves that Barnett’s conjecture does not
+hold, thus every cubic planar bipartite three connected graph is Hamiltonian that proves the
+conjecture.                                                                               2
+     The above theorem can be verified by Lemma 3.1 above the non Hamiltonian graph G
+of Lemma 3.1 can be divided into an arbitrary vertex and three closed subgraphs H C+ even
+though graph is bipartite( without odd cycles) three connected planar n − 3 cubic, only three
+vertices are of degree four and contain only even cycles.
+     Below is the graph which is cubic planar three connected contains Hamiltonian cycle. This
+cannot be divided into an arbitrary vertex and three closed subgraphs H C+ .
+
+
+
+
+References
+
+ [1] J.A.Bonday and U.S.R.Murty, Graph Theory with Applications, Macmillan, London, 1976.
+ [2] P.R.Goodey, Hamiltonian circuit in Polytopes with even sided faces, Israel Journal of
+     Mathematics, 22: 52-56, 1975.
+ [3] B.Grunbaum, Polytopes, Graphs and Complexes, Bull. Amer. Math. Soc., 76:1131-1201,
+     1970.
+88                                      Mushtaq Ahmad Shah
+
+
+
+
+ [4] A.Hertel, Hamiltonian Cycle in Sparse Graphs, Master’s thesis, university of Toronto, 2004.
+ [5] B.D.McKay, D.A. Holton, B. Manvel, Hamiltonian cycles in cubic 3- connected bipartite
+     planar graphs, Journal of Combinatorial Theory, series B, 38:279-297, 1985.
+ [6] T.R.Jensen and B.Toft, Graph Coloring Problem, J.Wiley and Sons New York, 1995.
+ [7] A.K.Kalmans, Konstruktsii Kubicheskih Dvudolnyh 3-Svyaznyh Bez GamiltonovyhTsiklov,
+     Sb.TrVNiii Sistem, issled. 10:64-72, 1986.
+ [8] D.Conig.Uber, Graphen und ihre Anwendung auf Determinantentheorie und Mengenlehre,
+     Math- ematische Annalen, 77: 453-465, 1916.
+ [9] C.Thomassen, A theorem on paths in planar graphs, Journal of Graph Theory, 7:169-176,
+     1983.
+[10] W.T.Tutte, A theorem on planar graphs, Trans. Amer. Math. Soc., 82:99-116, 1956.
+[11] R.Aldred, G.Brinkmann and B.D McKay, Announcement, March 2000.
+[12] D.Barnette, Conjecture 5, In W.T.Tutte ed. Recent Progress in Combinatorics, page 343
+     Academic press, New York, 1969.
+[13] M.Braverman, Personal communication, 2004.
+[14] T.Feder and C.Subi, On Barnett’s Conjecture, Published on internet http//theory.stanford.
+     edu/tomas/bar.ps, Submitted to Journal of Graph Theory.
+[15] T.Fowler, Reducible Configurations for the Barnett’s conjecture, Unpublished manuscript
+     August 2001.
+[16] Akiyama T., Nishizeki T. and Saiton N., NP-compleateness of the Hamiltonian cycle prob-
+     lem for bipartite graphs, Journal of Information Processing, 3(2): 73-76(1980), also cited
+     by Hertel (2005).
+[17] Linfan Mao and Yanpei Liu, An approach for constructing 3-connected non-Hamiltonian
+     cubic maps on surfaces, OR Transactions, 4(2001), 1-7.
+

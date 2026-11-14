@@ -1,0 +1,1087 @@
+                                                Hamiltonian cycles in planar cubic graphs with
+arXiv:1806.05483v3 [math.CO] 27 Nov 2019
+
+
+
+
+                                                facial 2−factors, and a new partial solution of
+                                                            Barnette’s Conjecture
+                                           Behrooz Bagheri Gh.a,b , Tomas Federc, Herbert Fleischnera ,
+                                                                     Carlos Subi
+                                                                      a Algorithms and Complexity Group
+                                                                        Vienna University of Technology
+                                                                 Favoritenstrasse 9-11, 1040 Vienna, Austria 1
+
+                                                                         b Department of Mathematics
+                                                                            West Virginia University
+                                                                      Morgantown, WV 26506-6310, USA
+
+                                                                        c Computer Science Department
+                                                                               Stanford University
+                                                                        Stanford, California 94305, USA
+
+                                                                                   Abstract
+
+                                                     We study the existence of hamiltonian cycles in plane cubic graphs G having
+                                                 a facial 2−factor Q. Thus hamiltonicity in G is transformed into the existence
+                                                 of a (quasi) spanning tree of faces in the contraction G/Q. In particular,
+                                                 we study the case where G is the leapfrog extension (called vertex envelope
+                                                 in (Discrete Math., 309(14):4793–4809, 2009)) of a plane cubic graph G0 . As
+                                                 a consequence we prove hamiltonicity in the leapfrog extension of planar cubic
+                                                 cyclically 4−edge-connected bipartite graphs. This and other results of this
+                                                 paper establish partial solutions of Barnette’s Conjecture according to which
+                                                 every 3−connected cubic planar bipartite graph is hamiltonian. These results
+                                                 go considerably beyond Goodey’s result on this topic (Israel J. Math., 22:52–56,
+                                                 1975).
+                                            1
+                                                Research supported in part by FWF Project P27615-N25.
+
+                                                                                        1
+     Keywords: Barnette’s Conjecture; eulerian plane graph; hamiltonian cycle;
+     spanning tree of faces; A−trail.
+
+
+
+1    Introduction and Preliminary Discussion
+Hamiltonian graph theory has its roots in the icosian game which was introduced by
+W.R. Hamilton in 1857. However, Kirkman presented his paper On the presentation
+of polyhedra, [13], to the Royal Society already in 1855; and it was published in 1856.
+    The early development of hamiltonian graph theory focused to a large extent on
+planar cubic graphs; and there are good reasons for this course of development. For,
+in 1884, Tait conjectured that every cubic 3−connected planar graph is hamilto-
+nian, [16]. And Tait knew that the validity of his conjecture would yield a simple
+proof of the Four Color Conjecture. On the other hand, the Petersen graph is the
+smallest non-planar 3−connected cubic graph which is not hamiltonian, [15]. Tait’s
+Conjecture was disproved by Tutte in 1946, who constructed a counterexample with
+46 vertices, [18]; other researchers later found even smaller counterexamples. How-
+ever, none of these known counterexamples are bipartite. Tutte himself conjectured
+that every cubic 3−connected bipartite graph is hamiltonian, [19], but this was shown
+to be false by the construction of a counterexample, the Horton graph, [11]. Barnette
+proposed a combination of Tait’s and Tutte’s Conjectures that every counterexample
+to Tait’s Conjecture is non-bipartite.
+
+
+Barnette’s Conjecture [1] Every 3−connected cubic planar bipartite graph is hamil-
+tonian.
+
+    This conjecture was verified for graphs with up to 64 vertices by Holton, Man-
+vel and McKay, [10]. The conjecture also holds for the infinite family of graphs
+where all faces are either quadrilaterals or hexagons, as shown by Goodey, [9]. With-
+out the assumption of 3−connectedness, it is NP-complete to decide whether a
+2−connected cubic planar bipartite graph is hamiltonian, as shown by Takanori,
+Takao and Nobuji, [17].
+    For a more detailed account of the early development of hamiltonian graph theory
+we refer the interested reader to [2].
+    Given the fact that the existence of hamiltonian cycles is an NP-complete problem
+
+                                          2
+(in rather special classes of graphs), one has to develop ad hoc proof techniques
+depending on the class of graphs, whose members are being shown to be hamiltonian.
+    As for the terminology used in this paper we follow [3] unless stated explicitly
+otherwise. In particular, the subset E(v) of E(G) denotes the set of edges incident
+to v ∈ V (G).
+Remark.
+                             ′
+1. Two edges e = xy and e = xy are called parallel edges if the digon D defined
+               ′
+     by e and e has no vertices inside. If two different triangles T1 , T2 have an
+     edge in common, then they have no other edge in common (because of our
+     understanding that parallel edges are treated as a single edge), unless there is
+     ei = xy ∈ E(Ti ), i = 1, 2, such that he1 , e2 i defines a digon with some vertex
+     inside.
+
+2. Given a 2−connected plane graph, we do not distinguish between faces and their
+     face boundaries. Observe that in planar 3−connected graphs H, the face bound-
+     aries are independent from any actual embedding of H in the plane or sphere.
+
+Next, we state some definitions.
+
+Definition 1 A cubic graph G is cyclically k−edge-connected if at least k edges must
+be removed to disconnect G either into two components each of which contains a cycle
+provided G contains two disjoint cycles, or else into two non-trivial components. The
+cyclic edge-connectivity of G is the maximum k such that G is cyclically k−edge-
+connected, denoted by κ′ c (G).
+
+Definition 2 Let C be a cycle in a plane graph H. The cycle C divides the plane into
+two disjoint open domains. The interior (exterior) of C is the bounded (unbounded)
+domain and is denoted by int(C) (ext(C)). By treating parallel edges as a single edge,
+                  ′                         ′
+we say a cycle C is inside of C if int(C ) ⊆ int(C). Moreover, a cycle C is said to
+contain a vertex v inside (outside) if v ∈ int(C) (v ∈ ext(C)). If
+
+                                           6 ext(C) ∩ V (H),
+                       int(C) ∩ V (H) 6= ∅ =
+
+then C is said to be a separating cycle in H. However, in the case of a plane embedding
+we distinguish between the unbounded or outer face Fo (i.e., ext(Fo ) ∩ V (G) = ∅) and
+a bounded face Fi (i.e., int(Fi ) ∩ V (G) = ∅).
+
+                                          3
+Definition 3 Given a graph H and a vertex v, a fixed sequence he1 , . . . , edeg(v) i of the
+edges in E(v) is called a positive ordering of E(v) and is denoted by O + (v). If H is
+imbedded in some orientable surface, one such O + (v) is given by the counterclockwise
+cyclic ordering of the edges incident to v.
+
+Definition 4 Let H be an eulerian graph with a given positive ordering O + (v) for
+each vertex v ∈ V (H). An eulerian trail L in H is an A−trail if {ei , ej } ⊆ E(v) being
+a pair of consecutive edges in L implies j = i ± 1 (mod deg(v)), for every v ∈ V (H).
+– As a consequence, in an A−trail in a 2−connected plane graph any two consecutive
+edges belong to a face boundary.
+
+Definition 5 (i) Suppose H is a 2−connected plane graph. Let F (H) be the set of
+     faces of H. The radial graph of H denoted by R(H) is a bipartite graph with the
+     vertex bipartition {V (H), F (H)} such that xf ∈ E(R(H)) if and only if x is a
+     vertex in the boundary of F ∈ F (H) corresponding to f ∈ V (R(H)).
+
+(ii) Let U ⊆ V (H) and let T ⊂ F (H) be a set of bounded faces. The restricted radial
+      graph R(U, T ) ⊂ R(H) is defined by R(U, T ) = R(H)[U ∪ T ].
+
+Definition 6 Let G be a 2−connected plane graph and let v be a vertex of G with
+deg(v) ≥ 3. Also assume that a sequence he1 , . . . , edeg(v) i, ei = ui v, i = 1, . . . , deg(v),
+is given by the counterclockwise cyclic ordering of the edges incident to v.
+
+(i) A truncation of v is the process of replacing v with a cycle Cv = v1 . . . vdeg(v) v1
+                                    ′
+     and replacing ei = ui v with ei = ui vi , for i = 1, . . . , deg(v), in such a way that
+     the result is a plane graph again. A plane graph obtained from G by truncating
+     all vertices of G is called truncation of G and denoted by T r(G) subject to the
+     condition that Cv ∩ Cw = ∅ for every pair {v, w} ⊂ V (G).
+
+(ii) The leapfrog extension of the plane graph G is T r(G∗ ) where G∗ is the dual of G;
+      we denote it by Lf (G). Alternatively and more formally, the leapfrog extension
+      Lf (G) of a plane graph G is (G ∪ R(G))∗ . In the case of cubic G, it can be
+      viewed as obtained from G by replacing every v ∈ V (G) by a hexagon C6 (v),
+      with C6 (v) and C6 (w) sharing an edge if and only if vw ∈ E(G); and these
+      hexagons are faces of Lf (G).
+
+   Next we quote some known results.
+
+
+                                                4
+Theorem A ([6, Lemma 2 and Theorem 3]) Let G be a plane graph. The following
+is true.
+
+(i) If G is connected and |E(G)| ≥ 2, then Lf (G) is 2−connected.
+
+(ii) If G is a simple 2−connected plane graph, then Lf (G) is 3−connected.
+
+Theorem B ([6, Theorem 25]) A plane cubic graph G is the leapfrog extension of
+a cubic plane graph G0 if and only if G has a facial 2−factor Q, and all other face
+boundaries of G are hexagons.
+
+Theorem C ([14]) Let G be a cyclically 4−edge-connected cubic graph of order n ≡ 2
+(mod 4). Then G has an independent set S of order (n + 2)/4 such that G[V (G) \ S]
+is a tree.
+
+Theorem D ([6, Corollary 15]) If G is a cyclically 4−edge-connected planar cubic
+graph of order n ≡ 2 (mod 4), then Lf (G) is hamiltonian.
+
+    Below we present a proof of Theorem D which relies exclusively on Theorem C
+and differs therefore from the proof in [6].
+Proof. We draw Lf (G) in the plane and draw G so to speak inside of Lf (G) in such
+a way that v ∈ V (G) lies inside the corresponding hexagonal face C6 (v) ⊂ Lf (G)
+and vw ∈ E(G) crosses the edge lying in C6 (v) ∩ C6 (w) (see Definition 6(ii)).
+    Now, since G is a cyclically 4−edge-connected cubic graph of order n ≡ 2 (mod 4),
+by Theorem C there exists an independent set S ⊂ V (G) such that T = G[V (G) \ S]
+is a tree. Now, if we delete in Lf (G) those edges of C6 (x) which do not belong to
+any other C6 (y), for every x ∈ S, then we obtain the plane graph G(T ) covered by
+the hexagonal faces C6 (q) where q ∈ V (G) \ S = V (T ). Letting K be the set of these
+hexagonal faces, it follows that T = I(K) where I(K) is the intersection graph of
+K. Since for every pair C6 (t), C6 (u) ∈ K we have C6 (t) ∩ C6 (u) = ∅ or a single edge
+of Lf (G), and because I(K) is a tree and V (G(T )) = V (Lf (G)) by construction, it
+follows that G(T ) has a (unique) hamiltonian cycle which is also a hamiltonian cycle
+of Lf (G).
+    We note in passing that others speak of vertex envelope, or leap frog construction,
+or leap frog operation, or leap frog transformation (see e.g. [6, 7, 12, 20]).
+
+
+
+
+                                          5
+Definition 7 Let H be a 2−connected plane graph, let U ⊆ V (H) and let T ⊂ F (H)
+be a set of bounded faces whose boundaries are pairwise edge-disjoint and such that
+every vertex of H is contained in some element of T . We define a subgraph HT of
+H by HT = H[∪F ∈T E(F )]. If F ∈ T : x ∈ V (F ) = 21 degH (x) for every
+                                   
+
+x ∈ V (H) \ U, and if R(U, T ) is a tree, then we call HT a quasi spanning tree of
+faces of H, and the vertices in U (V (H) \ U) are called proper (quasi) vertices. If
+U = V (H), then HT is called a spanning tree of faces. – In other words, a spanning
+tree of faces is a spanning bridgeless cactus whose cycles are face boundaries.
+
+     We observe that if H is a plane eulerian graph with δ(H) ≥ 4 having an A−trail
+Tε , then Tε defines uniquely a quasi spanning tree of faces as follows (see [5, pp.
+V I.71 − V I.77]). Starting with a 2−face-coloring of H with colors 1 and 2, suppose
+the outer face of H is colored 1. Then Tε defines in every v ∈ V (H) a 1−splitting or a
+2−splitting thus defining a vertex partition V (H) = V1 ∪V  ˙ 2 (Tε defines a k−splitting
+in every v ∈ Vk ). Now, the set T of all faces colored 2 defines a quasi spanning tree
+of faces HT with V1 being the set of all quasi vertices of HT . Conversely, a (quasi)
+spanning tree of faces HT defines uniquely an A−trail in the subgraph HT which is
+an A−trail of H since T is the set of faces colored 2.
+     The aforementioned relation between the concepts of A−trail and (quasi) spanning
+tree of faces is not a coincidence. In fact, it had been shown ([5, pp. V I.112−V I.113])
+that
+     • Barnette’s Conjecture is true if and only if every simple 3−connected eulerian
+triangulation of the plane admits an A−trail.
+
+    We point out, however, that the concept of (quasi) spanning tree of faces is a
+somewhat more general tool to deal with hamiltonian cycles in plane graphs, than
+the concept of A−trails. Below we shall prove the existence of (quasi) spanning trees
+of faces in plane graphs H derived from plane cubic graphs having a facial 2−factor
+(rather than being bipartite - which implies the existense of three facial 2−factors),
+provided the cubic graphs satisfy some extra conditions. In this context we also want
+to point out that every simple 4−connected eulerian triangulation of the plane has a
+quasi spanning tree of faces (see Corollary 7 below), whereas it is an unsolved problem
+(see [5, Conjecture V I.86]), that every simple 4−connected eulerian triangulation of
+the plane admits an A−trail.
+    Finally observe that we did not include figures in proofs. Instead we elaborated
+arguments to such an extent that the reader himself/herself may draw such figures
+
+                                           6
+easily (and in a unique way) as he/she sees fit. We also wish to point out that this
+paper is the result of extracting those results and their proofs of [4] which appear
+correct to all four of us; they have not been published yet in any refereed journal. On
+top of it, the first author of this paper succeeded in developing additional results and
+their proofs, basing his contribution on some of the work in [4]. Moreover, we relate
+some of the results of this paper to the theory of A−trails, as developed in [5].
+
+
+2     Hamiltonian cycle from quasi spanning tree of
+      faces
+In what follows
+
+
+G always denotes a 3−connected cubic planar graph having a facial 2−factor Q (i.e.,
+a 2−factor whose cycles are face boundaries of G), together with a fixed imbedding
+in the Euclidean plane; we denote the set of face boundaries of G not in Q by Qc .
+In general, when we say that a face F is an X −face, we mean that F ∈ X . Let H
+always denote the reduced graph obtained from G by contracting the Q−faces to single
+vertices; i.e., H = G/Q.                                                        (H)
+
+    Suppose H has a quasi spanning tree of faces HT with proper vertex set U. Then
+the subgraph HT has a unique A−trail which can be transformed into a hamiltonian
+cycle CG of G such that the Q−faces corresponding to the vertices in U are in Q ∩
+int(CG ), whereas the faces of Q in Q ∩ ext(CG ) correspond to the quasi vertices.
+Moreover, the face of G corresponding to the outer face of H lies in ext(CG ).
+    Conversely, suppose CG is a hamiltonin cycle of G with outer Qc −face in ext(CG )
+such that no two Qc −faces sharing an edge lie in int(CG ). Let U ⊂ V (H) be the
+vertex set corresponding to Q−faces in int(CG ). Also, let T be the set of faces of
+H corresponding to Qc −faces in int(CG ). Since every pair of Qc −faces in int(CG )
+has no edge in common by hypothesis, CG can be transformed into an A−trail of
+HT . Now it is easy to see that HT is a quasi spanning tree of faces of H whose quasi
+vertices correspond to the Q−faces in ext(CG ).
+
+    We summarize the preceding considerations in the following result.
+
+Proposition 1 ([4, Proposition 1]) Let G, Q, and H = G/Q be as stated in (H).
+
+                                           7
+The reduced graph H has a quasi spanning tree of faces, HT with face set T , and with
+the external face of H not in T if and only if G has a hamiltonian cycle C with the
+external Qc −face lying in ext(C), with all Q−faces corresponding to proper vertices
+of HT lying in int(C), with all Q−faces corresponding to quasi vertices of HT lying
+in ext(C), and such that no two Qc −faces sharing an edge are both inside of C.
+
+Example 2.1 In Figure 1, a 3−connected cubic planar graph G0 is given with a facial
+2−factor Q0 = {v0 v1 v6 v7 v0 , v2 v3 v24 v25 v2 , v4 v5 v13 v14 v4 , v8 v9 v18 v19 v8 , v10 v11 v12 v10 ,
+v15 v16 v17 v22 v23 v15 , v20 v21 v26 v27 v20 }. The hamiltonian cycle C0 = v0 v1 . . . v27 v0 (bold
+face lines in G0 in Figure 1) satisfiies all conditions in Proposition 1 except the last
+one; there are two Qc0 −faces inside of C0 sharing the edge v11 v16 . As one sees in the
+reduced graph H0 , the set of faces corresponding to the Qc0 −faces inside of C0 do not
+correspond to a quasi spanning tree of faces of H0 .
+
+                         v2 s    sv25
+                             s sv24
+                            v3                                                  us2
+
+         G0                                                        H0
+                    sv4                 sv23
+                     sv14          v15 s
+                                    v16 s
+              v5 s sv13                      v
+                                     v17 s s 22
+                          v11
+                   v s s
+                    12
+                                                                         u3 s         su6
+                          sv10                                            u5 s
+      v                   v9 s sv18                                              s
+ v1 s 6s v                                     v20 s s sv26
+                                                    v21                         u4
+         s7                 s     s
+     v0 s                  v8    v19                sv27    u1 s                                 su7
+
+
+
+Figure 1: A hamiltonian cycle C0 = v0 v1 . . . v27 v0 in G0 and its corresponding trail
+u1 u2 u3 u1 u4 u5 u3 u6 u4 u7 u6 u2 u7 u1 in H0 .
+
+
+   We return now to our general considerations. Suppose all Qc −faces of G are either
+quadrilaterals or hexagons, while the Q−faces are arbitrary. Suppose the reduced
+graph H has a triangle T that contains at least one vertex in int(T ), such that int(T )
+does not contain a separating digon.
+   We shall successively simplify the inside of the triangle T , while preserving the
+property that there is no separating digon inside of T , but allowing the presence of
+separating triangles inside of T , but with the following requirement. In what follows
+
+                                                      8
+we delete loops (but not multiple edges) which may arise when contracting a triangle
+  ′                                            ′
+T ⊂ T (such loop may arise when e ∈ E(T ) is a multiple edge). Also, when speaking
+                            ′                                                  ′
+of a digon or triangle T not being a face boundary, we mean that int(T ) contains
+at least one vertex.
+     Let A be the set of all separating triangles in H. Define a relation 4 on A in the
+following way. T2 4 T1 if and only if int(T2 ) ⊂ int(T1 ), for every T1 , T2 ∈ A. This
+relation is a partial order.
+     Suppose T1 and T2 are distinct elements of A and T2 4 T1 . We say T2 is a
+direct successor of T1 if there is no triangle T3 ∈ A distinct from T1 and T2 such that
+T2 4 T3 4 T1 .
+     Note that by planarity, every separating triangle is a direct successor of at most
+one triangle.
+     At all steps in the simplification of the inside of the triangle T , we shall require
+                                                                                     ′
+that no triangle T1 , int(T1 ) ⊆ int(T ), has three distinct direct successors T2 , T2 , and
+  ′′
+T2 . We define the invariant property for T to be such that T and every triangle inside
+of T has at most two distinct direct successors and there is no separating digon inside
+of T . In particular, any bounded facial triangle has the invariant property. Note that
+if the triangle T has the invariant property, then every triangle inside of T also has
+the invariant property (this is sort of a “relative hereditary property”). We say that
+a graph H has the invariant property if every triangle in H (and the outer face of H
+if it is a triangle) satisfies the invariant property.
+     The following theorem is of a more technical nature and is key to the subsequent
+results.
+
+Theorem 2 ([4, Lemma 1]) Let G, Q, and H = G/Q be as stated in (H) and let
+T ⊂ H be a triangle containing at least two vertices inside. If T satisfies the invariant
+                                                           ′                  ′
+property, then it is possible to select a triangular face T such that int(T ) ⊂ int(T )
+                  ′                                ′
+and |V (T ) ∩ V (T )| ≤ 1, and after contracting T to a single vertex T will still satisfy
+the invariant property.
+
+Proof. Suppose T satisfies the invariant property. Let D be the set of all separating
+            ′                                            ′                           ′
+triangles T inside of T such that no triangle inside of T is separating. That is, T has
+                                       ′
+no direct successors. Moreover, int(T ) does not contain a separating digon because
+                                                                                   ′
+T satisfies the invariant property by supposition. Observe that D ⊂ A, and T ∈ D
+corresponds to a sink in the Hasse diagram of (A, 4). We have two cases.
+
+
+
+                                             9
+Case 1. There exists a triangle T1 ∈ D whose interior contains at least two vertices.
+Set T1 = v1 v2 v3 v1 .
+
+    In this case, v1 has at least two distinct neighbors v4 and v5 inside of T1 . For if
+v1 has no such neighbors, then v1 belongs to a triangle inside of T1 that has an edge
+v2 v3 parallel to the corresponding edge of T1 , contrary to the assumption that there
+is no separating digon inside of T (since T satisfies the invariant property). And if
+v1 has precisely one such neighbor v4 inside of T1 , then for v4 ∈ N(v1 ) \ {v2 , v3 }, the
+triangle v2 v3 v4 v2 ⊂ int(T1 ) is separating, contrary to the choice of T1 ∈ D.
+    We may then choose v4 and v5 so that v2 , v4 , v5 are consecutive neighbors of v1 ,
+and contract the triangle T2 = v1 v4 v5 v1 .
+
+Claim 1 By contracting T2 , the triangle T still satisfies the invariant property.
+          ′                               ′
+    Set H = H/T2 . We note that in H , the triangle T1 will not contain any separating
+digon inside since such a digon would derive from a separating triangle inside T1 ,
+contrary to the choice of T1 ∈ D.
+    Next we show that after the contraction of T2 , the triangle T1 has at most two
+                          ′
+direct successors in H .
+          ′
+    In H however, there may appear separating triangles in int(T1 ). Such triangles
+derive from quadrilaterals Q1 = v1 v4 v6 v7 v1 , Q2 = v1 v5 v8 v9 v1 , and Q3 = v4 v5 v10 v11 v4
+in H, which contain some vertices inside other than v4 , v5 . Note that, there is no
+quadrilateral Q in H containing two edges of T2 and containing a vertex x ∈ int(Q).
+Otherwise, such a Q would imply the existence of a separating triangle inside of T1 ,
+contrary to the choice of T1 ∈ D.
+    If v2 = v6 , then v3 = v7 , since there is no separating triangle inside of T1 . In this
+case, the triangle deriving from Q1 = v1 v4 v6 v7 v1 is T1 , since we treat parallel edges
+as a single edge. Thus, suppose that v2 6= v6 . Moreover, we have v2 6= v7 6= v5 6= v6 ,
+v8 6= v4 6= v9 , and v11 6= v1 , respectively; otherwise we would have a separating digon
+in int(T1 ) ∩ H which contradicts the invariant property of T (since T1 4 T ), or a
+separating triangle in int(T1 ) ∩ H, contradicting the choice of T1 ∈ D.
+    The quadrilaterals of the same type as Q2 are of two kinds: first, int(Q2 ) contains
+v4 (in which case v9 = v2 ), or else int(Q2 ) does not contain v4 in which case it cannot
+have chords v1 v8 or v5 v9 inside; otherwise, there was a separating triangle in H inside
+of T1 , again a contradiction to the choice of T1 ∈ D. This implies that for all such
+quadrilaterals Q∗2 and Q∗∗                                       ∗       ∗∗    ∗∗
+                            2 containing v4 we have either Q2 ⊂ Q2 or Q2 ⊂ Q2 , and
+                                                                                        ∗
+
+
+
+                                              10
+                                                                         ′
+the same holds for quadrilaterals not containing v4 . Hence, let Q2 be the quadrilateral
+                                                                                              ′
+not containing v4 , but all other quadrilaterals of its kind are contained in int(Q2 );
+           ′′
+and let Q2 be the quadrilateral containing v4 , but all other quadrilaterals of its kind
+                                 ′′
+are contained in int(Q2 ).
+     The analogous properties hold for the quadrilaterals of the same type as Q1 , but
+these are of only one kind, namely the interior of Q1 containing v5 , otherwise v7 = v2 ,
+                                                       ′
+contrary to what has been said above. Let Q1 be the quadrilateral of the same type
+as Q1 containing v5 and with all quadrilaterals of the same type as Q1 contained in
+       ′
+int(Q1 ).
+     The analogous properties also hold for the quadrilaterals of the same type as Q3 ,
+but these are again of only one kind, namely the interior of Q3 does not contain v1 ,
+                                                         ′
+since they are contained in the triangle T1 . Let Q3 be the quadrilateral not containing
+                                                                                   ′
+v1 but with all quadrilaterals of the same type as Q3 contained in int(Q3 ).
+                   ′     ′     ′′            ′
+     That is, Q1 , Q2 , Q2 , and Q3 are the respective outermost quadrilaterals of their
+respective kinds.
+                     ′                                                           ′     ′ ′′    ′
+     Let TQ ⊂ H be the triangle deriving from the quadrilateral Q ∈ {Q1 , Q2 , Q2 , Q3 }
+                                                             ′      ′ ′        ′          ′ ′
+after contraction of T2 to the single vertex v ∗ where Q1 = v1 v4 v6 v7 v1 , Q2 = v1 v5 v8 v9 v1 ,
+  ′′          ′′ ′′                 ′          ′   ′
+Q2 = v1 v5 v8 v9 v1 , and Q3 = v4 v5 v10 v11 v4 .
+                           ′      ′   ′′         ′
+     Assume that Q1 , Q2 , Q2 , and Q3 exist. We first show that TQ′ 4 TQ′ and sym-
+                                                                          2          1
+                                                                                     ′
+metrically, TQ′ 4 TQ′ and TQ′ 4 TQ′′ (defining the partial order 4 in H as we did
+                  3          1             3         2
+                                                                   ′          ′′
+in H). Subsequently we shall conclude that at most one of Q1 and Q2 exist.
+                         ′               ′                 ′
+     Suppose int(Q2 ) * int(Q1 ). Since v5 ∈ int(Q1 ), it follows from the supposition
+         ′             ′
+that v9 ∈ ext(Q1 ) (observe that above we concluded v6 6= v5 6= v7 ). Therefore, we
+                                      ′
+have two possibilities for v8 .
+      ′     ′
+(1) v8 = v6 .
+                       ′           ′           ′           ′
+      In this case v7 ∈ int(Q2 ), since v9 ∈ ext(Q1 ). Therefore, the quadrilateral
+             ′ ′                        ′                                    ′
+      v1 v4 v6 v9 v1 contains properly Q1 , contradicting the definition of Q1 .
+      ′     ′
+(2) v8 = v7 .
+                                                                                              ′
+      In this case there is a separating triangle in int(T1 ) ∩ H which is either v1 v5 v7 v1
+             ′ ′
+      or v1 v7 v9 v1 ; this contradicts the choice of T1 ∈ D.
+                  ′           ′
+    Thus, int(Q2 ) ⊆ int(Q1 ). Therefore, TQ′ 4 TQ′ .
+                                              2      1
+                               ′                   ′          ′                        ′
+    Note that, int(T2 ) ⊆ int(Q1 ). Suppose int(Q3 ) ⊆ int(Q1 ) does not hold. Since Q1
+                                                       ′   ′      ′    ′
+is the outermost quadrilateral of its kind the cases v6 = v11 or v7 = v10 cannot happen;
+
+                                               11
+                   ′     ′                              ′        ′            ′
+therefore, either v6 = v10 yielding two triangles v4 v10 v11 v4 and v4 v5 v10 v4 at least one
+                                             ′     ′                              ′
+of which is a separating triangle in H; or v7 = v11 , yielding a triangle v1 v4 v11 v1 which
+is separating in H. Each of the above cases yields a separating triangle in int(T1 )
+                                               ′
+contradicting the choice of T1 . Thus int(Q3 ) does not contain any vertex or edge
+        ′            ′           ′
+of Q1 , hence int(Q3 ) ⊆ int(Q1 ) and thus TQ′ 4 TQ′ . Likewise we conclude that
+                                                 3        1
+TQ′ 4 TQ′′ .
+     3     2
+                      ′       ′′                                      ′
+       Now consider Q1 and Q2 . In general, we have {v1 , v2 , v5 , v6 } ⊆ N(v4 ). Since
+  ′′                                     ′′                                ′
+v9 = v2 , we have two possibilities for v8 as we had with respect to v8 above.
+     ′′       ′
+(1) v8 = v6 .
+                                                                          ′            ′
+      In this case there is a separating triangle v1 v2 v4 v1 or v2 v4 v6 v2 or v4 v5 v6 v4 in
+      int(T1 ) ∩ H; this contradicts the choice of T1 ∈ D.
+     ′′       ′
+(2) v8 = v7 .
+                                                            ′′
+      In this case we have a separating triangle v1 v2 v8 v1 in int(T1 )∩H; this cotradicts
+      the choice of T1 ∈ D.
+                         ′        ′′
+Thus, at most one of Q1 and Q2 exists. Therefore,
+   • the above relations TQ′ 4 TQ′ , TQ′ 4 TQ′ , TQ′ 4 TQ′′ and the fact that at most
+                            2      1    3     1    3      2
+         ′       ′′                                                                    ′
+one of Q1 and Q2 exists preclude that T1 has three or more direct successors in H ;
+                                                    ′
+   • if T1 has exactly one direct successor TQ in H , then TQ ∈ {TQ′ , TQ′ , TQ′′ , TQ′ };
+                                                                     1   2      2     3
+                                          ′
+   • if T1 has two direct successors in H , then they are either TQ′ and TQ′′ , or TQ′
+                                                                   2          2          2
+and TQ′ .
+          3
+
+
+
+   Note that every triangle deriving from a quadrilateral of the same type as Q2
+not containing v4 , or every triangle deriving from a quadrilateral of the same type as
+Q3 has at most one direct successor deriving from a quadrilateral of its respective type.
+
+   Every triangle deriving from a quadrilateral of the same type as Q2 containing v4
+has at most one direct successor deriving from either a quadrilateral of its type or a
+quadrilateral of the same type as Q3 .
+
+   Every triangle deriving from a quadrilateral of the same type as Q1 containing
+v5 has either at most one direct successor (deriving from either a quadrilateral of its
+type or from a quadrilateral of the same type as Q2 not containing v4 , or from a
+quadrilateral of the same type as Q3 ) or at most two direct successors deriving from
+
+                                             12
+two quadrilaterals, one of the same types as Q2 not containing v4 and one of the same
+type as Q3 .
+
+                                                                ′
+   Thus, T still satisfies the invariant property in H . This finishes the proof of
+Claim 1 and thus finishes the consideration of Case 1.
+
+Case 2 The interior of every member of D contains precisely one vertex.
+
+    In this case, there is a triangle T1 (possibly T1 = T ) satisfying the invariant prop-
+erty and such that either it has one direct successor T2 ∈ D or it has two direct
+successors T2 , T3 ∈ D. That is, there exist at most two separating triangles −T2 or
+T2 and T3 − in int(T1 ) ∩ H. Thus,
+
+    if a triangle inside of T1 different from T2 and T3 shares an edge with some Ti ,
+i ∈ {1, 2, 3}, then it is a face boundary.                                       (∗)
+
+Subcase 2.1 E(Ti )∩E(Tj ) = ∅ for i, j ∈ {1, 2, 3}, i 6= j, and thus |V (Ti )∩V (Tj )| ≤ 1
+since we treat parallel edges as a single edge.
+
+    By contracting any triangle inside of T2 , we will not create a separating digon
+since such a digon would derive from a separating triangle T0 in int(T1 ) ∩ H with
+int(T0 ) ∩ int(T2 ) = ∅ (since T2 is a direct successor of T1 ) and |V (T0 ) ∩ V (T2 )| = 2;
+so by the assumption of Subcase 2.1, T0 is distinct from T1 and T3 . Thus, T1 would
+contain a distinct direct successor other than T2 and T3 in H, contradicting the choice
+of T1 .
+
+Note that if a quadrilateral Q ⊂ H shares two edges with T2 , then the contraction of
+any triangle inside of T2 will not transform Q into a separating triangle or a sepa-
+rating digon (otherwise, either T1 would contain in H a distinct separating triangle
+other than T2 and T3 in H or T2 would not be a direct successor of T1 in H- which
+contradicts the choice of T1 or T2 ).                                            (∗∗)
+
+    Let v0 be the single vertex inside of T2 = v1 v2 v3 v1 . We must again consider
+quadrilaterals Q1 = v1 v2 v4 v5 v1 , Q2 = v1 v3 v6 v7 v1 , and Q3 = v2 v3 v8 v9 v2 which contain
+at least one vertex inside other than v0 , and such that {v1 , v2 , v3 } ∩ {v4 , . . . , v9 } = ∅.
+
+
+                                               13
+This equation derives from (∗∗) above and from the invariant property. Moreover,
+int(Qi ) ⊆ int(T1 ), i = 1, 2, 3 (otherwise, either T1 would contain a distinct separating
+triangle other than T2 and T3 in H - which contradicts the choice of T1 - or the
+contraction of any triangle in int(T2 ) would not transform that Qi into a separating
+digon or separating triangle inside of T1 ).
+
+Claim 2 There cannot exist simultaneously four quadrilaterals Qi , 1 ≤ i ≤ 3, and
+ ′          ′ ′                                         ′            ′
+Q1 = v1 v2 v4 v5 v1 where v4−i ∈ int(Qi ) and v3 ∈
+                                                 / int(Q1 ) but int(Q1 ) ∩ V (H) 6= ∅.
+
+    Supposing that Claim 2 fails and starting with a fixed Q1 , we consider all possi-
+bilities for Q2 vis-a-vis Q1 .
+    Suppose v6 = v5 . Then the triangle T ∗ = v1 v5 v7 v1 is separating. Since T2 ⊂
+int(T ∗ ), and T2 is a direct successor of T1 by the choice of T1 and Qi ⊂ T1 , for
+1 ≤ i ≤ 3, we have T ∗ = T1 . Thus, v1 is a vertex of T1 and, consequently, v1 ∈  / int(Q3 ),
+which is a contradiction.
+    Suppose v7 = v4 . Then, an analogous reasoning yields T1 = v1 v4 v5 v1 and the same
+conclusion as above holds (v1 ∈  / int(Q3 )).
+    Suppose v7 = v5 . Since T2 ⊂ v1 v5 v1 , therefore v1 v5 v1 is a separating digon which
+contradicts the invariant property of T1 .
+    Suppose v6 = v4 . If v8 = v7 , then v3 v6 v8 v3 would be a separating triangle in
+int(T1 ). Thus, v8 6= v7 . Therefore, v9 = v7 . If v8 = v4 , then v4 v7 v4 would be a
+separating digon in int(T1 ) (since v1 ∈ int(Q3 ),) which is a contradiction. Thus,
+v8 = v5 . Since T2 is a direct successor of T1 and v4 v5 v7 v4 4 T1 is a separating triangle
+containing T2 , we have T1 = v4 v5 v7 v4 , and either
+                        ′
+i) the quadrilateral Q1 would be inside the triangle v1 v2 v7 v1 which is a face boundary
+      by (∗) (since it shares the edge v1 v2 with T2 ), and this is impossible; or
+     ′
+ii) v5 would be inside the triangle v1 v5 v7 v1 which shares the edge v5 v7 with T1 . Thus
+      by (∗), the triangle v1 v5 v7 v1 is a face boundary and this is a contradiction again;
+      or
+         ′                  ′                                               ′          ′   ′
+iii) v4 = v7 = v9 and v5 = v5 = v8 . Note that the quadrilateral Q1 = v1 v2 v4 v5 v1
+                                                         ′          ′
+      contains some vertex inside; on the other hand v1 v4 devides Q1 into two triangles
+                                                                        ′
+      each of which shares an edge with T1 or T2 . Thus by (∗), int(Q1 ) ∩ V (H) = ∅,
+                                                     ′
+      which contradicts the supposed existence of Q1 .
+
+
+
+                                             14
+Claim 2 now follows.
+    Therefore, we may assume without loss of generality that either there is no quadri-
+                                                                         ′
+lateral Q1 containing v3 in its interior, or there is no quadrilateral Q1 not containing
+v3 in its interior such that after identifying v1 and v2 a new separating triangle arises.
+    The contraction of the triangle v0 v1 v2 v0 creates only a sequence of triangles with
+pairwise containment involving the new vertex v1 ≡ v2 , apart from the triangle T3 ,
+thus preserving the property that no triangle has three direct successors. Having
+shown at the begining of this subcase that the contraction of v0 v1 v2 v0 does not create
+a separating digon, we now conclude that the invariant property is being preserved.
+
+Subcase 2.2 T2 shares one edge with T1 where T2 = v1 v2 v3 v1 as before with int(T2 ) ∩
+V (H) = {v0 }. Without loss of generality E(T1 ) ∩ E(T2 ) = {v1 v3 }.
+
+    In this subcase |E(T2 ) ∩ E(T3 )| ≤ 1; otherwise E(T2 ) ∩ E(T3 ) = {v1 v2 , v2 v3 } and
+then the third edge of T3 would be an edge parallel to v1 v3 in T1 \ int(T2 ). Since T3 is
+a direct successor of T1 and int(T3 ) ∩ V (H) 6= ∅ we would have the separating digon
+v1 v3 v1 in int(T1 ), a contradiction to the invariant property satisfied by T1 . Therefore,
+without loss of generality suppose that v1 v2 ∈   / E(T3 ).
+    As before we consider the quadrilateral Q1 = v1 v2 v4 v5 v1 with (int(Q1 ) \ {v0 }) ∩
+V (H) 6= ∅ and v3 ∈   / int(Q1 ).
+    If v3 = v5 , then in H, either the digon v1 v3 v1 is a separating digon in T1 , which
+is a contradiction, or the triangle v2 v3 v4 v2 4 T1 is separating (because there is no
+separating triangle inside T2 ), so T3 = v2 v3 v4 v2 . Thus, the contraction of v0 v1 v2 v0
+yields a sequence of triangles with pairwise containment involving v1 = v2 and not
+containing v3 inside nor in their vertex sets. Therefore, the triangle T1 has at most
+                              ′
+one direct successor in H other than T3 .
+    Thus, suppose v3 6= v5 . If v3 = v4 , then there cannot be a separating digon v2 v3 v2 ,
+hence the triangle v1 v3 v5 v1 is separating; and because of T2 4 v1 v3 v5 v1 4 T1 , we have
+T1 = v1 v3 v5 v1 . Thus in this case, contracting the triangle v0 v1 v2 v0 will not transform
+                                          ′
+Q1 into a direct successor of T1 in H . Therefore assume that v3 6= v4 .
+    The contraction of the triangle v0 v1 v2 v0 creates only a sequence of triangles with
+pairwise containment involving the new vertex v1 ≡ v2 , apart from T3 , thus preserving
+the invariant property.
+
+Subcase 2.3 T2 shares the edge v1 v3 with T3 , and E(T1 ) ∩ E(Ti ) = ∅, i = 2, 3.
+
+
+                                             15
+    In this subcase, every quadrilateral Q1 = v1 v2 v4 v5 v1 containing v3 in its interior
+also contains T3 . So the contraction of v0 v1 v2 v0 yields two sequences of triangles with
+pairwise containment involving v1 ≡ v2 : one sequence containing v3 (and also T3 )
+inside and the other sequence not containing v3 inside, again preserving the property
+that no triangle has three direct successors. Theorem 2 now follows.
+   Proposition 3 generalizes Proposition 2 in [4].
+
+Proposition 3 Suppose G is a 3−connected cubic planar graph with a facial 2−factor
+Q. Assume that the faces not in Q are either quadrilaterals or hexagons, while the
+faces in Q are arbitrary. Suppose the reduced graph H = G/Q satisfies the invariant
+property, and that the outer face of H is a triangle. If H has an odd number of vertices,
+then H has a spanning tree of faces that are triangles, and so G is hamiltonian.
+
+Proof. Let T be the outer face of H. Apply Theorem 2 repeatedly to contract
+triangular bounded faces inside of T to single vertices while preserving the invariant
+property. Each step reduces the number of vertices by two, so at each step the order
+of the resulting graph remains odd until we are left with just the outer face T and
+parallel edges but no vertex in int(T ). We claim that the triangle corresponding
+to the innermost face T0 inside of T involving all three vertices together with the
+triangles contracted in this process forms a set of faces T of H and defines a spanning
+tree of faces HT . Now,
+                                                 [
+                             V (H) \ V (T ) ⊂         V (F )
+                                                    F ∈T −T0
+
+guarantees that T covers all of V (H), and HT is connected by construction.
+   If HT is not a spanning tree of faces, then there exists a set of triangles {T1 , . . . , Tk }
+⊂ T such that |V (Ti )∩V (Tj )| = 1 if j = i±1, counting modulo k, and V (Ti )∩V (Tj ) =
+∅ otherwise. Assume Ti0 is the last contracted triangle in the contraction process of
+the Ti ’s, 1 ≤ i ≤ k. Thus after the contraction of Ti for all 1 ≤ i 6= i0 ≤ k, Ti0 is
+being transformed into a digon. This contradicts the selection of Ti0 by Theorem 2.
+Proposition 3 now follows.
+   We note in passing that by using Lemma 9 below and Theorem A(ii), Theorem D
+can be shown to be a special case of Proposition 3. Moreover, let G be a 3−connected
+cubic graph and as described in Theorem B. Then H = G/Q is a triangulation of
+the plane. Thus, by Proposition 3 and Theorems A(ii) and B, we have the following
+corollary.
+
+                                               16
+Corollary 4 Let G0 be a simple 2−connected cubic planar graph of order n ≡ 2
+(mod 4) and let Q be the set of faces of Lf (G0 ) corresponding to faces of G0 . If
+Lf (G0 )/Q satisfies the invariant property, then Lf (G0 ) is hamiltonian.
+
+Note that G0 has an odd number of faces if n ≡ 2 (mod 4) where n is the order of
+G0 and thus for G = Lf (G0 ) we have that H = G/Q is of odd order. Satisfying the
+invariant property is an essential condition in Corollary 4. As shown in Figure 2, for
+a simple 2−connected cubic planar graph G, in H = Lf (G)/Q the triangle v1 v2 v3 v1
+has seven direct successors, but as we show below, H has no spanning tree of faces
+nor a quasi spanning tree of faces.
+
+Lemma 5 Let H be a plane graph with the outer face T = v1 v2 v3 v1 being triangular
+and such that every face of H is a digon or a triangle. Suppose that H is 4−connected
+and that there is a vertex v0 of degree 4 inside of T which belongs to 4 triangles at
+most one of which shares an edge with T . If v0 v4 v5 v0 and v0 v6 v7 v0 share no edge with
+                                                                              ′
+each other nor with T where O + (v0 ) = hv4 , v5 , v6 , v7 i, then the graph H resulting from
+removing v0 , identifying v4 with v5 and identifying v6 with v7 , satisfies the invariant
+property.
+
+Proof. Since H is 4−connected and v0 is a vertex of degree 4 inside of T , therefore
+v0 belongs to 4 triangles at most one of which shares an edge with T . Therefore
+there exist triangles v0 v4 v5 v0 and v0 v6 v7 v0 which share no edge with each other nor
+                     ′
+with T . Thus H is well defined. By 4-connectivity of H, it has no separating digon
+                                             ′
+nor a separating triangle. Note that H has no separating digon; otherwise, H has a
+                                                                                            ′
+separating triangle, which is a contradiction. We show that every triangle in H has
+at most two direct successors.
+     We first observe that there cannot exist simultaneously two quadrilaterals Q =
+                       ′                                             ′
+v0 v4 v8∗ v6 v0 and Q = v0 v5 v9∗ v7 v0 with int(Q) ⊂ T, int(Q ) ⊂ T , each containing a
+                             ′
+vertex inside, x and x , respectively, other than v4 , v5 , v6 , v7 , and {v4 , v5 , v6 , v7 } ∩
+{v8∗ , v9∗ } = ∅. Otherwise, v8∗ = v9∗ , in which case there is a separating triangle con-
+                   ′
+taining x or x in H, contradicting that H is 4−connected. Thus, without loss
+                               ′
+of generality, suppose Q does not exist. (Note that the quadrilateral v4 vi v6 v13 v4 ,
+i ∈ {5, 7}, either is contained in the quadrilateral v0 v4 v13 v6 v0 or contains the quadri-
+lateral v0 v4 v13 v6 v0 , and also the quadrilateral v5 vj v7 v15 v5 , j ∈ {4, 6}, either is con-
+tained in the quadrilateral v0 v5 v15 v7 v0 or contains the quadrilateral v0 v5 v15 v7 v0 .)
+                                                                                ′
+     There may, however, appear separating triangles inside of T in H . Such triangles
+                                                               ′
+derive from the following quadrilaterals. Let TQ ⊂ H be the triangle deriving from
+
+                                               17
+the quadrilateral Q ⊂ H.
+
+   • Q1 = v4 v5 v8 v9 v4 with {v0 , v6 , v7 } ∩ int(Q1 ) = ∅ and {v0 , v6 , v7 } ∩ {v8 , v9 } = ∅
+     but V (H) ∩ int(Q1 ) 6= ∅.
+
+   • Q1′ = v4 v5 v8′ v9′ v4 with v0 ∈ int(Q1′ ) and {v6 , v7 } ∩ {v8′ , v9′ } = ∅.
+
+   • Q2 = v6 v7 v10 v11 v6 with v0 ∈   / int(Q2 ) but V (H) ∩ int(Q2 ) 6= ∅ and such that
+     {v0 , v4 , v5 } ∩ {v10 , v11 } = ∅.
+
+   • Q2′ = v6 v7 v10′ v11′ v6 with v0 ∈ int(Q2′ ) and {v4 , v5 } ∩ {v10′ , v11′ } = ∅.
+
+   • Q3 = v0 v4 v12 v6 v0 containing v7 and at least another vertex inside.
+
+   • Q3′ = v0 v4 v12′ v6 v0 containing v5 and at least another vertex inside.
+
+Note that
+H cannot contain two quadrilaterals Q2′ and Q3 simultaneously, and it also cannot
+contain two quadrilaterals Q1′ and Q3′ simultaneously;                        (∗)
+
+otherwise, either v12 = v10′ and H contains a separating triangle containing a vertex
+in int(Q3 ) other than v7 , or v12 = v11′ and H contains a separating digon v6 v11′ v6 ,
+which is a contradiction.
+    No quadrilateral Q ∈ {Q1 , Q1′ , Q2 , Q2′ , Q3 , Q3′ } contains a chord inside; other-
+wise, there would be a separating triangle inside of T , which is a contradiction. This
+implies that for all such quadrilaterals Q∗ and Q∗∗ of the same type as Q, we have
+                                          ′
+either Q∗ ⊂ Q∗∗ or Q∗∗ ⊂ Q∗ . So let Q be the quadrilateral of the same type as Q
+containing all quadrilaterals of its type, for each Q ∈ {Q1 , Q1′ , Q2 , Q2′ , Q3 , Q3′ }.
+
+             ′     ′       ′                               ′   ′       ′
+Note that Q2 ⊂ Q3 ⊂ Q1′ , and symmetrically, Q1 ⊂ Q3′ ⊂ Q2′ .                               (∗∗)
+
+   Now we have to consider the following cases.
+
+                                              ′            ′
+Case 1 There exist the quadrilaterals Q3 and Q3′ simultaneously.
+
+                                                       ′           ′
+    In this case, by (∗), the graph H has no Q1′ nor Q2′ . Thus by (∗∗), T has two
+                                    ′                     ′
+direct successors TQ′ and TQ′ ′ in H . Every triangle of H deriving from a quadrilat-
+                       3        3
+eral of the same type as Q1 (or symmetrically, of the same type as Q2 ) has at most
+
+
+                                                  18
+one direct successor deriving from a quadrilateral of its type. Every triangle deriving
+from a quadrilateral of the same type as Q3 (or symmetrically, of the same type as
+Q3′ ) has at most one direct successor deriving from either a quadrilateral of its type
+or a quadrilateral of the same type as Q2 (or of the same type as Q1 ). Thus in Case
+     ′
+1, H satisfies the invariant property.
+
+                                                  ′            ′
+Case 2 There exists the quadrilateral Q3 but no Q3′ .
+
+                                              ′
+   In this case, by (∗), there is no Q2′ . Thus by (∗∗), T has at most two direct
+successors: they are either TQ′ and TQ′ ′ or TQ′ and TQ′ . Every triangle deriving
+                                  1               1        1       3
+
+from a quadrilateral of the same type as Q1 (or symmetrically, of the same type as
+Q2 ) has at most one direct successor deriving from a quadrilateral of its type. Every
+triangle deriving from a quadrilateral of the same type as Q1′ has at most one direct
+successor deriving from either a quadrilateral of its type or a quadrilateral of type
+Q3 . Every triangle deriving from a quadrilateral of the same type as Q3 has at most
+one direct successor deriving from either a quadrilateral of its type or a quadrilateral
+                                               ′
+of the same type as Q2 . Thus in this case, H satisfies the invariant property.
+                             ′          ′
+If there is a quadrilateral Q3′ but no Q3 , we argue analogously.
+
+                              ′           ′
+Case 3 T contains neither Q3 nor Q3′ .
+
+                                      ′                ′       ′   ′
+    In this case, by (∗∗) we have Q1 ⊂ Q2′ and Q2 ⊂ Q1′ . So T has at most two
+                      ′
+direct successors in H . Every triangle deriving from a quadrilateral of the same type
+as Q1 (or symmetrically, of the same type as Q2 ) has at most one direct successor
+deriving from a quadrilateral of its type. Every triangle deriving from a quadrilateral
+of the same type as Q1′ (or of the same type as Q2′ ) has at most one direct successor
+deriving from either a quadrilateral of its type or a quadrilateral of the same type as
+                                                                              ′
+Q2 (or symmetrically, of the same type as Q1 ). Therefore also in Case 3, H satisfies
+the invariant property. Lemma 5 now follows.
+   In the case of H having an even number of vertices, we are now able to find a
+quasi spanning tree of faces in H provided H has a degree 4 vertex.
+
+Proposition 6 Consider G and Q as in Proposition 3. Suppose that the reduced
+graph H = G/Q is 4−connected and that the outer face T of H is triangular. If
+H has an even number of vertices, and such that there is a vertex of degree 4 in
+
+
+                                                      19
+int(T ), then H has a quasi spanning tree of faces which are triangles, and so G is
+hamiltonian.
+
+Proof. Note that the graphs H under consideration satisfy the invariant property
+in a more restricted way (since by κ(H) = 4, the graph H has no separating digon
+nor a separating triangle). Let T = v1 v2 v3 v1 be the outer face of H and let v0 be a
+vertex of degree 4 in int(T ). By the hypothesis (no separating digon nor a separating
+triangle and |V (H)| is even), v0 cannot be incident to multiple edges unless K4 spans
+H and without loss of generality, v0 v3 is a multiple edge in which case H is not
+4−connected. Nonetheless in this exceptional case the two triangular faces v0 v1 v3 v0
+and v0 v2 v3 v0 define a quasi spanning tree of faces of H with the quasi vertex v0 .
+Therefore, in what follows we may assume that the vertex v0 belongs to 4 triangles
+at most one of which shares an edge with T and proceed as in the proof of Lemma 5.
+Set N(v0 ) = {v4 , v5 , v6 , v7 } and O + (v0 ) = hv4 , v5 , v6 , v7 i.
+    Select two triangles involving v0 that do not share an edge with each other nor
+with T , say v0 v4 v5 v0 and v0 v6 v7 v0 .
+           ′
+    Let H be the graph obtained from H by removing v0 , identifying v4 with v5 , and
+identifying v6 with v7 .
+                ′                                                       ′
+    Clearly, H has an odd number of vertices and by Lemma 5, H has the invariant
+                                              ′                              ′
+property. Thus by Proposition 3, H has a spanning tree of faces HT ′ where all
+                ′
+elements of T are triangles. It is easy to see that the union of v0 v4 v5 v0 and v0 v6 v7 v0
+                                          ′
+with the corresponding faces of T in H form a set of faces T and a quasi spanning
+tree of faces HT in H and v0 is a quasi vertex of HT .
+
+Since every simple 4−connected eulerian triangulation of the plane has at least six
+vertices of degree 4, the following is an immediate corollary of Propositions 3 and 6.
+
+Corollary 7 Every simple 4−connected eulerian triangulation of the plane has a
+quasi spanning tree of faces.
+
+Example 2.2 We claim that the 3−connected triangulation of the plane of Figure 2
+below has no quasi spanning tree of faces.
+    Proceeding by contradiction, we first assume that there is a set T of faces and HT
+is a spanning tree of faces in H. For every degree three vertex v0 and vi , 7 ≤ i ≤ 12,
+there exists precisely one triangle in T containing v0 or vi . Without loss of generality
+                                                                             / T , so v1 v2 v8 v1
+and because of symmetry, {v0 v4 v5 v0 , v1 v7 v5 v1 } ⊂ T . Then v1 v5 v8 v1 ∈
+or v2 v5 v8 v2 ∈ T . Since HT has no quasi vertex, and because no two faces in T share
+
+                                               20
+                                                    v2
+                                                     t
+
+
+
+                                    H
+                                                     t
+                                                    v9
+                                             v8 t           tv10
+                                                  tv5 v6 t
+                                                       t
+                                                    v0
+                                              tv7      t v11 t
+                                                       v4
+                                                       t
+                                                     v12
+                             v1 t                                         tv3
+
+
+ Figure 2: A 3−connected triangulation H of the plane without quasi spanning tree of faces.
+
+ an edge, therefore v2 v5 v9 v2 ∈  / T and so v2 v6 v9 v2 or v5 v6 v9 v5 belongs to T , thus as a
+ consequence v4 v6 v11 v4 ∈   / T . Again since HT has no quasi vertex, v1 v4 v12 v1 ∈          / T and
+ so v1 v3 v12 v1 or v3 v4 v12 v3 ∈ T . Therefore, {v3 v4 v11 v3 , v3 v6 v11 v3 } ∩ T = ∅ (otherwise,
+ there is a cycle of faces in HT ). Thus, there is no face in T containing v11 , which is a
+ contradiction. By a similar argument one can show that H has no quasi spanning tree
+ of faces, observing that quasi vertices must have even degree and thus without loss of
+ generality, v5 would be a quasi vertex and {v0 v4 v5 v0 , v1 v5 v7 v1 , v2 v5 v8 v2 , v5 v6 v9 v5 } ⊂ T ;
+ and as a consequence, v4 and v6 must be proper vertices; otherwise, v1 v4 v7 v1 ∈ T or
+ v0 v4 v6 v0 ∈ T , respectively, which is a contradiction.
+
+     Corollary 7 implies a result on hamiltonicity in planar cubic bipartite graphs.
+
+ Theorem 8 Let G be a bipartite cubic planar graph with the following properties.
+(i) In the natural 3−face coloring of G with colors 1, 2, 3, two of the color classes
+ (without loss of generality, color classes C1 and C2 ) contain hexagons only.
+(ii) The contraction of the faces in color class C3 is 4−connected.
+     Then G is hamiltonian.
+
+ Lemma 9 Let G be a simple cubic planar graph and let Q be the set of faces in
+ Lf (G) corresponding to the faces of G. Then,
+                                         ′
+                                        κc (G) = κ(Lf (G)/Q).
+
+ Proof. Let H = Lf (G)/Q. Note that by Definition 6 (ii), the reduced graph H is
+ a triangulation of the plane and every edge of H corresponds to a unique edge of G,
+
+                                                    21
+and vice versa; and every vertex of H corresponds to a unique face of G, and vice
+versa. Note that G and H can be drawn in the plane in such a way that f ∈ V (H)
+                                                                                 ′
+lies in int(F ) where f corresponds to the face F ∈ F (G), and such that f f ∈ E(H)
+                                                       ′
+crosses the corresponding edge e ∈ E(bd(F )) ∩ E(bd(F )) ⊂ E(G) precisely once.
+    Suppose that X ⊂ V (H), |X| = k, is a minimum vertex cut in H. Since H is a
+triangulation of the plane, the induced subgraph hXiH is a cycle C = f1 f2 . . . fk f1 such
+that int(C)∩V (H) 6= ∅ = 6 ext(C)∩V (H). Denote some vertices fk+1 ∈ int(C)∩V (H)
+and fk+2 ∈ ext(C) ∩ V (H).
+    Denote by vi vj ∈ E(G) the edge corresponding to the edge fi fj ∈ E(C), 1 ≤ i, j ≤
+k. Then, Y = {vi vi+1 | 1 ≤ i ≤ k − 1} ∪ {v1 vk } separates in G the face boundaries
+whose corresponding vertices in V (H) lie in int(C) from the face boundaries whose
+corresponding vertices in V (H) lie in ext(C). Thus, Y is a cyclic edge cut of G and
+                     ′                                                     ′
+therefore, κ(H) ≥ κc (G). By an analogous argument we obtain κ(H) ≤ κc (G); hence,
+           ′
+κ(H) = κc (G).
+   In the graph G as stated in Lemma 9, color the faces in Q with color 3. Then by
+Theorem 8 and Lemma 9, we obtain the following corollary.
+Corollary 10 Let G0 be a cyclically 4−edge-connected bipartite cubic planar graph.
+Then the leapfrog extension of G0 is hamiltonian.
+Again let G be a graph as stated in Theorem B. Then H = G/Q is a triangulation of
+the plane. Thus by applying Lemma 9 and Proposition 1, we may also conclude that
+Corollary 7 implies Corollary 10.
+
+    We note in passing that these results together with Theorem D are the best partial
+solutions of Barnette’s Conjecture, so far.
+Theorem 11 Let G be a planar 3−connected cubic graph with a facial 2−factor Q.
+Suppose all Qc −faces of G are either quadrilaterals or hexagons, while the Q−faces
+are arbitrary. Assume the outer face of the reduced graph H obtained from G by the
+contraction of the Q−faces is a triangle T , and assume that T and every triangle
+in H has an even number of vertices in its interior. If every direct successor in H
+contains no separating digon (if a direct successor exists), then H has a spanning tree
+of faces that are triangles, yielding a hamiltonian cycle for G.
+Proof. Consider H; it is of odd order n. We proceed by induction on n. For n = 3
+since G is 3−connected, H is a triangle with some parallel edges. Note that, H has
+no separating triangle, thus by Proposition 3, H has a spanning tree of faces.
+
+                                            22
+    Assume that the theorem is true for every graph of odd order less than n satisfying
+the hypothesis.
+    If H has no separating triangle, then by Proposition 3, H has a spanning tree of
+faces. Thus, there is a separating triangle T1 in H such that no triangle inside of T1 is
+separating. Therefore, |int(T1 ) ∩ V (H)| ≥ 2 but contains no separating triangle nor a
+separating digon. Thus, T1 satisfies the invariant property. Therefore by Theorem 2,
+                                 ′                   ′                            ′
+there exists a triangular face T such that int(T ) ⊂ int(T1 ) and |V (T1 ) ∩ V (T )| ≤ 1,
+                         ′
+and after contracting T to a single vertex, T1 will satisfy the invariant property. Now,
+       ′                                                  ′
+let H be the graph obtained from H by contracting T .
+                             ′
+    It is easy to see that H satisfies all hypotheses of Theorem 11 and its order is
+                                               ′
+n−2. (Note that every separating digon in H would derive from a separating triangle
+                                                                        ′
+inside T1 in H, contrary to the choice of T1 ). Thus by induction, H has a spanning
+                                                 ′
+tree of faces that are triangles with face set T . Let T be the union of the set of the
+                           ′                       ′
+corresponding faces of T in H and the set {T }. It can be easily seen that HT is a
+spanning tree of faces in H. This completes the proof of Theorem 11.
+   We note finally that in [6], hamiltonicity in the leapfrog extension of a plane cubic
+graph was studied from a different point of view.
+
+
+References
+ [1] D. W. Barnette, Conjecture 5. In William T. Tutte, ed., Recent Progress in
+     Combinatorics. Proceedings of the 3rd Waterloo Conference on Combinatorics,
+     vol. 3, p. 343. 1969.
+
+ [2] N.L. Biggs, E.K. Lloyd and R.J. Wilson, Graph theory: 1736 − 1936, Clarendon
+     Press, Oxford, 1976.
+
+ [3] J.A. Bondy and U.S.R. Murty, Graph theory, Graduate Texts in Mathematics,
+     244, Springer, New York, 2008.
+
+ [4] T. Feder and C. Subi, On Barnette’s Conjecture, Electronic Colloquium on Com-
+     putational Complexity TR06-015 (2006).
+
+ [5] H. Fleischner, Eulerian graphs and related topics, Part 1, Volume 1, Ann. of
+     Discrete Math. 45, 1990.
+
+
+
+
+                                           23
+ [6] H. Fleischner, A.M. Hobbs, M. Tapfuma Muzheve, Hamiltonicity in vertex en-
+     velopes of plane cubic graphs, Discrete Math., 309(14) (2009), 4793–4809.
+
+ [7] P.W. Fowler, How unusual is C60 ? Magic numbers for carbon clusters, Chem.
+     Phys. Lett., 131(6) (1986), 444–450.
+
+ [8] M.R. Garey, D.S. Johnson, and R.E. Tarjan, The planar Hamiltonian circuit
+     problem is NP-complete, SIAM J. Comput. 5 (1976), 704–714.
+
+ [9] P.R. Goodey, Hamiltonian circuits in polytopes with even sides, Israel Journal
+     of Mathematics 22 (1975), 52–56.
+
+[10] D.A. Holton, B. Manvel, and B.D. McKay, Hamiltonian cycles in cubic 3-
+     connected bipartite planar graphs, Journal of Combinatorial Theory B 38 (1985),
+     279–297.
+
+[11] J.D. Horton, On two-factors of bipartite regular graphs, Discrete Math. 41(1)
+     (1982), 35–41.
+
+[12] F. Kardoš, A computer-assisted proof of Barnette-Goodey conjecture: Not only
+     fullerene graphs are Hamiltonian, arXiv:1409.2440v2.
+
+[13] T.P. Kirkman, On the presentation of polyhedra, Philos. Trans. Roy. Soc. 146,
+     (1856), 413–418.
+
+[14] C. Payan, C. and M. Sakarovitch, Ensembles cycliquement stables et graphes
+     cubiques, Cahiers Centre D’études Recherche Opér. 17, (1975), 319–343.
+
+[15] J. Petersen, Sur le théorème de Tait, Interméd. Math. 5, (1898), 225–227.
+
+[16] P.G. Tait, Listing’s Topologie, Philosophical Magazine (5th ser.), 17 (1884), 30–
+     46. Reprinted in Scientific Papers, Vol. II, pp. 85–98.
+
+[17] A. Takanori, N. Takao, and S. Nobuji, NP-completeness of the Hamiltonian
+     cycle problem for bipartite graphs, Journal of Information Processing Abstract
+     Vol. 03 (1980) 73–76.
+
+[18] W.T. Tutte, On Hamiltonian circuits, J. London Math. Soc., 21(2) (1946), 98–
+     101.
+
+
+
+                                          24
+[19] W.T. Tutte, On the 2−factors of bicubic graphs, Discrete Math., 1(2) (1971),
+     203–208.
+
+[20] M. Yoshida, M. Fujita, P.W. Fowler, E.C. Kirby, Non-bonding orbitals in
+     graphite, carbon tubules, toroids and fullerenes, J. Chem. Soc., Faraday Trans.,
+     93 (1997), 1037–1043.
+
+
+
+
+                                         25
+

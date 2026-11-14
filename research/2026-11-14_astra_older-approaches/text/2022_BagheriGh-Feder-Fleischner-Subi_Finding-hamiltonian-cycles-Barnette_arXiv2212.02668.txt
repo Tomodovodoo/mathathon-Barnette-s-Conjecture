@@ -1,0 +1,734 @@
+                                           Fundamenta Informaticae 188(1) : 1–14 (2022)                                                                       1
+arXiv:2212.02668v2 [math.CO] 13 Dec 2022
+
+
+
+
+                                           Available at IOS Press through:
+                                           https://doi.org/10.3233/FI-222139
+
+
+
+                                                   On Finding Hamiltonian Cycles in Barnette Graphs
+
+                                           Behrooz Bagheri Gh.* †                                     Tomas Feder
+                                           Algorithms and Complexity Group                            Computer Science Department
+                                           Vienna University of Technology                            Stanford University
+                                           Favoritenstrasse 9-11, 1040 Vienna, Austria                Stanford, California 94305, USA
+                                           behrooz@ac.tuwien.ac.at                                    tomas@theory.stanford.edu
+                                           Herbert Fleischner∗                                        Carlos Subi
+                                           Algorithms and Complexity Group                            carlos.subi@hotmail.com
+                                           Vienna University of Technology
+                                           Favoritenstrasse 9-11, 1040 Vienna, Austria
+                                           fleischner@ac.tuwien.ac.at
+
+
+
+
+                                                   Abstract. In this paper we deal with hamiltonicity in planar cubic graphs G having a facial
+                                                   2−factor Q via (quasi) spanning trees of faces in G/Q and study the algorithmic complexity
+                                                   of finding such (quasi) spanning trees of faces. Moreover, we show that if Barnette’s Conjec-
+                                                   ture is false, then hamiltonicity in 3−connected planar cubic bipartite graphs is an NP-complete
+                                                   problem.
+
+
+                                                   Keywords: Barnette’s Conjecture; eulerian plane graph; hamiltonian cycle; spanning tree of
+                                                   faces; A−trail.
+
+
+                                           1. Introduction
+                                           Our joint paper [1] can be considered as the point of departure for the subsequent discussion and
+                                           results of this paper. We start with a few historical remarks. In 1884, Tait conjectured that every cubic
+                                           * Research supported in part by FWF Project P27615-N25.
+                                           †
+                                            Address for correspondence: Algorithms and Complexity Group, Vienna University of Technology, Favoritenstrasse 9-11,
+                                           1040 Vienna, Austria.
+
+                                           Received October 2020; accepted August 2021.
+2                   B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+3−connected planar graph is hamiltonian [2]. And Tait knew that the validity of his conjecture would
+yield a simple proof of the Four Color Conjecture. On the other hand, the Petersen graph is the smallest
+non-planar 3−connected cubic graph which is not hamiltonian, [3]. Tait’s Conjecture was disproved
+by Tutte in 1946, [4]. However, none of the known counterexamples of Tait’s Conjecture is bipartite.
+Tutte himself conjectured that every cubic 3−connected bipartite graph is hamiltonian [5], but this was
+shown to be false by the construction of a counterexample, the Horton graph [6]. Barnette proposed a
+combination of Tait’s and Tutte’s Conjectures implying that every counterexample to Tait’s conjecture
+is non-bipartite. However, it is a well-known fact that hamiltonicity in planar cubic graphs is an NP-
+complete problem. This implies that the existence of an A−trail in plane eulerian graphs is also an
+NP-complete problem even if restricted to planar 3−connected eulerian graphs (see Definition 2.1.(i)
+below).
+Barnette’s Conjecture [7] Every 3−connected cubic planar bipartite graph is hamiltonian.
+
+    We denote 3−connected cubic planar bipartite graphs as Barnette graphs. Holton, Manvel and
+McKay showed in [8] that Barnette graphs with up to 64 vertices are hamiltonian. The conjecture also
+holds for the infinite family of Barnette graphs where all faces are either quadrilaterals or hexagons,
+as shown by Goodey [9]. However, it is NP-complete to decide whether a 2−connected cubic planar
+bipartite graph is hamiltonian [10].
+    We note that [11] can essentially be viewed in part as a preliminary version of [1] and the current
+paper, with [1] focusing on graph theoretical results in [11], whereas the current paper’s focus are
+mainly algorithmic and complexity considerations as developed in [11]. However, additional results
+were developed to put [11] in a more general perspective.
+    We outline the structure of this paper as follows.
+    Section 2 of this paper starts with listing several known results from [1] and other papers, and
+several definitions; they can be viewed as the basis for this paper.
+   In Section 3 we first prove some structural results leading to a decision in polynomial time whether
+a Barnette graph with certain properties has a hamiltonian cycle of a special type (Corollary 3.3).
+     In Section 4 we first prove NP-completeness of the existence of certain types of spanning trees of
+faces (see Definition 2.3), and subsequent corollaries. Finally it is shown that if Barnette’s Conjecture
+is false, then hamiltonicity in Barnette graphs is an NP-complete problem.
+
+
+2. Preliminary discussion
+As for the terminology used in this paper we follow [12] unless stated explicitly otherwise. In partic-
+ular, the subset E(v) ⊆ E(G) denotes the set of edges incident to v ∈ V (G). For definitions we refer
+to [1] but for completeness’ sake we repeat some of them. Moreover, we present several known results
+(Theorems A-E) which can be viewed as the frame in which the results of this paper take place.
+
+Definition 2.1.
+    (i) Let H be a 2−connected eulerian plane graph. An eulerian trail L in H is an A−trail if any two
+        consecutive edges of L belong to a face boundary.
+                    B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs            3
+
+
+
+  (ii) An A−trail L in an eulerian triangulation of the plane is called non-separating if for every
+       face boundary T at least two edges of E(T ) are consecutive in L.
+
+ (iii) An A−partition of H is a vertex partition VL (H) = {V1 , V2 } induced by an A−trail L =
+       e1 e2 . . . em as follows. Consider a 2−face-coloring of H with colors 1 and 2. For every vertex
+       v of H, v ∈ Vi if and only if there is j ∈ {1, . . . , m − 1} such that v ∈ V (ej ) ∩ V (ej+1 ) and
+       the face containing ej and ej+1 in its boundary is colored 3 − i, i = 1, 2, where V (e) is the set
+       of vertices incident to the edge e.
+
+There is a close conection between hamiltonian cycles in Barnette graphs and A-trails in their dual.
+
+Theorem A. ([13, Theorem VI.71]) A 2−connected plane cubic bipartite graph has a hamiltonian
+cycle if and only if its dual graph has a non-separating A−trail.
+
+Definition 2.2.
+  (i) Suppose H is a 2−connected plane graph. Let F(H) be the set of faces of H. The radial graph
+      of H denoted by R(H) is a bipartite graph with the vertex bipartition {V (H), F(H)} such that
+      xf ∈ E(R(H)) if and only if x is a vertex in the boundary of F ∈ F(H) corresponding to
+      f ∈ V (R(H)).
+
+
+  (ii) Let U ⊆ V (H) and let T ⊂ F(H) be a set of bounded faces of H. The restricted radial
+       graph R(U, T ) ⊂ R(H) is defined by R(U, T ) = hU ∪ T iR(H) .
+
+    For the next definition let H be a 2−connected plane graph, let U ⊆ V (H) and let T ⊂ F(H) be
+a set of bounded faces whose boundaries are pairwise edge-disjoint and such that every vertex of H is
+contained in some element of T . We define a subgraph HT of H by HT = H[∪F ∈T E(F )].
+
+Definition 2.3. If F ∈ T : x ∈ V (F ) = 12 degH (x) for every x ∈ V (H) \ U , and if R(U, T )
+                    
+
+is a tree, then we call HT a quasi spanning tree of faces of H, and the vertices in U (V (H) \ U )
+are called proper (quasi) vertices. If U = V (H), then HT is called a spanning tree of faces.
+
+   In other words, a spanning tree of faces is a spanning bridgeless cactus whose cycles are face
+boundaries.
+
+Definition 2.4. The leapfrog extension Lf (G) of a 2−connected cubic plane graph G is the cubic
+plane graph obtained from G by replacing every v ∈ V (G) by a hexagon C6 (v), with C6 (v) and
+C6 (w) sharing an edge if and only if vw ∈ E(G); and these hexagons are faces of Lf (G).
+
+    We note in passing that we call leapfrog extension what is called in other papers vertex envelope,
+or leapfrog construction, or leapfrog operation, or leapfrog transformation (see e.g. [14, 15, 16, 17]).
+
+   If a plane graph has a face-coloring with color set X, the faces of color x ∈ X will be called
+x−faces.
+4                   B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+Observation 1. We observe that if H is a plane eulerian graph with δ(H) ≥ 4 having an A−trail L,
+then L defines uniquely a quasi spanning tree of faces. Conversely, a (quasi) spanning tree of faces HT
+defines uniquely an A−trail in HT (where T is defined as in the paragraph preceding Definition 2.3).
+
+Proof:
+Start with a 2−face-coloring of H with colors 1 and 2, suppose the outer face of H is colored 1. To
+show the first part of Observation 1, let VL (H) = {V1 , V2 } be the A−partition of V (H) induced by
+L (see Definition 2.1.(iii)). Now, the set of all 2−faces defines a quasi spanning tree of faces HT with
+V1 being the set of all quasi vertices of HT . The second part of Observation 1 follows similarly.    ⊓
+                                                                                                      ⊔
+
+    The aforementioned relation between the concepts of A−trail and (quasi) spanning tree of faces is
+not a coincidence. In fact, it had been shown ([13, pp. V I.112 − V I.113] – see also Theorem A) that
+
+    • Barnette’s Conjecture is true if and only if every simple 3−connected eulerian triangulation of
+the plane admits an A−trail.
+
+    We point out, however, that the concept of (quasi) spanning tree of faces is a somewhat more
+general tool to deal with hamiltonian cycles in plane cubic graphs, than the concept of A−trails. We
+are thus focusing our considerations below on the complexity of the existence of A−trails and (quasi)
+spanning trees of faces in plane (eulerian) graphs.
+    Parts of this paper are the result of extracting some results and their proofs of [11]; they have not
+been published in a refereed journal yet. Moreover, we relate some of the results of this paper to the
+theory of A−trails, as developed in [13].
+    Next we list some results of the preceding joint paper [1] which will be essential for the current
+paper. In general, when we say that F is an X −face (X c −face), we mean that F ∈ X (F ∈       / X ).
+    Consider a 3−connected cubic plane graph G with a facial 2−factor Q. Given a quasi spanning
+tree of faces HT in the reduced graph H = G/Q, we assume the outer face is not in T , and traverse
+the A−trail of HT (see the second part of Observation 1), to obtain a hamiltonian cycle C in G such
+that the faces of Q corresponding to the proper vertices of HT lie inside of C whereas the faces of Q
+corresponding to quasi vertices of HT lie outside of C. In fact the following is true.
+
+Theorem B. ([1, Proposition 1]) Let G be a 3−connected cubic plane graph G with a facial 2−factor
+Q. Then, the reduced graph H = G/Q has a quasi spanning tree of faces, HT , with the outer face
+not in T , if and only if G has a hamiltonian cycle C with the outer Qc −face outside of C, with all
+Q−faces corresponding to proper vertices of HT inside of C, with all Q−faces corresponding to quasi
+vertices of HT outside of C, and such that no two Qc −faces sharing an edge are both inside of C.
+
+Theorem C. ([1, Corollary 7]) Every simple 4−connected eulerian triangulation of the plane has a
+quasi spanning tree of faces.
+
+    Note, however, that it is an open problem whether such triangulations have an A–trail.
+
+    Additionally, two old results are listed below.
+                    B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs             5
+
+
+
+Theorem D. ([18, Corollary 3]) The problem of deciding whether a planar eulerian graph admits an
+A−trail remains NP-complete for 3−connected graphs having only 3−cycles and 4−cycles as face
+boundaries, and for which all faces with 4−cycles as boundaries have the same color in the 2−face-
+coloring.
+
+   In contrast, Andersen et al. in [19] gave a polynomial algorithm for finding A−trails in simple
+2−connected outerplane eulerian graphs.
+
+Theorem E. ([14, Theorem 23]) The decision problem of whether the leapfrog extension of a plane
+cubic graph with multiple edges is hamiltonian is NP-complete.
+
+
+3. Graph theoretical results and polynomially solvable problems
+In proving Propositions 3 and 6 and Theorem 11 in [1], we used implicitly some algorithms to con-
+struct a (quasi) spanning tree of faces. In all of them, we find some triangular face such that the graph
+resulting from the contraction of this face, still satisfies the hypothesis of the respective result. By
+repeating this process, finally the contracted faces together with a special face form a (quasi) spanning
+tree of faces. Note that it is possible to identify the contractible faces in linear time, since every sim-
+ple plane graph has O(n) faces, where n is the order of a graph under consideration. Therefore, our
+algorithms for finding a quasi spanning tree of faces in [1] are polynomial.
+    We show next that one can decide in polynomial time whether the reduced graph H with a set D
+of edge-disjoint faces in H has a spanning tree of faces in D provided every face boundary of H is a
+digon or a triangle.
+
+   The Spanning Tree Parity Problem: Given a graph G and a collection of disjoint pairs of edges,
+{{ei , fi } | i = 1, . . . , k}. The Spanning Tree Parity Problem (STPP) asks whether G has a
+spanning tree T satisfying |{ei , fi } ∩ E(T )| ∈ {0, 2}, for each i = 1, . . . , k.
+
+    Note that the STPP is solvable in polynomial time (see [20, 21]).
+
+Theorem 3.1. Let G be a 3−connected cubic plane graph having a facial 2−factor Q and H = G/Q.
+Let D be a set of edge-disjoint faces in H such that D covers all of V (H) and such that all faces in D
+are either digons or triangles. Then we can decide in polynomial time whether H has a spanning tree
+of faces in D, yielding a hamiltonian cycle for G, by a spanning tree parity algorithm.
+
+Proof:
+                      ′                                ′
+Construct a graph H related to H as follows. V (H ) = V (H). If xyx is a digon in D, then let xy be
+              ′                                                              ′
+an edge in H . If xyzx is a triangle in D, then put edges xy and yz in H (the naming of the vertices
+of the triangle with the symbols x, y, z is arbitrary but fixed). A spanning tree of faces in D for H then
+                                        ′
+corresponds to a spanning tree T in H satisfying |{xy, yz} ∩ E(T )| ∈ {0, 2}, for each triangle xyzx
+                                                       ′
+in D. Thus, these conditions on pairs of edges in H transform the problem of finding a spanning tree
+of faces in D for H, yielding a hamiltonian cycle for G by Theorem B, equivalently in polynomial
+                          ′
+time into an STPP in H .                                                                                 ⊓
+                                                                                                         ⊔
+6                   B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+    If D contains faces with four or more sides, say a face xyztx, then we could include three edges
+linking these four vertices, say xy, yz, and zt, and require that a spanning tree must contain either all
+three or none of these three edges. Such a Spanning Tree Triarity Problem (STTP), as we shall see
+later in Theorem 4.2, turns out to be NP-complete.
+    The following result demonstrates the close relationship between A−trails and spanning trees of
+faces vis-a-vis hamiltonian cycles.
+
+Theorem 3.2. Let G be a Barnette graph whose faces are 3−colored with color set {1, 2, 3} and
+suppose without loss of generality that the outer face of G is a 3−face. The following statements are
+equivalent.
+
+(i) G has a hamiltonian cycle C with the 2−faces lying inside of C, the 3−faces lying outside of C,
+     and 1−faces on either side;
+(ii) the reduced graph H obtained by contracting the 1−faces has an A−trail;
+                              ′
+(iii) the reduced graph H obtained by contracting the 2−faces has a spanning tree of 1−faces;
+                              ′′
+(iv) the reduced graph H obtained by contracting the 3−faces has a spanning tree of 1−faces.
+
+Proof:
+(i) ⇒ (ii) : Let TC be a closed trail in H induced by hamiltonian cycle C of G having the properties
+described in (i). TC is an eulerian trail, otherwise there are two faces of G with two different colors
+2 and 3 lying on one side of C. This obvious contradiction to (i) guaranties that TC is an eulerian
+trail. Since all 2−faces (3−faces) of G are lying inside (outside) of C, for every 1−face F1 of G
+we conclude that E(F1 ) ∩ E(C) is a matching. Therefore, every pair of consecutive edges of TC
+corresponds to a path of length three in C such that the central edge of this path from one side belongs
+to a 1−face boundary, and from the other side all three edges belong to an i−face boundary, i ∈ {2, 3}.
+Thus, any two consecutive edges of TC belong to a face boundary in H and so TC is an A−trail.
+(ii) ⇒ (i) : The 3−face-coloring of G induces a 2−face-coloring in H using colors 2 and 3 and such
+that the outer face of H is a 3−face. Now it is easy to see that any A−trail of H can be transformed
+into a hamiltonian cycle C of G with the 2−faces lying inside of C, the 3−faces lying outside of C,
+and 1−faces lying on either side.
+                                                              ′
+(i) ⇒ (iii) : Now consider the 2−face-coloring of H induced by the 3−face-coloring of G. Let
+          ′                                                                                       ′
+U = V (H ) be the vertex set corresponding to the 2−faces. Also, let T be the set of 1−faces of H
+corresponding to the 1−faces in int(C).
+    Observe that Gint := C ∪ int(C) is a spanning outerplane subgraph of G, and that the weak
+dual (the subgraph of the dual graph whose vertices correspond to the bounded faces) of Gint is a tree
+                         ′       ′
+(see [13]). Therefore, Hint ⊂ H being the reduced graph of Gint after contracting the 2−faces, is a
+                           ′
+spanning tree of faces in H .
+                          ′                                        ′            ′
+(iii) ⇒ (i) : Suppose H has a spanning tree of 1−faces HT . Then HT has a unique A−trail which
+                                                                                               ′
+can be transformed into a hamiltonian cycle C of G such that the 2−faces (corresponding to V (H ))
+lie in int(C) and the corresponding 3−faces lie in ext(C).
+                   B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs                7
+
+
+
+   The equivalence of (i) and (iv) is established analogously by looking at Gext := C ∪ ext(C)
+which is also an outerplanar graph.                                                          ⊓
+                                                                                             ⊔
+
+   An application of Theorems 3.1 and 3.2 yields the following.
+
+Corollary 3.3. Let G be a Barnette graph with a 3−face-coloring with color set {1, 2, 3}, and let H
+be the reduced graph obtained by contracting the 1−faces. Suppose all vertices of H have degree
+4 or 6. Then one can decide in polynomial time whether H has an A−trail which in turn yields a
+hamiltonian cycle in G.
+
+Proof:
+                                                                                  ′
+Let H be the reduced graph of G obtained by contracting the 1−faces, and let H be the reduced
+graph of G obtained by contracting the 2−faces instead of the 1−faces. Then each 1−face of G
+                               ′
+yields a digon or triangle in H . By Theorem 3.2, an A−trail in H corresponds to a spanning tree of
+              ′                                      ′
+1−faces in H and vice versa. Since all 1−faces of H are either digons or triangles, one can decide
+                                                                                      ′
+in polynomial time by Theorem 3.1 whether such a spanning tree of 1−faces exists in H .          ⊓
+                                                                                                 ⊔
+
+     By Observation 1, we have the following theorem in which we make use of the fact that an (eu-
+lerian) triangulation of the plane admits two interpretations, namely: as the dual of a plane cubic
+(bipartite) graph, and as the contraction of a facial (even) 2−factor Q in G whose faces in Qc are
+hexagons.
+
+Theorem 3.4. Let G be a Barnette graph and let F be the set of its faces. Let QF be the facial
+2−factor of Lf (G) corresponding to F and let the color classes of the 3−face-coloring of Lf (G) be
+denoted by F1 , F2 , and F3 such that F3 = QF , and thus F1 , F2 translates into a 2−face-coloring of
+Lf (G)/QF denoting the corresponding sets of faces by F 1, F 2 and whose vertex set (corresponding
+to F3 ) be denoted by V3 . G∗ denotes the dual of G. Then the following is true.
+(1) G∗ = Lf (G)/QF .
+                                                                                                       ′
+(2) G is hamiltonian if and only if Lf (G) has a hamiltonian cycle C such that int(C) = F1 ∪ F3 and
+                         ′′              ′
+     ext(C) = F2 ∪ F3 where F3 = F3 ∪F     ˙ 3′′ .
+      Statement (2) is equivalent to
+                                                                                              ′   ′′
+(3) G∗ has a non-separating A−trail if and only if there is a partition V3 = V3 ∪V       ˙ 3 such that
+                                                                                           ′
+     Lf (G)/QF has a quasi spanning tree of faces containing all of F 1 and where V3 is its set of
+                           ′′                                ′      ′′
+     proper vertices and V3 is its set of quasi vertices. (V3 and V3 are the vertex sets in Lf (G)/QF
+                         ′       ′′
+     corresponding to F3 and F3 , respectively, - see (2) above).
+
+Proof:
+By Definition 2.4 and definition of the dual graph of a plane graph, statement (1) is true.
+    Next we show that (2) is true. Assume G has a hamiltonian cycle C0 = e1 e2 . . . en such that
+ei = vi vi+1 for i = 1, . . . , n − 1, en = vn v1 . Let e = vi vj ∈ E(G) be the edge corresponding
+    ′
+to e ∈ E(C6 (vi )) ∩ E(C6 (vj )) ⊂ E(Lf (G)), for 1 ≤ i 6= j ≤ n (see Definition 2.4 concerning
+C6 (vi )).
+8                    B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+    Now we construct a hamiltonian cycle C in Lf (G) corresponding to C0 as follows. Consider
+        ′                                                                            ′  ′
+C ◦ = {ei | i = 1, . . . , n}.   If C6 (vi+1 ) ∈ F1 (C6 (vi+1 ) ∈ F2 ) where {ei , ei+1 } ⊂ E(C6 (vi+1 )),
+                                                                ′        ′
+add the path in C6 (vi+1 ) connecting the endvertices of ei and ei+1 outside (inside, respectively) C0
+                                                                                                     ′      ′
+to C ◦ , for i = 1, . . . , n − 1. Then add the path in C6 (v1 ) connecting the endvertices of e1 and en
+inside (outside, respectively) C0 to C ◦ ; call the final set thus constructed C. By the construction of C,
+                    ′                          ′′                 ′
+int(C) = F1 ∪ F3 and ext(C) = F2 ∪ F3 where F3 = F3 ∪F              ˙ 3′′ . Since every vertex v ∈ V (Lf (G))
+is incident to an adge e which belongs to an i−face boundary, i ∈ {1, 2}, by F1 ⊂ int(C) and
+F2 ⊂ ext(C), we have C traverses the edge e and then v ∈ V (C). Therefore, C is hamiltonian.
+Conversely, it is straightforward to see that a hamiltonian cycle in Lf (G) as described yields a hamil-
+tonian cycle in G. Thus, (2) is true.
+    Theorem A emplies that (2) is equivalent to the left side of (3).
+    And finally we show that (2) is equivalent to the right side of (3). Again consider a hamiltonian
+                                                                                       ′
+cycle in G. By (2), there is a hamiltonian cycle C in Lf (G) such that int(C) = F1 ∪F3 and ext(C) =
+        ′′               ′     ′′           ′                                                        ′
+F2 ∪ F3 where F3 = F3 ∪F   ˙ 3 . Now, let V3 be the set of vertices in Lf (G)/QF corresponding to F3 .
+                                       ′
+Then, it can be seen easily that R(V3 , F 1) is a tree; and therefore, Lf (G)/QF has a quasi spanning
+                                                  ′
+tree of faces containing all of F 1 and where V3 is its set of proper vertices. Thus, (3) is true. The
+converse is true by Theorem 3.2.                                                                     ⊓
+                                                                                                     ⊔
+
+    Theorem 3.4 puts hamiltonicity in G in a qualitative perspective of the algorithmic complexity
+regarding quasi spanning trees of faces of a special type in the reduced graph of the leapfrog extension
+of G. In fact, if G is a class of Barnette graphs where hamiltonicity can be decided in polynomial time,
+then the same can be said regarding special types of quasi spanning trees of faces in the reduced graphs
+of the leapfrog extensions of the elements of G (as stated in the theorem). For, given a hamiltonian
+cycle C0 in G ∈ G, a non-separating A−trail LC0 in G∗ can be found in polynomial time which in
+turn yields a quasi spanning tree of faces in Lf (G)/QF as described in (3), also in polynomial time.
+Compare this with Theorem E and Theorem C.
+    The following proposition shows that if Barnette’s Conjecture is false then there is a particular
+edge e in some hamiltonian Barnette graph such that every hamiltonian cycle of that graph contains e.
+
+Proposition 3.5. If there exists a non-hamiltonian Barnette graph, then there exists a hamiltonian
+Barnette graph G1 with a particular edge e = uv such that e ∈ E(C) for every hamiltonian cycle C
+of G1 . Furthermore, if e1 and e2 are the two edges other than e incident to u in G1 , then G1 has a
+hamiltonian cycle Ci traversing e and ei , for i = 1, 2.
+
+Proof:
+Suppose G0 is a smallest counterexample to Barnette’s Conjecture.
+    First we construct a hamiltonian Barnette graph G1 with a particular edge e0 = u0 v0 such that
+e0 ∈ E(C) for every hamiltonian cycle C of G1 .
+    Let Q = wxyzw be a facial quadrilateral in G0 and let a1 be the third neighbour of a in G0 , for
+a ∈ {w, x, y, z}.
+          ′                                              ′′
+    Set G0 = (G0 \ {w, x, y, z}) ∪ {w1 x1 , y1 z1 } and G0 = (G0 \ {w, x, y, z}) ∪ {w1 z1 , x1 y1 }. Both
+  ′       ′′
+G0 and G0 are planar, cubic and bipartite.
+                    B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs              9
+
+
+                    ′                                                           ′
+    Suppose that G0 is 3−connected. By minimality of G0 , the graph G0 has a hamiltonian cycle. Fur-
+                                        ′
+thermore, no hamiltonian cycle of G0 goes through either the edge w1 x1 or the edge y1 z1 ; otherwise,
+we can extend this cycle to a hamiltonian cycle in G0 , a contradiction.
+                                                                         ′
+    We have thus guaranteed that no hamiltonian cycle in G1 = G0 traverses a particular edge w1 x1 ,
+and thus every hamiltonian cycle traverses an edge e0 adjacent to w1 x1 , as desired. The same conclu-
+                            ′′
+sions can be drawn if G0 is 3−connected.
+                              ′      ′′
+    Suppose now that G0 and G0 are both 2−connected only. Then there are two edge cuts of size
+four, T1 and T2 , in G0 such that {wx, yz} ⊂ T1 and {wz, xy} ⊂ T2 .
+    Removing the vertices w, x, y, z and the remainder of the two edge cuts T1 and T2 separates G0
+into four components R1 , R2 , R3 , R4 , with the removed edges of G0 including an edge from Ri to
+Ri+1 , for i = 1, 2, 3, and an edge from R4 to R1 , plus the four edges from the four Ri ’s incident to a
+vertex of Q. That is, each Ri is incident to three edges whose endvertices not in Ri can be identified to
+                                              ′
+a single vertex ri to obtain a bipartite Ri , since their three endvertices in Ri are at even distance from
+each other. For, in the 2−vertex-coloring of G0 , the three vertices of degree 2 of Ri , 1 ≤ i ≤ 4, must
+have the same color; otherwise, two copies of such Ri could be used to construct a cubic bipartite
+                                      ′
+graph having a bridge. Clearly, Ri is 3−connected, cubic, planar, and bipartite, for each i = 1, . . . , 4.
+                                            ′
+    By minimality of G0 each such Ri has a hamiltonian cycle, yet it is not the case that each of the
+three choices of two edges incident to ri yields a hamiltonian cycle, since otherwise we could obtain
+                                                                                    ′
+a hamiltonian cycle for G0 . Thus one of the three edges incident to ri in Ri must belong to every
+                                                                   ′
+hamiltonian cycle, thus yielding a Barnette graph G1 = R1 with an edge e0 = u0 v0 that belongs to
+every hamiltonian cycle of G1 .
+                                          ′                       ′        ′
+    If G1 has a hamiltonian cycle Ci traversing e0 and ei = u0 vi , for i = 1, 2, then let e = e0 ,
+         ′             ′
+Ci = Ci , and ei = ei , for i = 1, 2. This would complete the proof of Proposition 3.5. Thus, suppose
+                                                                       ′       ′
+instead that every hamiltonian cycle in G1 is forced to traverse e1 = u0 v1 ∈ E(G1 ) as well.
+                                                                ′
+    Let C0 = f0 , f1 , . . . , fn−1 where f0 = e0 and f1 = e1 be a fixed hamiltonian cycle of G1 and let
+k to be the largest index such that the section f0 , . . . , fk−1 belongs to every hamiltonian cycle of G1 ,
+whereas fk does not belong to every hamiltonian cycle of G1 . Such k must exist; otherwise G1 would
+be a uniquely hamiltonian graph which is impossible since G1 is cubic. Denote fk−1 = e = uv such
+that fk is incident to u. Set e1 = fk , and let e2 be the third edge incident to u. Now, there must be a
+hamiltonian cycle C1 other than C0 not containing e1 since e1 = fk does not belong to all hamiltonian
+cycles of G1 . Thus C1 traverses e and e2 . This finishes the proof of Proposition 3.5.                   ⊓
+                                                                                                          ⊔
+
+
+4. NP-complete problems
+We now establish several NP-completeness results.
+In the proof of Theorem D, one may assume without loss of generality that the outer face and all
+quadrilaterals have color 2. Then by Observation 1, we have the following corollary.
+
+Corollary 4.1. Let G be a Barnette graph with a 3−face-coloring with color set {1, 2, 3}. Assume
+the outer face of G is colored 2 and H is the reduced graph obtained by contracting the 1−faces
+and equipped with a 2−face-coloring. Suppose that H has only triangles and quadrilaterals as face
+boundaries, and for which all quadrilaterals have color 2 in the 2−face-coloring. Then the decision
+10                  B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+problem of whether H has a quasi spanning tree defined by the set of all (triangular) 3−faces is
+NP-complete.
+
+In Theorem 4.2, we give a similar result concerning the reduced graph H containing only digons and
+quadrilaterals. For such a graph, we are trying to find a spanning tree of quadrilaterals.
+    The decision problem of whether a 3−connected planar cubic graph G0 has a hamiltonian cycle
+is NP-complete, as shown by Garey et al. [22]. Let e = uv ∈ E(G0 ). Then the decision problem
+of whether G0 has a hamiltonian cycle traversing this specified edge e, is also NP-complete. Let
+  ′                                                         ′
+G0 = G0 \ {e}. Thus, the decision problem of whether G0 has a hamiltonian path from u to v is also
+NP-complete.
+
+Theorem 4.2. Let G be a Barnette graph. Let cf be a 3−face-coloring of G with color set {1, 2, 3},
+and let H be the reduced graph obtained by contracting the 1−faces and equipped with a 2−face-
+coloring induced by cf . Suppose that the 2−faces in H are quadrilaterals and the 3−faces in H are
+digons. Then the decision problem of whether H has a spanning tree of 2−faces is NP-complete.
+
+Proof:
+                                                                                       ′
+We want to construct G and H as stated in the theorem. To this end, consider G0 and G0 as described
+                                                                       ′
+in the paragraph preceding the statement of Theorem 4.2 and assume G0 is the plane graph resulting
+by edge deletion from a fixed imbedding of G0 . Let H be the plane graph resulting by replacing every
+                              ′
+edge of the radial graph R(G0 ) with a digon; H is eulerian and hence 2−face-colorable. First color
+                                         ′
+the digons corresponding to edges in R(G0 ) with color 3. The remaining faces of H are quadrilaterals
+          ′ ′                      ′       ′                   ′               ′     ′
+Q = xf x f x corresponding to xx ∈ E(G0 ) ∩ bd(F ) ∩ bd(F ) with F and F in G0 corresponding
+       ′            ′
+to f, f ∈ V (R(G0 )). Color these quadrilaterals with color 2. Let G be the plane cubic graph
+obtained from H by replacing each w ∈ V (H) with a cycle Cw = w1 . . . wdegH (w) w1 and replacing
+                           ′                                                               ′
+ei = ui w ∈ E(H) with ei = ui wi , for i = 1, . . . , degH (w). We have κ(H) ≥ 2, but κ (H) > 2.
+Therefore, G is 3−connected and thus a Barnette graph whose 3−face-coloring has color set {1, 2, 3};
+the 1−faces of G correspond to the vertices of H.
+                                      ′                                                        ′
+Claim 4.3. A set L of edges in G0 forms a hamiltonian path from u to v in G0 if and only if HT
+is a spanning tree of 2−faces in H where T is the set of 2−faces (which are quadrilaterals) in H
+                                  ′
+corresponding to the edges in E(G0 ) \ L.
+                                                              ′          ′          ′
+    Suppose L is a hamiltonian path from u to v in G0 . Let L = E(G0 ) \ L (which is a perfect
+                                 ′                                                                        ′
+matching in both G0 and G0 ), and let T be the set of all quadrilaterals in H corresponding to L .
+                                                                            ′
+Note that since L is a hamiltonian path, for any two edges g, h ∈ L , there is a sequence of edges
+                                 ′                                                                       ′
+g = ℓ1 , ℓ2 , . . . , ℓk = h in L such that each pair of edges ℓi , ℓi+1 belongs to a face boundary in G0 ,
+1 ≤ i ≤ k − 1. Therefore the 2−faces in T induce a connected subgraph of H. Notice also that every
+                                                                         ′                            ′
+vertex in H belongs to some face in T since every vertex x ∈ V (G0 ) is incident to an edge in L , and
+                        ′                             ′
+every face F in G0 contains at least one edge of L in its boundary.
+    Finally, there is no cycle of 2−faces in HT . Suppose to the contrary, we had a cycle Q1 Q2 . . . Qr Q1
+of 2−faces in HT . Since the number of 2−faces in HT containing x is equal to degG′ (x)−degL (x) =
+                                                                                                   0
+                                ′
+1, for every vertex x ∈ V (G0 ), so Qi and Qi+1 share a vertex f ∈ V (H) corresponding to a face
+                    B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs              11
+
+
+          ′                                ′
+F ∈ F(G0 ). Thus {q1 , q2 , . . . , qr } ⊂ L , with qi corresponding to the face Qi in the cycle of 2−faces
+                                  ′
+in HT , separates the graph G0 into at least two components; so the hamiltonian path L would have
+                                                   ′
+to contain at least one of these edges qi ∈ L , a contradiction. Therefore, HT is a spanning tree of
+2−faces for H.
+                                                                              ′
+    Conversely, suppose HT is a spanning tree of 2−faces for H. Let L be the corresponding edges
+      ′                                                                  ′
+in G0 (which appear as chords of the elements of T if one draws G0 and H in the plane as described
+                            ′       ′                        ′                                          ′ ′
+before); and let L = E(G0 )\L . Each vertex x ∈ V (G0 ) belongs to exactly one 2−face Q = xf x f x
+                                                                                  ′
+in T , since every other 2−face in T containing x also contains either f or f , and therefore these two
+2−faces share two vertices joined by parallel edges and thus cannot both be in the spanning tree of
+                                            ′                                      ′
+faces HT . Therefore every vertex in G0 is incident to exactly one edge in L , and so the two vertices
+                          ′
+u and v of degree 2 in G0 are incident to exactly one edge in L, while the remaining vertices of degree
+         ′                                                                                            ′
+3 in G0 are incident to exactly two edges in L. That is, L induces a path joining u and v in G0 plus
+                                         ′
+a possibly empty set of cycles in G0 , such that the path and the cycles are disjoint and cover all of
+       ′                                                   ′
+V (G0 ). We show that L cannot contain a cycle in G0 , and so L is just a hamiltonian path joining u
+to v.
+                                                                 ′              ′               ′
+    Suppose L contains a cycle C = h1 h2 . . . hk h1 in G0 . Let F and F be faces of G0 inside and
+                                                        ′                                                   ′
+outside the cycle C, respectively, and let f and f be the vertices in H corresponding to F and F ,
+                                ′
+respectively. Since f and f are vertices in the spanning tree HT of 2−facces, there is a unique
+                                                                                              ′
+sequence of 2−faces Q∗1 , Q∗2 , . . . , Q∗l in T such that Q∗1 contains f , Q∗l contains f and each pair
+                                                               ′
+Q∗i−1 , Q∗i share a vertex fi corresponding to a face in G0 , for 2 ≤ i < l. In particular, if we denote
+                     ′                                                                        ′
+f1 = f and fl = f , then for some pair fi , fi+1 , for the corresponding face Fi in G0 we must have
+           ′                                                       ′                        ′
+Fi ⊆ G0 ∩int(C) and for the corresponding face Fi+1 in G0 we must have Fi+1 ⊆ G0 ∩ext(C). This
+                                                                                          ′
+implies that the 2−face Q∗i in HT corresponds to one of the edges in L and not in L , a contradiction.
+This completes the proof of Claim 4.3.
+                                                                                        ′
+    Therefore by Claim 4.3, H has a spanning tree of 2−faces if and only if G0 has a hamiltonian
+path from u to v, and so the decision problem of whether H has a spanning tree of 2−faces is NP-
+complete.                                                                                                  ⊓
+                                                                                                           ⊔
+
+    We obtain two Corollaries from this result.
+                                                                                                            ′
+Corollary 4.4. Let G be a Barnette graph with a 3−face-coloring with color set {1, 2, 3}, and let H
+                                                                                    ′
+be the reduced graph obtained by contracting the 1−faces. Suppose all vertices of H have degree 8.
+                                        ′
+Then the decision problem of whether H has an A−trail is NP-complete.
+Proof:
+Consider the reduced graph H in the statement of Theorem 4.2 where all 2−faces in H are quadri-
+laterals, corresponding to a facial 2−factor of octagons in G. If we contract in G these octagonal
+                                                   ′                    ′
+2−faces, we obtain an 8−regular reduced graph H . By Theorem 3.2, H has an A−trail if and only
+if H has a spanning tree of 2−faces, and this problem is NP-complete by Theorem 4.2.            ⊓
+                                                                                                ⊔
+Corollary 4.5. Let G be a Barnette graph with a 3−face-coloring with color set {1, 2, 3}, and let
+H0 be the reduced graph obtained by contracting the 1−faces. Suppose that the 2−faces in H0 are
+octagons and digons and the 3−faces in H0 are triangles. Then the decision problem of whether H0
+has a spanning tree of faces is NP-complete.
+12                 B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+Proof:
+                     ′
+Start with G0 and G0 as at the beginning of the proof of Theorem 4.2, and construct the reduced graph
+H as in the proof of Theorem 4.2, with 2−colored quadrilaterals and 3−colored digons. If e and f are
+the two parallel edges of a 3−colored digon, subdivide e with vertex w and subdivide f with vertex
+x. Join w and x by two parallel edges. The 3−colored digon splits thus into two 3−colored triangles
+and a 2−colored digon, while the 2−colored quadrilaterals become 2−colored octagons, in the new
+reduced graph H0 .
+     Suppose H has a spanning tree of 2−colored quadrilaterals HT . Select the corresponding 2−colored
+octagons in H0 . For a 3−colored digon consisting of two edges e and f in H, if one of the two
+2−colored quadrilaterals containing e or f is in T , then select the 2−colored digon joining the subdi-
+vision vertices w and x; if neither of the two 2−colored quadrilaterals containing e or f is in T , then
+select one of the two 3−colored triangles containing w and x. The 2−colored and 3−colored faces in
+H0 thus selected, involving 2−colored octagons, 2−colored digons, and 3−colored triangles, form a
+spanning tree of faces in H0 .
+     Conversely, suppose H0 has a spanning tree of faces H0T0 . Let T be the set of 2−colored quadri-
+laterals in H such that the corresponding 2−colored octagons are in T0 . Note that for each digon in
+H, at most one of the corresponding two 3−colored triangles and 2−colored digon in H0 can be in
+T0 . Thus HT is a spanning tree of 2−colored (quadrilateral) faces.
+     Note that the reduction process between these two decision problems can be done in polynomial
+time, since every simple plane graph has O(n) faces, where n is the order of graph.
+     Thus H0 has a spanning tree of arbitrary faces if and only if H has a spanning tree of 2−colored
+faces, and NP-completeness follows from Theorem 4.2.                                                   ⊓
+                                                                                                       ⊔
+
+   Finally we show that if Barnette’s Conjecture is false, then it would be NP-complete to decide
+whether a Barnette graph is hamiltonian.
+
+Theorem 4.6. Assume that Barnette’s Conjecture is false. Then the decision problem of whether a
+Barnette graph has a hamiltonian cycle, is NP-complete.
+
+Proof:
+Takanori et al. [10] showed that the decision problem of whether a 2−connected cubic planar bipartite
+graph R has a hamiltonian cycle is NP-complete.
+                                                                                                    ′ ′′
+    If such an R has a 2−edge-cut {e1 , e2 } that separates R into two components R and R , then
+their endpoints in either side are at odd distance (see the above argument), so we may instead join
+                                      ′       ′′                                      ′          ′′
+the two endpoints of e1 and e2 in R and R , separately, and ask whether R and R both contain a
+hamiltonian cycle containing the added edge joining the endpoints of e1 and e2 .
+    Repeating this decomposition process, we eventually reduce the decision problem of whether R
+has a hamiltonian cycle to the decision problem of whether various Ri ’s each contain a hamiltonian
+cycle going through certain prespecified edges, with each Ri being 3−connected or the cubic multi-
+                                                                                           ′
+graph on 2 vertices. Thus the decision problem of whether a Barnette graph G has a hamiltonian
+cycle going through certain prespecified edges is NP-complete.
+                            ′                                    ′           ′
+    Let a Barnette graph G with certain prespecified edges e1 , . . . , ek that a hamiltonian cycle must
+                              ′
+traverse, be given. Denote ei = xi yi,1 and NG′ (xi ) = {yi,1 , yi,2 , yi,3 }, for i = 1, . . . , k.
+                        B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs              13
+
+
+
+    Suppose that Barnette’s Conjecture is false. Then by Proposition 3.5, there exists a hamiltonian
+Barnette graph Gi with a vertex ui ∈ V (Gi ) and NGi (ui ) = {vi,1 , vi,2 , vi,3 } such that every hamilto-
+nian cycle in Gi traverses ei = ui vi,1 ∈ E(Gi ), i = 1 . . . , k. Furthermore, Gi has a hamiltonian cycle
+traversing ei and ui vi,j , for i = 1, . . . , k and j = 2, 3.
+    Construct a new Barnette graph
+                                          k
+                                         [                k
+                                                          [                                     
+                    ′
+        G=        G \ {x1 , . . . , xk } ∪   (Gi \ {ui }) ∪   {vi,1 yi,1 , vi,2 yi,2 , vi,3 yi,3 } .
+                                                i=1                      i=1
+
+    Since every hamiltonian cycle in Gi traverses the edge ei and Gi has also a hamiltonian cycle
+traversing ei and ui vi,j , for i = 1, . . . , k and j = 2, 3, the resulting graph G has a hamiltonian cycle if
+              ′                                                      ′       ′
+and only if G has a hamiltonian cycle traversing the edges e1 , . . . , ek . Moreover, G can be constructed
+        ′                                                                                    ′
+from G in polynomial time and its vertex set is also polynomially enlarged from G . Therefore, the
+decision problem whether the resulting Barnette graph G has a hamiltonian cycle, is NP-complete. ⊔           ⊓
+
+
+References
+ [1] Bagheri Gh B, Feder T, Fleischner H, Subi C. Hamiltonian cycles in planar cubic graphs with facial
+     2−factors, and a new partial solution of Barnette’s Conjecture. J. Graph Theory, 2021. 96(2):269–288.
+     doi:10.1002/jgt.22612.
+ [2] Tait PG. Listing’s Topologie. Philosophical Magazine (5th ser.), 1884. 17:30–46. Reprinted in Scientific
+     Papers, Vol. II, pp. 85–98.
+ [3] Petersen J. Sur le théorème de Tait. Interméd. Math., 1898. 28:225–227.
+ [4] Tutte WT. ON HAMILTONIAN CIRCUITS. J. London Math. Soc., 1946. 21(2):98–101.
+ [5] Tutte WT. On the 2−factors of bicubic graphs. Discrete Math., 1971. 1(2):203–208.
+ [6] Horton JD. On two-factors of bipartite regular graphs.                  Discrete Math., 1982.   41(1):35–41.
+     doi:10.1016/0012-365X(82)90079-6.
+ [7] Barnette DW. Conjecture 5. In: In William T. Tutte, ed., Recent Progress in Combinatorics. Proceedings
+     of the 3rd Waterloo Conference on Combinatorics, vol. 3. 1969 p. 343.
+ [8] Holton DA, Manvel B, McKay BD. Hamiltonian cycles in cubic 3−connected bipartite planar graphs.
+     Journal of Combinatorial Theory, Series B, 1985. 38(3):279–297. doi:10.1016/0095-8956(85)90072-3.
+ [9] Goodey PR. Hamiltonian circuits in polytopes with even sides. Israel Journal of Mathematics, 1975.
+     22:52–56. doi:10.1007/BF02757273.
+[10] Takanori A, Takao N, Nobuji S. NP-completeness of the Hamiltonian cycle problem for bipartite graphs.
+     Journal of Information Processing Abstract, 1980. 3:73–76. ID: 60323180.
+[11] Feder T, Subi C. On Barnette’s Conjecture. Electronic Colloquium on Computational Complexity, TR06-
+     015, 2006.
+[12] Bondy JA, Murty USR. Graph Theory, Graduate Texts in Mathematics, 244. Springer, New York, 2008.
+     ISBN-10:1849966907, 13:978-1849966900.
+14                  B. Bagheri Gh. et al. / On Finding Hamiltonian Cycles in Barnette Graphs
+
+
+
+[13] Fleischner H. Eulerian graphs and related topics. Part 1, Volume 1, Ann. of Discrete Math., 45, 1990.
+     ISBN-9780444891105, 9780080867908.
+[14] Fleischner H, Hobbs AM, Tapfuma MM. Hamiltonicity in vertex envelopes of plane cubic graphs. Discrete
+     Math., 2009. 309(14):4793–4809. doi:10.1016/j.disc.2008.06.011.
+[15] Fowler PW. How unusual is C60 ? Magic numbers for carbon clusters. Chem. Phys. Lett., 1986.
+     131(6):444–450. doi:10.1016/0009-2614(86)80563-2.
+[16] Kardoš F. A computer-assisted proof of Barnette-Goodey Conjecture: Not only fullerene graphs are
+     Hamiltonian. URL URL https://arxiv.org/pdf/1409.2440v2.pdf.
+[17] Yoshida M, Fujita M, Fowler PW, Kirby EC. Non-bonding orbitals in graphite, carbon tubules, toroids
+     and fullerenes. J. Chem. Soc., Faraday Trans., 1997. 93:1037–1043. doi:10.1039/A607401D.
+[18] Andersen LD, Fleischner H. The NP-completeness of finding A−trails in Eulerian graphs and of
+     finding spanning trees in hypergraphs. Discrete Appl. Math., 1995. 59:203–214. doi:10.1016/0166-
+     218X(95)80001-K.
+[19] Andersen LD, Fleischner H, Regner S. Algorithms and outerplanar conditions for A−trails in plane
+     Eulerian graphs. Discrete Appl. Math., 1998. 85:99–112. ISSN-0166-218X.
+[20] Gabow HN, Stallmann M. Efficient algorithms for graphic intersection and parity. In: Proc. 12th Int.
+     Conf. Automata, Languages, and Programming, volume 194. Springer-Verlag LNCS, 1985 pp. 210–220.
+     doi:10.1007/BFb0015746.
+[21] Lovász L. Matroid matching and some applications. J. Combinatorial Theory Ser. B, 1980. 28:208–236.
+     doi:10.1016/0095-8956(80)90066-0.
+[22] Garey MR, Johnson DS, Tarjan RE. The planar Hamiltonian circuit problem is NP-complete. SIAM J.
+     Comput., 1976. 5:704–714. doi:10.1137/0205049.
+

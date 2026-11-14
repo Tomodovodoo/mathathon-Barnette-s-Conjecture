@@ -1,0 +1,187 @@
+Discussiones Mathematicae
+Graph Theory 33 (2013) 133–137
+doi:10.7151/dmgt.1643
+
+Dedicated to M. Borowiecki on the occasion of his 70th birthday
+
+
+
+
+            A NOTE ON BARNETTE’S CONJECTURE
+
+
+                                  Jochen Harant
+
+                         Institut für Mathematik, TU Ilmenau
+                              D-98684 Ilmenau, Germany
+                       e-mail: jochen.harant@tu-ilmenau.de
+
+
+
+                                       Abstract
+
+          Barnette conjectured that each planar, bipartite, cubic, and 3-connected
+      graph is hamiltonian. We prove that this conjecture is equivalent to the
+      statement that there is a constant c > 0 such that each graph G of this class
+      contains a path on at least c|V (G)| vertices.
+      Keywords: planar graph, Hamilton cycle, Barnette’s Conjecture.
+      2010 Mathematics Subject Classification: 05C38, 05C40, 05C45.
+
+
+We use [4] for terminology and notation not defined here and consider finite
+simple graphs only.
+     Barnette’s Conjecture, first announced in [1] and later in [6], is part of a
+series of conjectures stating that all members of certain graph classes contain
+hamiltonian cycles. In [19], Tait conjectured that all planar, cubic, 3-connected
+graphs are hamiltonian. If this conjecture would be true then a short and elegant
+proof of the Four-Colour Theorem would follow. Tait’s Conjecture was disproved
+by Tutte in [20] by constructing a counterexample. In [21], Tutte conjectured
+that all cubic, 3-connected, bipartite graphs are hamiltonian. Horton showed
+[9, 5] that also this conjecture is false. A counterexample to the following Bar-
+nette’s Conjecture would be a simultaneous counterexample to both the Tait’s,
+and Tutte’s Conjectures.
+     A Barnette graph is a planar, bipartite, cubic, and 3-connected graph. The
+famous and longstanding Barnette’s Conjecture is the following
+
+Conjecture 1 (Barnette). Each Barnette graph is hamiltonian.
+134                                                                   J. Harant
+
+
+There is an interesting survey on conjectures being equivalent to Barnette’s Con-
+jecture by Hertel [8]. The list of such equivalences presented here is by far not
+complete.
+    In their book on graph coloring problems, Jensen and Toft [10] ask the fol-
+lowing question and mention that Barnette’s conjecture is true if and only if the
+answer to this question is affirmative.
+    Let G be a simple 3-colorable planar graph. Is it possible to partition the
+vertex set of G into two subsets so that each induces an acyclic subgraph of G?
+This is an example of an equivalent formulation of Barnette’s Conjecture, where
+both parts of the proof of the equivalence—necessity and sufficience—are not
+trivial. The proof is a consequence of the results of Król [15, 16] and Stein
+[17, 18].
+     The following equivalent formulations of Barnette’s Conjecture strengthen
+this conjecture in the sense that if such a formulation is true then trivially Bar-
+nette’s Conjecture is true and the main part of the proof of their equivalence is
+the converse direction. These results can be found in the papers of Hertel [7, 8]
+and Kelmans [11, 12, 13, 14].
+Theorem 1 (Kelmans). Barnette’s Conjecture holds if and only if for any arbi-
+trary face in a Barnette graph, there is a hamiltonian cycle which passes through
+any two arbitrary edges on that face.
+Theorem 2 (Kelmans). Barnette’s Conjecture holds if and only if for any ar-
+bitrary face in a Barnette graph, and for any arbitrary edges e1 and e2 on that
+face, there is a hamiltonian cycle which passes through e1 and avoids e2 .
+Theorem 3 (Hertel). Barnette’s Conjecture holds if and only if in any Barnette
+graph, any arbitrary path of length 3 is part of some hamiltonian cycle.
+In this paper, we formulate a statement concerning the length of a longest path in
+a Barnette graph which is seemingly weaker than Barnette’s Conjecture, i.e. this
+condition is obviously true if Barnette’s Conjecture is true. Actually, Theorem 4
+states that both are equivalent.
+Theorem 4. Barnette’s Conjecture is true if and only if there is a constant c > 0
+such that each Barnette graph G contains a path on at least c|V (G)| vertices.
+Proof. If Barnette’s Conjecture is true then, with c = 1, each Barnette graph G
+contains a path on at least c|V (G)| vertices.
+     In [2], it is proved that a cubic and 3-connected graph G contains a cycle on
+at least 2k
+          3 vertices if G contains a path on k vertices.
+     Thus, it is sufficient to show that if there is a constant c > 0 such that each
+Barnette graph G contains a cycle on at least c|V (G)| vertices, then Barnette’s
+Conjecture is true.
+A Note on Barnette’s Conjecture                                                  135
+
+
+For contradiction, we assume that Barnette’s Conjecture is not true and let G
+be a plane embedding of a non-hamiltonian Barnette graph on k vertices. Fur-
+thermore, let x be an arbitrary vertex of G, y, z, and u be the neighbors of x in
+G, and H be the graph obtained from G by removing x. The vertices y, z, and
+u have degree 2 in H and belong to the boundary of a common face F of H. In
+the sequel let H be embedded into the plane such that F is the outer face of H.
+     We define an infinite sequence {Gi }, i ≥ 0 of plane graphs as follows: Let G0
+be an embedding of the graph of the cube and for i ≥ 0 let Gi+1 be obtained
+from Gi by successively replacing each vertex of Gi by a copy of H, where the
+operation of replacing a vertex v of Gi by a copy of H is shown in the following
+figure. The inverse operation we denote by shrinking H to v, i.e. Gi is obtained
+from Gi+1 by shrinking all copies of H in Gi+1 .
+
+                                                             y
+                                  v   −→                     zH
+                                                             u
+
+It is easy to see that all graphs Gi are Barnette graphs. If n(Gi ) denotes the
+number of vertices of Gi , then n(G0 ) = 8 and n(Gi+1 ) = (k − 1)n(Gi ), hence,
+n(Gi ) = 8 · (k − 1)i for i ≥ 0.
+     Since H has k − 1 vertices and because G is non-hamiltonian, each path of
+H connecting two vertices in {y, z, u} contains at most k − 2 vertices. Consider a
+longest cycle C of Gi+1 . If a copy H ′ of H in Gi+1 has a non-empty intersection
+with C, then this intersection is a path of H ′ connecting two vertices of {y, z, u}
+and, therefore, containing at most k−2 vertices of H ′ . The cycle D obtained from
+C by shrinking all copies of H in Gi+1 is a cycle of Gi and the number of vertices
+of D is the number of copies of H in Gi+1 having a non-empty intersection with
+C. If c(Gi ) is the number of vertices of a longest cycle of Gi , then c(G0 ) = 8 and
+c(Gi+1 ) = |V (C)| ≤ (k−2)|V (D)| ≤ (k−2)c(Gi ), consequently, c(Gi ) ≤ 8·(k−2)i
+for i ≥ 0.
+                 c(Gi )
+     Since lim n(G  i)
+                        = 0, there is no constant c > 0 such that each Barnette
+           i→∞
+graph G contains a cycle on at least c|V (G)| vertices.
+
+
+                                      References
+
+ [1] D. Barnette, Conjecture 5, Recent Problems in Combinatorics, W.T. Tutte, (Ed.),
+     Academic Press, New York, 1969, p. 343.
+ [2] J.A. Bondy and S.C. Locke, Relative lengths of paths and cycles in 3-connected
+     graphs, Discrete Math. 33 (1981) 111–122.
+     doi:10.1016/0012-365X(81)90159-X
+136                                                                         J. Harant
+
+
+ [3] J.A. Bondy and U.S.R. Murty, Graph Theory with Applications (MacMillan Co.,
+     New York, 1976).
+ [4] R. Diestel, Graph Theory, Springer, Graduate Texts in Mathematics 173(2000).
+ [5] M.N. Ellingham and J.D. Horton, Non-hamiltonian 3-connected cubic bipartite
+     graphs, J. Combin. Theory (B) 34 (1983) 330–333.
+     doi:10.1016/0095-8956(83)90046-1
+ [6] B. Grünbaum, Polytopes, graphs and complexes, Bull. Amer. Math. Soc. 76 (1970)
+     1131–1201.
+     doi:10.1090/S0002-9904-1970-12601-5
+ [7] A. Hertel, Hamiltonian cycles in sparse graphs, Masters Thesis, University of
+     Toronto, 2004.
+ [8] A. Hertel, A survey & strengthening of Barnette’s Conjecture, University of Toronto,
+     2005.
+ [9] J.D. Horton, A counterexample to Tutte’s conjecture, in [3], p. 240.
+[10] T.R. Jensen and B. Toft, Graph Coloring Problems, J. Wiley & Sons ( New York,
+     1995) page 45.
+     doi:10.1002/9781118032497
+[11] A.K. Kelmans, Constructions of cubic bipartite and 3-connected graphs without
+     Hamiltonian cycles, Analiz Zadach Formirovaniya i Vybora Alternativ, VNIISI,
+     Moscow 10 (1986) 64–72, in Russian. (see also AMS Translations, Series 2 158
+     (1994) 127–140, A.K. Kelmans, (Ed.))
+[12] A.K. Kelmans, Graph planarity and related topics, Contemp. Math. 147 (1993) 635–
+     667.
+     doi:10.1090/conm/147/01205
+[13] A.K. Kelmans, Konstruktsii kubicheskih dvudolnyh 3-Svyaznyh bez Gamiltonovyh
+     tsiklov, Sb. Tr. VNII Sistem. Issled. 10 (1986) 64–72.
+[14] A.K. Kelmans, Kubicheskie dvudolnye tsiklicheski 4-Svyaznye                grafy   bez
+     Gamiltonovyh tsiklov, Usp. Mat. Nauk 43(3) (1988) 181–182.
+[15] M. Król, On a sufficient and necessary condition of 3-colorability of a planar graph,
+     I, Prace Nauk. Inst. Mat. Fiz. Teoret. 6 (1972) 37–40.
+[16] M. Król, On a sufficient and necessary condition of 3-colorability of a planar graph,
+     II, Prace Nauk. Inst. Mat. Fiz. Teoret. 9 (1973) 49–54.
+[17] S.K. Stein, B-sets and coloring problems, Bull. Amer. Math. Soc. 76 (1970) 805–806.
+     doi:10.1090/S0002-9904-1970-12559-9
+[18] S.K. Stein, B-sets and planar maps, Pacific. J. Math. 37 (1971) 217–224.
+[19] P.G. Tait, Listings topologie, Phil. Mag. 17 (1884) 30–46.
+[20] W.T. Tutte, On Hamiltonian circuits, J. London Math. Soc. 21 (1946) 98–101.
+     doi:10.1112/jlms/s1-21.2.98
+A Note on Barnette’s Conjecture                                                   137
+
+
+[21] W.T. Tutte, On the 2-factors of bicubic graphs, Discrete Math. 1 (1971) 203–208.
+     doi:10.1016/0012-365X(71)90027-6
+
+                                                              Received 14 March 2012
+                                                              Revised 15 August 2012
+                                                             Accepted 20 August 2012
+Powered by TCPDF (www.tcpdf.org)
+

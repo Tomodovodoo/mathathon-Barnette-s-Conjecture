@@ -1,0 +1,363 @@
+                Cyclic Subsets and Barnette's Conjecture
+
+                                            Paul Clarke
+                                  St. Paul's College Raheny
+                                       September 9th 2013
+
+
+
+                                               Abstract
+
+
+            In this paper, the concept of cyclic subsets in graph theory is introduced. An
+            interesting theorem which relates to the collective Hamiltonicity of these
+            cyclic subsets in graphs is also presented. This paper uses this theorem to
+            construct an inductive proof of Barnette's long-standing conjecture, which
+            asks whether every cubic, polyhedral, bipartite graph is Hamiltonian.
+            Finding a class of graphs that are certain to be Hamiltonian is one of the
+            biggest unsolved problems in Hamiltonian graph theory today.
+
+
+            Keywords: cyclic subset, Barnette's conjecture, graph theory, Hamiltonian
+            cycle problem, induction
+
+
+
+
+1. Introduction
+
+Barnette's conjecture [6] states that every polyhedral, cubic, bipartite graph is Hamiltonian. The
+conjecture relates directly to the Hamiltonian cycle problem, which is the decision problem of
+determining the existence of a spanning cycle in a graph. No classifications of Hamiltonian graphs
+are currently known, but many sufficient [1] and necessary [2] conditions have been discovered,
+such as the theorems of Ore [4] and Dirac [3].
+   Barnette's conjecture is one of a series of conjectures relating to different graph classes that are
+believed to be Hamiltonian. In [5], Tait conjectured that all planar, cubic, 3-connected graphs are
+Hamiltonian. Tait's conjecture was disproven by Tutte in [7] by constructing a counter-example. In
+[8], Tutte then conjectured that all cubic, 3-connected, bipartite graphs are Hamiltonian. Horton
+showed by a counter-example published in [9] that this conjecture was also false. Barnette's
+conjecture has stood unsolved since its publication 40 years ago.
+   The primary function of this paper is to present a proof of Barnette's conjecture. In doing so, I
+present new results that relate to the Hamiltonicity of general graphs with regard to the new concept
+of cyclic subsets introduced in this paper. These results may be useful in constructing an algorithm
+for deciding the Hamiltonian cycle problem in future research.
+
+
+
+
+2. Terminology
+
+Basic graph theory terminology not defined in this paper follows Trudeau [10]. We define a graph
+G = (V, E), where V is a finite non-empty set called the vertex set. The elements of V(G) are called
+vertices. The elements of E(G) are two element subsets of V(G) and are called edges. Let n = |V(G)|.
+Two vertices v, u are adjacent in G if and only if {v, u} ∈E(G). The number of vertices adjacent to a
+vertex v, denoted deg(v), is the degree of v.
+   A walk of length k in a graph G from vertex v to vertex u is a sequence of vertices (v = v0, v1,
+v2, ... , vk = u) such that {vi, vi+1} ∈ E(G) for all 0 ≤ i < k. A path is a walk in which all vertices are
+distinct. Two paths P1 and P2 are called vertex-independent they have no internal vertices in
+common. A cycle in a graph is a path such that the start point and end point are the same vertex, or v
+= u. A k-cycle is a cycle of length k.
+   A graph G is connected if for every pair of vertices v and u in V(G), there exists a path in G with
+v and u as start and end points. G is called k-connected if the removal of fewer than k vertices from
+V(G) cannot disconnect G.
+   If there exists a cycle in G that spans all of the vertices of G, G is Hamiltonian. The spanning
+cycle is called a Hamiltonian cycle in G. A graph G' = (V, E) is a subgraph of G (denoted G' ⊆G) if
+V(G') ⊆V(G) and E(G') ⊆E(G). Note that a graph G is Hamiltonian if and only if G contains a
+subgraph that is an n-cycle.
+   A graph G is planar if G can be embedded in the Euclidean plane such that no edge crossings are
+formed. Areas on the plane enclosed by edges are called faces in G. G is called polyhedral if it is
+planar and 3-connected. G is cubic if for every vertex v ∈V(G), deg(v) = 3. G is bipartite if V(G)
+can be partitioned into two disjoint sets V1 and V2 such that every edge in E(G) connects a vertex in
+V1 to a vertex in V2. If G is a cubic, polyhedral, bipartite graph, G is a Barnette graph (see fig. 1).
+                   Figure 1: Example of a Barnette graph. A cyclic subset is shown in bold
+
+
+
+
+   A graph K is complete if for every pair of vertices (v, u) in V(K), {v, u} ∈E(K). The complete
+graph on n vertices is denoted by Kn. A complete bipartite graph on n vertices and m vertices in V1
+and V2 respectively, denoted Kn, m, is a bipartite graph such that for every v ∈V1 and every u ∈V2, {v,
+u} ∈E(G).
+   An expansion of a graph G is a graph resulting from the subdivision of edges in G. The
+subdivision of an edge e ∈ E(G) with endpoints v and u in V(G) is a graph with a vertex set
+containing a new vertex w and an edge set that replaces e with two new edges: {v, w} and {w, u}.
+   A vertex induced subgraph in a graph G is a subgraph G' ⊆G with a vertex set V(G') formed
+from a subset of V(G) and an edge set E(G') consisting of every edge {vi, vj} ∈E(G) such that vi ∈
+V(G') and vj ∈V(G'). A cyclic subset C in G is a vertex induced subgraph whereby |V(C)| = k such
+that C is a k-cycle (see fig. 1).
+   In this paper we consider only finite, simple, undirected graphs.
+
+
+
+
+3. Cyclic subsets and Hamiltonicity
+
+Cyclic subsets are a crucial building block of Hamiltonian graphs. In this section, I present a
+theorem that is crucial to my proof of Barnette's conjecture and may in future research lead to a
+complete classification of all Hamiltonian graphs.
+
+
+Theorem 1: In a graph G, the union of two cyclic subsets, C1 ∪C2 = (V(C1) ∪V(C2), E(C1) ∪
+E(C2)), is Hamiltonian if and only if |V(C1) ∩ V(C2)| = 2.
+
+
+Sufficiency: If |V(C1) ∩ V(C2)| = 2, C1 ∪C2 is Hamiltonian.
+Proof: The proposition states that if two cyclic subsets C1 and C2 in a graph G share exactly two
+common vertices, C1 ∪C2 is Hamiltonian (see fig. 2).
+   Suppose that we have two cyclic subsets C1 and C2 in a graph G such that V(C1) ∩ V(C2) = {vi,
+vj}. As C1 is a cyclic subset, and vi, vj are adjacent, there must exist a path P1 between vi and vj such
+that for every v ∈V(C1), v ∈P1. Similarly, we can construct a spanning path P2 in C2 with vi and vj as
+endpoints.
+   Therefore, by starting at vi, we can create a spanning cycle in C1 ∪C2 that is the union of P1 and
+P2 by following P1 until we reach vj and continuing along P2 until we reach vi (see fig. 2). Therefore,
+C1 ∪C2 is Hamiltonian as it contains a spanning cycle, and the proof is complete.
+
+
+
+
+                    Figure 2: C1 ∪C2 is Hamiltonian if and only if |V(C1) ∩ V(C2)| = 2
+
+
+
+
+Necessity: If C1 ∪C2 is Hamiltonian, |V(C1) ∩ V(C2)| = 2.
+Proof: We will prove this statement by induction on n, where n = |V(C1 ∪C2)|. The smallest possible
+cyclic subset is K3. As C1 ∪C2 consists of two cyclic subsets, n ≥ 4. Suppose that n = 4. As this is
+the smallest possible value for n, C1 = K3 and C2 = K3. Suppose that |V(C1) ∩ V(C2)| = 1. Therefore, |
+V(C1) ∪V(C2)| = 5, a clear contradiction. Note that |V(C1) ∩ V(C2)| ≠ 3, as otherwise V(C1) = V(C2).
+Therefore, C1 ∪C2 is Hamiltonian only if |V(C1) ∩ V(C2)| = 2, and we have proven the base case.
+   Assume that the proposition holds for n vertices in V(C1 ∪C2). Suppose now that we have C1 ∪
+C2 such that |V(C1 ∪C2)| = n + 1. Take a single vertex v ∈V(C1) such that v ∉V(C1) ∩ V(C2). As v ∈
+V(C1), there exist exactly two vertices v1 and v2 adjacent to v such that v1 ∈V(C1) and v2 ∈V(C1).
+Remove v from V(C1) and all incident edges from E(C1). Now add {v1, v2} to E(C1).
+   Clearly, C1 is still a cyclic subset. As |V(C1 ∪C2)| = n, by the induction assumption, |V(C1) ∩
+V(C2)| = 2. Suppose now that we remove {v1, v2} from E(C1) and replace v along with all incident
+edges. As v ∉V(C1) ∩ V(C2), |V(C1) ∩ V(C2)| = 2, and we have proven the n + 1 case.
+   Therefore, by mathematical induction, the proposition holds for n ≥ 4. Therefore, if C1 ∪C2 is
+Hamiltonian, |V(C1) ∩ V(C2)| = 2, and the proof is complete.
+
+
+   Finally, we can state that the union of two cyclic subsets, C1 ∪C2 = (V(C1) ∪V(C2), E(C1) ∪
+E(C2)), is Hamiltonian if and only if |V(C1) ∩ V(C2)| = 2.
+
+
+
+
+4. Proof of Barnette's conjecture
+
+In this section, I present a proof of Barnette's conjecture that uses the results presented in section 3.
+We first however require three already established theorems. The following theorem is due to A. K.
+Kelmans and can be acquired from [11].
+
+
+Theorem 2 (A. K. Kelmans): Barnette's conjecture holds if and only if for any arbitrary face in a
+Barnette graph, and for any arbitrary edges e1 and e2 on that face, there is a Hamiltonian cycle that
+passes through e1 and avoids e2.
+
+
+   We also require the following theorem of Kuratowski that relates to the planarity of graphs. The
+publication can be found in [12].
+
+
+Theorem 3 (K. Kuratowski): A graph is planar if and only if it does not contain a subgraph that is
+an expansion of K5 or K3, 3.
+
+
+   Finally, we will use a theorem of Karl Menger which relates to the connectivity of graphs. This
+theorem can be found in [14].
+
+
+Theorem 4 (K. Menger): Let v1 and v2 be two non-adjacent vertices in a graph G. Then the
+minimum number of vertices the removal of which disconnects v1 and v2 is equal to the number of
+vertex-independent paths between v1 and v2.
+
+
+   We now formally state the long-standing conjecture of D. Barnette on Hamiltonian graph theory.
+Theorem 5: If G is a Barnette graph, G is Hamiltonian.
+
+
+   It is useful to note at this stage that the bipartitions of any Barnette graph have equal size. This
+follows from the fact that all Barnette graphs are cubic. Suppose that a Barnette graph had unequal
+bipartitions. Then the number of edges leaving one bipartition would not equal the number of edges
+entering the other bipartition, a clear contradiction.
+
+
+Proof: We will prove this statement by induction on m, where m = |V(G)| / 2. Clearly, the smallest
+possible Barnette graph is one on eight vertices whereby m = 4. This is because the only possible
+cubic bipartite graph whereby m = 3 is K3, 3, a well known non-planar graph.
+   Let m = 4. By the announcement of [13], all Barnette graphs with fewer than 86 vertices are
+Hamiltonian. Therefore, the proposition holds for all m = 4, and we have proven the base case.
+   Assume that the proposition holds for |V(G)| / 2 = m. Suppose now that we have a Barnette graph
+G whereby |V(G)| / 2 = m + 1 (see fig. 3). As G is 3-connected, there exists a set X of 3-tuples of
+vertices in V(G) whereby for each 3-tuple t in X, the removal of t from G will disconnect G.
+   Suppose now that we take a pair of adjacent vertices (v1, v2) in G such that v1 ∉t and v2 ∉t,
+where t is some 3-tuple in X. As G is cubic, v1 is adjacent to two other vertices (va, vb) in G.
+Similarly, v2 is adjacent to two other vertices (vc, vd). Note that va, vb, vc and vd are distinct vertices as
+G is bipartite (see fig. 3).
+
+
+
+
+                           Figure 3: The Barnette graph G on m+1 pairs of vertices
+
+
+
+
+Lemma 1: For every pair of vertices (v1, v2) in V(G), (v1, v2) is connected to a set of four other
+vertices {va, vb , vc , vd} in V(G) such that E(S) = {} or E(S) = {{va, vd}} or E(S) = {{va, vd}, {vb, vc}},
+where S is the subgraph induced by {va, vb , vc , vd}.
+Proof: Suppose that the proposition is not true. Therefore, there exists some pair of vertices (v1, v2)
+in V(G) connected to four other vertices {va, vb , vc , vd} in V(G) such that |E(S)| ≠ {{va, vc},{vb, vd}}
+or {{va, vc}} or {}.
+   Suppose that E(S) = {{va, vc}, {va, vd}, {vb, vc}, {vb, vd}}. Consider the subgraph S' induced by
+{v1, v2, va, vb , vc , vd}. Note that for every vertex v ∈V(S'), deg(v) = 3. Therefore, S' = K3,3. Therefore,
+as S' is a subgraph of G, K3,3 is a subgraph of G. By theorem 3, this implies that G is non-planar, a
+clear contradiction.
+   Suppose that E(S) = {{va, vc}, {va, vd}, {vb, vc}}. Similarly, consider the subgraph S' induced by
+{v1, v2, va, vb , vc , vd}. Note that E(S') = {{v1, v2}, {v1, va}, {v1, vb}, {v2, vc}, {v2, vd}, {va, vc}, {va, vd},
+{vb, vc}}. Note that for every vertex v in {v1, v2, va, vc}, deg(v) = 3 in S'. Suppose now that we
+remove vb and vd from V(S') and all incident edges from E(G). Note now that E(S') = {{v1, v2}, {v1,
+va}, {v2, vc}, {va, vc}}.
+   Note that the subgraph S* induced by {v1, v2, va, vc} is now disconnected in G. Therefore, we
+have disconnected G with the removal of two vertices from V(G): vb and vd. As G is 3-connected,
+this is a clear contradiction.
+   Therefore, the only possible case remaining is if E(S) = {{va, vc},{va, vd}}. Consider again the
+subgraph S' induced by {v1, v2, va, vb , vc , vd}. Note that E(S') = {{v1, v2}, {v1, va}, {v1, vb}, {v2, vc},
+{v2, vd}, {va, vc}, {va, vd}}.
+   As G is 3-connected and cubic, by theorem 4, there exist exactly three vertex-independent paths
+p1, p2 and p3 between vc and vb. Note that for one of these paths p1, p1 = (vc, v2, vd, vi, vj, … vz, vb),
+where for every vertex v in (vi, vj, … vz), v ∉V(S'). Let (vd, vi, vj, … vz, vb) = P1.
+   Note that for one of the vertex-independent paths p2 between vc and vb, for every v in p2, v ∉
+V(S'). This is because p3 = (vc, va, v1, vb), which implies that V(S') ⊆p3 ∪p1. Let p2 = P2. Clearly, by
+definition, P1 and P2 are vertex-independent.
+   Therefore, the subgraph induced by V(S') ∪P1 ∪P2 is an expansion of K3, 3. Therefore, by
+theorem 3, G is non-planar, a clear contradiction. Therefore, E(S) ≠ {{va, vc}, {va, vd}}. As all other
+cases have been proven impossible, we can now state that for every pair of vertices (v1, v2) in V(G),
+(v1, v2) is connected to a set of four other vertices {va, vb , vc , vd} in V(G) such that E(S) = {} or E(S)
+= {{va, vd}} or E(S) = {{va, vd}, {vb, vc}}, and the proof is complete.
+
+
+   By lemma 1, E(S) = {{va, vc},{vb, vd}} or E(S) = {{va, vc}} or E(S) = {}, where S is the subgraph
+induced by {va, vb , vc , vd}. Note that for every edge e adjacent to v1, v1 is on some distinct face in G.
+Let the set of faces of v1 be F1. Similarly, let the set of faces of v2 be F2. Remove v1 and v2 from
+V(G) and all incident edges from E(G).
+   Note now that with the removal of {{v1, v2}, {v1, va}, {v1, vb}, {v2, vc}, {v2, vd}} from E(G), a
+new face f is formed from the remaining vertices of the faces of F1 ∪F2. Also note that for every v ∈
+{va, vb , vc , vd}, deg(v) = 2 in G. As va, vb, vc and vd now lie on the same face f, we can partition f into
+three new faces by appending {va, vc} and {vb, vd} to E(G) such that va, vb, vc and vd still lie on the
+same face f.
+   Note now that G is cubic and bipartite. In addition, the overall structure of G has not changed.
+Therefore, by our selection of (v1, v2) whereby v1 ∉t and v2 ∉t, where t ∈X, and as G is now cubic,
+G is clearly still 3-connected. In order to use the induction assumption however, we are required to
+prove that G is still planar.
+
+
+Lemma 2: G is planar.
+Proof: Suppose that G is not planar. Consider G before (v1, v2) was removed from V(G) and {va, vc},
+{vb, vd} were added to E(G). Clearly, G is planar as we have recreated our Barnette graph whereby
+|V(G)| / 2 = m + 1. We will prove that an edge crossing must be formed in G. Draw G such that no
+edge crossings are formed. Suppose now that we remove (v1, v2) from V(G) and all adjacent edges
+from E(G).
+   Clearly, G must still be planar. As G is non-planar with the addition of {va, vc} and {vb, vd}, at
+least one edge crossing must be formed when {va, vc} and {vb, vd} are drawn in G. Suppose now that
+we replace (v1, v2) back into V(G) and all adjacent edges back into E(G).
+   Consider the subgraph S' induced by {v1, v2, va, vb, vc, vd}. Note that for every vertex v in {va, vb,
+vc, vd}, v is surrounded by some cycle c1 such that v ∉V(c1) (see fig. 4). This is because {va, vc} and
+{vb, vd} cannot be drawn in G such that no edge crossings are formed. Therefore, if v1 lies outside
+the cycle surrounding va or vb, an edge crossing will be formed by the addition of {v1, va} and {v1,
+vb} to E(G). Similarly for v2.
+   Suppose that v1 and v2 do not lie outside the cycles surrounding va, vb, vc and vd. Note that va and
+vb are surrounded by a different cycle c2 to vc and vd, as the addition of {va, vc} and {vb, vd} forces an
+edge crossing in G. Therefore, the addition of {v1, v2} to E(G) must form an edge crossing in G, as
+v1 and v2 are therefore surrounded by different cycles c1 and c2 in G.
+   Therefore, in all possible cases, an edge crossing is formed with the addition of (v1, v2) to V(G)
+and all adjacent edges to E(G). Therefore, the original Barnette graph on m + 1 pairs of vertices
+cannot be planar, a clear contradiction. Therefore, G must be planar, and the proof is complete.
+
+
+   By lemma 2, G is planar. Therefore, as G is also cubic, 3-connected and bipartite, G is a Barnette
+graph. Note also that |V(G)| / 2 = m. By the induction assumption, G is Hamiltonian, and therefore
+Barnette's conjecture holds. As {va, vc} and {vb, vd} lie on the same face f, by theorem 2, there exists
+some Hamiltonian cycle H in G that uses {va, vc} and avoids {vb, vd}. Let the n-cycle subgraph
+formed by the vertices of H be C1.
+
+
+
+
+        Figure 4: If G is not planar, the original Barnette graph cannot be drawn without edge crossings
+
+
+
+
+   Suppose now that we add {v1, v2} back into V(G) and all adjacent edges back into E(G). Note
+that the subgraph induced by {v1, v2, va, vc} is a cyclic subset. Call this cyclic subset C2. Suppose
+now that for every edge e ∈E(G), remove e from E(G) if e ∉E(C1) or if e ∉E(C2). C1 is now a
+cyclic subset such that V(C1) = V(G) / {v1, v2}. Note also that V(C1) ∩ V(C2) = {va, vc}. By theorem
+1, C1 ∪C2 is Hamiltonian (see fig. 5).
+
+
+
+
+         Figure 5: C1 and C2 share exactly two common vertices: va and vc. Therefore, G is Hamiltonian
+
+
+   Let the Hamiltonian cycle in C1 ∪C2 be H'. Clearly, H' cannot use {va, vc}, as otherwise either va
+or vc will be visited twice in H'. Suppose now that we replace all removed edges back into E(G).
+Remove {va, vc} and {vb, vd} from E(G). Note that G is now the original Barnette graph whereby
+|V(G)| / 2 = m + 1. As H' does not use {va, vc} or {vb, vd}, there exists some Hamiltonian cycle
+through the original Barnette graph on m + 1 vertices.
+   Therefore, we have proven the m + 1 case. By mathematical induction, the proposition holds for
+all m ≥ 4. As this encapsulates all possible Barnette graphs, the proof is complete.
+
+
+
+
+5. References
+
+[1]. DeLeon, M. (2000) "A study of sufficient conditions for Hamiltonian cycles". Dept. Math. and
+Computer Sci., Seton Hall University, NJ, USA.
+
+
+[2]. Grinberg, È. Ja. (1968) "Plane homogeneous graphs of degree three without Hamiltonian
+circuits", Latvian Math. Yearbook 4 (in Russian), Riga: Izdat. “Zinatne”, pp. 51-58, MR 0238732.
+English translation by Dainis Zeps, arXiv: 0908.2563.
+
+
+[3]. Dirac, G. A. (1952) "Some theorems on abstract graphs", Proceedings of the London
+Mathematical Society, 3rd Ser. 2: 69-81.
+
+
+[4]. Ore, O. (1960) "A Note on Hamiltonian Circuits." American Mathematical Monthly 67, 55.
+
+
+[5]. P. G. Tait. (1884) “Listing's Topologie”. Phil. Mag., 17: 30-46.
+
+
+[6]. D. Barnette. (1969) “Conjecture 5”. In W. T. Tutte, editor, Recent Progress in Combinatorics,
+page 343, Academic Press, New York.
+
+
+[7]. W. T. Tutte. (1946) “On Hamiltonian Circuits”. J. London Math. Soc., 21: 98-101.
+
+
+[8]. W.T Tutte. (1971) “On the 2-Factors of Bicubic Graphs”. Discrete Mathematics, Vol. 1, No. 2:
+203-208.
+
+
+[9]. J.A. Bondy and U.S.R Murty. (1976) “Graph Theory With Applications”. Macmillian, London.
+
+
+[10]. Trudeau, R.J. (1993) "Introduction to Graph Theory". Dover Publications, INC. New York.
+[11]. A. K. Kelmans. (1986) Konstruktsii Kubicheskih Dvudolnyh 3-Svyaznyh Bez Gamiltonovyh
+Tsiklov. Sb. Tr. VNII Sistem. Issled., 10: 64-72.
+
+
+[12]. Kuratowski, Kazimierz (1930) "Sur le problème des courbes gauches en topologie", Fund.
+Math. (in French) 15: 271–283
+
+
+[13]. R. Aldred, G. Brinkmann, and B. D. McKay. Announcement, March 2000.
+
+
+[14]. Menger, Karl (1927). "Zur allgemeinen Kurventheorie". Fund. Math. 10: 96–115.
+
