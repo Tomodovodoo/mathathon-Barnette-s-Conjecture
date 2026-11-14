@@ -19,3 +19,5 @@ LIT for source names; PROVED-HERE for the identifications used in this note. Sou
 | Nontrivial three-edge cut; cap | Separating triangle; capped piece | Gluing | Appendix C | Recursive gluing | cap_duality; cap_glue_connected |
 
 PROVED-HERE. With aligned corner signs and weights, the real local sign is i^n times Lean's complex phase. The apparently circuit-dependent ratio in the referee report simplifies to this constant. See STATUS.md. The tree recovered in this note lies in G; the white-face tree of the source papers is a different auxiliary tree.
+
+Naming warning. Li's H is the incidence graph of the row "Incidences A to X"; the constructive paper calls the same graph B. OpenAI and the constructive paper use H for the spoke graph, and this note uses B for the black vertices of G. See research/2026-11-14_opus_cross-audit/CONSISTENCY.md.

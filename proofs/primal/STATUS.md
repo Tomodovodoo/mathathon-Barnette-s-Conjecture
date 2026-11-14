@@ -25,6 +25,8 @@ The categories requested in the brief are not exclusive. (i) means a primal rest
 
 ## Exact finite range
 
+This section describes the first version's checker and its 20-vertex worked example (data in EXAMPLES.md). The PDF's running example is the 22-vertex graph of paper/figures/running.json.
+
 COMPUTED. Command, from the repository root:
 
 ```powershell
