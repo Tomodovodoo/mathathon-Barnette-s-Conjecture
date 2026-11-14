@@ -1,0 +1,261 @@
+[
+  {
+    "V": 6,
+    "seconds": 0.05,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=1 rooted=8 withpair=8 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=8",
+      "C1 tested=8 violations=0 equality=8 overflow=0 maxlattice=1",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 8; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 8; minimal 2-factors alone give >= 2^cmin: 8; among equality cases: full minimal cube 8, all TMs in one 2-factor 8",
+      "cmin=1: 0 8 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:16"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 6 \r\n1 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 7,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=0 rooted=0 withpair=0 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=0",
+      "C1 tested=0 violations=0 equality=0 overflow=0 maxlattice=0",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 0; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 0; minimal 2-factors alone give >= 2^cmin: 0; among equality cases: full minimal cube 0, all TMs in one 2-factor 0",
+      "TM by #D-cycles of the 2-factor:"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 7 \r\n0 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 8,
+    "seconds": 0.02,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=1 rooted=12 withpair=12 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=12",
+      "C1 tested=12 violations=0 equality=12 overflow=0 maxlattice=1",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 12; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 12; minimal 2-factors alone give >= 2^cmin: 12; among equality cases: full minimal cube 12, all TMs in one 2-factor 12",
+      "cmin=1: 0 12 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:24"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 8 \r\n1 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 9,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=0 rooted=0 withpair=0 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=0",
+      "C1 tested=0 violations=0 equality=0 overflow=0 maxlattice=0",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 0; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 0; minimal 2-factors alone give >= 2^cmin: 0; among equality cases: full minimal cube 0, all TMs in one 2-factor 0",
+      "TM by #D-cycles of the 2-factor:"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 9 \r\n0 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 10,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=2 rooted=32 withpair=32 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=32",
+      "C1 tested=32 violations=0 equality=32 overflow=0 maxlattice=1",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 32; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 32; minimal 2-factors alone give >= 2^cmin: 32; among equality cases: full minimal cube 32, all TMs in one 2-factor 32",
+      "cmin=1: 0 32 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:64"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 10 \r\n2 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 11,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=0 cw=0 ; E_hi ccw=0 cw=0",
+      "SUMMARY graphs=1 rooted=18 withpair=18 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=18",
+      "C1 tested=18 violations=0 equality=18 overflow=0 maxlattice=1",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 18; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 18; minimal 2-factors alone give >= 2^cmin: 18; among equality cases: full minimal cube 18, all TMs in one 2-factor 18",
+      "cmin=2: 0 18 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:72"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 11 \r\n1 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 12,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=2 cw=0 ; E_hi ccw=0 cw=2",
+      "SUMMARY graphs=5 rooted=100 withpair=100 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=98",
+      "C1 tested=100 violations=0 equality=98 overflow=0 maxlattice=2",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 98; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 98; minimal 2-factors alone give >= 2^cmin: 98; among equality cases: full minimal cube 98, all TMs in one 2-factor 98",
+      "cmin=1: 0 98 0 0 2 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:198 c3:14"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 12 \r\n5 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 13,
+    "seconds": 0.01,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=4 cw=0 ; E_hi ccw=0 cw=4",
+      "SUMMARY graphs=3 rooted=66 withpair=66 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=60",
+      "C1 tested=66 violations=0 equality=60 overflow=0 maxlattice=2",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 62; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 62; minimal 2-factors alone give >= 2^cmin: 66; among equality cases: full minimal cube 60, all TMs in one 2-factor 60",
+      "cmin=2: 0 64 2 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:280"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 13 \r\n3 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 14,
+    "seconds": 0.02,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=14 cw=0 ; E_hi ccw=0 cw=14",
+      "SUMMARY graphs=18 rooted=432 withpair=432 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=388",
+      "C1 tested=432 violations=0 equality=388 overflow=0 maxlattice=2",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 418; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 418; minimal 2-factors alone give >= 2^cmin: 418; among equality cases: full minimal cube 388, all TMs in one 2-factor 388",
+      "cmin=1: 0 364 24 0 14 6 0 0   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 24 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:850 c3:338"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 14 \r\n18 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 15,
+    "seconds": 0.02,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=45 cw=0 ; E_hi ccw=0 cw=45",
+      "SUMMARY graphs=19 rooted=494 withpair=494 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=420",
+      "C1 tested=494 violations=0 equality=420 overflow=0 maxlattice=3",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 449; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 449; minimal 2-factors alone give >= 2^cmin: 492; among equality cases: full minimal cube 420, all TMs in one 2-factor 420",
+      "cmin=2: 0 456 35 0 3 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:2184 c4:40"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 15 \r\n19 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 16,
+    "seconds": 0.03,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=174 cw=0 ; E_hi ccw=0 cw=178",
+      "SUMMARY graphs=79 rooted=2212 withpair=2212 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=1896",
+      "C1 tested=2212 violations=0 equality=1896 overflow=0 maxlattice=3",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 2037; minimal 2-factors carry no tree pair: 1; some 2-factor (any c) is a full cube: 2040; minimal 2-factors alone give >= 2^cmin: 2045; among equality cases: full minimal cube 1896, all TMs in one 2-factor 1896",
+      "cmin=1: 0 1734 48 0 163 90 5 4   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 166 2 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:4020 c3:3342"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 16 \r\n79 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 17,
+    "seconds": 0.04,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=524 cw=0 ; E_hi ccw=0 cw=515",
+      "SUMMARY graphs=134 rooted=4020 withpair=4020 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=3077",
+      "C1 tested=4020 violations=0 equality=3077 overflow=0 maxlattice=4",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 3526; minimal 2-factors carry no tree pair: 0; some 2-factor (any c) is a full cube: 3526; minimal 2-factors alone give >= 2^cmin: 3973; among equality cases: full minimal cube 3077, all TMs in one 2-factor 3077",
+      "cmin=2: 0 3435 452 11 72 20 0 0   (#TM/2^cmin floor = 0..7+)",
+      "cmin=4: 0 30 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:18655 c4:1733"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 17 \r\n134 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 18,
+    "seconds": 0.16,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=2128 cw=0 ; E_hi ccw=0 cw=2172",
+      "SUMMARY graphs=501 rooted=16032 withpair=16032 fail_lo=28 fail_hi=30 fail_both=26 extremes_equal=12185",
+      "C1 tested=16032 violations=0 equality=12185 overflow=0 maxlattice=5",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 13933; minimal 2-factors carry no tree pair: 68; some 2-factor (any c) is a full cube: 14028; minimal 2-factors alone give >= 2^cmin: 14166; among equality cases: full minimal cube 12185, all TMs in one 2-factor 12185",
+      "cmin=1: 0 10460 430 32 1635 1110 168 245   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 1850 94 2 6 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:27328 c3:42457 c5:331"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 18 \r\n501 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 19,
+    "seconds": 0.36,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=6843 cw=0 ; E_hi ccw=0 cw=6680",
+      "SUMMARY graphs=1147 rooted=38998 withpair=38998 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=26681",
+      "C1 tested=38998 violations=0 equality=26681 overflow=0 maxlattice=6",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 32714; minimal 2-factors carry no tree pair: 4; some 2-factor (any c) is a full cube: 32740; minimal 2-factors alone give >= 2^cmin: 37951; among equality cases: full minimal cube 26681, all TMs in one 2-factor 26681",
+      "cmin=2: 0 30611 5592 244 1433 733 109 38   (#TM/2^cmin floor = 0..7+)",
+      "cmin=4: 0 234 4 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:188673 c4:36611"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 19 \r\n1147 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 20,
+    "seconds": 1.35,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=26399 cw=0 ; E_hi ccw=0 cw=26985",
+      "SUMMARY graphs=3976 rooted=143136 withpair=143136 fail_lo=144 fail_hi=174 fail_both=66 extremes_equal=95107",
+      "C1 tested=143136 violations=0 equality=95107 overflow=0 maxlattice=8",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 116950; minimal 2-factors carry no tree pair: 936; some 2-factor (any c) is a full cube: 119019; minimal 2-factors alone give >= 2^cmin: 120807; among equality cases: full minimal cube 95107, all TMs in one 2-factor 95107",
+      "cmin=1: 0 75091 3484 116 17365 13544 2286 6014   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 22507 2279 106 254 54 0 0   (#TM/2^cmin floor = 0..7+)",
+      "cmin=5: 0 36 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:222697 c3:574693 c5:18398"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 20 \r\n3976 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 21,
+    "seconds": 4.26,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=94489 cw=0 ; E_hi ccw=0 cw=91916",
+      "SUMMARY graphs=11055 rooted=420090 withpair=420090 fail_lo=21 fail_hi=29 fail_both=2 extremes_equal=250871",
+      "C1 tested=420090 violations=0 equality=250871 overflow=0 maxlattice=10",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 336510; minimal 2-factors carry no tree pair: 192; some 2-factor (any c) is a full cube: 337469; minimal 2-factors alone give >= 2^cmin: 401325; among equality cases: full minimal cube 250871, all TMs in one 2-factor 250871",
+      "cmin=2: 0 292115 69828 5150 24036 16598 4016 3293   (#TM/2^cmin floor = 0..7+)",
+      "cmin=4: 0 4824 216 4 10 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:2114586 c4:801357 c6:3453"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 21 \r\n11055 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 22,
+    "seconds": 16.17,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=356106 cw=0 ; E_hi ccw=0 cw=362147",
+      "SUMMARY graphs=37231 rooted=1489240 withpair=1489240 fail_lo=2670 fail_hi=3227 fail_both=833 extremes_equal=847273",
+      "C1 tested=1489240 violations=0 equality=847273 overflow=0 maxlattice=12",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 1141749; minimal 2-factors carry no tree pair: 16744; some 2-factor (any c) is a full cube: 1178869; minimal 2-factors alone give >= 2^cmin: 1210440; among equality cases: full minimal cube 847273, all TMs in one 2-factor 847273",
+      "cmin=1: 0 600255 35087 1524 185148 161678 31896 121652   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 290120 46526 3412 7884 3023 462 173   (#TM/2^cmin floor = 0..7+)",
+      "cmin=5: 0 396 4 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:2101889 c3:8261078 c5:625057"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 22 \r\n37231 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 23,
+    "seconds": 56.06,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=1325681 cw=0 ; E_hi ccw=0 cw=1292183",
+      "SUMMARY graphs=114560 rooted=4811520 withpair=4811520 fail_lo=1315 fail_hi=1257 fail_both=153 extremes_equal=2474801",
+      "C1 tested=4811520 violations=0 equality=2474801 overflow=0 maxlattice=16",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 3676738; minimal 2-factors carry no tree pair: 5972; some 2-factor (any c) is a full cube: 3702729; minimal 2-factors alone give >= 2^cmin: 4504517; among equality cases: full minimal cube 2474801, all TMs in one 2-factor 2474801",
+      "cmin=2: 0 2891460 845286 90164 361543 301719 92063 127729   (#TM/2^cmin floor = 0..7+)",
+      "cmin=4: 0 92398 7953 396 661 106 0 0   (#TM/2^cmin floor = 0..7+)",
+      "cmin=6: 0 42 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c2:25066911 c4:15990862 c6:254325"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 23 \r\n114560 eulerian triangulations written to stdout\r\n"
+  },
+  {
+    "V": 24,
+    "seconds": 210.02,
+    "summary": [
+      "SENSES directed facial hexagons: E_lo ccw=4947375 cw=0 ; E_hi ccw=0 cw=5010719",
+      "SUMMARY graphs=384053 rooted=16898332 withpair=16898332 fail_lo=46063 fail_hi=54364 fail_both=9275 extremes_equal=8155422",
+      "C1 tested=16898332 violations=0 equality=8155422 overflow=0 maxlattice=20",
+      "C1STRUCT some minimal 2-factor is a full cube of tree pairs: 12175234; minimal 2-factors carry no tree pair: 280246; some 2-factor (any c) is a full cube: 12784541; minimal 2-factors alone give >= 2^cmin: 13322464; among equality cases: full minimal cube 8155422, all TMs in one 2-factor 8155422",
+      "cmin=1: 0 5132485 366423 17268 1983975 1881294 412203 2174836   (#TM/2^cmin floor = 0..7+)",
+      "cmin=3: 0 3681301 823118 84961 185589 99240 25682 18605   (#TM/2^cmin floor = 0..7+)",
+      "cmin=5: 0 10934 396 8 14 0 0 0   (#TM/2^cmin floor = 0..7+)",
+      "TM by #D-cycles of the 2-factor: c1:21706379 c3:120372945 c5:17756296 c7:45298"
+    ],
+    "generator": "E:\\Personal\\Math\\mathathon\\barnette-s-conjecture\\workings\\barnette_lab\\vendor\\plantri.exe -b -c4 24 \r\n384053 eulerian triangulations written to stdout\r\n"
+  }
+]

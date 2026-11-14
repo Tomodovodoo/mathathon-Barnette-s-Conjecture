@@ -1,0 +1,10 @@
+E:\Personal\Math\mathathon\barnette-s-conjecture\workings\barnette_lab\vendor\plantri.exe -b -c4 16 
+79 eulerian triangulations written to stdout
+
+SENSES directed facial hexagons: E_lo ccw=174 cw=0 ; E_hi ccw=0 cw=178
+SUMMARY graphs=79 rooted=2212 withpair=2212 fail_lo=0 fail_hi=0 fail_both=0 extremes_equal=1896
+C1 tested=2212 violations=0 equality=1896 overflow=0 maxlattice=3
+C1STRUCT some minimal 2-factor is a full cube of tree pairs: 2037; minimal 2-factors carry no tree pair: 1; some 2-factor (any c) is a full cube: 2040; minimal 2-factors alone give >= 2^cmin: 2045; among equality cases: full minimal cube 1896, all TMs in one 2-factor 1896
+cmin=1: 0 1734 48 0 163 90 5 4   (#TM/2^cmin floor = 0..7+)
+cmin=3: 0 166 2 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)
+TM by #D-cycles of the 2-factor: c1:4020 c3:3342
