@@ -66,7 +66,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `opus_blueprint/` | Opus 5.5 | `proofs/blueprint/` against Lean | done, superseded | First count 4 / 25 / 5 of 34; final count in `opus_lean-integration/`. |
 | `opus_lean-devices/` | Opus 5.5 | `proofs/lean/`: sign and finite-difference route in Lean | done, checked | 866 lines, 29 theorems; qualified by `astra_lean-check/`. |
 | `astra_lean-check/` | GPT-6 Astra | Independent rebuild and statement check of `proofs/lean/` | done | Rebuilds from a fresh clone; standard axioms only; three overstatements found (TODO T5, whole Lemma 4.5, "no polynomial") and corrected. |
-| `fable_descent/` | Fable 5.2 | Monotone descent and complexity | done, referee running | Monotone descent (C3) holds on 193,623,384 pairs through 23 vertices, unproved. Every bounded variant false. Search is in PPADS. |
+| `fable_descent/` | Fable 5.2 | Monotone descent and complexity | done, refereed | Monotone descent (C3) holds on 193,623,384 pairs through 23 vertices, unproved. Every bounded variant false. Search is in PPADS. |
 | `sol_map-update/`, `sol_map-final/` | GPT-6.1 Sol | Route map and labyrinth updates | done | 244 routes, 77 refutations. |
 | `astra_synthesis/` | GPT-6 Astra | `digestions/SYNTHESIS.md` | done | |
 | `fable_synthesis-audit/` | Fable 5.2 | Fact-check of the synthesis | done | No wrong number found; review statuses and wording tightened. |
@@ -78,8 +78,9 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `sol_digest-fixes/` | GPT-6.1 Sol | Overview and open-problems chapter rewritten; map rebuilt | done | First partnered cyclic state occurs at 12 vertices. C3 holds on 193,623,384 pairs through 23. |
 | `opus_referee-rainbow/` | Opus 5.5 | Referee of the rainbow route and two-tree packing | done | Step R, Theorem S and the sign-free evenness of good states correct. Packing referee is the author's model. |
 | `fable_referee-families/` | Fable 5.2 | Different-model referee of counting, probabilistic and algebra reports | done | Numbers agree. Prism-chain count holds only for a mixed gluing rule. Sign gauge exists on incidences of both states. |
-| `astra_referee-descent/` | GPT-6 Astra | Referee of the descent study and induction partial results | running | |
+| `astra_referee-descent/` | GPT-6 Astra | Referee of the descent study and induction partial results | done | C3 confirmed on 3,373,400 pairs through 20 vertices. 27 alternative potentials refuted. 7,940 induction exceptions reproduced. C3, G and X open. |
 | `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | running | |
-| `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | running | |
+| `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | done | `FACTS.md`. Four documents agree; atlas repaired in `fable_atlas-repair/`. |
 | `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | running | |
 | `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | running | |
+| `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | running | |
