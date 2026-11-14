@@ -1,0 +1,3 @@
+X1 maximising pairs checked: 5202 all Q_s cycles counterclockwise
+X2 rooted triangulations with colouring = delta: 7868
+X3 with pair 5088; every top partnered state is a tree matching in 4993; some in 4993
