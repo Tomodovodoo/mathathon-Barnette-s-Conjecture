@@ -1,0 +1,7 @@
+{
+ "command": "python research/2026-11-14_opus_route-topology/code/topo.py exchange 16",
+ "result": {
+  "instances": 450,
+  "reached_tree_matching": 450
+ }
+}

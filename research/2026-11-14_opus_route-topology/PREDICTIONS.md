@@ -21,3 +21,7 @@ P8 (two-sided degree polytope). In rooted instances with no pair (a separating t
 P9 (saturation). For every H in the sample, every lattice point in the convex hull of the two-sided degree vectors of spanning trees of H is itself realised by a spanning tree. Confidence: low (this would be a genuinely new route if it held).
 
 P10 (nodal lines, the continuum test). Sign patterns of Laplacian eigenvectors of T almost never give a partition into two induced trees (fewer than 5% of eigenvectors over the sample). Confidence: high.
+
+## Outcome pointers (added after the runs)
+
+P1, P2, P3 confirmed; P4 confirmed (the inclusion is strict in 109 of 166 instances); P5 confirmed; P6 partly wrong (top and bottom are often tree matchings); P7 confirmed; P8 confirmed; P9 no counterexample in 8 small cases; P10 confirmed narrowly (4.7%). Details in ROUTES.md.

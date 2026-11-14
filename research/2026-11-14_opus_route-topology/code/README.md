@@ -16,6 +16,7 @@ Run from the repository root. Each command writes `data/<name>.json`, and the pr
 | `... topo.py hyper 12` | 86 rooted, V ≤ 12 | Kálmán hypertree map of states (six hypergraphs); extreme-point position | 4 s |
 | `... topo.py degpoly 10` | 66 rooted, V ≤ 10 | two-sided degree vectors of spanning trees of `H` (brute force); target in hull; one-sided realisability; saturation on 8 small cases | 75 s |
 | `... topo.py rainbow 16` | 826 rooted, V ≤ 16 | point-side and black-side rainbow spanning trees (matroid intersection) vs existence of a pair | 8 s |
+| `... topo.py exchange 16` | 450 rooted with a pair, V ≤ 16 | randomised same-colour exchange descent from a point-rainbow tree to a tree matching (seed 7, 20 restarts × 400 steps) | 7 s |
 | `... topo.py nodal 14` | all unrooted, V ≤ 14 | sign patterns of Laplacian eigenvectors as induced-tree partitions | 2 s |
 
 "Rooted" means every plantri Eulerian triangulation of that order (`plantri -ba V`, V = 6..max), with every face as outer face up to V = 10 (V = 12 for `disk`, `degpoly` and `rainbow`) and two outer faces (indices 0 and the first face of the other colour) above. Instances whose `Instance` constructor fails are skipped.

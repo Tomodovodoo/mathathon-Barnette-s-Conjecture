@@ -15,6 +15,7 @@ Predictions were committed before any run, in `PREDICTIONS.md` (commit 13aaac6).
 | R9 | Oriented path following (PPAD) | PROVED-HERE per phase, open globally | Each phase of the marked walk is END-OF-LINE. |
 | R10 | Nodal lines of eigenvectors | COMPUTED | see below |
 | R11 | Cubic differential / spectral cover | HUNCH with an unrun test | `T` is an `A_2` chamber complex. A state picks a sheet of `λ^3 = q` at each black centre. |
+| R6′ | Exchange descent from point-rainbow trees | CONJECTURE, COMPUTED 450/450 | Same-colour exchanges with non-increasing black excess reached a tree matching every time (V ≤ 16). |
 | R12 | Two-sided degree polytope saturation | CONJECTURE, small evidence | Every lattice point of the hull of two-sided tree degree vectors of `H` was realised in 8 small cases. |
 
 ## R1, R2. The disk identity
@@ -63,6 +64,8 @@ TOPOLOGY.md Lemma 3.1. Proof only, no computation needed. It turns the recovery 
 **Meaning.** A tree matching exists iff one specific relative spin^c structure, the vector `g` of "degree minus 2", lies in the support of `SFH` of the complement of the Seifert surface of `L_G`, the special alternating link of the Barnette graph (JKR Thm 1.1). By Kálmán's convexity that is a family of linear inequalities. **What is missing**: an exchange lemma turning a spanning tree with point degrees `g` into one that also has black degrees `f`. The joint problem is a three-matroid intersection, so no general theorem does this. **Lesson.** The Floer dictionary rewrites states and their counts exactly, but the proof's real content, a joint degree condition on one tree, has no single-spin^c meaning beyond Theorem 5.4: the black side was realisable in every computed instance (not proved in general) and the point side decides, but only through the hard direction (3)⇒(1).
 
 **New door.** Find a direct exchange argument: from a rainbow spanning tree for the point colours, reach one that is also rainbow for the black colours, for example by local exchanges that reduce the black-side excess. A proof would give a cancellation-free proof of the key lemma. Test first: is the graph of point-rainbow trees under single exchanges connected, and does it always contain a doubly rainbow tree that is reachable greedily?
+
+First test run (`exp_exchange`, all 450 rooted instances with a pair, V ≤ 16): start from a point-rainbow tree found by matroid intersection. Make random same-colour single exchanges (swap the deleted spoke at one point for another spoke at the same point) that keep a spanning tree, and accept a move if the black excess `Σ_t |#deleted at t - 1|` does not increase. With at most 20 restarts of 400 steps, this reached excess 0, a tree matching, in **450 of 450**. **CONJECTURE R6′**: from every point-rainbow tree, a sequence of same-colour exchanges with non-increasing black excess reaches a tree matching. Next tests: (a) worst-case number of steps and whether strictly decreasing moves always exist (no plateaus); (b) larger V; (c) look for a potential function that makes the descent monotone. A proof would be a cancellation-free, local-search proof of the key lemma, given the two-line Rado-type proof of the point side. Two halves of that are missing: a direct proof that (3) implies (2), and the exchange step.
 
 ## R7. Parity and Thomason
 

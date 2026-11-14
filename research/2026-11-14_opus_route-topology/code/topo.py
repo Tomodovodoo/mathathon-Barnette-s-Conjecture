@@ -845,5 +845,57 @@ def exp_rainbow(max_v=14, all_roots_up_to=12):
 EXPERIMENTS['rainbow'] = exp_rainbow
 
 
+
+# ---------------------------------------------------------------- exchange walk among point-rainbow trees
+def exp_exchange(max_v=14, restarts=20, steps=400, seed=7):
+    """Start from a point-rainbow spanning tree (one deleted spoke per nonroot point, duals a white tree).
+    Same-colour single exchanges keep the point side. Minimise black excess sum_t |#deleted spokes at t - 1|
+    by a randomised descent that accepts equal moves. Also: is the exchange graph connected (small V)?"""
+    rnd = random.Random(seed)
+    rec = Counter()
+    for meta, inst in rooted_instances(max_v, all_roots_up_to=10):
+        if inst.flow_pair() is None:
+            continue
+        es = white_spoke_edges(inst)
+        bycol = defaultdict(list)
+        for i, (a, b, x, t) in enumerate(es):
+            bycol[x].append(i)
+        start = rainbow_tree(inst.white, [(a, b) for a, b, x, t in es], [x for a, b, x, t in es])
+        def is_tree(sel):
+            g = nx.Graph()
+            g.add_nodes_from(inst.white)
+            g.add_edges_from((es[i][0], es[i][1]) for i in sel)
+            return nx.is_tree(g)
+        def excess(sel):
+            cnt = Counter(es[i][3] for i in sel)
+            return sum(abs(cnt[t] - 1) for t in inst.A)
+        best = None
+        for _ in range(restarts):
+            cur = set(start)
+            e = excess(cur)
+            for _ in range(steps):
+                if e == 0:
+                    break
+                i = rnd.choice(sorted(cur))
+                j = rnd.choice(bycol[es[i][2]])
+                if j == i:
+                    continue
+                new = (cur - {i}) | {j}
+                if not is_tree(new):
+                    continue
+                ne = excess(new)
+                if ne <= e:
+                    cur, e = new, ne
+            best = e if best is None else min(best, e)
+            if e == 0:
+                break
+        rec['instances'] += 1
+        rec['reached_tree_matching'] += best == 0
+    return dict(rec)
+
+
+EXPERIMENTS['exchange'] = exp_exchange
+
+
 if __name__ == '__main__':
     main()
