@@ -1,9 +1,0 @@
-{
- "command": "python research/2026-11-14_opus_route-topology/code/topo.py morse 14",
- "result": {
-  "states_with_mates": 445,
-  "mate_count_is_2^k": 445,
-  "levels_binomial": 445,
-  "signed_sum_is_indicator": 445
- }
-}

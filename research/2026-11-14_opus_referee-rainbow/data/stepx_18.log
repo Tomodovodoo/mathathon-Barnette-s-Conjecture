@@ -1,8 +1,0 @@
-1542 True {'multi_checked_ok': 32, 'trees_enumerated': 2142208} 93
-1541 True {'multi_checked_ok': 64, 'trees_enumerated': 4612096} 198
-103 True {'multi_checked_ok': 72, 'trees_enumerated': 5087232, 'one_2factor_PropU': 24} 224
-104 True {'multi_checked_ok': 80, 'trees_enumerated': 5562368, 'one_2factor_PropU': 48} 251
-105 True {'multi_checked_ok': 90, 'trees_enumerated': 6152192, 'one_2factor_PropU': 70} 282
-106 True {'multi_checked_ok': 100, 'trees_enumerated': 6742016, 'one_2factor_PropU': 92} 312
-107 True {'multi_checked_ok': 120, 'trees_enumerated': 7999488, 'one_2factor_PropU': 104} 368
-108 False {'multi_checked_ok': 137, 'trees_enumerated': 9162752, 'one_2factor_PropU': 111} 421

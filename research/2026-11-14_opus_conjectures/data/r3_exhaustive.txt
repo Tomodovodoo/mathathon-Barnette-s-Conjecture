@@ -1,6 +1,0 @@
-V=18 26 both-fail: R3 (both extremes fail) tested=26 failing_chain_exists=0 overflow=0
-V=20 66 both-fail: R3 (both extremes fail) tested=66 failing_chain_exists=0 overflow=0
-V=21 46 both-fail: R3 (both extremes fail) tested=46 failing_chain_exists=0 overflow=0
-V=22 833 both-fail: R3 (both extremes fail) tested=833 failing_chain_exists=0 overflow=0
-V=23 935 both-fail: R3 (both extremes fail) tested=935 failing_chain_exists=0 overflow=0
-V=24 9731 both-fail: R3 (both extremes fail) tested=9731 failing_chain_exists=0 overflow=0

@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "E:\rc-sol-late\proofs\sign-free\figures\check.py", line 8, in <module>
-    D = json.load(open('figdata.json'))
-                  ~~~~^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: 'figdata.json'

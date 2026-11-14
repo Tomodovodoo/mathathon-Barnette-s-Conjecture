@@ -1,5 +1,0 @@
-ins V=60 instances 200 elements-with-TP fraction: min 0.500 median 1.000  TM/pairs: min 0.3777 median 0.8000
-ins V=100 instances 150 elements-with-TP fraction: min 0.552 median 1.000  TM/pairs: min 0.2659 median 0.7607
-skew V=40 instances 200 elements-with-TP fraction: min 0.667 median 1.000  TM/pairs: min 0.4161 median 0.7555
-skew V=60 instances 150 elements-with-TP fraction: min 0.583 median 0.904  TM/pairs: min 0.2326 median 0.5722
-skew V=80 instances 75 elements-with-TP fraction: min 0.577 median 0.779  TM/pairs: min 0.1142 median 0.2898

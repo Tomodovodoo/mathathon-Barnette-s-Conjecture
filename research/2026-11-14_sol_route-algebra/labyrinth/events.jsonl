@@ -1,6 +1,0 @@
-{"ts": "2026-11-14T10:43:29.037510+00:00", "type": "proposed", "summary": "Predictions recorded before testing in PREDICTIONS.md", "nodes": [], "evidence": ["../PREDICTIONS.md"], "backfilled": true}
-{"ts": "2026-11-14T10:43:29.037510+00:00", "type": "computed", "summary": "Completed exact all-root corpus; T4, review pending", "nodes": ["e.counts"], "evidence": [], "backfilled": true}
-{"ts": "2026-11-14T10:43:29.037510+00:00", "type": "refuted", "summary": "Each tested small modulus permits a positive zero-residue count", "nodes": ["x.modular"], "evidence": [], "backfilled": true}
-{"ts": "2026-11-14T10:43:29.037510+00:00", "type": "proved", "summary": "Quartic and auxiliary Gaussian identities; T2, unreviewed", "nodes": ["th.grassmann"], "evidence": [], "backfilled": true}
-{"ts": "2026-11-14T10:43:29.037510+00:00", "type": "documented", "summary": "Completed local map; independent review remains pending", "nodes": [], "evidence": [], "backfilled": true}
-{"ts": "2026-11-14T10:47:50.621985+00:00", "type": "refuted", "summary": "Signed incidence gauge certificate reconstructed and checked by a second author-written method", "nodes": ["x.gauge"], "evidence": ["../gauges.json", "../checks.json"]}

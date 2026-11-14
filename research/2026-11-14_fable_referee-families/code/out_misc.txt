@@ -1,5 +1,0 @@
-cube tau(H) = 128 M = 2 uniform UST success = M/tau = 1/64 bridges of H: 0
-hexagonal prism tau(H) = 2700 M = 2 uniform UST success = M/tau = 1/1350 bridges of H: 0
-plantri V<=14: 55 graphs, total bridges of H: 0
-tubes p=4,6,8, L<=6: number of 3-cycles equals number of faces (no separating triangle)
-V<=14, roots 1206 violations of H_avoid(e0) >= M or 3M <= H: 0 graphs with 3M = H: [(6, 0), (9, 0), (12, 2), (12, 5), (12, 6), (12, 7)]

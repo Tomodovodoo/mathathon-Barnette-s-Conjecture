@@ -1,9 +1,0 @@
-SENSES directed facial hexagons: E_lo ccw=141424 cw=0 ; E_hi ccw=0 cw=139213
-SUMMARY graphs=50116 rooted=1904408 withpair=944804 fail_lo=103 fail_hi=115 fail_both=46 extremes_equal=692724
-C1 tested=944804 violations=0 equality=692724 overflow=0 maxlattice=10
-cmin=2: 0 548651 74606 5190 59730 37966 6580 7173   (#TM/2^cmin floor = 0..7+)
-cmin=4: 0 196650 5852 24 946 0 0 0   (#TM/2^cmin floor = 0..7+)
-cmin=6: 0 1436 0 0 0 0 0 0   (#TM/2^cmin floor = 0..7+)
-STRUCT tested=944804 skipped(L>1500)=0  no_JI_with_tp=0 no_MI_with_tp=0 neither=0 maxdist=1
-STRUCT dist-to-nearest-extreme of nearest tree-pair element: d0:944758 d1:46
-TM by #D-cycles of the 2-factor: c2:3354672 c4:5130549 c6:152759

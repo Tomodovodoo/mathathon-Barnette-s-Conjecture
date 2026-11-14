@@ -1,5 +1,0 @@
-{"V": 12, "rooted": 120, "pairs": 376, "d_swaps": 728, "q_reversals": 4, "failures": 0, "max_abs_change": 7}
-{"V": 13, "rooted": 126, "pairs": 528, "d_swaps": 1056, "q_reversals": 8, "failures": 0, "max_abs_change": 8}
-{"V": 14, "rooted": 546, "pairs": 2128, "d_swaps": 4656, "q_reversals": 28, "failures": 0, "max_abs_change": 9}
-{"V": 15, "rooted": 914, "pairs": 4816, "d_swaps": 11776, "q_reversals": 144, "failures": 0, "max_abs_change": 10}
-{"V": 16, "rooted": 3294, "pairs": 16648, "d_swaps": 41544, "q_reversals": 470, "failures": 0, "max_abs_change": 11}

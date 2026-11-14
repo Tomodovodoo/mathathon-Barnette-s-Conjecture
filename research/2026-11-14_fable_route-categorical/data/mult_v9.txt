@@ -1,1 +1,0 @@
-{'insertions into a white face: states, pairs, trees all multiply': 1016, 'insertions into a black face: pairs = trees = 0': 840}

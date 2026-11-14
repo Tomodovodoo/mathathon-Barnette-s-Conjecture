@@ -1,3 +1,0 @@
-V=50 {'inst': 60, 'min_ok': 60, 'max_ok': 60, 'start_ok': 60}
-V=80 {'inst': 60, 'min_ok': 57, 'max_ok': 57, 'start_ok': 59}
-V=120 {'inst': 60, 'min_ok': 54, 'max_ok': 56, 'start_ok': 55}

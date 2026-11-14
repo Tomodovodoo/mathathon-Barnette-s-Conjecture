@@ -1,6 +1,0 @@
-SUMMARY graphs=582603 rooted=24469326 withpair=11395661 fail_lo=3977 fail_hi=3981 fail_both=935 extremes_equal=7554133
-NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:6088 d1:935 overflow=0
-V=23 77s
-SUMMARY graphs=2024119 rooted=89061236 withpair=40301964 fail_lo=47517 fail_hi=55846 fail_both=9731 extremes_equal=25317466
-NEARHIST (instances where some extreme fails) dist of nearest tree-pair element: d0:83901 d1:9730 d2:1 overflow=0
-V=24 317s

@@ -1,5 +1,0 @@
-build-primal/*.log
-__pycache__/
-*.pyc
-upstream/
-build-primal/renders/

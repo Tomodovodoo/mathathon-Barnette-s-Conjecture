@@ -1,1 +1,0 @@
-V=80 {'inst': 60, 'min_ok': 57, 'max_ok': 57, 'start_ok': 59, 'both_fail': 0, 'saved_max': 1}

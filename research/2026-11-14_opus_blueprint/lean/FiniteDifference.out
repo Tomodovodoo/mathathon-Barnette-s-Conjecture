@@ -1,2 +1,0 @@
-'Blueprint.finite_difference' depends on axioms: [propext, Classical.choice, Quot.sound]
-'Blueprint.finite_difference_fin' depends on axioms: [propext, Classical.choice, Quot.sound]

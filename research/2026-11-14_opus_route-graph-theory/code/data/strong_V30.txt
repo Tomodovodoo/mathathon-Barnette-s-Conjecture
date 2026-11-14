@@ -1,1 +1,0 @@
-V=30 trials=30 tested moves=837 violations=0 dk histogram=[(-1, 837)]

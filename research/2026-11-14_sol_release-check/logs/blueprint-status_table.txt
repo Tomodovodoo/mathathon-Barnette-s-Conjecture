@@ -1,3 +1,0 @@
-cwd: .
-command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -I research/2026-11-14_opus_lean-integration/scripts/status_table.py
-written; changed: ['lem:outdegree', 'lem:sign', 'lem:difference']

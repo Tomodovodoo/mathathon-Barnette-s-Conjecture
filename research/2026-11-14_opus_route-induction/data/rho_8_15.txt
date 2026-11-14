@@ -1,8 +1,0 @@
-8 {'rho TM': 24, 'instances with failures': 24, 'instances fully covered by rho': 24}
-9 {}
-10 {'rho TM': 72, 'instances with failures': 72, 'instances fully covered by rho': 72}
-11 {'rho TM': 80, 'instances with failures': 40, 'instances fully covered by rho': 40}
-12 {'rho TM': 260, 'instances with failures': 260, 'instances fully covered by rho': 260}
-13 {'rho TM': 592, 'instances with failures': 312, 'instances fully covered by rho': 304, 'rho not TM': 8}
-14 {'rho TM': 2142, 'instances with failures': 1540, 'instances fully covered by rho': 1520, 'rho not TM': 20}
-15 {'rho TM': 4862, 'instances with failures': 2532, 'instances fully covered by rho': 2452, 'rho not TM': 80}

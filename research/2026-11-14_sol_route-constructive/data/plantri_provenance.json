@@ -1,9 +1,0 @@
-{
-  "url": "https://raw.githubusercontent.com/mishun/plantri/master/plantri.c",
-  "sha256_before_patch": "1e5be747be18fc92e040d2ca5c442d9e5f66bc01223f9ae1cf7365f287ed9738",
-  "version": "4.5, from source header",
-  "patch": "#define CPUTIME 1 -> #define CPUTIME 0",
-  "compile": "gcc -O3 -o plantri.exe plantri.c",
-  "official_5_8_download": "https://users.cecs.anu.edu.au/~bdm/plantri/plantri58.tar.gz",
-  "official_download_result": "20-second read timeout"
-}

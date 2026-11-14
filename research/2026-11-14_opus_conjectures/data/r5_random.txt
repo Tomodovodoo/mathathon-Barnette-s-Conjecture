@@ -1,5 +1,0 @@
-skew V=50 graphs=200 seed=51 roots=10 instances 2000 min fraction 3/5 below 1/2: 0 exactly 1/2: 0 | example: R 74 22 cmin=1 ncmin=2 TM=1746 L=80 Ltp=48 pairs=5860 lo(c=7,tp=1) hi(c=3,tp=0)
-skew V=70 graphs=100 seed=52 roots=10 instances 1000 min fraction 109/235 below 1/2: 1 exactly 1/2: 1 | example: R 24 80 cmin=1 ncmin=12 TM=71180 L=1410 Ltp=654 pairs=483960 lo(c=5,tp=1) hi(c=3,tp=1)
-skew V=90 graphs=60 seed=53 roots=10 instances 600 min fraction 2427/6032 below 1/2: 10 exactly 1/2: 0 | example: R 10 44 cmin=1 ncmin=15 TM=305592 L=6032 Ltp=2427 pairs=2804830 lo(c=9,tp=1) hi(c=5,tp=0)
-ins V=120 graphs=60 seed=54 roots=10 instances 600 min fraction 15/32 below 1/2: 5 exactly 1/2: 1 | example: R 39 124 cmin=1 ncmin=2 TM=6940 L=160 Ltp=75 pairs=32300 lo(c=7,tp=0) hi(c=5,tp=0)
-skew V=110 graphs=30 seed=55 roots=10 instances 220 min fraction 54990/120413 below 1/2: 5 exactly 1/2: 0 | example: R 20 165 cmin=1 ncmin=75 TM=10066880 L=120413 Ltp=54990 pairs=100613134 lo(c=7,tp=1) hi(c=

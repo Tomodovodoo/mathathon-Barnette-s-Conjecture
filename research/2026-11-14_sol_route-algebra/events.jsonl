@@ -1,7 +1,0 @@
-{"type": "computed", "summary": "Exact counts completed", "graphs": 17, "roots": 334, "tier": "T4", "review": "unreviewed"}
-{"type": "computed", "summary": "Exact counts completed", "graphs": 57, "roots": 1278, "tier": "T4", "review": "unreviewed"}
-{"type": "computed", "summary": "Exact counts completed", "graphs": 299, "roots": 7940, "tier": "T4", "review": "unreviewed"}
-{"ts": "2026-11-14T10:47:50.621985+00:00", "type": "computed", "summary": "Final corpus: 300 graph records and 7970 roots, including restart fixture", "nodes": [], "evidence": []}
-{"ts": "2026-11-14T10:47:50.621985+00:00", "type": "refuted", "summary": "Signed incidence gauge fails in 68 rooted examples; six-state certificate rechecked by forest orientation", "nodes": [], "evidence": []}
-{"ts": "2026-11-14T10:47:50.621985+00:00", "type": "proved", "summary": "Quartic Berezin and real Gaussian determinant-product identities, T2 unreviewed", "nodes": [], "evidence": []}
-{"ts": "2026-11-14T10:47:50.621985+00:00", "type": "documented", "summary": "All deliverables complete; local map check/build passed; independent referee pending", "nodes": [], "evidence": []}

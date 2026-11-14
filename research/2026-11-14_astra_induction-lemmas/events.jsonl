@@ -1,6 +1,0 @@
-{"ts": "2026-11-14", "type": "proposed", "summary": "Initial predictions recorded before computation in JOURNAL.md.", "nodes": ["k.G", "k.X"], "evidence": ["JOURNAL.md"], "backfilled": true}
-{"ts": "2026-11-14", "type": "computed", "summary": "Symbolic Hall residual zero and census complete.", "nodes": ["th.hall"], "evidence": ["JOURNAL.md"], "backfilled": true}
-{"ts": "2026-11-14", "type": "refuted", "summary": "V=11 refutes innermost descent.", "nodes": ["x.descent"], "evidence": ["JOURNAL.md"], "backfilled": true}
-{"ts": "2026-11-14", "type": "refuted", "summary": "V=18 refutes fixed-cover repair; independent lab replay.", "nodes": ["x.cube"], "evidence": ["JOURNAL.md"], "backfilled": true}
-{"ts": "2026-11-14", "type": "proved", "summary": "Restricted G and disk-colour curvature written, self-reviewed only.", "nodes": ["th.restricted", "th.curvature"], "evidence": ["JOURNAL.md"], "backfilled": true}
-{"ts": "2026-11-14", "type": "documented", "summary": "G and X remain open; bounded audit and partial certificate theorem completed.", "nodes": ["k.G", "k.X"], "evidence": ["JOURNAL.md"], "backfilled": true}

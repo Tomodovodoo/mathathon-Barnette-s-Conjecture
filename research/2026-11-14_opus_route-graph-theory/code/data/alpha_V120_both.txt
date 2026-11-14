@@ -1,2 +1,0 @@
-V=120 {'inst': 60, 'min_ok': 54, 'max_ok': 56, 'start_ok': 55, 'both_fail': 0, 'saved_max': 1}
-V=100 {'inst': 60, 'min_ok': 55, 'max_ok': 56, 'start_ok': 56, 'both_fail': 0, 'saved_max': 1}

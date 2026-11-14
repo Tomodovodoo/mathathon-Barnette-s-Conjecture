@@ -1,5 +1,0 @@
-n = 5 states 3 pairs 2 good states 2 Hamiltonian cycles avoiding e0* 4
-cycle state [2, 3, 7, 4, 5] not good no partner
-cycle state [2, 3, 4, 5, 7] good partner
-cycle state [7, 2, 3, 4, 5] good partner
-cycle state [2, 3, 7, 4, 5] not good no partner

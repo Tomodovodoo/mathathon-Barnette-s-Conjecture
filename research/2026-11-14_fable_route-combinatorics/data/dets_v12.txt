@@ -1,4 +1,0 @@
-1706 D1 states all passed
-262 D2 rooted all passed
-262 D3 rooted all passed
-1248 D4 trials all passed

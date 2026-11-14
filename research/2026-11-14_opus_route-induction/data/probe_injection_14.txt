@@ -1,2 +1,0 @@
-min distance histogram {3: 589, 5: 2, 11: 2}
-injection by moves of distance <= k exists, cases: {3: 483, 4: 483, 6: 485, 100: 487}

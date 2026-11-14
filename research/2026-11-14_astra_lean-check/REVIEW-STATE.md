@@ -1,1 +1,0 @@
-Review complete. The fresh rebuild and targeted proof-route replacement pass. TODO T5, the whole-Lemma-4.5 wording and the literal no-polynomial-dependencies wording do not. Canonical statuses were not changed. See REPORT.md for the final verdict and all deliverables. E:/lb2 has been removed; E:/lbb was not modified.

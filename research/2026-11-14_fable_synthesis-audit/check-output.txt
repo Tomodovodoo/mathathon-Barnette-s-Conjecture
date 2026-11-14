@@ -1,4 +1,0 @@
-links checked: 108
-words (prose, link targets removed): 5190
-sections: 12
-no problem found

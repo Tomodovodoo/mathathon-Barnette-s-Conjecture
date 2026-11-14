@@ -1,7 +1,0 @@
-6 {'inst': 8, 'bij': 8, 'derived_tm': 8, 'roundtrip': 8} sample (#TM,#partitions): [(2, 2), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2)]
-7 {'inst': 0, 'bij': 0, 'derived_tm': 0, 'roundtrip': 0} sample (#TM,#partitions): []
-8 {'inst': 12, 'bij': 8, 'derived_tm': 8, 'roundtrip': 8} sample (#TM,#partitions): [(2, 2), (2, 4), (2, 2), (2, 4), (2, 2), (2, 4)]
-9 {'inst': 8, 'bij': 8, 'derived_tm': 8, 'roundtrip': 8} sample (#TM,#partitions): [(4, 4), (4, 4), (4, 4), (4, 4), (4, 4), (4, 4)]
-10 {'inst': 32, 'bij': 15, 'derived_tm': 15, 'roundtrip': 15} sample (#TM,#partitions): [(2, 2), (2, 6), (2, 2), (2, 6), (2, 2), (2, 6)]
-11 {'inst': 28, 'bij': 10, 'derived_tm': 10, 'roundtrip': 10} sample (#TM,#partitions): [(4, 4), (4, 8), (4, 4), (4, 4), (4, 4), (4, 8)]
-12 {'inst': 120, 'bij': 43, 'derived_tm': 43, 'roundtrip': 43} sample (#TM,#partitions): [(2, 2), (2, 8), (2, 2), (2, 8), (2, 2), (2, 8)]

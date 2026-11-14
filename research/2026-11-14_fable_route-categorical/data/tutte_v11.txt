@@ -1,2 +1,0 @@
-rooted triangulations x colours checked: 153
-in each: state -> colour-c arc set is injective, its image is acyclic, and #states = det of the reduced Laplacian

@@ -1,1 +1,0 @@
-16 {'rho TM': 19691, 'instances with failures': 10335, 'instances fully covered by rho': 10021, 'rho not TM': 358}

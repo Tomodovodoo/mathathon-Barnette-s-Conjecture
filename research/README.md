@@ -1,16 +1,8 @@
-# Research archive
+# Research
 
-One folder per agent run. Folder names are `YYYY-MM-DD_<model>_<slug>/`, for example `2026-11-14_fable_dependency-graph/`.
-Each folder holds that agent's report (`REPORT.md`), its code, data, figures and notes. Nobody else edits it.
+Work in progress on questions the paper leaves open. Nothing here is needed to read the proof.
 
-Promotion out of this archive is done by the coordinator or by an agent whose brief says so:
+- [OPEN-PROBLEMS.md](OPEN-PROBLEMS.md): the open questions, the evidence for each, and what has been refuted.
+- [instances/](instances/): the counterexample graphs those refutations rest on.
 
-| Destination | What goes there |
-| --- | --- |
-| `papers/` | Source literature (PDFs when freely available) plus `papers/INDEX.md`. |
-| `digestions/` | Checked explanations of the conjecture, the literature and the proof techniques. |
-| `workings/` | Shared computations and examples that several agents rely on. |
-| `proofs/` | Proof routes with their status recorded. |
-| `paper/` | The manuscript. |
-
-`research/INDEX.md` lists every run, its status and its one-line result. `research/BRIEF.md` is the protocol every agent follows.
+Start a folder here for a question you are working on. When the work is done, fold the result into the paper or the open-problems list and delete the folder. Earlier work is in the git history.

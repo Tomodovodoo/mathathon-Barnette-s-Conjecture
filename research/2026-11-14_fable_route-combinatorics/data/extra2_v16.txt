@@ -1,1 +1,0 @@
-X4 states 140358, pairs 24744, states with exactly one partner 24090: all consistent

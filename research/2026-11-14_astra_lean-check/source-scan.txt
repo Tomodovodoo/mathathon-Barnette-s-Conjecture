@@ -1,3 +1,0 @@
-Pattern: \b(sorry|admit|axiom|native_decide|unsafe|opaque|implemented_by)\b|\bset_option\b
-Files scanned: 29
-

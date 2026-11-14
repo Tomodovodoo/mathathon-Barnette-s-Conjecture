@@ -1,3 +1,0 @@
-cwd: .
-command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_fable_referee-involutions-v2/code/figure2.py
-crossings {(5, 0): (-0.741, -0.816), (5, 7): (-1.201, -0.018), (16, 11): (-1.05, 1.816)}

@@ -1,6 +1,0 @@
-{"ts": "2026-11-14T11:21:49.721123+00:00", "type": "proposed", "summary": "Predictions saved before computation in PREDICTIONS.md.", "nodes": [], "evidence": ["PREDICTIONS.md", "FAMILIES.md"], "backfilled": true}
-{"ts": "2026-11-14T11:21:49.721138+00:00", "type": "computed", "summary": "Prism, tube, stack and first-inflation counts completed; T4 under review.", "nodes": [], "evidence": ["PREDICTIONS.md", "FAMILIES.md"], "backfilled": true}
-{"ts": "2026-11-14T11:21:49.721142+00:00", "type": "computed", "summary": "Stationary matching, HC and pair matrices and recurrence certificates completed.", "nodes": [], "evidence": ["PREDICTIONS.md", "FAMILIES.md"], "backfilled": true}
-{"ts": "2026-11-14T11:21:49.721145+00:00", "type": "refuted", "summary": "Subdivision failed to preserve growing stacked cmin at q=2,3.", "nodes": [], "evidence": ["PREDICTIONS.md", "FAMILIES.md"], "backfilled": true}
-{"ts": "2026-11-14T11:21:49.721147+00:00", "type": "documented", "summary": "Family proofs, bounds, unresolved tasks and reproduction commands written.", "nodes": [], "evidence": ["PREDICTIONS.md", "FAMILIES.md"], "backfilled": true}
-{"ts": "2026-11-14T11:22:24Z", "type": "documented", "summary": "Completed family report and local dashboard; six result nodes under review; two research questions remain open.", "nodes": [], "evidence": ["REPORT.md", "FAMILIES.md"]}

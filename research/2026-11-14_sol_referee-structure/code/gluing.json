@@ -1,8 +1,0 @@
-{
-  "base_solver": "fresh exhaustive induced-tree partition enumeration, not the source matching constructor",
-  "prescriptions_checked": 3618,
-  "unique_recursive_calls": {
-    "glued": 1151,
-    "pieces": 4640
-  }
-}

@@ -1,2 +1,0 @@
-checked 28 routes, 31 pages: all checks passed
-exit 0

@@ -1,8 +1,0 @@
-6 instances 8 with a hole (non-tree state in conv(TM)) 0
-7 instances 0 with a hole (non-tree state in conv(TM)) 0
-8 instances 12 with a hole (non-tree state in conv(TM)) 0
-9 instances 8 with a hole (non-tree state in conv(TM)) 0
-10 instances 32 with a hole (non-tree state in conv(TM)) 0
-11 instances 28 with a hole (non-tree state in conv(TM)) 0
-12 instances 120 with a hole (non-tree state in conv(TM)) 0
-13 instances 126 with a hole (non-tree state in conv(TM)) 0

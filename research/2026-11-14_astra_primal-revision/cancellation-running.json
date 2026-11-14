@@ -1,9 +1,0 @@
-{
-  "graphs": 1,
-  "roots": 22,
-  "states": 264,
-  "phase normalization checks": 112,
-  "forest states with unique partner": 104,
-  "cancelling states": 4,
-  "checked reversals": 8
-}

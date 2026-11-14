@@ -1,3 +1,0 @@
-# Further prediction before larger tests
-
-CONJECTURE, T5. The 2n white dual edges selected by any disjoint pair can be partitioned into two spanning trees. This is equivalent to the half-pair point belonging to the spanning-tree polytope by the integer matroid-union theorem. It is stronger than mere target feasibility and does not require either resulting tree to be rainbow. The subset tests through 16 vertices support it. Test a direct augmenting forest partition on larger tubes, subdivisions and random white-face sums. If it survives, the missing theorem is a planar two-tree packing lemma, followed by a joint-degree rounding lemma.

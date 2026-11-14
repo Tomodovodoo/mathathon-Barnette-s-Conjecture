@@ -1,4 +1,0 @@
-﻿from pathlib import Path
-p=Path('labyrinth/seed.py');s=p.read_text(encoding='utf8').replace('draft B polynomial proof','draft B scalar-height-moment proof');p.write_text(s,encoding='utf8')
-p=Path('digestions/route-map/build_map.py');s=p.read_text(encoding='utf8').replace('Each cell: established · open · refuted routes (published or proved here · conjecture or hunch · refuted).','Each cell: proof supplied · open · refuted (source or project proof; review status is in the written map).');p.write_text(s,encoding='utf8')
-p=Path('digestions/route-map/HOW-IT-WORKS.md');s=p.read_text(encoding='utf8').replace('the only new lemma in the proof','the disk-counting lemma').replace('A local reduction cannot see it.','This explains an obstacle for those local reductions; it does not exclude every possible local method.');p.write_text(s,encoding='utf8')
