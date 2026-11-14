@@ -8,7 +8,7 @@ A constructive and explanatory account of the proof: why it works, and how one g
 
 ## Start here
 
-Read [`paper/barnette.pdf`](paper/barnette.pdf). It is eight pages and self-contained.
+Read [`paper/barnette.pdf`](paper/barnette.pdf). It is eight pages and self-contained. For a one-page map of the proof and of the routes around it, see the diagram at the top of [`digestions/routes.md`](digestions/routes.md).
 
 ## Layout
 

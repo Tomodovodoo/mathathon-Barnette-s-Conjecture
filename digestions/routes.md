@@ -2,6 +2,64 @@
 
 Notation and terms are those of [the paper](../paper/barnette.pdf), and statements are cited by their numbers there. We write $q(s)$ for the number of cycles of $Q_s$ and $g$ for the number of good states. Sizes are numbers of vertices of $T$; the graph $G$ then has $2|V(T)|-4$ vertices.
 
+## Map
+
+Read the diagram from the top. An arrow from one box to another means that the first follows once the second is established. The solid route is the proof, and all of it rests on the disk identity at the bottom. Dashed boxes are other ways to a good state: yellow ones are open, the red one fails. Sections 1 to 4 go through the boxes in turn.
+
+```mermaid
+flowchart TD
+    THM["<b>Theorem</b><br/>G cubic, bipartite, 3-connected, planar; e an edge. G has a Hamiltonian cycle avoiding e"]
+    MATCH["A perfect matching M containing e with G − M connected"]
+    DUAL["In the dual triangulation T: M* has one side of every face and no cycle"]
+    SEP{{"Does T have a separating triangle?"}}
+    CUT["<b>Induction</b><br/>It is a 3-edge cut of G. Solve both sides with a prescribed edge and splice the cycles (Theorem 4.3)"]
+    GOOD["<b>Good state s</b><br/>Q_s and two sides of t0 form a spanning tree of T (Proposition 2.3)"]
+    HOW{{"How does one get a good state?"}}
+
+    THM --> MATCH --> DUAL --> SEP
+    SEP -- yes --> CUT
+    SEP -- no --> GOOD --> HOW
+
+    DESC["<b>Descent on pairs</b><br/>Reverse cycles, never raising the number of cycles of Q_s. Open; true up to 23 vertices"]
+    RAIN["<b>Exchanges on rainbow trees</b><br/>No sign. Shows the number of good states is even; that it is positive is open"]
+    CONTR["<b>Contraction</b><br/>of a vertex of degree four, by induction. Two statements open; true up to 18 vertices"]
+    RULE["<b>A rule that picks one state or one 2-factor</b><br/>Lattice extremes, a single 2-factor, matroid intersection. Fails at 8 to 18 vertices"]
+
+    COUNT["<b>Signed count</b><br/>over pairs (r, s) of states that differ in every face"]
+    PAIR["<b>A pair exists</b><br/>A 2-factor of H by max-flow, from e(U) − b(U) ≤ 2|U| − 4 (Proposition 4.2)"]
+    CANCEL["<b>Cancellation</b><br/>Reversing a cycle of Q_s changes the sign, so pairs with s not good cancel (Lemma 3.3)"]
+    NONZ{{"Why is the sum not zero?"}}
+
+    HOW -. open .-> DESC
+    HOW -. open .-> RAIN
+    HOW -. open .-> CONTR
+    HOW -. fails .-> RULE
+    HOW == the proof ==> COUNT
+    COUNT --> PAIR
+    COUNT --> NONZ
+    COUNT --> CANCEL
+
+    POLY["<b>Polynomial Z(z)</b><br/>A factor 1 − z^a(C) for each cycle C; divide by (1 − z)^m, set z = 1 (Proposition 3.5)"]
+    EXP["<b>Exponential sum</b><br/>Coefficient of x^m (OpenAI), or the weight ω(s)^m and finite differences"]
+    INV["<b>Second involution</b><br/>on pairs with m marked crossings; fixed points of one sign (Li)"]
+    VAL["<b>The same number</b><br/>± Σ Π a(C) over the 2-factors with the fewest cycles: a nonempty sum of positive integers"]
+    DISK(["<b>Disk identity</b> (Lemma 2.2)<br/>W = B + 1 and h = 2ℓ + 3"])
+
+    NONZ --> POLY --> VAL
+    NONZ --> EXP --> VAL
+    NONZ --> INV --> VAL
+    VAL -- "a(C) ≥ 1" --> DISK
+    CANCEL -- "odd length" ----> DISK
+    GOOD -- "M* acyclic" --> DISK
+
+    classDef open fill:#fff3cd,stroke:#997404,color:#111,stroke-dasharray:6 4
+    classDef fails fill:#f8d7da,stroke:#b02a37,color:#111,stroke-dasharray:2 3
+    classDef key fill:#d1e7dd,stroke:#146c43,color:#111
+    class DESC,RAIN,CONTR open
+    class RULE fails
+    class DISK key
+```
+
 ## 1. The route of the paper
 
 A Hamiltonian cycle of $G$ is the complement of a perfect matching $M$ with $G-M$ connected, that is, with $M^*$ acyclic in $T$. Orienting the forest $M^*-e_0$ towards the corners of $t_0$ turns it into a state, so one looks for a state from which the matching can be rebuilt: a good state. A good state gives $M$ through the spanning tree $G-S_s^*$, and the disk identity (Lemma 2.2) shows that $M^*$ is acyclic (Proposition 2.3). A second state $r$ that differs from $s$ in every face orients $Q_s$ and reduces "good" to "$Q_s$ has no cycle" (Lemma 3.1); replacing $r$ by $r^K$ for a cycle $K$ of $Q_s$ keeps $s$ and changes the sign (Lemma 3.2), so the pairs with $s$ not good cancel in $Z(z)=\sum\varepsilon(r,s)z^{\omega(s)}$ (Lemma 3.3). Grouped by 2-factors of $H$, the same sum is $\sum_F\pm z^{\omega_F}\prod_C(1-z^{a(C)})$ (Lemma 3.4), the sign depends only on $n$ and $c(F)$, and so $Z(z)/(1-z)^m$ is not zero at $z=1$ (Proposition 3.5). A pair exists when $T$ has no separating triangle, by a flow argument and an edge count (Lemma 4.1, Proposition 4.2); separating triangles are handled by induction, and the prescribed edge makes the two halves agree (Theorem 4.3).
