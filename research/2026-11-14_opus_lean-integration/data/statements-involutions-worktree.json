@@ -1,0 +1,139 @@
+[
+ {
+  "id": "I:main",
+  "kind": "theorem",
+  "number": "1",
+  "label": "main",
+  "title": "Forest-pair lemma",
+  "statement": "If a pair exists, a pair exists for which $Q_s$ is a forest.",
+  "proof": "Partition $\\Omega$ into positive and negative objects. If $\\iota_1$ had\nno fixed point it would biject these two sets. But $\\iota_2$ pairs opposite\nsigns except for its nonempty fixed set of one sign. The two cardinalities\ntherefore differ by $(-1)^{\\lfloor m/2\\rfloor}F\\ne0$. A fixed object of\n$\\iota_1$ exists, and its underlying pair has $Q_s$ a forest.",
+  "line": 34,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 5,
+  "proof_words": 58,
+  "source": "involutions"
+ },
+ {
+  "id": "I:disk",
+  "kind": "lemma",
+  "number": "2",
+  "label": "disk",
+  "title": "Disk identity",
+  "statement": "Select one outgoing side from the corner chosen by a state in every face of $A$. A simple directed cycle among these sides encloses no root. If it has length $h$ and $\\ell$ of its boundary sides have their black face inside, then $h-2\\ell=3$. Its length is odd, its disk contains a white face, and its $\\delta$-sum is $-3$ counterclockwise and $3$ clockwise.",
+  "proof": "Roots lie on the outside triangle and no selected side has a root as tail.\nThus the cycle avoids roots and its bounded disk contains none.\nLet $I$ count strictly interior vertices and $B,W$ the black and white faces\ninside the disk. State bijectivity gives $B=I+\\ell$.\nIndeed the state is injective, and an inside triangle selects a vertex of\nthe closed disk. An interior vertex is selected by some triangle, which\ncontains it and so lies inside. A boundary vertex is selected by the\ntriangle supplying its outgoing boundary side, which lies inside exactly\nfor the $\\ell$ specified sides. So the inside triangles correspond to the\n$I$ interior vertices and those $\\ell$ boundary vertices.\nIf $E$ counts disk edges, side counting gives\n\\[\n E=3B+h-\\ell=3W+\\ell.\n\\]\nThe closed disk with its triangulation is connected: its underlying space is a disk,\nand its triangles join along their edges and vertices. Its faces are exactly\nthe triangles counted above. Euler's disk formula is $I+h-E+B+W=1$. Substitute $B=I+\\ell$\nand the first edge count to get $W=B+1$. Equating edge counts now gives\n$h-2\\ell=3$. The asserted signs follow by traversing the disk boundary.\nIn particular $W\\ge1$.",
+  "line": 64,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 20,
+  "proof_words": 202,
+  "source": "involutions"
+ },
+ {
+  "id": "I:objects",
+  "kind": "definition",
+  "number": "3",
+  "label": "objects",
+  "title": "",
+  "statement": "A token is a crossing $(w,t)$ of $\\rho_w$ with the spoke $t\\to s(t)$. An object is $o=(p,M)$, where $M$ is an unordered set of exactly $m$ distinct tokens. The same white face may occur more than once, with different spokes. The same spoke may occur more than once, with different white faces. The identical crossing may not occur twice. Let $\\Omega$ be this finite set. It depends on the drawing, since a ray swept past a vertex or a centre gains or loses crossings. Only its signed size is used, and Lemma~\\ref{fixed} shows that the signed size does not depend on the drawing. For a token let $d(w,t)=0$ if the spoke $t\\to s(t)$ goes left to right across the ray and $1$ otherwise. Give the object sign \\[ \\sigma(o)=(-1)^{\\lfloor J(p)/2\\rfloor+\\sum_{(w,t)\\in M}d(w,t)}. \\]",
+  "proof": null,
+  "line": 116,
+  "explicit_uses": [],
+  "statement_refs": [
+   "I:fixed"
+  ],
+  "proof_lines": 0,
+  "proof_words": 0,
+  "source": "involutions"
+ },
+ {
+  "id": "I:one",
+  "kind": "lemma",
+  "number": "4",
+  "label": "one",
+  "title": "",
+  "statement": "The map $\\iota_1$ is an involution. Its fixed objects are exactly those with $Q_s$ a forest, and it reverses sign at every other object.",
+  "proof": "Orient every side of $Q_s$ from $r(t)$ to $u(t)$. Every nonroot has outdegree\none and every root has outdegree zero. On a simple cycle, its $h$ edges\nhave distinct tails among its $h$ vertices. Hence each vertex is a tail\nexactly once, and the cycle is directed. Reversing it permutes the selected\nvertices cyclically and preserves the bijection $r$. The third corner is\nnever $s(t)$, so the resulting states remain disjoint. Since $s$ is fixed,\ntokens stay valid and the same cycle is selected again. Reversing twice\nrestores $r$.\nFor each changed triangle the cyclic orders give\n\\[\n \\delta(u(t),s(t))-\\delta(r(t),s(t))=2\\delta(r(t),u(t)).\n\\]\nLemma~\\ref{disk} on $K$ changes $J$ by $2$ or $-2$. Its floor half changes\nby an odd integer, while all crossing directions stay fixed. This proves\nsign reversal. A nonempty cycle changes $r$, so it creates no fixed object.",
+  "line": 149,
+  "explicit_uses": [
+   "I:disk"
+  ],
+  "statement_refs": [],
+  "proof_lines": 15,
+  "proof_words": 153,
+  "source": "involutions"
+ },
+ {
+  "id": "I:two",
+  "kind": "lemma",
+  "number": "5",
+  "label": "two",
+  "title": "",
+  "statement": "This defines an involution on $\\Omega$ which reverses sign off its fixed set. Its fixed objects have exactly $m$ cycles, one token on each, whose white-face point is inside that cycle and whose crossing is first along its ray.",
+  "proof": "Cycle reversal exchanges two perfect matchings on an alternating cycle,\nso it preserves valid pairs and the underlying unoriented cycles.\nIn case 1 the reversed cycle carries no token, so every token keeps its\nspoke as an $s$-spoke and $M$ is a token set of the new pair. The same\ncycles remain unmarked. The same first cycle is chosen twice, and no\ntoken changes membership or direction. Reversal changes $J$\nby $2$ or $-2$, so the sign reverses.\n\nIn case 2 exactly one token is assigned to each cycle. The partner exists\nbecause the sole unpaired crossing is excluded by the selection rule.\nIf its spoke is an $r$-spoke, reversal makes it an $s$-spoke. No other token\non that cycle can become invalid, because there is no other token there.\nTokens on distinct cycles have distinct spokes, so the moved token cannot\ncollide with another token. Its white point and assigned cycle stay the same.\n\nThus the first selection test, exterior white point, is invariant. If that\ntest selects no cycle, the second test, nonfirst crossing, is invariant:\nthe paired indices are both different from $1$. All earlier cycles keep\ntheir status. The same first cycle is therefore selected on the second\napplication. The geometric crossing pairing reverses itself. If no reversal\nwas made, its old spoke is still an $s$-spoke, so the return move makes no\nreversal. If a reversal was made, the old spoke is now an $r$-spoke, so the\nreturn move reverses the same cycle again. In both cases the original object\nreturns.\n\nIf no reversal is made, $J$ is unchanged and the direction of the moved\ntoken flips, because paired crossings have opposite directed crossings.\nIf reversal is made, the geometric pairing and the cycle reversal each\nflip that direction, so its final direction is unchanged; meanwhile\n$\\lfloor J/2\\rfloor$ changes parity. Other tokens lie on other cycles and\nkeep their directions. Both cases reverse sign. Every nonfixed rule changes\nthe pair or token, which also proves the asserted fixed-set description.",
+  "line": 200,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 32,
+  "proof_words": 340,
+  "source": "involutions"
+ },
+ {
+  "id": "I:fixed",
+  "kind": "lemma",
+  "number": "6",
+  "label": "fixed",
+  "title": "",
+  "statement": "The fixed set of $\\iota_2$ is nonempty and every member has sign $(-1)^{\\lfloor m/2\\rfloor}$. In fact its cardinality is \\[ F=\\sum_{\\substack{D\\text{ unoriented cover}\\\\c(D)=m}} \\prod_{C\\subset D} a(C), \\qquad a(C)=\\#\\{\\text{white faces inside }C\\}. \\]",
+  "proof": "For any minimum cover choose a white face inside each cycle, possible by\nLemma~\\ref{disk}. Different cycles may choose the same white face. The first\ncrossing of its ray with its spoke cycle exists. Orient each cycle so that\nthis spoke belongs to $s$. The two orientations exchange the spoke labels,\nso exactly one orientation works. The choices on distinct cycles are\nindependent. The resulting tokens are distinct, even for repeated white\nfaces, since their spokes are on distinct cycles. They give a fixed object.\nConversely the fixed-set description recovers these choices uniquely,\nwhich proves the cardinality formula.\n\nIf $q$ cycles are counterclockwise, their first exits cross right to left,\nand clockwise first exits cross left to right. Thus the direction sum is\n$q$ and $J=m-2q$. The sign exponent is\n$\\lfloor(m-2q)/2\\rfloor+q=\\lfloor m/2\\rfloor$.",
+  "line": 240,
+  "explicit_uses": [
+   "I:disk"
+  ],
+  "statement_refs": [],
+  "proof_lines": 14,
+  "proof_words": 139,
+  "source": "involutions"
+ },
+ {
+  "id": "I:path-crossings",
+  "kind": "lemma",
+  "number": "7",
+  "label": "path-crossings",
+  "title": "",
+  "statement": "Let $C$ be a spoke cycle of a pair and $w$ a white face. \\begin{enumerate} \\item The list of $C$ at $w$ has odd length exactly when $w$ is inside $C$. \\item At consecutive entries of the list, $C$ crosses the path in opposite directions. \\item If $w$ is inside $C$, then at the first entry $C$ crosses the path from right to left when $C$ is counterclockwise, and from left to right when it is clockwise. \\end{enumerate} Consequently Lemmas~\\ref{one}, \\ref{two}, \\ref{fixed} and \\ref{walk} and the proof of Theorem~\\ref{main} hold for path tokens, with these lists in place of the ray lists and with the same number $F$.",
+  "proof": "Subdivide every black triangle of $A$ into three sectors by its formal\ncentre-to-corner incidences. Each sector contains one side of the\ntriangle, and the sectors on two sides share the incidence at their\ncommon corner. A step that enters $t$ by one side and leaves by another\ntherefore passes from one sector to the next. It crosses the incidence\nat their common corner $v$ once and neither of the other two. If $v$ is\non the left of the step, the incidence directed away from the centre\npoints to the left, so it crosses the path from right to left. With left\nto right counted positive, its signed crossing is $-\\kappa_w(i)$.\nReversing the incidence changes this sign. This is a check of the two\ncyclic orders of the entering and leaving sides, so it uses no lengths\nor angles.\n\nThe incidence cycle $C$ is simple, since its corners and its centres are\ndistinct. Cut the subdivided sphere map along it. The two components are\nits inside disk and its outside disk. They contain the same white faces as\nthe two sides of the side cycle, because the two cycles differ only by\nthe sectors on the sides $r(t)s(t)$. The refined face path changes\ncomponents exactly when it crosses an incidence of $C$. In a triangle\n$t$ on $C$ these are the incidences at $r(t)$ and $s(t)$, crossed by the\nturns around $r(t)$ and $s(t)$; a turn around $u(t)$ crosses neither.\nIn white faces, in $t_0$ and in triangles off $C$ the path crosses no\nincidence of $C$. So the path changes components exactly at the listed\nsteps, and successive listed steps alternate exit and entry. The path ends\nin $t_0$ on the outside, so its list is odd exactly when $w$ is inside.\nAt a first exit, a counterclockwise cycle traverses the incidence from\nright to left relative to the path, and a clockwise cycle from left to\nright. These statements can also be read directly from the oriented\nboundary of the inside disk. If the incidence is an $s$-incidence its\ntraversal is away from the centre; an $r$-incidence is traversed towards it.\nThus the direction bit above has exactly the convention of Definition~\\ref{objects}.\n\nThe first map retains $s$, so it retains token eligibility and every bit.\nIn the second map an unmarked cycle can still be reversed without changing\nany token. Otherwise minimality again forces one token on each of $m$\ncycles. Pair consecutive list entries with the same index rules as before.\nThe common white face, the unoriented cycle, and the status of an entry\nas first or nonfirst are unchanged by this pairing and any cycle reversal.\nThe partner lies on $r$ or $s$ exactly as before; reversal when it lies on\n$r$ makes it eligible. Distinct cycles have distinct incidences, so no\nother token is lost or duplicated. The return move makes the same reversal\ndecision. Alternating traversal signs give the same two sign-reversal\ncases in Lemma~\\ref{two}.\n\nFor each enclosed white face the odd list has a first entry. Exactly one\norientation of its cycle makes this an $s$-incidence. Independent choices\non distinct cycles give exactly the same product $F$. If $q$ cycles are\ncounterclockwise, the first-exit rule gives direction sum $q$ and\n$J=m-2q$, so every fixed sign is $(-1)^{\\lfloor m/2\\rfloor}$.\nThe counting proof and the finite alternating-path proof now apply without\nany further change.",
+  "line": 300,
+  "explicit_uses": [
+   "I:two",
+   "I:objects"
+  ],
+  "statement_refs": [
+   "I:one",
+   "I:two",
+   "I:fixed",
+   "I:walk",
+   "I:main"
+  ],
+  "proof_lines": 51,
+  "proof_words": 583,
+  "source": "involutions"
+ },
+ {
+  "id": "I:walk",
+  "kind": "lemma",
+  "number": "8",
+  "label": "walk",
+  "title": "",
+  "statement": "This procedure terminates at a forest pair without repeating an object.",
+  "proof": "Put an undirected edge of label $i$ between distinct objects exchanged by\n$\\iota_i$. Retain parallel edges if the two maps have the same image.\nEach vertex has at most one edge of either label. The starting point has\nno edge of label 2. Its component is therefore a finite alternating path\nor a single vertex; a degree-one vertex cannot lie on a cycle, including\na two-edge parallel cycle. Traversal never repeats a vertex.\nIf the other endpoint also lacked label 2, the path would start and end\nwith label 1 and have odd length. Every edge reverses sign. The endpoint\nwould therefore be an $\\iota_2$-fixed object of opposite sign, contrary to\nLemma~\\ref{fixed}. The other endpoint must lack label 1 and yields a forest.\nAn isolated starting object already has that property.",
+  "line": 398,
+  "explicit_uses": [
+   "I:fixed"
+  ],
+  "statement_refs": [],
+  "proof_lines": 11,
+  "proof_words": 135,
+  "source": "involutions"
+ }
+]
