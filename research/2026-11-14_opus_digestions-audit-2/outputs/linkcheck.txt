@@ -4,7 +4,7 @@
 03-states-and-pairs.md: 19 links and paths resolve
 04-disk-identity.md: 12 links and paths resolve
 05-cancellation.md: 17 links and paths resolve
-06-nonvanishing.md: 26 links and paths resolve
+06-nonvanishing.md: 27 links and paths resolve
 07-recovery.md: 17 links and paths resolve
 08-gluing-and-hypotheses.md: 19 links and paths resolve
 09-what-is-still-open.md: 22 links and paths resolve
