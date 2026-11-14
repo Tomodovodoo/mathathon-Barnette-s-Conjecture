@@ -63,6 +63,7 @@ static int read_planar(FILE *f) {
 }
 static int printu = 0, near_on = 0, near_max = 6;
 static long long near_hist[16], near_over;
+static int chain_on = 0; static long long chain_cap = 1000000, r3_tested = 0, r3_fail = 0, r3_over = 0;
 static FILE *ufile = NULL;
 static int given_root[3], use_given_root = 0;
 static int read_text(FILE *f) {
@@ -386,13 +387,13 @@ static int setup_enum(void) {
 #define SMAX 200000
 #define SPOOL 20000000
 static int S_on = 0, *S_phi = NULL, S_tp[SMAX], S_c[SMAX];
-static long long tm_per_c[64];
+static long long tm_per_c[64], inst_sum_c[64], inst_max_c[64], inst_cnt_c[64], inst_full_c[64];
 static void visit_element(void) {
     int u[MAXV];
     u_from_phi(phi_cur, u);
     long long tp = tree_pairs(u, 1LL << 40);
     int c = ncyc;
-    if (c < 64) tm_per_c[c] += tp;
+    if (c < 64) { tm_per_c[c] += tp; inst_sum_c[c] += tp; if (tp > inst_max_c[c]) inst_max_c[c] = tp; inst_cnt_c[c]++; if (tp == (1LL << c)) inst_full_c[c]++; }
     if (S_on && L_size < SMAX && (L_size + 1) * nW <= SPOOL) {
         memcpy(S_phi + L_size * nW, phi_cur, sizeof(int) * nW); S_tp[L_size] = tp > 0; S_c[L_size] = c;
     }
@@ -576,9 +577,9 @@ static void structure(int L) {
     }
 }
 /* ---------- search outward from both extremes (cover moves) until a tree-pair element ---------- */
-#define NPOOL 4000000
+#define NPOOL 40000000
 static int *N_pool = NULL; static long long N_cnt;
-static int *N_tab = NULL; static long long N_tsize = 1 << 22;
+static int *N_tab = NULL; static long long N_tsize = 1 << 23;
 static int n_lookup_insert(const int *p) {   /* returns 1 if newly inserted */
     unsigned long long h = hphi(p) & (N_tsize - 1);
     while (N_tab[h] >= 0) {
@@ -639,6 +640,32 @@ static int near_tp(int maxd, long long *explored) {
     *explored = N_cnt;
     return -1;
 }
+static unsigned char *N_bad = NULL;
+static int chain_fail(long long cap, long long *explored) {
+    if (!N_pool) { N_pool = malloc(sizeof(int) * (size_t)NPOOL); N_tab = malloc(sizeof(int) * N_tsize); }
+    if (!N_bad) N_bad = malloc(NPOOL);
+    for (long long i = 0; i < N_tsize; i++) N_tab[i] = -1;
+    N_cnt = 0; nb_overflow = 0;
+    setup_enum();
+    int u[MAXV];
+    n_lookup_insert(phi_lo); N_bad[0] = 1;
+    long long checked = 1;
+    for (long long x = 0; x < N_cnt; x++) {
+        while (checked < N_cnt) {
+            u_from_phi(N_pool + checked * nW, u);
+            N_bad[checked] = tree_pairs(u, 1) == 0;
+            checked++;
+        }
+        if (!N_bad[x]) continue;
+        int *p = N_pool + x * nW;
+        if (!memcmp(p, phi_hi, sizeof(int) * nW)) { *explored = N_cnt; return 1; }
+        memcpy(phi_cur, p, sizeof(int) * nW);
+        covers(phi_cur, +1, cb_near);
+        if (nb_overflow || N_cnt > cap) { *explored = N_cnt; return -1; }
+    }
+    *explored = N_cnt;
+    return 0;
+}
 /* ---------- output helpers ---------- */
 static void dump_instance(FILE *out, const char *tag, int froot) {
     fprintf(out, "%s %d %d", tag, nv, froot);
@@ -663,6 +690,7 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "-d")) dumpfile = argv[++i];
         else if (!strcmp(argv[i], "-U")) printu = 1;
         else if (!strcmp(argv[i], "-S")) S_on = 1;
+        else if (!strcmp(argv[i], "-C")) { chain_on = 1; chain_cap = atoll(argv[++i]); }
         else if (!strcmp(argv[i], "-N")) { near_on = 1; near_max = atoi(argv[++i]); }
         else if (!strcmp(argv[i], "-u")) ufile = fopen(argv[++i], "r");
         else if (!strcmp(argv[i], "-T")) { text = 1; use_given_root = 1; }
@@ -672,6 +700,7 @@ int main(int argc, char **argv) {
     FILE *dump = dumpfile ? fopen(dumpfile, "w") : NULL;
     long long graphs = 0, rooted = 0, withpair = 0;
     long long fail_min = 0, fail_max = 0, fail_both = 0, same_ext = 0;
+    long long k_full_min = 0, k_none_min = 0, k_any_full = 0, k_eq_full_min = 0, k_eq_single = 0, k_min_alone = 0;
     long long c1_viol = 0, c1_eq = 0, c1_tested = 0, overflow = 0;
     long long hist[64][8];   /* hist[c_min][min(#TM/2^cmin,7)] */
     memset(hist, 0, sizeof hist);
@@ -754,11 +783,20 @@ int main(int argc, char **argv) {
                 if ((d < 0 || d >= 2) && dump) dump_instance(dump, d == -2 ? "NEAROVER" : "NEARFAR", froot);
                 if (d >= 2 || d < 0) printf("NEAR %lld %d dist=%d explored=%lld%s", graphs, froot, d, ex, "\n");
             }
+            if (chain_on && !tmin && !tmax) {
+                long long ex;
+                int r3 = chain_fail(chain_cap, &ex);
+                r3_tested++;
+                if (r3 == 1) { r3_fail++; printf("R3FAIL %lld %d explored=%lld%s", graphs, froot, ex, "\n"); if (dump) dump_instance(dump, "R3FAIL", froot); }
+                if (r3 == -1) r3_over++;
+            }
             if (full) {
                 setup_enum();
                 L_size = 0; L_cap = cap; L_tm = 0; L_with_tp = 0; L_pairs = 0;
                 L_cmin = 1 << 20; L_cmin_count = 0; L_overflow = 0;
                 memset(assigned, 0, sizeof(int) * nW);
+                memset(inst_sum_c, 0, sizeof inst_sum_c); memset(inst_max_c, 0, sizeof inst_max_c);
+                memset(inst_cnt_c, 0, sizeof inst_cnt_c); memset(inst_full_c, 0, sizeof inst_full_c);
                 assigned[0] = 1; phi_cur[0] = 0;
                 enum_rec(1);
                 if (L_overflow) { overflow++; continue; }
@@ -778,6 +816,15 @@ int main(int argc, char **argv) {
                 long long p2 = 1LL << L_cmin;
                 if (L_tm < p2) { c1_viol++; if (dump) dump_instance(dump, "C1VIOL", froot); }
                 if (L_tm == p2) c1_eq++;
+                {
+                    int m = L_cmin;
+                    int full_min = inst_full_c[m] > 0, none_min = inst_sum_c[m] == 0;
+                    int any_full = 0;
+                    for (int c = 0; c < 64; c++) if (inst_full_c[c]) any_full = 1;
+                    k_full_min += full_min; k_none_min += none_min; k_any_full += any_full;
+                    if (L_tm == p2) { k_eq_full_min += full_min; k_eq_single += (L_with_tp == 1); }
+                    if (inst_sum_c[m] >= p2) k_min_alone++;
+                }
                 long long ratio = L_tm / p2; if (ratio > 7) ratio = 7;
                 if (L_cmin < 64) hist[L_cmin][ratio]++;
                 printf("R %lld %d cmin=%d ncmin=%d TM=%lld L=%lld Ltp=%lld pairs=%lld lo(c=%d,tp=%lld) hi(c=%d,tp=%lld)\n",
@@ -790,6 +837,8 @@ int main(int argc, char **argv) {
            graphs, rooted, withpair, fail_min, fail_max, fail_both, same_ext);
     if (full) {
         printf("C1 tested=%lld violations=%lld equality=%lld overflow=%lld maxlattice=%lld\n", c1_tested, c1_viol, c1_eq, overflow, maxlat);
+        printf("C1STRUCT some minimal 2-factor is a full cube of tree pairs: %lld; minimal 2-factors carry no tree pair: %lld; some 2-factor (any c) is a full cube: %lld; minimal 2-factors alone give >= 2^cmin: %lld; among equality cases: full minimal cube %lld, all TMs in one 2-factor %lld\n",
+               k_full_min, k_none_min, k_any_full, k_min_alone, k_eq_full_min, k_eq_single);
         for (int c = 0; c < 64; c++) {
             long long s = 0;
             for (int j = 0; j < 8; j++) s += hist[c][j];
@@ -810,6 +859,7 @@ int main(int argc, char **argv) {
         for (int c = 0; c < 64; c++) if (tm_per_c[c]) printf(" c%d:%lld", c, tm_per_c[c]);
         printf("\n");
     }
+    if (chain_on) printf("R3 (both extremes fail) tested=%lld failing_chain_exists=%lld overflow=%lld\n", r3_tested, r3_fail, r3_over);
     if (near_on) {
         printf("NEARHIST (instances where some extreme fails) dist of nearest tree-pair element:");
         for (int i = 0; i < 16; i++) if (near_hist[i]) printf(" %s%d:%lld", i == 15 ? ">max/ovf" : "d", i, near_hist[i]);

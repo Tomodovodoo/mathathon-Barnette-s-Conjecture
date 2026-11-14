@@ -1,0 +1,7 @@
+V=16 instances 3294 min fraction 2/3 below 1/2: 0 exactly 1/2: 0 | example: R 28 6 cmin=1 ncmin=1 TM=12 L=3 Ltp=2 pairs=18 lo(c=3,tp=1) hi(c=3,tp=1)
+V=17 instances 8042 min fraction 1 below 1/2: 0 exactly 1/2: 0 | example: R 1 0 cmin=2 ncmin=3 TM=12 L=3 Ltp=3 pairs=12 lo(c=2,tp=1) hi(c=2,tp=1)
+V=18 instances 27972 min fraction 1/2 below 1/2: 0 exactly 1/2: 26 | example: R 1523 0 cmin=1 ncmin=2 TM=12 L=4 Ltp=2 pairs=20 lo(c=1,tp=0) hi(c=1,tp=0)
+V=19 instances 82819 min fraction 2/3 below 1/2: 0 exactly 1/2: 0 | example: R 558 29 cmin=2 ncmin=1 TM=24 L=3 Ltp=2 pairs=36 lo(c=4,tp=1) hi(c=4,tp=1)
+V=20 instances 287110 min fraction 1/2 below 1/2: 0 exactly 1/2: 66 | example: R 15199 0 cmin=1 ncmin=2 TM=12 L=4 Ltp=2 pairs=20 lo(c=1,tp=0) hi(c=1,tp=0)
+V=21 instances 944804 min fraction 1/2 below 1/2: 0 exactly 1/2: 48 | example: R 19590 9 cmin=2 ncmin=2 TM=24 L=4 Ltp=2 pairs=40 lo(c=2,tp=0) hi(c=2,tp=0)
+V=22 instances 3301113 min fraction 1/2 below 1/2: 0 exactly 1/2: 825 | example: R 169105 0 cmin=1 ncmin=2 TM=12 L=4 Ltp=2 pairs=20 lo(c=1,tp=0) hi(c=1,tp=0)

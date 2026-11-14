@@ -183,6 +183,23 @@ def main():
         return [q for q in uniq if not any(r != q and le(q, r) for r in uniq)]
 
     print(f"V={len(rot)} n={len(A)} faces of H_0={len(nodes)} extremes equal={lo == hi}")
+    if len(sys.argv) > 4 and sys.argv[4] == 'chain':
+        # R3: BFS upward from E_lo through elements without tree pairs; success = reach E_hi
+        key = lambda p: tuple(p[k] for k in nodes)
+        seen = {key(lo)}; queue = [lo]; bad_seen = 0
+        while queue:
+            phi = queue.pop()
+            if tree_pair(u_of(phi))[0]:
+                continue
+            bad_seen += 1
+            if key(phi) == key(hi):
+                print(f"R3 FAILS: an up-chain of covers from E_lo to E_hi avoids tree pairs ({bad_seen} failing elements explored)")
+                return
+            for q in covers(phi, +1):
+                if key(q) not in seen:
+                    seen.add(key(q)); queue.append(q)
+        print(f"R3 holds here: every up-chain from E_lo meets a tree-pair element ({bad_seen} failing elements explored)")
+        return
     front = {0: [lo], 1: [hi]}
     for d in range(maxd + 1):
         res = []
