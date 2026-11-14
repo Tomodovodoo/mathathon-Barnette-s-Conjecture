@@ -24,7 +24,7 @@ Gunnar Brinkmann, Jan Goedgebeur, and Brendan~D. McKay, \emph{The minimality of
 
 \bibitem{Anonymous2026}
 \emph{A constructive proof of {B}arnette's conjecture}, Unsigned manuscript,
-  dated 18 October, 2026.
+  dated 18 October, 2026, Unsigned manuscript dated 18 October 2026.
 
 \bibitem{Feder2006}
 Tom{\'a}s Feder and Carlos Subi, \emph{On {B}arnette's conjecture}, Tech.
@@ -41,11 +41,11 @@ John~P. Georges, \emph{Non-{H}amiltonian bicubic graphs}, Journal of
 \bibitem{Gorsky2023}
 Maximilian Gorsky, Raphael Steiner, and Sebastian Wiederrecht, \emph{Matching
   theory and {B}arnette's conjecture}, Discrete Mathematics \textbf{346}
-  (2023), no.~2, 113249.
+  (2023), no.~2, 113249, Theorem numbers follow arXiv version 3.
 
 \bibitem{Hertel2005}
 Alexander Hertel, \emph{A survey \& strengthening of {B}arnette's conjecture},
-  Tech. report, Department of Computer Science, University of Toronto, April
+  Tech. report, Department of Computer Science, University of Toronto, apr
   2005.
 
 \bibitem{Hine2018}
@@ -59,15 +59,18 @@ D.~A. Holton and B.~D. McKay, \emph{The smallest non-{H}amiltonian 3-connected
 
 \bibitem{Li2026}
 Zhentao Li, \emph{A note on the proof of {B}arnette's conjecture},
-  arXiv:2610.30490v1 [math.CO], 2026.
+  arXiv:2610.30490v1 [math.CO], 2026, Version 1, 21 October 2026.
 
 \bibitem{OpenAI2026b}
 {OpenAI}, \emph{openai/math: mathematical manuscripts and supporting proof
-  artifacts}, \url{https://github.com/openai/math}, 2026.
+  artifacts}, \url{https://github.com/openai/math}, 2026, Commit
+  4eaee87548250b2682affda7d05d947c05554bae.
 
 \bibitem{OpenAI2026}
 \bysame, \emph{Paired states and {H}amiltonian cycles in cubic bipartite planar
-  graphs}, Preprint, 24 September 2026, OpenAI Math Release, September 2026.
+  graphs}, OpenAI Math Release preprint, family 180,
+  \url{https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf},
+  sep 2026, Dated 24 September 2026; made public 6 October 2026.
 
 \bibitem{Schnieders2025}
 Tobias Schnieders, \emph{Barnette graphs with faces up to size 8 are

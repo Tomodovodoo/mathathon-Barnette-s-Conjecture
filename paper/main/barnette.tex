@@ -329,7 +329,7 @@ A tree has at most one perfect matching, found by matching a leaf to its neighbo
 So if $Y_s$ is a tree, at most one selection of this kind exists and no choice is left.
 
 For $Y_s$ to be a tree we need the following condition on $s$.
-The condition is sufficient for what follows and it is not necessary: the state that Lemma~\ref{lem:selections-give-states} reads off an acyclic selection need not satisfy it (Section~\ref{sec:remarks}).
+This condition is sufficient for recovering an acyclic selection, but not every state obtained from an acyclic selection satisfies it (Section~\ref{sec:remarks}).
 
 \begin{definition}
 A state $s$ is \emph{good} if $Q_s$ is a forest in which each component contains exactly one root.
@@ -491,7 +491,7 @@ Section~\ref{sec:pairs} finds a good state from a pair of states, Section~\ref{s
 \section{Pairs of states}\label{sec:pairs}
 
 We do not know how to point to a good state.
-This section shows that one exists, by a count in four steps.
+This section shows that one exists whenever a pair exists, by a count in four steps.
 A second corner choice turns goodness into the absence of cycles (Lemma~\ref{lem:partner}).
 Every pair of choices gets a sign, and the pairs that fail cancel in twos (Lemma~\ref{lem:cancel}).
 A weight, built from the white faces that certain cycles enclose, lets the same sum be computed in a second way (Lemma~\ref{lem:height}).
@@ -505,7 +505,7 @@ It gives every vertex of $X$ exactly one outgoing edge of $Q_s$, and then a comp
 
 \begin{definition}
 A \emph{pair} is an ordered pair $(r,s)$ of states with $r(t)\neq s(t)$ for every $t\in A$; we call $r$ a \emph{partner} of $s$, and $s$ the \emph{second state}.
-For a pair we write $u(t)$ for the third corner of $t$.
+For a pair we write $u(t)$ for the third corner of $t$ (Figure~\ref{fig:localpair}).
 \end{definition}
 
 \begin{figure}[H]
@@ -1003,8 +1003,8 @@ The tree of faces $Y_s$ is obtained from the opposite sides by planar duality in
 \subsection*{Which Hamiltonian cycles arise}
 For fixed $t_0$ and $e_0$, Lemma~\ref{lem:selections-give-states} assigns a state $s_C$ to every Hamiltonian cycle $\mathcal{C}$ avoiding the edge across $e_0$.
 $\mathcal{C}$ is produced by Proposition~\ref{prop:recover} exactly when $s_C$ is good, and different good states give different cycles.
-If $s_C$ is good, the complement $P$ of $\mathcal{C}$ avoids $S_{s_C}$, because its side in each $t\in A$ contains $s_C(t)$ and its side in $t_0$ is $e_0$.
-Thus $P$ and $P_{s_C}$ are perfect matchings of the tree $Y_{s_C}$, and a tree has at most one perfect matching, so $P=P_{s_C}$.
+If $s_C$ is good, let $P$ be the set of edges of $\T$ crossing the edges of $G$ outside $\mathcal{C}$. Then $P$ avoids $S_{s_C}$, because its side in each $t\in A$ contains $s_C(t)$ and its side in $t_0$ is $e_0$.
+Thus $P^*$ and $P_{s_C}^*$ are perfect matchings of the tree $Y_{s_C}$, and a tree has at most one perfect matching, so $P=P_{s_C}$.
 Conversely, when $\mathcal{C}$ comes from a good state $s$, directing $P_s\setminus\{e_0\}$ out of $s(t)$ gives outdegree one at each nonroot and zero at each root.
 On each rooted tree this is its orientation towards the root, so Lemma~\ref{lem:selections-give-states} recovers $s_C=s$.
 This also proves that different good states give different cycles.
@@ -1051,7 +1051,7 @@ Deciding Hamiltonicity is NP-complete for $2$-connected cubic bipartite planar g
 \subsection*{The polynomial behind the count}
 Give each corner choice $(t,v)$ a variable $w_{t,v}$ and put $\Pi(w)=\sum_{(r,s)}\eps(r,s)\prod_{t\in A}w_{t,s(t)}$.
 By Lemmas~\ref{lem:partner} and~\ref{lem:cancel} the coefficient of a state $s$ is $0$ unless $s$ is good, and $\pm1$ if it is. So the monomials of $\Pi$ are exactly the good states.
-Grouping by the undirected cycles of $D$ as in Proposition~\ref{prop:good},
+Let $D$ range over the covers and let $c(D)$ be the number of cycles in $D$. Grouping by covers as in Proposition~\ref{prop:good},
 \[
 \Pi(w)=\sum_{D}(-1)^{(n-c(D))/2}\prod_{C\in D}\bigl(w^{C+}-w^{C-}\bigr),
 \]
@@ -1081,7 +1081,7 @@ The Lean files accompany this paper in the same repository, in the folder \textt
 Two unpublished notes accompany this paper in the same repository.
 \emph{Barnette's conjecture in the cubic graph} (\texttt{proofs/primal/primal.pdf}) gives the proof in the cubic graph $G$ itself, lemma by lemma and without the dual triangulation, with a dictionary between the two languages.
 \emph{Two involutions for the good-pair lemma} (\texttt{proofs/involutions/involutions.pdf}) gives the bijective proof by two involutions.
-It writes out in full the argument that Li \cite{Li2026} intended for Proposition~\ref{prop:good}, with marked crossings in place of the power $\omega^m$, and it is a term-by-term unpacking of Lemmas~\ref{lem:cancel}, \ref{lem:height} and~\ref{lem:difference} for one particular height.
+It gives a version of Li's argument \cite{Li2026} for Proposition~\ref{prop:good}, with marked crossings in place of the power $\omega^m$, and unpacks Lemmas~\ref{lem:cancel}, \ref{lem:height} and~\ref{lem:difference} term by term for one particular height.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}
