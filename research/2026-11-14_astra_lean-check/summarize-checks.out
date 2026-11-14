@@ -1,0 +1,3 @@
+Validated 29 axiom reports and all 11 reachability expectations.
+Original ['root=OAI.Barnette.main', 'visited=36722', 'axioms=#[Classical.choice, Quot.sound, propext]', 'missing=#[]', 'Polynomial declarations=297']
+Replacement ['root=OAI.Barnette.main', 'visited=36345', 'axioms=#[Classical.choice, Quot.sound, propext]', 'missing=#[]', 'Polynomial declarations=276']

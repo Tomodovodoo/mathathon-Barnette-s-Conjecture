@@ -1,9 +1,9 @@
-﻿from pathlib import Path
+from pathlib import Path
 import re,difflib,json,hashlib
 R=Path.cwd(); D=R/'research/2026-11-14_astra_lean-check'; P=Path('E:/lb2')
 # All hits retained, including comments; classify in report.
 pattern=re.compile(r'\b(sorry|admit|axiom|native_decide|unsafe|opaque|implemented_by)\b|\bset_option\b')
-files=list((R/'proofs/lean').rglob('*.lean'))+list((P/'PaperRoute').glob('*.lean'))
+files=[p for p in (R/'proofs/lean').rglob('*') if p.is_file() and p.suffix in ('.lean','.py','.toml','.txt')]+list((P/'PaperRoute').glob('*.lean'))
 hits=[]
 for p in files:
  for i,line in enumerate(p.read_text(encoding='utf-8-sig').splitlines(),1):
@@ -18,3 +18,13 @@ for p in sorted((P/'PaperRoute').glob('*.lean')):
 (D/'generated.diff').write_text(''.join(diffs),encoding='utf-8')
 (D/'generated-diff-summary.json').write_text(json.dumps(summary,indent=2)+'\n')
 print('scanned',len(files),'files;',len(hits),'hits;',len(summary),'generated files diffed')
+
+# Fresh input identity checks, ignoring only Git CRLF conversion for upstream text.
+checks={}
+for p in (P/'OAI/Combinatorics/Hamiltonian').glob('*.lean'):
+ checks['upstream/'+p.name]=p.read_text(encoding='utf-8')==(P/'lean/OAI/Combinatorics/Hamiltonian'/p.name).read_text(encoding='utf-8')
+for p in (P/'Devices').glob('*.lean'):
+ checks['Devices/'+p.name]=p.read_bytes()==(R/'proofs/lean/Devices'/p.name).read_bytes()
+assert all(checks.values())
+(D/'source-identity.json').write_text(json.dumps(checks,indent=2)+'\n')
+print('Identical source copies:',len(checks))

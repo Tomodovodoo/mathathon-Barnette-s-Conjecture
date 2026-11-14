@@ -1,0 +1,11 @@
+Nonvacuity.lean:16:4: error: failed to synthesize
+  Decidable (∀ (v : Fin 6), (∃ t, T.vertex t 0 = v) ↔ v ∈ X)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Nonvacuity.lean:22:4: error: failed to synthesize
+  Decidable (∀ (v : Fin 6), (∃ t, T.vertex t 1 = v) ↔ v ∈ X)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Nonvacuity.lean:32:12: warning: declaration uses `sorry`
+Nonvacuity.lean:32:14: warning: declaration uses `sorry`
+'IndependentWitness.P' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]

@@ -6,6 +6,9 @@ def topology(faces):
  for t,f in enumerate(faces):
   for i in range(3): edges[tuple(sorted((f[i],f[(i+1)%3])))].append(t)
  assert all(len(v)==2 for v in edges.values())
+ assert len({v for f in faces for v in f})-len(edges)+len(faces)==2
+ for (a,b),(t,u) in edges.items():
+  assert ((faces[t].index(b)-faces[t].index(a))%3)==3-((faces[u].index(b)-faces[u].index(a))%3)
  color={0:0}; todo=[0]
  for t in todo:
   for e,ts in edges.items():
@@ -67,6 +70,14 @@ results={'running':pair_checks(running),'hexagonal_bipyramid':pair_checks(prism)
 edges,color=topology(prism); root=0; e0=(0,1); mandatory=edges[e0]; matchings=[]
 adj={i:[] for i in range(len(prism))}
 for e,(a,b) in edges.items():adj[a].append((b,e));adj[b].append((a,e))
+assert all(len(v)==3 for v in adj.values())
+for k in range(3):
+ for removed in itertools.combinations(range(12),k):
+  remain=set(range(12))-set(removed);seen={min(remain)};queue=list(seen)
+  for a in queue:
+   for b,e in adj[a]:
+    if b in remain and b not in seen:seen.add(b);queue.append(b)
+  assert seen==remain
 def rec(unused,chosen):
  if not unused:matchings.append(chosen);return
  a=min(unused)
@@ -95,7 +106,7 @@ for matching in matchings:
   s.append(a if parent[a]==b else b)
  assert tuple(s) in states
  hcs.append({'matching':matching,'recovered_state':s,'good':good(prism,black,s)})
-results['T5_counterexample']={'root':prism[root],'prescribed_side':e0,'states':states,'good_states':[s for s in states if good(prism,black,s)],'hamiltonian_cycles':hcs}
+results['T5_counterexample']={'primal_cubic_bipartite_three_connected':True,'root':prism[root],'prescribed_side':e0,'states':states,'good_states':[s for s in states if good(prism,black,s)],'hamiltonian_cycles':hcs}
 assert len(states)==3 and len(results['T5_counterexample']['good_states'])==2 and len(hcs)==4
 # Exhaustive local sign words, without graph assumptions beyond 3 | sum.
 words=0

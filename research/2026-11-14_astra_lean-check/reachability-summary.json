@@ -1,0 +1,57 @@
+[
+  {
+    "name": "OAI.Barnette.phase",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.term",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.total_sum_ne_zero",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.common_phase_sum_ne_zero",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+    "original": true,
+    "replacement": false
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation_real",
+    "original": false,
+    "replacement": true
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.realSum_ne_zero",
+    "original": false,
+    "replacement": true
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.OppositeCycle.paperSign_reverse",
+    "original": false,
+    "replacement": true
+  },
+  {
+    "name": "OAI.Barnette.TriangleSystem.Pair.sign_orient",
+    "original": false,
+    "replacement": true
+  },
+  {
+    "name": "Blueprint.finite_difference",
+    "original": false,
+    "replacement": true
+  }
+]

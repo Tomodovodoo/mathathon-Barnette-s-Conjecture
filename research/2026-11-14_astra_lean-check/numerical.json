@@ -282,6 +282,7 @@
     ]
   },
   "T5_counterexample": {
+    "primal_cubic_bipartite_three_connected": true,
     "root": [
       6,
       0,

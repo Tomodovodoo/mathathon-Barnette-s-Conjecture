@@ -1,4 +1,4 @@
-﻿import Lean
+import Lean
 open Lean Elab Command
 
 /-- Independent breadth-first environment walk. Types and all available bodies are followed,
@@ -44,3 +44,31 @@ elab "#same_type " a:ident " and " b:ident : command => do
   let cb ← getConstInfo b.getId
   unless ca.type == cb.type do throwError "Types are not structurally identical"
   logInfo "Types structurally identical (not merely propositionally equivalent)"
+
+elab "#audit_path " root:ident " target " target:ident " to " dest:str : command => do
+  let env ← getEnv
+  let mut todo := #[root.getId]
+  let mut cursor := 0
+  let mut parents : Std.HashMap Name (Name × String) := {}
+  parents := parents.insert root.getId (root.getId, "root")
+  while cursor < todo.size && !(parents.contains target.getId) do
+    let n := todo[cursor]!
+    cursor := cursor + 1
+    if let some ci := env.find? n then
+      let mut exprs := #[(ci.type, "type")]
+      if let some b := ci.value? (allowOpaque := true) then exprs := exprs.push (b, "body")
+      for (e, label) in exprs do
+        for child in e.getUsedConstants do
+          if !(parents.contains child) then
+            parents := parents.insert child (n, label)
+            todo := todo.push child
+  unless parents.contains target.getId do throwError "Target not reached"
+  let mut n := target.getId
+  let mut lines := #[n.toString]
+  while n != root.getId do
+    let (parent, label) := parents[n]!
+    lines := lines.push s!"{parent} --{label}--> {n}"
+    n := parent
+  let result := String.intercalate "\n" lines.reverse.toList ++ "\n"
+  liftIO <| IO.FS.writeFile dest.getString result
+  logInfo m!"{result}"

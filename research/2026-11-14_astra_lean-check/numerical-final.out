@@ -1,0 +1,3 @@
+Pairs: {'running': 112, 'hexagonal_bipyramid': 24}
+T5: 3 states, 2 good states, 4 eligible Hamiltonian cycles; good flags: [True, False, False, True]
+Sign words: 174763

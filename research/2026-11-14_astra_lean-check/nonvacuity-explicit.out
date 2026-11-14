@@ -1,0 +1,54 @@
+Nonvacuity.lean:6:37: error: expected token
+Nonvacuity.lean:11:21: error(lean.unknownIdentifier): Unknown identifier `âŸ`
+Nonvacuity.lean:11:23: error: expected token
+Nonvacuity.lean:12:21: error(lean.unknownIdentifier): Unknown identifier `âŸ`
+Nonvacuity.lean:12:23: error: expected token
+Nonvacuity.lean:13:20: error(lean.unknownIdentifier): Unknown identifier `âŸ`
+Nonvacuity.lean:13:22: error: expected token
+Nonvacuity.lean:14:33: error(lean.unknownIdentifier): Unknown identifier `âŸ`
+Nonvacuity.lean:14:35: error: expected token
+Nonvacuity.lean:15:34: error: Tactic `decide` failed for proposition
+  paperSign r s = 1
+because its `Decidable` instance
+  (paperSign r s).instDecidableEq 1
+did not reduce to `isTrue` or `isFalse`.
+
+After unfolding the instances `decEq`, `instDecidableEqFin`, `instDecidableEqNat`, `Int.decEq`, `Int.instDecidableEq`, and `Nat.decEq`, reduction got stuck at the `Decidable` instance
+  match paperSign r s, 1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | isTrue h => isTrue ⋯
+    | isFalse h => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | isTrue h => isTrue ⋯
+    | isFalse h => isFalse ⋯
+Nonvacuity.lean:16:35: error: Tactic `decide` failed for proposition
+  paperSign s r = -1
+because its `Decidable` instance
+  (paperSign s r).instDecidableEq (-1)
+did not reduce to `isTrue` or `isFalse`.
+
+After unfolding the instances `decEq`, `instDecidableEqFin`, `instDecidableEqNat`, `Int.decEq`, `Int.instDecidableEq`, and `Nat.decEq`, reduction got stuck at the `Decidable` instance
+  match paperSign s r, -1 with
+  | Int.ofNat a, Int.ofNat b =>
+    match decEq a b with
+    | isTrue h => isTrue ⋯
+    | isFalse h => isFalse ⋯
+  | Int.ofNat a, Int.negSucc a_1 => isFalse ⋯
+  | Int.negSucc a, Int.ofNat a_1 => isFalse ⋯
+  | Int.negSucc a, Int.negSucc b =>
+    match decEq a b with
+    | isTrue h => isTrue ⋯
+    | isFalse h => isFalse ⋯
+Nonvacuity.lean:17:13: error: expected token
+Nonvacuity.lean:17:10: error: Function expected at
+  r
+but this term has type
+  T.State X
+
+Note: Expected a function because this term is being applied to the argument
+  â
+'IndependentWitness.P' depends on axioms: [propext, sorryAx]

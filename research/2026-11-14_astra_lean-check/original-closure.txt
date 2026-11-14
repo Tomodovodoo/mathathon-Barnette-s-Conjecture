@@ -1,0 +1,1418 @@
+root=OAI.Barnette.main
+visited=36722
+axioms=#[Classical.choice, Quot.sound, propext]
+missing=#[]
+Polynomial declarations=297
+Polynomial.C
+Polynomial.C._proof_1
+Polynomial.C._proof_2
+Polynomial.C._proof_3
+Polynomial.C._proof_4
+Polynomial.CAlgHom
+Polynomial.CAlgHom._proof_1
+Polynomial.CAlgHom_apply
+Polynomial.C_0
+Polynomial.C_1
+Polynomial.C_mul'
+Polynomial.C_mul_X_pow_eq_monomial
+Polynomial.C_mul_X_pow_eq_monomial._f
+Polynomial.Monic
+Polynomial.Monic.leadingCoeff
+Polynomial.X
+Polynomial.X.eq_1
+Polynomial.X_mul
+Polynomial.X_mul_divX_add
+Polynomial.X_pow_eq_monomial
+Polynomial.X_pow_mul
+Polynomial.aeval
+Polynomial.aevalEquiv
+Polynomial.aevalEquiv._proof_1
+Polynomial.aevalEquiv._proof_2
+Polynomial.aevalEquiv._proof_3
+Polynomial.aevalEquiv._proof_4
+Polynomial.aevalTower
+Polynomial.aevalTower._proof_1
+Polynomial.aevalTower_C
+Polynomial.aevalTower_X
+Polynomial.aeval_C
+Polynomial.aeval_X
+Polynomial.aeval_def
+Polynomial.aeval_monomial
+Polynomial.aeval_sub
+Polynomial.algHom_ext
+Polynomial.algHom_ext'
+Polynomial.algebraMap_apply
+Polynomial.algebraOfAlgebra
+Polynomial.algebraOfAlgebra._proof_1
+Polynomial.algebraOfAlgebra._proof_2
+Polynomial.algebraOfAlgebra._proof_3
+Polynomial.algebraOfAlgebra._proof_4
+Polynomial.as_sum_support
+Polynomial.casesOn
+Polynomial.coe_eval₂RingHom
+Polynomial.coeff
+Polynomial.coeff.eq_1
+Polynomial.coeff_C
+Polynomial.coeff_C_mul
+Polynomial.coeff_C_mul_X_pow
+Polynomial.coeff_C_succ
+Polynomial.coeff_C_zero
+Polynomial.coeff_X_mul
+Polynomial.coeff_X_pow
+Polynomial.coeff_X_pow_mul'
+Polynomial.coeff_X_zero
+Polynomial.coeff_add
+Polynomial.coeff_divX
+Polynomial.coeff_eq_zero_of_degree_lt
+Polynomial.coeff_map
+Polynomial.coeff_monomial
+Polynomial.coeff_monomial_same
+Polynomial.coeff_mul
+Polynomial.coeff_mul_X
+Polynomial.coeff_mul_X_pow
+Polynomial.coeff_mul_X_pow'
+Polynomial.coeff_mul_degree_add_degree
+Polynomial.coeff_neg
+Polynomial.coeff_ofFinsupp
+Polynomial.coeff_one
+Polynomial.coeff_one_zero
+Polynomial.coeff_smul
+Polynomial.coeff_sub
+Polynomial.coeff_sum
+Polynomial.coeff_zero
+Polynomial.coeff_zero_multiset_prod
+Polynomial.coeff_zero_prod
+Polynomial.commRing
+Polynomial.commRing._proof_1
+Polynomial.commSemiring
+Polynomial.commSemiring._proof_1
+Polynomial.commute_X
+Polynomial.commute_X_pow
+Polynomial.definition._@.Mathlib.Algebra.Polynomial.Basic.2141038364._hygCtx._hyg.2
+Polynomial.definition._@.Mathlib.Algebra.Polynomial.Eval.Defs.2849575019._hygCtx._hyg.2
+Polynomial.degree
+Polynomial.degree.eq_1
+Polynomial.degreeLE
+Polynomial.degreeLE_eq_span_X_pow
+Polynomial.degree_C_mul_X_pow
+Polynomial.degree_C_mul_X_pow_le
+Polynomial.degree_X_pow
+Polynomial.degree_X_pow_le
+Polynomial.degree_add_le
+Polynomial.degree_eq_bot
+Polynomial.degree_eq_natDegree
+Polynomial.degree_erase_le
+Polynomial.degree_erase_lt
+Polynomial.degree_le_iff_coeff_zero
+Polynomial.degree_le_natDegree
+Polynomial.degree_monomial
+Polynomial.degree_monomial_le
+Polynomial.degree_mul'
+Polynomial.degree_mul_le
+Polynomial.degree_neg
+Polynomial.degree_sub_lt_left
+Polynomial.degree_zero
+Polynomial.distribMulAction
+Polynomial.distribMulAction._proof_1
+Polynomial.distribMulAction._proof_2
+Polynomial.distribMulAction._proof_3
+Polynomial.distribMulAction._proof_4
+Polynomial.divX
+Polynomial.erase
+Polynomial.erase_def
+Polynomial.eval₂
+Polynomial.eval₂AddMonoidHom
+Polynomial.eval₂AlgHom
+Polynomial.eval₂AlgHom._proof_1
+Polynomial.eval₂AlgHom._proof_2
+Polynomial.eval₂RingHom
+Polynomial.eval₂RingHom'
+Polynomial.eval₂RingHom'._proof_1
+Polynomial.eval₂RingHom._proof_1
+Polynomial.eval₂RingHom._proof_2
+Polynomial.eval₂RingHom._proof_3
+Polynomial.eval₂_C
+Polynomial.eval₂_X
+Polynomial.eval₂_add
+Polynomial.eval₂_def
+Polynomial.eval₂_eq_sum
+Polynomial.eval₂_monomial
+Polynomial.eval₂_mul
+Polynomial.eval₂_mul_noncomm
+Polynomial.eval₂_neg
+Polynomial.eval₂_ofFinsupp
+Polynomial.eval₂_one
+Polynomial.eval₂_pow
+Polynomial.eval₂_sub
+Polynomial.eval₂_zero
+Polynomial.ext
+Polynomial.ext_iff
+Polynomial.finsetSum_coeff
+Polynomial.induction_on
+Polynomial.induction_on'
+Polynomial.instAdd
+Polynomial.instDecidableEq
+Polynomial.instIntCast
+Polynomial.instMul
+Polynomial.instNSMul
+Polynomial.instNatCast
+Polynomial.instNeg
+Polynomial.instOne
+Polynomial.instSub
+Polynomial.instZSMul
+Polynomial.instZero
+Polynomial.isNoetherianRing
+Polynomial.isScalarTower
+Polynomial.isScalarTower_right
+Polynomial.lcoeff
+Polynomial.lcoeff._proof_1
+Polynomial.le_degree_of_ne_zero
+Polynomial.leadingCoeff
+Polynomial.leadingCoeff.eq_1
+Polynomial.leadingCoeff_C_mul_X_pow
+Polynomial.leadingCoeff_X_pow
+Polynomial.leadingCoeff_eq_zero
+Polynomial.leadingCoeff_monomial
+Polynomial.leadingCoeff_mul'
+Polynomial.leadingCoeff_mul_X_pow
+Polynomial.leadingCoeff_mul_monic
+Polynomial.leadingCoeff_zero
+Polynomial.map
+Polynomial.map.eq_1
+Polynomial.mapRingHom
+Polynomial.map_C
+Polynomial.map_X
+Polynomial.map_add
+Polynomial.map_id
+Polynomial.map_mul
+Polynomial.map_one
+Polynomial.map_pow
+Polynomial.map_zero
+Polynomial.mem_degreeLE
+Polynomial.mem_support_iff
+Polynomial.mem_support_iff._simp_1
+Polynomial.module
+Polynomial.module._proof_1
+Polynomial.module._proof_2
+Polynomial.monic_X_pow
+Polynomial.monomial
+Polynomial.monomial._proof_2
+Polynomial.monomial._proof_3
+Polynomial.monomial_add_erase
+Polynomial.monomial_mul_monomial
+Polynomial.monomial_one_one_eq_X
+Polynomial.monomial_one_right_eq_X_pow
+Polynomial.monomial_zero_right
+Polynomial.mul_coeff_one
+Polynomial.mul_coeff_zero
+Polynomial.natDegree
+Polynomial.natDegree.eq_1
+Polynomial.natDegree_C_mul_X_pow
+Polynomial.natDegree_eq_of_degree_eq_some
+Polynomial.natDegree_le_iff_degree_le
+Polynomial.natDegree_le_of_degree_le
+Polynomial.natDegree_monomial
+Polynomial.natDegree_mul'
+Polynomial.noConfusion
+Polynomial.noConfusionType
+Polynomial.ofFinsupp
+Polynomial.ofFinsupp.inj
+Polynomial.ofFinsupp.injEq
+Polynomial.ofFinsupp.noConfusion
+Polynomial.ofFinsupp_add
+Polynomial.ofFinsupp_eq_zero
+Polynomial.ofFinsupp_eq_zero._simp_1
+Polynomial.ofFinsupp_inj
+Polynomial.ofFinsupp_mul
+Polynomial.ofFinsupp_pow
+Polynomial.ofFinsupp_single
+Polynomial.ofFinsupp_sum
+Polynomial.ofFinsupp_zero
+Polynomial.pow
+Polynomial.rec
+Polynomial.ring
+Polynomial.ring._proof_1
+Polynomial.ring._proof_2
+Polynomial.ring._proof_3
+Polynomial.ring._proof_4
+Polynomial.ring._proof_5
+Polynomial.ring._proof_6
+Polynomial.ring._proof_7
+Polynomial.ringHom_ext
+Polynomial.ringHom_ext'
+Polynomial.semiring
+Polynomial.semiring._proof_1
+Polynomial.semiring._proof_10
+Polynomial.semiring._proof_11
+Polynomial.semiring._proof_12
+Polynomial.semiring._proof_13
+Polynomial.semiring._proof_14
+Polynomial.semiring._proof_15
+Polynomial.semiring._proof_16
+Polynomial.semiring._proof_17
+Polynomial.semiring._proof_2
+Polynomial.semiring._proof_3
+Polynomial.semiring._proof_4
+Polynomial.semiring._proof_5
+Polynomial.semiring._proof_6
+Polynomial.semiring._proof_7
+Polynomial.semiring._proof_8
+Polynomial.semiring._proof_9
+Polynomial.smulZeroClass
+Polynomial.smulZeroClass._proof_1
+Polynomial.smul_eq_C_mul
+Polynomial.sum
+Polynomial.sum.eq_1
+Polynomial.sum_C_index
+Polynomial.sum_C_mul_X_pow_eq
+Polynomial.sum_X_index
+Polynomial.sum_add_index
+Polynomial.sum_monomial_eq
+Polynomial.sum_monomial_index
+Polynomial.sum_zero_index
+Polynomial.support
+Polynomial.support.eq_1
+Polynomial.support.match_1
+Polynomial.support_eq_empty
+Polynomial.support_erase
+Polynomial.support_monomial
+Polynomial.support_neg
+Polynomial.support_ofFinsupp
+Polynomial.support_toFinsupp
+Polynomial.toFinsupp
+Polynomial.toFinsuppIso
+Polynomial.toFinsuppIso._proof_1
+Polynomial.toFinsuppIso._proof_2
+Polynomial.toFinsuppIso_symm_apply
+Polynomial.toFinsupp_C
+Polynomial.toFinsupp_add
+Polynomial.toFinsupp_erase
+Polynomial.toFinsupp_injective
+Polynomial.toFinsupp_monomial
+Polynomial.toFinsupp_mul
+Polynomial.toFinsupp_neg
+Polynomial.toFinsupp_nsmul
+Polynomial.toFinsupp_one
+Polynomial.toFinsupp_pow
+Polynomial.toFinsupp_smul
+Polynomial.toFinsupp_sub
+Polynomial.toFinsupp_zero
+Polynomial.toFinsupp_zsmul
+Polynomial.wrapped._@.Mathlib.Algebra.Polynomial.Basic.2141038364._hygCtx._hyg.2
+Polynomial.wrapped._@.Mathlib.Algebra.Polynomial.Eval.Defs.2849575019._hygCtx._hyg.2
+Project declarations (name TAB defining module):
+OAI.Barnette.BMatching.FactorData	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.left	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.left_coord	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.mk	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.right	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.right_coord	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.FactorData.same_range	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.Inc	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.Left	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.Right	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.count_prod	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.count_sum	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.data_of_gadget	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.data_two_factor	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget._sparseCasesOn_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget.match_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_hall	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_hall._proof_1_5	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_hall._simp_1_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_hall._simp_1_2	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_hall.match_1_3	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.gadget_matching	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.incidence_fiber	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.regular_hall	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.regular_matching	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_image_count	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_matchings	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_matchings._simp_1_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_matchings._simp_1_2	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_matchings._simp_1_3	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BMatching.two_matchings._simp_1_4	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.BranchPartition.extend	OAI.Combinatorics.Hamiltonian.BranchPartition
+OAI.Barnette.BranchPartition.extend._simp_1_1	OAI.Combinatorics.Hamiltonian.BranchPartition
+OAI.Barnette.BranchPartition.extend._simp_1_2	OAI.Combinatorics.Hamiltonian.BranchPartition
+OAI.Barnette.BranchPartition.quotient	OAI.Combinatorics.Hamiltonian.BranchPartition
+OAI.Barnette.BranchPartition.walk_crosses_boundary	OAI.Combinatorics.Hamiltonian.BranchPartition
+OAI.Barnette.CorridorModel	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.branch	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.branch_connected	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.branch_finite	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.branch_subset_grown	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.branches_disjoint	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.connection	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.connection._proof_1	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.corridor	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.corridor_connected	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.corridors_disjoint	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.edgeDart	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.edgeDart_edge	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension_connected	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension_disjoint_branch	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension_finite	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension_subset	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extension_subset_grown	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.extensions_disjoint	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.grownBranch	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.grownBranch_adjacency	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.grownBranch_connected	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.grownBranch_finite	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.grownBranches_disjoint	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CorridorModel.incident_meets	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.mk	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.nonincident_disjoint	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.CorridorModel.toMinorModel	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.CycleClass	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.CycleCoordinates	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.adjacent	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.edge_indices_unique	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.edge_indices_unique._proof_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.mk	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.n	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.not_acyclic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.CycleCoordinates.not_acyclic._proof_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.CycleCoordinates.reverseCycle	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.CycleCoordinates.reverseCycle._abel_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.CycleCoordinates.reverseCycle._proof_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.CycleCoordinates.reverseCycle._proof_2	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.CycleCoordinates.reverseCycle._proof_3	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.CycleCoordinates.tail_orientation	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.CycleCoordinates.vertex	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.HasHamiltonianCycle	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.MainStatement	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.MinorModel	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.adjacency	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.branch	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.branch_connected	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.branch_finite	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.branches_disjoint	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.mk	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.MinorModel.pullHost	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.MinorModel.pullHost._proof_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.MinorModel.pullHost._proof_2	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.MinorModel.pullHost._proof_3	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.MinorModel.pullHost._proof_4	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.Network	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Bond	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Bond.compl	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Bond.connected_shore	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Bond.minimal	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Bond.mk	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Bond.nonempty	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.ColoredDual	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.Black	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.QNet	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.State	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.corner	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.corner_ne	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.cycle	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.cycleEdge_eq	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.delta	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.delta_eq	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.edge_mem	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.face	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.left_eq	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.mk	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.right_eq	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.signed	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.slope	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.StateCycle.slope_eq	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment._proof_1	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment_apply	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment_face	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment_inj	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.assignment_range	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.augLabel	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.augLabel_ends	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.augLabel_inj	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.augQ	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.augQ._proof_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.augQ_acyclic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.black	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.black_white_balance	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.black_white_balance._proof_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.coloring	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.corner_filter_card	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.corner_filter_card._simp_1_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.corner_filter_card._simp_1_2	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.corner_filter_card._simp_1_3	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.corner_filter_card._simp_1_4	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.cubic	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.cubic_cards	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.cubic_cards._proof_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.cubic_cards._proof_1_2	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.cycle_disk	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.dual_simple	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.duality	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.face	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.forest_pair	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.mk	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.nonroots	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.nonroots_card	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.nonroots_card._proof_1_2	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.nonroots_card._simp_1_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.oppositeForward	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.oppositeForward._proof_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.oppositeForward._proof_2	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.oppositeForward_delta	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.opposite_disk	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.opposite_disk._proof_1_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.opposite_disk._proof_1_2	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.opposite_forward_end	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.oriented	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.pair_nonempty	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.pair_val_ne	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.pairedCycle	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_2	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_3	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_4	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_5	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle._proof_6	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle_delta	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.pairedCycle_slope	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.paired_sign	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ColoredDual.qLabel	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.qLabel_black	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.qLabel_ends	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.qLabel_inj	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.q_graph	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.recover_connected_complement	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.recovery_matching	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.remainder_black_degree	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_black_degree._simp_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_black_degree._simp_1_2	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_black_degree._simp_1_3	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_black_degree._simp_1_4	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_connected	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_incident	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_independent	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.remainder_independent._proof_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed.eq_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed_acyclic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed_at_black	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed_card	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed_card._proof_1_3	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.removed_card._simp_1_2	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.rootStart	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.rootStart._proof_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.rootStart_inj	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.rootStart_ne	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ColoredDual.selectNet	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.selectNet_forest	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.selectNet_forest._proof_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.selected_forest	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.selected_forest.match_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.ColoredDual.simple	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.state_capacity	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.state_capacity._simp_1_1	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.Network.ColoredDual.system	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.system._proof_1	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.system._proof_2	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.weights	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.ColoredDual.weights_diff	OAI.Combinatorics.Hamiltonian.ColoredDual
+OAI.Barnette.Network.Components	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.ConnectedFibers	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.Duality	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.bond_of_circuit	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Duality.circuit_cut	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.circuit_cut._simp_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.circuit_cut._simp_1_2	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.circuit_cut._simp_1_3	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.circuit_two_levels	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.circuit_two_levels._simp_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.complement_connected	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.Duality.connected	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.connected_complement_matching	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.Duality.cubic_face_triangles_edge	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Duality.cycles_eq_cuts	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.dual_connected	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.dual_conserved_gradient	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.dual_cycles_eq_cuts	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.euler	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.euler._proof_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.gradient_of_dual_conserved	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.Duality.graphMinor	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.Duality.hamiltonian	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.Network.Duality.minor	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.Duality.mk	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.Duality.simple_dual_edge	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Duality.simple_dual_edge._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Duality.simple_dual_edge._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Duality.simple_dual_edge._simp_1_3	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Duality.symm	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.Duality.vertex_flow_circuit	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.FlowCircuit	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.FlowCircuit.conserved	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.FlowCircuit.minimal	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.FlowCircuit.mk	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.FlowCircuit.no_split	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.FlowCircuit.no_split._simp_1_1	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.FlowCircuit.nonzero	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.FlowCircuit.proportional	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.FlowCircuit.proportional._simp_1_1	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Incident	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Realizes	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.Realizes.graph_eq	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.Realizes.loopless	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.Regions	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.Simple	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Simple.incident_other	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Simple.loopless	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Simple.mk	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Simple.pair_injective	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Simple.restrict	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.ThreeEdgeConnected	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.ThreeEdgeConnected.connected	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.ThreeEdgeConnected.connected._proof_1_3	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.ThreeEdgeConnected.connected._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.ThreeEdgeConnected.connected._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.Triangle	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.all_corners	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.Triangle.clique	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Triangle.coordinates	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.coordinates._proof_1	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.coordinates._proof_2	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.coordinates_edge	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.coordinates_edges	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.corner	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.corner_avoiding	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Triangle.corner_iff_incident	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Triangle.corner_injective	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.edge	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.edge_ends	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.edge_incident	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.Triangle.edge_injective	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.edge_range	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.edges_in_count	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.Triangle.edges_in_count._simp_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.Triangle.index_delta	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.mk	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.Triangle.opposite_characteristic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.Triangle.oriented_cycleFlow	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.oriented_cycleFlow._simp_1_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.oriented_cycleFlow._simp_1_2	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.oriented_integral	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.oriented_integral._simp_1_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.other_root_sides	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.Triangle.potential	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.potential_side	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.potential_step	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.reachable_avoiding	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.Triangle.reverse	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._abel_3	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._abel_4	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._proof_1	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._proof_2	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._proof_3	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._proof_4	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._proof_5	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._simp_1	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.reverse._simp_2	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.Triangle.side	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.side_ends	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.side_mem	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.Triangle.side_unique	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.TrivialThreeCuts	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.acyclic_conserved_zero	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.acyclic_conserved_zero._simp_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.addSink	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.addSink_acyclic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.addSink_tail_injective	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.arcSign	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.arcSign.eq_1	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.arcSign_ne_zero	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.arcSign_opposite	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.basisVec	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.blackCut	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackDelta	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackDelta_cut	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackEndpoint	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackEndpoint_eq	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackEndpoint_spec	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.blackGradient_face	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.blackRim	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.blackRim_le	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.black_dual_card	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.black_dual_card._proof_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.black_edge_partition	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.black_edge_partition._simp_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.black_fiber_count	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.black_fiber_count._simp_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.black_fiber_count._simp_1_2	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.black_fiber_count._simp_1_3	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.black_fiber_count._simp_1_4	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.boundary	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary._proof_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary._proof_2	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary.eq_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary_adjoint	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary_apply	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.boundary_basis	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.boundary_directed_unit	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.boundary_directed_unit._simp_1_2	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.boundary_injective_of_tree_card	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.boundary_injective_of_tree_card._proof_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.boundary_mapVertices	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.boundary_of_sum_zero	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.boundary_range_restrict	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.boundary_restrict	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.boundary_restrict_injective	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.boundary_supported_vertices	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.cap	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capBlack	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capBlack.match_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_eq_none	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_eq_none._simp_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_eq_some	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_eq_some._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_some	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMap_surjective	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capMatchingEq	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.capPreimage	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capReachableEq	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_card_lt	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.cap_card_lt._proof_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.cap_coloring	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_coloring._proof_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_complement_reachable	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_complement_reachable._simp_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_connectedFibers	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_cubic	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_cut	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_cut._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_cut._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_duality	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.cap_duality._simp_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.cap_duality._simp_1_2	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.cap_glue_agrees	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_glue_agrees_right	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_glue_connected	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_glue_connected._proof_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_glue_connected._proof_1_2	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_glue_matching	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_image_subset	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_loopless	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_matching_boundary	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_matching_boundary._simp_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_matching_boundary_at	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_matching_none	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_matching_some	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.cap_simple	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_simple._proof_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_card	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_none	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_none._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_none._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_none._simp_1_3	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_some	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_some._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_star_some._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_threeConnected	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.cap_threeConnected._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.capacity_full	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_full._proof_1_4	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_full._simp_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_full._simp_1_2	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_full._simp_1_3	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_identity	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.capacity_identity._simp_1_2	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.card_star	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.colorSign	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.colorSign_add	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.colorSign_sum	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.colorSign_sum._proof_1_2	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.colorSign_sum._simp_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.colored_endpoints	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.complement_coloring	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.complement_singleton_root	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.componentMap	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.componentMap_surjective	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.componentsFintype	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.componentsFintype._proof_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.connectedFibers_of_partition	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.connected_of_kernel_constants	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.conserved_supported_acyclic	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.constant	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.constant._proof_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.constant._proof_2	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.cubic_black_region_count	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cubic_black_region_count._simp_1_2	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cubic_black_region_count._simp_1_3	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cubic_region_count	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.cubic_region_count._simp_1_2	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.cut	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_card_three	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_card_three._proof_1_1	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_card_three._proof_1_4	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_card_three._simp_1_2	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_card_three._simp_1_3	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_compl	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_compl._simp_1_1	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.cut_le_rim	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.cut_le_rim._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.cut_nonempty	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cut_restrict_conserved	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cuts_equal_subset	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cuts_equal_subset._simp_1_1	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleEdge	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdge._proof_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdge._proof_2	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdge_ends	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdge_incident	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdge_injective	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdges	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleEdges.eq_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.cycleFlow	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow.eq_1	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow_apply_edge	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow_circuit	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow_conserved	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow_support	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleFlow_zero_outside	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.cycleVertices	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cycleVertices.eq_1	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cycle_cut_scalar	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.cycle_integral	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.Network.cycle_support_minimal	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.descends_components	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.dim_cycles	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.dim_cycles._proof_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.directed_cycle_of_not_acyclic	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.directed_cycle_of_not_acyclic._abel_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.disk_boundary_imbalance	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.disk_boundary_imbalance._proof_1_1	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.duality_of_first_exact	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.duality_of_first_exact._proof_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.duality_of_orth_card	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.duality_of_orth_card._proof_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.edge_reachable	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.eq_of_dot_eq	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.eq_of_dot_eq._simp_1_1	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.exists_dart_for_edge	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.exists_independent_restriction	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.extend_gradient_outside	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.extend_restrict_gradient	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.extend_restriction	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.faces_vertex_deleted_connected	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.flowCircuit_of_cycle	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flowSupport	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.flowSupport_eq_empty_iff	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flowSupport_eq_empty_iff._simp_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flowSupport_eq_empty_iff._simp_1_2	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flowSupport_eq_empty_iff._simp_1_3	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flowSupport_eq_empty_iff._simp_1_4	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.flow_no_leaf	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.flow_no_leaf._simp_1_1	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.fullBlack	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.gradient	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient._proof_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient._proof_2	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_apply	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_componentMap	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Network.gradient_const	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_eq_zero_iff	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_eq_zero_iff._simp_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_eq_zero_iff._simp_1_2	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_indicator_support	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.gradient_indicator_support._simp_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.gradient_mapVertices	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.gradient_matrix	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_restrict	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.gradient_small_support_edge	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.gradient_small_support_edge._proof_1_4	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.gradient_small_support_edge._simp_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.gradient_small_support_edge._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.gradient_small_support_edge._simp_1_3	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.gradient_zero_adj	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.gradient_zero_reachable	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.graph	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.graph._proof_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.graph._proof_2	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.head	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.incidence	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.incident_cycle_iff	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.incident_iff_mem_pair	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.incident_iff_mem_pair._simp_1_2	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.independent_edges_bound	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.independent_edges_bound._proof_1_1	OAI.Combinatorics.Hamiltonian.Matching
+OAI.Barnette.Network.inducedEdges	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.inducedNetwork	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.inducedNetwork._proof_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.inducedNetwork._proof_2	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.inducedNetwork_boundary	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.inducedNetwork_map	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.induced_cycles_eq_regions	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.induced_density	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.induced_density._proof_1_3	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.induced_density._simp_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.induced_density._simp_1_2	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.induced_euler_bound	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.induced_euler_bound._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.instDecidableEq_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.internal	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.irreducible_matching	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.ker_gradient	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.ker_internal_gradient	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.make_coloredDual	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.mapVertices	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.matchingEdge	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matchingEdge._proof_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matchingEdge_eq	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matchingEdge_mem	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matchingEdge_spec	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matching_complement_two	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.matching_complement_two._proof_1_2	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.matching_complement_two._simp_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.matching_cut_balance	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matching_cut_balance._proof_1_3	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matching_cut_balance._simp_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.matching_cut_balance._simp_1_2	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.mem_capPreimage	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.mem_capPreimage._simp_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.mem_cut	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.mem_cut._simp_1	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.mem_cycleEdges	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.mem_cycleEdges._simp_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.mem_cycleVertices	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.mem_flowSupport	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.mem_inducedEdges	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.mem_inducedEdges._simp_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.mem_regionEdges	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.mem_regionEdges._simp_1	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.mem_regionShore	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.mem_regionVertices	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.mem_star	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.mem_star._simp_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.minor_quotient	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.Network.mixed_corner_on_boundary	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.mk	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.nontrivial_threeCut	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.nontrivial_threeCut._proof_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.nontrivial_threeCut._proof_1_2	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.nontrivial_threeCut._proof_1_3	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.nontrivial_threeCut_at	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.oriented_face	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.orthogonal_symm	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.orthogonal_symm._simp_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.otherEnd	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.otherEnd.eq_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.otherEnd_adj	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.otherEnd_spec	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.pair_eq_of_incident	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.pull	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.pull_injective	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.pull_push_disjoint	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.pull_push_injective	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push._proof_1	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push._proof_2	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push_adjoint	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push_boundary_internal	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push_boundary_on_internal	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.push_eq_zero_outside	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push_pull_injective	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.push_pull_injective._simp_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.push_pull_subtype	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.push_subtype_apply	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.push_subtype_outside	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.push_surjective	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.range_internal_boundary	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.range_internal_boundary._proof_1_1	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.rank_boundary	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.rank_boundary_le	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rank_boundary_le._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rank_gradient	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.region	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region._proof_1	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region._proof_2	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionBalance	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionBalance_complement_singleton	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.regionBalance_complement_singleton._proof_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.regionBalance_singleton	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.regionBlack	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.regionCycleMap	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionCycleMap._proof_1	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionCycleMap_injective	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionEdges	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionQuotient	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionQuotient_connected	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionShore	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionShore_nonempty	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionShore_off_edge	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.regionVertices	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.regionVertices_iff_face	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.region_balance_rim	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.region_balance_rim._simp_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.region_balance_rim._simp_1_5	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.region_boundary	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_card_le_cut	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.region_connected	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_cut_subset	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.region_cycles_eq_range	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_density	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.region_density._proof_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.region_density._proof_1_2	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.region_density._proof_1_3	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.region_density._proof_1_4	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.region_dim_cycles	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_euler	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_map	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.region_pair_inter	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.region_pair_inter._simp_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.region_pair_inter._simp_1_2	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.region_pair_inter._simp_1_3	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.regions	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.restrict	OAI.Combinatorics.Hamiltonian.Quotients
+OAI.Barnette.Network.restrict_star_image	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.restrict_star_image._simp_1_1	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.restrict_star_image._simp_1_2	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.restrict_star_image._simp_1_3	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.rim	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_cut_count	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_cut_count._simp_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_cut_count._simp_1_3	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_defect	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_defect._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_defect._proof_1_2	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_defect._proof_1_3	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_defect._proof_1_4	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_ge_three	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_ge_three._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_of_shore_univ	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_three_cut	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_three_cut._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_three_cut._proof_1_2	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_three_no_internal	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.rim_three_no_internal._proof_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.simple_of_cubic_stars	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.simple_of_cubic_stars._proof_1_5	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.simple_of_cubic_stars._proof_1_6	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.simple_of_cubic_stars._simp_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.simple_of_cubic_stars._simp_1_3	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.simple_of_cubic_stars._simp_1_4	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.singleton_regionBlack	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.singleton_regionBlack._simp_1_2	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.singleton_regionBlack._simp_1_3	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.singleton_region_star	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.singleton_region_star._simp_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.split_support	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.Network.star	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.star.eq_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.Network.star_count	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.star_subset_eq	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.state_disk_count	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.state_disk_count._simp_1_2	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.state_disk_delta	OAI.Combinatorics.Hamiltonian.StateDisk
+OAI.Barnette.Network.sum_boundary	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.sum_regionBalance	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.sum_regionBalance._simp_1_3	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.sum_regionBlack	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.sum_rim	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.sum_stars	OAI.Combinatorics.Hamiltonian.DiskRegions
+OAI.Barnette.Network.sum_substars	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.support_cut	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.support_cut._simp_1_1	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.support_cut._simp_1_2	OAI.Combinatorics.Hamiltonian.Bonds
+OAI.Barnette.Network.tail	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.Network.threeCut_black_card	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.threeCut_black_card._proof_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.threeCut_bond	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.threeCut_bond._proof_1_1	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.threeCut_bond._proof_1_2	OAI.Combinatorics.Hamiltonian.ThreeCuts
+OAI.Barnette.Network.three_corner_count	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.three_corner_count._simp_1_1	OAI.Combinatorics.Hamiltonian.MinorDuality
+OAI.Barnette.Network.tree_matching	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._proof_1_1	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._proof_1_2	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._proof_1_3	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._proof_1_4	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._simp_1_5	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.tree_matching._simp_1_6	OAI.Combinatorics.Hamiltonian.ForestMatching
+OAI.Barnette.Network.triangle_of_flow	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._proof_1_1	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._proof_1_2	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._simp_1_3	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._simp_1_5	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._simp_1_6	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._simp_1_7	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.triangle_of_flow._simp_1_8	OAI.Combinatorics.Hamiltonian.CutSpaces
+OAI.Barnette.Network.unrestrictedInductionEq	OAI.Combinatorics.Hamiltonian.Gluing
+OAI.Barnette.Network.weighted_stars	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.weighted_stars._simp_1_1	OAI.Combinatorics.Hamiltonian.Contraction
+OAI.Barnette.Network.whiteCharge	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.whiteCharge_black	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.whiteCharge_cut_integral	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.whiteCharge_inside	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.whiteCharge_sum	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.white_positive_of_boundary	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.white_positive_of_boundary._proof_1_1	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.Network.white_positive_of_boundary._proof_1_2	OAI.Combinatorics.Hamiltonian.Circulation
+OAI.Barnette.PermutationCoordinates	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.PermutationCoordinates.face	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.PermutationCoordinates.mk	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.PermutationCoordinates.n	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.PermutationCoordinates.range_eq	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.PermutationCoordinates.step	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.Planar	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.arc	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.arc_avoids_vertices	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.arc_injective	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.arc_reverse	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.branch	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_compact	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_connected	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_core_disjoint	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_core_meets	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_disjoint	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_point	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.branch_preconnected	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core_avoids_vertices	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core_compact	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core_connected	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core_disjoint	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.core_preconnected	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve_eq_curve_interior	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve_eq_point_iff	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve_injective	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve_symm	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.curve_zero	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.exists_exact_dual	OAI.Combinatorics.Hamiltonian.ExactDual
+OAI.Barnette.PlaneEmbedding.exists_lattice_corridor_model	OAI.Combinatorics.Hamiltonian.Corridors
+OAI.Barnette.PlaneEmbedding.exists_lattice_minor_model	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.PlaneEmbedding.finite_positive_radius	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.interiors_disjoint	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.point	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.point_injective	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.PlaneEmbedding.trace	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.trace_compact	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.trace_preconnected	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.PlaneEmbedding.uniform_thickening	OAI.Combinatorics.Hamiltonian.Traces
+OAI.Barnette.RectangularDual.Edge	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.Face	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.Vertex	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.boundary_formula	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.bounded_mem_range	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.bounded_mem_range._proof_1_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.bounded_mem_range._proof_1_2	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.bounded_mem_range._proof_1_3	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.bounded_mem_range._proof_1_4	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.dual	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.dual_connected	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.dual_horizontal	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.dual_vertical	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.eval_map	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.finite_subset_box	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.finite_subset_box._proof_1_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.finite_subset_box._proof_1_2	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.grid_duality	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.horizontal_adj	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.horizontal_adj._proof_1_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticeEmbedding	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticeEmbedding._proof_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticeEmbedding._proof_4	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticeEmbedding._simp_3	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticePoint	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticePoint_injective	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticePoint_injective._proof_1_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.latticePoint_injective._proof_1_2	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.lattice_minor_in_rectangle	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.lower	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.lowerValue	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.lower_eval	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.orthogonal	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.orthogonal_potential	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.potential	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_adj_iff	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_adj_iff._proof_1_2	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_adj_iff._proof_1_3	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_adj_iff._proof_1_4	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_adj_iff._proof_1_5	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.primal_connected	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.stepCoeff	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.sum_castSucc	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.sum_stepCoeff	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.sum_succ	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.upper	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.upperValue	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.upper_eval	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.vertical_adj	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.RectangularDual.vertical_adj._proof_1_1	OAI.Combinatorics.Hamiltonian.Rectangle
+OAI.Barnette.SimpleCycle.cycle_at_of_connected_two	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SimpleCycle.cycle_at_of_connected_two._proof_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SimpleCycle.delete_vertex_connected	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SimpleCycle.delete_vertex_connected._proof_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SimpleCycle.induced_support_connected	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SimpleCycle.induced_support_connected._simp_1_1	OAI.Combinatorics.Hamiltonian.CappedDuality
+OAI.Barnette.SquareGrid.cell	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cell_closed	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cell_cover	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cell_subset_thickening	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cells	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cells_connected	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cells_disjoint	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.cells_finite	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.dist_le_of_mem_cell	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.finite_closed_cover_preconnected	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.graph	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.graph._proof_1	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.graph._proof_2	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.graph._proof_3	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.graph._proof_4	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.reachable_of_common_point	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.reachable_of_common_point._proof_1_1	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.reachable_of_common_point._proof_1_2	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.SquareGrid.subset_union_cells	OAI.Combinatorics.Hamiltonian.SquareGrid
+OAI.Barnette.ThreeVertexConnected	OAI.Combinatorics.Hamiltonian.Model
+OAI.Barnette.ThreeVertexConnected.connected	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.TriangleSystem	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.OppositeCycle	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.changedCorners	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.changedCorners.eq_1	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.changedCorners_image	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.changed_assignment_permutation	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.corner_ne	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.cycle	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.cyclicDelta	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.cyclicDelta.eq_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.face	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.faceSet	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.fixed_second_state_cancels	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.leftCorner	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.left_eq	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.left_ne	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.mem_faceSet	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.mk	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.partner_endpoints	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.partner_orientation	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reversal	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reversal._proof_1	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reversal._proof_2	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reversal_involutive	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reversal_ne	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse._proof_1	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse._proof_2	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_ne	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_partner	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_phase	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_phase._proof_1_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_phase._proof_1_2	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_rawIndexSum_diff	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.OppositeCycle.reverse_reverse	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.rightCorner	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.right_eq	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.OppositeCycle.right_ne	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.Pair	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.Group	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.GroupIndex	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.GroupIndex.fiberEquivGroup	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.GroupIndex.fiberEquivGroup._proof_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.GroupIndex.representative	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.GroupIndex.representative._proof_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.GroupIndex.representative_third	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.bits	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.bits_invariant	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates._proof_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates_faces	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates_faces._simp_1_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates_faces._simp_1_2	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleCoordinates_faces._simp_1_3	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.cycleDelta	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleDelta.eq_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleFaces	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleLeftWeight	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleLeftWeight.eq_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleRightWeight	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleRightWeight.eq_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycleSlope	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycle_diff_coeff_one	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.cycle_factor_witness	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.ext	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flip	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flip._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipCorners	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipLeft	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipLeft._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipLeft_value	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipRight	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipRight._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipRight._proof_2	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flipRight_value	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.flip_third	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.groupEquiv	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.groupIndex	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.groupIndex._proof_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.group_local	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.group_sum_product	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.group_values	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFinite	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFinite._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFintype	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFintype._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFintypeGroup	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFintypeGroup._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.instFintypeGroupIndex	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.instFintypeGroupIndex._proof_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.left	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.mem_cycleFaces	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.next	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.next_ne	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.next_next_ne	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.TriangleSystem.Pair.orient	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.orient._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.orient._proof_2	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.orient_delta_sum	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_delta_sum._simp_1_2	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_left_val	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_orientations	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.orient_phase	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_rawIndexSum	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_right_val	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_term	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orient_weight	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.orientations	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.orientations_orient	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.partner	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.right	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.same_third_corners	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_2	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_3	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_4	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_5	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_6	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_7	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.secondFiberEquiv._proof_8	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.stateWeight	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.sum_groups	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.sum_second_states	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.term	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.term.eq_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.third	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.total_sum_ne_zero	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.total_sum_ne_zero._simp_1_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.TriangleSystem.Pair.value_next	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Pair.value_prev	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.Partner	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.Partners	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.State	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.coe_toEquiv	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.exists_value	OAI.Combinatorics.Hamiltonian.BMatching
+OAI.Barnette.TriangleSystem.State.ext	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.instFinite	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.instFinite._proof_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.instFintype	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.instFintype._proof_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.ofPermutation	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.State.ofPermutation._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.State.toEquiv	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.toEquiv._proof_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.value	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.value_eq_iff	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.value_injective	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.value_mem	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.State.value_range	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.edge_unique	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.indexDelta	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.indexDelta._proof_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.indexDelta_antisymm	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.indexDelta_third	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.instFintypePartners	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.instFintypePartners._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.mk	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.oppositeCycle_nonempty	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.oppositeGraph	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.oppositeGraph._proof_1	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.oppositeGraph._proof_2	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.oppositeGraph_adj_iff	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.opposite_indices	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.TriangleSystem.other_corners	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.rawIndexSum	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.rawIndexSum.eq_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.TriangleSystem.thirdIndex	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.thirdIndex_distinct	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.thirdIndex_involution	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.vertex	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.TriangleSystem.vertex_injective	OAI.Combinatorics.Hamiltonian.TriangleSystem
+OAI.Barnette.WalkSelection.CleanConnection	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.clean_finish	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.finish	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.finish_mem	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.isPath	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet_adj_finish	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet_connected	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet_disjoint_finish	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet_finite	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.leftSet_subset	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.mk	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.start	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.start_mem	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.start_mem_leftSet	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.support_subset	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.CleanConnection.walk	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.exists_clean_connection	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.WalkSelection.shortest_join	OAI.Combinatorics.Hamiltonian.MinorModel
+OAI.Barnette.boundary_cover_of_threeConnected	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.classOf	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.classOf_apply	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.classOf_eq_iff	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.classOf_surjective	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.common_phase_sum_ne_zero	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.common_phase_sum_ne_zero._simp_1_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.cubic_bipartite_order	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.cubic_bipartite_order._proof_1_1	OAI.Combinatorics.Hamiltonian.Network
+OAI.Barnette.cycleCoordinates_of_not_acyclic	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.cycleCoordinates_of_not_acyclic._proof_1_3	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.cycleCoordinates_of_not_acyclic._proof_1_4	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.cycleCoordinates_of_not_acyclic._simp_1_1	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.cycleCoordinates_of_not_acyclic._simp_1_2	OAI.Combinatorics.Hamiltonian.CycleReversal
+OAI.Barnette.cycle_difference_divX_coeff_zero	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.cycle_difference_eq_X_mul_divX	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.cyclic_one_ne_zero	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.cyclic_propagation	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.cyclic_two_ne_zero	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.cyclic_two_ne_zero._proof_1_1	OAI.Combinatorics.Hamiltonian.FlowCircuits
+OAI.Barnette.descendCycle	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.instFintypeCycleClassOfFinite	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.instFintypeCycleClassOfFinite._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.invariant_on_cycle	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.linearProduct	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.linearProduct.eq_1	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.linearProduct_coeff_one	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.linearProduct_coeff_zero	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.main	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.main._proof_1_1	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.main._proof_1_3	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.main._simp_1_2	OAI.Combinatorics.Hamiltonian.Main
+OAI.Barnette.partialPerm	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.partialPerm._proof_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.partialPerm._proof_2	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.permutationCoordinates_exists	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.permutationCoordinates_exists._proof_1_1	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.permutationCoordinates_exists._simp_1_2	OAI.Combinatorics.Hamiltonian.Forest
+OAI.Barnette.phase	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.phase_add_six	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.phase_add_six._proof_1_1	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.phase_neg_of_disk	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.phase_neg_three	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.phase_sub_six	OAI.Combinatorics.Hamiltonian.PairPhases
+OAI.Barnette.phase_sum	OAI.Combinatorics.Hamiltonian.PairPolynomials
+OAI.Barnette.phase_three	OAI.Combinatorics.Hamiltonian.PairPolynomials

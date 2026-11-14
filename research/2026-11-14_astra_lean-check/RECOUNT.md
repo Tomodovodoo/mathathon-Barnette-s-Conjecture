@@ -1,6 +1,6 @@
 # Recount and TODO review
 
-COMPUTED/PROVED-HERE. This is an advisory recount, conditional on the successful fresh build recorded in BUILD-LOG.md. Canonical blueprint statuses and charts are deliberately unchanged: TODO T5 is false, the full-Lemma-4.5 claim overstates the checked theorem, and the TODO inventory omits several blueprint obligations.
+COMPUTED/PROVED-HERE. This is an advisory recount, based on the successful fresh build recorded in BUILD-LOG.md. Canonical blueprint statuses and charts are deliberately unchanged: TODO T5 is false, the full-Lemma-4.5 claim overstates the checked theorem, and the TODO inventory omits several blueprint obligations.
 
 ## Rule for counting
 

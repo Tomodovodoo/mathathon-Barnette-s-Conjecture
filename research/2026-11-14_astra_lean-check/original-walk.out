@@ -1,0 +1,9 @@
+OAI.Barnette.main : OAI.Barnette.MainStatement
+'OAI.Barnette.main' depends on axioms: [propext, Classical.choice, Quot.sound]
+def OAI.Barnette.MainStatement.{u} : Prop :=
+∀ (V : Type u) [inst : Fintype V] [inst_1 : DecidableEq V] (G : SimpleGraph V) [inst_2 : DecidableRel G.Adj],
+  G.IsRegularOfDegree 3 →
+    G.IsBipartite → OAI.Barnette.Planar G → OAI.Barnette.ThreeVertexConnected G → OAI.Barnette.HasHamiltonianCycle G
+Walk complete: 36722 constants, 1115 project constants, 297 Polynomial constants, axioms [Classical.choice,
+ propext,
+ Quot.sound], missing 0
