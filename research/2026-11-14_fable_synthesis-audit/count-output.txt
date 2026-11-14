@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-11-14T13:23:40+00:00",
-  "head": "e97b061",
+  "timestamp": "2026-11-14T13:24:52+00:00",
+  "head": "b42241a",
   "run_folders": 66,
   "reports": 62,
   "models": {
@@ -98,6 +98,6 @@
   "current_product_pages_total": 85,
   "step_files": 11,
   "step_words_total": 27984,
-  "synthesis_words": 5210,
+  "synthesis_words": 5209,
   "index_rows": 46
 }
