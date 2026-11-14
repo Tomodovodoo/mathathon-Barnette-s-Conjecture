@@ -25,7 +25,7 @@ The two numbers are the least and greatest number of faces of `G`, which is the 
 
 ## Range
 
-56 graphs: the cube by hand, and all Eulerian triangulations with 6 to 14 vertices (1, 0, 1, 1, 2, 2, 8, 8, 32). The cubic graphs have 8 to 24 vertices. 32 of them have no nontrivial 3-edge cut, 24 have at least one (39 such cuts in all).
+56 graph records: the cube by hand, and the duals of all Eulerian triangulations with 6 to 14 vertices (1, 0, 1, 1, 2, 2, 8, 8, 32, so 55 classes). The hand cube repeats the 6-vertex case, and every count below includes it twice. The cubic graphs have 8 to 24 vertices. 32 of them have no nontrivial 3-edge cut, 24 have at least one (39 such cuts in all).
 
 A rooting for the state machinery is a vertex `b0`, and its colour class is then called black, so both colourings occur. There are 1,214 of them. Recovery and the recursion also choose the edge `e0` at `b0`: 3,642 pairs `(b0, e0)`.
 

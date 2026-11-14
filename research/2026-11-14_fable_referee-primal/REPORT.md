@@ -4,7 +4,7 @@ Summary.
 1. Verdict FOLLOWS. `proofs/primal/PRIMAL-PROOF.md` is a correct informal proof of Theorem T relative to standard planar background. No lemma is wrong. One step is asserted without proof (the cancellation in Lemma 3) and I supply it.
 2. The list of accepted planar facts is three items short and does not say whether a plane graph is a drawing or a rotation system. It does not hide the hard part. Exact replacement text is in REFEREE.md, F1.
 3. STATUS.md matches the Lean sources at commit `4eaee875`: every line number and every cited header is right, no false "machine-checked" label. Five mismatches of scope or citation are listed in LEAN-MATCH.md.
-4. COMPUTED with my own code on all 56 graphs with 6 to 14 faces (8 to 24 vertices), 1,214 roots, 15.2 million checks, 0 failures. Both worked examples of the note reproduce exactly.
+4. COMPUTED with my own code on 56 graph records with 6 to 14 faces (the duals of all 55 Eulerian triangulations with 6 to 14 vertices, plus a cube entered by hand, which repeats one of them), 1,214 roots, 15.2 million checks, 0 failures. Both worked examples of the note reproduce exactly.
 5. Recommendation for the paper: primal proof as the backbone, dual triangulation as picture language and dictionary. Details in RECOMMENDATION.md.
 
 ## What I set out to do
@@ -26,6 +26,7 @@ Referee, as a different model from the author, the primal proof in `proofs/prima
 - Nothing in the proof failed. I tried to break each lemma by enumeration and found no counterexample.
 - My first parser for the worked examples matched no state line, so two comparisons passed with nothing to compare. A later step crashed and exposed it. Fixed, with a guard. Recorded in `code/README.md`.
 - I did not rebuild the Lean. I compared statements with sources and relied on the earlier agent's build report.
+- I did not read the author's `AUDIT.md` and did not run the author's checker. My counts for 6 to 12 faces agree with the ones printed in STATUS.md (270 rootings, 1,722 states, 640 ordered pairs, 1,908 recoveries, 988 perfect matchings, 278 three-edge cuts of which 8 nontrivial).
 - I read the two paper drafts only at the level of outline and referee summaries. The recommendation says so.
 - Numerical coverage of Lemma 7 is thin: twenty cancelling second states in the whole range.
 

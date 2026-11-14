@@ -1,13 +1,13 @@
 # Referee report on the primal proof
 
-Reviewer: Claude Fable 5.2, 2026-11-14. Object: `proofs/primal/PRIMAL-PROOF.md` (with `primal.tex`, `STATUS.md`, `COMPARISON.md`) as found in the working tree at commit `9184b70`. Method: `skills/reverse-lamport/SKILL.md`, from Theorem T backward. I read the proof and wrote my findings before opening the author's `AUDIT.md`. Status tags follow `research/BRIEF.md`.
+Reviewer: Claude Fable 5.2, 2026-11-14. Object: `proofs/primal/PRIMAL-PROOF.md` (with `primal.tex`, `STATUS.md`, `COMPARISON.md`) as found in the working tree at commit `9184b70`. Method: `skills/reverse-lamport/SKILL.md`, from Theorem T backward. I did not read the author's `AUDIT.md` or run the author's checker, so nothing below is taken from them. Status tags follow `research/BRIEF.md`.
 
 Summary.
 1. The route closes. I found no false statement and no failing node on the way to Theorem T. All thirteen lemmas are true as stated.
 2. The weakest spot is the planar background, not the combinatorics. The list of accepted planar facts in Section 2 is three items short, and the note never says whether a plane graph is a drawing or a rotation system. The proofs of Lemma 2(b) and Lemma 3 each lean on one unlisted fact (F1, F3, F4).
 3. Two lemmas need a wording repair to be right as written: the "equivalently" in the definition of `δ` (F2) and the hypothesis ledger of Section 9 (F7). Exact replacement text is given.
 4. Lemma 12 proves more than it states, and the stronger statement is the one the Lean checks (F5). Lemma 9 does need its partner (F6, COMPUTED).
-5. COMPUTED with my own code, on all 56 Eulerian triangulations with 6 to 14 vertices (cubic graphs with 8 to 24 vertices), all rootings: every lemma in its primal form holds, and both worked examples of Section 11 reproduce digit for digit. Counts are in `code/README.md`.
+5. COMPUTED with my own code, on the duals of all 55 Eulerian triangulations with 6 to 14 vertices (cubic graphs with 8 to 24 vertices) plus a cube entered by hand, 56 graph records, all rootings: every lemma in its primal form holds, and both worked examples of Section 11 reproduce digit for digit. Counts are in `code/README.md`.
 
 ## 1. Audit boundary
 
@@ -29,7 +29,8 @@ I also accept integral max-flow min-cut, finite-dimensional linear algebra over 
 
 **Not accepted by name alone.** Three planar facts the proofs use and Section 2 does not list. I name them P6 to P8 and treat them in F1. They are standard and true. They are missing from the list, which the brief asks me to check for completeness.
 
-**In scope.** Sections 1 to 9 and 11 of the note. The LaTeX file is a typeset copy of the same text; I compared the lemma statements and the displayed equations and found no difference.
+**In scope.** Sections 1 to 9 and 11 of the note. The LaTeX file is a typeset copy of the same text. I compared them by script: all 22 displayed equations of Sections 1 to 10 occur verbatim in `primal.tex`, and the 14 lemma and theorem statements differ only by `llowbreak` and `
+olinkurl`.
 
 ## 2. Obligation graph
 
@@ -134,7 +135,7 @@ Exact replacement for the first paragraph of Section 2:
 
 ### F2. The second definition of `δ` allows a choice that breaks Lemma 3 (`side condition`, CORRECT AFTER FIX)
 
-Section 2: "Equivalently, fix the cyclic order of the three faces around `b` and give its three cyclic transitions sign `+1`." A reader can take this as a free choice of one of the two cyclic orders at each black vertex. Then Lemma 3 is false: reverse the order at one black vertex `b`, and (2.2) fails on every face circuit through an edge at `b`, since `δ` changes sign on that edge and on no other. Lemma 7 survives (it uses only that the two transitions into `s(b)` have opposite signs), and that is why the slip is easy to miss. Lemmas 3, 5 (signed part), 6 and 8 need the coherent choice.
+Section 2: "Equivalently, fix the cyclic order of the three faces around `b` and give its three cyclic transitions sign `+1`." A reader can take this as a free choice of one of the two cyclic orders at each black vertex. Then Lemma 3 is false: reverse the order at one black vertex `b`, and (2.2) fails on every face circuit that crosses an edge at `b` and an edge not at `b`, since `δ` changes sign on the edges at `b` and on no other. I did not run this variant. The argument is the one line just given. Lemma 7 survives (it uses only that the two transitions into `s(b)` have opposite signs), and that is why the slip is easy to miss. Lemmas 3, 5 (signed part), 6 and 8 need the coherent choice.
 
 Exact replacement:
 
