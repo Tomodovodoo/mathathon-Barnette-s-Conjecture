@@ -20,6 +20,6 @@ Result (`axioms.out`):
 OAI.Barnette.main : OAI.Barnette.MainStatement
 ```
 
-The same holds for `Duality.connected_complement_matching` (the H- form), `PlaneEmbedding.exists_exact_dual` and `ColoredDual.forest_pair`. No `sorryAx`, no `Lean.ofReduceBool` (which `native_decide` would introduce). A grep of the sources for `sorry`, `admit`, `axiom`, `native_decide`, `unsafe`, `opaque`, `implemented_by`, `extern`, `set_option`, `macro` and `elab` finds nothing. Plain `decide` occurs 29 times, on finite statements about `Fin 3` and `Fin 2`, and the kernel checks those.
+The same holds for `Duality.connected_complement_matching` (the H- form), `PlaneEmbedding.exists_exact_dual` and `ColoredDual.forest_pair`. No `sorryAx`, no `Lean.ofReduceBool` (which `native_decide` would introduce). A grep of the sources for `sorry`, `admit`, `axiom`, `native_decide`, `unsafe`, `opaque`, `implemented_by`, `extern`, `set_option`, `macro` and `elab` finds nothing. Plain `decide` occurs 30 times, on finite statements about `Fin 3` and `Fin 2`, and the kernel checks those.
 
 I did not run OpenAI's Comparator tool, which also checks that the solution's `MainStatement` is the challenge's `MainStatement`. Here the textual diff stands in for it. The challenge and the solution cannot be imported together, because both declare `OAI.Barnette.main`.
