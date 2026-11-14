@@ -1,0 +1,63 @@
+﻿from pathlib import Path
+p=Path('proofs/primal/PRIMAL-PROOF.md')
+s=p.read_text(encoding='utf8')
+s=s.replace('subject to independent review','corrected after the independent Fable referee report; human review pending')
+a=s.index('We accept the elementary calculus');b=s.index('\n\nThe following lemma',a)
+s=s[:a]+r'''A plane graph here is a finite oriented combinatorial map of genus zero, not a geometric drawing. Its darts have an edge-reversing involution and a cyclic successor at each vertex. Following a dart and the prescribed successor at its end traces a facial boundary. Isolated vertices are retained when taking subgraphs. For disconnected subgraphs, a face can have several boundary walks; its boundary components are grouped by the inherited map. All planar operations below are finite operations on these lists.
+
+The sole imported planar theorem is Euler's formula, $v-e+f=1+c$ for a sphere map with $c$ connected components. We use the following elementary map rules. Reversing a dart reverses its contribution, so coherently oriented facial boundaries give opposite coefficients on the two sides of every edge. Deleting an edge with distinct incident faces splices their boundary lists and merges those faces. An edge with the same face on both sides is a bridge in genus zero: otherwise its deletion keeps its component connected and splits its boundary list, contradicting Euler. Deleting that bridge splits the component and its boundary walk, but leaves the face count unchanged. Deleting an isolated vertex also leaves the face count unchanged. Contracting a nonloop edge splices its two vertex rotations and preserves the facial regions and genus. These assertions follow by removing the two darts and checking their successors, with Euler distinguishing the bridge case.
+
+A subgraph inherits its embedding by these deletions. Each surviving facial boundary bounds a face containing the original face on that side; a deleted vertex occupies one of the resulting faces. In particular each face of a family whose entire boundary survives is still a face, and an omitted vertex lies in another face. This is the subgraph rule used in Lemma 4. The boundary-walk cut-vertex criterion used in Lemma 1 follows by splitting a repeated vertex into its two intervening rotation intervals: in genus zero the intervals cannot be joined away from that vertex, as Euler would then drop by two. Thus a 2-connected sphere map has cyclic facial boundaries. These rules specify the finite planar background used below; no geometric separation or isotopy theorem is imported.''' +s[b:]
+s=s.replace('No face outside $U_S$ changes.', 'No face outside $U_S$ changes. Each deleted edge has both sides in $U_S$, so every deletion either merges two faces coming from $U_S$ or leaves the face count unchanged. Removing the isolated vertices of $S$ at the end changes no face.')
+s=s.replace('Equivalently, fix the cyclic order of the three faces around $b$ and give its three cyclic transitions sign $+1$.', 'Equivalently, use at every black vertex the cyclic order induced by the same fixed orientation of the sphere, choosing the sense for which the black vertex lies on the left. Give these three cyclic transitions sign $+1$. The sense cannot be chosen independently at different vertices.')
+s=s.replace('Its pairing with a facial boundary is zero: arrival and departure at each listed face cancel.', r'''Orient each facial boundary with that face on its left. If the transition $f\to g$ across $e=bw$ has $b$ on its left, the edge directed $b\to w$ has $g$ on its left and $f$ on its right. Thus $\delta(f,g)=[\partial g](e)=-[\partial f](e)$, also when the transition is reversed. Writing $x(e_i)=\delta(f_i,f_{i+1})$, its pairing with the boundary of $f_i$ is
+
+$$
+\langle x,\partial f_i\rangle
+=\delta(f_{i-1},f_i)^2-\delta(f_i,f_{i+1})^2=0.
+$$
+
+Only the arrival and departure edges contribute. A face off the circuit has pairing zero because no supported edge lies on it.''')
+s=s.replace('its two neighbours along $f$ are distinct black vertices.', 'its two neighbours along $f$ are distinct black vertices in $A$, since the root is not in $K$.')
+s=s.replace('The remaining set still has positive deficit, a contradiction.', 'The remaining set still has positive deficit, so it is nonempty, contradicting minimality.')
+s=s.replace('Hence $c\\ge3$.','By (3.2), $3$ divides $c$, so $c\\ge3$.')
+s=s.replace('of length at least four by simplicity and bipartiteness','containing at least two vertices')
+s=s.replace('The matching from Lemma 10 has connected complement.', 'Let $s$ be any state and $P$ any perfect matching whose edge at every $b\\in A$ lies on $s(b)$. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.')
+s=s.replace('Simplicity rules out two-vertex facial cycles and ensures the small-shore cut argument.', 'Simplicity is automatic once $|V|>2$: bipartiteness excludes loops, and parallel edges at $u,v$ leave at most two edges leaving $\\{u,v\\}$, contradicting 3-edge-connectivity unless these are all vertices. We keep the word because Barnette\'s conjecture is stated for simple graphs.')
+s=s.replace('Three-edge-connectivity makes face links simple, excludes a deficient cut of size less than three, and makes caps simple and connected.', 'Three-edge-connectivity makes $G$ 2-connected, giving facial cycles and three distinct faces at each vertex in Lemma 1. It makes face links simple, survives capping as the induction hypothesis, and gives connected shores and three distinct ends for nontrivial three-edge cuts in Lemma 13. Lemma 4 obtains $c\\ge3$ from positive divisibility, not from 3-edge-connectivity.')
+# Keep the exact data dump as supplementary material.
+s=s.split('## 11. Two exact worked examples')[0]
+s+=r'''
+## 11. Which states and Hamiltonian cycles occur
+
+**Remark 14, the partner is unique when it exists.** PROVED-HERE. If $Q_s$ is a forest, $s$ has a partner exactly when each component of $Q_s$ contains one root face. In that case the partner is unique, and the recovery graph of Lemma 9 is a tree for each root edge. If there is no partner, that graph is never a tree.
+
+Proof. A partner orients each edge of $Q_s$ with one outgoing edge at each nonroot face and none at a root. In a tree component the sum of outgoing degrees gives one root. Conversely, orient a component toward its unique root. For the edge $q_s(b)$ let $r(b)$ be its tail. Each nonroot face is used once, the tail is incident with $b$ and differs from $s(b)$, so this defines a partner. The orientation toward a root is forced, proving uniqueness. There are three components since $Q_s$ has $n$ edges and $n+3$ vertices. Lemma 9 adds two root-face links. These join the three components into a face tree exactly when the three roots lie in distinct components. Indeed, all added edges have root endpoints, so a rootless component cannot be joined. By the circuit-cut test and the edge count, that face tree condition is equivalent to its complementary primal graph being a tree. This proves every assertion.
+
+**Remark 15, compatible matchings.** PROVED-HERE. For a fixed black root and a perfect matching $P$, there exists a compatible state exactly when $G-P$ is connected. The compatible state is unique.
+
+Proof. The forward direction is Lemma 12. Conversely suppose the complement $C$ is connected. The face links in $P$ have no circuit, since such a circuit would be a cut disjoint from $C$. They form a forest with two components, since $|P|=n+1$ and there are $n+3$ faces. Let $e_0$ be the matching edge at the root; it joins two root faces. Each of the other two root edges has its ends in different components of this forest. Otherwise the path between its faces in $P$, together with that edge, would be a face circuit and hence a cut met by the cycle $C$ exactly once, impossible since every cycle meets every cut evenly. The third root face therefore lies in the other component from the two ends of $e_0$. Removing $e_0$ leaves three trees, one per root. Orient these toward their roots and assign to each $b\in A$ the tail face of its matching edge. This gives a bijection onto $X$ and a face incident with the matching edge, hence the required state. Every compatible state must give this same orientation, proving uniqueness.
+
+COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in the structure referee's INTEGRATION.md, Sections 6 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner.
+
+The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The illustrated running example below instead uses the current 13-face example, whose primal graph has 22 vertices.
+'''
+p.write_text(s,encoding='utf8')
+# Correct the correspondence without overstating formal verification.
+p=Path('proofs/primal/STATUS.md');s=p.read_text(encoding='utf8').replace('This note needs independent mathematical review.','The independent Fable referee returned FOLLOWS with corrections. Those corrections are incorporated; human review is pending.')
+s=s.replace('Face simplicity is interpreted through the plane embedding, rather than the Lean network.', '`make_coloredDual`, ThreeCuts.lean:101, supplies simple dual, triangles and their orientation. This note uses the map rules instead.')
+s=s.replace('The proof here uses facial boundary spaces and Euler, not Lean\'s construction of algebraic duality from a drawing.', '`Duality.circuit_cut` is one direction only; `Duality.bond_of_circuit`, Bonds.lean:109, supplies minimality. The converse used in recovery is proved here; Lean instead uses kernel duality. Lean does not start from a drawing.')
+s=s.replace('| Lemma 3, coherent orientation | (i), (iii)', '| Lemma 3, coherent orientation | (iii)')
+s=s.replace('The local sign uses an oriented rotation system.', 'There is no single Lean counterpart. `ColoredDual.oriented` and `Triangle.index_delta`, TriangleSystem.lean:291, supply algebraic coherence; the cited scalar and black-delta results presuppose the cycle flow. Here the rotation-system coherence is proved.')
+s=s.replace('Proof keeps 3-edge-connectivity throughout.', '`cap_duality`, CappedDuality.lean:148, supplies the cap duality replaced here by map contraction. Proof keeps 3-edge-connectivity throughout.')
+s=s.replace('No induced-tree equivalence or Jordan labelling.', 'General statement: any state and any compatible perfect matching, with no partner or forest hypothesis.')
+s+=r'''
+
+## Phase comparison after referee correction
+
+PROVED-HERE. If a pair has $c_+$ positive and $c_-$ negative circuits, put $c=c_++c_-$. Its real sign is $(-1)^{(n+3c)/2}(-1)^{c_-}$, whereas Lean's phase is $i^{c_- - c_+}$. Their ratio is $(-1)^{(n+3c)/2}i^c$. This follows by counting the $(h+3)/2$ negative local signs on a positive circuit and reversing all signs on a negative circuit. The ratio depends on the circuit count. The two polynomials are different sums, not a single polynomial with a global normalization. Their cancellation and lowest-degree arguments give the same existence conclusion.
+
+Remarks 14 and 15 are new informal proofs in PRIMAL-PROOF.md, not claims about new Lean declarations. The revision's finite checks and build results are recorded in research/2026-11-14_astra_primal-revision/REPORT.md.
+'''
+p.write_text(s,encoding='utf8')
+p=Path('proofs/primal/COMPARISON.md');s=p.read_text(encoding='utf8');s+='\n\n## Referee corrections\n\nPROVED-HERE. Lemma 12 now applies to any compatible perfect matching. Remarks 14 and 15 prove uniqueness of the partner for a forest state and characterize compatible matchings by connected complement. These strengthen the exposition without changing the existence route. The real-sign and Lean polynomials differ by circuit-count-dependent factors on summands, as computed explicitly in STATUS.md. The planar convention is a genus-zero combinatorial map; Euler is its single imported planar theorem. Integral max-flow remains a separate, nonplanar imported theorem.\n';p.write_text(s,encoding='utf8')

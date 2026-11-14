@@ -1,6 +1,6 @@
 # Barnette's conjecture in the cubic graph
 
-Status: PROVED-HERE, a complete informal reconstruction, subject to independent review. The theorem is LIT, OpenAI, Theorem 1.1 and Corollary 7.1. The proof follows the checked Lean development at commit `4eaee87548250b2682affda7d05d947c05554bae`, with two explicit departures: Li's primal deficit proof supplies the first pair, and real local signs replace Lean's complex phases. STATUS.md distinguishes restatements from these departures. Numerical checks are evidence about the implementation, not a proof of the theorem.
+Status: PROVED-HERE, a complete informal reconstruction, corrected after the independent Fable referee report; human review pending. The theorem is LIT, OpenAI, Theorem 1.1 and Corollary 7.1. The proof follows the checked Lean development at commit `4eaee87548250b2682affda7d05d947c05554bae`, with two explicit departures: Li's primal deficit proof supplies the first pair, and real local signs replace Lean's complex phases. STATUS.md distinguishes restatements from these departures. Numerical checks are evidence about the implementation, not a proof of the theorem.
 
 ## 1. The target and the objects
 
@@ -26,7 +26,11 @@ Proof. A cut vertex of a connected cubic graph has a component attached by at mo
 
 ## 2. The planar facts, with their scope stated
 
-We accept the elementary calculus of finite plane embeddings: facial boundary walks with their cyclic orders, Euler's formula for a connected plane graph, deletion of an edge merging its two distinct incident faces, and contraction of a nonloop edge preserving a plane embedding. We also use the boundary-walk criterion for a cut vertex explained in Lemma 1. These are the planar background facts. We do not invoke a Jordan curve labelling theorem, an isotopy of a detoured cycle, or a theorem about two induced trees.
+A plane graph here is a finite oriented combinatorial map of genus zero, not a geometric drawing. Its darts have an edge-reversing involution and a cyclic successor at each vertex. Following a dart and the prescribed successor at its end traces a facial boundary. Isolated vertices are retained when taking subgraphs. For disconnected subgraphs, a face can have several boundary walks; its boundary components are grouped by the inherited map. All planar operations below are finite operations on these lists.
+
+The sole imported planar theorem is Euler's formula, $v-e+f=1+c$ for a sphere map with $c$ connected components. We use the following elementary map rules. Reversing a dart reverses its contribution, so coherently oriented facial boundaries give opposite coefficients on the two sides of every edge. Deleting an edge with distinct incident faces splices their boundary lists and merges those faces. An edge with the same face on both sides is a bridge in genus zero: otherwise its deletion keeps its component connected and splits its boundary list, contradicting Euler. Deleting that bridge splits the component and its boundary walk, but leaves the face count unchanged. Deleting an isolated vertex also leaves the face count unchanged. Contracting a nonloop edge splices its two vertex rotations and preserves the facial regions and genus. These assertions follow by removing the two darts and checking their successors, with Euler distinguishing the bridge case.
+
+A subgraph inherits its embedding by these deletions. Each surviving facial boundary bounds a face containing the original face on that side; a deleted vertex occupies one of the resulting faces. In particular each face of a family whose entire boundary survives is still a face, and an omitted vertex lies in another face. This is the subgraph rule used in Lemma 4. The boundary-walk cut-vertex criterion used in Lemma 1 follows by splitting a repeated vertex into its two intervening rotation intervals: in genus zero the intervals cannot be joined away from that vertex, as Euler would then drop by two. Thus a 2-connected sphere map has cyclic facial boundaries. These rules specify the finite planar background used below; no geometric separation or isotopy theorem is imported.
 
 The following lemma isolates the two planar facts used by the four-count identity. Its first part also supplies the cycle-cut test used later.
 
@@ -52,9 +56,9 @@ A cut is minimal precisely when both shores are connected. If a shore had two co
 
 For the no-pinch statement, traverse the boundary walk of a face with vertices in both shores. Membership must change somewhere, along a cut edge. A face on the circuit has two such edges and meets both shores; a face off it has none. Since $b_0\notin S$, a root face meeting $S$ would be mixed and hence on the circuit, contrary to its avoidance of $R$.
 
-Finally delete the vertices of $S$ and all incident edges. All faces in $U_S$ merge into one face: removing the star of one vertex joins its incident sectors, and stars at adjacent vertices of the connected graph $G[S]$ make these mergers connected. No face outside $U_S$ changes. The remaining graph $G[\overline S]$ is connected, so its face count is $|\mathcal F|-|U_S|+1$. Subtract its Euler equation from the Euler equation for $G$ to obtain (2.1). This argument also handles a singleton shore. It requires both shores connected; it makes no assumption that a boundary has been drawn as a round disk.
+Finally delete the vertices of $S$ and all incident edges. All faces in $U_S$ merge into one face: removing the star of one vertex joins its incident sectors, and stars at adjacent vertices of the connected graph $G[S]$ make these mergers connected. No face outside $U_S$ changes. Each deleted edge has both sides in $U_S$, so every deletion either merges two faces coming from $U_S$ or leaves the face count unchanged. Removing the isolated vertices of $S$ at the end changes no face. The remaining graph $G[\overline S]$ is connected, so its face count is $|\mathcal F|-|U_S|+1$. Subtract its Euler equation from the Euler equation for $G$ to obtain (2.1). This argument also handles a singleton shore. It requires both shores connected; it makes no assumption that a boundary has been drawn as a round disk.
 
-We need the oriented version of (a). For a directed transition $f\to g$ across an edge with black end $b$, put $\delta(f,g)=+1$ when $b$ is on the left of the transition, and $-1$ otherwise. Equivalently, fix the cyclic order of the three faces around $b$ and give its three cyclic transitions sign $+1$. This definition uses only the oriented rotation system. Orient every edge of $G$ from black to white.
+We need the oriented version of (a). For a directed transition $f\to g$ across an edge with black end $b$, put $\delta(f,g)=+1$ when $b$ is on the left of the transition, and $-1$ otherwise. Equivalently, use at every black vertex the cyclic order induced by the same fixed orientation of the sphere, choosing the sense for which the black vertex lies on the left. Give these three cyclic transitions sign $+1$. The sense cannot be chosen independently at different vertices. This definition uses only the oriented rotation system. Orient every edge of $G$ from black to white.
 
 **Lemma 3, orientation of a bond.** PROVED-HERE. On an oriented face circuit with cut side $S$, there is a common $\sigma\in\{1,-1\}$ such that
 
@@ -64,7 +68,14 @@ $$
 
 Call $\sigma=+1$ the positive orientation.
 
-Proof. The real signed facial boundary vectors span the real cycle space by exactly the dimension proof in Lemma 2, orienting every facial boundary consistently. Give each crossed edge the value $\delta(f_i,f_{i+1})$ and the other edges value zero. Its pairing with a facial boundary is zero: arrival and departure at each listed face cancel. It is therefore a vertex gradient. Since its support is a bond, its vertex potential is constant on each connected shore. Its nonzero values have magnitude one, giving (2.2). This also proves that reversing a circuit reverses $\sigma$.
+Proof. The real signed facial boundary vectors span the real cycle space by exactly the dimension proof in Lemma 2, orienting every facial boundary consistently. Give each crossed edge the value $\delta(f_i,f_{i+1})$ and the other edges value zero. Orient each facial boundary with that face on its left. If the transition $f\to g$ across $e=bw$ has $b$ on its left, the edge directed $b\to w$ has $g$ on its left and $f$ on its right. Thus $\delta(f,g)=[\partial g](e)=-[\partial f](e)$, also when the transition is reversed. Writing $x(e_i)=\delta(f_i,f_{i+1})$, its pairing with the boundary of $f_i$ is
+
+$$
+\langle x,\partial f_i\rangle
+=\delta(f_{i-1},f_i)^2-\delta(f_i,f_{i+1})^2=0.
+$$
+
+Only the arrival and departure edges contribute. A face off the circuit has pairing zero because no supported edge lies on it. It is therefore a vertex gradient. Since its support is a bond, its vertex potential is constant on each connected shore. Its nonzero values have magnitude one, giving (2.2). This also proves that reversing a circuit reverses $\sigma$.
 
 ## 3. The incidence matchings and existence of a pair
 
@@ -90,7 +101,7 @@ $$
 
 Let $K$ be the union in $G$ of the boundaries of faces of $Y$. Write $B_j,W_j$ for vertices incident with exactly $j$ faces of $Y$, for $j=1,2,3$. The root is not in $K$. Distinct components of $K$ partition $Y$, and the deficit adds over this partition. Minimality therefore makes $K$ connected.
 
-There is no vertex in $W_1$. If $w\in W_1$ lies on $f\in Y$, its two neighbours along $f$ are distinct black vertices. Each is incident with a face outside $Y$, namely the other face at its edge to $w$, and hence belongs to $B_1$ or $B_2$. Removing $f$ lowers the sum in the deficit by at least two and lowers $2|Y|$ by two. The remaining set still has positive deficit, a contradiction.
+There is no vertex in $W_1$. If $w\in W_1$ lies on $f\in Y$, its two neighbours along $f$ are distinct black vertices in $A$, since the root is not in $K$. Each is incident with a face outside $Y$, namely the other face at its edge to $w$, and hence belongs to $B_1$ or $B_2$. Removing $f$ lowers the sum in the deficit by at least two and lowers $2|Y|$ by two. The remaining set still has positive deficit, so it is nonempty, contradicting minimality.
 
 A vertex in $B_2\cup B_3\cup W_2\cup W_3$ has all three of its edges in $K$, whereas a vertex in $B_1$ has just two. Its third edge must leave $V(K)$: if its white endpoint were in $K$, that endpoint would be in $W_2\cup W_3$ and the edge would already belong to $K$. Thus $K=G[V(K)]$, and its cut has size $c=|B_1|$, with all ends in $V(K)$ black. Counting its internal edges from the two colours gives
 
@@ -110,7 +121,7 @@ $$
 d(Y)=4-2k-c/3.
 $$
 
-The cut is nonempty, since $K$ omits $b_0$ and $G$ is connected. Hence $c\ge3$. Since $d(Y)\ge1$ and $k\ge1$, necessarily $k=1$ and $c=3$. This cut is nontrivial. Its $K$ shore contains a facial cycle, of length at least four by simplicity and bipartiteness. Its other shore contains $b_0$ and a white endpoint of the cut. This contradicts the hypothesis, proving (3.1).
+The cut is nonempty, since $K$ omits $b_0$ and $G$ is connected. By (3.2), $3$ divides $c$, so $c\ge3$. Since $d(Y)\ge1$ and $k\ge1$, necessarily $k=1$ and $c=3$. This cut is nontrivial. Its $K$ shore contains a facial cycle, containing at least two vertices. Its other shore contains $b_0$ and a white endpoint of the cut. This contradicts the hypothesis, proving (3.1).
 
 The stronger colour-sensitive obstruction is visible here: a deficient set produces a root-free three-edge cut whose inner ends are black. We will not need the converse or the sharper decomposition theorem from the constructive paper.
 
@@ -245,7 +256,7 @@ Proof. Every white vertex has exactly one parent edge. Every nonroot black verte
 
 Proof. Let $p$ count matching edges internal to $S$, and $b=|B\cap S|$, $w=|W\cap S|$. Matching degrees give $b=p+\ell$ and $w=p+h-\ell$, so $b-w=2\ell-h$. Cubic degrees give $3(b-w)=2\ell-h$. Subtract to obtain $b=w$ and $h=2\ell$.
 
-**Lemma 12, the complement is one cycle.** PROVED-HERE, restating Lean's `selectNet_forest`, `selected_forest`, and `recover_connected_complement`. The matching from Lemma 10 has connected complement.
+**Lemma 12, the complement is one cycle.** PROVED-HERE, restating Lean's `selectNet_forest`, `selected_forest`, and `recover_connected_complement`. Let $s$ be any state and $P$ any perfect matching whose edge at every $b\in A$ lies on $s(b)$. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.
 
 Proof. First consider $P\setminus\{e_0\}$ as face links. Direct its edge at $b\in A$ from $s(b)$ to the other incident face. Every nonroot face has one outgoing link and root faces have none. Any face circuit would therefore be directed and would be a state circuit for $s$. Its cut side would satisfy $h=2\ell+3$ by Lemma 5. All its edges belong to $P$, so Lemma 11 gives $h=2\ell$, a contradiction. Thus these links are a forest. The same component count as in Lemma 9 gives exactly one root face per component. Adding $e_0$, which joins two distinct root faces, still creates no face circuit.
 
@@ -275,7 +286,7 @@ Finally a cubic 3-vertex-connected graph is 3-edge-connected in the present sett
 
 ## 9. What each hypothesis does
 
-Finiteness supplies the enumerations, minima, flow network, and strong induction. Simplicity rules out two-vertex facial cycles and ensures the small-shore cut argument. Cubicity supplies three incident faces, the unique opposite edge, the four counts, the recovery-tree degrees, and the cap degrees. Bipartiteness supplies balanced incidence parts, the local black-edge labels, the colour counts, and the matching recovery. Planarity supplies Lemmas 1 through 3 and Euler in Lemma 4, and survives capping. Three-edge-connectivity makes face links simple, excludes a deficient cut of size less than three, and makes caps simple and connected. The additional absence of nontrivial three-edge cuts is used only in Lemma 4.
+Finiteness supplies the enumerations, minima, flow network, and strong induction. Simplicity is automatic once $|V|>2$: bipartiteness excludes loops, and parallel edges at $u,v$ leave at most two edges leaving $\{u,v\}$, contradicting 3-edge-connectivity unless these are all vertices. We keep the word because Barnette's conjecture is stated for simple graphs. Cubicity supplies three incident faces, the unique opposite edge, the four counts, the recovery-tree degrees, and the cap degrees. Bipartiteness supplies balanced incidence parts, the local black-edge labels, the colour counts, and the matching recovery. Planarity supplies Lemmas 1 through 3 and Euler in Lemma 4, and survives capping. Three-edge-connectivity makes $G$ 2-connected, giving facial cycles and three distinct faces at each vertex in Lemma 1. It makes face links simple, survives capping as the induction hypothesis, and gives connected shores and three distinct ends for nontrivial three-edge cuts in Lemma 13. Lemma 4 obtains $c\ge3$ from positive divisibility, not from 3-edge-connectivity. The additional absence of nontrivial three-edge cuts is used only in Lemma 4.
 
 The real-sign polynomial proof in Section 6 is the linear-weight refinement from the local determinant referee report, Section 2. The flow and cut-side form of the disk identity come from the Lean development. The complete argument written here is an informal proof, not a new Lean file or a claim that this exact prose has been machine-checked.
 
@@ -289,321 +300,17 @@ LIT. *A constructive proof of Barnette's conjecture*, October 18, 2026, reposito
 
 Source-checked Lean statements and exact file locations are recorded in STATUS.md and research/2026-11-14_astra_primal-proof/LEAN-EXTRACTS.md. The local reverse-Lamport audit is AUDIT.md in that research folder. Worked examples generated by the primal checker follow below.
 
-## 11. Two exact worked examples
 
-COMPUTED. All data below are regenerated by check_primal.py and build_note.py. Vertices are integers. Face labels are the listed boundary cycles in the rotation system returned by NetworkX. Edge labels are local to each example. The checker imports only graph generators and the facial-walk routine from workings/barnette_lab; it constructs all states, cuts, flows, signs, polynomials and recovered matchings itself. Both colourings put the specified root in the black class.
+## 11. Which states and Hamiltonian cycles occur
 
-### The cube
+**Remark 14, the partner is unique when it exists.** PROVED-HERE. If $Q_s$ is a forest, $s$ has a partner exactly when each component of $Q_s$ contains one root face. In that case the partner is unique, and the recovery graph of Lemma 9 is a tree for each root edge. If there is no partner, that graph is never a tree.
 
-The graph has 8 vertices. Its root is $b_0=0$ and its prescribed edge is $e_0^{\rm prescribed}=(0, 1)$. In the edge numbering below this is $e_{0}$. The superscript keeps the prescribed edge distinct from the enumerated label $e_0$.
+Proof. A partner orients each edge of $Q_s$ with one outgoing edge at each nonroot face and none at a root. In a tree component the sum of outgoing degrees gives one root. Conversely, orient a component toward its unique root. For the edge $q_s(b)$ let $r(b)$ be its tail. Each nonroot face is used once, the tail is incident with $b$ and differs from $s(b)$, so this defines a partner. The orientation toward a root is forced, proving uniqueness. There are three components since $Q_s$ has $n$ edges and $n+3$ vertices. Lemma 9 adds two root-face links. These join the three components into a face tree exactly when the three roots lie in distinct components. Indeed, all added edges have root endpoints, so a rootless component cannot be joined. By the circuit-cut test and the edge count, that face tree condition is equivalent to its complementary primal graph being a tree. This proves every assertion.
 
-$B=\{0,2,5,7\}$, $W=\{1,3,4,6\}$, $A=\{2,5,7\}$, $R=\{0,1,2\}$, and $X=\{3,4,5\}$.
+**Remark 15, compatible matchings.** PROVED-HERE. For a fixed black root and a perfect matching $P$, there exists a compatible state exactly when $G-P$ is connected. The compatible state is unique.
 
-The full edge list and flow follow. Every flow value is signed in the black-to-white direction, regardless of the numerical order of its endpoints.
+Proof. The forward direction is Lemma 12. Conversely suppose the complement $C$ is connected. The face links in $P$ have no circuit, since such a circuit would be a cut disjoint from $C$. They form a forest with two components, since $|P|=n+1$ and there are $n+3$ faces. Let $e_0$ be the matching edge at the root; it joins two root faces. Each of the other two root edges has its ends in different components of this forest. Otherwise the path between its faces in $P$, together with that edge, would be a face circuit and hence a cut met by the cycle $C$ exactly once, impossible since every cycle meets every cut evenly. The third root face therefore lies in the other component from the two ends of $e_0$. Removing $e_0$ leaves three trees, one per root. Orient these toward their roots and assign to each $b\in A$ the tail face of its matching edge. This gives a bijection onto $X$ and a face incident with the matching edge, hence the required state. Every compatible state must give this same orientation, proving uniqueness.
 
-$e_{0}=(0, 1)$, $\alpha(e_{0})=2$.
+COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in the structure referee's INTEGRATION.md, Sections 6 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner.
 
-$e_{1}=(0, 3)$, $\alpha(e_{1})=1$.
-
-$e_{2}=(0, 4)$, $\alpha(e_{2})=1$.
-
-$e_{3}=(1, 2)$, $\alpha(e_{3})=-1$.
-
-$e_{4}=(1, 7)$, $\alpha(e_{4})=0$.
-
-$e_{5}=(2, 3)$, $\alpha(e_{5})=0$.
-
-$e_{6}=(2, 6)$, $\alpha(e_{6})=1$.
-
-$e_{7}=(3, 5)$, $\alpha(e_{7})=0$.
-
-$e_{8}=(4, 5)$, $\alpha(e_{8})=0$.
-
-$e_{9}=(4, 7)$, $\alpha(e_{9})=0$.
-
-$e_{10}=(5, 6)$, $\alpha(e_{10})=0$.
-
-$e_{11}=(6, 7)$, $\alpha(e_{11})=0$.
-
-The facial boundary cycles are:
-
-$f_{0}=(0,3,2,1)$.
-
-$f_{1}=(0,4,5,3)$.
-
-$f_{2}=(0,1,7,4)$.
-
-$f_{3}=(1,2,6,7)$.
-
-$f_{4}=(2,3,5,6)$.
-
-$f_{5}=(4,7,6,5)$.
-
-The black-vertex incidence lists and local potentials are:
-
-$b=0$ has incident faces $(0,1,2)$; no state potential at the root is needed.
-
-$b=2$ has incident faces $(0,3,4)$ and potentials $(0,1,0)$ in that order.
-
-$b=5$ has incident faces $(1,4,5)$ and potentials $(0,0,0)$ in that order.
-
-$b=7$ has incident faces $(2,3,5)$ and potentials $(0,0,0)$ in that order.
-
-Every state is listed below as the tuple of assigned face indices in the displayed order of $A$. Its $Q$ list uses the enumerated edges, and $c_s$ is the sum of signs over its partners.
-
-$s_{0}=(3,4,5)$, $Q_{s_0}=\{e_{4},e_{5},e_{8}\}$, $c_{s_0}=-1$.
-
-$s_{1}=(4,5,3)$, $Q_{s_1}=\{e_{3},e_{7},e_{9}\}$, $c_{s_1}=1$.
-
-Every ordered pair follows, including all of its directed face circuits, cut sides, four-count data and slopes. A tuple of faces gives the cyclic order. Its crossed edges are listed in the same order. In the count tuple the entries are $|S|,|B\cap S|,|E_S|,|U_S|,h,\ell$.
-
-Pair $(s_{0},s_{1})$ has sign $1$.
-
-Faces $(3,4,5)$; edges $(e_{6},e_{10},e_{11})$; cut side $S=\{6\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Pair $(s_{1},s_{0})$ has sign $-1$.
-
-Faces $(3,5,4)$; edges $(e_{11},e_{10},e_{6})$; cut side $S=\{6\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-The exact polynomial is
-
-$$
-Z(z)=-1z.
-$$
-
-For recovery choose $s_{0}$. The removed edge set is $\{e_{1},e_{2},e_{4},e_{5},e_{8}\}$.
-
-The recovery tree has edges $\{e_{0},e_{3},e_{6},e_{7},e_{9},e_{10},e_{11}\}$.
-
-The selected perfect matching is $P=\{e_{0},e_{6},e_{7},e_{9}\}$.
-
-Its complementary Hamiltonian cycle, in cyclic vertex order, is $(1,2,3,0,4,5,6,7)$. It avoids the prescribed edge.
-
-### A 20-vertex cancellation example
-
-The graph has 20 vertices. Its root is $b_0=0$ and its prescribed edge is $e_0^{\rm prescribed}=(0, 1)$. In the edge numbering below this is $e_{0}$. The superscript keeps the prescribed edge distinct from the enumerated label $e_0$.
-
-$B=\{0,2,4,7,9,11,13,15,16,19\}$, $W=\{1,3,5,6,8,10,12,14,17,18\}$, $A=\{2,4,7,9,11,13,15,16,19\}$, $R=\{0,1,2\}$, and $X=\{3,4,5,6,7,8,9,10,11\}$.
-
-The full edge list and flow follow. Every flow value is signed in the black-to-white direction, regardless of the numerical order of its endpoints.
-
-$e_{0}=(0, 1)$, $\alpha(e_{0})=3$.
-
-$e_{1}=(0, 5)$, $\alpha(e_{1})=5$.
-
-$e_{2}=(0, 6)$, $\alpha(e_{2})=2$.
-
-$e_{3}=(1, 2)$, $\alpha(e_{3})=-1$.
-
-$e_{4}=(1, 15)$, $\alpha(e_{4})=-1$.
-
-$e_{5}=(2, 3)$, $\alpha(e_{5})=0$.
-
-$e_{6}=(2, 14)$, $\alpha(e_{6})=1$.
-
-$e_{7}=(3, 4)$, $\alpha(e_{7})=2$.
-
-$e_{8}=(3, 11)$, $\alpha(e_{8})=-1$.
-
-$e_{9}=(4, 5)$, $\alpha(e_{9})=-3$.
-
-$e_{10}=(4, 10)$, $\alpha(e_{10})=1$.
-
-$e_{11}=(5, 7)$, $\alpha(e_{11})=-1$.
-
-$e_{12}=(6, 9)$, $\alpha(e_{12})=-1$.
-
-$e_{13}=(6, 16)$, $\alpha(e_{13})=0$.
-
-$e_{14}=(7, 8)$, $\alpha(e_{14})=1$.
-
-$e_{15}=(7, 10)$, $\alpha(e_{15})=0$.
-
-$e_{16}=(8, 9)$, $\alpha(e_{16})=0$.
-
-$e_{17}=(8, 13)$, $\alpha(e_{17})=0$.
-
-$e_{18}=(9, 18)$, $\alpha(e_{18})=1$.
-
-$e_{19}=(10, 13)$, $\alpha(e_{19})=0$.
-
-$e_{20}=(11, 12)$, $\alpha(e_{20})=1$.
-
-$e_{21}=(11, 14)$, $\alpha(e_{21})=0$.
-
-$e_{22}=(12, 13)$, $\alpha(e_{22})=0$.
-
-$e_{23}=(12, 19)$, $\alpha(e_{23})=0$.
-
-$e_{24}=(14, 15)$, $\alpha(e_{24})=0$.
-
-$e_{25}=(15, 17)$, $\alpha(e_{25})=1$.
-
-$e_{26}=(16, 17)$, $\alpha(e_{26})=0$.
-
-$e_{27}=(16, 18)$, $\alpha(e_{27})=0$.
-
-$e_{28}=(17, 19)$, $\alpha(e_{28})=0$.
-
-$e_{29}=(18, 19)$, $\alpha(e_{29})=0$.
-
-The facial boundary cycles are:
-
-$f_{0}=(0,1,2,3,4,5)$.
-
-$f_{1}=(0,6,16,17,15,1)$.
-
-$f_{2}=(0,5,7,8,9,6)$.
-
-$f_{3}=(1,15,14,2)$.
-
-$f_{4}=(2,14,11,3)$.
-
-$f_{5}=(3,11,12,13,10,4)$.
-
-$f_{6}=(4,10,7,5)$.
-
-$f_{7}=(6,9,18,16)$.
-
-$f_{8}=(7,10,13,8)$.
-
-$f_{9}=(8,13,12,19,18,9)$.
-
-$f_{10}=(11,14,15,17,19,12)$.
-
-$f_{11}=(16,18,19,17)$.
-
-The black-vertex incidence lists and local potentials are:
-
-$b=0$ has incident faces $(0,1,2)$; no state potential at the root is needed.
-
-$b=2$ has incident faces $(0,3,4)$ and potentials $(0,-1,0)$ in that order.
-
-$b=4$ has incident faces $(0,5,6)$ and potentials $(0,2,3)$ in that order.
-
-$b=7$ has incident faces $(2,6,8)$ and potentials $(0,-1,-1)$ in that order.
-
-$b=9$ has incident faces $(2,7,9)$ and potentials $(0,1,0)$ in that order.
-
-$b=11$ has incident faces $(4,5,10)$ and potentials $(0,1,0)$ in that order.
-
-$b=13$ has incident faces $(5,8,9)$ and potentials $(0,0,0)$ in that order.
-
-$b=15$ has incident faces $(1,3,10)$ and potentials $(0,1,1)$ in that order.
-
-$b=16$ has incident faces $(1,7,11)$ and potentials $(0,0,0)$ in that order.
-
-$b=19$ has incident faces $(9,10,11)$ and potentials $(0,0,0)$ in that order.
-
-Every state is listed below as the tuple of assigned face indices in the displayed order of $A$. Its $Q$ list uses the enumerated edges, and $c_s$ is the sum of signs over its partners.
-
-$s_{0}=(3,5,6,7,4,8,10,11,9)$, $Q_{s_0}=\{e_{4},e_{5},e_{9},e_{13},e_{14},e_{16},e_{20},e_{22},e_{28}\}$, $c_{s_0}=-1$.
-
-$s_{1}=(3,5,6,9,4,8,10,7,11)$, $Q_{s_1}=\{e_{4},e_{5},e_{9},e_{12},e_{14},e_{20},e_{22},e_{23},e_{26}\}$, $c_{s_1}=0$.
-
-$s_{2}=(3,6,8,7,4,5,10,11,9)$, $Q_{s_2}=\{e_{4},e_{5},e_{7},e_{11},e_{13},e_{16},e_{17},e_{20},e_{28}\}$, $c_{s_2}=1$.
-
-$s_{3}=(3,6,8,9,4,5,10,7,11)$, $Q_{s_3}=\{e_{4},e_{5},e_{7},e_{11},e_{12},e_{17},e_{20},e_{23},e_{26}\}$, $c_{s_3}=-1$.
-
-$s_{4}=(4,5,6,7,10,8,3,11,9)$, $Q_{s_4}=\{e_{3},e_{8},e_{9},e_{13},e_{14},e_{16},e_{22},e_{25},e_{28}\}$, $c_{s_4}=1$.
-
-$s_{5}=(4,5,6,9,10,8,3,7,11)$, $Q_{s_5}=\{e_{3},e_{8},e_{9},e_{12},e_{14},e_{22},e_{23},e_{25},e_{26}\}$, $c_{s_5}=-1$.
-
-$s_{6}=(4,6,8,7,5,9,3,11,10)$, $Q_{s_6}=\{e_{3},e_{7},e_{11},e_{13},e_{16},e_{19},e_{21},e_{25},e_{29}\}$, $c_{s_6}=1$.
-
-$s_{7}=(4,6,8,7,10,5,3,11,9)$, $Q_{s_7}=\{e_{3},e_{7},e_{8},e_{11},e_{13},e_{16},e_{17},e_{25},e_{28}\}$, $c_{s_7}=-1$.
-
-$s_{8}=(4,6,8,9,10,5,3,7,11)$, $Q_{s_8}=\{e_{3},e_{7},e_{8},e_{11},e_{12},e_{17},e_{23},e_{25},e_{26}\}$, $c_{s_8}=1$.
-
-Every ordered pair follows, including all of its directed face circuits, cut sides, four-count data and slopes. A tuple of faces gives the cyclic order. Its crossed edges are listed in the same order. In the count tuple the entries are $|S|,|B\cap S|,|E_S|,|U_S|,h,\ell$.
-
-Pair $(s_{0},s_{8})$ has sign $1$.
-
-Faces $(9,11,7)$; edges $(e_{29},e_{27},e_{18})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(8,5,6)$; edges $(e_{19},e_{10},e_{15})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(10,3,4)$; edges $(e_{24},e_{6},e_{21})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Pair $(s_{1},s_{6})$ has sign $1$.
-
-Faces $(3,4,5,6,8,9,7,11,10)$; edges $(e_{6},e_{8},e_{10},e_{15},e_{17},e_{18},e_{27},e_{28},e_{24})$; cut side $S=\{10,11,12,13,14,18,19\}$. Counts $(7,3,15,9,9,3)$; delta-sum $-3$; slope $4$.
-
-Pair $(s_{1},s_{7})$ has sign $-1$.
-
-Faces $(9,7,11)$; edges $(e_{18},e_{27},e_{29})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(8,5,6)$; edges $(e_{19},e_{10},e_{15})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(10,3,4)$; edges $(e_{24},e_{6},e_{21})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Pair $(s_{2},s_{5})$ has sign $-1$.
-
-Faces $(9,11,7)$; edges $(e_{29},e_{27},e_{18})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(8,6,5)$; edges $(e_{15},e_{10},e_{19})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(10,3,4)$; edges $(e_{24},e_{6},e_{21})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Pair $(s_{3},s_{4})$ has sign $1$.
-
-Faces $(9,7,11)$; edges $(e_{18},e_{27},e_{29})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(8,6,5)$; edges $(e_{15},e_{10},e_{19})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(10,3,4)$; edges $(e_{24},e_{6},e_{21})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Pair $(s_{4},s_{3})$ has sign $-1$.
-
-Faces $(9,11,7)$; edges $(e_{29},e_{27},e_{18})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(8,5,6)$; edges $(e_{19},e_{10},e_{15})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(10,4,3)$; edges $(e_{21},e_{6},e_{24})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Pair $(s_{5},s_{2})$ has sign $1$.
-
-Faces $(9,7,11)$; edges $(e_{18},e_{27},e_{29})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(8,5,6)$; edges $(e_{19},e_{10},e_{15})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(10,4,3)$; edges $(e_{21},e_{6},e_{24})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Pair $(s_{6},s_{1})$ has sign $-1$.
-
-Faces $(3,10,11,7,9,8,6,5,4)$; edges $(e_{24},e_{28},e_{27},e_{18},e_{17},e_{15},e_{10},e_{8},e_{6})$; cut side $S=\{10,11,12,13,14,18,19\}$. Counts $(7,3,15,9,9,3)$; delta-sum $3$; slope $-4$.
-
-Pair $(s_{7},s_{1})$ has sign $1$.
-
-Faces $(9,11,7)$; edges $(e_{29},e_{27},e_{18})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(8,6,5)$; edges $(e_{15},e_{10},e_{19})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(10,4,3)$; edges $(e_{21},e_{6},e_{24})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Pair $(s_{8},s_{0})$ has sign $-1$.
-
-Faces $(9,7,11)$; edges $(e_{18},e_{27},e_{29})$; cut side $S=\{18\}$. Counts $(1,0,3,3,3,0)$; delta-sum $-3$; slope $1$.
-
-Faces $(8,6,5)$; edges $(e_{15},e_{10},e_{19})$; cut side $S=\{10\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-Faces $(10,4,3)$; edges $(e_{21},e_{6},e_{24})$; cut side $S=\{14\}$. Counts $(1,0,3,3,3,0)$; delta-sum $3$; slope $-1$.
-
-The exact polynomial is
-
-$$
-Z(z)=4z+9z^2-2z^3-9z^4-2z^5.
-$$
-
-The cancelling second state is $s_{1}$. Its two partners are $s_{6}$ with sign $-1$ and $s_{7}$ with sign $1$. The fixed circuit of $Q_s$ is the face sequence $(5,9,10)$. Reversing its tails interchanges exactly these partners. Their entire state-weight polynomials cancel, not merely their constant terms.
-
-This cancellation circuit crosses $(e_{22},e_{23},e_{20})$ and has cut side $S=\{12\}$. Its four-count tuple is $(1,0,3,3,3,0)$, so its odd length is visible directly in G.
-
-For recovery choose $s_{0}$. The removed edge set is $\{e_{1},e_{2},e_{4},e_{5},e_{9},e_{13},e_{14},e_{16},e_{20},e_{22},e_{28}\}$.
-
-The recovery tree has edges $\{e_{0},e_{3},e_{6},e_{7},e_{8},e_{10},e_{11},e_{12},e_{15},e_{17},e_{18},e_{19},e_{21},e_{23},e_{24},e_{25},e_{26},e_{27},e_{29}\}$.
-
-The selected perfect matching is $P=\{e_{0},e_{6},e_{8},e_{10},e_{11},e_{12},e_{17},e_{23},e_{25},e_{27}\}$.
-
-Its complementary Hamiltonian cycle, in cyclic vertex order, is $(17,16,6,0,5,4,3,2,1,15,14,11,12,13,10,7,8,9,18,19)$. It avoids the prescribed edge.
-
+The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The illustrated running example below instead uses the current 13-face example, whose primal graph has 22 vertices.

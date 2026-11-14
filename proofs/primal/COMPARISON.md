@@ -44,3 +44,8 @@ Use the prescribed-edge matching statement as the main induction theorem. Keep t
 For a figure, a dual triangle makes a local cyclic sign easier to see, but it need not enter the proof's notation. If the final paper wants a strictly primal visual language too, draw the three face sectors around one black vertex and label their cyclic transitions. Draw the cut side as a set of vertices of G, without adding a second graph. The larger example should display the cut and the flow separately; overlaying both on every face label would obscure the construction.
 
 This is a distinct route for the collection in its objects, planar bookkeeping and final recovery. It is not an independent new proof principle. Its strongest improvements are the single-flow lemma and the direct ending, and those are already supported by the machine-checked development.
+
+
+## Referee corrections
+
+PROVED-HERE. Lemma 12 now applies to any compatible perfect matching. Remarks 14 and 15 prove uniqueness of the partner for a forest state and characterize compatible matchings by connected complement. These strengthen the exposition without changing the existence route. The real-sign and Lean polynomials differ by circuit-count-dependent factors on summands, as computed explicitly in STATUS.md. The planar convention is a genus-zero combinatorial map; Euler is its single imported planar theorem. Integral max-flow remains a separate, nonplanar imported theorem.
