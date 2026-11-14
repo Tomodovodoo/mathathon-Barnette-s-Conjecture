@@ -4,7 +4,7 @@ Opus 5.5, 2026-11-14, folder `research/2026-11-14_opus_conjectures/`.
 
 **Summary.**
 1. C2 (O6, "an extreme of Felsner's lattice of pairs carries a tree pair") is false. The smallest counterexample has 18 vertices and is 4-connected. It was found by an exhaustive search over every rooted instance up to `V = 24` (89 million at `V = 24` alone) and checked with the reference lab (`data/c2_counterexample_V18.json`).
-2. The weaker replacements fail too: within cover-distance 1 of an extreme (first failure at `V = 24`), every maximal chain (at `V = 60`), at least half of the lattice (at `V = 70`). The earlier evidence for C2 came from greedy local extremes, which are usually not the lattice extremes.
+2. Three weaker replacements fail: within cover-distance 1 of an extreme (first failure at `V = 24`), every maximal chain (at `V = 60`), at least half of the lattice (at `V = 70`). One survives every test to `V = 250`: some extreme or irreducible element carries a tree pair (R2), a polynomial-size candidate list. The earlier evidence for C2 came from greedy local extremes, which are usually not the lattice extremes.
 3. C1 (`#TM >= 2^{c_min}`) holds for all 4,656,948 rooted instances with a pair up to `V = 22`. Equality holds exactly when `B` has one 2-factor. I prove that direction. I also prove that Theorem B's moment identities alone cannot give `2^{c_min}`.
 4. New tools, all proved: the lattice as a system of difference constraints with exact extremes by shortest paths, and a tree-pair criterion: `(r, s)` is a tree pair iff no directed cycle of the alpha-orientation exits every centre towards `r`. A directed facial hexagon means a white triangle in `Q_s`. That is exactly how the extremes fail.
 5. C3 (monotone descent) survived 940 random starts up to `V = 150`. It is unproved.
@@ -23,6 +23,7 @@ Make C1, C2, C3 precise, test them far beyond 16 vertices, hunt counterexamples,
 | C2, O4, O5 for the true lattice extremes | `REFUTED`, smallest `V = 18` | CONJECTURES §3 |
 | Exhaustive C2 census `V <= 24` (both-fail counts 26, 66, 46, 833, 935, 9,731 at `V = 18, 20, 21, 22, 23, 24`; none at odd `V <= 19`) | `COMPUTED` | `data/ext_summary_23_24.txt`, CONJECTURES §3 |
 | R1 (distance `<= 1`), R3 (every chain), R5 (half the lattice) | `REFUTED` at `V = 24`, `60`, `70` | CONJECTURES §4 |
+| R2: an extreme, join- or meet-irreducible element carries a tree pair | `CONJECTURE`; `COMPUTED` exhaustively for `V <= 24`, random to `V = 250` | CONJECTURES �4, `data/r2_tests.txt` |
 | C1 for `V <= 22` exhaustively, random to `V = 100` | `COMPUTED` | `data/full_summary_*.txt` |
 | A unique 2-factor makes every pair a tree pair, so `#TM = 2^{c_min}` | `PROVED-HERE` | PROOFS Lemma 3 |
 | Equality in C1 only for a unique 2-factor | `CONJECTURE`, `COMPUTED` to `V = 22` | CONJECTURES §5 |
@@ -44,14 +45,14 @@ Process note: once, for a few minutes, I ran two heavy processes at the same tim
 
 1. **C1 and C1+** (`#TM > 2^{c_min}` whenever there are at least two 2-factors). The equality characterisation is new and suggests induction on the lattice. A move from a one-element lattice to a larger one adds tree matchings faster than it lowers `c_min`.
 2. **C3.** Untested exhaustively beyond the graph-theory folder's `V <= 15`, unproved.
-3. **R2** (extremes or irreducibles) is untested at sizes where lattices are large.
+3. **R2** (extremes or irreducibles). Every test passes, and the candidate list is polynomial. Open: a proof, and whether testing one 2-factor for a tree pair (subcube covering, Cor. 2.1) is polynomial.
 4. **A canonical tree pair.** No canonical element of Felsner's lattice works. The structure that decides success couples the 2-factor with the orientation of its cycles (Lemma 2), and the lattice order ignores the orientation.
 
 ## Three best next steps
 
 1. **Use Lemma 2 as the local picture of the whole proof.** A tree pair is an orientation of the D-cycles that cuts every directed cycle of the alpha-orientation. Facial cycles cut means no white triangle in `Q_s`. Rewrite the cancellation (Lemma 5.2 of OpenAI, Theorem B) in this language: the signed sum over orientations is an inclusion-exclusion over the subcubes of dangerous cycles. That could give the exposition one picture for both cancellations, and it might suggest a weight that counts uncovered orientations directly.
 2. **Attack C1+ by induction over the lattice.** Start with two-element lattices, where the two 2-factors differ by reversing one essential cycle. Use the exhaustive data (`code/bar.c -m full`, `V <= 22`) to find what the extra tree matchings are. Lemma 3 handles the base case.
-3. **Test R2 and a "D-cycle-aware" order.** Run `bar.c -m full -S` on random `V = 60..100` with irreducibles, and try ordering pairs instead of 2-factors: for example the lattice of states (heights) restricted to tree matchings, combined with Lemma 2.
+3. **Attack R2.** The join-irreducible `J(a, k)` is the least 2-factor in which face `a` has been "flipped `k` times". Ask which faces `a` give a tree pair at `J(a, k)` in the data (`bar.c -J` stops at the first success; log all of them instead). Look for a rule that picks `a` from the dangerous hexagons of `E_lo` (Cor. 2.2). In the `V = 18` witness the right faces are exactly the two blocking white triangles.
 
 ## Leads for others
 

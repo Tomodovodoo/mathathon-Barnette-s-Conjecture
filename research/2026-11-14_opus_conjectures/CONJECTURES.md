@@ -31,7 +31,7 @@ Here `k(r, s) = k(s)` is the number of cycles of `Q_s`.
 | C2 (O6) | `E_lo` or `E_hi` carries a tree pair | `REFUTED` | Smallest witness `V = 18`: `data/c2_counterexample_V18.json`, checked independently (`code/verify_c2.py`, reference lab) |
 | O4, O5 | `E_lo` carries a tree pair; `E_hi` carries a tree pair | `REFUTED` (each, for the true extremes) | `V = 18` again: both fail together. Single failures at `V = 18` (28 and 30 rooted instances) |
 | R1 | some element at cover-distance `<= 1` from `E_lo` or `E_hi` carries a tree pair | `REFUTED` | Exhaustive: true for `V <= 23`, one failure at `V = 24` (`data/r1_counterexample_V24.txt`, independent check `code/verify_near.py`). Random: distance 2 at `V = 150, 200, 250` |
-| R2 | some extreme, join-irreducible or meet-irreducible element carries a tree pair | `COMPUTED` true for `V <= 22` exhaustively. Not tested beyond | Weak test: lattices there have at most 12 elements |
+| R2 | some extreme, join-irreducible or meet-irreducible element carries a tree pair | `CONJECTURE`, `COMPUTED`: the only replacement still standing | Exhaustive `V <= 24` (all 11,637 both-fail instances); random `V = 60..250` (2,193 instances by full enumeration, 591 both-fail instances by the direct test `bar.c -J`); true on every R1 and R3 witness (`data/r2_tests.txt`, `data/r2_random.txt`) |
 | R3 | every maximal chain from `E_lo` to `E_hi` meets an element carrying a tree pair | `REFUTED` | Exhaustive: true for `V <= 24` (all 11,637 both-fail instances). Random: fails at `V = 60` (`data/r3_counterexample_V60.txt`, independent check) |
 | R5 | at least half of the 2-factors carry a tree pair | `REFUTED` | Exhaustive: true for `V <= 22`, attained with equality (4-element lattices). Random: 109/235 at `V = 70`, 2427/6032 at `V = 90` (`bar.c` only) |
 | C1 | `#TM >= 2^{c_min}` | `CONJECTURE`, `COMPUTED` | Exhaustive `V <= 22`: 4,656,948 rooted instances with a pair, no violation. Random up to `V = 100` |
@@ -69,14 +69,14 @@ The 26 failures at `V = 18` come from two triangulations, one with degree sequen
 
 ## 4. Replacements for C2
 
-All four natural weakenings I could state fail, at increasing sizes:
+Three of the four natural weakenings fail, at increasing sizes. The fourth, R2, survives:
 
 - **R1** (within cover-distance 1 of an extreme). Prediction: fails by `V = 24` (55%). Correct: one failure at `V = 24`, out of 40.3 million rooted instances. There the extremes have 3 D-cycles each and a single cover each, both covers are Hamiltonian and fail, and all six elements at distance 2 carry tree pairs. At `V = 150` the extremes plus all 19 elements at distance 1 fail (`data/r1_dist2_instances.txt`, independently checked). The distance from the extremes to the nearest tree-pair element grows slowly: 2 is the largest seen up to `V = 250`.
 - **R3** (every maximal chain meets a tree pair). This would have given a polynomial algorithm without a canonical element. It holds for all 11,637 both-fail instances with `V <= 24`, and fails at `V = 60` with a failing chain through 7 elements.
 - **R5** (at least half the lattice carries tree pairs). Exhaustive to `V = 22`, tight at 1/2, and false at `V = 70`.
-- **R2** (an irreducible element) is untested where it matters.
+- **R2** (an extreme or an irreducible element carries a tree pair) survives every test, including all R1 and R3 witnesses. It is worth stating precisely because it is algorithmic. In a lattice of solutions of difference constraints, the join-irreducibles are exactly `J(a, k)` = the least solution with `phi(a) >= k`, for each face `a` and `phi_lo(a) < k <= phi_hi(a)`. The meet-irreducibles are the greatest solutions with `phi(a) <= k - 1` (`LIT`, standard Birkhoff representation; I did not open a source). There are at most `2 sum_a (phi_hi(a) - phi_lo(a))` of them, each found by one relaxation (`bar.c`, `r2_direct`). So R2 would give a polynomial-size candidate list of 2-factors. One caveat: deciding whether a given 2-factor carries a tree pair is the subcube-covering problem of Corollary 2.1, which `bar.c` solves by backtracking over the `2^c` orientations. I do not know whether it is polynomial.
 
-**Lesson.** The set of 2-factors carrying tree pairs has no visible order-theoretic shape inside Felsner's lattice: not near the extremes, not on every chain, not a majority. A canonical construction will need a different structure, for example one that couples the choice of 2-factor with the orientation of its cycles, which the lattice order ignores.
+**Lesson.** The set of 2-factors carrying tree pairs is not near the extremes, not on every chain, and not a majority. The one order-theoretic shape that survives is "it contains an irreducible element", and in the data the first few irreducibles checked usually already work (9,791 irreducibles checked for 9,731 both-fail instances at `V = 24`). A canonical construction will need a different structure, for example one that couples the choice of 2-factor with the orientation of its cycles, which the lattice order ignores.
 
 ## 5. C1 in detail
 

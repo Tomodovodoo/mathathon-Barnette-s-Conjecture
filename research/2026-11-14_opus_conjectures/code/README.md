@@ -6,7 +6,7 @@ Run everything from this folder (`research/2026-11-14_opus_conjectures/code`) in
 
 | File | What it does |
 | --- | --- |
-| `bar.c` | The engine. For every rooted instance (every face as `t0`, or `-r k` random faces): pair existence by bipartite b-matching, the lattice of 2-factors as integer potentials (PROOFS Lemma 1), exact extremes `E_lo`, `E_hi` by 0-1 BFS, tree-pair search inside a 2-factor (backtracking over D-cycle orientations with a rollback union-find), optional full enumeration of the lattice (`-m full`), lattice structure (`-S`), search outward from the extremes (`-N d`), the R3 chain test (`-C cap`), dumps of failures (`-d file`). |
+| `bar.c` | The engine. For every rooted instance (every face as `t0`, or `-r k` random faces): pair existence by bipartite b-matching, the lattice of 2-factors as integer potentials (PROOFS Lemma 1), exact extremes `E_lo`, `E_hi` by 0-1 BFS, tree-pair search inside a 2-factor (backtracking over D-cycle orientations with a rollback union-find), optional full enumeration of the lattice (`-m full`), lattice structure (`-S`), search outward from the extremes (`-N d`), the R3 chain test (`-C cap`), the direct R2 test over all join- and meet-irreducibles (`-J`), dumps of failures (`-d file`). |
 | `gen.py` | Random Eulerian triangulations: `ins` (random degree-4 insertions), `skew` (insertion at a vertex chosen with probability proportional to degree cubed), `mcmc` (insert/delete walk), `glue`, `prism` (face gluings). Output in `bar.c -t` text format. |
 | `verify_c2.py` | Independent check built on the reference lab: brute-force states and pairs, 2-factors, all directed simple cycles of each `O_u` and their senses, the two extremes by Felsner's characterisation. Writes JSON. |
 | `verify_near.py` | Independent check in pure Python plus networkx, sharing no code with `bar.c`: own faces, max-flow 2-factor, Bellman-Ford extremes, covers by lower-bound relaxation, forest test over all orientations. Modes: distance to the nearest tree-pair element; `chain` (R3). |
@@ -43,6 +43,8 @@ Build: `gcc -O2 -o bar.exe bar.c` (the runs below used the binaries `bar.exe`, `
 | `r3_random.txt`, `r3_counterexample_V60.txt` | `python gen.py skew 60 100 31 \| ./bar3.exe -t -C 200000 -r 20 -s 31 -d dump`; first `R3FAIL` line |
 | `r5_exhaustive.txt` | `$P -b V \| ./bar2.exe -m full \| python ratio.py V=V` (V = 16..22; minimum over `R` lines of `Ltp/L`) |
 | `r5_random.txt`, `tp_fraction.txt` | `python gen.py MODEL V COUNT SEED \| ./bar2.exe -t -m full -r 10 -s SEED -cap 300000 \| python ratio.py ...` |
+| `r2_random.txt` | `python gen.py MODEL V COUNT SEED \| ./bar3.exe -t -m full -S -r 10 -s SEED -cap 20000` for (skew 60 100 61), (skew 80 60 62), (ins 120 60 63); (skew 100 30 64) timed out at 140 s |
+| `r2_tests.txt` | `BOTH` lines of `ext_fail_V.txt` into `./bar4.exe -T -J`; random: `python gen.py skew V 60 SEED \| ./bar4.exe -t -J -r 20 -s SEED` |
 | `c3_random.txt` | `python gen.py MODEL V COUNT 21 > _c3.txt; python c3.py _c3.txt 0 COUNT 20 50000 21` for (ins 60 30), (skew 60 30), (ins 100 20), (skew 100 20), (skew 150 10) |
 
 Run times: the exhaustive extremes run takes 20 s at `V = 22`, 77 s at `V = 23`, 317 s at `V = 24` (89 million rooted instances). Full lattice enumeration takes about 60 s at `V = 22`.

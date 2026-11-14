@@ -63,6 +63,7 @@ static int read_planar(FILE *f) {
 }
 static int printu = 0, near_on = 0, near_max = 6;
 static long long near_hist[16], near_over;
+static int r2_on = 0; static long long r2_tested = 0, r2_fail = 0, r2_tot_checked = 0;
 static int chain_on = 0; static long long chain_cap = 1000000, r3_tested = 0, r3_fail = 0, r3_over = 0;
 static FILE *ufile = NULL;
 static int given_root[3], use_given_root = 0;
@@ -666,6 +667,37 @@ static int chain_fail(long long cap, long long *explored) {
     *explored = N_cnt;
     return 0;
 }
+/* R2 directly: join-irreducibles J(a,k) = least solution with phi(a) >= k, meet-irreducibles M(a,k) = greatest with phi(a) <= k-1 */
+static long long r2_checked;
+static int relax(int *q, int dir) {
+    int ch = 1;
+    while (ch) {
+        ch = 0;
+        for (int t = 0; t < nA; t++) for (int i = 0; i < 3; i++) {
+            int L = cL[t][i], R = cR[t][i];
+            if (L == R) continue;
+            if (dir > 0) { if (q[R] < q[L] - 1) { q[R] = q[L] - 1; ch = 1; } if (q[L] < q[R]) { q[L] = q[R]; ch = 1; } }
+            else { if (q[R] > q[L]) { q[R] = q[L]; ch = 1; } if (q[L] > q[R] + 1) { q[L] = q[R] + 1; ch = 1; } }
+        }
+    }
+    return q[0] == 0;
+}
+static int r2_direct(void) {
+    int q[MAXF], u[MAXV];
+    r2_checked = 0;
+    for (int a = 1; a < nW; a++)
+        for (int k = phi_lo[a] + 1; k <= phi_hi[a]; k++) {
+            memcpy(q, phi_lo, sizeof(int) * nW); q[a] = k;
+            if (!relax(q, +1)) { fprintf(stderr, "J infeasible" "\n"); exit(1); }
+            u_from_phi(q, u); r2_checked++;
+            if (tree_pairs(u, 1)) return 1;
+            memcpy(q, phi_hi, sizeof(int) * nW); q[a] = k - 1;
+            if (!relax(q, -1)) { fprintf(stderr, "M infeasible" "\n"); exit(1); }
+            u_from_phi(q, u); r2_checked++;
+            if (tree_pairs(u, 1)) return 1;
+        }
+    return 0;
+}
 /* ---------- output helpers ---------- */
 static void dump_instance(FILE *out, const char *tag, int froot) {
     fprintf(out, "%s %d %d", tag, nv, froot);
@@ -690,6 +722,7 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "-d")) dumpfile = argv[++i];
         else if (!strcmp(argv[i], "-U")) printu = 1;
         else if (!strcmp(argv[i], "-S")) S_on = 1;
+        else if (!strcmp(argv[i], "-J")) r2_on = 1;
         else if (!strcmp(argv[i], "-C")) { chain_on = 1; chain_cap = atoll(argv[++i]); }
         else if (!strcmp(argv[i], "-N")) { near_on = 1; near_max = atoi(argv[++i]); }
         else if (!strcmp(argv[i], "-u")) ufile = fopen(argv[++i], "r");
@@ -783,6 +816,12 @@ int main(int argc, char **argv) {
                 if ((d < 0 || d >= 2) && dump) dump_instance(dump, d == -2 ? "NEAROVER" : "NEARFAR", froot);
                 if (d >= 2 || d < 0) printf("NEAR %lld %d dist=%d explored=%lld%s", graphs, froot, d, ex, "\n");
             }
+            if (r2_on && !tmin && !tmax) {
+                extremes();
+                int ok = r2_direct();
+                r2_tested++; r2_tot_checked += r2_checked;
+                if (!ok) { r2_fail++; printf("R2FAIL %lld %d checked=%lld%s", graphs, froot, r2_checked, "\n"); if (dump) dump_instance(dump, "R2FAIL", froot); }
+            }
             if (chain_on && !tmin && !tmax) {
                 long long ex;
                 int r3 = chain_fail(chain_cap, &ex);
@@ -859,6 +898,7 @@ int main(int argc, char **argv) {
         for (int c = 0; c < 64; c++) if (tm_per_c[c]) printf(" c%d:%lld", c, tm_per_c[c]);
         printf("\n");
     }
+    if (r2_on) printf("R2 (both extremes fail) tested=%lld no_irreducible_with_tree_pair=%lld irreducibles_checked=%lld\n", r2_tested, r2_fail, r2_tot_checked);
     if (chain_on) printf("R3 (both extremes fail) tested=%lld failing_chain_exists=%lld overflow=%lld\n", r3_tested, r3_fail, r3_over);
     if (near_on) {
         printf("NEARHIST (instances where some extreme fails) dist of nearest tree-pair element:");
