@@ -1,0 +1,59 @@
+{
+  "census": [
+    {
+      "n": 6,
+      "graphs": 1,
+      "roots": 8,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 0
+    },
+    {
+      "n": 7,
+      "graphs": 0,
+      "roots": 0,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 0
+    },
+    {
+      "n": 8,
+      "graphs": 1,
+      "roots": 12,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 0
+    },
+    {
+      "n": 9,
+      "graphs": 1,
+      "roots": 14,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 8
+    },
+    {
+      "n": 10,
+      "graphs": 2,
+      "roots": 32,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 0
+    },
+    {
+      "n": 11,
+      "graphs": 2,
+      "roots": 36,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 10
+    },
+    {
+      "n": 12,
+      "graphs": 8,
+      "roots": 160,
+      "pair_obstruction_failures": 0,
+      "separator_parity_disagreements": 60
+    }
+  ],
+  "open": [
+    "separator-free Goodey c_min bound",
+    "canonical forest rule",
+    "Pfaffian incidence replacement",
+    "full historical novelty search"
+  ]
+}

@@ -9,6 +9,6 @@ for a,b in [('K0','K1'),('K1','K2'),('K0','K3'),('K3','K4'),('K4','K6'),('K4','K
 s.append('}');(p/'older-routes.dot').write_text('\n'.join(s))
 files=list((p/'text').glob('*'))
 (p/'code/source-manifest.json').write_text(json.dumps([dict(file=f.name,bytes=f.stat().st_size,sha256=hashlib.sha256(f.read_bytes()).hexdigest()) for f in files],indent=2))
-(p/'knowledge.json').write_text(json.dumps({'nodes':[{'id':'parity-identification','tier':2,'status':'refuted','review':'unreviewed','evidence':'BRIDGES.md#1-feder–subi-and-spanning-trees-of-faces'},{'id':'chain-cmin','tier':2,'status':'proved-here','review':'unreviewed','evidence':'BRIDGES.md'},{'id':'pfaffian-direct','status':'open','evidence':'BRIDGES.md'},{'id':'census','tier':4,'status':'computed','review':'unreviewed','evidence':'code/results.json'}]},indent=2))
+(p/'knowledge.json').write_text(json.dumps({'nodes':[{'id':'parity-identification','tier':2,'status':'refuted','review':'unreviewed','evidence':'BRIDGES.md#1-federâ€“subi-and-spanning-trees-of-faces'},{'id':'chain-cmin','tier':2,'status':'proved-here','review':'unreviewed','evidence':'BRIDGES.md'},{'id':'pfaffian-direct','status':'open','evidence':'BRIDGES.md'},{'id':'census','tier':4,'status':'computed','review':'unreviewed','evidence':'code/results.json'}]},indent=2))
 (p/'frontier.json').write_text(json.dumps({'census':json.loads((p/'code/results.json').read_text())['census'],'open':['separator-free Goodey c_min bound','canonical forest rule','Pfaffian incidence replacement','full historical novelty search']},indent=2))
-print('map, manifest and local handoff data written')
+print('map, manifest and local handoff data written')

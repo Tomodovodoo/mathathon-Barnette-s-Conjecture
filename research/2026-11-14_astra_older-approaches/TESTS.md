@@ -19,3 +19,6 @@ COMPUTED/T4. All 138 requested edge inclusions across the four named graphs succ
 COMPUTED/T4. Heawood: 24 Hamiltonian cycles; cube trisum: 12; K3,3 control: 6. All tested three-edge paths extend. Each is two-extendable; only the first two have Pfaffian status supplied by the cited structural theorem.
 
 Scope limits: no exhaustive census of all facial 2-factor contractions; no implementation of arbitrary BF21 separating-digon conditions; no certified T3 computation; no universal separator-free Goodey bound or canonical forest rule. Actual fullerene graphs fail bipartiteness and were not fed to the planar lab. Predictions that failed remain above. Predictions for the additional Goodey/refinement and chain runs are recorded in their source before the run, with the chain prediction tested rather than assumed.
+
+
+COMPUTED/T4, final spot check. `code/validate.py` verifies the radial/permeating-tree predicate equivalence on 39,714 nontrivial vertex subsets across all 15 duals of orders 6?12, and verifies all 108 black-band face incidences used by the chain proof through k=8. This is an author check, not independent review. Output: `code/validation.json`.
