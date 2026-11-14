@@ -850,7 +850,7 @@ _upd("N.c", src="con,comb,dim,refd,lean", where="+; lean/REPORT.md item 5 (71224
 _upd("G2.c", where="lean/REPORT.md item 1; lean/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)")
 _upd("B.5", text="+ The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.")
 
-route("U.c", "U", "cycle-to-state map replayed; not injective off tree matchings", "COMPUTED", "map",
+route("U.c", "U", "cycle-to-state map replayed; it is not injective", "COMPUTED", "map",
       "map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)",
       "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same "
       "unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.")
@@ -860,6 +860,44 @@ _upd("U.x1", cex="Hexagonal prism: 4 of the 6 common bases of the two-matroid re
                  "Larger witness: truncated octahedron, eleven spokes repeating non-roots 3 and 4 (con/data/other_candidates.json).",
      src="mach,con,refd", where="+; refd/REFEREE-constructive.md")
 _upd("U.x6", cex="Contraction creates a black-inner triangle from 11 vertices on; not every tree matching lifts (708 of 1516 cases in gt/ROUTES.md I1).")
+
+# ------------------------------------------------------------------ fourth pass
+# Folded in at 11:15 UTC: route-categorical (cat).
+FOLDERS["cat"] = "research/2026-11-14_fable_route-categorical"
+REVIEW["cat"] = {"state": "unreviewed"}
+# the boundary-algebra hunch of the machinery agent (G.4) was carried out by the categorical agent: see G.6 and G.x2
+R[:] = [r for r in R if r["id"] != "G.4"]
+route("G.6", "G", "boundary states of a cut; complete at lengths 3 and 4", "PROVED-HERE", "cat", "cat/PROOF.md Prop. 1, Theorem 3; cat/CATEGORICAL.md",
+      "Cut T along a cycle, record a finite boundary state on each side, glue: the number of Hamiltonian cycles is the linear term of a "
+      "Temperley-Lieb pairing of two disk vectors. O Theorem 2.2 says every piece with triangular boundary realises all 3 boundary patterns; "
+      "for quadrilaterals all 6 patterns allowed by a parity rule occur (conditional on O; one sub-case by a finite computation).")
+route("G.x2", "G", "a uniform boundary condition for longer cuts", "REFUTED", "cat", "cat/PROOF.md Prop. 4; cat/EXPERIMENTS.md",
+      "Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.",
+      lesson="The realised boundary patterns depend on the piece from length 5 on. The prescribed edge is the complete boundary datum of a "
+             "triangular cut, and that is why the induction stops at separating triangles.",
+      cex="A piece with 9 vertices and a 5-cycle boundary (cat data); checked up to 13 vertices.")
+route("A.x2", "A", "two roots instead of a root face", "REFUTED", "cat", "cat/REPORT.md (what failed); cat/CATEGORICAL.md",
+      "Root at two vertices not tied to a face; every root pair then has a two-root tree matching, and it gives a Hamiltonian cycle.",
+      lesson="Two roots move the obstruction and do not remove it, and O Lemma 6.2 needs all roots on one side of every selected cycle, "
+             "which a root face guarantees. This is what the face root is for.",
+      cex="Existence: plantri graph 12_6, 51 of 66 root pairs. Recovery: a two-root tree matching with no Hamiltonian cycle at 8 vertices.")
+route("K.x2", "K", "the two cube structures form a bicomplex", "REFUTED", "cat", "cat/REPORT.md (what failed)",
+      "Treat reversal of Q-cycles and reversal of D-cycles as two commuting differentials and read the proof as homology.",
+      lesson="The two reversals do not commute. The homological packaging is a restatement and gives no new existence argument.",
+      cex="12 of 624 pairs up to 12 vertices.")
+route("U.x9", "U", "topological Hall for partial tree matchings", "REFUTED", "cat", "cat/REPORT.md (what failed)",
+      "Get a tree matching from connectivity of the complex of partial tree matchings.",
+      lesson="The complex is not connected enough even in the smallest case.", cex="Octahedron: a two-face subcomplex is disconnected.")
+route("TG.7", "TG", "acyclic triangle factor of a second trinity K", "PROVED-HERE", "cat", "cat/PROOF.md Prop. 5",
+      "Hamiltonian cycles with a root on each side are the acyclic triangle factors of a second trinity K built from T. A symmetric restatement of the goal.")
+route("U.8h", "U", "every Hamiltonian cycle from a two-root tree matching", "CONJECTURE", "cat", "cat/REPORT.md (table); COMPUTED up to 12 vertices",
+      "With two roots allowed to vary, the state method sees every Hamiltonian cycle.",
+      test="Decide it at 13 to 16 vertices; if it holds, find the modified disk identity for cycles that separate the roots.")
+route("D.9", "D", "contraction inequality tau(T) >= tau(T/ac)", "CONJECTURE", "cat", "cat/REPORT.md (table); 948 contractions",
+      "Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would lift tree matchings along vertex splits.",
+      test="Look for a local rule extending a tree matching across a vertex split on the 948 cases (cat/code/recursion.py contract).")
+_upd("D.5", src="lim,cat", where="+; cat/PROOF.md Prop. 6 (states, pairs and tree matchings multiply under insertion into a white face)")
+_upd("A.2", text="+ The categorical agent tested the two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2).")
 
 STEP_NOTES = {
     "E": "The Lean proof skips this node: it selects P inside G without building the white tree.",
@@ -877,3 +915,33 @@ STATUS_NAME = {
     "HUNCH": "hunch",
     "REFUTED": "refuted",
 }
+
+# ------------------------------------------------------------------ kinds of argument
+# Every route except the COMPUTED checks, classified by the kind of argument it is. Used for route-kinds.png.
+KINDS = [
+    ("count", "Euler count, parity"),
+    ("matching", "matching theory, flows"),
+    ("bijective", "bijection, involution"),
+    ("polynomial", "polynomial, moments"),
+    ("linear", "determinant, linear algebra"),
+    ("matroid", "matroid, polytope"),
+    ("order", "order, extremal choice"),
+    ("search", "search, walk, sampling"),
+    ("topology", "topology"),
+    ("induction", "induction, gluing"),
+    ("duality", "planar duality"),
+]
+_KIND_IDS = {
+    "count": "S0.x1 TG.x2 ST.1 A.GT B.O B.L B.x1 B.4 C.O C.L C.T C.Lean C.1 C.2 C.5 N.2 N.x2 D.1 D.3 D.4 R.1 R.Lean R.x1 F.OT F.Lean F.1 G2.6",
+    "matching": "S0.x2 A.O A.L A.T A.Lean A.d G2.3",
+    "bijective": "U.8h A.x1 K.O K.x1 N.L N.12 N.x8 D.6 D.x1 U.5 U.6h U.4h U.x3 E.2 F.3",
+    "polynomial": "K.2 N.O N.T1 N.Lean N.H N.lin N.9 N.8 N.10 N.x1 N.x7 N.x12 N.x13 D.2 U.x8",
+    "linear": "S0.4 TG.h2 ST.2 B.1 C.3 C.x1 K.1 K.3 N.1 N.4 N.6 N.7 N.x9 N.x10 N.x11 N.x15 U.1 U.2 U.4 U.x7",
+    "matroid": "TG.5 A.3 U.3 U.6 U.1h U.2h U.x1 U.x2 U.x5",
+    "order": "TG.x1 ST.3 A.6 C.4 N.id N.5 N.x3 N.x4 N.x5 N.x6 D.7 U.5h",
+    "search": "TG.4 TG.h1 ST.4 N.T2 N.11 N.3 N.x14 D.8 U.7h F.5",
+    "topology": "K.x2 U.x9 S0.x3 TG.1 TG.2 B.0 B.6 B.2 B.5 K.4 U.7 F.L F.6 J2.1",
+    "induction": "G.6 G.x2 D.9 TG.3 A.1 A.5 B.3 D.5 U.x6 F.4 G.O G.T G.K G.Lean G.1 G.2 G.5 G.3 G.x1 G2.1 G2.2 G2.4 G2.5",
+    "duality": "A.x2 TG.7 S0.1 S0.2 S0.3 TG.6 A.2 U.x4 E.1 E.Lean E2.1 E2.2 F.2 J2.2",
+}
+KIND_OF = {i: k for k, ids in _KIND_IDS.items() for i in ids.split()}

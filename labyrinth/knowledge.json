@@ -418,6 +418,20 @@
    "updated": "2026-11-14"
   },
   {
+   "id": "src.agent.cat",
+   "kind": "source",
+   "tier": null,
+   "status": "agent folder",
+   "title": "2026-11-14_fable_route-categorical",
+   "statement": "Agent archive research/2026-11-14_fable_route-categorical/. Review state of its proofs: unreviewed.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md"
+   ],
+   "links": [],
+   "created": "2026-11-14",
+   "updated": "2026-11-14"
+  },
+  {
    "id": "wp.G",
    "kind": "theorem",
    "tier": "T1",
@@ -2120,7 +2134,7 @@
   {
    "id": "k.A.2",
    "title": "roots not on a common face",
-   "statement": "For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states.",
+   "statement": "For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states. The categorical agent tested the two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2).",
    "where": [
     "research/2026-11-14_fable_dependency-graph/skeleton.md G2"
    ],
@@ -4232,7 +4246,7 @@
    "title": "tree matchings can be exponentially rare",
    "statement": "Gluing q hexagonal-prism duals into white faces gives 3^q states and 2^q tree matchings.",
    "where": [
-    "research/2026-11-14_astra_limits/HYPOTHESES.md (rarity); code/rarity.py q <= 6"
+    "research/2026-11-14_astra_limits/HYPOTHESES.md (rarity); code/rarity.py q <= 6; research/2026-11-14_fable_route-categorical/PROOF.md Prop. 6 (states, pairs and tree matchings multiply under insertion into a white face)"
    ],
    "tags": [
     "step D"
@@ -4248,7 +4262,7 @@
     "by": [
      "research/2026-11-14_sol_referee-structure"
     ],
-    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC)"
+    "verdict": "proof in research/2026-11-14_astra_limits: pending (audit started 10:50 UTC). Not covered by that verdict: 2026-11-14_fable_route-categorical"
    },
    "links": [
     {
@@ -4257,6 +4271,10 @@
     },
     {
      "to": "src.agent.lim",
+     "rel": "cites"
+    },
+    {
+     "to": "src.agent.cat",
      "rel": "cites"
     },
     {
@@ -5647,38 +5665,6 @@
    ]
   },
   {
-   "id": "h.G.4",
-   "title": "boundary transfer algebra",
-   "statement": "Give a separating triangle a finite boundary state space and write gluing as a contraction.",
-   "where": [
-    "research/2026-11-14_sol_machinery-literature/ROUTE-IDEAS.md 14"
-   ],
-   "tags": [
-    "step G"
-   ],
-   "created": "2026-11-14",
-   "updated": "2026-11-14",
-   "kind": "hunch",
-   "tier": "T6",
-   "status": "live",
-   "vivid": "Dynamic programming over a decomposition; an explanation of why one prescribed edge is enough.",
-   "test": "Enumerate boundary labelings and forest-connectivity types on both sides of one triangle and write the composition table.",
-   "links": [
-    {
-     "to": "m.step.G",
-     "rel": "instance-of"
-    },
-    {
-     "to": "src.agent.mach",
-     "rel": "cites"
-    },
-    {
-     "to": "wp.GL",
-     "rel": "suggests"
-    }
-   ]
-  },
-  {
    "id": "th.G2.1",
    "title": "Theorem 1.1 and Corollary 7.1",
    "statement": "Every Barnette graph has a Hamiltonian cycle avoiding any prescribed edge.",
@@ -6842,7 +6828,7 @@
   },
   {
    "id": "c.U.c",
-   "title": "cycle-to-state map replayed; not injective off tree matchings",
+   "title": "cycle-to-state map replayed; it is not injective",
    "statement": "Every Hamiltonian cycle avoiding e0* gives a state, and that state is a tree matching or has no partner. Two cycles can give the same unpartnered state: on the hexagonal prism 4 avoiding cycles give 3 states, on the rim-8 bipyramid 6 cycles give 4 states.",
    "where": [
     "research/2026-11-14_fable_labyrinth-map/spotcheck.py (bipyramids of rim 4, 6, 8, every edge of t0)"
@@ -6870,6 +6856,248 @@
     {
      "to": "wp.FP",
      "rel": "tests"
+    }
+   ]
+  },
+  {
+   "id": "p.G.6",
+   "title": "boundary states of a cut; complete at lengths 3 and 4",
+   "statement": "Cut T along a cycle, record a finite boundary state on each side, glue: the number of Hamiltonian cycles is the linear term of a Temperley-Lieb pairing of two disk vectors. O Theorem 2.2 says every piece with triangular boundary realises all 3 boundary patterns; for quadrilaterals all 6 patterns allowed by a parity rule occur (conditional on O; one sub-case by a finite computation).",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/PROOF.md Prop. 1, Theorem 3; research/2026-11-14_fable_route-categorical/CATEGORICAL.md"
+   ],
+   "tags": [
+    "step G"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.G",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.GL",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "x.G.x2",
+   "title": "a uniform boundary condition for longer cuts",
+   "statement": "Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/PROOF.md Prop. 4; research/2026-11-14_fable_route-categorical/EXPERIMENTS.md"
+   ],
+   "tags": [
+    "step G"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The realised boundary patterns depend on the piece from length 5 on. The prescribed edge is the complete boundary datum of a triangular cut, and that is why the induction stops at separating triangles.",
+   "note": "Smallest known counterexample: A piece with 9 vertices and a 5-cycle boundary (cat data); checked up to 13 vertices.",
+   "links": [
+    {
+     "to": "m.step.G",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.A.x2",
+   "title": "two roots instead of a root face",
+   "statement": "Root at two vertices not tied to a face; every root pair then has a two-root tree matching, and it gives a Hamiltonian cycle.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md (what failed); research/2026-11-14_fable_route-categorical/CATEGORICAL.md"
+   ],
+   "tags": [
+    "step A"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "Two roots move the obstruction and do not remove it, and O Lemma 6.2 needs all roots on one side of every selected cycle, which a root face guarantees. This is what the face root is for.",
+   "note": "Smallest known counterexample: Existence: plantri graph 12_6, 51 of 66 root pairs. Recovery: a two-root tree matching with no Hamiltonian cycle at 8 vertices.",
+   "links": [
+    {
+     "to": "m.step.A",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.K.x2",
+   "title": "the two cube structures form a bicomplex",
+   "statement": "Treat reversal of Q-cycles and reversal of D-cycles as two commuting differentials and read the proof as homology.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md (what failed)"
+   ],
+   "tags": [
+    "step K"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The two reversals do not commute. The homological packaging is a restatement and gives no new existence argument.",
+   "note": "Smallest known counterexample: 12 of 624 pairs up to 12 vertices.",
+   "links": [
+    {
+     "to": "m.step.K",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "x.U.x9",
+   "title": "topological Hall for partial tree matchings",
+   "statement": "Get a tree matching from connectivity of the complex of partial tree matchings.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md (what failed)"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The complex is not connected enough even in the smallest case.",
+   "note": "Smallest known counterexample: Octahedron: a two-face subcomplex is disconnected.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
+   "id": "p.TG.7",
+   "title": "acyclic triangle factor of a second trinity K",
+   "statement": "Hamiltonian cycles with a root on each side are the acyclic triangle factors of a second trinity K built from T. A symmetric restatement of the goal.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/PROOF.md Prop. 5"
+   ],
+   "tags": [
+    "step TG"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.TG",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.2T",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "k.U.8h",
+   "title": "every Hamiltonian cycle from a two-root tree matching",
+   "statement": "With two roots allowed to vary, the state method sees every Hamiltonian cycle.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md (table); COMPUTED up to 12 vertices"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Decide it at 13 to 16 vertices; if it holds, find the modified disk identity for cycles that separate the roots.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
+    }
+   ]
+  },
+  {
+   "id": "k.D.9",
+   "title": "contraction inequality tau(T) >= tau(T/ac)",
+   "statement": "Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would lift tree matchings along vertex splits.",
+   "where": [
+    "research/2026-11-14_fable_route-categorical/REPORT.md (table); 948 contractions"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Look for a local rule extending a tree matching across a vertex split on the 948 cases (cat/code/recursion.py contract).",
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.cat",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
     }
    ]
   },
@@ -7328,8 +7556,8 @@
    "tier": null,
    "status": "open",
    "title": "Can a different rooting remove the separating-triangle induction?",
-   "statement": "With t0 a face the obstruction is exact. Roots of three colours not on a face are untested.",
-   "why": "With t0 a face the obstruction is exact. Roots of three colours not on a face are untested.",
+   "statement": "With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).",
+   "why": "With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).",
    "next": "First test: on the 9-vertex double octahedron with the obstructed root, enumerate all root triples and count pairs (k.A.2).",
    "links": [
     {
@@ -7338,6 +7566,14 @@
     },
     {
      "to": "k.G.3",
+     "rel": "suggests"
+    },
+    {
+     "to": "x.A.x2",
+     "rel": "suggests"
+    },
+    {
+     "to": "k.U.8h",
      "rel": "suggests"
     }
    ],

@@ -36,9 +36,9 @@ for r in RT.ROUTES:
     BY_STEP[r["step"]].append(r)
 
 # role of a route in the picture
-FACT_IDS = {"K.4", "F.6", "C.5", "A.6", "G.5", "S0.3", "ST.2", "ST.3", "ST.4", "A.d", "A.4", "C.1", "C.2", "K.2", "K.3", "N.id", "D.2", "D.4", "D.5",
+FACT_IDS = {"U.c", "K.4", "F.6", "C.5", "A.6", "G.5", "S0.3", "ST.2", "ST.3", "ST.4", "A.d", "A.4", "C.1", "C.2", "K.2", "K.3", "N.id", "D.2", "D.4", "D.5",
             "F.2", "F.3", "G.1", "G.2", "G2.3", "G2.4", "G2.6", "E2.2", "J2.2", "G2.5"}
-EQUIV_IDS = {"U.7", "TG.1", "TG.2", "U.1", "U.2", "U.3", "U.4", "U.5", "U.6"}
+EQUIV_IDS = {"TG.7", "U.7", "TG.1", "TG.2", "U.1", "U.2", "U.3", "U.4", "U.5", "U.6"}
 
 
 def role(r):
@@ -414,11 +414,76 @@ def draw(detail, stem):
         ax.text(lx + 0.62, yy, "an exact reformulation of the target", fontsize=6.8, va="center", zorder=6)
         yy -= 0.2
         ax.text(lx, yy, "Sources: O OpenAI, L Li, T trees paper, Lean formal proof, lit older literature;", fontsize=6.2, va="center", color="#555555", zorder=6)
-        ax.text(lx, yy - 0.16, "dep, comb, dim, con, mach, alg, lim, hist, gt, topo, refc, refd: folders under research/", fontsize=6.2, va="center",
+        ax.text(lx, yy - 0.16, "dep, comb, dim, con, mach, alg, lim, hist, gt, topo, cat, refc, refd: folders under research/", fontsize=6.2, va="center",
                 color="#555555", zorder=6)
 
     for ext in ("pdf", "svg", "png"):
         fig.savefig(HERE / f"{stem}.{ext}", dpi=150 if detail else 170)
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------- kinds of argument per step
+SEQ = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"]   # one hue, light to dark (dataviz reference ramp)
+
+
+def kind_matrix():
+    """cells[(step, kind)] = [established, open, refuted]; COMPUTED checks are left out."""
+    cells = defaultdict(lambda: [0, 0, 0])
+    for r in RT.ROUTES:
+        if r["status"] == "COMPUTED":
+            continue
+        k = RT.KIND_OF[r["id"]]
+        j = 0 if r["status"] in ("LIT", "PROVED-HERE") else 2 if r["status"] == "REFUTED" else 1
+        cells[(r["step"], k)][j] += 1
+    return cells
+
+
+def draw_kinds():
+    cells = kind_matrix()
+    steps, kinds = RT.STEPS, RT.KINDS
+    cw, ch, left, top = 1.02, 0.42, 2.75, 1.75
+    W, H = left + cw * len(kinds) + 0.75, top + ch * len(steps) + 0.95
+    fig = plt.figure(figsize=(W, H))
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, W)
+    ax.set_ylim(0, H)
+    ax.axis("off")
+    ax.text(0.2, H - 0.3, "Kinds of argument tried at each step", fontsize=12, weight="bold", va="center")
+    ax.text(0.2, H - 0.58, "Each cell: established · open · refuted routes (published or proved here · conjecture or hunch · refuted). "
+            "Darker = more routes. Blank = nobody has tried that kind of argument there.", fontsize=7.2, color="#444444", va="center")
+    for j, (key, name) in enumerate(kinds):
+        x = left + cw * (j + 0.5)
+        ax.text(x, H - top + 0.12, name.replace(", ", ",\n"), fontsize=7.4, ha="center", va="bottom", color="#222222", linespacing=1.15)
+    col_tot = Counter()
+    for i, s in enumerate(steps):
+        y = H - top - ch * (i + 0.5)
+        ax.text(left - 0.12, y, f"{s['id']}  {s['title']}", fontsize=7.6, ha="right", va="center", color="#222222")
+        row_tot = 0
+        for j, (key, name) in enumerate(kinds):
+            e, o, x_ = cells.get((s["id"], key), [0, 0, 0])
+            n = e + o + x_
+            row_tot += n
+            col_tot[key] += n
+            x = left + cw * j
+            if n:
+                shade = SEQ[min(len(SEQ) - 1, (n - 1) // 2)]
+                ax.add_patch(FancyBboxPatch((x + 0.035, y - ch / 2 + 0.035), cw - 0.07, ch - 0.07,
+                                            boxstyle="round,pad=0,rounding_size=0.05", fc=shade, ec="none"))
+                dark = SEQ.index(shade) >= 3
+                ax.text(x + cw / 2, y, f"{e} · {o} · {x_}", fontsize=7.4, ha="center", va="center",
+                        color="white" if dark else "#111111")
+            else:
+                ax.add_patch(FancyBboxPatch((x + 0.035, y - ch / 2 + 0.035), cw - 0.07, ch - 0.07,
+                                            boxstyle="round,pad=0,rounding_size=0.05", fc="#f6f6f4", ec="none"))
+        ax.text(left + cw * len(kinds) + 0.12, y, str(row_tot), fontsize=7.4, ha="left", va="center", color="#666666")
+    yb = H - top - ch * len(steps) - 0.2
+    for j, (key, name) in enumerate(kinds):
+        ax.text(left + cw * (j + 0.5), yb, str(col_tot[key]), fontsize=7.4, ha="center", va="center", color="#666666")
+    ax.text(left - 0.12, yb, "routes of this kind", fontsize=7.2, ha="right", va="center", color="#666666")
+    ax.text(0.2, 0.22, "Computed checks are not counted. Classification in routes.py (KIND_OF). The same numbers are a table in ROUTE-MAP.md.",
+            fontsize=6.6, color="#666666", va="center")
+    for ext in ("pdf", "svg", "png"):
+        fig.savefig(HERE / f"route-kinds.{ext}", dpi=170, facecolor="white")
     plt.close(fig)
 
 
@@ -498,6 +563,26 @@ def export_md():
                 extra = f" {r['vivid']}" if r.get("vivid") else ""
                 notes.append(f"- **{r['id']}, {r['status'].lower()}.**{extra} Test: {r['test']}")
         L += [""] + notes + [""]
+    cells = kind_matrix()
+    L += ["## Which kinds of argument have been tried where", "",
+          "![Kinds of argument](route-kinds.png)", "",
+          "Each cell gives established · open · refuted: routes that are published or proved here, routes that are conjectures or hunches, "
+          "and refuted routes. Computed checks are not counted. An empty cell is a kind of argument nobody has tried at that step.", "",
+          "| Step | " + " | ".join(name for _, name in RT.KINDS) + " |", "| --- |" + " --- |" * len(RT.KINDS)]
+    for s in RT.STEPS:
+        row = []
+        for key, _ in RT.KINDS:
+            e, o, x_ = cells.get((s["id"], key), [0, 0, 0])
+            row.append(f"{e} · {o} · {x_}" if e + o + x_ else "")
+        L.append(f"| {s['id']} {s['title']} | " + " | ".join(row) + " |")
+    L += ["", "Read from the picture, with the counts of the table.", "",
+          "- At the nonvanishing step N only polynomial arguments are established in number (5). Determinant arguments there stand at 0 established, 4 open and 4 refuted. "
+          "Nobody has tried a matroid, topological or inductive argument at N.",
+          "- The established entries in row U are exact reformulations of the target, not existence arguments. Matroid ideas are concentrated there (2 reformulations, 2 open, 3 refuted).",
+          "- Topology has established readings at six steps (goal, disk identity, cancellation, bypass, last step, sides of the curve). The classical ones are the Jordan-curve statements and Li's innermost cycle. The newer ones (B.6, K.4, U.7, F.6) come from one unreviewed folder.",
+          "- Induction carries the gluing and nothing else. At A, B and F it is an untested hunch or conjecture, at U it is refuted, and its entries at D are the rarity family, which is a construction, and an untested contraction inequality.",
+          "- Empty cells that look worth a first test: a linear-algebra or polynomial criterion for the first pair (A), a topological argument for the nonvanishing (N), "
+          "and a search or sampling argument for the first pair that would make step A constructive without flows.", ""]
     L += [tail.rstrip(), ""]
     (HERE / "ROUTE-MAP.md").write_text("\n".join(L), encoding="utf-8")
 
@@ -518,6 +603,9 @@ def sanity():
         assert all(f in WP for f in s["frm"]) and s["to"] in WP, s["id"]
         assert BY_STEP[s["id"]], s["id"]
     assert (FACT_IDS | EQUIV_IDS) <= set(ids), (FACT_IDS | EQUIV_IDS) - set(ids)
+    missing = [r["id"] for r in RT.ROUTES if r["status"] != "COMPUTED" and r["id"] not in RT.KIND_OF]
+    assert not missing, missing
+    assert set(RT.KIND_OF) <= set(ids), set(RT.KIND_OF) - set(ids)
 
 
 if __name__ == "__main__":
@@ -526,6 +614,7 @@ if __name__ == "__main__":
     export_dot()
     draw(True, "route-map")
     draw(False, "route-map-overview")
+    draw_kinds()
     if (HERE / "ROUTE-MAP.head.md").exists():
         export_md()
     c = Counter(r["status"] for r in RT.ROUTES)

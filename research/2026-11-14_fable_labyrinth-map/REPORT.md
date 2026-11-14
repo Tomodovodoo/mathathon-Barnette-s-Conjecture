@@ -4,9 +4,9 @@ Fable 5.2, 2026-11-14. Folder `research/2026-11-14_fable_labyrinth-map/`. Also o
 
 ## Five-line summary
 
-1. The map exists: 16 waypoints, 17 steps and 168 routes (46 published, 38 proved here, 9 computed, 15 conjectures, 25 hunches, 35 refuted), in one data file that feeds the figure, `ROUTE-MAP.md` and the labyrinth.
+1. The map exists: 16 waypoints, 17 steps and 175 routes (46 published, 40 proved here, 9 computed, 17 conjectures, 24 hunches, 39 refuted), in one data file that feeds the figures, `ROUTE-MAP.md` and the labyrinth.
 2. Every complete proof (OpenAI, Li, the trees paper, the Lean formalisation) walks the same chain. It is forced at the pair, the disk identity, the sign and the cancellation. It is free at three steps: the first pair, the nonvanishing, and the last step to one cycle.
-3. The direct edge to two induced trees and the unsigned bypass to a tree matching have no complete route. The bypass has nine exact reformulations and eight refuted relaxations.
+3. The direct edge to two induced trees and the unsigned bypass to a tree matching have no complete route. The bypass has nine exact reformulations and nine refuted relaxations.
 4. `COMPUTED` here: two independent enumerations agree on states, pairs and tree matchings for all 7868 rooted Eulerian triangulations up to 16 vertices. That is the one T3 node of the labyrinth.
 5. `COMPUTED` here, not predicted: a Hamiltonian cycle determines a state, but two cycles can give the same state. On the hexagonal prism 4 avoiding cycles give 3 states.
 
@@ -22,10 +22,11 @@ Build one place that shows every node of the proof, every route between nodes th
 | `digestions/route-map/build_map.py` | renders everything below from `routes.py` |
 | `digestions/route-map/route-map.pdf`, `.svg`, `.png` | the full map, about 25 by 26 inches, every route listed next to its step |
 | `digestions/route-map/route-map-overview.pdf`, `.svg`, `.png` | the same map without the lists, readable on one screen |
+| `digestions/route-map/route-kinds.pdf`, `.svg`, `.png` | a matrix of the 17 steps against 11 kinds of argument, each cell giving established, open and refuted routes |
 | `digestions/route-map/route-map.dot`, `routes.json` | Graphviz source (one edge per route) and machine-readable export |
 | `digestions/route-map/ROUTE-MAP.md` | summary, reading guide, counts, one section per step with every route, lessons, counterexamples and tests |
 | `digestions/route-map/HOW-IT-WORKS.md` | the plain account, about 3500 words |
-| `labyrinth/` | `knowledge.json` (259 nodes), `events.jsonl` (50 backfilled, 1 live), `sota.json` (15 rows), `frontier.json`, `scatter.json`, `dashboard/index.html`, `STATUS.md`, `README.md` |
+| `labyrinth/` | `knowledge.json` (267 nodes), `events.jsonl` (53 backfilled, 1 live), `sota.json` (15 rows), `frontier.json`, `scatter.json`, `dashboard/index.html`, `STATUS.md`, `README.md` |
 | `research/2026-11-14_fable_labyrinth-map/spotcheck.py`, `spotcheck.json` | my own check, written from the definitions |
 
 Commands, from the repository root:
@@ -56,6 +57,7 @@ The dashboard is `labyrinth/dashboard/index.html`. It is local and was not publi
 - `COMPUTED` (`spotcheck.py`, bipyramids of rim 4, 6, 8, 10). Octahedron: 2 states, 2 pairs, 2 tree matchings. Hexagonal prism dual: 3 states, 2 pairs, 2 tree matchings, and all three `Q_s` are forests. On every instance: tree matching if and only if exactly one partner, all `D`-cycles odd with `δ`-sum `±3`, the real sign flips under reversal of a `D`-cycle, the signed sum over pairs is 0, and the two tree matchings have opposite signs.
 - `COMPUTED` (`spotcheck.py`, rim 4, 6, 8, each edge of `t0`). The backward construction of `HOW-IT-WORKS.md` Section 2 works on every Hamiltonian cycle avoiding `e0*`: the complement gives three trees, one per root, and a state. Each such state is a tree matching or has no partner, as route-combinatorics Proposition 7 says. New: the map from cycles to states is not injective. On the prism, for the middle edge of `t0`, 4 avoiding cycles give 3 states. On the rim-8 bipyramid 6 cycles give 4 states. The reason is simple. A state fixes the tail of the selected edge in each black face and not the edge, unless `H - s` is a tree.
 - Synthesis, with the status of its sources. The proofs are forced at six places and free at three (`ROUTE-MAP.md`, last sections). The dead ends fall into four groups: drop a constraint, pick an extreme, count without weights, weaken a hypothesis.
+- The matrix of steps against kinds of argument (`route-kinds.png`) shows which corridors nobody has entered. At the nonvanishing step only polynomial arguments are established (5 routes), determinant arguments stand at 0 established, 4 open, 4 refuted, and no matroid, topological or inductive argument has been tried. Induction carries the gluing and nothing else.
 - One link between reports that their authors had not made. The dependency-graph conjecture A2 (every avoiding cycle comes from a tree matching) was already refuted by the route-combinatorics survey and by the limits prism example. It is a dead end on the map (A.x1) with an `answered` event.
 
 Everything else on the map carries the status its author or referee gave it. I did not re-prove anything.
@@ -67,12 +69,12 @@ Everything else on the map carries the status its author or referee gave it. I d
 - I did not open the dashboard in a browser. `lab.py check` prints ok, the build ran, and `node` parses both scripts of `index.html`. A rendering fault in a tab would not have been caught.
 - The first build of `frontier.json` claimed some values both realized and impossible. `lab.py check` caught it, and the script now writes the impossible values as the complement of the realized ones.
 - The route-graph-theory agent had tested the LP hunch of the machinery agent before I listed it. I had it as a live hunch for twenty minutes. It is now the dead end U.x5.
-- Conjecture A.2 (roots of three colours not on a common face) is not well posed as stated. With three roots off a face there are `k` black faces and `k - 1` non-root vertices, so one black face has to be dropped and the conjecture does not say which. I left it as a conjecture and put the repair in the open doors.
+- Conjecture A.2 (roots of three colours not on a common face) is not well posed as stated. With three roots off a face there are `k` black faces and `k - 1` non-root vertices, so one black face has to be dropped and the conjecture does not say which. The categorical agent has since tested a two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2). I left A.2 as a conjecture and no longer count it among the ten best doors.
 
 ## What is still open
 
 - Nothing written in this project has been read by a human. Two folders are AI-refereed, two are under review, the rest unreviewed. The state-of-the-art row `review` lists them.
-- The map was frozen at 11:20 UTC. Not folded in: the final verdict of `sol_referee-structure` (provisional when I read it), `astra_primal-proof` (in progress), `fable_route-categorical`, `opus_conjectures`, `fable_digestions`, both manuscript drafts and the figure folders. To add a report, edit `routes.py` (routes and `REVIEW`) and `labyrinth/seed.py` (events, state-of-the-art rows), then run the commands above.
+- The map was frozen at 11:20 UTC. Folded in last: `fable_route-categorical`, at 11:15. Not folded in: the final verdict of `sol_referee-structure` (provisional when I read it), `astra_primal-proof` (in progress), `opus_conjectures`, `fable_digestions`, both manuscript drafts and the figure folders. To add a report, edit `routes.py` (routes and `REVIEW`) and `labyrinth/seed.py` (events, state-of-the-art rows), then run the commands above.
 - The Lean routes on the map rest on the lean-formalisation agent's reading in `DIFFERENCES.md`, which is unreviewed.
 - "Smallest known counterexample" is the smallest found, not a proved minimum, except where the entry says so.
 
@@ -97,7 +99,7 @@ Ranked by what a positive answer would change. Ids are those of `ROUTE-MAP.md` a
 | 7 | **B.6** The disk identity as the theorem of turning tangents | `PROVED-HERE`, route-topology, unreviewed | Referee it. A sharp test: on `lim/examples/nonbijective_disk.json` (9 vertices, defect `d = -1`) the angle structure must fail to be flat by exactly the amount that gives `δ`-sum 0 |
 | 8 | **N.12** Li's objects with `cmin` distinct marks are the elementary symmetric coefficient of the linear-weight polynomial | `CONJECTURE`, referee-determinants | On the 9-vertex double octahedron with the unobstructed root (`cmin = 2`, 4 tree matchings) enumerate Li's objects with `li.py` and compare the signed count with the coefficient of `x^2` in `F(1 + xa)` |
 | 9 | **U.6h** Describe, in `G` alone, the Hamiltonian cycles whose state has a partner | `CONJECTURE`, route-combinatorics | On the hexagonal prism, middle edge of `t0`: `spotcheck.py` gives 2 partnered cycles and 2 unpartnered ones that share a state. Print the four cycles as face sequences and find what the shared state costs. Then test any rule on the 176726 unpartnered cycles of the survey |
-| 10 | **A.2** A rooting that removes the separating-triangle induction | `CONJECTURE`, dependency-graph, not well posed yet | First fix the statement: with three roots of three colours off a face, decide which black face is dropped so that `|A| = |X|`. Then on the 9-vertex example `lim/examples/t9_0.json`, outer face 2 (4 states, no pair), enumerate all root triples and dropped faces and count pairs |
+| 10 | **D.9** Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would be the first inductive tool on the left arm of the map, where induction has no established route | `CONJECTURE`, route-categorical, 948 contractions | Look for a local rule that extends a tree matching across a vertex split, on the 948 cases (`research/2026-11-14_fable_route-categorical/code/recursion.py contract`). The graph-theory agent's failed lift (U.x6: 708 of 1516 cases) says which side condition the rule must supply |
 
 ## Leads for others
 

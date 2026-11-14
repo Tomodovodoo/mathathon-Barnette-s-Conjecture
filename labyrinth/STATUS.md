@@ -1,6 +1,6 @@
 # Labyrinth status
 
-Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
+Generated 2026-11-14T11:15:48Z by `labyrinth/lab.py build`. Do not edit by hand.
 
 ## The frontier
 
@@ -22,10 +22,10 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 | |V(T)| = 28 | 920483 | 2 | 201 | 0 | 0 | 920280 | 0.0% | upper 920482, upper_kind 3^(n/2) |
 | |V(T)| = 33 | 14348908 | 2 | 201 | 0 | 0 | 14348705 | 0.0% | upper 14348907, upper_kind 3^(n/2) |
 
-## Conjectures (15)
+## Conjectures (17)
 
 - **nodal domains of eigenvectors** [`k.TG.h2`, open] Sign patterns of Laplacian eigenvectors of T almost never give two induced trees (predicted below 5 per cent).
-- **roots not on a common face** [`k.A.2`, open] For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states.
+- **roots not on a common face** [`k.A.2`, open] For every simple 2-coloured triangulation some triple of roots of three colours, not necessarily the corners of a face, admits two disjoint states. The categorical agent tested the two-root version: the obstruction moves and the recovery lemma fails without a root face (A.x2).
 - **Gauss-Bonnet form for any cycle** [`k.B.5`, open] For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.
 - **a test function with one sign on all covers** [`k.N.9`, open] There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken.
 - **at least 2^cmin tree matchings** [`k.D.3`, open] Every rooted triangulation with a pair has at least 2^cmin tree matchings. True for all 5088 cases up to 16 vertices; equality in 4609.
@@ -39,6 +39,8 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **Li's marked objects are the e_m coefficient** [`k.N.12`, open] Li's objects with cmin distinct marks are the elementary symmetric reading of the linear-weight coefficient.
 - **extremes of Felsner's lattice of pairs** [`k.D.7`, open] The face-flip minimum or the face-flip maximum of the lattice of pairs always carries a tree pair. Each extreme alone fails (at 40 and at 80 vertices); they never failed together in 180 random instances.
 - **local search from a point-rainbow tree** [`k.U.7h`, open] Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma.
+- **every Hamiltonian cycle from a two-root tree matching** [`k.U.8h`, open] With two roots allowed to vary, the state method sees every Hamiltonian cycle.
+- **contraction inequality tau(T) >= tau(T/ac)** [`k.D.9`, open] Contracting a degree-4 vertex never increases the number of tree matchings. An injection behind it would lift tree matchings along vertex splits.
 
 ## Open doors (questions) (12)
 
@@ -49,13 +51,13 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **Is there a determinant or Pfaffian for Z without coefficient extraction?** [`q.det`, open] Z is the squarefree coefficient of one determinant (2^n evaluations). Raw determinants, doubled edges and scalar factorisations are refuted.
 - **Which Hamiltonian cycles come from tree matchings?** [`q.which-hc`, open] Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.
 - **Is there a second proof of the disk identity?** [`q.disk`, open] All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity from the theorem of turning tangents (p.B.6); nobody has refereed that.
-- **Can a different rooting remove the separating-triangle induction?** [`q.roots`, open] With t0 a face the obstruction is exact. Roots of three colours not on a face are untested.
+- **Can a different rooting remove the separating-triangle induction?** [`q.roots`, open] With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).
 - **Do Li's higher-mark involutions match the polynomial coefficient?** [`q.li-b`, open] Li's Appendix B leaves three verifications to the reader; li.py was not refereed.
 - **What is the right statement on other surfaces?** [`q.surface`, open] States need |A| = |X|, which fails by 2g. The topology-free target is one edge per triangle with connected complementary dual.
 - **What is the status of formal verification?** [`q.formal`, open] The Lean proof builds locally with standard axioms and follows a different route in four places. Corollary 7.2 and Theorem 2.2 are not formalised.
 - **Has a human checked any of the proofs written here?** [`q.human`, open] No. Two folders are AI-refereed (combinatorics, determinants), two are under review, the rest unreviewed.
 
-## Hunches (speculation, not claims) (25)
+## Hunches (speculation, not claims) (24)
 
 - **induced-forest completion** [`h.TG.h1`, live] Start from a large induced forest and exchange vertices until both sides are trees.
 - **induction over local expansions** [`h.A.1`, live] Grow rooted Eulerian triangulations by vertex splits and show a pair survives each split.
@@ -79,11 +81,10 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **Bernardi process, Schnyder woods, blossom trees** [`h.U.4h`, live] A canonical tree or orientation of the map might produce a tree matching directly.
 - **Temperley / Kenyon-Propp-Wilson** [`h.E.2`, live] Read the step as the tree-to-matching bijection of KPW.
 - **a potential along the selected out-edges** [`h.F.5`, live] Follow selected out-edges from a vertex to a root; a quantity that decreases along the walk proves connectivity.
-- **boundary transfer algebra** [`h.G.4`, live] Give a separating triangle a finite boundary state space and write gluing as a contraction.
 - **Hall-free shelling construction** [`h.A.5`, live] Build a pair by a canonical ordering from t0 inward, as for Schnyder woods.
 - **finding a tree matching is in PPAD** [`h.D.8`, live] Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs.
 
-## Dead ends (refuted) (35)
+## Dead ends (refuted) (39)
 
 - **drop bipartite** [`x.S0.x1`, refuted] Without bipartiteness there is no proper face colouring of T, so states are not defined.
 - **drop 3-connectivity** [`x.S0.x2`, refuted] A 2-connected cubic bipartite planar graph can be non-Hamiltonian. Its dual has parallel edges.
@@ -120,6 +121,10 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **single-swap descent on the number of Q-cycles** [`x.N.x14`, refuted] From every pair with a cycle in Q_s some single exchange lowers the number of cycles.
 - **a global sign gauge on incidences** [`x.N.x15`, refuted] Flip signs of incidence variables so that all tree matchings get the same coefficient sign.
 - **the partner of a tree matching is a tree matching** [`x.D.x1`, refuted] Swapping r and s would then be a free involution on tree matchings and explain why their number is even.
+- **a uniform boundary condition for longer cuts** [`x.G.x2`, refuted] Induct along cuts of length 5 or more with a boundary condition that every piece satisfies.
+- **two roots instead of a root face** [`x.A.x2`, refuted] Root at two vertices not tied to a face; every root pair then has a two-root tree matching, and it gives a Hamiltonian cycle.
+- **the two cube structures form a bicomplex** [`x.K.x2`, refuted] Treat reversal of Q-cycles and reversal of D-cycles as two commuting differentials and read the proof as homology.
+- **topological Hall for partial tree matchings** [`x.U.x9`, refuted] Get a tree matching from connectivity of the complex of partial tree matchings.
 
 ## Under review (7)
 
@@ -131,11 +136,8 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - **pairs are alpha-orientations (Felsner lattice)** [`p.A.6`]
 - **sharp primal hypothesis; gluing at black-inner cuts** [`p.G.5`]
 
-## Recent events (51 total)
+## Recent events (54 total)
 
-- 2026-11-14T10:33 · computed · Brute force over 140358 states: tree matching iff exactly one partner
-- 2026-11-14T10:36 · refuted · Hypotheses dropped one at a time: bipartite, 3-connected, sphere, bijective state, positive circulation, partner (limits)
-- 2026-11-14T10:36 · proved · Rarity family: 3^q states and 2^q tree matchings; recovery is injective with a known image (limits, unreviewed)
 - 2026-11-14T10:38 · proved · Dictionary between the three papers; 14 shared core nodes; J is an integer by the 3-colouring alone (dependency-graph, unreviewed)
 - 2026-11-14T10:38 · question · Doors opened by the skeleton: roots off a face, leaf removal, cut-free root, second proofs of the disk identity
 - 2026-11-14T10:39 · proposed · Topology route predictions P1 to P10 written before the runs
@@ -156,5 +158,8 @@ Generated 2026-11-14T11:10:46Z by `labyrinth/lab.py build`. Do not edit by hand.
 - 2026-11-14T11:00 · proved · Topology: the disk identity as the theorem of turning tangents; cancellation as a Morse matching; last step as Alexander duality; tree matchings and sutured Floer homology (route-topology, unreviewed)
 - 2026-11-14T11:00 · refuted · The partner of a tree matching need not be a tree matching (6 of 442)
 - 2026-11-14T11:00 · proposed · Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)
-- 2026-11-14T11:05 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 168 routes
+- 2026-11-14T11:05 · documented · Route map and labyrinth seeded: 16 waypoints, 17 steps, 175 routes
+- 2026-11-14T11:12 · proved · Categorical routes: gluing formula across any cycle; boundary patterns complete at cut lengths 3 and 4 (route-categorical, unreviewed)
+- 2026-11-14T11:12 · refuted · No uniform boundary condition at cut length 5; two roots do not replace the root face; the two reversals do not commute; topological Hall fails
+- 2026-11-14T11:12 · proposed · Conjectures: every Hamiltonian cycle comes from a two-root tree matching; contraction never increases the number of tree matchings
 - 2026-11-14T11:08 · computed · Own spot check on bipyramids: counts, signs, odd D-cycles confirmed; the cycle-to-state map is not injective off the tree matchings (prism: 4 avoiding cycles, 3 states)

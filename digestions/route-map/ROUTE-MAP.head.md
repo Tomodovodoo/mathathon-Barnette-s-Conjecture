@@ -7,14 +7,14 @@ Summary.
 1. The proof is one chain of 16 waypoints. Every published proof (OpenAI, Li, the trees paper, the Lean formalisation) passes through the same chain. Nobody has a second way to reach a tree matching.
 2. The chain is forced at the disk identity, the sign, the cancellation with `s` fixed, the comparison, tree-cotree duality and the gluing. It is free at three steps: the first pair (A), the nonvanishing (N) and the last step from the selected edges to one cycle (F).
 3. The direct edge from the triangulation to two induced trees, which is where every attack before 2026 worked, has no complete route.
-4. The bypass from states to a tree matching with no signed count has nine exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
+4. The bypass from states to a tree matching with no signed count has nine exact reformulations and no existence argument, with nine refuted relaxations next to them. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
 5. This file lists {N} routes: {LIT} published, {PH} proved in this project (none human-checked), {CO} computed, {CJ} conjectures, {HU} hunches and {RE} refuted, each refuted one with its lesson and smallest known counterexample.
 
 ## The picture
 
 ![Route map](route-map.png)
 
-Files: `route-map.pdf` and `route-map.svg` (vector, zoomable), `route-map.png` (150 dpi), `route-map-overview.*` (the same map without the route lists), `route-map.dot` (Graphviz source, one edge per route), `routes.json` (the data).
+Files: `route-map.pdf` and `route-map.svg` (vector, zoomable), `route-map.png` (150 dpi), `route-map-overview.*` (the same map without the route lists), `route-kinds.*` (a matrix of steps against kinds of argument, near the end of this file), `route-map.dot` (Graphviz source, one edge per route), `routes.json` (the data).
 
 ![Overview](route-map-overview.png)
 

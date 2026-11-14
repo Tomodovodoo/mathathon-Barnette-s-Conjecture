@@ -265,8 +265,9 @@ DOORS = [
      "First test: referee p.B.6 on the 9-vertex non-bijective disk (lim/examples/nonbijective_disk.json), where the angle structure must fail to be flat.",
      ["p.B.6", "h.B.3", "h.B.2", "h.B.1", "p.C.5"]),
     ("q.roots", "Can a different rooting remove the separating-triangle induction?",
-     "With t0 a face the obstruction is exact. Roots of three colours not on a face are untested.",
-     "First test: on the 9-vertex double octahedron with the obstructed root, enumerate all root triples and count pairs (k.A.2).", ["k.A.2", "k.G.3"]),
+     "With t0 a face the obstruction is exact. Two roots off a face move the obstruction and break the recovery lemma (x.A.x2). "
+     "Three roots of three colours off a face are untested, and the statement needs fixing first (which black face is dropped).",
+     "First test: on the 9-vertex double octahedron with the obstructed root, enumerate all root triples and count pairs (k.A.2).", ["k.A.2", "k.G.3", "x.A.x2", "k.U.8h"]),
     ("q.li-b", "Do Li's higher-mark involutions match the polynomial coefficient?",
      "Li's Appendix B leaves three verifications to the reader; li.py was not refereed.",
      "First test: k.N.12 on an instance with cmin = 2.", ["k.N.12", "th.N.L"]),
@@ -355,6 +356,9 @@ ev("2026-11-14T10:56:00Z", "documented", "Lean report: the formal proof is simpl
 ev("2026-11-14T11:00:00Z", "proved", "Topology: the disk identity as the theorem of turning tangents; cancellation as a Morse matching; last step as Alexander duality; tree matchings and sutured Floer homology (route-topology, unreviewed)", ["p.B.6", "p.K.4", "p.F.6", "p.U.7"], ["research/2026-11-14_opus_route-topology/REPORT.md"])
 ev("2026-11-14T11:00:00Z", "refuted", "The partner of a tree matching need not be a tree matching (6 of 442)", ["x.D.x1"])
 ev("2026-11-14T11:00:00Z", "proposed", "Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)", ["k.U.7h"])
+ev("2026-11-14T11:12:00Z", "proved", "Categorical routes: gluing formula across any cycle; boundary patterns complete at cut lengths 3 and 4 (route-categorical, unreviewed)", ["p.G.6", "p.TG.7"], ["research/2026-11-14_fable_route-categorical/REPORT.md"])
+ev("2026-11-14T11:12:00Z", "refuted", "No uniform boundary condition at cut length 5; two roots do not replace the root face; the two reversals do not commute; topological Hall fails", ["x.G.x2", "x.A.x2", "x.K.x2", "x.U.x9"])
+ev("2026-11-14T11:12:00Z", "proposed", "Conjectures: every Hamiltonian cycle comes from a two-root tree matching; contraction never increases the number of tree matchings", ["k.U.8h", "k.D.9"])
 ev("2026-11-14T10:55:00Z", "answered", "Dependency-graph conjecture A2 answered: not every avoiding Hamiltonian cycle comes from a tree matching (prism: 4 against 2); the image is characterised", ["x.A.x1", "p.U.5"])
 ev("2026-11-14T10:48:00Z", "computed", "Cross-check for this map: the two independent enumerations agree on all 7868 rooted triangulations up to 16 vertices", ["e.census16"], ["labyrinth/frontier_crosscheck.json"])
 ev("2026-11-14T11:05:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
@@ -434,7 +438,7 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
          row("review", G4, "Review state of the proofs written in this project",
              "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). "
              "Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, route-topology, "
-             "lean-formalisation, the referees' own additions. "
+             "route-categorical, lean-formalisation, the referees' own additions. "
              "Human-checked: none.", "partial", "partial", ["q.human"], []),
          row("hypotheses", G4, "Which hypotheses are needed", "Each one, with a witness: K4 (bipartite), theta of cubes on 26 vertices (3-connected), "
              "triangular bipyramid radial graph (cubic), 3 x 3 torus (sphere).",

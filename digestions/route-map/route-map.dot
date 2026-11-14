@@ -106,7 +106,7 @@ digraph routemap {
   "K" -> "FP" [label="D.2 at least 2 cmin tree matchings", color="#1f5fbf", status="PROVED-HERE", role="fact", src="comb"];
   "K" -> "FP" [label="D.3 at least 2^cmin tree matchings", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="comb"];
   "K" -> "FP" [label="D.4 exactly one tree matching is impossible", color="#1f5fbf", status="PROVED-HERE", role="fact", src="lim,alg"];
-  "K" -> "FP" [label="D.5 tree matchings can be exponentially rare", color="#1f5fbf", status="PROVED-HERE", role="fact", src="lim"];
+  "K" -> "FP" [label="D.5 tree matchings can be exponentially rare", color="#1f5fbf", status="PROVED-HERE", role="fact", src="lim,cat"];
   "K" -> "FP" [label="D.6 a canonical forest pair", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="comb"];
   "S" -> "FP" [label="U.1 prescribed-degree spanning tree of H", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="mach"];
   "S" -> "FP" [label="U.2 label-transversal white trees", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="dim,alg"];
@@ -147,7 +147,6 @@ digraph routemap {
   "JC" -> "GL" [label="G.2 the gluing needs the same-label edge", color="#1f5fbf", status="PROVED-HERE", role="fact", src="lim"];
   "JC" -> "GL" [label="G.x1 prescribe whatever each cut needs", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="lit"];
   "JC" -> "GL" [label="G.3 a cut-free root", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="dep"];
-  "JC" -> "GL" [label="G.4 boundary transfer algebra", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="mach"];
   "GL" -> "HC" [label="G2.1 Theorem 1.1 and Corollary 7.1", color="black", status="LIT", role="route", src="O,L,T"];
   "GL" -> "HC" [label="G2.2 Lean formalisation (OpenAI repository)", color="black", status="LIT", role="route", src="lit,lean,hist"];
   "GL" -> "HC" [label="G2.3 consequences: P4 for Pfaffian braces", color="black", status="LIT", role="fact", src="O"];
@@ -184,7 +183,15 @@ digraph routemap {
   "S" -> "FP" [label="U.7 sutured Floer support; point-rainbow white trees", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="topo"];
   "S" -> "FP" [label="U.7h local search from a point-rainbow tree", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="topo"];
   "K" -> "FP" [label="D.x1 the partner of a tree matching is a tree matching", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="topo"];
-  "S" -> "FP" [label="U.c cycle-to-state map replayed; not injective off tree matchings", color="#1b8a5a", style=dashed, status="COMPUTED", role="route", src="map"];
+  "S" -> "FP" [label="U.c cycle-to-state map replayed; it is not injective", color="#1b8a5a", style=dashed, status="COMPUTED", role="fact", src="map"];
+  "JC" -> "GL" [label="G.6 boundary states of a cut; complete at lengths 3 and 4", color="#1f5fbf", status="PROVED-HERE", role="route", src="cat"];
+  "JC" -> "GL" [label="G.x2 a uniform boundary condition for longer cuts", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="cat"];
+  "S" -> "P" [label="A.x2 two roots instead of a root face", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="cat"];
+  "M" -> "K" [label="K.x2 the two cube structures form a bicomplex", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="cat"];
+  "S" -> "FP" [label="U.x9 topological Hall for partial tree matchings", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="cat"];
+  "T" -> "2T" [label="TG.7 acyclic triangle factor of a second trinity K", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="cat"];
+  "S" -> "FP" [label="U.8h every Hamiltonian cycle from a two-root tree matching", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="cat"];
+  "K" -> "FP" [label="D.9 contraction inequality tau(T) >= tau(T/ac)", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="cat"];
   "T" -> "DI" [color="gray", label="B (input)"];
   "DI" -> "M" [color="gray", label="C (input)"];
   "N" -> "FP" [color="gray", label="D (input)"];
