@@ -32,7 +32,7 @@ def faces(g):
     assert all(len(f)==3 for f in fs)
     return fs
 
-def instance(g,root):
+def instance(g,root,enumerate_states=True):
     fs=faces(g); ri=next(i for i,f in enumerate(fs) if set(f)==set(root))
     incidence=collections.defaultdict(list)
     for i,f in enumerate(fs):
@@ -41,6 +41,7 @@ def instance(g,root):
     dual.add_edges_from(v for v in incidence.values())
     colors=nx.bipartite.color(dual)
     A=[f for i,f in enumerate(fs) if colors[i]==colors[ri] and i!=ri]
+    if not enumerate_states:return fs,incidence,dual,A,[]
     X=set(g)-set(root)
     order=sorted(range(len(A)),key=lambda i:len(set(A[i])&X)); result=[]
     def visit(k,used,s):
@@ -60,7 +61,7 @@ def forest(g,A,s,root):
 def analyse(g,root,hc=False,details=False):
     fs,inc,dual,A,states=instance(g,root)
     good=[forest(g,A,s,root) for s in states]
-    covers={}; pairs=0; polyd=collections.Counter()
+    covers={}; fibres=collections.defaultdict(set); pairs=0
     # Phase uses the oriented black facial boundaries from a single embedding.
     for r in states:
         for s in states:
@@ -71,6 +72,12 @@ def analyse(g,root,hc=False,details=False):
             cut=dual.copy(); cut.remove_edges_from(inc[e] for e in es)
             assert nx.number_connected_components(cut)==c+1
             covers[es]=c
+            fibres[es].add(s)
+    if len(covers)==2:
+        e1,e2=covers; d1=nx.Graph();d1.add_edges_from(e1);d2=nx.Graph();d2.add_edges_from(e2)
+        csets=lambda d:{frozenset(tuple(sorted(e)) for e in d.subgraph(v).edges()) for v in nx.connected_components(d)}
+        j=len(csets(d1)&csets(d2)); a=len(fibres[e1]&fibres[e2]); assert a in [0,2**j]
+        assert sum(good)==2**covers[e1]+2**covers[e2]-2*a
     out=dict(V=len(g),S=len(states),P=pairs,M=sum(good),covers=len(covers),cmin=min(covers.values(),default=None),cycle_hist=dict(collections.Counter(covers.values())))
     if hc:
         # Enumerate primal perfect matchings; complement must be one cycle.
@@ -161,6 +168,16 @@ def witnesses():
         a.update(source=str(file.relative_to(ROOT)),cycles=list(covers.values()),flip_edges=adj,root=list(root)); out.append(a)
     return out
 
+def stack(q):
+    g=tube(6,0); root=(6,0,1); outgoing=(7,4,5)
+    for _ in range(q-1):
+        h=tube(6,0); mapping=dict(zip((6,0,1),outgoing)); nxt=max(g)+1
+        for v in h:
+            if v not in mapping:mapping[v]=nxt;nxt+=1
+        g.add_edges_from((mapping[u],mapping[v]) for u,v in h.edges())
+        outgoing=tuple(mapping[v] for v in (7,4,5))
+    return g,root
+
 def main():
     mode=sys.argv[1]; out=[]
     if mode=='families':
@@ -175,6 +192,24 @@ def main():
                 print(p,L,a,flush=True)
     elif mode=='certificates': out=certificates()
     elif mode=='witnesses': out=witnesses()
+    elif mode=='stacks':
+        for q in range(1,5):
+            g,r=stack(q); a=analyse(g,r,True);a.update(q=q,polynomial=polynomial(g,r));out.append(a)
+    elif mode=='stack-source':
+        path=ROOT/'research/2026-11-14_sol_counting-families/data'
+        for obj in json.loads((path/'stack.json').read_text()):
+            g=nx.Graph(obj['dual_edges']); r=obj['root_vertices']; a=analyse(g,r,True);a.update(q=obj['parameter'],polynomial=polynomial(g,r));assert a['H']==obj['HC'];out.append(a)
+        g=tube(6,0); local=[]
+        for bits in itertools.product([0,1],repeat=7):
+            color=(0,)+bits; sets=[{i for i in g if color[i]==c} for c in [0,1]]
+            if all(s and nx.is_tree(g.subgraph(s)) for s in sets):local.append(frozenset(tuple(sorted((u,v))) for u,v in g.edges() if color[u]==color[v]))
+        cert=json.loads((path/'stack-HC-transfer.json').read_text());assert set(local)=={frozenset(map(tuple,c)) for c in cert['base_cycles_as_avoided_dual_edges']}
+        for step in cert['steps']:
+            matrix=[[sum(tuple(e) in c and tuple(f) in c for c in local) for f in step['outgoing_local_edges']] for e in step['incoming_local_edges']]
+            assert matrix==step['matrix']
+        out.append(dict(base_cycles=len(local),tensor_verified=True))
+    elif mode=='family-polynomials':
+        for m in range(2,7):out.append(dict(m=m,**polynomial(family(m),(0,2,3))))
     elif mode=='polynomials':
         data=json.loads((ROOT/'research/2026-11-14_sol_route-probabilistic/data/roots.json').read_text())
         for key in ['first_offcircle','first_linear_nonreal']:
