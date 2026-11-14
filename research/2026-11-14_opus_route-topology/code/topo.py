@@ -594,5 +594,256 @@ def exp_lattice2(max_v=14, pair_samples=400, seed=2):
 EXPERIMENTS['lattice2'] = exp_lattice2
 
 
+
+# ---------------------------------------------------------------- root-polytope triangulations (Kalman-Murakami)
+def colour_tree(inst, s, c, col):
+    """Edges of colour col (both ends of the other two colours) that are NOT in Q_s."""
+    q = {edge(*e) for e in inst.Q(s).edges()}
+    return frozenset(edge(a, b) for a, b in inst.T.edges() if c[a] != col and c[b] != col and edge(a, b) not in q)
+
+
+def exp_rootpoly(max_v=14):
+    rec = Counter()
+    for meta, inst in rooted_instances(max_v, all_roots_up_to=10):
+        c = colouring(inst)
+        states = list(inst.states())
+        clock = set()
+        for i, r in enumerate(states):
+            for j in range(i + 1, len(states)):
+                s = states[j]
+                diff = [k for k in range(inst.n) if r[k] != s[k]]
+                if len(diff) == 3 and abs(sum(inst.delta(r[k], s[k]) for k in diff)) == 3:
+                    clock.add((i, j))
+        for col in range(3):
+            gc = nx.Graph()
+            gc.add_nodes_from(v for v in inst.T if c[v] != col)
+            gc.add_edges_from((a, b) for a, b in inst.T.edges() if c[a] != col and c[b] != col)
+            trees = [colour_tree(inst, s, c, col) for s in states]
+            rec['colour_classes'] += 1
+            rec['all_spanning_trees'] += all(nx.is_tree(gc.edge_subgraph(t).copy()) and len(t) == gc.number_of_nodes() - 1 for t in trees)
+            rec['injective'] += len(set(trees)) == len(trees)
+            facet = {(i, j) for i in range(len(states)) for j in range(i + 1, len(states)) if len(trees[i] ^ trees[j]) == 2}
+            rec['clock_subset_facet'] += clock <= facet
+            rec['clock_eq_facet'] += clock == facet
+            rec['facet_pairs'] += len(facet)
+            rec['clock_pairs'] += len(clock)
+    return dict(rec)
+
+
+EXPERIMENTS['rootpoly'] = exp_rootpoly
+
+
+
+# ---------------------------------------------------------------- split lattice2 results by separating triangles
+def separating_triangles(inst):
+    faces = {frozenset(f) for f in inst.faces}
+    out = []
+    for a, b in inst.T.edges():
+        for c in set(inst.T[a]) & set(inst.T[b]):
+            tri = frozenset((a, b, c))
+            if c > max(a, b) and tri not in faces:
+                out.append(tri)
+    return out
+
+
+def exp_sepcheck(max_v=14, pair_samples=200, seed=5):
+    rnd = random.Random(seed)
+    rec = Counter()
+    fails = []
+    for meta, inst in rooted_instances(max_v, all_roots_up_to=10):
+        st = bool(separating_triangles(inst))
+        states = list(inst.states())
+        h = heights(inst, states)
+        for s in states:
+            if inst.is_tree(s):
+                m = next(r for r in states if all(a != b for a, b in zip(r, s)))
+                ok = inst.is_tree(m)
+                rec[f'mate_tree sep={st} ok={ok}'] += 1
+                if not ok and len(fails) < 6:
+                    fails.append({**meta, 's': s, 'mate': m, 'Q_mate_cycles': inst.qcycles(m)})
+        for _ in range(pair_samples):
+            r, s = rnd.choice(states), rnd.choice(states)
+            if r == s:
+                continue
+            area = 0
+            for cyc in relative_cycles(inst, r, s):
+                ins, B, W, I = disk_data(inst, cyc)
+                d = sum(inst.delta(a, b) for a, b in zip(cyc, cyc[1:] + cyc[:1]))
+                area += (d // 3) * W
+            rec[f'height sep={st} ok={h[s] - h[r] == area}'] += 1
+    return {'counts': dict(rec), 'mate_failures': fails}
+
+
+EXPERIMENTS['sepcheck'] = exp_sepcheck
+
+
+
+# ---------------------------------------------------------------- one-sided hypertree test by matroid intersection
+def spanning_tree_with_caps(h, cap):
+    """Max common independent set of the graphic matroid of h and the partition matroid
+    'at most cap[v] chosen edges at v' (every edge of h has exactly one endpoint in cap, h bipartite).
+    Returns a spanning tree meeting the caps, or None."""
+    edges = [tuple(e) for e in h.edges()]
+    side = [a if a in cap else b for a, b in edges]
+    nodes = list(h)
+    chosen = set()
+
+    def forest_ok(sel):
+        g = nx.Graph()
+        g.add_nodes_from(nodes)
+        g.add_edges_from(edges[i] for i in sel)
+        return nx.is_forest(g)
+
+    def load(sel):
+        return Counter(side[i] for i in sel)
+
+    while True:
+        ld = load(chosen)
+        outside = [i for i in range(len(edges)) if i not in chosen]
+        X1 = {i for i in outside if forest_ok(chosen | {i})}
+        X2 = {i for i in outside if ld[side[i]] < cap[side[i]]}
+        # exchange graph
+        adj = defaultdict(list)
+        for y in chosen:
+            for x in outside:
+                if forest_ok((chosen - {y}) | {x}):
+                    adj[y].append(x)      # M1 exchange: y -> x
+                if side[x] == side[y] or ld[side[x]] < cap[side[x]]:
+                    adj[x].append(y)      # M2 exchange: x -> y
+        # BFS from X1 to X2
+        prev = {x: None for x in X1}
+        queue = list(X1)
+        end = None
+        while queue:
+            u = queue.pop(0)
+            if u in X2:
+                end = u
+                break
+            for w in adj[u]:
+                if w not in prev:
+                    prev[w] = u
+                    queue.append(w)
+        if end is None:
+            break
+        path = []
+        while end is not None:
+            path.append(end)
+            end = prev[end]
+        chosen ^= set(path)
+    if len(chosen) == len(nodes) - 1:
+        return [edges[i] for i in chosen]
+    return None
+
+
+def exp_hyperside(max_v=14):
+    rec = Counter()
+    rows = []
+    for meta, inst in rooted_instances(max_v, all_roots_up_to=12):
+        pts = {('v', v): inst.H.degree(('v', v)) - (0 if v in inst.R else 1) for v in inst.T}
+        blk = {('t', t): (3 if t == inst.outer else 2) for t in inst.black}
+        g_ok = spanning_tree_with_caps(inst.H, pts) is not None
+        f_ok = spanning_tree_with_caps(inst.H, blk) is not None
+        tm = inst.flow_pair() is not None  # tree matching exists iff a pair exists (barnette_trees Thm 1.2)
+        rec[f'tree={tm} pointside={g_ok} blackside={f_ok}'] += 1
+        rows.append({**meta, 'pair': tm, 'point_side_hypertree': g_ok, 'black_side_hypertree': f_ok})
+    return {'counts': dict(rec), 'rows': rows}
+
+
+EXPERIMENTS['hyperside'] = exp_hyperside
+
+
+
+# ---------------------------------------------------------------- fast rainbow-spanning-tree version of the point-side test
+def white_spoke_edges(inst):
+    """Dual of each spoke (t, x), x nonroot, t in A: the edge joining the two white faces of t at x."""
+    out = []
+    for t in inst.A:
+        for x in inst.faces[t]:
+            if x in inst.R:
+                continue
+            ys = [y for u in inst.faces[t] if u != x
+                  for y in (inst.sides[x, u], inst.sides[u, x]) if y in inst.white]
+            out.append((ys[0], ys[1], x, t))
+    return out
+
+
+def rainbow_tree(nodes, edges, colour_of):
+    """Matroid intersection: graphic matroid on nodes x partition matroid 'one edge per colour'.
+    edges: list of (a, b); colour_of: list of colours. Returns max common independent set size."""
+    m = len(edges)
+    idx = {v: i for i, v in enumerate(nodes)}
+    E = [(idx[a], idx[b]) for a, b in edges]
+
+    def is_forest(sel):
+        par = list(range(len(nodes)))
+        def f(x):
+            while par[x] != x:
+                par[x] = par[par[x]]
+                x = par[x]
+            return x
+        for i in sel:
+            a, b = f(E[i][0]), f(E[i][1])
+            if a == b:
+                return False
+            par[a] = b
+        return True
+
+    chosen = set()
+    while True:
+        used = Counter(colour_of[i] for i in chosen)
+        outside = [i for i in range(m) if i not in chosen]
+        X1 = {i for i in outside if is_forest(chosen | {i})}
+        X2 = {i for i in outside if used[colour_of[i]] == 0}
+        adj = defaultdict(list)
+        for y in chosen:
+            rest = chosen - {y}
+            for x in outside:
+                if x not in X1 and is_forest(rest | {x}):
+                    adj[y].append(x)
+                if colour_of[x] == colour_of[y]:
+                    adj[x].append(y)
+        prev = {x: None for x in X1}
+        queue, end = list(X1), None
+        while queue:
+            u = queue.pop(0)
+            if u in X2:
+                end = u
+                break
+            for w in adj[u]:
+                if w not in prev:
+                    prev[w] = u
+                    queue.append(w)
+        if end is None:
+            return chosen
+        path = []
+        while end is not None:
+            path.append(end)
+            end = prev[end]
+        chosen ^= set(path)
+
+
+def exp_rainbow(max_v=14, all_roots_up_to=12):
+    """Point side: one spoke per nonroot point (colour = point) whose white duals form a spanning tree.
+    Black side: one spoke per bounded black face (colour = face). Compare with existence of a pair."""
+    rec = Counter()
+    rows = []
+    for meta, inst in rooted_instances(max_v, all_roots_up_to=all_roots_up_to):
+        es = white_spoke_edges(inst)
+        edges = [(a, b) for a, b, x, t in es]
+        pt = rainbow_tree(inst.white, edges, [x for a, b, x, t in es])
+        bl = rainbow_tree(inst.white, edges, [t for a, b, x, t in es])
+        g_ok = len(pt) == inst.n
+        f_ok = len(bl) == inst.n
+        pair = inst.flow_pair() is not None
+        key = f'pair={pair} point_side={g_ok} black_side={f_ok}'
+        rec[key] += 1
+        rows.append({**meta, 'pair': pair, 'point_side': g_ok, 'black_side': f_ok,
+                     'separating_triangles': len(separating_triangles(inst))})
+    return {'counts': dict(rec), 'rows': rows}
+
+
+EXPERIMENTS['rainbow'] = exp_rainbow
+
+
 if __name__ == '__main__':
     main()
