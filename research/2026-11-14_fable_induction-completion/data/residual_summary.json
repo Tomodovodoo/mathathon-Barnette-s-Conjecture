@@ -1,0 +1,84 @@
+{
+ "per_V": {
+  "13": {
+   "b is a root": 4,
+   "class A: g' takes b": 4,
+   "class B: g' takes v1": 4,
+   "exceptions": 8,
+   "g takes a (always, local condition)": 8,
+   "min degree among a,b,v1,v2 = 6": 8,
+   "root neighbours of x: 1": 8,
+   "roots on the K1 side (with a, v1)": 4,
+   "roots on the K2 side (with b, v2)": 4,
+   "v1 is a root": 4
+  },
+  "14": {
+   "b is a root": 8,
+   "class A: g' takes b": 10,
+   "class B: g' takes v1": 10,
+   "exceptions": 20,
+   "g takes a (always, local condition)": 20,
+   "min degree among a,b,v1,v2 = 6": 20,
+   "root neighbours of x: 0": 4,
+   "root neighbours of x: 1": 16,
+   "roots on the K1 side (with a, v1)": 10,
+   "roots on the K2 side (with b, v2)": 10,
+   "v1 is a root": 8
+  },
+  "15": {
+   "b is a root": 31,
+   "class A: g' takes b": 40,
+   "class B: g' takes v1": 40,
+   "exceptions": 80,
+   "g takes a (always, local condition)": 80,
+   "min degree among a,b,v1,v2 = 6": 80,
+   "root neighbours of x: 0": 18,
+   "root neighbours of x: 1": 62,
+   "roots on the K1 side (with a, v1)": 40,
+   "roots on the K2 side (with b, v2)": 40,
+   "v1 is a root": 31
+  },
+  "16": {
+   "b is a root": 127,
+   "class A: g' takes b": 179,
+   "class B: g' takes v1": 179,
+   "exceptions": 358,
+   "g takes a (always, local condition)": 358,
+   "min degree among a,b,v1,v2 = 6": 358,
+   "root neighbours of x: 0": 104,
+   "root neighbours of x: 1": 254,
+   "roots on the K1 side (with a, v1)": 179,
+   "roots on the K2 side (with b, v2)": 179,
+   "v1 is a root": 127
+  },
+  "17": {
+   "b is a root": 431,
+   "class A: g' takes b": 660,
+   "class B: g' takes v1": 660,
+   "exceptions": 1320,
+   "g takes a (always, local condition)": 1320,
+   "min degree among a,b,v1,v2 = 6": 1320,
+   "root neighbours of x: 0": 458,
+   "root neighbours of x: 1": 862,
+   "roots on the K1 side (with a, v1)": 660,
+   "roots on the K2 side (with b, v2)": 660,
+   "v1 is a root": 431
+  },
+  "18": {
+   "b is a root": 1872,
+   "class A: g' takes b": 3077,
+   "class B: g' takes v1": 3077,
+   "exceptions": 6154,
+   "g takes a (always, local condition)": 6154,
+   "min degree among a,b,v1,v2 = 6": 6154,
+   "root neighbours of x: 0": 2410,
+   "root neighbours of x: 1": 3744,
+   "roots on the K1 side (with a, v1)": 3076,
+   "roots on the K2 side (with b, v2)": 3078,
+   "v1 is a root": 1872
+  }
+ },
+ "vertex_root_pairs_with_exceptions": 3106,
+ "pairs_where_the_two_merges_have_different_exception_counts": 0,
+ "violations": {}
+}
