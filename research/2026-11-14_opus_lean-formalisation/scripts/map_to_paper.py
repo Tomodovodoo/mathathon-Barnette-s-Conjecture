@@ -175,7 +175,11 @@ def main():
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
         keys = ["1", "2", "3", "4", "5", "6", "7", "D", "E"]
-        labels = [SECTION_NAMES[k].replace(" (", "\n(") for k in keys]
+        short = {"1": "Sec 1\nintro", "2": "Sec 2\nstates", "3": "Sec 3\npair exists",
+                 "4": "Sec 4\ndisk identity", "5": "Sec 5\ncancellation", "6": "Sec 6\nrecovery",
+                 "7": "Sec 7\nsep. triangles,\nThm 1.1", "D": "none:\nalgebraic\nduality",
+                 "E": "none:\nembedding\n-> dual"}
+        labels = [short[k] for k in keys]
         pp = [100 * paper_lines.get(k, 0) / ptotal for k in keys]
         lp = [100 * sec_lines.get(k, 0) / total for k in keys]
         fig, ax = plt.subplots(figsize=(10, 4.2))
@@ -183,7 +187,7 @@ def main():
         ax.bar([i - 0.2 for i in x], pp, width=0.4, label="paper (% of text lines)", color="#4C78A8")
         ax.bar([i + 0.2 for i in x], lp, width=0.4, label="Lean (% of proof lines)", color="#F58518")
         ax.set_xticks(list(x))
-        ax.set_xticklabels(labels, fontsize=7)
+        ax.set_xticklabels(labels, fontsize=8)
         ax.set_ylabel("% of total")
         ax.legend(frameon=False)
         ax.spines[["top", "right"]].set_visible(False)
