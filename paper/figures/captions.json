@@ -1,16 +1,62 @@
 {
-  "01-two-factors": "Both bold subgraphs have degree two at every vertex. Only the lower one is connected. These are the same 24-vertex graph, dual to the running triangulation.",
-  "02-dual": "The running Eulerian triangulation has 14 vertices and 24 faces. Grey interiors denote black faces; the unbounded face is also black. Hollow vertices are the three roots. Vertex numbers remain fixed throughout.",
-  "03-cycle-trees": "Every edge within either vertex class is bold. The duals of all remaining edges form the single cycle below. Circle and square classes remain distinguishable without colour.",
-  "04-state": "A blue disk marks the corner $s(t)$ inside each bounded black triangle. Every nonroot receives exactly one mark; roots receive none. This state has a disjoint partner and a forest $Q_s$.",
-  "05-pair-D": "The two states choose different corners in every black face. Their directed edges split the nonroots into three cycles. The lower panel removes corner marks to expose those cycles.",
-  "06-Q": "Each dashed edge lies opposite the second-state mark. The upper state has a cycle; the lower has three tree components, each containing one root. The panels use different second states.",
-  "07-disk": "The highlighted disk bounded by a five-edge cycle has $B=1$, $W=2$, $I=0$, $h=5$ and $l=1$. Thus $B+W=2I+h-2$, $B=I+l$ and $2l-h=-3$. The other two cycles of $D$ are suppressed.",
-  "08-cancellation": "Reverse the dashed cycle by moving only the square marks. Blue disks, hence $s$ and its real weight, stay fixed. The phase changes from $i^3$ to $i$, so these two terms cancel. Applying the move twice restores the first panel.",
-  "09-spokes": "Here all three cycles are oriented counterclockwise. Each directed edge moves through the centre of its own black triangle. Detours have disjoint interiors and exclude the third corner. With $a(t,v)=\\tfrac12\\det(c_t,v)$, counterclockwise circulation is the positive area of the spoke polygon. The checked circulations are 5.641, 5.289, 11.033.",
-  "10-white-tree": "The dash-dot routes cross the deleted spokes $(t,s(t))$. The upper panel retains the solid spokes and deletes the dashed ones. Below, the routes join all 12 white centres in one tree with 11 edges. Each route stays within the two white faces and their common black triangle. This is the cotree of the retained incidence tree.",
-  "11-selected-Jordan": "The bold black edges are $P$, one side of every face. The blue Jordan curve crosses precisely the unselected edges. Its two regions separate the two components of $P$; the exterior arcs represent edges incident with the outer-face dual vertex.",
-  "12-recovered": "The recovered partition includes the prescribed outer edge in one tree. The complementary dual cycle visits each of the 24 faces once and avoids the dual of that prescribed edge. This is the same cycle as in Figures 1 and 3.",
-  "13-gluing": "This separate nine-vertex witness glues two octahedra along vertices $0,1,2$. The blue trees intersect in edge $01$; the orange trees intersect in vertex $2$. Exhaustive checking verifies both induced trees in the glued graph. Identify the boundary vertices rather than placing both interiors in the same planar disk.",
-  "14-overview": "Read down the main proof for a triangulation without separating triangles. The disk identity supports both the cancellation step and acyclicity of $P$. For a separating triangle, apply the construction to the capped pieces and glue using Figure 13. The flow records logical dependence, not an efficient algorithm."
+ "01-cube": {
+  "caption": "The whole construction on the cube. (a) The cube $G$, drawn with one vertex below the picture. The bold edges have degree two at every vertex but form two cycles. (b) Its dual $T$ is the octahedron. Faces of $T$ are black or white as the vertices of $G$ are. The outer face $t_0$ is black, shown by the grey collar, and its corners $0,1,2$ are the roots. (c) A state picks one corner in each bounded black triangle and uses each inner vertex once. Outlined wedges are $r$, solid wedges are $s$, and the arrows $r(t)\\to s(t)$ form $D$. (d) $Q_s$ is the edge opposite each solid wedge. Here it is a forest with one root in each component. (e) Delete the dotted spoke at each solid wedge. The solid spokes form a tree, and the green edges crossing the deleted spokes form a tree on the white faces, rooted at the ringed face. (f) Each face gets one bold edge. The bold edges form two trees, on the disks and on the squares, and the curve that crosses every other edge is a Hamiltonian cycle of $G$.",
+  "drawn_from": "cube and octahedron; all objects from check.octahedron()"
+ },
+ "02-two-factors": {
+  "caption": "The running example $G$: cubic, bipartite, planar, 3-connected, with 22 vertices. Filled and hollow dots are the two classes. Both bold subgraphs have degree two at every vertex. Only (b) is connected, so only (b) is a Hamiltonian cycle. The vertex below the picture is joined to three vertices inside, two of them by the long arcs.",
+  "drawn_from": "G = dual of running.json; (a) a 2-factor with two components, (b) the cycle recovered in Figure 12"
+ },
+ "03-dual": {
+  "caption": "The dual triangulation $T$ of the running example, with $G$ in grey. Each vertex of $G$ sits in a face of $T$ and each edge of $G$ crosses one edge of $T$. Shaded faces are black. The outer face $t_0$ is black as well, which the grey collar shows, and the vertex of $G$ inside it is drawn below. The roots $0,4,5$ are hollow. There are $10$ bounded black faces and $10$ other vertices.",
+  "drawn_from": "running.json with the disk layout; vertex numbers are those of running.json"
+ },
+ "04-local": {
+  "caption": "One bounded black triangle $t$ of a pair $(r,s)$. (a) The outlined wedge marks the corner $r(t)$ and the solid wedge marks $s(t)$. The third corner is $u(t)$. The solid arrow $r(t)\\to s(t)$ is the edge of $D$ in $t$. The dashed arrow $r(t)\\to u(t)$ is the edge of $Q_s$, the side opposite $s(t)$. (b) The step $r(t)\\to s(t)$ slid onto the two spokes through the centre $c_t$. Its spoke weight is $a(t,s(t))-a(t,r(t))$. The tinted region between the two routes does not contain $u(t)$.",
+  "drawn_from": "schematic of one triangle, no computed object"
+ },
+ "05-state": {
+  "caption": "(a) A state marks one corner of every bounded black triangle so that every vertex other than a root is marked once. No wedge sits at a root. (b) The same data as a graph. A square is the centre of a bounded black triangle, and a spoke joins it to each of its corners that is not a root. A state is a perfect matching of this graph. The solid spokes are $s$ from (a). The double spokes are a second state $r$ that differs from $s$ at every triangle. Together they have degree two at every square and every dot.",
+  "drawn_from": "s and r = the displayed pair (check.running)"
+ },
+ "06-flow": {
+  "caption": "Why a pair exists. Send flow from the source through the vertices and the black triangles of Figure 5(b) to the sink. A source or sink edge carries at most $2$ and an incidence carries at most $1$. An integral flow of value $2|X|=20$ uses two incidences at every vertex and at every triangle. These are the double and the solid edges, and they alternate along cycles, so they split into two disjoint states $r$ and $s$. Such a flow exists if every set $S$ of vertices satisfies $\\sum_t \\min(2,|V(t)\\cap S|)\\ge 2|S|$. Here equality holds for $S=\\{2\\}$, a vertex in only two black triangles.",
+  "drawn_from": "incidence graph of running.json; cut inequality (3.1) checked for all 1024 subsets S"
+ },
+ "07-pair-D": {
+  "caption": "(a) Two states that choose different corners in every bounded black triangle. (b) Join the outlined corner to the solid corner in each triangle. Every vertex other than a root has one arrow in and one arrow out, so the arrows form disjoint directed cycles. Here $D$ is a counterclockwise cycle of length $7$ and a clockwise triangle.",
+  "drawn_from": "the displayed pair; D-cycles from check.running"
+ },
+ "08-disk": {
+  "caption": "The disk identity on the long cycle of $D$ from Figure 7. The tinted disk has $B=5$ black and $W=6$ white faces and $I=3$ vertices strictly inside. The first two equations hold for any cycle. The third uses the state $r$: each black face inside holds one outlined wedge, at a ringed vertex ($I$ of them) or at the tail of an arrow whose black face lies inside ($\\ell$ of them, marked). Hence $2\\ell-h=-3$ for every counterclockwise cycle of this kind, whatever its length.",
+  "drawn_from": "disk of the 7-cycle of D(r,s); counts and the face-by-face matching from check.running"
+ },
+ "09-Q": {
+  "caption": "$Q$ of a state is the dashed edge opposite the solid wedge in each bounded black triangle. (a) For the state $s$ of Figure 7 the dashed edges contain a cycle, the triangle around the white face in the middle (length $3$). (b) For the state $r$ of Figure 7, now drawn solid, they form a forest with three components, one through each root. The proof needs a pair whose second state looks like (b).",
+  "drawn_from": "Q_s and Q_r for the displayed pair; one root per component asserted"
+ },
+ "10-cancellation": {
+  "caption": "The two partners of the state $s$ whose $Q_s$ has a cycle. Dashed edges are $Q_s$. Those on its cycle, around the tinted face, are heavier and directed from the outlined corner $r(t)$ to the third corner. Going from (a) to (b), each outlined wedge on the cycle moves to the third corner of its triangle. The cycle reverses, the solid wedges stay, and so does the weight $\\omega(s)$. By the disk identity $J$ changes by $2$, so the two terms $i^{J}e^{x\\omega(s)}$ cancel.",
+  "drawn_from": "reversal of the Q_s cycle (Lemma 5.2); J values and involution asserted"
+ },
+ "11-spokes": {
+  "caption": "Why the sum does not vanish. Both cycles of $D$ are drawn counterclockwise (dashed), and each arrow is replaced by its route along two spokes through the centre of its black triangle (solid). The solid route is again a simple closed curve, and its inside is tinted. With spoke weights of circulation $1$ around each face of the spoke graph, its weight is the number of white faces it encloses: $6$ for the long cycle and $1$ for the triangle inside it. That number is $L^+(C)-L^-(C)$, the difference between the weights of the two orientations of $C$, so it is positive. Each cycle gives a simple zero at $x=0$ and the leading coefficient is a positive multiple of $(-i)^{2}$.",
+  "drawn_from": "unit spoke circulations solved in check.spoke_weights; L+ - L- = W asserted for both cycles"
+ },
+ "12-tree-cotree": {
+  "caption": "From a forest state to a tree on the white faces. The state is $r$ of Figure 9(b), drawn solid. (a) All spokes, including the three from the centre $c_0$ of the outer face to the roots. Delete the dotted spoke at each solid wedge. The remaining spokes are $Q$ with a square on each edge, joined through $c_0$, and they form a spanning tree. (b) Only the deleted spokes are shown. Each one separates two white faces, and joining them across it gives the green tree on all $11$ white faces. It is rooted at the ringed face $y_0$, the white face on the prescribed edge $e_0=\\{0,4\\}$.",
+  "drawn_from": "H - r is a tree, white-face tree is a tree (check.recover)"
+ },
+ "13-selected": {
+  "caption": "(a) The root $y_0$ selects $e_0$, the bottom arc. Every other white face selects the side it shares with the black triangle on the tree edge towards $y_0$. Every face, black or white, then has one bold side. (b) The bold edges $P$ form a forest with two components. The curve crosses the other $22$ edges once each. It is a single closed curve through all $22$ faces, which is the Hamiltonian cycle of Figure 2(b). The disks lie inside it and the squares outside, and each class induces a tree.",
+  "drawn_from": "P, the two induced trees and the Hamiltonian cycle (check.recover asserts each property)"
+ },
+ "14-gluing": {
+  "caption": "A separating triangle, here $\\{3,4,5\\}$ in a triangulation with $9$ vertices. Cut along it and cap each side with a face. (a) Solve the piece that contains $t_0$. On the cap, vertices $3$ and $5$ get the same class. (b) Solve the other piece with the cap as outer face and $\\{3,5\\}$ as prescribed edge, so the two solutions agree on the triangle. (c) The trees of the two pieces meet in the edge $\\{3,5\\}$ or in the vertex $4$, so their unions are again two induced trees.",
+  "drawn_from": "two octahedra glued along a face (check.gluing asserts both glued classes induce trees)"
+ },
+ "15-overview": {
+  "caption": "The order of the argument and where each figure belongs. Solid boxes are the main line for a triangulation without separating triangles. The disk identity is used twice, for the cancellation and for the forest of selected edges. Separating triangles are handled last, by induction.",
+  "drawn_from": "logical dependence of Sections 2 to 7 of the OpenAI paper (LIT), no computed object"
+ }
 }

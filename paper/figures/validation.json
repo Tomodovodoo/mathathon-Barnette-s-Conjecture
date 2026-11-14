@@ -1,23 +1,28 @@
 {
-  "status": "COMPUTED",
-  "states": 15,
-  "ordered_pairs": 10,
+ "status": "COMPUTED",
+ "counts": {
+  "vertices": 13,
+  "faces": 22,
+  "states": 12,
+  "pairs": 8,
   "cyclic_pairs": 2,
-  "checks": [
-    "cubic bipartite 3-connected primal",
-    "Eulerian dual",
-    "no separating triangles",
-    "state bijections",
-    "disjoint pairs",
-    "cycle reversal involution",
-    "phase difference 2",
-    "disk identity",
-    "positive detour circulation",
-    "retained incidence tree",
-    "white-face tree",
-    "one selected edge per face",
-    "two induced trees",
-    "connected degree-two complementary dual",
-    "disconnected two-factor"
-  ]
+  "forest_pairs": 6
+ },
+ "checks": [
+  "layouts: bounded faces counterclockwise, no crossing edges, roots on the circle",
+  "running example: primal graph cubic, bipartite, 3-connected; dual Eulerian; no separating triangle",
+  "all states and ordered pairs enumerated; every pair is two disjoint bijections A -> X",
+  "disk identity (4.1), (4.2) and delta-sum -3/+3 on every directed cycle of D and of Q_s, over all pairs",
+  "displayed pair is the unique pair with Q_s cyclic, Q_r a forest and a D-cycle enclosing a vertex",
+  "B = I + l bijection on the displayed disk, face by face",
+  "reversal of the Q_s cycle is an involution on the partners of s and changes J by 2; the cyclic terms sum to 0",
+  "unit spoke circulations exist on H0; L+ - L- equals the number of white faces inside each D-cycle",
+  "pairs grouped by undirected D: each group has 2^(cycles) members",
+  "Q_r is a forest with one root per component; H - r is a tree; white-face tree; one selected edge per face",
+  "P is a forest with two components; both classes induce trees; complementary dual is one Hamiltonian cycle",
+  "a 2-factor of G with exactly two components exists",
+  "cut inequality (3.1) for every subset S of X; r + s is a degree-two subgraph of the incidence graph",
+  "octahedron: dual of the cube, 2 states, 2 pairs, recovery succeeds",
+  "gluing example: one separating triangle, no pair of states, partitions of the two pieces agree on the cap and glue to two induced trees"
+ ]
 }

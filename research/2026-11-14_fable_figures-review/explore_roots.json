@@ -1,0 +1,482 @@
+[
+ {
+  "t0": 0,
+  "face": [
+   0,
+   2,
+   1
+  ],
+  "deg": [
+   4,
+   6,
+   8
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 1,
+  "face": [
+   0,
+   3,
+   2
+  ],
+  "deg": [
+   4,
+   6,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 2,
+  "face": [
+   0,
+   4,
+   3
+  ],
+  "deg": [
+   4,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 8,
+  "Q_I": 0
+ },
+ {
+  "t0": 3,
+  "face": [
+   0,
+   1,
+   4
+  ],
+  "deg": [
+   4,
+   8,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 4,
+  "face": [
+   1,
+   2,
+   5
+  ],
+  "deg": [
+   8,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 5,
+  "face": [
+   1,
+   7,
+   4
+  ],
+  "deg": [
+   8,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 6,
+  "face": [
+   1,
+   10,
+   7
+  ],
+  "deg": [
+   8,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 7,
+  "face": [
+   1,
+   11,
+   10
+  ],
+  "deg": [
+   8,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 8,
+  "face": [
+   1,
+   8,
+   11
+  ],
+  "deg": [
+   8,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 9,
+  "face": [
+   1,
+   5,
+   8
+  ],
+  "deg": [
+   8,
+   4,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 10,
+  "face": [
+   2,
+   3,
+   6
+  ],
+  "deg": [
+   6,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 11,
+  "face": [
+   2,
+   9,
+   5
+  ],
+  "deg": [
+   6,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 12,
+  "face": [
+   2,
+   6,
+   9
+  ],
+  "deg": [
+   6,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 13,
+  "face": [
+   3,
+   4,
+   7
+  ],
+  "deg": [
+   6,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 14,
+  "face": [
+   3,
+   13,
+   6
+  ],
+  "deg": [
+   6,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 15,
+  "face": [
+   3,
+   7,
+   13
+  ],
+  "deg": [
+   6,
+   6,
+   6
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 10,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 16,
+  "face": [
+   5,
+   9,
+   8
+  ],
+  "deg": [
+   4,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 2,
+  "cyclic_states": 1,
+  "forest_states": 8,
+  "D_I": 8,
+  "Q_I": 0
+ },
+ {
+  "t0": 17,
+  "face": [
+   6,
+   13,
+   9
+  ],
+  "deg": [
+   4,
+   6,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 18,
+  "face": [
+   7,
+   10,
+   12
+  ],
+  "deg": [
+   6,
+   4,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 19,
+  "face": [
+   7,
+   12,
+   13
+  ],
+  "deg": [
+   6,
+   4,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 20,
+  "face": [
+   8,
+   9,
+   11
+  ],
+  "deg": [
+   4,
+   6,
+   6
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 21,
+  "face": [
+   9,
+   13,
+   11
+  ],
+  "deg": [
+   6,
+   6,
+   6
+  ],
+  "states": 15,
+  "pairs": 10,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 10,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 22,
+  "face": [
+   10,
+   11,
+   12
+  ],
+  "deg": [
+   4,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ },
+ {
+  "t0": 23,
+  "face": [
+   11,
+   13,
+   12
+  ],
+  "deg": [
+   6,
+   6,
+   4
+  ],
+  "states": 15,
+  "pairs": 2,
+  "cyclic": 0,
+  "cyclic_states": 0,
+  "forest_states": 2,
+  "D_I": 0,
+  "Q_I": 0
+ }
+]

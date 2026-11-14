@@ -1,0 +1,17 @@
+\begin{tikzpicture}[bf,x=1cm,y=1cm,every node/.style={font=\footnotesize}]
+\tikzset{box/.style={draw,line width=.5pt,text width=6.8cm,align=center,minimum height=8mm,inner sep=3pt},
+ aux/.style={draw,line width=.5pt,dash pattern=on 2pt off 1.5pt,text width=3.6cm,align=center,minimum height=8mm,inner sep=3pt},
+ to/.style={-{Stealth[length=4.5pt]},line width=.6pt}}
+\node[box] (a) at (0,0) {Cubic bipartite planar $G$\\ $\to$ black and white triangulation $T$ (Fig.~3)};
+\node[box] (b) at (0,-1.5) {A pair of disjoint states $(r,s)$\\ by an integral flow (Figs.~5--7)};
+\node[box] (c) at (0,-3.0) {Some pair has $Q_s$ a forest:\\ cyclic $Q_s$ cancel, the sum is not $0$ (Figs.~9--11)};
+\node[box] (d) at (0,-4.5) {Remaining spokes form a tree;\\ dual tree on the white faces (Fig.~12)};
+\node[box] (e) at (0,-6.0) {One selected edge per face,\\ and the selected edges form a forest (Fig.~13a)};
+\node[box] (f) at (0,-7.5) {Two induced trees in $T$\\ $=$ a Hamiltonian cycle in $G$ (Fig.~13b)};
+\node[aux] (k) at (6.6,-3.75) {Disk identity\\ $2\ell-h=-3$ (Fig.~8)};
+\node[aux] (g) at (6.6,-7.5) {Separating triangles:\\ cut, solve, glue (Fig.~14)};
+\node[aux] (n) at (6.6,-1.5) {needs no separating\\ triangle};
+\foreach \u/\v in {a/b,b/c,c/d,d/e,e/f} \draw[to] (\u)--(\v);
+\draw[to] (k.west) -- ++(-.5,0) |- (c.east); \draw[to] (k.west) -- ++(-.5,0) |- (e.east);
+\draw[to] (g)--(f); \draw[to] (n)--(b);
+\end{tikzpicture}
