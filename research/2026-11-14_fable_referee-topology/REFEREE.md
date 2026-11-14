@@ -95,7 +95,7 @@ Theorem 1.1 there reads: for a plane bipartite graph `G` with colour classes `E,
 
 1. `g ∈ Q_(E,R)` iff a point-rainbow spanning tree of the white faces exists. This is OpenAI Lemma 2.1 (tree and cotree). Correct.
 2. (2) ⇒ (3) of Theorem 5.4: a black-inner separating triangle with `I` interior vertices leaves only `I` white faces for `I` colour classes. Correct. One sentence should be added: every white face in the disk has a corner strictly inside, because a face with all three corners on the triangle would be the whole disk.
-3. (3) ⇒ (2) is obtained in the report only through barnette_trees Theorem 1.2, that is, through the cancellation. **This detour is unnecessary.** `RAINBOW.md` Theorem R proves (2) ⇔ (3) directly by Rado's theorem and an Euler count. So "PROVED-HERE, conditional on barnette_trees Thm 1.2" can be replaced by "PROVED-HERE" for the equivalence of (2) and (3). The equivalence of (1) and (3) is barnette_trees Theorem 1.2 itself.
+3. (3) ⇒ (2) is obtained in the report only through barnette_trees Theorem 1.2, that is, through the cancellation. **This detour is unnecessary.** `RAINBOW.md` Theorem R proves (2) ⇔ (3) directly by Rado's theorem and an Euler count. Theorem S there adds that a tree realising `g` hands over a 2-factor of `B` as its parent map, so "`g` is supported" implies "a pair exists" by a one-line construction. So "PROVED-HERE, conditional on barnette_trees Thm 1.2" can be replaced by "PROVED-HERE" for the equivalence of (2) and (3). The equivalence of (1) and (3) is barnette_trees Theorem 1.2 itself.
 4. "`f` realisable in all 826" (the black side) is also a theorem with a three-line proof, `RAINBOW.md` Lemma R2.
 
 **What is analogy.**
@@ -127,7 +127,7 @@ My matroid intersection is a from-scratch augmenting-path implementation in `rai
 
 **COMPUTED (mine).** `referee.py mate 14`, all 1,206 rootings with `V <= 14`: 3,240 tree matchings in 880 instances. For 40 of them, in 20 instances, the unique mate is not a tree matching. All 40 occur in triangulations without separating triangles, and in all 40 the mate has exactly one cycle in its `Q` (`k = 1`). The first example in my enumeration is `V = 12`, plantri index 2, the same triangulation as the report's. Twelve examples with rotation systems are in `data/ref_mate.json`. On the report's own 166 instances I get its numbers exactly: 442 tree matchings, 6 with a mate that is not a tree matching.
 
-The report's explanation is right: evenness of the number of tree matchings is a signed cancellation, not a fixed-point-free involution. The 40 failures come in pairs inside an instance (20 instances, two each), which agrees with "two tree matchings share one mate". I did not check that the cycle of the common mate has length 3.
+The report's explanation is right: evenness of the number of tree matchings is a signed cancellation, not a fixed-point-free involution. The 40 failures occur in 20 instances, an average of two per instance, which is what "two tree matchings share one mate" predicts. I did not check instance by instance that they pair up, nor that the cycle of the common mate has length 3.
 
 ## (h) State lattice and height
 
