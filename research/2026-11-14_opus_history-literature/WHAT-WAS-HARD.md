@@ -79,6 +79,8 @@ The Euler count above forces many 4-faces. A minimal counterexample therefore ha
 
 `LIT` (OpenAI paper). Theorem 2.2 prescribes a facial edge `e0` inside one induced tree. In primal terms the Hamiltonian cycle avoids `e0*`, the H- property. Section 7 uses the prescription to make the partitions of the two sides of a separating triangle agree on the cap, and glues.
 
+`LIT`. There is a hard limit on how strong the induction hypothesis may be. Deciding whether a Barnette graph has a Hamiltonian cycle through an arbitrary prescribed set of edges is NP-complete, unconditionally. Bagheri Gh. et al. reduce Akiyama-Nishizeki-Saito instances along 2-edge-cuts, and each cut becomes a prescribed edge in a 3-connected piece [bagheri2022, proof of Theorem 4.6]. So "prescribe what you need at every cut" fails in general. A workable hypothesis must prescribe something bounded: one avoided edge (H-), two edges on a face (Kelmans), or a path of length 3 (Hertel, GSW).
+
 `HUNCH`. So the shape of the induction was in the literature by 1986/2005: prove the H- form, reduce to the case without separating triangles, glue. That case was where everything was stuck, and it is where all the new mathematics of the OpenAI paper goes (Sections 3 to 6). The paper does not cite Kelmans for the gluing; it re-proves it.
 
 ## 7. Translations without an existence engine
