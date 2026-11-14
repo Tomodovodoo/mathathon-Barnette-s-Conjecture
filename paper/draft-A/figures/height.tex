@@ -1,0 +1,15 @@
+\begin{tikzpicture}[>=Stealth,font=\footnotesize,scale=1]
+\draw[thick,postaction={decorate},decoration={markings,mark=at position .12 with {\arrow{>}}}] (0,0) circle (1.2);
+\fill (0,0) circle (1.5pt) node[below left] {$w$};
+\draw[->,very thick] (0,0)--(2,0) node[right] {$t_0$};
+\node at (.6,.25) {$\gamma_w$};
+\node at (1.4,.4) {$+1$};
+\node at (0,-1.6) {start inside};
+\begin{scope}[xshift=5.8cm]
+\draw[thick,postaction={decorate},decoration={markings,mark=at position .12 with {\arrow{>}}}] (0,0) circle (1.2);
+\fill (-2,0) circle (1.5pt) node[below] {$w$};
+\draw[->,very thick] (-2,0)--(2,0) node[right] {$t_0$};
+\node at (-1.4,.4) {$-1$};\node at (1.4,.4) {$+1$};
+\node at (0,-1.6) {start outside};
+\end{scope}
+\end{tikzpicture}
