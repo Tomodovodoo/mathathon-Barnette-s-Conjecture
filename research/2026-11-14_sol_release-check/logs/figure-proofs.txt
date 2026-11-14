@@ -1,0 +1,7 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_sol_figures-polish/proofs.py
+Traceback (most recent call last):
+  File "E:\rc-sol-1114\research\2026-11-14_sol_figures-polish\proofs.py", line 67, in <module>
+    assert all(n==1 or k<=5 for n,k in caps.items()),caps
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {1: 9, 2: 4, 3: 4, 4: 4, 5: 4, 6: 5, 7: 2, 8: 4, 9: 3, 10: 3, 11: 4, 12: 4, 13: 5, 14: 4, 15: 4, 16: 4, 17: 8, 18: 2}

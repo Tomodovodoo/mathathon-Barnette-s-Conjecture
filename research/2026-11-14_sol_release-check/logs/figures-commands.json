@@ -1,0 +1,147 @@
+[
+  {
+    "name": "figure-build",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "paper/figures/build.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 311.18
+  },
+  {
+    "name": "figure-geometry",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "paper/figures/geometry_check.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.54
+  },
+  {
+    "name": "figure-crosscheck",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "paper/figures/crosscheck_lab.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 1.09
+  },
+  {
+    "name": "primal-figures",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "proofs/primal/figures/check.py",
+      "--build"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 8.68
+  },
+  {
+    "name": "atlas-build",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "digestions/atlas/build.py"
+    ],
+    "cwd": ".",
+    "code": 1,
+    "seconds": 53.9
+  },
+  {
+    "name": "atlas-verify",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "digestions/atlas/verify.py"
+    ],
+    "cwd": ".",
+    "code": 1,
+    "seconds": 8.36
+  },
+  {
+    "name": "involution-check",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "research/2026-11-14_sol_involutions-revision/code/check.py",
+      "14"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 70.97
+  },
+  {
+    "name": "involution-referee",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "research/2026-11-14_sol_involutions-revision/code/referee_rerun.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 170.55
+  },
+  {
+    "name": "involution-drawings",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "research/2026-11-14_sol_involutions-revision/code/drawings.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 11.82
+  },
+  {
+    "name": "involution-figures",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "research/2026-11-14_sol_involutions-revision/code/figures.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 1.21
+  },
+  {
+    "name": "involution-second",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "research/2026-11-14_fable_referee-involutions-v2/code/figure2.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.08
+  }
+]

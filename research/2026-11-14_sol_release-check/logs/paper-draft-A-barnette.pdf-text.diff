@@ -1,0 +1,145 @@
+--- committed
++++ rebuilt
+@@ -119,12 +119,36 @@
+ 3
+ 4
+ 5
+-(a) two cycles, degree two
+-(b) the cube G inside its dual T
+-(c) two states and D
+-(d) Qs, opposite the wedges
+-(e) kept spokes and the white tree
+-(f) P, two trees, one cycle
++0
++1
++2
++3
++4
++5
++(a) two cycles
++(b) the dual
++(c) a state and opposite sides
++0
++1
++2
++3
++4
++5
++0
++1
++2
++3
++4
++5
++0
++1
++2
++3
++4
++5
++(d) avoided edges and face tree
++(e) selected sides and one cycle
++(f) two states and arrows
+ Figure 1. The cube construction, read from left to right along each row. The first panel
+ shows two cycles rather than one. In the octahedron the roots are 0, 1, 2. Outlined and
+ filled wedges mark the two states; the opposite edges form three rooted trees. Deleting
+@@ -206,8 +230,34 @@
+ nonroots. Shaded triangles are black, including the outer face indicated by the collar.
+ Each grey vertex of G lies in one triangle and each grey edge crosses its corresponding
+ edge of T. The same labels are used in (2) and in the recovery figures.
+-(a) Qs contains a cycle
+-(b) the other state: a forest
++0
++1
++2
++3
++4
++5
++6
++7
++8
++9
++10
++11
++12
++0
++1
++2
++3
++4
++5
++6
++7
++8
++9
++10
++11
++12
++(a) Qα contains a cycle
++(b) Qβ is a forest
+ Figure 3. The two opposite-edge graphs from (2). The dashed edges on the left contain
+ the triangle 1, 8, 9, with no root in its component. On the right, Qr has three tree
+ components, one at each root. The proof must guarantee a pair with the second behavior.
+@@ -298,6 +348,19 @@
+ Figure 4. The smaller cycle encloses the white triangle 7, 8, 12.
+ ℓ
+ ℓ
++0
++1
++2
++3
++4
++5
++6
++7
++8
++9
++10
++11
++12
+ h = 7 arrows on the cycle
+ I = 3 vertices inside (ringed)
+ B = 5 black faces inside
+@@ -517,6 +580,32 @@
+ □
+ 10
+ AN EXPOSITION OF OPENAI’S PROOF
++0
++1
++2
++3
++4
++5
++6
++7
++8
++9
++10
++11
++12
++0
++1
++2
++3
++4
++5
++6
++7
++8
++9
++10
++11
++12
+ (a) one bold edge for each white face
+ (b) two trees and the curve between them
+ Figure 7. The final selection in the larger example. A white face other than the root
+@@ -590,6 +679,9 @@
+ 3
+ 4
+ 5
++6
++7
++8
+ (a) outer piece, cap tinted
+ (b) inner piece, cap as outer face
+ (c) glued

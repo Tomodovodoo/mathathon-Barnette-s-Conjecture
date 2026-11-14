@@ -15,6 +15,7 @@ def run(name,args,cwd='.',timeout=540):
     return code
 def py(name,path,*args): return run(name,[sys.executable,'-X','utf8','-B',path,*args])
 products=['paper/main/barnette.pdf','proofs/primal/primal.pdf','proofs/involutions/involutions.pdf','digestions/atlas/atlas.pdf','paper/figures/gallery.pdf','paper/draft-A/barnette.pdf','paper/draft-B/barnette.pdf']
+if (root/'proofs/sign-free/sign-free.pdf').exists(): products.append('proofs/sign-free/sign-free.pdf')
 if phase=='baseline':
     import fitz,importlib.metadata as m
     data={'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),'python':sys.version,'packages':{p:m.version(p) for p in ['networkx','numpy','scipy','sympy','pymupdf','pillow','matplotlib']},'pdfs':{}}
@@ -83,3 +84,43 @@ if phase=='supplement':
     py('primal-cancellation15','research/2026-11-14_astra_primal-revision/check_cancellation.py','15')
     py('primal-cancellation16','research/2026-11-14_astra_primal-revision/check_cancellation.py','16')
     py('primal-inspect','research/2026-11-14_astra_primal-revision/inspect_figures.py')
+if phase=='pristine':
+    import fitz,difflib
+    tracked=subprocess.check_output(['git','ls-files'],cwd=root,text=True).splitlines()
+    restore=[f for f in tracked if f=='proofs/primal/primal.tex' or f.startswith('proofs/involutions/figures/') and f.endswith('.tex') or f.startswith('digestions/atlas/figs/') and f.endswith('.pdf')]
+    for f in restore:
+        (root/f).write_bytes(subprocess.check_output(['git','show','HEAD:'+f],cwd=root))
+    (out/'pristine-restored-inputs.json').write_text(json.dumps(restore,indent=2),encoding='utf8')
+    for directory,stem in [('proofs/primal','primal'),('proofs/involutions','involutions'),('digestions/atlas','atlas')]:
+        for i in range(2):run(directory.replace('/','-')+f'-pristine{i+1}',['pdflatex','-interaction=nonstopmode','-halt-on-error',stem+'.tex'],directory)
+    baseline=json.loads((out/'baseline.json').read_text(encoding='utf8')); rows={}
+    for p in products:
+        with fitz.open(root/p) as doc:
+            text=''.join(page.get_text() for page in doc);old=baseline['pdfs'][p]
+            diff=''.join(difflib.unified_diff(old['text'].splitlines(True),text.splitlines(True)))
+            rows[p]=dict(committed_pages=old['pages'],rebuilt_pages=len(doc),text_equal=text==old['text'],diff_lines=len(diff.splitlines()))
+            (out/(p.replace('/','-')+'-pristine.diff')).write_text(diff,encoding='utf8')
+    (out/'pristine-pdf-comparison.json').write_text(json.dumps(rows,indent=2),encoding='utf8')
+    warnings=[]
+    for directory,stem in [('proofs/primal','primal'),('proofs/involutions','involutions'),('digestions/atlas','atlas')]:
+        for i,line in enumerate((root/directory/(stem+'.log')).read_text(errors='replace').splitlines(),1):
+            sizes=re.findall(r'Overfull \\[hv]box \(([0-9.]+)pt',line)
+            if any(float(v)>2 for v in sizes) or re.search(r'undefined|Missing character|not found|LaTeX Error|Font Warning',line,re.I):warnings.append(dict(file=directory+'/'+stem+'.log',line=i,text=line))
+    (out/'pristine-tex-warnings.json').write_text(json.dumps(warnings,indent=2),encoding='utf8')
+if phase=='late-docs':
+    for directory,stem,bib in [('paper/main','barnette',True),('proofs/primal','primal',False),('proofs/involutions','involutions',False),('proofs/sign-free','sign-free',False),('digestions/atlas','atlas',False)]:
+        cmd=['pdflatex','-interaction=nonstopmode','-halt-on-error',stem+'.tex'];name=directory.replace('/','-')
+        run(name+'-tex1',cmd,directory)
+        if bib:run(name+'-bib',['bibtex',stem],directory)
+        run(name+'-tex2',cmd,directory);run(name+'-tex3',cmd,directory)
+    py('plantri-setup','workings/barnette_lab/setup_plantri.py')
+    run('signfree-make',[sys.executable,'-X','utf8','-B','make_figs.py'],'proofs/sign-free/figures')
+    run('signfree-check',[sys.executable,'-X','utf8','-B','check.py'],'proofs/sign-free/figures')
+    run('signfree-verify',[sys.executable,'-X','utf8','-B','verify.py','6','12','../data/release_verify_6_12.json'],'research/2026-11-14_fable_sign-free-note/code')
+    run('signfree-tex2md',[sys.executable,'-X','utf8','-B','tex2md.py','../../../proofs/sign-free/sign-free.tex','../../../proofs/sign-free/SIGN-FREE.md'],'research/2026-11-14_fable_sign-free-note/code')
+    run('signfree-generated-tex1',['pdflatex','-interaction=nonstopmode','-halt-on-error','sign-free.tex'],'proofs/sign-free')
+    run('signfree-generated-tex2',['pdflatex','-interaction=nonstopmode','-halt-on-error','sign-free.tex'],'proofs/sign-free')
+if phase=='late-atlas':
+    for p in (root/'digestions/atlas/figs').glob('*.pdf'):p.unlink()
+    py('atlas-build','digestions/atlas/build.py')
+    py('atlas-verify','digestions/atlas/verify.py')

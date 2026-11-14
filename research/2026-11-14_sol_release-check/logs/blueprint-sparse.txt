@@ -1,0 +1,2 @@
+cwd: .
+command: git -C research/2026-11-14_opus_blueprint/upstream/openai-math sparse-checkout set lean/OAI/Combinatorics/Hamiltonian lean/ComparatorChallenges

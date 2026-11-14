@@ -1,0 +1,74 @@
+[
+  {
+    "name": "proofs-primal-pristine1",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "primal.tex"
+    ],
+    "cwd": "proofs/primal",
+    "code": 0,
+    "seconds": 3.41
+  },
+  {
+    "name": "proofs-primal-pristine2",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "primal.tex"
+    ],
+    "cwd": "proofs/primal",
+    "code": 0,
+    "seconds": 3.45
+  },
+  {
+    "name": "proofs-involutions-pristine1",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "involutions.tex"
+    ],
+    "cwd": "proofs/involutions",
+    "code": 0,
+    "seconds": 1.65
+  },
+  {
+    "name": "proofs-involutions-pristine2",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "involutions.tex"
+    ],
+    "cwd": "proofs/involutions",
+    "code": 0,
+    "seconds": 1.66
+  },
+  {
+    "name": "digestions-atlas-pristine1",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "atlas.tex"
+    ],
+    "cwd": "digestions/atlas",
+    "code": 0,
+    "seconds": 1.41
+  },
+  {
+    "name": "digestions-atlas-pristine2",
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "atlas.tex"
+    ],
+    "cwd": "digestions/atlas",
+    "code": 0,
+    "seconds": 1.08
+  }
+]

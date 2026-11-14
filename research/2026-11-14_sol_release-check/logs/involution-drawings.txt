@@ -1,0 +1,72 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_sol_involutions-revision/code/drawings.py
+note layout: stored root order 0,5,4, first shear >= 1 | shear 1 | objects 279 | fix1 273 | fix2 9 | signed -9.0
+same root order, first generic shear >= 0 (shear 0) | shear 0 | objects 221 | fix1 89 | fix2 9 | signed -9
+lab li.py layout: lab root order [0, 4, 5], first shear >= 1 | shear 1 | objects 213 | fix1 141 | fix2 9 | signed -9.0
+root assignment [0, 5, 4] -> anchors, shear 0 | shear 0 | objects 221 | fix1 89 | fix2 9 | signed -9
+root assignment [0, 4, 5] -> anchors, shear 0 | shear 0 | objects 209 | fix1 197 | fix2 9 | signed -9.0
+root assignment [5, 0, 4] -> anchors, shear 0 | shear 0 | objects 279 | fix1 273 | fix2 9 | signed -9.0
+root assignment [5, 4, 0] -> anchors, shear 0 | shear 0 | objects 213 | fix1 141 | fix2 9 | signed -9.0
+root assignment [4, 0, 5] -> anchors, shear 0 | shear 0 | objects 317 | fix1 207 | fix2 9 | signed -9.0
+root assignment [4, 5, 0] -> anchors, shear 0 | shear 0 | objects 145 | fix1 125 | fix2 9 | signed -9.0
+direction (-42, -20) | shear 0 | objects 275 | fix1 203 | fix2 9 | signed -9.0
+direction (20, 25) | shear 0 | objects 247 | fix1 175 | fix2 9 | signed -9.0
+direction (11, 14) | shear 0 | objects 247 | fix1 175 | fix2 9 | signed -9.0
+direction (47, -34) | shear 0 | objects 195 | fix1 139 | fix2 9 | signed -9.0
+direction (13, -47) | shear 0 | objects 243 | fix1 223 | fix2 9 | signed -9.0
+direction (6, 50) | shear 0 | objects 187 | fix1 97 | fix2 9 | signed -9
+direction (-20, 5) | shear 0 | objects 261 | fix1 171 | fix2 9 | signed -9.0
+direction (44, -31) | shear 0 | objects 195 | fix1 139 | fix2 9 | signed -9.0
+direction (-47, 3) | shear 0 | objects 317 | fix1 207 | fix2 9 | signed -9.0
+direction (28, 33) | shear 0 | objects 313 | fix1 223 | fix2 9 | signed -9.0
+direction (48, 19) | shear 0 | objects 187 | fix1 145 | fix2 9 | signed -9.0
+direction (-2, 0) | shear 0 | objects 317 | fix1 207 | fix2 9 | signed -9.0
+direction (39, -16) | shear 0 | objects 261 | fix1 241 | fix2 9 | signed -9.0
+direction (-22, -20) | shear 0 | objects 275 | fix1 143 | fix2 9 | signed -9.0
+direction (8, -31) | shear 0 | objects 243 | fix1 223 | fix2 9 | signed -9.0
+direction (33, 16) | shear 0 | objects 311 | fix1 239 | fix2 9 | signed -9.0
+direction (22, -23) | shear 0 | objects 273 | fix1 201 | fix2 9 | signed -9.0
+direction (-3, -26) | shear 0 | objects 145 | fix1 115 | fix2 9 | signed -9.0
+direction (0, 11) | shear 0 | objects 221 | fix1 89 | fix2 9 | signed -9
+direction (-13, 49) | shear 0 | objects 137 | fix1 95 | fix2 9 | signed -9.0
+direction (43, -35) | shear 0 | objects 185 | fix1 143 | fix2 9 | signed -9.0
+direction (31, -27) | shear 0 | objects 187 | fix1 145 | fix2 9 | signed -9.0
+direction (22, -5) | shear 0 | objects 259 | fix1 253 | fix2 9 | signed -9.0
+direction (-28, 8) | shear 0 | objects 295 | fix1 185 | fix2 9 | signed -9.0
+direction (32, 3) | shear 0 | objects 253 | fix1 223 | fix2 9 | signed -9.0
+direction (31, 30) | shear 0 | objects 355 | fix1 245 | fix2 9 | signed -9.0
+direction (-32, 28) | shear 0 | objects 333 | fix1 303 | fix2 9 | signed -9.0
+direction (-41, -22) | shear 0 | objects 213 | fix1 157 | fix2 9 | signed -9.0
+direction (-27, -36) | shear 0 | objects 103 | fix1 91 | fix2 9 | signed -9
+direction (-4, 17) | shear 0 | objects 149 | fix1 93 | fix2 9 | signed -9.0
+direction (-28, 31) | shear 0 | objects 275 | fix1 255 | fix2 9 | signed -9.0
+direction (-8, 37) | shear 0 | objects 163 | fix1 91 | fix2 9 | signed -9.0
+direction (-33, 6) | shear 0 | objects 295 | fix1 185 | fix2 9 | signed -9.0
+direction (-14, -28) | shear 0 | objects 103 | fix1 91 | fix2 9 | signed -9
+direction (-31, -2) | shear 0 | objects 331 | fix1 199 | fix2 9 | signed -9.0
+direction (44, -17) | shear 0 | objects 277 | fix1 265 | fix2 9 | signed -9.0
+direction (-32, -22) | shear 0 | objects 193 | fix1 121 | fix2 9 | signed -9.0
+direction (-27, -43) | shear 0 | objects 103 | fix1 91 | fix2 9 | signed -9
+direction (-31, 4) | shear 0 | objects 295 | fix1 185 | fix2 9 | signed -9.0
+direction (11, 14) | shear 0 | objects 247 | fix1 175 | fix2 9 | signed -9.0
+direction (4, -5) | shear 0 | objects 213 | fix1 141 | fix2 9 | signed -9.0
+direction (0, 27) | shear 0 | objects 221 | fix1 89 | fix2 9 | signed -9
+direction (-31, -8) | shear 0 | objects 313 | fix1 181 | fix2 9 | signed -9.0
+direction (28, -5) | shear 0 | objects 285 | fix1 283 | fix2 9 | signed -9.0
+direction (27, 47) | shear 0 | objects 279 | fix1 189 | fix2 9 | signed -9.0
+direction (-4, 50) | shear 0 | objects 163 | fix1 91 | fix2 9 | signed -9.0
+direction (17, -24) | shear 0 | objects 217 | fix1 145 | fix2 9 | signed -9.0
+direction (12, 13) | shear 0 | objects 363 | fix1 231 | fix2 9 | signed -9.0
+direction (-31, -9) | shear 0 | objects 295 | fix1 185 | fix2 9 | signed -9.0
+direction (13, -35) | shear 0 | objects 327 | fix1 285 | fix2 9 | signed -9.0
+direction (38, 15) | shear 0 | objects 187 | fix1 145 | fix2 9 | signed -9.0
+direction (31, 45) | shear 0 | objects 321 | fix1 211 | fix2 9 | signed -9.0
+direction (8, -19) | shear 0 | objects 353 | fix1 263 | fix2 9 | signed -9.0
+direction (48, 6) | shear 0 | objects 189 | fix1 159 | fix2 9 | signed -9.0
+direction (16, -3) | shear 0 | objects 285 | fix1 283 | fix2 9 | signed -9.0
+direction (-18, -24) | shear 0 | objects 103 | fix1 91 | fix2 9 | signed -9
+direction (27, 22) | shear 0 | objects 311 | fix1 239 | fix2 9 | signed -9.0
+direction (13, 8) | shear 0 | objects 311 | fix1 239 | fix2 9 | signed -9.0
+direction (26, 36) | shear 0 | objects 321 | fix1 211 | fix2 9 | signed -9.0
+direction (-25, 34) | shear 0 | objects 331 | fix1 301 | fix2 9 | signed -9.0
+distinct object counts [103, 137, 145, 149, 163, 185, 187, 189, 193, 195, 209, 213, 217, 221, 243, 247, 253, 259, 261, 273, 275, 277, 279, 285, 295, 311, 313, 317, 321, 327, 331, 333, 353, 355, 363] signed sums [-9.0] positions reproduced True

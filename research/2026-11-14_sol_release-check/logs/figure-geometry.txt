@@ -1,0 +1,2 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B paper/figures/geometry_check.py

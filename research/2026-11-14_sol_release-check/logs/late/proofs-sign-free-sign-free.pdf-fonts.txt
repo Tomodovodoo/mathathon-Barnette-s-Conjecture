@@ -1,0 +1,27 @@
+cwd: .
+command: pdffonts E:\rc-sol-late\proofs\sign-free\sign-free.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+SNACDZ+LMRoman10-Bold                Type 1            Custom           yes yes yes     83  0
+ZDDXPP+LMRomanCaps10-Regular         Type 1            Custom           yes yes yes     84  0
+SHGLVR+LMRoman8-Regular              Type 1            Custom           yes yes yes     85  0
+SHGLVR+LMRoman8-Regular              Type 1            Custom           yes yes yes     86  0
+KDWTNE+LMRoman10-Regular             Type 1            Custom           yes yes yes     87  0
+ZXGJIT+LMMathItalic10-Regular        Type 1            Custom           yes yes yes     88  0
+TUJOVO+LMRoman7-Regular              Type 1            Custom           yes yes yes     89  0
+ASXVDA+LMRoman10-Italic              Type 1            Custom           yes yes yes     90  0
+JOFJHN+LMMathSymbols10-Regular       Type 1            Custom           yes yes yes     91  0
+KDWTNE+LMRoman10-Regular             Type 1            Custom           yes yes yes     92  0
+ITCRAJ+LMMathItalic7-Regular         Type 1            Custom           yes yes yes     93  0
+QRLNMD+LMMathSymbols7-Regular        Type 1            Custom           yes yes yes     94  0
+OIIUET+LMRoman8-Italic               Type 1            Custom           yes yes yes     96  0
+TUJOVO+LMRoman7-Regular              Type 1            Custom           yes yes yes     97  0
+TMHVPV+MSAM10                        Type 1            Builtin          yes yes yes    122  0
+VCLTPQ+LMMathExtension10-Regular     Type 1            Custom           yes yes yes    124  0
+KCGXCM+LMMathItalic8-Regular         Type 1            Custom           yes yes yes    195  0
+YNVWXX+LMRoman6-Regular              Type 1            Custom           yes yes yes    196  0
+NQVBMO+LMMathSymbols6-Regular        Type 1            Custom           yes yes yes    197  0
+HMFOWH+LMMathItalic6-Regular         Type 1            Custom           yes yes yes    198  0
+MQZRAA+LMMono10-Regular              Type 1            Custom           yes yes yes    249  0
+ZVJMUJ+LMMono8-Regular               Type 1            Custom           yes yes yes    290  0
+KGEBIK+LMRoman8-Bold                 Type 1            Custom           yes yes yes    291  0

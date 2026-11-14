@@ -1,0 +1,10 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B digestions/atlas/verify.py
+Traceback (most recent call last):
+  File "E:\rc-sol-1114\digestions\atlas\verify.py", line 36, in <module>
+    lib.FIGS[p['slug']]()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "E:\rc-sol-1114\digestions\atlas\figs_proofs.py", line 257, in blueprint_fig
+    cat = {i: kind[node[i]['status']] for i in sk}
+              ~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'weaker'

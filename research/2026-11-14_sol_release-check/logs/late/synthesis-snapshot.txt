@@ -1,0 +1,97 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_astra_synthesis/snapshot.py
+{
+  "astra_induction-lemmas": {
+    "report_exists": true,
+    "markdown": [
+      "AUDIT.md",
+      "G.md",
+      "JOURNAL.md",
+      "PARTIAL.md",
+      "REPORT.md",
+      "X.md"
+    ]
+  },
+  "fable_descent": {
+    "report_exists": true,
+    "markdown": [
+      "COMPLEXITY.md",
+      "DESCENT.md",
+      "PROOFS.md",
+      "REPORT.md"
+    ]
+  },
+  "sol_referee-covers": {
+    "report_exists": true,
+    "markdown": [
+      "INTEGRATION.md",
+      "REFEREE-covers.md",
+      "REFEREE-families.md",
+      "REFEREE-probabilistic.md",
+      "REPORT.md"
+    ]
+  },
+  "fable_referee-topology": {
+    "report_exists": true,
+    "markdown": [
+      "RAINBOW.md",
+      "REFEREE.md",
+      "REPORT.md"
+    ]
+  },
+  "opus_cross-audit": {
+    "report_exists": true,
+    "markdown": [
+      "ADJUDICATION.md",
+      "CLEANUP-PROPOSAL.md",
+      "CONSISTENCY.md",
+      "HYGIENE.md",
+      "PRIMAL-FINAL-REVIEW.md",
+      "REPORT.md"
+    ]
+  },
+  "opus_blueprint": {
+    "report_exists": true,
+    "markdown": [
+      "REPORT.md"
+    ]
+  },
+  "astra_main-revision": {
+    "report_exists": true,
+    "markdown": [
+      "AUDIT.md",
+      "CHANGES.md",
+      "REPORT.md"
+    ]
+  },
+  "sol_involutions-revision": {
+    "report_exists": true,
+    "markdown": [
+      "AUDIT.md",
+      "CHANGES.md",
+      "COMMANDS.md",
+      "REPORT.md"
+    ]
+  },
+  "fable_referee-involutions-v2": {
+    "report_exists": true,
+    "markdown": [
+      "CHANGELOG.md",
+      "REFEREE.md",
+      "REPORT.md"
+    ]
+  },
+  "opus_lean-devices": {
+    "report_exists": true,
+    "markdown": [
+      "REPORT.md"
+    ]
+  },
+  "paper/main/barnette.tex": {
+    "sha256": "849d35e513af919c91a57d7940d8b0591da9f9f79e706bc5a6030c90a26e37b0"
+  },
+  "paper/main/barnette.pdf": {
+    "sha256": "07abc1a31cca71b94c92aff8bb08679f53a475b42db4d59eaeaada8ccc4eecb7"
+  },
+  "time": "2026-11-14T14:52:26.283140+00:00"
+}

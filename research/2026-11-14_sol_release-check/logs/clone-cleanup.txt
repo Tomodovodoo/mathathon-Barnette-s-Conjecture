@@ -1,0 +1,5 @@
+Temporary paths verified with Resolve-Path -LiteralPath:
+E:\rc-sol-1114
+E:\rc-sol-late
+
+Automatic approval review rejected recursive Remove-Item deletion as blocked by policy. A retry using the verified literal E:\rc-sol-1114 path was also rejected. No deletion command executed. Both clones remain. No alternate deletion mechanism was used.

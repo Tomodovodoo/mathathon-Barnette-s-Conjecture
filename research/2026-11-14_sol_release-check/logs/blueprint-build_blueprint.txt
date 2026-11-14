@@ -1,0 +1,18 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -I research/2026-11-14_opus_lean-integration/scripts/build_blueprint.py
+consistency problems: none
+skeleton : ['thm:main', 'lem:dual', 'txt:two-faces', 'lem:connected', 'eq:counts', 'def:selection', 'lem:duality.2', 'lem:duality.1', 'prop:target.1', 'prop:target.2', 'def:state', 'def:good', 'lem:good', 'lem:Y', 'lem:outdegree', 'txt:inside', 'lem:disk', 'prop:recover', 'def:pair', 'lem:partner', 'txt:D', 'lem:reversals', 'txt:delta', 'lem:sign', 'lem:cancel', 'txt:heights', 'lem:height', 'lem:difference', 'prop:good', 'txt:flow', 'eq:hall', 'prop:pair', 'lem:cap', 'thm:T']
+off_skeleton : ['lem:selections-give-states', 'rem:other-sums', 'rem:poly', 'rem:which']
+never_used : ['rem:other-sums', 'rem:poly', 'rem:which']
+order_problems : []
+longest_chain : ['thm:main', 'thm:T', 'prop:good', 'lem:cancel', 'lem:sign', 'lem:reversals', 'txt:D', 'lem:partner', 'def:pair', 'def:state']
+uncovered_on_route : ['lem:connected', 'prop:target.2']
+uncovered_off_route : ['lem:selections-give-states']
+proof_words_skeleton : 5668
+proof_words_covered : 5410
+status_counts : Counter({'translation': 17, 'weaker': 13, 'exact': 5, 'none': 3, 'example': 3})
+status_counts_skeleton : Counter({'translation': 17, 'weaker': 10, 'exact': 5, 'none': 2})
+status_counts_skeleton_v1 : Counter({'checked-form': 25, 'refereed': 5, 'checked-exact': 4})
+origin_counts_skeleton : Counter({'upstream': 24, 'both': 4, 'project': 4})
+consistency_problems : []
+rendered with C:\Program Files\Graphviz\bin\dot.exe

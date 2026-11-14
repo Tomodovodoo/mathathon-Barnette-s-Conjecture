@@ -1,0 +1,59 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_astra_primal-revision/check_cancellation.py 15
+T15_0 {'graphs': 1, 'roots': 26, 'states': 260, 'phase normalization checks': 56, 'forest states with unique partner': 56}
+T15_1 {'graphs': 2, 'roots': 52, 'states': 624, 'phase normalization checks': 112, 'forest states with unique partner': 112}
+T15_2 {'graphs': 3, 'roots': 78, 'states': 988, 'phase normalization checks': 168, 'forest states with unique partner': 168}
+T15_3 {'graphs': 4, 'roots': 104, 'states': 1352, 'phase normalization checks': 224, 'forest states with unique partner': 224}
+T15_4 {'graphs': 5, 'roots': 130, 'states': 1742, 'phase normalization checks': 328, 'forest states with unique partner': 328}
+T15_5 {'graphs': 6, 'roots': 156, 'states': 2054, 'phase normalization checks': 384, 'forest states with unique partner': 384}
+T15_6 {'graphs': 7, 'roots': 182, 'states': 2366, 'phase normalization checks': 440, 'forest states with unique partner': 440}
+T15_7 {'graphs': 8, 'roots': 208, 'states': 2756, 'phase normalization checks': 496, 'forest states with unique partner': 496}
+T15_8 {'graphs': 9, 'roots': 234, 'states': 3198, 'phase normalization checks': 600, 'forest states with unique partner': 600}
+T15_9 {'graphs': 10, 'roots': 260, 'states': 3588, 'phase normalization checks': 656, 'forest states with unique partner': 656}
+T15_10 {'graphs': 11, 'roots': 286, 'states': 4082, 'phase normalization checks': 792, 'forest states with unique partner': 784, 'cancelling states': 4, 'checked reversals': 8}
+T15_11 {'graphs': 12, 'roots': 312, 'states': 4446, 'phase normalization checks': 848, 'forest states with unique partner': 840, 'cancelling states': 4, 'checked reversals': 8}
+T15_12 {'graphs': 13, 'roots': 338, 'states': 4914, 'phase normalization checks': 920, 'forest states with unique partner': 908, 'cancelling states': 6, 'checked reversals': 12}
+T15_13 {'graphs': 14, 'roots': 364, 'states': 5330, 'phase normalization checks': 976, 'forest states with unique partner': 964, 'cancelling states': 6, 'checked reversals': 12}
+T15_14 {'graphs': 15, 'roots': 390, 'states': 5798, 'phase normalization checks': 1112, 'forest states with unique partner': 1080, 'cancelling states': 16, 'checked reversals': 32}
+T15_15 {'graphs': 16, 'roots': 416, 'states': 6214, 'phase normalization checks': 1168, 'forest states with unique partner': 1136, 'cancelling states': 16, 'checked reversals': 32}
+T15_16 {'graphs': 17, 'roots': 442, 'states': 6630, 'phase normalization checks': 1224, 'forest states with unique partner': 1192, 'cancelling states': 16, 'checked reversals': 32}
+T15_17 {'graphs': 18, 'roots': 468, 'states': 7046, 'phase normalization checks': 1280, 'forest states with unique partner': 1248, 'cancelling states': 16, 'checked reversals': 32}
+T15_18 {'graphs': 19, 'roots': 494, 'states': 7514, 'phase normalization checks': 1352, 'forest states with unique partner': 1316, 'cancelling states': 18, 'checked reversals': 36}
+T15_19 {'graphs': 20, 'roots': 520, 'states': 7878, 'phase normalization checks': 1408, 'forest states with unique partner': 1372, 'cancelling states': 18, 'checked reversals': 36}
+T15_20 {'graphs': 21, 'roots': 546, 'states': 8346, 'phase normalization checks': 1480, 'forest states with unique partner': 1440, 'cancelling states': 20, 'checked reversals': 40}
+T15_21 {'graphs': 22, 'roots': 572, 'states': 8762, 'phase normalization checks': 1536, 'forest states with unique partner': 1496, 'cancelling states': 20, 'checked reversals': 40}
+T15_22 {'graphs': 23, 'roots': 598, 'states': 9152, 'phase normalization checks': 1592, 'forest states with unique partner': 1552, 'cancelling states': 20, 'checked reversals': 40}
+T15_23 {'graphs': 24, 'roots': 624, 'states': 9542, 'phase normalization checks': 1648, 'forest states with unique partner': 1608, 'cancelling states': 20, 'checked reversals': 40}
+T15_24 {'graphs': 25, 'roots': 650, 'states': 9958, 'phase normalization checks': 1704, 'forest states with unique partner': 1664, 'cancelling states': 20, 'checked reversals': 40}
+T15_25 {'graphs': 26, 'roots': 676, 'states': 10374, 'phase normalization checks': 1760, 'forest states with unique partner': 1720, 'cancelling states': 20, 'checked reversals': 40}
+T15_26 {'graphs': 27, 'roots': 702, 'states': 10790, 'phase normalization checks': 1816, 'forest states with unique partner': 1776, 'cancelling states': 20, 'checked reversals': 40}
+T15_27 {'graphs': 28, 'roots': 728, 'states': 11206, 'phase normalization checks': 1880, 'forest states with unique partner': 1840, 'cancelling states': 20, 'checked reversals': 40}
+T15_28 {'graphs': 29, 'roots': 754, 'states': 11622, 'phase normalization checks': 1880, 'forest states with unique partner': 1840, 'cancelling states': 20, 'checked reversals': 40}
+T15_29 {'graphs': 30, 'roots': 780, 'states': 12038, 'phase normalization checks': 1984, 'forest states with unique partner': 1944, 'cancelling states': 20, 'checked reversals': 40}
+T15_30 {'graphs': 31, 'roots': 806, 'states': 12558, 'phase normalization checks': 2136, 'forest states with unique partner': 2084, 'cancelling states': 26, 'checked reversals': 52}
+T15_31 {'graphs': 32, 'roots': 832, 'states': 13026, 'phase normalization checks': 2240, 'forest states with unique partner': 2188, 'cancelling states': 26, 'checked reversals': 52}
+T15_32 {'graphs': 33, 'roots': 858, 'states': 13494, 'phase normalization checks': 2344, 'forest states with unique partner': 2292, 'cancelling states': 26, 'checked reversals': 52}
+T15_33 {'graphs': 34, 'roots': 884, 'states': 13988, 'phase normalization checks': 2472, 'forest states with unique partner': 2412, 'cancelling states': 30, 'checked reversals': 60}
+T15_34 {'graphs': 35, 'roots': 910, 'states': 14430, 'phase normalization checks': 2576, 'forest states with unique partner': 2516, 'cancelling states': 30, 'checked reversals': 60}
+T15_35 {'graphs': 36, 'roots': 936, 'states': 14820, 'phase normalization checks': 2632, 'forest states with unique partner': 2572, 'cancelling states': 30, 'checked reversals': 60}
+T15_36 {'graphs': 37, 'roots': 962, 'states': 15210, 'phase normalization checks': 2688, 'forest states with unique partner': 2628, 'cancelling states': 30, 'checked reversals': 60}
+T15_37 {'graphs': 38, 'roots': 988, 'states': 15626, 'phase normalization checks': 2752, 'forest states with unique partner': 2692, 'cancelling states': 30, 'checked reversals': 60}
+T15_38 {'graphs': 39, 'roots': 1014, 'states': 16042, 'phase normalization checks': 2816, 'forest states with unique partner': 2756, 'cancelling states': 30, 'checked reversals': 60}
+T15_39 {'graphs': 40, 'roots': 1040, 'states': 16458, 'phase normalization checks': 2944, 'forest states with unique partner': 2884, 'cancelling states': 30, 'checked reversals': 60}
+T15_40 {'graphs': 41, 'roots': 1066, 'states': 16874, 'phase normalization checks': 3008, 'forest states with unique partner': 2948, 'cancelling states': 30, 'checked reversals': 60}
+T15_41 {'graphs': 42, 'roots': 1092, 'states': 17290, 'phase normalization checks': 3072, 'forest states with unique partner': 3012, 'cancelling states': 30, 'checked reversals': 60}
+T15_42 {'graphs': 43, 'roots': 1118, 'states': 17706, 'phase normalization checks': 3200, 'forest states with unique partner': 3140, 'cancelling states': 30, 'checked reversals': 60}
+T15_43 {'graphs': 44, 'roots': 1144, 'states': 18122, 'phase normalization checks': 3264, 'forest states with unique partner': 3204, 'cancelling states': 30, 'checked reversals': 60}
+T15_44 {'graphs': 45, 'roots': 1170, 'states': 18538, 'phase normalization checks': 3264, 'forest states with unique partner': 3204, 'cancelling states': 30, 'checked reversals': 60}
+T15_45 {'graphs': 46, 'roots': 1196, 'states': 18954, 'phase normalization checks': 3392, 'forest states with unique partner': 3332, 'cancelling states': 30, 'checked reversals': 60}
+T15_46 {'graphs': 47, 'roots': 1222, 'states': 19370, 'phase normalization checks': 3520, 'forest states with unique partner': 3460, 'cancelling states': 30, 'checked reversals': 60}
+T15_47 {'graphs': 48, 'roots': 1248, 'states': 19708, 'phase normalization checks': 3624, 'forest states with unique partner': 3564, 'cancelling states': 30, 'checked reversals': 60}
+T15_48 {'graphs': 49, 'roots': 1274, 'states': 20072, 'phase normalization checks': 3728, 'forest states with unique partner': 3668, 'cancelling states': 30, 'checked reversals': 60}
+T15_49 {'graphs': 50, 'roots': 1300, 'states': 20514, 'phase normalization checks': 3832, 'forest states with unique partner': 3772, 'cancelling states': 30, 'checked reversals': 60}
+T15_50 {'graphs': 51, 'roots': 1326, 'states': 20982, 'phase normalization checks': 3968, 'forest states with unique partner': 3896, 'cancelling states': 36, 'checked reversals': 72}
+T15_51 {'graphs': 52, 'roots': 1352, 'states': 21424, 'phase normalization checks': 4072, 'forest states with unique partner': 4000, 'cancelling states': 36, 'checked reversals': 72}
+T15_52 {'graphs': 53, 'roots': 1378, 'states': 21866, 'phase normalization checks': 4200, 'forest states with unique partner': 4120, 'cancelling states': 40, 'checked reversals': 80}
+T15_53 {'graphs': 54, 'roots': 1404, 'states': 22386, 'phase normalization checks': 4352, 'forest states with unique partner': 4248, 'cancelling states': 52, 'checked reversals': 104}
+T15_54 {'graphs': 55, 'roots': 1430, 'states': 22880, 'phase normalization checks': 4480, 'forest states with unique partner': 4368, 'cancelling states': 56, 'checked reversals': 112}
+T15_55 {'graphs': 56, 'roots': 1456, 'states': 23426, 'phase normalization checks': 4648, 'forest states with unique partner': 4512, 'cancelling states': 68, 'checked reversals': 136}
+T15_56 {'graphs': 57, 'roots': 1482, 'states': 23946, 'phase normalization checks': 4816, 'forest states with unique partner': 4672, 'cancelling states': 72, 'checked reversals': 144}

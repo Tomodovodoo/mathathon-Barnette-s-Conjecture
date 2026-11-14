@@ -1,0 +1,5 @@
+cwd: proofs/sign-free/figures
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B make_figs.py
+exchange at 8 gamma [8, [8, 11, 12], 11, [4, 10, 11], 4, [3, 4, 9], 9, [8, 9, 10]]
+bad cover: covers 3 good states 12 rainbow inside 6144 q cycles [[5, 13, 14], [9, 12, 14]]
+orbit moved [2, 3, 9]

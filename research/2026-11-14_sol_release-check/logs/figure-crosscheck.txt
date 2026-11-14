@@ -1,0 +1,3 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B paper/figures/crosscheck_lab.py
+barnette_lab agrees: counts 12 8 2 ; P and the Hamiltonian cycle match

@@ -1,0 +1,7 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_astra_synthesis/audit.py
+Traceback (most recent call last):
+  File "E:\rc-sol-late\research\2026-11-14_astra_synthesis\audit.py", line 12, in <module>
+    assert 3500<=words<=5000,words
+           ^^^^^^^^^^^^^^^^^
+AssertionError: 5910

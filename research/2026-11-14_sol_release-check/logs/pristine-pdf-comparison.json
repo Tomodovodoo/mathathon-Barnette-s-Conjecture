@@ -1,0 +1,44 @@
+{
+  "paper/main/barnette.pdf": {
+    "committed_pages": 20,
+    "rebuilt_pages": 20,
+    "text_equal": true,
+    "diff_lines": 0
+  },
+  "proofs/primal/primal.pdf": {
+    "committed_pages": 15,
+    "rebuilt_pages": 15,
+    "text_equal": true,
+    "diff_lines": 0
+  },
+  "proofs/involutions/involutions.pdf": {
+    "committed_pages": 18,
+    "rebuilt_pages": 18,
+    "text_equal": true,
+    "diff_lines": 0
+  },
+  "digestions/atlas/atlas.pdf": {
+    "committed_pages": 34,
+    "rebuilt_pages": 34,
+    "text_equal": true,
+    "diff_lines": 0
+  },
+  "paper/figures/gallery.pdf": {
+    "committed_pages": 10,
+    "rebuilt_pages": 10,
+    "text_equal": true,
+    "diff_lines": 0
+  },
+  "paper/draft-A/barnette.pdf": {
+    "committed_pages": 11,
+    "rebuilt_pages": 11,
+    "text_equal": false,
+    "diff_lines": 145
+  },
+  "paper/draft-B/barnette.pdf": {
+    "committed_pages": 16,
+    "rebuilt_pages": 16,
+    "text_equal": false,
+    "diff_lines": 535
+  }
+}

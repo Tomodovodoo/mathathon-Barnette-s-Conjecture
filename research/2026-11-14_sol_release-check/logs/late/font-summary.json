@@ -1,0 +1,48 @@
+{
+  "digestions-atlas-atlas.pdf-fonts.txt": {
+    "font_rows": 138,
+    "nonembedded": [],
+    "type3": [
+      "F62                                  Type 3            Custom           yes no  no     612  0"
+    ]
+  },
+  "paper-draft-A-barnette.pdf-fonts.txt": {
+    "font_rows": 42,
+    "nonembedded": [],
+    "type3": []
+  },
+  "paper-draft-B-barnette.pdf-fonts.txt": {
+    "font_rows": 40,
+    "nonembedded": [],
+    "type3": []
+  },
+  "paper-figures-gallery.pdf-fonts.txt": {
+    "font_rows": 18,
+    "nonembedded": [],
+    "type3": []
+  },
+  "paper-main-barnette.pdf-fonts.txt": {
+    "font_rows": 58,
+    "nonembedded": [],
+    "type3": []
+  },
+  "proofs-involutions-involutions.pdf-fonts.txt": {
+    "font_rows": 22,
+    "nonembedded": [],
+    "type3": []
+  },
+  "proofs-primal-primal.pdf-fonts.txt": {
+    "font_rows": 23,
+    "nonembedded": [],
+    "type3": []
+  },
+  "proofs-sign-free-sign-free.pdf-fonts.txt": {
+    "font_rows": 23,
+    "nonembedded": [],
+    "type3": []
+  },
+  "atlas_type3_pdf_pages": [
+    1,
+    30
+  ]
+}

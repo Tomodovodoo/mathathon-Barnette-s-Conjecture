@@ -1,0 +1,103 @@
+[
+  {
+    "name": "blueprint-clone",
+    "command": [
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "--no-checkout",
+      "https://github.com/openai/math.git",
+      "research/2026-11-14_opus_blueprint/upstream/openai-math"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.82
+  },
+  {
+    "name": "blueprint-sparse",
+    "command": [
+      "git",
+      "-C",
+      "research/2026-11-14_opus_blueprint/upstream/openai-math",
+      "sparse-checkout",
+      "set",
+      "lean/OAI/Combinatorics/Hamiltonian",
+      "lean/ComparatorChallenges"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.03
+  },
+  {
+    "name": "blueprint-checkout",
+    "command": [
+      "git",
+      "-C",
+      "research/2026-11-14_opus_blueprint/upstream/openai-math",
+      "checkout",
+      "4eaee87548250b2682affda7d05d947c05554bae"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 1.67
+  },
+  {
+    "name": "blueprint-upstream-sigs",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-I",
+      "research/2026-11-14_opus_lean-integration/scripts/lean_sigs.py",
+      "research/2026-11-14_opus_blueprint/upstream/openai-math/lean/OAI/Combinatorics/Hamiltonian",
+      "research/2026-11-14_opus_lean-integration/data/lean-sigs-upstream.json"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.3
+  },
+  {
+    "name": "blueprint-device-sigs",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-I",
+      "research/2026-11-14_opus_lean-integration/scripts/lean_sigs.py",
+      "proofs/lean/Devices",
+      "research/2026-11-14_opus_lean-integration/data/lean-sigs-devices.json"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.05
+  },
+  {
+    "name": "blueprint-extract_tex",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-I",
+      "research/2026-11-14_opus_lean-integration/scripts/extract_tex.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.14
+  },
+  {
+    "name": "blueprint-build_blueprint",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-I",
+      "research/2026-11-14_opus_lean-integration/scripts/build_blueprint.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 1.93
+  },
+  {
+    "name": "blueprint-status_table",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-I",
+      "research/2026-11-14_opus_lean-integration/scripts/status_table.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 0.09
+  }
+]

@@ -1,0 +1,37 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B digestions/atlas/build.py
+figure 01-chain
+figure 02-pairs
+figure 03-disk
+figure 04-heights
+figure 05-sum
+figure 06-polynomial
+figure 07-involutions
+figure 08-recovery
+figure 09-primal
+figure 10-keystep
+figure 11-rowdep
+figure 12-determinant
+figure 13-dimers
+figure 14-lattice
+figure 15-pairlattice
+figure 16-canonical
+figure 17-matroids
+figure 18-lp
+figure 19-rainbow
+figure 20-random
+figure 21-trinity
+figure 22-cuts
+figure 23-induction
+figure 24-earlier
+figure 25-produced
+figure 26-families
+figure 27-hypotheses
+figure 28-pfaffian
+Traceback (most recent call last):
+  File "E:\rc-sol-1114\digestions\atlas\build.py", line 47, in <module>
+    body = lib.FIGS[slug]()
+  File "E:\rc-sol-1114\digestions\atlas\figs_proofs.py", line 257, in blueprint_fig
+    cat = {i: kind[node[i]['status']] for i in sk}
+              ~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'weaker'

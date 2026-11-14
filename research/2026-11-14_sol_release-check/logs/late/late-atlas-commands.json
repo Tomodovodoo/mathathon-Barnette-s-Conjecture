@@ -1,0 +1,28 @@
+[
+  {
+    "name": "atlas-build",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "digestions/atlas/build.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 61.11
+  },
+  {
+    "name": "atlas-verify",
+    "command": [
+      "C:\\Users\\Tom\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "digestions/atlas/verify.py"
+    ],
+    "cwd": ".",
+    "code": 0,
+    "seconds": 11.52
+  }
+]

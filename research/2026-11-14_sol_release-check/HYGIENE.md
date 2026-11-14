@@ -470,3 +470,12 @@ Every tracked research folder has REPORT.md. Seven folders are missing from the 
 - C9 closed: opus_blueprint/.gitignore now ignores upstream/. C10 closed: top README lists research and labyrinth. C11 partly open: seven missing folders listed above. C12 retained policy: local TeX ignores, no global suppression of computation logs.
 
 No research data, literature, render history or mathematical files were removed.
+
+
+## Later snapshot
+
+At b594509, the tracked snapshot has 3,336 files, 337,859,615 bytes, 105 duplicate groups and the same eight files above 5 MB. It includes this release check's earlier evidence, so raw path-location counts are not comparable to the first survey. Every research folder is indexed. The three missing reports are astra_final-proofread, opus_notes-proofread and sol_referee-sign-free, all with the 2026-11-14 prefix. Full locations are in logs/late/scan.json.
+
+Two further disposable build files are tracked under proofs/sign-free, sign-free.log and sign-free.out. Its verification log is a computation record. Shared commit 290e972 later untracked the three involution TeX artefacts, closing C1 after both tested snapshots. The release check did not remove those files.
+
+The PDF-specific pass inspected 174 initial and 175 later tracked PDFs, including metadata and extracted text, without OCR. Both passes found 77 personal-data candidate locations and no unreadable PDF. Locations only are in logs/pdf-personal-locations.json and logs/late/pdf-personal-locations.json.

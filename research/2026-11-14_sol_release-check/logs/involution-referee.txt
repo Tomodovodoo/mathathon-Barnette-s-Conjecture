@@ -1,0 +1,12 @@
+cwd: .
+command: C:\Users\Tom\AppData\Local\Programs\Python\Python314\python.exe -X utf8 -B research/2026-11-14_sol_involutions-revision/code/referee_rerun.py
+6 0.0
+7 0.0
+8 0.1
+9 0.3
+10 0.9
+11 2.4
+12 13.5
+13 28.7
+14 170.5
+objects 244240 above zeros 57

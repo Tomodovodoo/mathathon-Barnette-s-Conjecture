@@ -1,0 +1,3 @@
+cwd: .
+command: git clone --filter=blob:none --no-checkout https://github.com/openai/math.git research/2026-11-14_opus_blueprint/upstream/openai-math
+Cloning into 'research/2026-11-14_opus_blueprint/upstream/openai-math'...
