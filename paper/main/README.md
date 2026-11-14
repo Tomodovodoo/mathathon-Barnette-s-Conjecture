@@ -6,7 +6,7 @@ Run from this directory with MiKTeX or another TeX distribution on PATH:
 latexmk -pdf -interaction=nonstopmode -halt-on-error barnette.tex
 ```
 
-If `latexmk` stops at a MiKTeX update prompt, use the underlying tools directly:
+If `latexmk` cannot find Perl or stops at a MiKTeX update prompt, use the underlying tools directly:
 
 ```powershell
 pdflatex -interaction=nonstopmode -halt-on-error barnette.tex
