@@ -12,6 +12,24 @@ HERE=Path(__file__).resolve().parents[1]
 def check(name):
     d=json.loads((HERE/'data'/name).read_text())
     faces=d['faces_A']; roots=set(d['root']);N=d['V']; X=set(range(N))-roots
+    rotation={int(k):v for k,v in d['rotation'].items()}
+    walked=set();allfaces=[]
+    for a,ns in rotation.items():
+        assert len(ns)==len(set(ns)) and len(ns)%2==0 and len(ns)>=4
+        for b in ns:
+            assert a in rotation[b]
+            if (a,b) in walked:continue
+            f=[];x,y=a,b
+            while (x,y) not in walked:
+                walked.add((x,y));f.append(x)
+                z=rotation[y][(rotation[y].index(x)-1)%len(rotation[y])];x,y=y,z
+            assert (x,y)==(a,b) and len(f)==3
+            allfaces.append(frozenset(f))
+    assert len(allfaces)==2*N-4
+    black={frozenset(f) for f in faces}|{frozenset(roots)}
+    assert black<=set(allfaces) and len(black)==N-2
+    for a,ns in rotation.items():
+        for b in ns:assert sum(a in f and b in f for f in black)==1
     opts=[sorted(set(f)-roots) for f in faces]; order=sorted(range(len(faces)),key=lambda k:len(opts[k]))
     states=[];s=[None]*len(faces)
     def visit(k,used):
@@ -41,7 +59,7 @@ def check(name):
                 stack.extend((b,a) for b in adj[a] if b!=p)
             if len(roots&set(vertices))!=1:return False
         return True
-    rot={int(k):v for k,v in d.get('rotation',{}).items()}
+    rot=rotation
     # Independent potential integration from the submitted hfaces, whose darts
     # are checked against rotation at each vertex below.
     hf=d['hfaces']; left={}

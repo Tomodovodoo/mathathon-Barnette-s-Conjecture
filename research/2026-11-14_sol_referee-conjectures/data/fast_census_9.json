@@ -1,0 +1,12 @@
+{
+  "V": 9,
+  "graphs": 1,
+  "roots": 14,
+  "feasible": 8,
+  "factors": 8,
+  "pairs": 32,
+  "TM": 32,
+  "equality": 8,
+  "violations": 0,
+  "seconds": 0.0001066
+}

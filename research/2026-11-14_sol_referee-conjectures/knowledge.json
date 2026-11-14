@@ -1,0 +1,18 @@
+{
+  "scope": "Local referee map only; canonical programme map belongs to coordinator",
+  "nodes": [
+    {"id":"C2","kind":"conjecture","status":"refuted","tag":"REFUTED","evidence":"data/v18.json; data/census_18.json"},
+    {"id":"criterion","kind":"theorem","tier":"T2","status":"proved","review":{"state":"refereed","referee":"gpt-6.1-sol","human":"pending"},"tag":"PROVED-HERE","proof":"LATTICE-READING.md section 2"},
+    {"id":"R2","kind":"conjecture","status":"refuted","tag":"REFUTED","evidence":"data/R2_glued_V33.json; data/second_R2_glued_V33.json"},
+    {"id":"rigid-gluing","kind":"theorem","tier":"T2","status":"conditional proof on finite base certificate","review":{"state":"unreviewed"},"tag":"PROVED-HERE","proof":"LATTICE-READING.md section 6"},
+    {"id":"C1","kind":"conjecture","tier":"T5","status":"open","tag":"CONJECTURE","test":"Find a feasible rooted instance with TM < 2^c_min; independent exhaustive test through V=22 has no violation"},
+    {"id":"C3","kind":"conjecture","tier":"T5","status":"open","tag":"CONJECTURE","test":"Find a pair unable to reach k=0 using non-increasing D-swaps and Q-reversals; independent exhaustive test through V=16 has no violation"},
+    {"id":"direction-search","kind":"question","status":"open","tag":"GAP","obligation":"Find or rule out a tree direction in one fixed factor in polynomial time"},
+    {"id":"base-rank-shortcut","kind":"method","status":"refuted as proposed identification","tag":"REFUTED","lesson":"The summation domain has a Boolean direction fibre over every ideal; P alone does not determine the polynomial"}
+  ],
+  "edges": [
+    {"from":"rigid-gluing","to":"R2","type":"refutes"},
+    {"from":"criterion","to":"direction-search","type":"suggests"},
+    {"from":"rigid-gluing","to":"C1","type":"tests"}
+  ]
+}
