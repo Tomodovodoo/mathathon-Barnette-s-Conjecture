@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "meta": {
+    "title": "Pfaffian route"
+  },
+  "nodes": [
+    {
+      "id": "audit",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Corollary 7.2 follows at named-theorem boundary",
+      "statement": "Conditional on OpenAI 1.1 and GSW 4.16, Corollary 7.2 follows.",
+      "where": [
+        "GSW-CHAIN.md"
+      ],
+      "review": {
+        "state": "unreviewed"
+      }
+    },
+    {
+      "id": "surface",
+      "kind": "theorem",
+      "tier": "T2",
+      "status": "established",
+      "title": "Rooted surface cardinality obstruction",
+      "statement": "The domain exceeds the codomain by 2g.",
+      "where": [
+        "PROOFS.md"
+      ],
+      "review": {
+        "state": "unreviewed"
+      }
+    },
+    {
+      "id": "torus",
+      "kind": "evidence",
+      "tier": "T4",
+      "status": "computed",
+      "title": "Heawood root-free polynomial vanishes",
+      "statement": "All 24 state coefficients vanish.",
+      "evidence": [
+        "data/torus_signs.json"
+      ]
+    },
+    {
+      "id": "direct",
+      "kind": "question",
+      "tier": null,
+      "status": "open",
+      "title": "Direct nonplanar states proof",
+      "statement": "Find a sign and target retaining topology needed for connectedness.",
+      "next": "Test homology-sensitive weights on the saved Heawood embedding."
+    }
+  ]
+}

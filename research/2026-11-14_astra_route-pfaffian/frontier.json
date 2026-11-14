@@ -1,0 +1,54 @@
+{
+  "scope": "Named examples only; no exhaustive graph-order census",
+  "examples": [
+    {
+      "name": "cube",
+      "order": 8,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "hexagonal_prism",
+      "order": 12,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "heawood",
+      "order": 14,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "cube_trisum",
+      "order": 16,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "cube_cube_prism",
+      "order": 20,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "nested_trisum",
+      "order": 24,
+      "pfaffian": true,
+      "P4_verified": true,
+      "tier": "T4"
+    },
+    {
+      "name": "K33_control",
+      "order": 6,
+      "pfaffian": false,
+      "P4_verified": true,
+      "tier": "T4"
+    }
+  ]
+}

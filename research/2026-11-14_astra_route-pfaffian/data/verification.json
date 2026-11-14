@@ -1,0 +1,44 @@
+[
+  {
+    "name": "cube",
+    "dfs_hamiltonian_cycles": 6,
+    "covered_P4": 48,
+    "two_extendable": true
+  },
+  {
+    "name": "hexagonal_prism",
+    "dfs_hamiltonian_cycles": 8,
+    "covered_P4": 72,
+    "two_extendable": true
+  },
+  {
+    "name": "heawood",
+    "dfs_hamiltonian_cycles": 24,
+    "covered_P4": 84,
+    "two_extendable": true
+  },
+  {
+    "name": "cube_trisum",
+    "dfs_hamiltonian_cycles": 12,
+    "covered_P4": 96,
+    "two_extendable": true
+  },
+  {
+    "name": "cube_cube_prism",
+    "dfs_hamiltonian_cycles": 16,
+    "covered_P4": 120,
+    "two_extendable": true
+  },
+  {
+    "name": "nested_trisum",
+    "dfs_hamiltonian_cycles": 24,
+    "covered_P4": 144,
+    "two_extendable": true
+  },
+  {
+    "name": "K33_control",
+    "dfs_hamiltonian_cycles": 6,
+    "covered_P4": 36,
+    "two_extendable": true
+  }
+]
