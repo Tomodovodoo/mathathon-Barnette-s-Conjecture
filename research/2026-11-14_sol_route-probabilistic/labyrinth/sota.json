@@ -1,0 +1,106 @@
+{
+  "about": "Task-local handoff, not canonical project SOTA",
+  "groups": [
+    "Probability"
+  ],
+  "entries": [
+    {
+      "id": "th.mean",
+      "group": "Probability",
+      "cls": "Full-H mean obstruction",
+      "result": "No positive finite UST weighting has target expected degrees.",
+      "status": "T2 established unreviewed",
+      "kind": "proved",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "th.heightwalk",
+      "group": "Probability",
+      "cls": "Height-marked walk",
+      "result": "Conditional on height increments and minimality, two involutions reach a marked forest pair.",
+      "status": "T2 established unreviewed",
+      "kind": "proved",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "x.joint",
+      "group": "Probability",
+      "cls": "Joint M-convexity fails",
+      "result": "Bilinear endpoint substitution does not preserve Lorentzian support.",
+      "status": "None refuted unreviewed",
+      "kind": "refuted",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "x.zeros",
+      "group": "Probability",
+      "cls": "Root-location shortcuts fail",
+      "result": "Exact small factors refute real-rootedness and a unit-circle law.",
+      "status": "None refuted unreviewed",
+      "kind": "refuted",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "k.packing",
+      "group": "Probability",
+      "cls": "Pair support packs two trees",
+      "result": "Every white pair support partitions into two spanning trees.",
+      "status": "T5 open unreviewed",
+      "kind": "conjecture",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "ev.mixing",
+      "group": "Probability",
+      "cls": "Rare-set hitting",
+      "result": "Finite width-4 chains have increasing first-hit times despite state mixing.",
+      "status": "T4 computed unreviewed",
+      "kind": "computed",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    },
+    {
+      "id": "q.round",
+      "group": "Probability",
+      "cls": "Joint degree rounding",
+      "result": "Which disk-specific exchange rounds the fractional target?",
+      "status": "None open unreviewed",
+      "kind": "partial",
+      "refs": [
+        "../ROUTES.md"
+      ],
+      "lit": [],
+      "updated": "2026-11-14",
+      "previous": []
+    }
+  ]
+}
