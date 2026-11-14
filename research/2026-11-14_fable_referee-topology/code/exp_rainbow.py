@@ -24,7 +24,7 @@ from collections import Counter, deque
 from pathlib import Path
 
 import etri
-from rainbow import RB, climb, descend, random_walk
+from rainbow import RB, climb, descend, descend_walk, random_walk
 
 DATA = Path(__file__).resolve().parents[1] / 'data'
 
@@ -265,7 +265,7 @@ def trial(I, rng, starts=3, cap=20000):
         s = random_walk(rb, sig, 4 * rb.n, rng)
         if k > 0:
             s = climb(rb, s, rng, 30 * rb.n)
-        res = descend(rb, s, cap)
+        res = descend(rb, s, cap) if rb.n <= 22 else descend_walk(rb, s, rng)
         res['kind'] = 'random' if k == 0 else 'climbed'
         if res['ok']:
             st = tuple(res['sigma'][x] for x in rb.X)

@@ -1,0 +1,56 @@
+{
+ "command": "python research/2026-11-14_fable_referee-topology/code/exp_rainbow.py exist 16",
+ "result": {
+  "vmax": 16,
+  "counts": {
+   "instances": 7868,
+   "pair": 5088,
+   "point_rainbow": 5088,
+   "face_rainbow": 7868,
+   "pair_iff_point_rainbow": 7868,
+   "pair_iff_no_black_inner": 7868
+  },
+  "per_V": {
+   "6": {
+    "instances": 8,
+    "pair": 8
+   },
+   "8": {
+    "instances": 12,
+    "pair": 12
+   },
+   "9": {
+    "instances": 14,
+    "pair": 8
+   },
+   "10": {
+    "instances": 32,
+    "pair": 32
+   },
+   "11": {
+    "instances": 36,
+    "pair": 28
+   },
+   "12": {
+    "instances": 160,
+    "pair": 120
+   },
+   "13": {
+    "instances": 176,
+    "pair": 126
+   },
+   "14": {
+    "instances": 768,
+    "pair": 546
+   },
+   "15": {
+    "instances": 1482,
+    "pair": 914
+   },
+   "16": {
+    "instances": 5180,
+    "pair": 3294
+   }
+  }
+ }
+}

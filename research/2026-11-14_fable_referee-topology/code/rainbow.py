@@ -283,3 +283,52 @@ def descend(rb, sigma, cap=20000):
         sigma, depth = found
         steps += depth
         max_depth = max(max_depth, depth)
+
+
+def descend_walk(rb, sigma, rng, max_steps=4000):
+    """Descent for large instances: take a decreasing move when one exists, otherwise a uniformly
+    random plateau move. Never increases the excess. Returns the same record as descend()."""
+    X = rb.X
+    sigma = dict(sigma)
+    load = rb.load(sigma)
+    exc0 = exc = sum(abs(v - 1) for v in load.values())
+    steps = 0
+    since = 0
+    max_wait = 0
+    while exc > 0:
+        if since > max_steps:
+            return {'ok': False, 'stuck': 'cap', 'excess': exc, 'plateau': since, 'steps': steps, 'start_excess': exc0, 'sigma': sigma}
+        flat = []
+        done = False
+        # only points in a load-2 face, or with a load-0 face among their black faces, can make a non-increasing move
+        order = X[:]
+        rng.shuffle(order)
+        for x in order:
+            t = sigma[x]
+            if load[t] != 2 and not any(load.get(tt, 1) == 0 for (tt, _, _) in rb.opt[x]):
+                continue
+            (t2,) = rb.move_target(sigma, x)
+            d = (abs(load[t] - 2) - abs(load[t] - 1)) + (abs(load[t2]) - abs(load[t2] - 1))
+            if d < 0:
+                sigma[x] = t2
+                load[t] -= 1
+                load[t2] += 1
+                exc += d
+                steps += 1
+                max_wait = max(max_wait, since)
+                since = 0
+                done = True
+                break
+            if d == 0:
+                flat.append((x, t, t2))
+        if done:
+            continue
+        if not flat:
+            return {'ok': False, 'stuck': 'closed', 'excess': exc, 'plateau': 1, 'steps': steps, 'start_excess': exc0, 'sigma': sigma}
+        x, t, t2 = rng.choice(flat)
+        sigma[x] = t2
+        load[t] -= 1
+        load[t2] += 1
+        steps += 1
+        since += 1
+    return {'ok': True, 'steps': steps, 'max_plateau': max_wait, 'max_depth': max_wait, 'start_excess': exc0, 'sigma': sigma}
