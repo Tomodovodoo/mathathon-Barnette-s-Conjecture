@@ -1073,12 +1073,9 @@ The argument above prescribes only an avoided edge, and the gluing needs exactly
 The Pfaffian consequence uses a universal equivalence: it passes from the planar theorem to cubic Pfaffian braces through trisums, then to general cubic $3$-connected bipartite Pfaffian graphs through tight-cut decompositions, as proved in \cite[Theorem~4.16]{Gorsky2023}.
 
 OpenAI's accompanying Lean formalisation gives a machine-checked proof of Barnette's conjecture \cite{OpenAI2026b}.
-It uses a different route through algebraic duality and does not formally verify every statement or proof in this exposition, including the two-induced-trees statement of Proposition~\ref{prop:target}(2).
-The sign and finite-difference route of Section~\ref{sec:pairs} has also been checked in Lean on top of that development, in its algebraic model.
-The check covers the local sign with both reversals and the formula of Lemma~\ref{lem:sign}, the cancellation of Lemma~\ref{lem:cancel} for a second state whose opposite sides contain a cycle, the addition of the steps $L(C)$ in Lemma~\ref{lem:height} for any weight that is a sum of local terms, Lemma~\ref{lem:difference}, and the step of Proposition~\ref{prop:good} from a pair to a pair whose second state has acyclic opposite sides.
+It argues through algebraic duality rather than a drawing, does not check this exposition statement by statement, and has no counterpart of Lemma~\ref{lem:connected} or of Proposition~\ref{prop:target}(2).
+On top of it, in its algebraic model, Lemmas~\ref{lem:sign} and~\ref{lem:difference}, the case of Lemma~\ref{lem:cancel} that Proposition~\ref{prop:good} uses, and Proposition~\ref{prop:good} itself have been checked in Lean by the argument given here, with the formalisation's flow weights in place of the heights of Section~\ref{sec:pairs}.
 With these in place of the complex phase and the polynomial of OpenAI's nonvanishing argument, their main theorem compiles unchanged.
-The heights are represented there by a flow.
-The weight is the one that OpenAI's development builds from a flow, and the heights along paths of faces of Section~\ref{sec:pairs} are not formalised.
 The Lean files accompany this paper in the same repository, in the folder \texttt{proofs/lean}.
 
 Two unpublished notes accompany this paper in the same repository.
