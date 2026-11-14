@@ -11,16 +11,15 @@
 \definecolor{rorange}{RGB}{213,94,0}
 \definecolor{ygreen}{RGB}{0,158,115}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
 \numberwithin{equation}{section}
+\newtheorem{theorem}[equation]{Theorem}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{lemma}[equation]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{example}[equation]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[equation]{Remark}
 
 \newcommand{\T}{T}
 \newcommand{\eps}{\varepsilon}
@@ -61,7 +60,8 @@ Then $G$ has a Hamiltonian cycle that does not contain $e$.
 \end{theorem}
 
 The edge $e$ is there for the induction in Section~\ref{sec:glue}.
-That this stronger statement is equivalent to the conjecture was known before; see Hertel's survey \cite{hertel2005} and the account of Kelmans' work in \cite{apsw2016}.
+Here a graph is $3$-connected if it has at least four vertices and stays connected after deleting any two of them.
+That the stronger statement is equivalent to the conjecture was known before; see Hertel's survey \cite{hertel2005}.
 
 \subsection*{Degree two is easy; connectivity is the problem}
 In a cubic graph, deleting a perfect matching leaves every vertex with exactly two edges, and cubic bipartite graphs have perfect matchings by Hall's theorem.
@@ -85,7 +85,7 @@ A perfect matching of $G$ is a set of edges of $\T$ containing exactly one side 
 \item Fix a black triangle $t_0$ with an edge $e_0$.
 An acyclic set as in step 1 assigns to every other black triangle one of its corners, using every vertex not on $t_0$ once.
 Conversely, such a corner choice yields an acyclic set whenever the sides opposite the chosen corners form a forest with one corner of $t_0$ in each component.
-Acyclicity here comes from a single count: a cycle made of edges leaving chosen corners encloses one more white triangle than black (Section~\ref{sec:corners}).
+Acyclicity comes from a single count. A cycle made of edges leaving chosen corners encloses one more white triangle than black (Section~\ref{sec:corners}).
 \item A second corner choice, disjoint from the first, orients the opposite sides and turns the condition of step 2 into ``no cycle''.
 Counting such pairs with a sign, the pairs that fail cancel in twos, while a regrouping by the cycles along which the two choices differ shows that the total is not zero (Section~\ref{sec:pairs}).
 \item One pair is needed to start. A flow argument provides it unless $\T$ has a separating triangle (Section~\ref{sec:flow}), and separating triangles are removed by cutting $\T$ into two smaller triangulations whose solutions agree along the prescribed edge (Section~\ref{sec:glue}).
@@ -104,12 +104,14 @@ This is an exposition of OpenAI's proof \cite{openai2026}.
 The objects (pairs of states, the opposite sides $Q_s$, the cycles $\Dc(r,s)$, the disk identity, the cancellation for a fixed second state, the regrouping by cycles, the flow argument and the gluing) are all theirs.
 From Li \cite{li2026} we take the point that the complex exponential sum can be replaced by a finite signed count.
 From the constructive paper \cite{constructive2026} we take the real sign $\eps=(-1)^{(n+J)/2}$, the outdegree description of partners (our Lemma~\ref{lem:partner}) and the formulation of the target as a forest with one root in each component.
-The following simplifications were found in unpublished notes written during a collaborative reading of the three papers; we checked each one and give complete proofs.
-The disk identity in the form ``one more white face than black'' (Lemma~\ref{lem:disk}).
-The four-line acyclicity proof of Proposition~\ref{prop:recover}.
-The observation that every acyclic selection comes from a corner choice (Lemma~\ref{lem:selections-give-states}).
-Heights at white faces in place of the circulation lemma of \cite{openai2026}, which removes the exponential sum and the complex phase (Lemma~\ref{lem:height}).
-The finite-difference form of the nonvanishing argument (Lemma~\ref{lem:difference}) comes from the same notes; we apply it to the weight $\omega^m$ that all three papers use.
+The following simplifications were found in unpublished notes written during a collaborative reading of the three papers; we checked each one and give complete proofs:
+\begin{itemize}
+\item the disk identity in the form ``one more white face than black'' (Lemma~\ref{lem:disk});
+\item the short acyclicity proof of Proposition~\ref{prop:recover};
+\item the observation that every acyclic selection comes from a corner choice (Lemma~\ref{lem:selections-give-states});
+\item heights at white faces in place of the circulation lemma of \cite{openai2026}, which removes the exponential sum and the complex phase (Lemma~\ref{lem:height});
+\item the finite-difference form of the nonvanishing argument (Lemma~\ref{lem:difference}), which we apply to the weight $\omega^m$ that all three papers use.
+\end{itemize}
 Two smaller changes are ours: we obtain the tree of faces $Y_s$ of Lemma~\ref{lem:Y} directly from $Q_s$ by duality in $\T$ (in $G$ it is Li's ``black dual trace'' \cite[Section~6]{li2026} with one extra leaf), and a winding-number argument replaces the sliding of edges onto spokes in \cite[Section~5.3]{openai2026}.
 Tutte introduced the corner choices we call states in his theory of trinity \cite{tutte1975}; see also \cite{hine-kalman2018}.
 
@@ -134,7 +136,7 @@ Then $\T$ is a simple graph with at least four vertices, every face of $\T$ is b
 
 \begin{proof}
 First, $G$ has no set of at most two edges whose removal separates two nonempty vertex sets $U$ and $V(G)\setminus U$.
-Indeed, a single vertex has three edges leaving it, and two vertices have at least four, so $|U|\ge 3$ and $|V(G)\setminus U|\ge3$.
+A single vertex has three edges leaving it, and two vertices have at least four, so $|U|\ge 3$ and $|V(G)\setminus U|\ge3$.
 Deleting the at most two endpoints of the cut edges that lie in $U$ leaves a nonempty part of $U$ with no edge to $V(G)\setminus U$, contradicting 3-connectivity.
 
 A loop of $\T$, or two edges of $\T$ joining the same two vertices, is a closed curve that meets $G$ only in one or two crossing points with edges of $G$.
@@ -194,7 +196,7 @@ Call an edge of $M$ a \emph{boundary edge} if one of its faces is in $\Phi$ and 
 A boundary edge lies in $S$, since otherwise the edge of $M^*$ crossing it would join $\Phi$ to a face outside $\Phi$.
 Going around a vertex $v$, edges and faces alternate, and an edge at $v$ is a boundary edge exactly when the faces before and after it differ in membership of $\Phi$.
 Membership changes an even number of times around a circle, so every vertex meets an even number of boundary edges.
-There is at least one boundary edge: otherwise all faces around each vertex would agree, the two ends of every edge would agree because they share the faces of that edge, and connectivity of $M$ would put all faces in $\Phi$ or none in $\Phi$.
+There is at least one boundary edge. Otherwise all faces around each vertex would agree, the two ends of every edge would agree because they share the faces of that edge, and connectivity of $M$ would put all faces in $\Phi$ or none in $\Phi$.
 A nonempty set of edges with all degrees even contains a cycle, and this cycle lies in $S$.
 
 If $S$ is a spanning tree, then $M^*-S^*$ is connected and has $|E(M)|-|V(M)|+1=|F(M)|-1$ edges by Euler's formula, so it is a spanning tree of $M^*$.
@@ -378,7 +380,7 @@ Let $r$ be a state, and suppose that in every face $t\in A$ we have chosen one o
 We call these the \emph{chosen sides}.
 Let $Z$ be a directed cycle of chosen sides, of length $h$.
 Every vertex of $Z$ has an outgoing chosen side, so it is a vertex $r(t)$ and not a root.
-The roots lie on the boundary of the outer face, so none of them lies inside $Z$ either.
+Every face of $\T$ lies inside or outside $Z$, and the outer face lies outside; the roots lie on its boundary, so none of them lies inside $Z$ either.
 Hence every face inside $Z$ is bounded, and every black face inside $Z$ is in $A$.
 Let $B$ and $W$ be the numbers of black and white faces inside $Z$, let $I$ be the number of vertices strictly inside, and let $\ell$ be the number of edges of $Z$ whose black face is inside.
 
@@ -389,8 +391,8 @@ In particular $h$ is odd and $Z$ encloses at least one white face.
 
 \begin{proof}
 Two of the three counts hold for every cycle of $\T$.
-Euler's formula for the plane graph formed by $Z$ and everything inside it has $I+h$ vertices, $B+W+1$ faces and $(3(B+W)+h)/2$ edges, since each inner face has three sides and only the edges of $Z$ lie on a single inner face.
-Signed side counting gives the second equation: count each side of an inner face with $+1$ if the face is black and $-1$ if white; an edge strictly inside contributes $+1-1$, and an edge of $Z$ contributes $+1$ or $-1$ according to its inner face.
+The first is Euler's formula for the plane graph formed by $Z$ and everything inside it, which has $I+h$ vertices, $B+W+1$ faces and $(3(B+W)+h)/2$ edges, since each inner face has three sides and only the edges of $Z$ lie on a single inner face.
+For the second, count each side of an inner face with $+1$ if the face is black and $-1$ if white; an edge strictly inside contributes $+1-1$, and an edge of $Z$ contributes $+1$ or $-1$ according to its inner face.
 Thus
 \[
 B+W=2I+h-2,\qquad 3(B-W)=2\ell-h .
@@ -447,7 +449,7 @@ The edge $e_0=ab$ joins the components of $a$ and $b$, so $P_s=P_0\cup\{e_0\}$ i
 The last sentence follows from Proposition~\ref{prop:target}(1).
 \end{proof}
 
-In words: a cycle of chosen sides encloses one more white face than black, but a selection running along it would force three more.
+In words, a cycle of chosen sides encloses one more white face than black, but a selection running along it would force three more.
 
 \begin{example}\label{ex:recover}
 In the example, $t_0=\{0,4,5\}$, $e_0=\{0,4\}$ and $c=5$.
@@ -459,8 +461,10 @@ All six good states of the example give acyclic selections in this way, and they
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[x=0.04\textwidth,y=0.04\textwidth]\input{\FIG fig-recover-a}\end{tikzpicture}\hfill
-\begin{tikzpicture}[x=0.04\textwidth,y=0.04\textwidth]\input{\FIG fig-recover-b}\end{tikzpicture}
+\begin{tikzpicture}[x=0.04\textwidth,y=0.04\textwidth]\input{\FIG fig-recover-a}
+\node[font=\footnotesize] at (0,-6.6) {(a) the spanning tree $S_s$ and the tree $Y_s$};\end{tikzpicture}\hfill
+\begin{tikzpicture}[x=0.04\textwidth,y=0.04\textwidth]\input{\FIG fig-recover-b}
+\node[font=\footnotesize] at (0,-6.6) {(b) the selection $P_s$};\end{tikzpicture}
 \caption{Recovery from the good state of Figure~\ref{fig:Q}(b) (solid wedges). (a) The bold edges are $S_s$: the forest $Q_s$ and the two root sides other than $e_0$, here the left and right arcs. It is a spanning tree of $\T$. The dash-dotted tree $Y_s$ joins the faces across the remaining edges (squares black faces, circles white faces); $t_0$ is the leaf below the disk. (b) Rooting $Y_s$ at $t_0$, each black face selects the side it shares with its child (arrows). The bold selection $P_s$ contains $e_0$, the bottom arc, and has no cycle.}
 \label{fig:recover}
 \end{figure}
@@ -625,10 +629,10 @@ Figure~\ref{fig:cancel} shows the one cancelling pair of the example.
 \end{figure}
 
 \subsection*{Heights}
-Lemma~\ref{lem:cancel} turns the search for a good state into a question: is there a function $F$ of the second state for which $\sum_{(r,s)}\eps(r,s)F(s)\neq0$?
-With $F=1$ the answer is no: reversing the cycle of $\Dc(r,s)$ through a fixed vertex pairs every pair with one of opposite sign.
+Lemma~\ref{lem:cancel} turns the search for a good state into a question. Is there a function $F$ of the second state for which $\sum_{(r,s)}\eps(r,s)F(s)\neq0$?
+With $F=1$ the answer is no, since reversing the cycle of $\Dc(r,s)$ through a fixed vertex pairs every pair with one of opposite sign.
 To break that symmetry, $F$ must distinguish the two orientations of a cycle of $\Dc$.
-The disk identity offers a way: every such cycle encloses a white face.
+The disk identity offers a way, because every such cycle encloses a white face.
 We measure, for each white face, how often the chosen corners of $s$ wind around it.
 
 Place a point $c_t$ inside each face $t\in A$ and call the segments from $c_t$ to the corners of $t$ \emph{spokes}; we draw the corner $(t,v)$ as the spoke $c_t v$, directed from $c_t$ to $v$.
@@ -694,7 +698,7 @@ By Lemma~\ref{lem:cancel} it is a sum over good states, so it suffices to show $
 Group the pairs by the undirected edge set of $\Dc(r,s)$.
 Fix a pair $(r,s)$ whose $\Dc$ has cycles $C_1,\dots,C_c$, and consider any pair $(r',s')$ with the same undirected edges.
 In each face $t$ it has $(r'(t),s'(t))=(r(t),s(t))$ or $(s(t),r(t))$.
-Along a cycle, consecutive faces make the same choice: if exactly one of the two edges at a vertex $x$ were reversed, then $x$ would be the value of $r'$, or of $s'$, at two different faces.
+Along a cycle, consecutive faces make the same choice, since if exactly one of the two edges at a vertex $x$ were reversed, then $x$ would be the value of $r'$, or of $s'$, at two different faces.
 So the group of $(r,s)$ consists of the $2^c$ pairs obtained by reversing some of its cycles, and these are pairs by Lemma~\ref{lem:reversals}(2).
 Index them by $x\in\{0,1\}^c$, with $x_i=1$ when $C_i$ runs counterclockwise.
 By Lemma~\ref{lem:sign}, $J=c-2(x_1+\dots+x_c)$, so $\eps=(-1)^{(n+c)/2}(-1)^{x_1+\dots+x_c}$.
@@ -712,7 +716,7 @@ So
 the sum running over the undirected cycle covers with $m$ cycles.
 \end{proof}
 
-The minimum $m$ cannot be dropped: a group with $c$ cycles contributes with the sign $(-1)^{(n-c)/2}$ in its leading term, and this sign alternates as $c$ grows by two.
+The minimum $m$ cannot be dropped. A group with $c$ cycles contributes with the sign $(-1)^{(n-c)/2}$ in its leading term, and this sign alternates as $c$ grows by two.
 Only the groups with the fewest cycles are guaranteed to agree.
 
 \begin{example}\label{ex:count}
@@ -742,7 +746,7 @@ The argument is not constructive; algorithms are discussed in \cite{constructive
 
 Proposition~\ref{prop:good} needs one pair.
 Let $\mathcal{B}$ be the bipartite graph on $A\cup X$ in which $t$ is joined to its corners in $X$.
-States are the perfect matchings of $\mathcal{B}$, and a pair is the same as a spanning subgraph of $\mathcal{B}$ in which every vertex has degree two: such a subgraph is a union of disjoint even cycles, and taking alternate edges along each cycle splits it into two disjoint perfect matchings.
+States are the perfect matchings of $\mathcal{B}$, and a pair is the same as a spanning subgraph of $\mathcal{B}$ in which every vertex has degree two. Such a subgraph is a union of disjoint even cycles, and taking alternate edges along each cycle splits it into two disjoint perfect matchings.
 
 Give the edges of a network capacity $2$ from a source to each $x\in X$, capacity $1$ from $x$ to each face $t\in A$ with corner $x$, and capacity $2$ from each $t\in A$ to a sink.
 An integral flow of value $2n=2|X|=2|A|$ saturates every source and sink edge, and the incidences carrying flow form the required subgraph.
@@ -770,7 +774,7 @@ e(U)-b(U)\ \le\ 2|U|-4 .
 The corners of a black face with all corners in $U$ are pairwise adjacent, so they lie in one component of the graph $\T[U]$ formed by the edges with both ends in $U$.
 It is therefore enough to show, for each component $K$ with $p$ vertices, $m_K$ edges and $b_K$ black faces of $\T$ with all corners in $K$, that $m_K-b_K\le 2p-4$ for the component containing the roots and $m_K-b_K\le 2p$ for the others; summing gives \eqref{eq:density}.
 
-Small components are immediate: for $p\le3$ we have $m_K\le p(p-1)/2\le 2p$.
+Small components are immediate, since for $p\le3$ we have $m_K\le p(p-1)/2\le 2p$.
 If the root component has $p=3$, it is the triangle $abc$ with $m_K=3$, and $b_K=1$: a second face with corners $a,b,c$ would contain the same three edges, which already lie on $t_0$ and one other face each, so the cycle $abc$ would bound two faces and $\T$ would have only three vertices.
 Then $m_K-b_K=2=2p-4$.
 
@@ -798,7 +802,7 @@ With Euler's formula $p-m_K+f=2$ this gives $m_K-b\le 2p-4$.
 \end{proof}
 
 The hypothesis entered only to show that a face of $K$ of length three is a face of $\T$.
-The constructive paper \cite{constructive2026} sharpens this: a pair exists exactly when no separating triangle has black faces along all three of its sides on the side away from $t_0$.
+The constructive paper \cite{constructive2026} sharpens this. A pair exists exactly when no separating triangle has black faces along all three of its sides on the side away from $t_0$.
 We do not need this, because Section~\ref{sec:glue} removes all separating triangles.
 
 \section{Separating triangles}\label{sec:glue}
@@ -899,7 +903,7 @@ It is not needed for Hamiltonicity of a triangulation without separating triangl
 Proposition~\ref{prop:recover} turns good states into Hamiltonian cycles avoiding the edge crossing $e_0$, and different good states give different cycles, since Lemma~\ref{lem:selections-give-states} recovers $s$ from $P_s$.
 In the example all six such cycles arise.
 For the hexagonal prism, whose dual is the hexagonal bipyramid, a direct check with a black face as $t_0$ gives three states, two of them good, and four Hamiltonian cycles avoiding the edge; so the map is not onto in general.
-The state that Lemma~\ref{lem:selections-give-states} assigns to the other two cycles has no partner.
+Lemma~\ref{lem:selections-give-states} assigns the same state to both of the other two cycles, and that state has no partner.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}

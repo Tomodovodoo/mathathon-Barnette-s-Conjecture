@@ -68,3 +68,37 @@ def dfs(path, used):
             used.add(w); path.append(w); dfs(path, used); path.pop(); used.discard(w)
 dfs([t0], {t0})
 print('n =', n, 'states', len(states), 'pairs', len(pairs), 'good states', len(good), 'Hamiltonian cycles avoiding e0*', len(found))
+
+# the state assigned to each avoiding cycle (Lemma 3.1 of the draft) and whether it has a partner
+e0 = (0, 1)
+a, b = e0
+for cyc in found:
+    Pstar = {frozenset(x) for x in [tuple(sorted(e)) for e in E]}
+    # edges of T crossed by the cycle
+    crossed = set()
+    for gedge in cyc:
+        i, k = tuple(gedge)
+        (e,) = [tuple(sorted(x)) for x in left if left[x] == i and left[(x[1], x[0])] == k]
+        crossed.add(e)
+    P = [e for e in E if e not in crossed]
+    P0 = [e for e in P if e != tuple(sorted(e0))]
+    # orient P0 towards the roots
+    adj = {v: [] for v in range(8)}
+    for x, y in P0:
+        adj[x].append(y); adj[y].append(x)
+    parent = {}
+    for rt in roots:
+        parent[rt] = None
+        st = [rt]
+        while st:
+            v = st.pop()
+            for w in adj[v]:
+                if w not in parent:
+                    parent[w] = v; st.append(w)
+    s = {}
+    for t in A:
+        (e,) = [e for e in P0 if set(e) <= set(F[t])]
+        tail = e[0] if parent.get(e[0]) == e[1] else e[1]
+        s[t] = tail
+    has_partner = any(all(r[t] != s[t] for t in A) for r in states)
+    print('cycle state', [s[t] for t in A], 'good' if s in good else 'not good', 'partner' if has_partner else 'no partner')
