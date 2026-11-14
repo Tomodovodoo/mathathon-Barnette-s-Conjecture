@@ -1,0 +1,2241 @@
+                                                  HYPERGRAPH POLYNOMIALS AND THE BERNARDI
+                                                                  PROCESS
+arXiv:1810.00812v3 [math.CO] 29 Dec 2020
+
+
+
+
+                                                                  TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+                                                    Abstract. Bernardi gave a formula for the Tutte polynomial T (x, y) of a
+                                                    graph, based on spanning trees and activities just like the original definition,
+                                                    but using a fixed ribbon structure to order the set of edges in a different
+                                                    way for each tree. The interior polynomial I is a generalization of T (x, 1)
+                                                    to hypergraphs. We supply a Bernardi-type description of I using a ribbon
+                                                    structure on the underlying bipartite graph G. Our formula works because
+                                                    it is determined by the Ehrhart polynomial of the root polytope of G in the
+                                                    same way as I is. To prove this we interpret the Bernardi process as a way
+                                                    of dissecting the root polytope into simplices, along with a shelling order. We
+                                                    also show that our generalized Bernardi process gives a common extension of
+                                                    bijections (and their inverses), constructed by Bernardi and further studied by
+                                                    Baker and Wang, between spanning trees and break divisors.
+
+
+
+
+                                                                                1. Introduction
+                                               A few years ago a pair of polynomial invariants of hypergraphs was introduced
+                                           [9], which generalize the valuations T (x, 1) and T (1, y) of the two-variable graph
+                                           invariant T (x, y) due to Tutte [16]. They are called the interior and exterior poly-
+                                           nomials because they are generating functions of ‘interior and exterior activity.’ In
+                                           the case of graphs, activities were associated to spanning trees by Tutte himself in
+                                           his original definiton of T . In the hypergraph case, instead of spanning trees one
+                                           considers ‘hypertrees’ and their activities, in a spirit very close to [16]. Hypertrees
+                                           were introduced in [14] (and so named in [9]). They generalize characteristic vectors
+                                           of spanning trees of a graph, preserving some nice polyhedral properties.
+                                               Both for graphs and hypergraphs, the computation of individual activities re-
+                                           quires fixing an order of the set of edges or hyperedges, respectively, albeit tem-
+                                           porarily, because the aggregate polynomials do not depend on it. See Definition
+                                           2.3. In his remarkable paper [3], O. Bernardi removed the fixed order from the
+                                           definition (in the case of graphs) and replaced it with another kind of auxiliary
+                                           data: a ribbon structure and a base point. Loosely speaking, for a given spanning
+                                           tree, he traced the boundary of the neighborhood of the tree and numbered the
+                                           edges of the graph along the way. He used this order to compute the internal and
+                                           external activities of the tree. He repeated this for all spanning trees and organized
+
+                                              Date: January 1, 2021.
+                                              2010 Mathematics Subject Classification. 05C10, 05C31, 05C50, 05C57, 05C65.
+                                              Key words and phrases. hypergraph, bipartite graph, ribbon structure, Tutte polynomial,
+                                           interior polynomial, embedding activity, root polytope, dissection, shelling order, h-vector.
+                                              TK was supported by consecutive Japan Society for the Promotion of Science (JSPS) Grant-
+                                           in-Aids, for Young Scientists B (no. 25800037) and for Scientific Research C (no. 17K05244).
+                                              LT was supported by the National Research, Development and Innovation Office – NKFIH,
+                                           grant no. 109240, and by the NSF grant DMS-14552.
+                                                                                           1
+2                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+the information in a two-variable generating function which happens to satisfy the
+same deletion-contraction formulas as the Tutte polynomial — hence the two agree,
+regardless of what ribbon structure we use.
+    In this paper we extend Bernardi’s work to the case of the interior polynomial
+of a hypergraph. A similar formula is conjectured for the exterior polynomial.
+    Any hypergraph H = (V, E) naturally yields a bipartite graph Bip H in which
+one color class corresponds to the vertices of the hypergraph, the other color class
+to the hyperedges, and edges correspond to containment. We assume Bip H to be
+connected and endow it with a ribbon structure and a base point. (The base point
+can be thought of as a boundary point of the thickened graph.)
+    A hypertree is essentially a ‘possible degree distribution vector’ of a spanning
+tree of Bip H taken at the elements of E, cf. Definition 2.2. We note that hypertrees
+of ordinary graphs are exactly the characteristic functions of their spanning trees.
+    Our first order of business is to define what it means to ‘trace the boundary of
+the neighborhood of a hypertree,’ which turns out to be a process constructing a
+certain spanning tree that realizes the hypertree. In fact we define two versions of
+such a ‘Bernardi process.’ Contrary to the case of graphs, the fact that the Bernardi
+process results in a tree is not trivial at all. As a byproduct, we also obtain an order
+on the set of edges of Bip H which we then use to order E as well. Now it makes
+sense to take the interior and exterior activities, just like in [9], of the hypertree
+with respect to this order. After repeating the procedure for all hypertrees, we write
+two one-variable generating functions I˜ and X̃ for the two ‘embedding activities.’
+(As to why not a single, two-variable function, see [9, Remark 5.7], cf. [5]. There
+is in fact some new development on this issue [4], which we hope to incorporate in
+future work.)
+    The main result of the paper is that the generating function I˜ of internal
+embedding activities coincides with the interior polynomial. The interior
+and exterior polynomials of a hypergraph, I and X, look similar to each other but
+their behavior is rather different. For instance, the former is invariant under taking
+the transpose of the hypergraph but the latter is not. (Here the transpose of the
+hypergraph H = (V, E) is the hypergraph H = (E, V ) with the roles of vertices and
+hyperedges interchanged.) In other words, I is an invariant of the bipartite graph
+Bip H. This fact is proven in [11] by noting that (essentially) the same polynomial
+may be obtained as the Ehrhart polynomial of the so called root polytope of Bip H.
+This depends, among other things, on the basic observation that spanning trees of
+a bipartite graph correspond to maximal simplices in its root polytope. We exploit
+the same connection to prove our main theorem. Since we do not have an analogous
+description for the exterior polynomial, the exterior version of our result remains,
+for the time being, a conjecture.
+    The notion of root polytope (Definition 3.1) is due to Hibi and Ohsugi [13].
+Postnikov [14] discovered it independently and studied its triangulations to great
+effect. A consequence of our proof is an unexpected link between Bernardi’s and
+Postnikov’s work: when the Bernardi trees for all hypertrees are translated
+to simplices in the root polytope, they form a dissection. (I.e., the simplices
+fill the polytope and their interiors are mutually disjoint. They typically do not form
+a triangulation though, cf. Examples 8.1 and 8.2 — that is, some pairs of simplices
+may not intersect in a common face.) In Section 8 we will see that this generalizes
+the well-known triangulation of the product of two simplices by non-crossing trees.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                        3
+
+
+   We get an alternative description of the dissection by reinterpreting Bernardi
+trees as ‘Jaeger trees,’ in honor of F. Jaeger’s beautiful paper [8] in which they
+appear as the main terms in a certain expansion of the Homfly polynomial. (The
+overlap between Jaeger’s cases and ours is when Bip H is embedded in the plane so
+that the so called median construction can be performed, resulting in a (typically
+non-planar) ribbon structure for the graph, as well as in an alternating link. See
+Figures 2 and 9.) This description does not refer to hypertrees, instead Jaeger trees
+are defined by a simple local rule that is obeyed when we trace the boundaries of
+their neighborhoods. This also leads to the definition of a natural order among
+Bernardi/Jaeger trees and we prove, as a key step to our main theorem, that this
+order is a shelling order of the dissection.
+   If f : E → Z≥0 is a hypertree in H, we may view the ‘other’ degree vector of its
+Bernardi tree as a hypertree f̄ : V → Z≥0 in H. The dissection property, just like
+in [14], implies that this is a bijection between the two sets of hypertrees. In the
+case of graphs, hypertrees on the vertex set are easily seen to be the duals of the so
+called break divisors. In this special case, the above bijection-by-dissection agrees
+with the bijection between spanning trees and break divisors, defined by Bernardi
+[3] and studied further by Baker and Wang [1]. In [1] the inverse of Bernardi’s
+bijection is described in a way that is formally different from the original Bernardi
+algorithm. In hypergraph language (where the transpose is an obvious involution
+and transpose hypergraphs share the same bipartite graph and root polytope), the
+bijection and its inverse are revealed to be of the same nature, defined
+by the same dissection.
+   Finally, we note that our family of dissections of the root polytope (depending on
+ribbon structure and base point) contains several previously known triangulations.
+Namely, in addition to the triangulation by non-crossing trees [7] (which applies
+to the root polytope of a complete bipartite graph), the triangulation by duals of
+arborescences [10] (which works in the case of a plane bipartite graph) is also a
+special case.
+   We should warn the reader that there are many orders in this paper, of edges,
+nodes, hyperedges etc. induced by spanning trees, hypertrees etc. This can be
+cumbersome but we need each for its own technical reason. All of these orders,
+however, are defined by the same simple principle: some process propagates through
+the graph and objects are listed in the order in which they are first reached.
+   The paper is organized as follows. In Section 2 we set our definitions and summa-
+rize some of the necessary background, including Bernardi’s embedding activities.
+Section 3 surveys Postnikov’s work and describes the link from h-vectors of shellable
+dissections of the root polytope of Bip H to the interior polynomial of H. We define
+the Bernardi process for hypergraphs in Section 4, and establish its well-definedness.
+In Section 5 we give the Bernardi-type description of the interior polynomial and
+state the equivalence of the two definitions (Theorem 5.4, our main result), as well
+as several conjectures. In Section 6 we define Jaeger trees, prove their basic prop-
+erties and show that the set of spanning trees arising as outcomes of the Bernardi
+process is exactly the set of Jaeger trees. We also discuss the connection of our work
+to that of Baker and Wang [1]. In Section 7 we show that Jaeger trees induce a
+shellable dissection of the root polytope of Bip H with a natural shelling order, and
+we relate the resulting h-vector to Bernardi-type activities. This allows us to prove
+Theorem 5.4. In Section 8 we show how certain previously known triangulations
+4                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+arise from the Bernardi process. Finally, in an appendix we observe that for graphs
+(i.e., hypergraphs H where the cardinality of each hyperedge is two), the Bernardi
+process behaves in a special way in that it induces an activity-preserving bijection
+between the hypertrees of H and H.
+    Acknowledgment. This version of our paper is identical to the one published in
+Algebraic Combinatorics, vol. 3 (2020), no. 5, pp. 1099–1139. We thank the anony-
+mous referee for an exceptionally close reading of the manuscript and a number of
+suggestions for improvement.
+
+                                 2. Preliminaries
+2.1. Basics. A hypergraph is an ordered pair H = (V, E), where V is a finite set
+and E is a finite multiset of subsets of V . We refer to elements of V as vertices and
+to elements of E as hyperedges. For a hypergraph H = (V, E), let the underlying
+bipartite graph Bip H be the bipartite graph with vertex classes V and E, where
+v ∈ V is connected to e ∈ E if v ∈ e in H. In the context of bipartite graphs such
+as Bip H, instead of vertices, we will call the elements of V ∪ E nodes. Specifically,
+the elements of V and E will be called violet and emerald nodes, respectively. (In
+our figures, violet appears as blue and emerald appears as green.) Throughout the
+paper, we assume that H is connected, which means that Bip H is connected.
+    We also assume that Bip H has a ribbon graph structure. Here for a graph G
+without loop edges, a ribbon structure is a family of cyclic permutations: namely
+for each vertex x of G, a cyclic permutation of the edges incident to x is given. For
+an edge xy of G, we use the following notations:
+      • yx+G : the edge following yx at y
+      • yx−G : the edge preceding yx at y
+           +
+      • xyG  : the edge following xy at x
+           −
+      • xyG  : the edge preceding xy at x.
+If the graph G is clear from the context, we omit the subscript. We will sometimes
+need the operation of removing an edge from a ribbon graph. If G is a ribbon
+graph, and ε is an edge of G, then G − ε is the ribbon graph with
+                                            +         +
+                                    
+                             +           xyG     if xyG 6= ε
+                          xyG−ε  =         + +        +
+                                       (xyG )G if xyG = ε
+for any edge xy of G − ε. More generally, any subgraph of G inherits a ribbon
+structure from G in the obvious way, by restrictions of the cyclic orders.
+   Throughout the paper, when we consider ribbon structures, we will assume that
+there is a fixed vertex b0 of G that we call the base vertex (or base node, in cases
+when G is bipartite), and a fixed edge b0 b1 incident to b0 that we call the base edge.
+Remark 2.1. Ribbon structures may be equivalently described by ribbon surfaces, as
+follows. See Figure 2 for an example. We consider the graph as a topological space,
+thicken a small neighborhood of each vertex to a disk, and orient it (hence also
+orient its boundary) so that the edges incident to the vertex intersect the boundary
+of the disk in their prescribed cyclic order. (When the vertex has degree three or
+more, this orientation is uniquely determined once the disk has been constructed.)
+Then we thicken each edge into a rectangle, attached along two opposite sides to
+the appropriate disks, so that the orientations extend over the rectangle. Thinking
+of the two attaching sides of the rectangle as ‘short’ and the other two, running
+along the edge, as ‘long,’ explains the name of the structure. Conversely, if a graph
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                            5
+
+
+is embedded in an oriented surface, the orientation induces a ribbon structure on
+it which is equivalent to taking a regular neighborhood of the embedding. Finally,
+one may equivalently specify the base vertex and the base edge by placing a base
+point on the boundary of the disk centered at b0 , along the bit running from b0 b−
+                                                                                  1
+to b0 b1 .
+   Let G be a graph, T be a spanning tree of G, and ε ∈ T be an edge. As T
+is a spanning tree, T − ε is a graph with two connected components. We call the
+set of edges of G connecting two vertices from different components of T − ε the
+fundamental cut of ε in T , and denote it by C ∗ (T, ε). Now for an edge ε of G that is
+not part of T , adding ε to T creates a unique cycle, which we call the fundamental
+cycle of ε with respect to T and denote with C(T, ε).
+
+2.2. The interior polynomial. The following definition plays a central role in
+our paper.
+Definition 2.2. Let G be a bipartite graph and E one of its vertex classes. We
+say that the vector f : E → Z≥0 is a hypertree on E if there exists a spanning tree
+T of G that has degree dT (e) = f (e) + 1 at each node e ∈ E. We denote the set of
+all hypertrees on E by BE .
+   Disconnected bipartite graphs have no spanning trees and thus no hypertrees,
+either. It is slightly more natural to call the objects above hypertrees in the hyper-
+graph H = (V, E), as opposed to in G = Bip H, and to denote their set with BH
+instead of BE . In that sense, hypertrees generalize (characteristic vectors of) span-
+ning trees from graphs to hypergraphs (cf. [9, Remark 3.2]). We will often adopt
+this point of view, even though the wording of Definition 2.2 suits our current
+purposes better.
+   The set BE is such that (Conv BE ) ∩ ZE = BE , where Conv denotes the usual
+convex hull in RE , cf. [9, Lemma 3.4]. We will call Conv BE = Conv BH the
+hypertree polytope of H. In the special case of (characteristic vectors of) spanning
+trees, hypertrees are exactly the vertices of Conv BE , which in that case is known
+as the spanning tree polytope.
+   We note that for all hypertrees f on E, it holds that
+                                  X
+                                       f (e) = |V | − 1
+                                   e∈E
+
+is independent of f [9, Theorem 3.4]. Hence BE and Conv BE lie along an affine
+hyperplane of RE .
+   For a spanning tree T of Bip H, let fE (T ) be the hypertree on E realized or
+induced by T , i.e.,
+                         fE (T )(e) = dT (e) − 1 for all e ∈ E.
+Similarly, let fV (T ) be the hypertree on V realized by T .
+     The definition of the interior polynomial is based on hypertrees and a natural
+generalization of internal activity used in the case of graphs (and matroids). First,
+if the hypertree f ∈ BE and the hyperedges e, e′ ∈ E are such that changing the
+value f (e) to f (e) − 1 and the value f (e′ ) to f (e′ ) + 1 results in another hypertree
+f ′ , then let us say that f and f ′ are related by a transfer of valence from e to e′ .
+Another expression we will use is that f is such that e can transfer valence to e′ .
+6                      TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+Definition 2.3. Let (V, E) be a hypergraph with an order on the set E. A hy-
+peredge e ∈ E is internally active for the hypertree f , with respect to the order, if
+f is such that e cannot transfer valence to any smaller hyperedge. Let ι(f ) denote
+the number of internally active hyperedges with respect to f and call this value the
+internal activity of f .
+   We call a hyperedge internally inactive for a hypertree if it is not internally active
+and denote the number of such hyperedges (for a given f ) by ῑ(f ) = |E| − ι(f ). This
+value will be called the internal inactivity of f . Note that ι(f ) and ῑ(f ) both depend
+on the order used on E.
+Definition 2.4. Let H = (V, E) be a hypergraph so that Bip H is connected.
+                    Porder on E we consider the generating function of internal
+For some fixed linear
+inactivity, IH (ξ) = f ∈BE ξ ῑ(f ) , and call it the interior polynomial of H. By [9,
+Theorem 5.4] (see also [11, Subsection 2.2]), IH does not depend on the order.
+Example 2.5. Any connected bipartite graph serves as the underlying bipartite
+graph for two hypergraphs, a transpose pair. For the graph that appears in exam-
+ples throughout the paper (first in Figure 2), both of these hypergraphs have the
+interior polynomial 1 + 3ξ + 3ξ 2 , as computed in [9, Example 5.6]. In particular,
+the number of hypertrees on either vertex class is 7.
+   Note that if we specialize our notion of internal activity to graphs, then external
+edges of a spanning tree become internally active. This is not the case for the
+definition used by Tutte and Bernardi, which we review in the next subsection.
+However, the number of internally inactive edges is the same as the number of
+‘internal, not internally active’ edges in the original definition. This subtlety can
+hardly be avoided because for a hyperedge, there is no natural notion of being inside
+or outside of a hypertree. Even if we defined ‘e being external to f ’ by f (e) = 0,
+the number of such hyperedges would depend on f .
+   Also, as opposed to the definition of the Tutte polynomial, in Definition 2.4
+we count inactive hyperedges instead of active ones. But since the number of
+external edges is the same for all spanning trees (namely, the first Betti number
+β1 = |E| − |V | + 1 of the graph), all these tweaks in the definition just mirror and
+shift the distribution of the ‘classical’ internal activity statistic. The precise claim
+is that if the hypergraph H happens to be a graph with Tutte polynomial T (x, y),
+then its interior polynomial is
+                               IH (ξ) = ξ |V |−1 T (1/ξ, 1).
+   We will almost always work in the larger context of hypergraphs and use the
+notions of Definitions 2.3 and 2.4. Because the difference is so minimal, we will
+not introduce separate terminology, only separate notation for internal activity in
+the ‘usual’ sense: for a spanning tree T of the graph G with vertex set V , and an
+ordering of the set E of edges, we let i(T ) = ι(T ) − β1 (G) = |V | − 1 − ῑ(T ).
+   Hypergraphs also have an exterior polynomial invariant. For this paper it is less
+important but we will indicate its definition and various properties in Section 5.
+
+2.3. The Bernardi process for graphs. In this subsection we recall the Bernardi
+process for ordinary graphs, as well as the Bernardi-type definition of the Tutte
+polynomial [2, 3].
+              HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                                                 7
+
+
+                                                       v2
+                                            e2                     e1
+
+                                v3                          e5                 v1
+
+                                            e3                     e4
+                                                       v4
+
+
+        Figure 1. An example of the tour of a spanning tree. Let the
+        ribbon structure be the one induced by the positive orientation
+        of the plane. The edges of the tree are drawn by thick lines, the
+        non-edges by dashed lines. With b0 = v1 , b1 = v2 , we get the tour
+        v1 , e1 ; v2 , e2 ; v2 , e5 ; v4 , e3 ; v3 , e2 ; v3 , e3 ; v4 , e4 ; v4 , e5 ; v2 , e1 ; v1 , e4 .
+
+    The basic notion in [2] is the tour of a spanning tree. Let G be a ribbon graph,
+and T be a spanning tree of G. We specify a base vertex b0 of G and a base edge
+b0 b1 incident to b0 .
+    The tour of T is the following sequence of vertex-edge pairs: The current vertex
+at the first step is b0 , and the current edge is b0 b1 . If the current vertex is x, the
+current edge is xy, and xy ∈   / T , then the current vertex of the next step is x, and
+the current edge of the next step is xy + . If the current vertex is x, the current edge
+is xy, and xy ∈ T , then the current vertex of the next step is y, and the current
+edge of the next step is yx+ . In the first case we say that the tour skips xy and in
+the second case we say that the tour traverses it. The tour stops right before when
+b0 would once again become current vertex with b0 b1 as current edge. See Figure 1
+for an example.
+Remark 2.6. The sequence of current vertex-edge pairs of the tour of a spanning
+tree can also be described using the topology of the ribbon surface of Remark 2.1.
+Namely, we start from the base point (meant as a boundary point of the surface)
+and proceed along the boundary in the positive direction. When we reach a vertex
+of one of the rectangle pieces, then
+      • the midpoint of the disk, together with the core of the rectangle, become
+        current, and
+      • if the edge is in the tree, we proceed along the long side of the rectangle to
+        the next adjacent disk (traversal), and continue along its boundary, or
+      • if the edge is not in the tree, then we proceed along the short side (skipping
+        the edge), and then on along the boundary of the same disk.
+  Bernardi proved the following:
+Lemma 2.7 ([2, Lemma 5]). In the tour of a spanning tree T , each edge xy of G
+becomes current edge twice, in one case with x as current vertex, and in the other
+case with y as current vertex.
+   In other words, the tour of T lists the pairs (u, ε), where u is a vertex of G and
+ε is an edge of G incident to u, in a linear order from smallest to largest. We will
+denote this ordering by <T , and write (u, ε) ≤T (v, ε′ ) if either u = v and ε = ε′ ,
+or (u, ε) <T (v, ε′ ).
+   Now ≤T induces an ordering of the edges of G: Let uv be smaller than zw if
+min≤T {(u, uv), (v, uv)} ≤T min≤T {(z, zw), (w, zw)}. We denote this order, too by
+≤T .
+8                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+   The internal and external embedding activities of a spanning tree T of G are
+defined as the internal and external activities of T with respect to the order ≤T of
+edges. Let us denote them by ie(T ) and ee(T ), respectively. That is,
+      • ie(T ) is the number of edges ε of T so that ε is the <T -minimal element of
+        the fundamental cut C ∗ (T, ε);
+      • ee(T ) is the number of non-edges ε of T so that ε is the <T -minimal element
+        of the fundamental cycle C(T, ε).
+Bernardi gave the alternative definition
+                                        X
+                     TG (x, y) =                      xie(T ) y ee(T )
+                                T is a spanning tree in G
+
+for the Tutte polynomial of a graph. In particular, it follows from his results that
+this expression does not depend on the ribbon structure, base vertex, or base edge.
+    The tour of a spanning tree can also be used to give a bijection between spanning
+trees and so called break divisors. This was done originally by Bernardi [2] (not yet
+using the terminology of break divisors), then further studied by Baker and Wang
+[1]. A break divisor for a graph G = (V, E) is a vector z ∈ ZV so that d − 1 − z is a
+hypertree on V in Bip G, that is the graph obtained from G by adding a new vertex
+halfway along each edge. (Here d − 1 denotes the vector whose v-component is the
+degree of v in G minus one for each v ∈ V .) Baker and Wang [1] proved that given
+a spanning tree T , if one takes its tour and at each vertex, counts the non-edges
+of T that first become current in conjunction with that vertex, the resulting values
+give a break divisor. Conversely, given a break divisor z, one may start a walk on
+the ribbon graph and whenever an edge is encountered which is such that z remains
+a break divisor in the smaller graph after the edge’s removal, cut that edge. By the
+end of the walk, the remaining edges form a spanning tree.
+    Said in another way, the Bernardi process on a graph gives a bijection between
+the sets of hypertrees on V and on E. Our Bernardi process for hypergraphs
+generalizes this bijection (see Remark 6.23 for more detail).
+
+                  3. The root polytope and its dissections
+   The root polytope of a bipartite graph first appeared in the work of Ohsugi and
+Hibi [13] and was defined anew by Postnikov [14]. For a detailed list of its properties
+we refer the reader to [11, Section 3] (and to [14] for many of the proofs). Here
+we only repeat the most important points. Let G be a bipartite graph with color
+classes E (as in emerald) and V (as in violet).
+Definition 3.1. In the Euclidean space RE ⊕ RV let us write x for the standard
+basis vector that corresponds to x ∈ E ∪ V . The root polytope of G, denoted by
+QG , is the convex hull of the vectors e + v for all edges ev of G.
+   We get an isometric polytope if we replace e + v with e − v in the construction.
+Note how the definition is inspired by the standard proof that a graphic matroid is
+representable. However in the theory that Postnikov built it is important that we
+specifically use real coefficients and examine QG from the point of view of convex
+geometry. It turns out that the root polytope reflects certain properties of the
+bipartite graph in a non-trivial and very effective way.
+   A set of vertices of QG is affine independent if and only if the corresponding
+subgraph of G is cycle-free. (Note that vertices of QG and edges of G correspond
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                          9
+
+
+bijectively.) In particular, the dimension of QG is one less than the number of
+edges in a spanning forest of G. In the case when G is connected, which we usually
+assume, a spanning forest is a spanning tree, and the dimension is |E| + |V | − 2.
+The one-to-one correspondence (for connected G)
+              { spanning trees of G } ←→ { maximal simplices of QG }
+will be crucial for the rest of the paper. Note that the simplex corresponding to
+the tree T is none other than its root polytope QT .
+   The maximal simplices of QG share the same volume. There is a description [14,
+Lemma 12.6] for when two maximal simplices intersect in a common face, given in
+terms of the corresponding spanning trees: two trees are compatible in this sense
+if and only if there does not exist a cycle in G so that its first, third, fifth etc.
+edges come from one tree and its second, fourth, sixth etc. edges come from the
+other. A triangulation of the root polytope is a collection of maximal simplices
+whose union is QG and each pair of which do intersect in a common face. When
+the second condition is weakened to require only that the interiors of the simplices
+be disjoint, we get the notion of a dissection. The observation on volumes implies
+that the number of maximal simplices in a dissection of QG depends only on G. In
+Examples 8.1 and 8.2 we exhibit dissections that are not triangulations.
+   A thorough look into dissections reveals some spectacular properties. Let us fix
+a dissection of QG and consider the corresponding collection of spanning trees in
+G. We claim that any hypertree (either on E or on V ) is realized by exactly one of
+our chosen trees. (Consequently the numbers of hypertrees on E and on V are the
+same.) This is established for triangulations in [14], but the same proof applies in
+general, as follows.
+   The polytope QG contains the set of emerald markers (which form an affine
+transformation of the set BE of hypertrees on E)
+                             1            1            1
+                                 BE +            iE +      iV
+                            |V |      |E| · |V |      |V |
+and a similarly defined set of violet markers. Here iS stands for the characteristic
+function of a subset S of E ∪ V , viewed as a vector in RE ⊕ RV . Any maximal
+simplex in QG contains, in its interior, exactly one marker of each color: these are
+(essentially) the hypertrees on E and on V realized by the tree that corresponds
+to the simplex [14, Lemma 14.9]. If some simplices form a dissection, then it is
+also true that each marker is contained by a unique simplex. Hence the two sets
+of markers (that is, the two sets of hypertrees BE and BV ) are equinumerous with
+each other and with the set of maximal simplices in our (arbitrary) dissection. In
+particular, the following holds.
+Theorem 3.2. Let T be a set of spanning trees of a bipartite graph G such that
+the simplices { QT | T ∈ T } form a dissection of QG . Then the mapping assigning
+fV (T ) to fE (T ) for each T ∈ T is a bijection between BE and BV .
+   By [11, Theorem 3.10], the h-vector of any triangulation of QG is equivalent to
+the Ehrhart polynomial of QG . This property, too, extends to dissections, at least
+in those cases when we are able to define an h-vector for such objects. In other
+words, one is able to generalize [11, Remark 3.12] as follows.
+   Let us call a dissection shellable if it has a shelling order, that is, a total order
+of the maximal simplices so that, starting from the second one, each maximal
+10                    TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+simplex σ intersects the union of the previous ones in a non-empty union of facets
+(codimension one faces) of σ. For a dissection with a shelling order, let ai denote
+the number of maximal simplices for which the number of said facets is exactly i.
+We put a0 = 1, accounting for the first simplex in the order. Let us define the
+h-vector of the shelling order to be the finite sequence (a0 , a1 , . . .).
+   The Ehrhart polynomial of QG is the unique polynomial εG such that for non-
+negative integers k, we have εG (k) = |(k · QG ) ∩ (ZE ⊕ ZV )|. If we have a shellable
+dissection of QG (for a connected G), then, putting d = dim QG = |E| + |V | − 2,
+the Ehrhart polynomial of QG can be expressed as
+                                                                       
+                        d+k           d+k−1                      d+k−i
+(3.1)      εG (k) = a0          + a1               + · · · + ai               + ··· .
+                          d               d                          d
+
+   The proof of (3.1) is based on [11,  Lemma 3.3] and an easy simplex-by-simplex
+                                 d+k−i
+counting argument. Indeed,         d     is the number of lattice points in a standard
+d-dimensional simplex of sidelength k − i, and [11, Lemma 3.3] says that for our
+purposes, all maximal simplices in the root polytope (and all their faces) behave
+just like standard simplices. Now if, in the k times inflated root polytope, the
+lattice points along i of the facets of a maximal simplex have already been counted,
+then what remains to count is the lattice points in a simplex of sidelength not k
+but k − i.
+   Since the binomial coefficients in (3.1) are linearly independent as polynomials
+of k [11, Lemma 3.8], from the uniqueness of the Ehrhart polynomial it follows
+that the h-vectors of all shelling orders of all shellable dissections of QG coincide.
+(Triangulations have h-vectors even when they are not shellable. For triangulations
+of QG by maximal simplices, all their h-vectors are the same, too [11, Theorem
+3.10].) Furthermore, [11, Equation (5.1)] (the main theorem of that paper) states
+that the same coefficient sequence gives the interior polynomial of both hypergraphs
+(V, E) and (E, V ) that are induced by G:
+
+Theorem 3.3. For a connected hypergraph H = (V, E), if the Ehrhart polynomial
+εBip H of QBip H can be expressed as
+                                                           
+                         d+k         d+k−1                d+k−i
+       εBip H (k) = a0         + a1         + · · · + ai          + ··· ,
+                          d            d                    d
+
+where d = dim QG = |E| + |V | − 2, then the interior polynomial of H is
+
+                        IH (x) = a0 + a1 x + · · · + ai xi + · · · .
+
+   Both sums in Theorem 3.3 are of course finite. The largest i so that ai 6=
+0 is definitely no more than d + 1; by [9, Proposition 6.1] it is in fact at most
+min{ |E|, |V | } − 1. For more on the degree of the interior polynomial, see [6].
+   K. Kato [12] found a concise formulation of TheoremP  3.3, restating it as a connec-
+tion between IH and the Ehrhart series EhrBip H (x) = ∞                    s
+                                                           s=0 εBip H (s) x of QBip H .
+Namely, if Bip H is connected, then we have
+                                IH (x)
+                                             = EhrBip H (x),
+                           (1 − x)|E|+|V |−1
+in other words, the interior polynomial of H is in fact the h∗ -vector of QBip H .
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                         11
+
+
+                 4. The Bernardi process for hypergraphs
+   In this section we describe two processes, both of which generalize what Bernardi
+defined for ordinary graphs. Sometimes, in order to distinguish them from Bernardi’s
+original algorithm, we will refer to them as the hypergraphical Bernardi processes.
+In both cases, the input consists of
+    (a) a connected hypergraph H = (V, E)
+    (b) a ribbon structure for Bip H, a base node, and a base edge
+    (c) a hypertree f in H, that is, on E.
+Here (a) and (c) generalize Bernardi’s inputs of a connected graph and a spanning
+tree. There is a slight difference between the graphs G and Bip G in that the
+latter is obtained from the former by placing a new vertex halfway along each edge.
+Bernardi fixed a ribbon structure on G and not on Bip G, but as the new vertices
+of Bip G are of degree 2, the structure extends uniquely to Bip G. Therefore (b)
+above also generalizes what Bernardi used in his approach.
+   Let us first describe the Bernardi process informally, in terms of a walk on Bip H,
+traversing or cutting edges as we go. We outline two different processes, depending
+on whether we are allowed to cut edges at their violet or emerald endpoint. (One
+of the two will be allowed, the other prohibited.) If the walk reaches an edge from
+the endpoint where we are not allowed to cut, there is no choice but to traverse the
+edge and continue on the other side. In the other case we will have a choice: either
+traverse the edge as above, or cut it (remove it from the graph) and continue with
+the next edge incident to our current node. What governs this choice is whether
+the values of f still define a hypertree after cutting the edge. (That is, whether
+the smaller graph still has a spanning tree that realizes f .) If they do, we cut;
+otherwise, we keep and traverse. (Note that this is the same principle with which
+Baker and Wang define their mapping from break divisors to spanning trees.)
+   We formalize these ideas as follows. Let the base node be b0 and the base edge
+be b0 b1 . See Figure 2 for an illustration of Definition 4.2.
+Definition 4.1 (Bernardi process, hypertree on emerald nodes, cut at violet nodes
+(ht:E, cut:V )). Given is a hypertree f on E. The process maintains a current edge
+and a current graph at any moment. At the beginning, the current graph is Bip H.
+If b0 is a violet node, then at the beginning, the current edge is b0 b1 . If b0 is an
+emerald node, then the current edge at the beginning is b1 b+ 0 , and we say that b0 b1
+was traversed from the emerald direction.
+   In each step, we check whether for the current graph G and the current edge ve,
+the vector f is a hypertree on the emerald nodes of G − ve. If the answer is yes, let
+the current graph of the next step be G − ve and the current edge be ve+   G . We say
+that ve was removed or deleted from the graph. If the answer is no, let the current
+graph of the next step be G, and let the current edge of the next step be we+       G,
+                +
+where ew = evG    . In this case we say that ve is traversed from the violet direction
+and ew is traversed from the emerald direction.
+   The process stops right before when an edge would be traversed for the second
+time from the same direction.
+Definition 4.2 (Bernardi process, hypertree on emerald nodes, cut at emerald
+nodes (ht:E, cut:E)). Given is a hypertree f on E. The process maintains a current
+edge and a current graph at any moment. At the beginning, the current graph is
+Bip H. If b0 is an emerald node, then at the beginning, the current edge is b0 b1 . If
+12                    TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+b0 is a violet node, then the current edge at the beginning is b1 b+
+                                                                   0 , and we say that
+b0 b1 was traversed from the violet direction.
+    In each step, we check whether for the current graph G and the current edge ev,
+the vector f is a hypertree on the emerald nodes of G − ev. If the answer is yes,
+                                                                                +
+let the current graph of the next step be G − ev and the current edge be evG      . We
+say that ev was removed or deleted from the graph. If the answer is no, let the
+current graph of the next step be G, and let the current edge of the next step be
+   +
+dvG  , where vd = ve+ G . In this case we say that ev is traversed from the emerald
+direction and vd is traversed from the violet direction.
+    The process stops right before when an edge would be traversed for the second
+time from the same direction.
+   In both cases the current graphs form a decreasing sequence. We say that an
+edge was kept by the process if it was examined as a current edge, and was not
+removed from the current graph. If an edge ε is kept then ‘f cannot be realized
+without it’ in the current graph, that is, ε is part of any spanning tree realizing f
+in the current graph and hence in all subsequent current graphs, too. In particular,
+once an edge is kept, it can never get removed — the decision of keeping is final,
+just like the decision of removal.
+   We say that an edge has been traversed by the process if it has been traversed
+either from the violet direction or from the emerald direction. Traversed edges form
+an increasing sequence of subgraphs of Bip H. In fact, the graph of traversed edges
+will always be a subgraph of the current graph, but for this we have yet to show
+that traversed edges never get removed (cf. Lemma 4.11). The problem of course
+is with the edges ew of Definition 4.1 and vd of Definition 4.2, which our walk
+traverses without examining them as current edges. It turns out that even if they
+are previously unexamined edges, later they will be examined and kept, but these
+facts are not obvious from the definition. For now, let us reinforce that even if a
+traversed edge was later removed, we would still count it as traversed.
+Example 4.3. Let G be the plane bipartite graph shown in Figure 2, with the three
+emerald (green) nodes forming the color class E and the four violet (blue) ones the
+color class V . We will refer to the elements of E as top, left, and right. A ribbon
+structure is chosen so that at emerald nodes the cyclic order of the incident edges
+is clockwise, whereas at violet nodes it is counterclockwise. In the first panel of
+Figure 2 we show (using a particular embedding in 3-space) the associated ribbon
+surface that was described in Remark 2.1. Also indicated (in the lower left) is the
+base point; equivalently, our base node is the left emerald node and our base edge
+is the vertical one on the left.
+    The numbers 0, 1, 2 written over the emerald nodes form a hypertree on E. In
+panels 2–11 we show how the (ht:E, cut:E) Bernardi process operates with this
+input. At first there is just the hypertree and the process is at the base point.
+    In the first step, which is probably the most interesting one in this example,
+the base edge is current. The hypertree calls for a realization (a tree) of degree
+1 + 1 = 2 at the base node, so one might expect that the first of the three incident
+edges will be removed. However if we did that, then in the remaining graph, all
+four edges of the bottom rhombus would be ‘wanted’ by the hypertree: the left two
+to make the base node degree 2, and the right two to make the right emerald node
+degree 2 + 1 = 3. In other words, in the remaining graph it would not be possible
+to realize the given numbers as the degrees (minus 1) of a spanning tree. Thus
+              HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                         13
+
+
+                                0                     0                     0
+
+
+
+
+                          1           2         1           2         1           2
+
+
+
+
+          0                     0                     0                     0
+
+
+
+
+    1           2         1           2         1           2         1           2
+
+
+
+
+          0                     0                     0
+
+
+
+
+    1           2         1           2         1           2
+
+
+
+
+        Figure 2. The (ht:E, cut:E) Bernardi process, run on a hyper-
+        graph (with ribbon structure) and the indicated hypertree. The
+        last panel shows the outcome of the (ht:E, cut:V) process on the
+        same hypertree.
+
+
+the Bernardi process will not remove the base edge, rather it will traverse it, which
+then will force it to traverse the upper left edge of G as well.
+   In the next eight panels we show the remaining steps of the process. The current
+edge of each step is highlighted. The gray curves are included to help keep track of
+the cyclic orders of the ribbon structure, but they can also be understood as portions
+of a continuous path similar to the one we described in Remark 2.6. The decisions
+are rather straightforward: removal, removal, traversal (in fact for the second time;
+note that if we did not traverse here, the top node would become isolated so it
+could no longer have degree 0 + 1 = 1), removal, traversal (of the current edge and
+one more edge), traversal (here and in the next step, as the violet vertex we reach
+is already a leaf, the other edge we are forced to traverse coincides with the current
+edge), traversal, traversal. Note that each edge was current exactly once and that
+at the end, the subgraph of those edges that we did not remove coincides with the
+subgraph of traversed edges, and this subgraph is a spanning tree that realizes the
+given hypertree.
+   The last panel of Figure 2 depicts the outcome of the (ht:E, cut:V ) Bernardi
+process with the same ribbon structure and on the same input hypertree. It is
+again a spanning tree realization. We leave it to the interested reader to construct
+the steps leading to it, and to check that again there are nine such steps, with each
+edge becoming current exactly once. (Note that in this case the first current edge
+is not the base edge, rather it is the upper left one; the base edge becomes current
+in the second step.)
+14                    TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+   We will often think of part (c) of the input, the hypertree, as a ‘variable,’ so that
+the process itself is determined by (a) and (b) only. In this sense we may in fact
+speak of four Bernardi processes on the ribbon bipartite graph Bip H, by applying
+the two definitions above to H and to H. In the latter case the hypertree is given
+on V and we denote those two processes with (ht:V , cut:E) and (ht:V , cut:V ).
+   Many more instances of the process can be generated by varying part (b) of
+the input. See for example Lemma 6.5 for the case when the ribbon structure is
+reversed (even though that process turns out not to be completely new).
+Remark 4.4. Both of our processes for hypergraphs do indeed generalize Bernardi’s
+original process for graphs, and in fact, they can be thought of as a common gen-
+eralization of the Bernardi process and its inverse, given by Baker and Wang [1].
+That is, for each spanning tree T of the ribbon graph G, Bernardi’s tour of T is
+basically equivalent to our walk on Bip G, where the latter is defined using the
+uniquely extended ribbon structure as part (b) of the input and the characteristic
+function of T as part (c). We sketch the main ideas of an induction proof.
+   First note that a (current vertex, current edge) pair (x, xy) in G can be equiv-
+alently given as a ‘current half-edge’ xe between x and the node e placed at the
+center of xy. While xe is a half-edge in G, it is an edge in Bip G. In particular,
+where Bernardi chose a base vertex b0 and base edge e0 = b0 b1 , we may speak
+instead of the base node b0 and the base edge b0 e0 .
+   If xy is in the spanning tree T , then the corresponding hypertree has the value
+1 at e and hence to realize it in Bip G, both ex and ey are necessary. Therefore
+both versions of our process will traverse both of those edges. In the first version,
+having arrived at xe ‘near’ x, we decide to keep it and then the ribbon structure at
+e forces us to traverse ey, too. In the second version we have to traverse xe anyway
+and then at e we make the decision to keep ey as well. After this we continue with
+the (half-)edge that follows ey in the cyclic order at y. In both cases this is exactly
+what the original process would have done, too.
+   If xy is not in T , that is when the hypertree takes the value 0 at e, we consider
+two sub-cases. If ey has not been cut thus far, then the first version of our process,
+upon arrival at xe, will cut xe because it is not necessary for a realization of the
+hypertree. The second version will traverse xe and then cut ey, which forces it to
+backtrack to x. Else if ey is not in the graph any more, then the first version will
+decide to keep xe so that e does not become an isolated node; the second version
+will have to traverse xe anyway but in both versions, since e was already a leaf,
+the process will bounce back to x and continue with the edge that follows xe in the
+cyclic order at x. This again matches the behavior of the original Bernardi process.
+   When applied to a graph G, our versions of the Bernardi process do not only
+trace a given spanning tree T , they also select one of the two half-edges of each
+non-edge ε of T so as to enlarge T into a spanning tree of Bip G. As is clear from the
+above, the difference between the two generalizations is whether this half-edge is
+opposite to (first version) or on the same side as (second version) the first endpoint
+of ε that Bernardi’s tour of T visits.
+   The main theorem of this section draws identical conclusions for the processes
+of Definitions 4.1 and 4.2. It is convenient to state and prove it for the process of
+Definition 4.1 applied to H, coupled with the process of Definition 4.2 applied to
+H, so that in both cases we are allowed to cut edges at their violet endpoints. We
+do not lose any generality by this because H = (H).
+               HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                                   15
+
+
+Theorem 4.5. For any hypertree f on E (respectively, on V ), the (ht:E, cut:V )
+Bernardi process (respectively, the (ht:V , cut:V ) Bernardi process) takes each edge
+of Bip H exactly once as current edge. The current graph at the end of the process
+is a spanning tree of Bip H realizing f .
+   This theorem generalizes Lemma 2.7, cf. Remark 4.4. In Section 8 we will see
+that it also generalizes [9, Theorem 10.1]. It is no wonder then that the proof is
+somewhat lengthy1. The key will be Lemma 4.7, in particular the construction of
+the tree T ′ after Claim 4.10, aided by Figure 3.
+   By a violet Bernardi run we mean a running of either the (ht:E, cut:V ) Bernardi
+process or the (ht:V , cut:V ) Bernardi process on some hypertree.
+Lemma 4.6. In a violet Bernardi run, if until some moment there is no cycle in
+the subgraph of traversed edges, then until that moment,
+     (i) at any node x ∈ V ∪ E, the edges of the current graph G incident to x that
+         were traversed from the direction of x are consecutive edges in the cyclic
+         order at x (in G), covering less than one full turn, and were traversed in
+         a consecutive order (edges not incident to x may also have been traversed
+         between the times of these traversals).
+    (ii) at any x ∈ V , those edges of Bip H incident to x that have already been
+         current edges, became current edges in an order compatible with the cyclic
+         order at x (in Bip H), covering less than one full turn.
+Proof. If x = e ∈ E, then, having arrived at e on an edge ve, the Bernardi process
+                  +                          ′
+next traverses evG  ′ by definition. Here G is the current graph at the time of these
+
+traversals. If there are any edges of Bip H incident to e that fall between ev and
+   +
+evG ′ in the cyclic order (at e in Bip H), then they have already been cut at their
+                                                                     +
+violet endpoints. Hence in any later current graph, if ev and evG     ′ are still present
+
+in it, then they are still consecutive.
+                                                                                        +
+   The next time the walk associated to the process arrives at e, it arrives on evG      ′
+
+since otherwise it would have traversed a cycle. To get our conclusion we just have
+to repeat our argument and note that if the sequence of traversed edges covered a
+full turn, then some edge would be traversed twice from the direction of e, which
+would cause the process to stop.
+   For a vertex x = v ∈ V , it suffices to show (ii) since it implies (i). If the current
+edge ve is removed from the graph, the next current edge is ve+   G by definition. Here
+G is the current graph when ve is the current edge. On the other hand, if ve is
+traversed, the next time the process arrives at v, it has to arrive on ev, otherwise it
+would traverse a cycle. But then the next current edge incident to v is ve+    G . In this
+case, the G in ve+G  a priori refers to the current graph at  the moment    of traversing
+ev, but we can also take it, as before, to mean the current graph when ve is the
+current edge. Indeed the edge ve+    G can only be cut at v, so it cannot be cut while
+the process is away from v.
+   We claim that if the Bernardi process does not terminate upon returning to v
+along ev, then ve+         +                         +
+                   G = veBip H , in other words, veBip H is not yet removed from the
+
+   1The referee assigned by Algebraic Combinatorics kindly suggested that a proof by induction
+on the number of edges of Bip H might work, too. We agree, but since it does not seem significantly
+shorter, we will not pursue it here. On the other hand, late in the publication process we found yet
+another, indeed more brief argument for Theorem 4.5. Instead of realizing hypertrees, it is based
+on “realizing” arbitrary points of the root polytope. It will be included in a future publication.
+16                       TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+graph. Take the first moment when for a current edge ve, the edge ve+  Bip H is already
+missing from the current graph. Until this moment, the edges incident to v became
+current edges in an order compatible with the cyclic order at v (in Bip H), and
+as ve+Bip H is already removed from the graph, it has already been a current edge.
+Hence we conclude that all the edges incident to v have already become current
+edges. This includes ve+           +
+                         G . As veG is still part of the graph, it was kept (and thus
+traversed) when it first became a current edge. Now when it becomes current edge
+for the second time, it will be kept once again. Therefore it will be traversed again.
+But that means that the Bernardi process terminates after traversing ev.              
+Lemma 4.7. During a violet Bernardi run, the subgraph of traversed edges of Bip H
+never contains a cycle.
+Proof. Suppose that our violet Bernardi run uses the hypertree f as input (where f is
+a hypertree on E or on V depending on whether our process is of type (ht:E, cut:V )
+or (ht:V , cut:V )). Suppose for contradiction that after a while, a cycle appears in
+the subgraph of traversed edges of Bip H and stop the process at the first moment
+when this occurs. Let O be this cycle, and G be the current graph at the moment.
+(Edges are typically traversed in pairs to form a violet → emerald → violet path.
+If the first of the two edges completes a cycle, then we stop the process right there,
+midway through a step.)
+    In the rest of the proof we refer to this aborted process only, so that we may apply
+Lemma 4.6 throughout. Note that O is the only cycle in the subgraph of traversed
+edges, as the addition of an edge may create at most one cycle in a cycle-free graph.
+    We claim that for each edge of O, we can choose an orientation in which it was
+traversed, such that the chosen orientations give a cyclic orientation of O. Let us
+call this the positive orientation of O. Indeed, if such an orientation did not exist,
+then there would be two edges xy and zw of O, such that xy was only traversed from
+the direction of x and zw was only traversed from the direction of w, furthermore
+these two directions are opposite with respect to O. Suppose that xy was first to
+be traversed among the two edges. Then after traversing xy the walk associated to
+the process was at y. Later it needed to reach w to be able to traverse zw from the
+direction of w. But as neither xy was traversed from the direction of y nor wz was
+traversed from the direction of z, the process could not go to w using the edges of
+O, hence by the time the edges of O are traversed, there needs to be another cycle
+in the subgraph of traversed edges, which is a contradiction.
+    Let us stress that by the time that all edges of O have been traversed and the
+process is aborted, all edges of O have been not just traversed but traversed in the
+positive direction.
+
+                                    y                       z
+
+                                    x                       w
+
+
+    Pick a violet node along O and call it v0 . Then name the other nodes of the cycle
+e0 , v1 , e1 , . . . , vt−1 , et−1 consecutively in the positive direction, i.e., so that vi ei ∈ O
+and ei vi+1 ∈ O for each i, and vi ei was traversed from vi and ei vi+1 was traversed
+from ei for each i (where indices are now understood modulo t). Since this is a
+violet Bernardi run, all the edges of the form vi ei are kept.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                        17
+
+
+  We will need the following two technical claims.
+Claim 4.8. An edge ei−1 vi cannot be deleted before vi ei becomes current edge.
+Proof. Suppose on the contrary that for some i, the edge ei−1 vi is deleted before
+vi ei becomes current edge. Since ei−1 vi is traversed by the Bernardi process, it
+is traversed from the emerald direction before it gets deleted. At the time of the
+traversal of ei−1 vi from the emerald direction, vi ei−1 cannot have been current
+edge yet (because then it would have gotten deleted before traversed) and the next
+current edge is vi e+i−1 . By Lemma 4.6, while there is no cycle in the subgraph of
+traversed edges, the edges incident to a violet node become current edges in an
+order compatible with the cyclic order. Hence vi ei needs to become current edge
+before vi ei−1 , which is a contradiction.                                       
+Claim 4.9. An edge ei vi+1 cannot be deleted before vi ei becomes current edge.
+Proof. Suppose on the contrary that for some i, the edge ei vi+1 is deleted before
+vi ei becomes current edge. Since ei vi+1 is traversed by the Bernardi process, it
+is traversed from its emerald node ei (i.e., in the positive direction) before it gets
+deleted. As vi ei does not become current edge before ei vi+1 is deleted, it also does
+not get traversed in the positive direction until that time. Hence there must be an
+edge xy in O such that the edges along the arc between vi+1 and x are all traversed
+in the positive direction after the traversal and before the deletion of ei vi+1 , but
+xy is not. Let zx denote the edge of O preceding xy in the positive direction.
+We claim that xy cannot have been traversed from the direction of x before the
+traversal of ei vi+1 , either. Indeed, if that was the case, then by the time that all
+edges of O between vi+1 and x are traversed, there would be a cycle in the graph
+of traversed edges: The set of edges that we traverse during this time is connected
+and cannot be a tree because the set includes ei vi+1 , which is only traversed in
+one direction. Moreover, this cycle is different from O, since it appears in the
+subgraph of traversed edges before the traversal of vi ei in the positive direction.
+This contradiction shows that xy is not traversed in the positive direction before
+the deletion of ei vi+1 . From here on we separate two cases.
+    Case 1: xy = vi+1 ei+1 (hence z = ei ). As vi+1 ei+1 is not deleted during the
+process, if it is not traversed until ei vi+1 is removed, then it does not become a
+current edge until vi+1 ei becomes current edge. After the traversal of ei vi+1 from
+the emerald direction, the next current edge is vi+1 e+ i . By Lemma 4.6, while there
+is no cycle in the subgraph of traversed edges, the edges incident to a violet node
+become current edges in an order compatible with the cyclic order. Hence vi+1 ei+1
+needs to become current edge before vi+1 ei , which is a contradiction.
+    Case 2: xy 6= vi+1 ei+1 . This means that the Bernardi process reaches x through
+the edge zx before it deletes ei vi+1 . Hence after reaching x, the walk associated to
+the process needs to get back to vi+1 with vi+1 ei as current edge before traversing
+xy from the direction of x. If the process does not traverse xz from the direction
+of x before it returns to vi+1 , then necessarily it traverses a cycle, from which we
+get a contradiction with the fact that there is no cycle in the graph of traversed
+edges until we traverse all the edges of O in the positive direction. On the other
+hand, Lemma 4.6 tells us that until all the edges of O are traversed, the edges
+adjacent to x are traversed (from the direction of x) in an order compatible with
+the ribbon structure. Hence xy must be traversed before xz, which is again a
+contradiction.                                                                      
+18                            TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+                                                      u0
+
+                                e1          v1
+                                                                                       1
+                        v2                          e0
+
+
+                        e2                          v0                 2                              0
+
+               u1               v3          e3
+
+                         u2                                                            3
+
+
+         Figure 3. A cycle O, spanning tree T , and the corresponding
+         auxiliary graph in the (ht:E, cut:V ) case. The T -walk of O is
+         v0 , e0 , u0 , e1 , v1 , e1 , u0 , e0 , v0 , e3 , v3 , u2 , u1 , e2 , v2 , e2 , u1 , u2 , v3 , e3 , v0 .
+
+   Let us now refocus on the moment when, upon the traversal of all edges of O,
+we stopped the Bernardi process. Take a spanning tree T in the current graph G
+that realizes f . Such a tree exists by the definition of the Bernardi process and it
+contains every edge that we so far decided to keep. In particular, T contains each
+edge of O of the form vi ei . On the other hand, as O 6⊆ T , there are edges of O of
+the form ej vj+1 that are not in T . We will also need the following observation.
+Claim 4.10. Each edge of the form ei vi is in the fundamental cycle C(T, ej vj+1 )
+                             / T.
+for some j such that ej vj+1 ∈
+Proof. Let us take the following walk on T . Start from v0 , and traverse v0 e0 . If
+e0 v1 ∈ T , then traverse e0 v1 as well. If not, then traverse the unique path in T
+connecting e0 to v1 . Continue this way until for each edge of O, the path in T
+connecting its two endpoints is traversed. At the end we arrive back to v0 . Let us
+call this walk the T -walk of O.
+    As T is a tree, in this walk, each traversed edge is traversed in both directions.
+Since each edge of the form vi ei is traversed from the direction of vi , each of
+these edges is also traversed in the reverse direction. By definition, an edge vi ei is
+traversed from the direction of ei only if it is part of the path in T connecting some
+nodes ej and vj+1 . The claim follows.                                               
+   From this point on, we prove Lemma 4.7 separately for the (ht:E, cut:V ) and
+for the (ht:V , cut:V ) Bernardi processes. This is only for notational convenience
+as the two arguments remain very similar.
+   For the (ht:E, cut:V ) Bernardi process, let us consider an auxiliary directed
+graph D on the vertex set {0, . . . , t − 1}. Draw an edge from i to j if vi ei ∈
+C(T, ej vj+1 ). By Claim 4.10, each vertex has outdegree at least one in D. Hence
+D contains at least one directed cycle. Take a directed cycle of minimal length.
+Let the vertex set of this cycle be x0 , . . . , xr−1 , where there is a directed edge from
+                        exi ∈ C(T, exi+1 vxi+1 +1 )) for each i (meant modulo r).
+xi to xi+1 (that is, vxi
+   We claim that T = T \ r−1
+                    ′
+                             S                    Sr−1
+                               i=0 vxi exi ∪ i=0 exi vxi +1 is a spanning tree realizing
+the hypertree f on E. First we show that T ′ is a spanning tree of Bip H. (The follow-
+ing argument is a special case of a matroid theoretical lemma [15, Theorem 39.13],
+              HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                                 19
+
+
+but we include it for completeness.) Having chosen a minimal cycle in D ensures
+that vxj exj ∈/ C(T, exi vxi +1 ) for any i and j such that i 6= j +1 (which is now meant
+modulo r), since otherwise there would be a shortcut in the cycle x0 , . . . , xr−1 , con-
+tradicting its minimality. Now T1 = (T \ vx0 ex0 ) ∪ ex1 vx1 +1 is a spanning tree
+since vx0 ex0 ∈ C(T, ex1 vx1 +1 ). Moreover, since vx0 ex0 ∈      / C(T, exj vxj +1 ) for j 6= 1,
+we have C(T1 , exj vxj +1 ) = C(T, exj vxj +1 ) for all j 6= 1. Hence when we replace
+the edge vx1 ex1 of T1 with ex2 vx2 +1 , the result is another tree T2 and further, the
+fundamental cycles of ex3 vx3 +1 , . . . , exr−1 vxr−1 +1 , ex0 vx0 +1 with respect to T2 are
+still the same as with respect to T . By a trivial induction proof, we may continue
+switching edges like this until we arrive at T ′ .
+    Now to show that T ′ realizes f , notice that by construction the degree of each
+emerald node is the same in T as in T ′ . As T realizes f , so does T ′ .
+    Let I = {x0 , . . . , xr−1 }. Consider the first moment when one of the edges vℓ eℓ
+becomes current edge for an index ℓ ∈ I. By Claim 4.9, at this moment, for any
+j ∈ I, the edges vj ej and ej vj+1 are present in the current graph. Hence T ′ is
+a spanning tree in the current graph, realizing f and not containing vℓ eℓ . This
+contradicts the fact that vℓ eℓ was kept by the process.
+    For the (ht:V , cut:V ) Bernardi process, we take a similar auxiliary directed
+graph D on the vertex set { 1, . . . , t }. This time we draw an edge from i to j if
+vi ei ∈ C(T, ej−1 vj ). Then again, each vertex has outdegree at least one in D and
+thus D contains at least one directed cycle. We take a directed cycle of minimal
+length and let its vertex set be x0 , . . . , xr−1 .
+                                 Sr−1           Sr
+    The fact that T ′ = T \ i=0 vxi exi ∪ i=1 exi −1 vxi is a spanning tree realizing
+f (on V ) can be established in the same way as in the previous case.
+    Let I = {x0 , . . . , xr−1 }. Take the first moment when an edge of the type vℓ eℓ
+becomes current edge for an index ℓ ∈ I. By Claim 4.8, at this moment, for any
+j ∈ I, the edges vj ej and ej−1 vj are present in the current graph. Hence T ′ is a
+spanning tree in the current graph realizing f and not containing vℓ eℓ . This again
+contradicts the fact that vℓ eℓ was kept.
+    Finally, as for both versions of the process the existence of O led to a contradic-
+tion, we conclude that the Bernardi process may never traverse a cycle.                        
+
+
+Lemma 4.11. If an edge is traversed during a violet Bernardi run, then it is not
+removed later.
+
+Proof. If the edge ε is traversed from the direction of its violet node, then it is kept
+and, as we have already argued after Definition 4.2, is never removed later.
+   Now consider the case when ε = ev is traversed from the direction of its emerald
+node e. Suppose for contradiction that later on ε gets deleted.
+   First we establish that v is first reached (by the walk associated to the process)
+through ev. Suppose that v was first reached through another edge e′ v. Consider
+the path from the first arrival to v until ev gets traversed. Since ve does not get
+traversed from the violet direction (as it is due to be deleted), this path arrives
+back to v so that it only traverses ev in one direction. Hence there is a cycle in the
+set of traversed edges, contradicting Lemma 4.7.
+   Next, stop the Bernardi process immediately after the deletion of ε, and let
+the current graph of that moment be G. It is connected because f is a hypertree
+in it. Let S be the set of nodes that were reached by the Bernardi process until
+20                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+the deletion of ε, and were first reached after reaching v. Let also v ∈ S which
+guarantees S 6= ∅. As e was reached before v we have e ∈   / S and hence S 6= E ∪ V .
+    Take a vertex x ∈ S. At the current moment, the Bernardi process is at v, as
+the last step was deleting ve. If x 6= v, then when we last left x before returning
+to v, we must have left it along the same edge through which we first reached it,
+because otherwise there would be two paths between v and x and hence a cycle in
+the subgraph of traversed edges. By Lemma 4.6, the edges incident to x in G that
+were traversed from the direction of x are consecutive edges according to the cyclic
+order at x (in G). Hence all the edges incident to x in G are already traversed from
+the direction of x. Note that this is also true for x = v as the last current edge was
+ve which is also the edge through which v was first reached.
+    Finally, consider an edge xy of Bip H such that x ∈ S and y ∈ (E ∪ V ) \ S. If xy
+is in G, then xy was traversed from the direction of x. Hence y is already reached.
+As y ∈ / S, the node y was also reached before reaching v. As x was first reached
+after reaching v (or else x = v), there is a path in the subgraph of traversed edges
+from y to x through v. But then after the traversal of xy from the direction of x,
+there would be a cycle in the subgraph of traversed edges. Thus there can be no
+edge xy in G such that x ∈ S and y ∈ (E ∪ V ) \ S. Hence G is disconnected, which
+is a contradiction. (In other words, right before its deletion ε was the only edge
+connecting S to its complement and thus it should not have been deleted.)           
+
+Proof of Theorem 4.5. By Lemma 4.11, the subgraph of traversed edges is part of
+the current graph at all times, and by Lemma 4.7, it is cycle-free. The current graph
+is always connected as it contains a spanning tree realizing f . Hence if we make
+sure that at the end of the process, the subgraph H of traversed edges coincides
+with the current graph G, then we will know that H = G is both cycle-free and
+connected, thus a spanning tree, and since it contains a realization of f , it itself has
+to be such a realization.
+   Now for this last remaining claim, it suffices to prove the assertion in the Theorem
+that each edge becomes current edge exactly once, because then in particular each
+edge is either deleted (thus belongs neither to G nor to H) or kept and traversed
+(hence belongs to both). In fact, it is enough to show that the process examines
+each edge of Bip H as a current edge at least once, i.e., by the time an edge would be
+traversed for the second time from the same direction, each edge has been current
+edge. This is because if an edge becomes current for a second time, then it has to
+have been kept the first time and thus traversed both times, ending the process.
+   We shall first consider where the process may end, and find that it is only possible
+at the base node b0 .
+   Suppose that the first edge to be traversed twice from the same direction is ev,
+and it is traversed from the direction of the emerald node e. If e 6= b0 , then take
+the edge ue through which we first reached e during the process. As the Bernardi
+process does not traverse a cycle, by Lemma 4.6, the edges incident to e are traversed
+in an order compatible with the cyclic order at e. Hence before ev is traversed for
+the second time, eu is traversed from the emerald direction (by Lemma 4.11 it
+cannot be deleted from the graph, as it was already traversed). But as, again, the
+Bernardi process does not traverse a cycle, after traversing eu from the emerald
+direction, we can only get back to e by traversing ue from the violet direction.
+Hence before ev gets traversed for the second time from the emerald direction, ue
+gets traversed twice from the violet direction, which is a contradiction.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                         21
+
+
+   Now suppose that the first edge to be traversed twice from the same direction
+is ve, and it is traversed from the violet direction, that is, from v. If v 6= b0 , then
+there must be an edge e′ v through which we first reached v. As e′ v is traversed, by
+Lemma 4.11, it is not deleted from the graph during the process. Now we can repeat
+the argument of the previous case: The Bernardi process does not traverse a cycle,
+and by Lemma 4.6, the edges incident to v are traversed in an order compatible
+with the cyclic order at v. Hence before ve is traversed for the second time from the
+violet direction, ve′ is traversed from the violet direction (as it is not deleted). But
+as the Bernardi process does not traverse a cycle, after traversing ve′ from the violet
+direction, it can only get back to v by traversing e′ v from the emerald direction.
+Hence before ve gets traversed for the second time from the violet direction, e′ v
+gets traversed twice from the emerald direction, which is a contradiction.
+   We conclude that the first edge to be traversed twice by the Bernardi process
+can only be an edge incident to b0 , and it is traversed from the direction of b0 .
+   Next we claim that if a violet node v ∈ V \ {b0 } is reached by the Bernardi
+process, then all the edges incident to it get examined as current edges. Indeed,
+as the Bernardi process does not traverse a cycle, the last time the process leaves
+v before returning to b0 , it must leave v on the same edge on which it was first
+reached. Hence from Lemma 4.6, by this time each edge incident to v is examined
+as a current edge. This also holds for b0 , if b0 ∈ V , since the current edge at the
+end of the process is an edge that has already been a current edge. We also claim
+that if a node e ∈ E is reached by the Bernardi process at all, then all the edges
+incident to it get either removed or traversed. Indeed, if e 6= b0 , then the last time
+the process leaves e before returning to b0 , it must leave e through the same edge
+on which it was first reached, and by Lemma 4.6, by this time the traversed edges
+incident to e have been traversed in an order compatible with the cyclic order at e
+in the current graph of that moment. Thus if an edge incident to e has not yet been
+deleted, then it has necessarily been traversed. Again, the same holds if e = b0 .
+   To complete the proof, we need to show that each node in V is reached by the
+process. If that was not the case, then the vertex set X of the subgraph H of
+traversed edges (at the end of the process) would be a proper subset of E ∪ V ,
+giving rise to a cut K in Bip H. As Bip H is connected, K is a non-empty set of
+edges. By the previous paragraph, all edges in K get examined, and hence removed,
+by the process. We claim that K is such that each of its edges has its violet end
+in X. Indeed, edges can only be cut by the process at their violet ends and violet
+nodes in (E ∪ V ) \ X are never reached. But this means that when the last edge
+of K was removed, the current graph became disconnected, which contradicts the
+basic principle of the Bernardi process.                                               
+   By interchanging the roles of E and V , we see that the statement of Theorem
+4.5 holds also for the (ht:V , cut:E) and the (ht:E, cut:E) Bernardi processes.
+   Now that we have made sure that the Bernardi process converges to a spanning
+tree T , we may spell out the relationship between the walk associated to our process
+and Bernardi’s original tour of T . As the process traverses exactly the edges of T ,
+we see that the two are essentially the same, with the only difference being that we
+only consider edges as current edge once, whereas Bernardi’s tour does so twice,
+once at each endpoint. More precisely, we have the following.
+Lemma 4.12. Let T be a spanning tree of the ribbon graph Bip H (with fixed base
+node and base edge), resulting from a violet Bernardi run on some hypertree (on E
+22                    TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+or on V ). If we list the edges of Bip H in the order in which they become current
+in the tour of T and delete
+      • the second occurrences of the edges not in T and
+      • for each edge of T , its occurrence in conjunction with its emerald endpoint,
+then we get the list in which the edges of Bip H become current in our hypergraphical
+Bernardi process.
+
+                 5. Hypergraph polynomials à la Bernardi
+   Using the process of Definition 4.2, that is the version that cuts edges of the
+bipartite graph near where hypertree values (spanning tree degrees) are assigned,
+we are able to give an alternative definition (analogous to the definition of the Tutte
+polynomial by Bernardi) for the interior polynomial of a hypergraph. In section
+7, we show that this definition is equivalent to the original one; in particular, the
+polynomial does not depend on the choice of ribbon structure and base point. For
+the time being, we will denote this Bernardi-type interior polynomial by I˜ to avoid
+confusion. We will also set up an exterior version X̃.
+   First we define embedding activities. Note that this would not work without
+Theorem 4.5, in particular the claim that the Bernardi process reaches every part
+of the bipartite graph.
+Definition 5.1. Let H = (V, E) be a hypergraph and f be a hypertree on E. Fix
+a ribbon structure on Bip H, base node, and base edge and run the (ht:E, cut:E)
+Bernardi process. Take the order in which the edges of Bip H become current. This
+induces the following order on the elements of E:
+                               some edge incident to e1 becomes current edge
+(5.1)        e1 <f e2 ⇐⇒
+                               earlier than any edge incident to e2 .
+The internal embedding inactivity of f is the number of internally inactive (that
+is, not internally active) hyperedges with respect to f and the above order, defined
+exactly as in Definition 2.3. We denote this quantity by ie(f ).
+    The external embedding inactivity of f is the number of externally inactive hy-
+peredges with respect to f and the above order, defined as in [9, Definition 5.1]. We
+denote this quantity by ee(f ). That is, ee(f ) is the number of hyperedges which,
+with respect to f and <f , may receive a transfer of valence from a smaller hyperedge.
+Example 5.2. We return to Example 4.3 (and its notation), where we ran the (ht:E,
+cut:E) Bernardi process on a hypertree f on E. From the order in which the edges
+of Bip H became current (cf. Figure 2), we see that the induced order on E is
+left <f top <f right, which is just the order in which the walk associated to the
+process reached the elements of E.
+   The smallest node is always active, both internally and externally. As the top
+node has the minimal possible f -value, it is internally active (cannot transfer va-
+lence to left). Externally, however, it is inactive: it is easy to see (for instance
+by symmetry) that left 7→ 0, top 7→ 1, right 7→ 2 is also a hypertree, i.e., with
+respect to f , top may receive a transfer of valence from left. Notice that it does
+not concern us at all whether the new hypertree has some realization related to the
+just-constructed realization of f . Finally the right node is internally inactive (can
+transfer valence to both left and top) but externally active because its f -value is
+the largest possible and hence may not receive any transfers of valence.
+   Thus, in this case we find the embedding inactivity values ie(f ) = ee(f ) = 1.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                           23
+
+
+Definition 5.3. For a hypergraph H = (V, E) with a set of hypertrees BE and
+with a ribbon structure on Bip H, we let
+
+                 I˜H (ξ) =
+                           X                         X
+(5.2)                         ξ ie(f ) and X̃H (η) =   η ee(f ) .
+                           f ∈BE                          f ∈BE
+
+  We prove the following theorem in Section 7.
+
+Theorem 5.4. For any connected hypergraph H, ribbon structure on Bip H, base
+node, and base edge, we have I˜H = IH . Here IH is the interior polynomial of
+subsection 2.2, whereas I˜H is defined in (5.2) using the (ht:E, cut:E) Bernardi
+process. In particular, I˜H does not depend on the ribbon structure.
+
+   The order <f of (5.1) has three more variants: Since any of the four versions,
+(ht:E or V , cut:E or V ), of our process (assuming the presence of a hypertree)
+orders the set of edges of Bip H, each can be used to order E, as well as to order V ,
+by the smallest of the incident edges. Then for a hypertree on, say, E, the (ht:E,
+cut:V ) process can be used to define its embedding inactivities in complete analogy
+with Definition 5.1, which used the (ht:E, cut:E) process.
+   When applied to a (ribbon) graph H = G = (V, E) and one of its spanning trees
+T (viewed as a hypertree on E), the (ht:E, cut:E) and (ht:E, cut:V ) processes
+induce the same order on the set of edges E, namely the order <T of subsection
+2.3. This is not true for general hypergraphs. Thus when we use the (ht:E, cut:V )
+process to define embedding inactivities (for hypertrees on E), the individual values
+of the statistic will be different from those provided by Definition 5.1. Note also that
+the order on E (induced by the hypertree on E) is less natural in this case: nodes
+in E may ‘get numbered’ when the walk associated to the process cuts some edge
+adjacent to them, which may be well before the walk actually reaches the node.
+Yet computer simulations suggest that the distribution of the interior inactivity
+statistic remains the same. Unfortunately, at the moment, we are only able to
+state this as a conjecture.
+
+Conjecture 5.5. Let H = (V, E) be a connected hypergraph with a ribbon structure
+and base point for Bip H. For a hypertree f on E, run the (ht:E, cut:V ) Bernardi
+process and define the order <f on E as in (5.1). Compute the internal embedding
+inactivity of f with respect to <f for all f and define a one-variable polynomial as
+in the first equation of (5.2). The result coincides with the interior polynomial IH .
+
+   Again, Conjecture 5.5 is true for cases when H is a graph by the coincidence of
+orders mentioned above. We also conjecture that both Theorem 5.4 and Conjecture
+5.5 are valid for the exterior polynomial as well.
+
+Conjecture 5.6. For any connected hypergraph H, ribbon structure on Bip H, base
+node, and base edge, we have X̃H = XH . In particular, the polynomial X̃H of (5.2)
+does not depend on the ribbon structure. The same two claims remain true if we
+re-define X̃H using the (ht:E, cut:V ) Bernardi process.
+
+   We are probably much farther from the proof of Conjecture 5.6 than that of 5.5.
+This is because we do not know what geometric object should play the same role,
+in relation to exterior activities, as the root polytope plays for interior activities in
+the argument that we are about to present.
+24                            TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+                             v2                                                  v2
+
+                   e2                             e1                  e2                             e1
+
+
+                                   e3                                                 e3
+            b0 = v0                                            b0 = v0
+                                             v1                                                 v1
+                        b1 = e 0                                           b1 = e 0
+
+           Figure 4. For the (positive) planar ribbon structure, the spanning
+           tree on the left is a V -cut Jaeger tree, while the spanning tree on
+           the right is not a Jaeger tree.
+
+                                             6. Jaeger trees
+   In this section we give an alternative characterization of the set of spanning
+trees of Bip H that the Bernardi process outputs. Here H = (V, E) is a connected
+hypergraph and just like in the previous two sections, we work with a fixed ribbon
+structure, base node, and base edge.
+6.1. Definitions. Since the notion of the ‘walk associated to the Bernardi process’
+of Section 4 only applies in the presence of a hypertree, and Jaeger trees will be
+defined without referring to hypertrees, we will revert to the definition of the tour
+of a spanning tree from subsection 2.3. For a spanning tree T of the graph Bip H,
+we can take the tour of T and hence obtain the order ≤T on the set of incident
+node-edge pairs of Bip H. If the edge xy is not in T , then by Lemma 2.7, it
+is skipped twice by the tour, once with each endpoint as current node. Let us
+consider the first of the two events and say that xy is cut at x during the tour of
+T if (x, xy) <T (y, xy). In this case we will also think of the ‘time’ when (x, xy) is
+current as the ‘moment when xy is cut from the graph’ (on our way of trimming
+Bip H down to T ). We also make the following definition.
+Definition 6.1. A spanning tree T of Bip H is called a V -cut (resp. E-cut ) Jaeger
+tree if in the tour of T , each non-edge of T is cut at its violet (resp. emerald)
+endpoint.
+   We say that a spanning tree of Bip H is a Jaeger tree if it is either a V -cut or an
+E-cut Jaeger tree. I.e., Jaeger trees are distinguished by the property that in their
+tours, each non-edge is skipped for the first time at its endpoint of the same fixed
+color.
+Example 6.2. Let the positive orientation of the plane induce the ribbon structure
+of the bipartite graph of Figure 4. With v0 as base node and v0 e0 as base edge,
+the tour of the spanning tree on the left is v0 , v0 e0 ; e0 , e0 v1 ; v1 , v1 e1 ; v1 , v1 e3 ;
+v1 , v1 e0 ; e0 , e0 v0 ; v0 , v0 e3 ; e3 , e3 v1 ; e3 , e3 v2 ; v2 , v2 e1 ; e1 , e1 v1 ; e1 , e1 v2 ; v2 , v2 e2 ;
+v2 , v2 e3 ; e3 , e3 v0 ; v0 , v0 e2 ; e2 , e2 v2 ; e2 , e2 v0 . This is a V -cut Jaeger tree since, e.g.,
+(v1 , v1 e1 ) <T (e1 , e1 v1 ) and a similar property holds for the other two non-edges of
+the tree. On the other hand, the spanning tree on the right is not a Jaeger tree
+since v0 e0 is cut at its violet endpoint, while e3 v1 is cut at its emerald endpoint.
+  We will see that Jaeger trees are exactly the outcomes of our hypergraphical
+Bernardi processes. Let us prove the easier implication first.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                          25
+
+
+Proposition 6.3. The (ht:E, cut:V ) and the (ht:V , cut:V ) Bernardi processes
+produce V -cut Jaeger trees for any hypertree (on E or on V , respectively).
+Proof. Let T be one of the spanning trees in question. In Lemma 4.12 we spelled
+out the correspondence between the tour of T and the hypergraphical Bernardi
+process which produced T . To put it simply, since in the Bernardi process an edge
+needs to be traversed if we first arrive at it from the emerald direction, in the tour
+of T , each edge not in T has to be first reached, and cut, at its violet endpoint.
+Hence T is indeed a V -cut Jaeger tree.                                             
+
+  With the same proof, we also obtain the following.
+Proposition 6.4. The (ht:V , cut:E) and the (ht:E, cut:E) Bernardi processes
+produce E-cut Jaeger trees for any hypertree.
+   Our next aim is to show the converse of Proposition 6.3, namely that each Jaeger
+tree is obtained as the outcome of the Bernardi process on some hypertree. Until
+we finish proving this (in Theorem 6.18) we will continue to rely on the notions
+of tour and current node-edge pair of Subsection 2.3, which apply to all spanning
+trees. First let us establish some useful properties of Jaeger trees.
+   By the reverse of a ribbon structure, we mean the structure where all cyclic
+orders are turned opposite. This is equivalent to reversing the orientation of the
+ribbon surface. Below we consider the reversed ribbon structure with the same base
+point, i.e., the same boundary point of the ribbon surface.
+Lemma 6.5. A V -cut Jaeger tree with base node b0 and base edge b0 b1 is an E-
+cut Jaeger tree for the reversed ribbon structure, base node b0 , and base edge b0 b−
+                                                                                    1
+(where the latter is meant in the original ribbon structure).
+Proof. Let T be a spanning tree of Bip H. In the tour of T , each non-edge ε of
+T is visited (i.e., is current) twice, once at each endpoint. The tree T is V -cut if
+and only if the violet endpoint is always reached (i.e., forms a current pair with
+ε) before the emerald one. For the reversed ribbon structure, the order of the two
+occurrences of ε in the tour becomes opposite. Hence T is V -cut for the original
+structure if and only if it is E-cut for the reversed structure.                  
+
+Example 6.6. The spanning tree on the left of Figure 4 is an E-cut Jaeger tree for
+the ribbon structure induced by the clockwise (negative) orientation of the plane,
+with base node v0 with base edge v0 e2 .
+    Note that by symmetry, an E-cut Jaeger tree with base node b0 and base edge
+b0 b1 is also a V -cut Jaeger tree with base node b0 , base edge b0 b−
+                                                                     1 and the reversed
+ribbon structure. As the reversal of the ribbon structure is an involution, we deduce
+the following.
+Lemma 6.7. The set of E-cut Jaeger trees with base node b0 and base edge b0 b1
+is equal to the set of V -cut Jaeger trees with base node b0 , base edge b0 b−
+                                                                             1 , and the
+reversed ribbon structure.
+Definition 6.8. For a V -cut Jaeger tree T , we call the tour of T (with respect to
+the original ribbon structure) the violet tour of T . We call the tour of T with base
+point b0 , base edge b0 b−
+                         1 and the reversed ribbon structure the emerald tour of T .
+26                      TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+   By Lemma 6.5, for a V -cut Jaeger tree, in the emerald tour, each non-edge is
+cut at its emerald endpoint. The violet and the emerald tours of a Jaeger tree both
+induce orderings of the edges of Bip H, as follows.
+Definition 6.9. For a V -cut Jaeger tree T , let the violet T -order of the edges of
+Bip H be the order in which the edges of Bip H appear in the violet T -tour with
+their violet endpoint as current node. Let us denote this ordering by <T,V . That
+is, ev <T,V e′ v ′ if (v, ev) <T (v ′ , e′ v ′ ), where <T is as in subsection 2.3.
+    Similarly, let the emerald T -order of the edges of Bip H be the order in which the
+edges of Bip H appear in the emerald T -tour with their emerald endpoint as current
+node. Let us denote this ordering by <T,E ; i.e., ev <T,E e′ v ′ if (e, ev) <T (e′ , e′ v ′ ),
+where now <T is defined by the reversed ribbon structure.
+Definition 6.10. Let T ⊂ Bip H be a V -cut Jaeger tree. The order induced on
+E by the emerald T -order of the edges of Bip H, or simply the emerald T -order on
+E, is by the smallest of the incident edges. That is, e1 is less than e2 if there is an
+edge, incident to the node e1 , that is smaller in the emerald T -order than any edge
+incident to e2 . There is a similar order of the nodes in V , induced by the violet
+T -order of the edges.
+Example 6.11. For the Jaeger tree on the left side of Figure 4, the violet T -order
+is v0 e0 <T,V v1 e1 <T,V v1 e3 <T,V v1 e0 <T,V v0 e3 <T,V v2 e1 <T,V v2 e2 <T,V
+v2 e3 <T,V v0 e2 , while the emerald T -order is e2 v2 <T,E e2 v0 <T,E e3 v2 <T,E
+e1 v1 <T,E e1 v2 <T,E e3 v1 <T,E e3 v0 <T,E e0 v1 <T,E e0 v0 . The former induces the
+order v0 < v1 < v2 of the violet nodes, and the latter induces the order e2 < e3 <
+e1 < e0 of the emerald nodes.
+Remark 6.12. The previous two definitions are almost superfluous, in that they
+describe orderings that we have already seen — we just cannot prove this yet. But
+once we know that our Jaeger tree is an outcome of the Bernardi process, in fact
+in two different senses by Lemma 6.7, Lemma 4.12 will imply that the orders of
+Definition 6.9 are the same in which the edges of Bip H become current in those
+processes.
+   More precisely, if a V -cut Jaeger tree T is the outcome of the (ht:V , cut:V ) or
+the (ht:E, cut:V ) Bernardi process, then in the run producing T , the edges of Bip H
+become current edges in the violet T -order. Also, if an E-cut Jaeger tree T is the
+outcome of the (ht:E, cut:E) or the (ht:V , cut:E) Bernardi process, then in the
+run producing T , the edges of Bip H become current edges in the emerald T -order.
+   Similarly, we will eventually see that the orders of Definition 6.10 are instances
+of (5.1) in Definition 5.1.
+6.2. Fundamental cuts. Fundamental cuts of Jaeger trees have a nice interplay
+with the orderings of the edges induced by the trees. The following, rather intuitive
+lemma is proved in [3]. We specialize it to our case and translate it into our notation.
+Lemma 6.13. [3, Lemma 5] Let T be a spanning tree of Bip H and xy ∈ T . Let
+T0 and T1 be the two subtrees of T − xy so that T0 contains the base node. If
+(x, xy) <T (y, xy), then x is in the node set of T0 . Moreover,
+ {(z, zw) | (x, xy) <T (z, zw) ≤T (y, xy)} = {(z, zw) | z is in the node set of T1 }.
+   For a subgraph of Bip H, we let its base component be the connected component
+that contains the base node. See Figure 5 for an example.
+              HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                            27
+
+
+                                            v2
+                                     e2                    e1
+
+                                b0 = v0          e3
+                                                      v1
+                                      b1 = e 0
+
+         Figure 5. With respect to the V -cut Jaeger tree T of Figure
+         4, the red edges comprise the fundamental cut of v2 e3 . The base
+         component of T − v2 e3 is the subtree { v0 e0 , e0 v1 , v0 e3 , v0 e2 }.
+
+
+Lemma 6.14. Let T be a V -cut Jaeger tree, ε ∈ T , and ε1 , ε2 edges in the funda-
+mental cut C ∗ (T, ε). If ε1 has its violet endpoint in the base component of T − ε
+and ε2 has its emerald endpoint in the base component of T − ε, then
+    (i) ε1 <T,V ε2 , and
+   (ii) ε1 ≤T,V ε.
+   In other words, the tour of T first visits those edges of C ∗ (T, ε) that have their
+violet endpoint in the base component of T − ε, the last one of which, and in that
+case the only one not to be cut, may be ε. If ε has its emerald endpoint in the base
+component of T − ε, then it is the first such edge to be visited by the tour, but
+because it is traversed from the emerald direction, it (typically) does not become
+smallest among them with respect to <T,V . (In fact, somewhat counterintuitively,
+it will be the largest.) In both cases, by traversing ε the tour leaves the base
+component and visits, and cuts at their violet endpoints, the remaining edges of
+C ∗ (T, ε). By the time the tour returns to the base component (by traversing ε for
+the second time), all edges of C ∗ (T, ε), save ε, have been cut.
+
+Proof of Lemma 6.14. The subgraph T − ε is a forest made up of the base compo-
+nent T0 and another component T1 . Let ε = xy and suppose that (x, ε) <T (y, ε).
+For i = 1, 2, let also εi = vi ei ∈ C ∗ (T, ε), where vi ∈ V and ei ∈ E. Since ε1 has its
+violet endpoint v1 in T0 , its emerald endpoint e1 is from the node set of T1 . Hence
+Lemma 6.13 implies (x, ε) <T (e1 , ε1 ) ≤T (y, ε). As the ordering is induced by the
+violet tour of T , we either have ε1 = ε (and then x = v1 ) or the edge ε1 is cut at
+its violet endpoint, i.e., (v1 , ε1 ) <T (e1 , ε1 ). Because v1 is not in the node set of
+T1 , we must then have (v1 , ε1 ) ≤T (x, ε). From this, (ii) immediately follows, for
+no matter if x or y is the violet endpoint of ε, we have (v1 , ε1 ) ≤T (x, ε) <T (y, ε).
+    Since ε2 has its emerald endpoint e2 in T0 , its violet endpoint v2 is from the node
+set of T1 . Hence (x, ε) <T (v2 , ε2 ) ≤T (y, ε). We conclude that (v1 , ε1 ) <T (v2 , ε2 ),
+implying ε1 <T,V ε2 .                                                                    
+
+Lemma 6.15. If the (violet) tours of the V -cut Jaeger trees T and T ′ coincide
+until ε becomes current edge, furthermore ε ∈ T but ε ∈     / T ′ , then ε has its violet
+endpoint in the base component of T − ε. Moreover, for any ε′ ∈ T ′ such that
+ε′ ∈ C ∗ (T, ε), the emerald endpoint of ε′ lies in the base component of T − ε.
+Proof. Up to the time when the two tours diverge, ε has been neither cut (for
+otherwise it could not be an edge in T ) nor traversed (because then it would be an
+edge in T ′ ). So this is when the tour of T ′ will cut it and since T ′ is a V -cut Jaeger
+28                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+tree, the current node v has to be violet. As v is connected to b0 in T by a path
+not traversing ε, the first claim follows.
+   From part (ii) of Lemma 6.14 we know that all the edges in C ∗ (T, ε) − ε that
+have their violet endpoints in the base component had already been current edges,
+in conjunction with their violet endpoints, in the violet tour of T before reaching ε,
+and they were cut. As the violet tours of T and T ′ coincide until reaching ε, these
+                                                             / T ′ , all the edges of T ′
+edges are not included in T ′ , either. Since we also have ε ∈
+        ∗
+from C (T, ε) have their emerald endpoints in the base component of T − ε.            
+
+6.3. All Jaeger trees are outcomes of the Bernardi process. In this sub-
+section we prove that each hypertree is realized by unique V -cut and E-cut Jaeger
+trees, implying that Jaeger trees are exactly the trees obtained as outcomes of the
+Bernardi process.
+Theorem 6.16. Let H = (V, E) be a connected hypergraph with a ribbon structure
+on Bip H, a base node, and a base edge fixed. For each hypertree f ∈ BV there is
+exactly one V -cut Jaeger tree T such that f = fV (T ).
+Proof. We proved in Proposition 6.4 that for each hypertree f ∈ BV , the (ht:V ,
+cut:V ) Bernardi process produces a V -cut Jaeger tree realizing f . Hence it is enough
+to show that for each hypertree, there is at most one suitable Jaeger tree. Suppose
+for a contradiction that for some hypertree f ∈ BV there are two V -cut Jaeger trees
+T 6= T ′ such that f = fV (T ) = fV (T ′ ).
+   Consider the (violet) tours of T and T ′ , and suppose that the two tours first
+differ when an edge ve is included into T but not included into T ′ . As T and T ′ are
+V -cut Jaeger trees, this means that the current node at this time is v. Cf. Lemma
+6.15, which also says that each edge in T ′ ∩ C ∗ (T, ve) has its emerald endpoint in
+the base component of T − ve.
+   Let V0 be the set of violet nodes and E   P0 be the set of emerald nodes in the base
+component of T − ve. We will compute u∈V0 f (u) twice, using the realizations T
+and T ′ , respectively.
+   As edges of T between elements of V0 ∪ E0 form a tree and other        P than those,
+T only has one edge, ve, incident to an element of V0 , we have              u∈V0 f (u) =
+(|V0 ∪ E0 | − 1) + 1 − |V0 | = |E0 |.
+   On the other hand, as T ′ is a tree, it can have at most |V0 ∪E0 |−1 edges between
+elements of V0 ∪ E0 . All other edges of T ′ incident to V0 belong to C ∗ (T, ve) but
+P have already seen that there are no such edges. Hence this time we obtain
+we
+   u∈V0 f (u) ≤ (|V0 ∪ E0 | − 1) − |V0 | = |E0 | − 1, which is a contradiction.         
+
+Corollary 6.17. Under the same assumptions as in Theorem 6.16, for each hyper-
+tree f ∈ BV there is exactly one E-cut Jaeger tree T such that f = fV (T ). Similarly,
+hypertrees in BE have unique E-cut and V -cut Jaeger tree representatives.
+Proof. Note that f does not depend on the ribbon structure. By Lemma 6.5, the
+trees we are considering are exactly the V -cut Jaeger tree representatives of f with
+respect to the reversed ribbon structure. According to Theorem 6.16, there is a
+unique such tree. The second claim follows by interchanging the roles of colors. 
+
+   In Proposition 6.3 we saw that each Bernardi process of Section 4 provides a
+function from the set of hypertrees (on an arbitrarily fixed color class of Bip H) to
+the appropriate set of Jaeger trees. The map is an injection because the same tree
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                         29
+
+
+cannot represent different hypertrees. By Theorem 6.16 or Corollary 6.17, the map
+must also be a surjection. Hence we arrive at the following two conclusions.
+Theorem 6.18. For any connected bipartite graph (of color classes E and V ) with
+a fixed ribbon structure, base node, and base edge, the outcomes of the (ht:E, cut:V )
+Bernardi process, as well as the outcomes of the (ht:V , cut:V ) Bernardi process,
+are exactly the V -cut Jaeger trees.
+   In the same way, the outcomes of the (ht:E, cut:E) Bernardi process, as well as
+the (ht:V , cut:E) Bernardi process, are exactly the E-cut Jaeger trees.
+Corollary 6.19. For any connected bipartite graph with color classes E, V and a
+fixed ribbon structure, base node, and base edge, the (say) V -cut Jaeger trees give
+a bijection between the sets of hypertrees BE and BV , namely for each hypertree
+on E, there is exactly one V -cut Jaeger tree that realizes it and the same holds for
+each hypertree on V .
+   This bijection generalizes the bijection between spanning trees and break divisors
+of a graph found by Bernardi [3] and studied further by Baker and Wang [1].
+   In section 7 we will give a geometric interpretation of the above facts by proving
+that the simplices corresponding to Jaeger trees of Bip H form a dissection of the
+root polytope QBip H . In particular, the bijection of Corollary 6.19 turns out to be
+an instance of Theorem 3.2.
+6.4. The four types of Bernardi processes. In our treatment of hypergraphs
+H through their associated bipartite graphs Bip H, the roles of the emerald and
+violet color classes are inherently symmetric. In particular, there are only two
+different versions of the Bernardi process, as described in Section 4. But if one
+is solely interested in graphs G, as opposed to hypergraphs, the construction of
+Bip G becomes somewhat unnatural and the symmetry is easy to miss. In this
+subsection we formulate statements on four Bernardi processes: the two above and
+their transposes. Capitalizing on the structure of Jaeger trees, we deduce several
+relationships between them.
+Theorem 6.20. Run the (ht:E, cut:V ) Bernardi process on the hypertree f (on
+E), and let the resulting spanning tree of Bip H be T . Then by running the (ht:V ,
+cut:V ) Bernardi-process on the induced (on V ) hypertree fV (T ), we again get T as
+resulting spanning tree.
+Proof. Let the spanning tree produced by the (ht:V , cut:V ) Bernardi-process on
+fV (T ) be T ′ . Then by Proposition 6.3, T and T ′ are both V -cut Jaeger trees, and
+they both realize fV (T ) on V . Hence by Theorem 6.16, we have T ′ = T .           
+Theorem 6.21. Run the (ht:E, cut:V ) Bernardi process on the hypertree f (on
+E), and let the resulting spanning tree of Bip H be T . Then by running the (ht:E,
+cut:E) Bernardi process on f , with base node b0 , base edge b0 b−
+                                                                 1 , and the reversed
+ribbon structure, we again get T as resulting spanning tree.
+Proof. Let T ′ be the spanning tree produced by the (ht:E, cut:E) Bernardi process
+on f with base node b0 , base edge b0 b−1 , and the reversed ribbon structure. Then
+T ′ is an E-cut Jaeger tree for the reversed ribbon structure. Hence by Lemma 6.5,
+T ′ is a V -cut Jaeger tree with base node b0 , base edge b0 b1 and the original ribbon
+structure. Thus T and T ′ are both V -cut Jaeger trees, and they both realize f on
+E. By Corollary 6.17, this implies T ′ = T .                                          
+30                       TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+Theorem 6.22. Run the (ht:E, cut:V ) Bernardi process on the hypertree f (on E),
+and let the resulting spanning tree of Bip H be T . Then by running the (ht:V , cut:E)
+Bernardi process on fV (T ), with base node b0 , base edge b0 b−
+                                                               1 and the reversed ribbon
+structure, we again get T as resulting spanning tree.
+Proof. Let T ′ be the spanning tree produced by the (ht:V , cut:E) Bernardi process
+on fV (T ), with base node b0 , base edge b0 b−
+                                              1 , and the reversed ribbon structure.
+Then T ′ is an E-cut Jaeger tree in that setup and by Lemma 6.5, T ′ is a V -cut
+Jaeger tree with base node b0 , base edge b0 b1 and the original ribbon structure.
+Hence T and T ′ are both V -cut Jaeger trees, and they both realize fV (T ) on V .
+Thus by Theorem 6.16, we have T ′ = T .                                           
+Remark 6.23. The original Bernardi process for graphs is most easily identified
+with the (ht:E, cut:V ) version. In [1], Baker and Wang define a right and a left
+inverse for the bijection between spanning trees and break divisors given by the
+Bernardi process on graphs. We note that the (ht:V , cut:V ) Bernardi process is
+a generalization of their right inverse and the (ht:V , cut:E) Bernardi process with
+base node b0 , base edge b0 b−
+                             1 , and the reversed ribbon structure is a generalization
+of their left inverse. (By Theorem 6.21, these two mappings coincide.) Hence the
+theorems of this subsection extend the results of Baker and Wang. This hinges
+on the realization that both spanning trees and break divisors are special cases of
+hypertrees.
+
+                                       7. Shellability
+   We start this section by introducing a natural order on the set of Jaeger trees.
+As always, we assume that a ribbon structure, base node, and base edge are fixed
+for Bip H, where H = (V, E) is a connected hypergraph. Then we actually have
+two sets of Jaeger trees in Bip H, the E-cut set and the V -cut set. We will order
+them both in two different ways. (The exact relationship between the two orders
+on the same set is somewhat unclear. In some sense they should be opposites but
+that is not literally true.)
+Definition 7.1. Let T1 and T2 be V -cut Jaeger trees. Consider the last time when
+their (violet) tours are identical. This happens when a violet node v is current2
+together with an edge ε incident to v, where, say, ε ∈ T2 but ε ∈  / T1 . In this case
+we put T1 <V T2 . This defines a total order on the set of V -cut Jaeger trees. Let
+us call this order the violet order of V -cut Jaeger trees.
+   We also define the emerald order of V -cut Jaeger trees. This time T1 <E T2 if in
+their emerald tours (which use the reversed ribbon structure), the first edge that
+behaves differently is part of T2 but not part of T1 . By symmetry of color classes,
+we also have violet and emerald orders of E-cut Jaeger trees.
+   Figure 6 shows examples of these relations. Like before, the ribbon structure
+comes from the positive orientation of the plane, the base node is the lower left
+blue node, with base edge going to the right and downwards.
+   The goal of this section is to prove that the simplices corresponding to the, say,
+V -cut Jaeger trees form a dissection of the root polytope QBip H , and moreover,
+the orders of Definition 7.1 translate to shelling orders for this dissection. This
+   2It is easy to see that the current node v has to be violet, cf. the first paragraph of the proof
+of Lemma 6.15, but in fact the definition can be made without this piece of information.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                        31
+
+
+
+
+                 b0                                  b0
+                       b1                                 b1
+
+        Figure 6. The Jaeger tree on the left precedes the Jaeger tree
+        on the right in the violet order, because of the blue edge. The
+        Jaeger tree on the right precedes the Jaeger tree on the left in the
+        emerald order because of the green edge.
+
+                                     7           5
+                                             3
+
+                                 6               4
+                                         8   2
+
+                                     1           0
+
+
+        Figure 7. The internally semi-passive edges, for the spanning tree
+        represented by thick lines and the given edge order (numbering),
+        are shown in red.
+
+will be a crucial ingredient in the proof of Theorem 5.4, i.e., that our alternative
+definition for the interior polynomial agrees with the original one. The other key
+to the proof will be that the interior polynomial coincides with the h-vector of any
+shellable dissection of the root polytope.
+   The following notion is independent of ribbon structures and will greatly help to
+describe the terms in the h-vector. We invented it based on ‘external semi-activity,’
+which, in turn, we heard about from Alexander Postnikov.
+Definition 7.2. Given a bipartite graph G, a total order on its edges, and a
+spanning tree T of G, we say that an edge ε ∈ T is internally semi-passive in T , if
+ε “stands opposite” to the smallest edge ε′ in the fundamental cut C ∗ (T, ε), that
+is, ε and ε′ have endpoints of different color in each component of T − ε.
+   See Figure 7 for an example. ‘Passive’ here just stands for ‘not active.’ In
+Tutte’s original sense, ‘internally active’ means ‘being smallest in the fundamental
+cut.’ In ‘internally semi-active,’ that condition is weakened to ‘standing parallel to
+the smallest element of the fundamental cut.’
+   The next lemma plays an important role in the proof of shellability, as well as in
+relating the terms of the h-vector to the coefficients in the Bernardi-type definition
+of the interior polynomial. To that end, (i) and (iii) of the equivalent conditions
+below are the most important. Note that they refer to orders defined using two
+different ribbon structures, a reverse pair. The condition (v) is the easiest to check
+in practice. We will usually (for example, in Theorem 7.8) refer to the set of edges
+characterized by the Lemma using the property (ii).
+32                       TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+Lemma 7.3. Let T be a V -cut Jaeger tree, and ε ∈ T be an edge. The following
+statements are equivalent.
+       (i) ε arises as a first difference between T and some tree preceding T in the
+           violet ordering of Jaeger trees, i.e., there exists a V -cut Jaeger tree T ′ such
+           that ε 6∈ T ′ but the (violet) tours of T and T ′ coincide until reaching ε.
+      (ii) ε is internally semi-passive in the spanning tree T with respect to the emer-
+           ald T -order (Definition 6.9) of the edges of Bip H.
+     (iii) ε = ve has its violet endpoint v in the base component of T − ε and e
+           is internally inactive for the hypertree fE (T ) with respect to the emerald
+           T -order on E (Definition 6.10).
+     (iv) ε is not the largest element in C ∗ (T, ε) according to the violet T-order of
+           the edges of Bip H.
+      (v) ε has its violet endpoint in the base component, and there exists an edge in
+           C ∗ (T, ε) with its emerald endpoint in the base component.
+   A concrete example, with two edges of the tree satisfying the equivalent condi-
+tions, is shown in Figure 8.
+
+Proof. (i) ⇒ (v) is straightforward from Lemma 6.15. Note that as T ′ is also a
+spanning tree of Bip H, it includes some edge ε′ from the cut C ∗ (T, ε), which then
+has the required property by the Lemma.
+(v) ⇒ (i). Let T0 and T1 be the two subtrees of T − ε, with T0 containing the base
+node. Let G0 be the subgraph of Bip H spanned by the node set of T0 , and G1 be
+the subgraph spanned by the node set of T1 . We build up a V -cut Jaeger tree T ′
+together with its violet tour, such that ε is the first difference between T ′ and T .
+Follow the violet tour of T until reaching ε, but at that moment, do not include ε
+into T ′ . Instead, stay in T0 and continue with the part of the tour of T that would
+follow the traversal of ε from the emerald direction. Stop at the first moment when
+an edge ε′ ∈ C ∗ (T, ε), with its emerald endpoint e′ in T0 , becomes current edge.
+(By Lemma 6.14, ε′ is actually the first edge of C ∗ (T, ε) that becomes current after
+ε. By the same Lemma, and the assumption (v), the existence of ε′ is guaranteed.)
+Let ε′ = e′ v ′ where v ′ is in the node set of G1 . If G1 is not just a point, then take
+the first edge v ′ e′′ ∈ G1 , after v ′ e′ , in the cyclic order at v ′ . Take an arbitrary
+V -cut Jaeger tree T1′ of G1 with base point v ′ and base edge v ′ e′′ . (Such a Jaeger
+tree can be constructed by running, say, the (ht:V , cut:V ) Bernardi process on an
+arbitrary hypertree of G1 .)
+     We claim that T ′ = T0 ∪ {ε′ } ∪ T1′ is a V -cut Jaeger tree. Once we prove this,
+it becomes immediate from the construction that the first difference in the violet
+tours of T and T ′ is that ε is included into T but not included into T ′ .
+     Until reaching ε, the violet tours of T and T ′ coincide. Then ε is cut at its violet
+endpoint in the tour of T ′ . Next we continue the traversal of T0 until we arrive at
+ε′ . During this time, any edges that we cut are edges of G0 that are cut, at the same
+endpoint, in the tour of T as well. As ε′ is traversed, the tour of T ′ thus far has
+not cut any edge at its emerald endpoint. If there are any edges between v ′ e′ and
+v ′ e′′ at v ′ , then they get cut at their violet endpoints. Next we start the traversal
+of T1′ , which is a V -cut Jaeger tree in G1 . Compared to the tour of T1′ with regard
+to G1 , the only difference in the tour of T ′ is that any edges in C ∗ (T, ε) that we
+encounter have to be skipped. But by Lemma 6.14, all the edges from C ∗ (T, ε) that
+have their emerald endpoint in G1 have already been cut, hence none of them gets
+              HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                              33
+
+
+cut at its emerald endpoint. Then when we arrive back at e′ after traversing ε′ for
+the second time, the set of node-edge pairs that have not been current is the same
+as in the violet tour of T after (e′ , e′ v ′ ) serves as current pair. Moreover, the orders
+in which these remaining pairs become current are the same, too. Hence during the
+remainder of the tour of T ′ , each edge that is cut is still cut at its violet endpoint.
+(v) ⇒ (ii). The tree T is an E-cut Jaeger tree for the reversed ribbon structure by
+Lemma 6.5. Applying Lemma 6.14 with “emerald” instead of “violet,” we see that
+those edges in C ∗ (T, ε) that have their emerald endpoint in the base component
+all precede, in the emerald T -order, those which have their violet endpoint there.
+Since now there exists an edge in C ∗ (T, ε) that has its emerald endpoint in the base
+component, necessarily the smallest edge δ of C ∗ (T, ε), according to the emerald
+T -order, is of this kind. As ε has its violet endpoint in the base component, it
+stands opposite to δ, which means that ε is internally semi-passive.
+(ii) ⇒ (iii). First we prove that if ε = ve is internally semi-passive in T with respect
+to the emerald T -order of the edges of Bip H, then ε has its violet endpoint v in
+the base component. The condition means that the smallest edge v ′ e′ in C ∗ (T, ε),
+according to the emerald T -order, stands opposite to ve. By Lemma 6.14, among
+two edges of C ∗ (T, ε) standing opposite to each other, the smaller one according to
+the emerald T -order has its emerald endpoint in the base component. Hence ε has
+its violet endpoint in the base component.
+    Now we show that e is internally inactive in fE (T ) with respect to the emerald
+T -order. Since v ′ e′ ∈ C ∗ (T, ε), replacing ve with v ′ e′ in T yields another spanning
+tree T ′ of Bip H. In particular fE (T ′ ) is a hypertree. As fE (T ′ ) is obtained from
+fE (T ) by a transfer of valence from e to e′ (assuming that e′ ∈ E and v ′ ∈ V ),
+it is enough to show that e′ precedes e in the emerald T -order. We already know
+that ve has its violet endpoint in the base component, implying that e is reached
+through ve in the emerald tour of T . From Lemma 6.14 we also know that v ′ e′
+becomes current edge, with e′ as current node, earlier during the emerald tour of
+T than the first traversal of ev. Hence any edge incident to e comes later in the
+emerald T -order than v ′ e′ . Thus, e comes later in the emerald T -order than e′ .
+(iii) ⇒ (v). As both (iii) and (v) claim that ε = ve has its violet endpoint v in
+the base component, it is enough to prove that if e is internally inactive in fE (T )
+with respect to the emerald T -order, then there is an edge in C ∗ (T, ε) that has its
+emerald endpoint in the base component.
+    Suppose for contradiction that there is no edge in C ∗ (T, ε) with its emerald
+endpoint in the base component T0 of T − ε. Let V0 be the set of violet nodes of T0 ,
+and let E0 be the set of its emerald nodes. Our assumption implies that for each
+x ∈ E0 , the set of edges of T incident to x equals the set of edges of T0 incident to
+x. Moreover, all edges of Bip H incident to x have      P their violet endpoint in V0 .
+    Since T0 is a tree spanning V0 ∪ E0 , we have x∈E0 fE (T )(x)      P = |V0 | + |E0 | − 1 −
+|E0 | = |V0 |−1. Recall that for any hypertree f on E, we have x∈E0 f (x) ≤ |V0 |−1
+[9, Theorem 3.4]. In other words, with respect to fE (T ), the set E0 is ‘tight,’
+meaning that no element of it may receive a transfer of valence from outside of E0 .
+Now this is a contradiction because all the emerald nodes that are smaller than e
+in the emerald T -order lie in E0 , which blocks e from being internally inactive.
+(iv) ⇒ (v). As discussed before the proof of Lemma 6.14, if ε has its emerald
+endpoint in the base component, then it is the largest element, with respect to the
+violet T -order, of its fundamental cut. Indeed, such an edge only becomes current,
+34                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+in conjunction with its violet endpoint, at the time of its second traversal. This
+proves the first assertion of (v); as to the second, let ε′ be an edge of C ∗ (T, ε) such
+that ε <T,V ε′ . Then by part (ii) of Lemma 6.14, ε′ must have its emerald endpoint
+in the base component, for otherwise it would precede ε in the violet T -order.
+(v) ⇒ (iv) also follows directly from Lemma 6.14. Let ε′ be an edge in C ∗ (T, ε)
+having its emerald endpoint in the base component. Since ε has its violet endpoint
+in the base component, by part (i) of Lemma 6.14 we have ε ≤T,V ε′ , preventing ε
+from being the largest edge of C ∗ (T, ε) with respect to the violet T -order.         
+   We can further deduce the following characterization of internally inactive nodes.
+It does not matter whether the Jaeger tree of the next two corollaries is V -cut or
+E-cut since we only need the fact that it has an emerald tour.
+
+
+
+
+                                   b0
+                                         b1
+
+        Figure 8. An E-cut Jaeger tree T with circled internally inactive
+        emerald nodes with respect to the emerald T -order on E. The
+        internally semi-passive edges with respect to the emerald T -order
+        of the edges are shown in red. (The ribbon structure once again
+        comes from the counterclockwise orientation of the plane.)
+
+Corollary 7.4. Let T be a Jaeger tree in Bip H. An emerald node e ∈ E is
+internally inactive with respect to the emerald T -order on E if and only if there is
+an internally semi-passive edge (with respect to the emerald T -order of the edges of
+Bip H) incident to it. Moreover, in this case there is a unique such edge, namely
+the edge through which e is reached in the emerald tour of T — that is, the first
+edge of the unique path in T from e to the base node b0 .
+Proof. If e = b0 , then e is the smallest element in the emerald T -order of E and
+hence it cannot be inactive. Also in this case, edges incident to b0 have their
+emerald endpoint in the base component of their fundamental cut, which prevents
+them from being internally semi-passive by Lemma 7.3.
+   If e 6= b0 , then there is a unique edge ε = ve such that e is reached through
+ε in the emerald T -tour. This is the only edge incident to e that has its violet
+endpoint in the base component of its own fundamental cut — that is, ε is the
+only edge incident to e that may be internally semi-passive. Now by Lemma 7.3,
+ε is internally semi-passive with respect to the emerald T -order if and only if e is
+internally inactive with respect to the emerald T -order on E.                     
+  Now we are in a position to explain the connection between internal activities of
+hypertrees and internal semi-activities of Jaeger trees.
+Corollary 7.5. For each Jaeger tree T , the number of its internally semi-passive
+edges with respect to the emerald T -order (of the edges of Bip H) equals the number
+of internally inactive emerald nodes for fE (T ) with respect to the emerald T -order
+(of E).
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                        35
+
+
+   Next we turn to proving that simplices corresponding to Jaeger trees form a
+shellable dissection. First we show that they form a dissection.
+Theorem 7.6. For any ribbon structure (and base node and base edge) on the
+connected bipartite graph G, of color classes E and V , the simplices in the root
+polytope QG corresponding to the V -cut Jaeger trees form a dissection of QG .
+   It turns out that we have already done the hard part of the proof and only the
+following, relatively easy part remains.
+Lemma 7.7. For any two V -cut Jaeger trees, their corresponding maximal sim-
+plices in QG have disjoint interiors.
+Proof. Take two V -cut Jaeger trees T1 and T2 , and suppose that their tours coincide
+until reaching ε, where ε ∈    / T1 and ε ∈ T2 . It suffices to show that the maximal
+simplices that correspond to the pair of trees are separated by a hyperplane. Such
+hyperplanes may be constructed using cuts in G. This is described in [11, Section
+3] for ‘directed’ cuts, when the result is a supporting hyperplane of QG ; here we
+will work with undirected cuts.
+   Let E1 ⊔ E2 be a partition of E and V1 ⊔ V2 a partition of V . Let us associate the
+real number −1 to those basis vectors of RE ⊕ RV that correspond to elements of
+E1 ∪ V2 . Similarly, we associate 1 to elements of E2 ∪ V1 . This has a unique linear
+extension κ : RE ⊕ RV → R. The value of κ at the vertices of QG (described in
+terms of the corresponding edges of G) is then
+      • 0 for edges outside the cut defined by our partitions (when we split E ∪ V
+         into E1 ∪ V1 and E2 ∪ V2 ), i.e., for edges between E1 and V1 or between E2
+         and V2 ,
+      • −2 for edges of the cut that are between E1 and V2 , and
+      • 2 for edges of the cut between E2 and V1 .
+Thus the kernel of κ is a hyperplane that contains all vertices of QG except for
+the ones that correspond to edges of the cut; the remaining vertices fall on the two
+sides of the hyperplane depending on whether their emerald or violet endpoint lies
+on an arbitrarily fixed side of the cut.
+   Now to construct the required hyperplane, we consider the cut C ∗ (T2 , ε). More
+precisely, let E1 ∪ V1 be the node set of the connected component of T2 − ε which
+contains the violet endpoint v of ε. Let E2 ∪ V2 be the node set of the other
+component. Then the corresponding functional κ takes only non-negative values at
+the vertices of the maximal simplex QT2 : the value is 2 for (the vertex corresponding
+to) ε and 0 for all other edges of T2 , i.e., vertices of QT2 .
+   We claim that the opposite is true for T1 : at the vertices of QG corresponding to
+those edges, all values of κ end up non-positive. To show this, we need to ascertain
+that all edges of C ∗ (T2 , ε) ∩ T1 are connecting E1 and V2 . But that is exactly the
+statement of Lemma 6.15.                                                            
+Proof of Theorem 7.6. By Proposition 6.4, each hypertree is realized by at least
+one V -cut Jaeger tree and hence the number of V -cut Jaeger trees is at least the
+number of hypertrees in BV . (In fact in subsection 6.3 we have showed that these
+numbers are equal, but the present proof does not rely on that.) By Lemma 7.7, the
+(maximal) simplices in QG corresponding to the V -cut Jaeger trees have disjoint
+interiors. Moreover, each maximal simplex in QG has the same volume [14, Section
+12] and the volume of QG itself is the number of hypertrees times this common
+36                         TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+volume. Hence the simplices corresponding to V -cut Jaeger trees fill QG , in other
+words, they form a dissection.                                                   
+   This reasoning also implies that each hypertree is realized by at most one Jaeger
+tree, which we have already proven in Theorem 6.16. Having a dissection allows us
+to use Theorem 3.2 and to thus give a new proof of Corollary 6.19. But to prove
+Theorem 5.4, we need the shellability of the dissection, too.
+Theorem 7.8. The violet ordering of the V -cut Jaeger trees induces a shelling
+order of the dissection given in Theorem 7.6. For each V -cut Jaeger tree T , the
+number of facets of the corresponding simplex QT , that lie in the union of previous
+simplices of the shelling, equals the number of internally semi-passive edges in T
+with respect to the emerald T -order of the edges.
+  In other (more precise) words, the edges of T described in five equivalent ways in
+Lemma 7.3 correspond exactly to those vertices of QT whose opposite facets make
+up the intersection of QT with the union of the previous simplices.
+Proof. Let us fix a V -cut Jaeger tree T . We have to show that for an edge ε ∈ T ,
+if ε is internally semi-passive in T with respect to the emerald T -order, then the
+facet QT −ε of the simplex QT lies in the union of the simplices corresponding to
+V -cut Jaeger trees preceding T in the violet order. We also need to prove that if
+                          S with respect to the emerald T -order, then the interior of
+ε is internally semi-active
+QT −ε is disjoint from T ′ <V T QT ′ .
+   Take an edge ε = ev ∈ T (where e ∈ E and v ∈ V ) such that ε is internally
+semi-passive in T with respect to the emerald T -order. In the same way as in the
+proof of Lemma 7.7, we consider the fundamental cut and the linear functional
+defined by T and ε. Let us partition the edges in C ∗ (T, ε) into the sets P and N ,
+where elements of P have their violet endpoint in the root component T0 of T − ε
+and elements of N have their emerald endpoint there. (This is the same partition
+as the one induced by the two sides, positive and negative, of the hyperplane that
+corresponds to the cut.) By Lemma 7.3, condition (v), we have ε ∈ P and N 6= ∅.
+   Let us consider the edge ε′ ∈ N as in the part (v) ⇒ (i) of the proof of Lemma
+7.3. Namely, ε′ is the first edge of C ∗ (T, ε) to become current in the tour of T after
+the second traversal of ε. This time let us call its emerald endpoint y ∈ T0 . Let, as
+usual, T1 be the complement of T0 in T − ε and let G1 be the subgraph spanned by
+the node set of T1 . Let also x ∈ G1 be the violet endpoint of ε′ . Let us denote the
+set of V -cut Jaeger trees of G1 with base node x and base edge xy ′ by T1 , where
+xy ′ is the first edge following xy in the cyclic order at x such that xy ′ ∈ G1 . As G1
+is connected and contains at least two nodes, e and x, such an edge exists. Finally,
+consider the following set of trees:
+(7.1)                           T = { T0 ∪ ε′ ∪ T1′ | T1′ ∈ T1 }.
+From the part (v) ⇒ (i) of the proof of Lemma 7.3, we know that all of these are
+V -cut Jaeger trees preceding T in the violet order of Jaeger trees. We claim that
+                                          [
+                                QT −ε ⊂        QT ′ .
+                                                     T ′ ∈T
+     Take a point p from QT −ε . Then
+              X                         X                     X
+       p=           λe′ v′ (e′ + v′ ) =   λe′ v′ (e′ + v′ ) +   λe′ v′ (e′ + v′ ),
+            e′ v ′ ∈T −ε                e′ v ′ ∈T0                  e′ v ′ ∈T1
+                 HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                                                 37
+
+                                  P                                                   P
+where λe′ v′ ≥ 0 and                   e′ v ′ ∈T −ε λe′ v ′ = 1. Let λ0 =                e′ v ′ ∈T0 λe′ v ′ and λ1 =
+P
+  e v ∈T1
+    ′  ′   λe  ′ v′ .  If  λ  0  =     0  then      p ∈   Q G 1 , which  by      Theorem         7.6 is dissected by
+the faces QT1′ of the simplices QT ′ , for T ′ ∈ T as in (7.1), making p ∈ T ′ ∈T QT ′
+                                                                                                           S
+obvious. If λ1 = 0, then p ∈ QT0 , which in turn is part of all the QT ′ . Otherwise,
+write
+                                   X λe′ v′                               X λe′ v′
+                   p = λ0 ·                          (e′ + v′ ) + λ1 ·                    (e′ + v′ )
+                                               λ  0                                   λ1
+                                e′ v ′ ∈T0                             e′ v ′ ∈T1
+                      P             λe′ v′      ′      ′
+                                                                       P                λe′ v′     ′     ′
+and let p0 =            e′ v ′ ∈T0 λ0 (e + v ) and p1 =                      e′ v ′ ∈T1 λ1 (e + v ). That is,
+p = λ0 p0 + λ1 p1 , where λ0 , λ1 > 0 and λ0 + λ1 = 1. Furthermore, we have
+p1 ∈ QT1 ⊂ QG1 and p0 ∈ QT0 . Combining this with the convexity of QG1 =
+S
+  T1′ ∈T1 QT1 , we obtain
+             ′
+
+
+                                                                                                                  
+     [                [                          [                                                         [
+          QT ′ ⊃             QT ′ −ε′ =               Conv(QT0 ∪ QT1′ ) = Conv QT0 ∪                         QT1′ 
+   T ′ ∈T           T ′ ∈T               T1′ ∈T1                                                 T1′ ∈T1
+
+                                                                             = Conv(QT0 ∪ QG1 ) ∋ p.
+   Now if ε is internally semi-active with respect to the emerald T -order, then by
+Lemma 7.3, condition (i), ε cannot be obtained as the first difference between T
+and some Jaeger tree preceding T in the violet ordering of Jaeger trees. Moreover,
+by the proof of Lemma 7.7, for any Jaeger tree T ′ preceding T in the violet ordering
+of Jaeger trees, QT is separated from QT ′ by the hyperplane containing the facet
+QT −ε′′ where ε′′ is the first difference between T and  ′
+                                                     S T . Therefore the interior of
+QT −ε is indeed disjoint from QT and hence from T ′ <V T QT ′ , too.
+                                    ′                                              
+   It is finally time to summarize our findings and prove our main theorem.
+Proof of Theorem 5.4. By Theorem 3.3 and the discussion preceding it, the coeffi-
+cients of the interior polynomial IH are the entries in the h-vector of any shellable
+dissection (together with any shelling order) of QBip H . Hence it suffices to show
+that there exists a shellable dissection of QBip H , with a shelling order yielding the
+h-vector (a0 , a1 , . . . ), so that ai is equal to the number of hypertrees of H with
+internal embedding inactivity i (defined using our fixed ribbon structure and the
+(ht:E, cut:E) Bernardi process).
+   We choose the dissection of QBip H by E-cut Jaeger trees. By Lemma 6.7, these
+are the same as the V -cut Jaeger trees of the reversed ribbon structure (with base
+node b0 and base edge b0 b−      1 ). The violet order of Jaeger trees will be our shelling
+order, as in Theorem 7.8.
+   By Remark 6.12 (whose statements we already can justify because we have The-
+orem 6.18 in hand) and Corollary 7.5, a hypertree on E has internal embedding
+inactivity i with respect to the (ht:E, cut:E) Bernardi process if and only if the
+E-cut Jaeger tree T realizing it (i.e., the outcome of the process) has precisely i in-
+ternally semi-passive edges with respect to the emerald T -order. Now the statement
+follows from the second sentence in Theorem 7.8.                                          
+
+                                                8. Examples
+  In this section we recall two ways of triangulating some root polytopes and show
+that both are special cases of the dissections of Section 6. But before that, let us
+work out two concrete examples where the dissection fails to be a triangulation.
+38                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+
+                          e2         v2    e1
+
+                                e3
+
+                          v0               v1
+                                e0
+                                     T1                 T2                   T3
+
+
+
+
+        Figure 9. A plane bipartite graph with a ribbon structure that
+        rotates in opposite directions at its two color classes. The V -cut
+        Jaeger trees corresponding to the indicated base point are listed in
+        the associated shelling order.
+
+
+Example 8.1. Let us consider the plane bipartite graph of Figure 4 again, with the
+same base node and base edge as in Example 6.2 and onward, but this time let us use
+a ribbon structure very similar to that of Figure 2. That is, we use counterclockwise
+rotations about violet nodes and clockwise ones about emerald nodes. (This is the
+same rule as in Example 4.3, except that the colors traded places.) In Figure 9 we
+show again an embedding in R3 of the corresponding ribbon surface with the base
+point along its boundary. The seven spanning trees of the Figure are the resulting
+V -cut Jaeger trees, listed in the shelling order of Section 7. One may check that
+the trees do realize all hypertrees on both color classes, cf. Corollary 6.19. On the
+other hand, they do not form a triangulation of the root polytope. For example, the
+second and third trees are such that, with regard to the upper right quadrangular
+region of the embedding, one tree contains one pair of opposite edges and the other
+tree contains the other pair. That violates Postnikov’s compatibility condition [14,
+Lemma 12.6], i.e., the simplices corresponding to the two trees do not intersect in
+a common face.
+    In order to have a closer look, let us use the notation of Figures 4 and 5 again. Let
+us also denote the first three trees in the order by T1 , T2 , T3 and let us refer to the
+corresponding five-dimensional simplices in RE ⊕RV as σ1 , σ2 , and σ3 , respectively
+(i.e., σi = QTi ). Since the edge e3 v0 appears for the first time in T3 , we see that
+σ3 attaches to σ1 ∪ σ2 along its four-dimensional facet ϕ that is opposite the vertex
+e3 + v0 . On the other hand, ϕ is not a facet either of σ1 or of σ2 . Instead, the
+following happens. The vectors e1 +v1 , e1 +v2 , e3 +v2 , and e3 +v1 (corresponding
+to the edges bounding the shaded quadrangle) span a two-dimensional square. It is
+bisected by the diagonal from e1 + v2 to e3 + v1 so that the two halves belong to σ1
+and σ2 , respectively. The part of the square that belongs to σ3 , and indeed to the
+facet ϕ, is bounded by the other diagonal. The three half-squares become facets of
+σ1 , σ2 , and σ3 by taking their convex hulls with the common vertices e0 + v1 and
+e2 + v0 , which are affine independent from the square.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                          39
+
+
+   The bipartite graph of the previous example had points of degree at least three
+in both color classes, in other words it was not of the form Bip G for any graph
+G. But that was not the reason for what we observed; rather, the ribbon structure
+was. In the next example we show that the dissection can fail to be a triangulation
+even in Bernardi’s original family of cases.
+
+
+
+
+        Figure 10. A ribbon structure for the complete graph K5 and
+        two Jaeger trees.
+
+
+Example 8.2. Let us consider the complete graph K5 and its ribbon structure
+indicated in Figure 10. That is, we refer to the planar drawing shown and let edges
+be ordered clockwise around two of the vertices and counterclockwise around the
+other three. This extends uniquely to the degree two nodes of Bip K5 , as discussed
+in Section 4. For K5 , let the base vertex be the one on top, and let the top left edge
+be the base edge. Equivalently, for Bip K5 , let the base node be the same point
+and let the base edge be the upper half of the previous.
+   Now if cutting edges of Bip K5 is allowed near the five vertices of K5 , then the
+two spanning trees in Figure 10 are Jaeger trees. The simplices in QBip K5 that
+correspond to these trees do not intersect in a common face: indeed, the thickened
+edges (four from each tree) form a cycle in Bip K5 that violates the condition in
+[14, Lemma 12.6].
+   Now we turn to showing that certain triangulations found in the literature are
+special cases of the dissection by Jaeger trees. Let us first consider the ‘triangulation
+by non-crossing trees’ [7], see also [11, Example 5.3]. This applies in the case of a
+complete bipartite graph K, say on (m+1)+(n+1) vertices, whose root polytope is
+the product QK = ∆m × ∆n of an m- and an n-dimensional unit simplex. The idea
+is to draw the vertices of K on two parallel lines in the plane, separated by color,
+and then consider those spanning trees whose edges do not cross each other in the
+drawing. (See Figure 11 for an example.) The maximal simplices corresponding to
+these trees form a triangulation of QK .
+   Now let us imagine the two lines as horizontal, with emerald vertices on the lower
+one and violet vertices on the upper. Let us define a ribbon structure by rotating
+counterclockwise around each vertex. Our base node is the lower left (emerald) one
+and the base edge is the one connecting the base node diagonally to the upper right
+violet node. (I.e., in the sense of Remark 2.1, we place our base point slightly below
+the lower left vertex.) Then it is easy to see that non-crossing trees are E-cut Jaeger
+trees. The converse is not hard to check either but since we are not aware of an
+elegant proof, let us just point out that it follows from the fact that all dissections
+of a root polytope consist of the same number of maximal simplices. The shelling
+40                    TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+
+
+                                     b1
+                                                                        r0
+
+                                            b0
+
+            b0                                            b1
+
+        Figure 11. Left: A non-crossing tree in K3,4 . Right: A V -cut
+        Jaeger tree in a plane bipartite graph and the corresponding ar-
+        borescence of the dual graph.
+
+order provided by Theorem 7.8 is the same in this case as the lexicographic order
+of the corresponding hypertrees on E.
+    Our other class of triangulations applies whenever the connected bipartite graph
+G comes with an embedding in the plane. (That is, unlike in the previous situation,
+edges of G are now not allowed to cross.) In that case, the dual graph G∗ has a
+natural orientation by the rule that every edge of G∗ is oriented so that the violet
+endpoint of the corresponding edge of G is on its left. (See Figure 11.) Let us fix
+a vertex r0 of G∗ , that is to say, a face r0 of G. Then the spanning trees of G
+dual to spanning arborescences of G∗ rooted at r0 form a triangulation of QG [10].
+(Here an arborescence is a tree so that all of its edges point away from the root. A
+spanning tree of G is dual to a spanning arborescence of G∗ if it contains precisely
+the edges corresponding to the non-edges of the arborescence.)
+    We claim that the trees given above are exactly the V -cut Jaeger trees of G,
+where the ribbon structure is induced by the positive orientation of the plane (so
+that, unlike in Examples 4.3 and 8.1, both colors spin in the same direction). To
+be more specific, let the base node b0 be violet and incident to the face r0 , and let
+the base edge b0 b1 be also incident to r0 so that when we orient it from b0 to b1 ,
+then r0 is on the right.
+    To justify our claim it is enough to show that the dual A∗ of each arborescence
+A ⊂ G∗ is a V -cut Jaeger tree of G. Tracing the boundary of a neighborhood of
+A or of A∗ are equivalent. (The common base point should be thought of as an
+interior point of the arc connecting b0 and r0 .) When we do the latter, because A is
+an arborescence, we first walk along each edge of A in the direction of its orientation
+and on its left side. But by definition, this means that the corresponding dual edge
+of G is cut at its violet endpoint.
+    Conversely, each V -cut Jaeger tree is the dual of an arborescence rooted at r0 .
+Indeed, consider the violet tour of a V -cut Jaeger tree T . Notice that until cutting
+the first edge, we move along the boundary of the face r0 , with r0 on the right.
+When we first cut an edge ve, we start to see a new face r on the right, and
+r0 r is an oriented edge of G∗ which ‘starts’ the dual arborescence. Continuing this
+argument inductively, we see that cutting an edge at its violet endpoint corresponds
+to inserting a new edge pointing away from r0 in the dual graph.
+
+Appendix A. The Bernardi bijection is activity-preserving for graphs
+  Let us now take a look at the case of ordinary graphs G = (V, E), loopless but
+possibly with multiple edges, i.e., hypergraphs so that d(e) = 2 for each e ∈ E.
+             HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                          41
+
+
+                                      9           8
+                               1          2            5
+
+
+                               0              7        6
+                                      3           4
+
+
+        Figure 12. The ribbon structure for the graph shown is the posi-
+        tive orientation of the plane at each node. The base point is to the
+        left of the leftmost violet node. The thick edges form the V -cut
+        Jaeger tree T . The numbers on the edges show the violet T -order.
+        The circled nodes are the internally inactive elements with respect
+        to the violet T -order on E and on V . The red edges are the inter-
+        nally semi-passive edges in T with respect to the violet T -order.
+
+We claim that in this case, the Bernardi process (that is, Corollary 6.19) gives an
+internal-activity-preserving bijection between the hypertrees on E and on V . The
+precise statement is as follows. Recall that ribbon structures on G and on Bip G
+are equivalent. We use the latter sense; in particular, the base node b0 may be an
+element of E or an element of V .
+Theorem A.1. For a ribbon graph G = (V, E), and a V -cut Jaeger tree T of
+Bip G, the internal embedding inactivity of fE (T ) with respect to the violet T -order
+on E equals the internal embedding inactivity of fV (T ) with respect to the violet
+T -order on V .
+   Note that here fE (T ) is just the characteristic function of the unique spanning
+tree T ′ of G that can be built from those half-edges of G that occur as edges in T .
+The hypertree fV (T ) on the other hand is derived less directly from T ′ : this time
+we also need the ribbon structure to decide which half-edges of the non-edges of T ′
+should be added to T ′ in order to create T .
+   We also have the following refinement. See Figure 12 for an illustration.
+Theorem A.2. For a ribbon graph G = (E, V ) and a V -cut Jaeger tree T of Bip G,
+the internally semi-passive edges with respect to the violet T -order of the edges of
+Bip G match exactly the internally inactive elements of V for fV (T ) with respect to
+the violet T -order on V , and the internally inactive elements of E for fE (T ) with
+respect to the violet T -order on E.
+  To a degree, this statement justifies our preference for inactive objects over active
+ones: if we pass to the complementer sets of nodes and of edges, respectively, the
+perfect matching does not hold any more.
+Proof. Let T be a V -cut Jaeger tree and recall (Lemma 6.5) that T is an E-cut
+Jaeger tree with respect to the reversed ribbon structure. Throughout the proof
+we use Lemma 7.3 and its corollaries with interchanging the roles of the colors.
+    By Corollary 7.4, a violet node v is internally inactive for fV (T ) with respect to
+the violet T -order on V if and only if there is an edge of Bip G incident to it which
+is internally semi-passive with respect to the violet T -order, moreover, in this case
+there is exactly one such edge and it has its emerald endpoint (not v) in its base
+component with respect to T . Let us denote the collection of these edges by S.
+42                     TAMÁS KÁLMÁN AND LILLA TÓTHMÉRÉSZ
+
+
+     What we need to show is that the emerald endpoints of the edges in S are all
+different, all internally inactive for fE (T ) with respect to the violet T -order, and
+that every other emerald node is internally active.
+     The first point is easy to check: If e 6= b0 , then T has at most one edge incident
+to e that has its emerald endpoint in the base component (defined by the edge),
+since for any e ∈ E there are at most two incident edges in T , and if e is not the
+base node, then one of them starts the path from e to b0 , making it have its violet
+endpoint in its base component. If e = b0 , then either the base edge b0 b1 is not
+in T , or by Lemma 6.14, every edge of the fundamental cut C ∗ (T, b0 b1 ) has its
+emerald endpoint in the base component of T − b0 b1 ; hence the base edge cannot
+be internally semi-passive by part (v) of Lemma 7.3. Thus, in either case there
+cannot be two internally semi-passive edges incident to b0 .
+     Now it suffices to show that an emerald node e ∈ E is internally inactive for
+fE (T ) with respect to the violet T -order on E if and only if there is an edge of T
+incident to e that is internally semi-passive with respect to the violet T -order.
+     If e is internally inactive then fE (T )(e) > 0, i.e., both edges of Bip G incident
+to e are in T . Moreover, there is an emerald node e′ ∈ E that comes before e in
+the violet T -order, and fE (T ) is such that a transfer of valence is possible from e to
+e′ . Hence necessarily fE (T )(e′ ) = 0, that is, T contains only one edge incident to
+e′ . Let v ′ e′ be the other edge, the one not in T . As the hypertrees on E in Bip G
+determine their realizing spanning trees at nodes x ∈ E with f (x) = 1, the transfer
+of valence from e to e′ can be achieved by removing an edge incident to e from T ,
+and adding v ′ e′ . (Note that the new tree does not have to be Jaeger.) Therefore
+one of the edges incident to e is in the fundamental cycle C(T, v ′ e′ ) – and thus both
+are. In other words, v ′ e′ is in the fundamental cut of T with respect to both edges
+incident to e in Bip G.
+     If e = b0 , then we claim that b0 b−
+                                        1 is internally semi-passive with respect to the
+violet T -order. Indeed, b0 b−  1 is the first edge in the emerald tour of T , and since
+v ′ e′ is also in its fundamental cut, this ensures that b0 b−1 is not the largest element
+of C ∗ (T, b0 b−1 ) with respect to the emerald  order  of the edges of Bip H. Hence our
+claim follows by the (iv) ⇒ (ii) implication of Lemma 7.3.
+     When e 6= b0 , note that as T is a V -cut Jaeger tree, v ′ e′ is smaller in the violet
+T -order than the other edge of Bip G incident to e′ . Furthermore, v ′ e′ is cut at v ′
+and this happens before either edge of Bip G incident to e becomes current with its
+violet endpoint in the violet tour of T . As e 6= b0 , the first of the four traversals
+of the edges incident to e is from the direction of the violet endpoint. Hence v ′ e′
+is cut before any edge incident to e gets traversed, in particular v ′ e′ has its violet
+endpoint v ′ in the base component of the fundamental cut of T with respect to
+either edge incident to e. One of these edges has its emerald endpoint in its base
+component. Now by the (v) ⇒ (ii) implication in Lemma 7.3 (and Lemma 6.5),
+this edge is internally semi-passive with respect to the violet T -order.
+     Conversely, if an edge ε = ve is internally semi-passive in T with respect to the
+violet T -order, then e is internally inactive for fE (T ) with respect to the violet
+T -order on E for the following reason.
+     We may use the (ii) ⇒ (v) implication of Lemma 7.3 to find an edge ε′ = e′ v ′ ∈
+    ∗
+C (T, ε) that has its violet endpoint in the base component of T − ε (which is the
+component containing e). Hence by Lemma 6.14, ε′ is cut in the violet tour of T
+before the traversal of ε from the direction of its emerald endpoint. Since there
+               HYPERGRAPH POLYNOMIALS AND THE BERNARDI PROCESS                                  43
+
+
+are only two edges in Bip G incident to e, the node e ‘receives its number’ in the
+violet T -order immediately before the traversal of ε from the direction of its emerald
+endpoint. Thus, e′ precedes e in the violet T -order on E. As ε′ ∈ C ∗ (T, ε), we may
+realize a transfer of valence from e to e′ by replacing ε in T with ε′ . This completes
+the proof of the theorem.                                                            
+   We note that Theorem A.1 is not true for all hypergraphs, as in general the
+internally semi-passive edges of a Jaeger tree do not necessarily form a matching.
+
+                                         References
+ [1] Matthew Baker and Yao Wang. The Bernardi process and torsor structures on spanning trees.
+     Int. Math. Res. Not. IMRN, (16):5120–5147, 2018.
+ [2] Olivier Bernardi. A characterization of the Tutte polynomial via combinatorial embeddings.
+     Ann. Comb., 12(2):139–153, 2008.
+ [3] Olivier Bernardi. Tutte polynomial, subgraphs, orientations and sandpile model: new con-
+     nections via embeddings. Electron. J. Combin., 15(1):Research Paper 109, 53, 2008.
+ [4] Olivier Bernardi, Tamás Kálmán, and Alexander Postnikov. Universal Tutte polynomial.
+     https://arxiv.org/pdf/2004.00683.pdf, 2020.
+ [5] Amanda Cameron and Alex Fink. A lattice point counting generalisation of the Tutte poly-
+     nomial. https://arxiv.org/pdf/1604.00962.pdf, 2016.
+ [6] András Frank and Tamás Kálmán. Root polytopes and strong orientations of bipartite graphs.
+     in preparation.
+ [7] Israel M. Gelfand, Mark I. Graev, and Alexander Postnikov. Combinatorics of hypergeomet-
+     ric functions associated with positive roots. In The Arnold-Gelfand mathematical seminars,
+     pages 205–221. Birkhäuser Boston, Boston, MA, 1997.
+ [8] François Jaeger. A combinatorial model for the Homfly polynomial. European J. Combin.,
+     11(6):549–558, 1990.
+ [9] Tamás Kálmán. A version of Tutte’s polynomial for hypergraphs. Adv. Math., 244:823–873,
+     2013.
+[10] Tamás Kálmán and Hitoshi Murakami. Root polytopes, parking functions, and the HOMFLY
+     polynomial. Quantum Topol., 8(2):205–248, 2017.
+[11] Tamás Kálmán and Alexander Postnikov. Root polytopes, Tutte polynomials, and a duality
+     theorem for bipartite graphs. Proc. Lond. Math. Soc. (3), 114(3):561–588, 2017.
+[12] Keiju Kato. Interior polynomial for signed bipartite graphs and the HOMFLY polynomial.
+     arXiv:1705.05063.
+[13] Hidefumi Ohsugi and Takayuki Hibi. Normal polytopes arising from finite graphs. J. Algebra,
+     207(2):409–426, 1998.
+[14] Alexander Postnikov. Permutohedra, associahedra, and beyond. Int. Math. Res. Not. IMRN,
+     (6):1026–1106, 2009.
+[15] Alexander Schrijver. Combinatorial optimization. Polyhedra and efficiency. Vol. B, vol-
+     ume 24 of Algorithms and Combinatorics. Springer-Verlag, Berlin, 2003. Matroids, trees,
+     stable sets, Chapters 39–69.
+[16] William T. Tutte. A contribution to the theory of chromatic polynomials. Canad. J. Math.,
+     6:80–91, 1954.
+
+  Department of Mathematics, Tokyo Institute of Technology, H-214, 2-12-1 Ookayama,
+Meguro-ku, Tokyo 152-8551, Japan
+  Email address: kalman@math.titech.ac.jp
+
+   Cornell University, Ithaca, New York 14853-4201, USA, MTA-ELTE Egerváry Re-
+search Group, Pázmány Péter sétány 1/C, Budapest, Hungary
+   Email address: tmlilla@cs.elte.hu
+

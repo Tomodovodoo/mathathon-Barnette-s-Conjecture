@@ -1,0 +1,716 @@
+                                                   BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS
+                                                                 AND SCHNYDER WOODS
+
+                                                             ÉRIC FUSY, DOMINIQUE POULALHON, AND GILLES SCHAEFFER
+
+
+                                                  Abstract. A bijection Φ is presented between plane bipolar orientations with prescribed num-
+arXiv:0803.0400v3 [math.CO] 20 Mar 2009
+
+
+
+
+                                                  bers of vertices and faces, and non-intersecting triples of upright lattice paths with prescribed
+                                                  extremities. This yields a combinatorial proof of the following formula due to R. Baxter for the
+                                                  number Θij of plane bipolar orientations with i non-polar vertices and j inner faces:
+                                                                                         (i + j)! (i + j + 1)! (i + j + 2)!
+                                                                           Θij = 2                                              .
+                                                                                      i! (i + 1)! (i + 2)! j! (j + 1)! (j + 2)!
+                                                  In addition, it is shown that Φ specializes into the bijection of Bernardi and Bonichon between
+                                                  Schnyder woods and non-crossing pairs of Dyck words.
+                                                     This is the extended and revised journal version of a conference paper with the title “Bijective
+                                                  counting of plane bipolar orientations”, which appeared in Electr. Notes in Discr. Math. pp.
+                                                  283-287 (proceedings of Eurocomb’07, 11-15 September 2007, Sevilla).
+
+
+
+
+                                                                                        1. Introduction
+                                             A bipolar orientation of a graph is an acyclic orientation of its edges with a unique source s
+                                          and a unique sink t, i.e., such that s is the only vertex without incoming edge, and t the only one
+                                          without outgoing edge; the vertices s and t are the poles of the orientation. Alternative definitions,
+                                          characterizations, and several properties are given by De Fraysseix et al in [19]. Bipolar orientations
+                                          are a powerful combinatorial structure and prove insightful to solve many algorithmic problems such
+                                          as planar graph embedding [18, 8] and geometric representations of graphs in various flavours (e.g.,
+                                          visibility [20], floor planning [17], straight-line drawing [21, 13]). Thus, it is an interesting issue to
+                                          have a better understanding of their combinatorial properties.
+                                             This article focuses on the enumeration of bipolar orientations in the planar case: we consider
+                                          bipolar orientations on planar maps, where a planar map is a connected graph embedded in the
+                                          plane (i.e., drawn with no edge-intersection, the drawing being considered up to isotopy). A plane
+                                          bipolar orientation is a pair (M, X), where M is a planar map and X is a bipolar orientation of M
+                                          having its poles incident to the outer face of M , see Figure 1. Let Θij be the number of plane
+                                          bipolar orientations with i non-pole vertices and j inner faces. R. Baxter proved in [1, Eq 5.3] that
+                                          Θij satisfies the following simple formula:
+                                                                                      (i + j)! (i + j + 1)! (i + j + 2)!
+                                          (1)                          Θij = 2                                               .
+                                                                                   i! (i + 1)! (i + 2)! j! (j + 1)! (j + 2)!
+                                          Nevertheless his methodology relies on quite technical algebraic manipulations on generating func-
+                                          tions, with the following steps: the coefficients Θij are shown to satisfy an explicit recurrence
+                                          (expressed with the help of additional “catalytic” parameters), which is translated to a functional
+                                          equation on the associated generating functions. Then, solving the recurrence requires to solve the
+                                          functional equation: Baxter guessed and checked the solution, while more recently M. Bousquet-
+                                          Mélou described a direct computation way based on the so-called “obstinate kernel method” [6].
+                                             The aim of this article is to give a direct bijective proof of Formula (1). Our main result,
+                                          Theorem 1, is the description of a bijection between plane bipolar orientations and certain triples
+                                          of lattice paths, illustrated in Figure 1.
+
+                                                                                                    1
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                          2
+
+
+                                 t
+
+
+
+
+                                s
+        Figure 1. A plane bipolar orientation and the associated triple of non-intersecting
+        upright lattice paths.
+
+Theorem 1. Plane bipolar orientations with i non-pole vertices and j inner faces are in bijection
+with non-intersecting triples of upright lattice paths on Z2 with respective origins (−1, 1), (0, 0),
+(1, −1), and respective endpoints (i − 1, j + 1), (i, j), (i + 1, j − 1).
+   This constitutes a proof of Formula (1), since the latter is easily derived from Theorem 1 using
+the Gessel–Viennot Lemma [14, 15]:
+Lemma 2 (Gessel–Viennot). Let k be a positive integer, A = {A1 , . . . , Ak } and B = {B1 , . . . , Bk }
+be two sets of points on the Z2 lattice, such that any k-tuple of non-intersecting upright lattice paths
+with starting points in A and endpoints in B necessarily join together Ap and Bp for any index p.
+Then the number of such k-tuples is:
+                                             Θ = Det(M ),
+where M is the k × k matrix such that Mpq is the number of upright lattice paths from Ap to Bq .
+  By Theorem 1, Θij is equal to the number of triples of non-intersecting lattice paths from A1 =
+(−1, 1), A2 = (0, 0), A3 = (1, −1) to B1 = (i − 1, j + 1), B2 = (i, j), B3 = (i + 1, j − 1). Hence,
+                                          
+                      j+i       j+i       j+i
+                       i        i+1       i+2
+                                          
+                      j+i       j+i       j+i            2 (i + j)! (i + j + 1)! (i + j + 2)!
+          Θij =                                     =                                             .
+                      i−1         i       i+1           i! (i + 1)! (i + 2)! j! (j + 1)! (j + 2)!
+                                             
+                       j+i     j+i          j+i
+                       i−2    i−1            i
+   The second main result of this paper is to show that our bijection extends in a natural way a
+bijection that has been recently described by Bernardi and Bonichon [2] (which itself reformulates an
+original construction due to Bonichon [4]) to count another well-known and powerful combinatorial
+structure related to planar maps, namely Schnyder woods on triangulations [11, Chapter 2]. Actually
+our construction draws much of its inspiration from the one in [2]. We recover the correspondence
+between these Schnyder woods and non-crossing pairs of Dyck paths, which easily yields the formula
+                                        2                  6 (2n)! (2n + 2)!
+(2)                     Sn = Cn Cn+2 − Cn+1 =
+                                                      n! (n + 1)! (n + 2)! (n + 3)!
+for the number Sn of Schnyder woods on triangulations with n inner vertices (where Cn denotes the
+nth Catalan number (2n)!/(n!(n + 1)!)).
+Recent related work. Felsner et al [12] have very recently exhibited a whole collection of combinatorial
+structures that are bijectively related with one another, among which plane bipolar orientations,
+separating decompositions on quadrangulations, Baxter permutations, and triples of non-intersecting
+paths. Though very close in spirit, our bijection is not equivalent to the one exhibited in [12]. In
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                             3
+
+
+               t                            t                                    t
+
+
+
+
+              s                            s                                     s
+
+            Figure 2. From a plane bipolar orientation to a separating decomposition.
+
+particular, the restriction of this bijection to count Schnyder woods is a bit more involved than our
+one and is not equivalent to the bijection of Bernardi and Bonichon [2].
+   Even more recently, Bonichon et al [5] have described a simple and direct bijection between plane
+bipolar orientations and Baxter permutations. These Baxter permutations are known to be encoded
+by non-intersecting triples of lattice paths since work by Dulucq and Guibert [10]. Combining the
+bijections in [5] and [10] leads to yet another bijection (almost equivalent to the one in [12]) between
+plane bipolar orientation and non-intersecting triple of paths.
+
+The main steps to encode a plane bipolar orientation by a non-intersecting triple of paths. At first
+(Section 2), we recall a well-known bijective correspondence between plane bipolar orientations and
+certain decompositions of quadrangulations into two spanning trees, which are called separating
+decompositions. The next step (Section 3.1) is to encode such a separating decomposition by a
+triple of words with some prefix conditions: the first two words encode one of the two trees T , in
+a slight variation on well known previous results for the 2-parameter enumeration of plane trees or
+binary trees (counted by the so-called Narayana numbers). The third word encodes the way the
+edges of the other tree shuffle in the tree T . The last step (Section 3.2) of the bijection is to represent
+the triple of words as a triple of upright lattice paths, on which the prefix conditions translate into
+a non-intersecting property.
+
+      2. Reduction to counting separating decompositions on quadrangulations
+   A quadrangulation is a planar map with no loop nor multiple edge and such that all faces have
+degree 4. Such maps correspond to maximal bipartite planar maps, i.e., bipartite planar maps that
+would not stay bipartite or planar if an edge were added between two of their vertices.
+   Let O = (M, X) be a plane bipolar orientation; the quadrangulation Q of M is the bipartite
+map obtained as follows: say vertices of M are black, and put a white vertex in each face of M ;
+it proves convenient in this particular context to define a special treatment for the outer face, and
+put two white vertices in it, one on the left side and one on the right side of M when the source
+and sink are drawn at the bottom and at the top, respectively. These black and white vertices are
+the vertices of Q, and the edges of Q correspond to the incidences between vertices and faces of M .
+This construction, which can be traced back to Brown and Tutte [7], is illustrated in Figure 2. It
+is well known that Q is indeed a quadrangulation: to each edge e of M corresponds an inner (i.e.,
+bounded) face of Q (the unique one containing e in its interior), and our particular treatment of the
+outer face also produces a quadrangle.
+   If M is endowed with a bipolar orientation O, this classical construction can be enriched to
+transfer the orientation on Q, as shown in Figure 2. Notice that O (or, in general, any plane bipolar
+orientation) satisfies the two following local conditions [9] illustrated in Figure 3(a), as easily proved
+using the acyclicity of the orientation and the Jordan curve theorem:
+      • edges incident to a non-pole vertex are partitioned into a non-empty block of incoming edges
+         and a non-empty block of outgoing edges,
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                             4
+
+
+                                              t                                                       t
+
+
+
+
+                                              s                                                       s
+        (a) in a plane bipolar orientation,                  (b) and in a separating decomposition.
+
+
+                                         Figure 3. The local rules.
+
+      • dually, the contour of each inner face f consists of two oriented paths (one path has f on
+         its left, the other one has f on its right); the common extremities of the paths are called
+         the two extremal vertices of f .
+   A separating decomposition of Q is an orientation and bicoloration of its edges, say in red or
+blue, that satisfy the following local conditions illustrated in Figure 3(b) (in all figures, red edges
+are dashed):
+      • each inner vertex has exactly two outgoing edges, a red one and a blue one;
+      • around each inner black (white, resp.) vertex, the incoming edges in each color follow the
+         outgoing one in clockwise (counterclockwise, resp.) order;
+      • all edges incident to s are incoming blue, and all edges incident to t are incoming red.
+   Given an inner face f of M , let us orient the two corresponding edges of Q from the white vertex
+wf corresponding to f to the extremal vertices of f , and color respectively in red and blue the up-
+and the down-edges. The other edges incident to wf are oriented and colored so as to satisfy the
+circular order condition around wf . This defines actually a separating decomposition of Q, and this
+mapping from plane bipolar orientations to separating decompositions is one-to-one, as proved by
+an easy extension of [9, Theorem 5.3]:
+Proposition 3. Plane bipolar orientations with i non-pole vertices and j inner faces are in bijection
+with separating decompositions on quadrangulations with i + 2 black vertices and j + 2 white vertices.
+  Accordingly, encoding plane bipolar orientations w.r.t. the numbers of vertices and faces is
+equivalent to encoding separating decompositions w.r.t. the numbers of black and white vertices.
+
+   3. Encoding a separating decomposition by a triple of non-intersecting paths
+   Separating decompositions have an interesting property: as shown in [3, 16], blue edges form a
+tree spanning all vertices but t, and red edges form a tree spanning all vertices but s. Moreover, the
+orientation of the edges corresponds to the natural orientation toward the root in both trees (the
+root is s for the blue tree and t for the red tree).
+3.1. From a separating decomposition to a triple of words. Let D be a separating decompo-
+sition with i + 2 black vertices and j + 2 white vertices, and let Tblue be its blue tree. A clockwise (or
+shortly cw ) traversal of a tree is a walk around the tree with the outer face on the left. We define
+the contour word WQ of Q as the word on the alphabet {a, a, b, b, c, c} that encodes the clockwise
+traversal of Tblue starting at s in the following manner (see Figure 4): letter a (b, resp.) codes the
+traversal of an edge e of Tblue from a black to a white vertex (from a white to a black one, resp.),
+and the letter is underlined if it corresponds to the second traversal of e; letter c codes the crossing
+of red edge at a white vertex, and is underlined it if the edge is incoming.
+   We shall consider three subwords of WQ : for any ℓ in {a, b, c}, let Wℓ denote the subword obtained
+by keeping only the letters in the alphabet {ℓ, ℓ}. In order to describe the properties of these words,
+we also introduce the tree-word Wt and the matching word Wm , that are respectively obtained from
+WQ by keeping the letters in {a, a, b, b}, and in {a, a, c, c}.
+           BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                                              5
+
+                                                                                                   b
+                                                                                                    b a
+                                                                    a
+                                                                                                   a
+                                                                                 b     a
+                                                                bb a
+                                                                                                       a
+                                                                  b              b             b                    b
+                                                                    b a
+                                                                                               b
+
+                                c b                                                  a a a
+                            c                                                    a
+                                c b a
+          a                                                        Wt = ababababababababababab
+                                  a
+      bb a       c b    a                c       c
+  c             c                   a   c
+        b        c b                         b
+                            c b                                                                c
+          b a                                                                              c
+                                b                                                              c           a
+                                                                    a
+                      a a a                                                                        a
+                                                                                                                        c
+                  a                                                          c         a                        c
+                                                                    a       c                          a       c
+                                                            c
+  WQ = acbabababacccbabacbacccbababacccb                                     c
+                                                                                           c
+                                                                        a
+
+                                                                                     a a a
+                                                                                 a
+                                                                   Wm = acaaaacccaacacccaaaccc
+
+
+
+                      Figure 4. The words encoding a separating decomposition.
+
+3.1.1. The tree-word encodes the blue tree. Observe that Wt corresponds to a classical Dyck encoding
+of Tblue , in which the two alphabets {a, a} and {b, b} are used alternatively to encode the bicoloration
+of vertices. Hence Wt is just obtained by interlacing Wa and Wb starting with a, and each prefix of
+Wt has at least as many non-underlined letters as underlined letters.
+   Let us count precisely the number of occurrences of letters a, a, b and b in Wt . For this purpose,
+let us associate each edge of a tree with its extremity that is farther from the root. From the defining
+rules it follows that the two traversals of edges corresponding to black vertices are encoded by b
+and a, while those of edges corresponding to white vertices are encoded by a and b. In other words,
+each occurrence of a letter a, a, b, b corresponds to the first visit to a white vertex, last visit to a
+black vertex, first visit to a black vertex, and last visit to a white vertex, respectively. As Tblue has
+i non-root black vertices and j + 2 white vertices, the word Wa has j + 2 occurrences of a and i
+occurrences of a, shortly written Wa ∈ S(aj+2 ai ). Similarly, Wb ∈ S(bi bj+2 ). Furthermore, the fact
+that each prefix of Wt has at least as many non-underlined letters as underlined letters translates
+into the following property for the pair (Wa , Wb ):
+Property 1. For 1 ≤ k ≤ i, the number of a’s on the left of the kth occurrence of a in Wa is strictly
+larger than the number of b’s on the left of the kth occurrence of b in Wb .
+Proof. For each k, let Na (k) and Nb (k) be the numbers of a’s and b’s in Wt on the left of the kth
+occurrence of a (resp. b). Let p be the prefix of Wt ending just before the kth occurrence of a.
+Notice that p ends at a letter in {b, b}, so p has even length 2m with m letters in {a, a} and m letters
+in {b, b}. Let ma , ma , mb , mb be respectively the numbers of a’s, a’s, b’s, and b’s in p (notice that
+ma = k − 1 and ma = Na (k)). Since Wt is a Dyck word and since p is followed by an underlined
+letter, we have ma + mb > ma + mb . But ma = m − ma and mb = m − mb , so we obtain both (i):
+mb < ma = Na (k) and (ii): mb > ma = k − 1. From (ii) the kth occurrence of b in Wt belongs to p,
+and from (i) the number Nb (k) of b’s on its left is strictly smaller than Na (k). This concludes the
+proof.                                                                                                
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                          6
+
+
+   The words Wa and Wb have the additional property that two letters are redundant in each word.
+Indeed, the first and the last letter of Wa are a’s and the last two letters of Wb are b’s, because of
+the rightmost branch of Tblue being reduced to an edge, see Figure 4.
+3.1.2. The matching word encodes the red edges. Let us now focus on Wc and on the matching word
+Wm . Clearly, any occurrence of a letter c (c) in WQ corresponds to a red edge with white (black,
+resp.) origin, see Figure 4. Hence Wc ∈ S(cj+2 ci ). Moreover Wc starts and ends with a letter c,
+corresponding to the two outer red edges.
+   Observe also that any occurrence of a in Wm , which corresponds to the first visit to a white
+vertex v, is immediately followed by a pattern cℓ c, with ℓ the number of incoming red edges at v.
+Hence Wm satisfies the regular expression:
+(3)                                       Wm ∈ ac(a∗ ac∗ c)∗ ,
+where E ∗ denotes the set of all (possibly empty) sequences of elements from E. Notice that this
+property uniquely defines Wm as a shuffle of Wa and Wc .
+Lemma 4. Let S be a separating decomposition, with Tblue the tree induced by the blue edges.
+Consider a red edge e of S not incident to t, with b (w) the black (white, resp.) extremity of e. Then
+the last visit to b occurs before the first visit to w during a cw traversal around Tblue starting at s.
+Proof. First, the local conditions of separating decompositions ensure that e is connected to b (w)
+in the corner corresponding to the last visit to b (first visit to w, resp.). Hence we just have to prove
+that, if C denotes the unique simple cycle formed by e and edges of the blue tree, then the edge e
+is traversed from b to w when walking cw around C. Assume a contrario that e is traversed from
+w to b during a cw walk around C. If e is directed from b to w (the case of e directed from w to b
+can be treated similarly), then the local conditions of separating decompositions ensure that the red
+outgoing path P (w) of w (i.e., the unique oriented red path that goes from w to t) starts going into
+the interior of C. According to the local conditions, no oriented red path can cross the blue tree,
+hence P (w) has to go out of C at b or at w: going out at w is impossible as it would induce a red
+circuit, going out at b contradicts the local conditions; hence either case yields a contradiction. 
+   Let us now consider a red edge e = (b, w) with a black origin. The outgoing half-edge of e is in
+the corner of the last visit to b, encoded by a letter a, while the incoming half-edge of e, which is
+encoded by a letter c, is in the corner of the first visit to w. Hence, according to Lemma 4, the a
+occurs before the c. In other words, the restriction of Wm to the alphabet {a, c} is a parenthesis
+word (interpreting each a as an opening parenthesis and each c as a closing parenthesis), and each
+parenthesis matching corresponds to a red edge with a black origin, see Figure 4. According to the
+correspondence between the a’s and the c’s (see the regular expression (3) of Wm ), this parenthesis
+property of Wm is translated as follows:
+Property 2. For 1 ≤ k ≤ j + 2, the number of a’s on the left of the kth occurrence of a in Wa is
+at least as large as the number of c’s on the left of the kth occurrence of c in Wc .
+Definition. A triple of words (Wa , Wb , Wc ) in S(aj+2 ai ) × S(bi bj+2 ) × S(cj+2 ci ) is said to be
+admissible of type (i, j) if Wa (Wc , resp.) ends with a letter a (c, resp.) and if Property 1 and
+Property 2 are satisfied.
+   Observe that this definition yields other redundant letters, namely, Wa has to start with a letter
+a, Wc has to start with a letter c, and Wb has to end with two letters b.
+3.2. From an admissible triple of words to a triple of non-intersecting paths. The prop-
+erties of an admissible triple of words are formulated in a more convenient way on lattice paths.
+This section describes the correspondence, illustrated in Figure 5.
+   Consider an admissible triple of words (Wa , Wb , Wc ) of type (i, j), and represent each word as an
+upright lattice path starting at the origin, the binary word being read from left to right, and the
+associated path going up or right depending on the letter. The letters associated to up steps are
+            BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                          7
+
+
+      i = 6, j = 3
+
+    Wc = cc cc cccc cc c   c         Pc
+
+                               c
+
+
+
+    Wa = aaaaaaaaaaa       a         Pa
+
+                               a
+
+
+
+    Wb = bb bb bbbb bb b   b         Pb
+
+                               b
+
+          Figure 5. An admissible triple of words is naturally represented as a non-
+          intersecting triple of paths.
+
+
+a, b and c. Clearly, as (Wa , Wb , Wc ) ∈ S(aj+2 ai ) × S(bi bj+2 ) × S(cj+2 ci ), the three paths end at
+(i, j + 2).
+    Property 1 is translated into:
+         “for 1 ≤ k ≤ i, the kth horizontal step of Pa (ending at abscissa k) is strictly above
+         the kth horizontal step of Pb .”
+Hence, Property 1 is equivalent to the fact that Pa and the shift of Pb one step to the right are
+non-intersecting.
+  Similarly, Property 2 is translated into:
+         “for 1 ≤ k ≤ j + 2, the kth vertical step of Pa is weakly on the right of the kth
+         vertical step of Pc .”
+In other words, Pc is weakly top left of Pa . Hence, Property 2 is equivalent to the fact that Pa and
+the shift of Pc one step up-left are non-intersecting. Let us now consider the redundant letters; they
+correspond to two vertical steps in each path, and removing them leads to a triple (Pb′ , Pa′ , Pc′ ) of
+non-intersecting upright lattice paths with origins (−1, 1), (0, 0), (1, −1) and endpoints (i − 1, j + 1),
+(i, j), (i + 1, j − 1). Such a triple of paths is called a non-intersecting triple of paths of type (i, j).
+    To sum up, we have described a mapping Φ from separating decompositions with (i + 2) black
+and (j + 2) white vertices to non-intersecting triples of paths of type (i, j).
+
+                                      4. The inverse mapping
+    As we show in this section, the mapping Φ is easily checked to be a bijection, as all steps (taken
+in reverse order) are invertible. Start from a non-intersecting triple of paths (Pb′ , Pa′ , Pc′ ) of type
+(i, j), where Pb′ goes from (−1, 1) to (i − 1, j + 1), Pa′ goes from (0, 0) to (i, j), and Pc′ goes from
+(1, −1) to (i + 1, j − 1). Append two up-steps in each of the 3 paths: Pb = Pb′ ↑↑, Pa =↑ Pa′ ↑,
+Pc =↑ Pc′ ↑.
+
+4.1. Associate an admissible triple of words to the triple of paths. Each of the three
+paths (Pb , Pa , Pc ) is equivalent to a binary word on the alphabet {u, r}, corresponding to the
+sequence of up and right steps when traversing the path. Let (Wa , Wb , Wc ) be the three binary
+words associated respectively to (Pa , Pb , Pc ). In order to have different alphabets for the three
+words, we substitute the alphabet (u, r) by (a, a) for the word Wa , by (b, b) for the word Wb ,
+and by (c, c) for the word Wc . As the triple (Pb , Pa , Pc ) is non-intersecting, the triple of words
+Wa ∈ S(aj+2 ai ), Wb ∈ S(bi bj+2 ), Wc ∈ S(cj+2 ci ) is readily checked to be an admissible triple of
+words of type (i, j).
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                        8
+
+
+4.2. Construct the blue tree. Define the tree-word Wt as the word obtained by interlacing Wa
+and Wb starting with a.
+Claim 5. The word Wt is a Dyck word (when seeing each letter in {a, b} as opening parenthesis
+and each letter in {a, b} as closing parenthesis).
+Proof. Clearly Wt has the same number of underlined as non-underlined letters. Assume that Wt
+is not a Dyck word, and consider the shortest prefix of Wt having more underlined letters than
+non-underlined letters. By minimality, the last letter of the prefix has to be underlined and is at an
+odd position 2m + 1, so that this letter is an a. By minimality also, the prefix w2m of length 2m
+has the same number of non-underlined letters as underlined letters. Moreover, w2m has m letters
+in {a, a} and m letters in {b, b}, because the letters of type {a, a} alternate with letters of type
+{b, b}. Hence, if we denote by k the number of a’s in w2m , then w2m has m − k occurrences of a, k
+occurrences of b, and m − k occurrences of b. In particular, the number of occurrences of a on the
+left of the (k + 1)th occurrence of a in Wa is (m − k), and the number of occurrences of b on the
+left of the (k + 1)th occurrence of b is at least (m − k). This contradicts Property 1.              
+
+   Denote by Tblue the plane tree whose Dyck word is Wt . Actually, as we have seen in Section 3.1.1,
+Wt is a refined Dyck encoding of Tblue that also takes account of the number of vertices at even
+depth, colored black, and the number of vertices at odd length, colored white. Precisely, Tblue has
+i + 1 black vertices and j + 2 white vertices. Denote by s the (black) root of Tblue , and orient all
+the edges of Tblue toward the root.
+
+4.3. Insert the red half-edges. The next step is to insert the red edges. Precisely we first insert
+the red half-edges (to be merged into complete red edges). Define the matching word Wm as the
+unique shuffle of Wa and Wc that satisfies the regular expression ac(a∗ ac∗ c)∗ . For 1 ≤ k ≤ j + 2,
+consider the kth white vertex w in Tblue , the vertices being ordered w.r.t. the first visit during a
+cw traversal of Tblue starting at s. Let ℓ ≥ 0 be the number of consecutive c’s that follow the kth
+occurrence of a in Wm . Insert ℓ incoming and one outgoing red half-edges (in clockwise order) in
+the corner of Tblue traversed during the first visit to w. Then, add an outgoing red half-edge to each
+black vertex b in the corner traversed during the last visit to b. The red half-edges are called stems
+as long as they are not completed into complete red edges, which is the next step. Observe that the
+local conditions of a separating decomposition are already satisfied around each vertex (the pole t
+is not added yet).
+
+4.4. Merge the red stems into red edges. Next, we match the outgoing red stems at black
+vertices and the incoming red stems (which are always at white vertices). Property 2 ensures that
+the restriction of Wm to the alphabet {a, c} is a parenthesis word, viewing each a as an opening
+parenthesis and each c as a closing parenthesis. By construction, this word corresponds to walking
+around Tblue and writing a a for each last visit to a black vertex and a c for each incoming red stem.
+   This yields a matching of the red half-edges; the red outgoing half-edge inserted in the corner
+corresponding to the kth black vertex (black vertices are ordered w.r.t. the last visit in Tblue ) is
+merged with the incoming red half-edge associated with the letter c matched with the kth occurrence
+of a in Wm , see Figure 6(a). Such an operation is called a closure, as it “closes” a bounded face f
+on the right of the new red edge e. The origin of e is called the left-vertex of f .
+   We perform the closures one by one, following an order consistent with the a’s being matched
+inductively with the c’s in Wm . In Figure 4, this means that the red edges with a black origin are
+processed “from bottom to top”. Observe that the planarity is preserved throughout the closures:
+the red edges that are completed are nested in the same way as the corresponding arches in the
+parenthesis word.
+
+4.5. Insert the remaining half-edges. The last step is to complete the stems going out of white
+vertices into complete red edges going into black vertices, so as to obtain a quadrangulation endowed
+with a separating decomposition.
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                         9
+
+                                                                                           t
+
+
+          v                      v′
+
+                                                                                           s
+                                      (a)                                                (b)
+
+
+                 Figure 6. Completing the red stems going out of white vertices.
+
+Lemma 6. For each k ∈ [0..i] consider the planar map Fk formed by the blue edges and the completed
+red edges after k closures have been performed. The following invariant holds.
+        (I): “Consider any pair cw , cb of consecutive corners of Fk during a ccw traversal of
+        the outer face of Fk (i.e., with the outer face on the right), such that cw is incident
+        to a white vertex (thus cb is incident to a black vertex). Then exactly one of the two
+        corners contains an outgoing (unmatched) stem.”
+Proof. Induction on k. At the initial step, F0 is the tree Tblue . The red stems are inserted in
+the corners of Tblue —as described in Section 4.4—in a way that satisfies the local conditions of
+separating decompositions. Hence it is an easy exercise to check that F0 satisfies (I). Now assume
+that, for k ∈ [0..i − 1], Fk satisfies (I), and let us show that the same holds for Fk+1 . Consider
+the closure that is performed from Fk to Fk+1 . This closure completes a red edge e = (b, w), where
+e starts from the corner cb at the last visit to b and ends at the corner cw at the first visit to w.
+As we see in Figure 6(a), the closure expels all the corners strictly between cw and cb from the
+outer face, and it makes cb the new follower of cw . According to the local conditions of separating
+decompositions, cw contains an outgoing stem in the outer face of Fk+1 . In addition, cb contains
+no outgoing stem in Fk+1 , because the outgoing stem of b is matched by the closure. Hence, Fk+1
+satisfies (I).                                                                                     
+   Denote by F = Fi the figure that is obtained after all closures have been performed (there are i
+closures, as each closure is associated with one of the i non-root black vertices of Tblue ). Note that
+each bounded face f of F has been “closed” by matching a red half-edge going out of a black vertex
+b with a red half-edge going into a white vertex w. The vertex b is called the left-vertex of f .
+   Let us now describe how to complete F into a separating decomposition on a quadrangulation.
+Add an isolated vertex t in the outer face of F . Taking advantage of Invariant (I), it is easy to
+complete suitably each red stem h going out of a white vertex:
+      • if h is in a bounded face f of F we complete h into an edge connected to the left-vertex of
+         f ; completing all the half-edges inside the face f splits f into quadrangular faces, as shown
+         in Figure 6(a).
+      • if h is in the outer face of F we complete h into an edge connected to the vertex t; completing
+         all such half-edges splits the outer face of F into quadrangular faces all incident to t, and t
+         is incident to red incoming edges only, see Figure 6(b).
+The planar map we obtain is thus a quadrangulation. In addition it is easy to check that the
+orientations and colors of the edges satisfy the local conditions of a separating decomposition.
+Indeed, the local conditions are satisfied in F . Afterwards the (black) left-vertex of each bounded
+face of F receives new incoming red edges in cw order after the red outgoing edge, and the vertex t
+receives red incoming edges only. Hence the local conditions remain satisfied after inserting the last
+red half-edges.
+   To sum up, we have described a mapping Ψ from non-intersecting triples of paths of type (i, j)
+to separating decompositions with i + 2 black vertices and j + 2 white vertices. It is easy to check
+step by step that the mapping Φ described in Section 3 and the mapping Ψ are mutually inverse.
+Together with Proposition 3, this yields our main bijective result announced in Theorem 1.
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                        10
+
+
+                  t                                                               t
+
+
+
+                                         u     α                                                 u
+                                               β
+
+
+
+
+                 s                                                                s
+                      (a)                                               (b)
+
+          Figure 7. From a Schnyder wood to a contractible separating decomposition.
+
+
+                 5. Specialization into a bijection for Schnyder woods
+   A triangulation is a planar map with no loop nor multiple edge such that each face is triangular.
+Given a triangulation T , let s, t, u be its outer vertices in cw order. A Schnyder wood on T is an
+orientation and coloration—in blue, red, or green—of the inner edges of T such that the following
+local conditions are satisfied (in the figures, blue edges are solid, red edges are dashed, and green
+edges are dotted):
+     • Each inner vertex v of T has exactly one outgoing edge in each color. The edges leaving v
+       in color blue, green, and red, occur in cw order around v. In addition, the incoming edges
+       of one color appear between the outgoing edges of the two other colors, see Figure 7(a).
+     • All the inner edges incident to the outer vertices are incoming, and such edges are colored
+       blue, green, or red, whether the outer vertex is s, t, or u, respectively.
+   Definition, properties, and applications of Schnyder woods are given in Felsner’s monograph [11,
+Chapter 2]. Among the many properties of Schnyder woods, it is well known that the subgraphs of
+T in each color are trees that span all the inner vertices and one outer vertex (each of the 3 outer
+vertices is the root of one of the trees).
+   We show here that Schnyder woods are in bijection with specific separating decompositions,
+and that such separating decompositions have one of the 3 encoding paths that is redundant, and
+the two other ones are Dyck paths. Afterward we show that this bijection is exactly the one
+recently described by Bernardi and Bonichon in [2] (which itself reformulates Bonichon’s original
+construction [4]).
+   Starting from a Schnyder wood S with n inner vertices, we construct a separating decomposition
+D = α(S) as follows, see Figure 7:
+     • Split each inner vertex v of T into a white vertex w and a black vertex b that are connected
+       by a blue edge going from b to w. In addition w receives the outgoing green edge, the
+       outgoing blue edge and the incoming red edges of v, and b receives the outgoing red edge,
+       the incoming blue edges, and the incoming green edges of v.
+     • Add a white vertex in the middle of the edge (s, t), and change the color of u from black to
+       white.
+     • Recolor the green edges into red edges.
+     • Color red the two outer edges incident to t and orient these edges toward t. Color blue the
+       two outer edges incident to s and orient these edges toward s.
+   Clearly we obtain from this construction a bipartite planar map Q with no multiple edge. The
+map Q has a quadrangular outer face, 2n inner vertices, and 4n inner edges (the 3n inner edges of
+the original triangulation plus the n new edges), hence Q has to be a maximal bipartite planar map,
+i.e., Q is a quadrangulation. In addition, it is easily checked that Q is endowed with a separating
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                           11
+
+
+decomposition D = α(S) via the construction, as shown in Figure 7. A separating decomposition is
+called contractible if each inner white vertex has blue indegree equal to 1 and the two outer white
+vertices have blue indegree 0. Clearly D = α(S) is contractible, see Figure 7(b).
+   Conversely, starting from a contractible separating decomposition D, we construct the associated
+Schnyder wood S = β(D) as follows:
+      • recolor the red edges of D going out of white vertices into green edges.
+      • contract the blue edges going from a black to a white vertex.
+      • remove the colors and directions of the outer edges of D; contract into a single edge the
+         path of length 2 going from s to t with the outer face on its left.
+   Clearly, the local conditions of Schnyder woods are satisfies by S. Hence, proving that S is a
+Schnyder wood comes down to proving that the planar map we obtain is a triangulation. In fact, it
+is enough to show that all faces are triangular (it is well known that a map with all faces of degree
+3 and endowed with a Schnyder wood has no loop nor multiple edges), which clearly relies on the
+following lemma.
+Lemma 7. Take a contractible separating decomposition D and remove the path of length 2 going
+from s to t with the outer face on its left (which yields a separating decomposition with one inner
+face less). Then around each inner face there is exactly one blue edge going from a black vertex to
+a white vertex.
+Proof. Let O be the plane bipolar orientation associated to D. Observe that s and t are adjacent
+in O, the edge (s, t) having the outer face of O on its left. To each inner face f of O corresponds
+the unique edge e of O that is in the interior of f . For each edge e of O, except for (s, t), let ℓe
+(re ) be the face of O on the left (right, resp.) of e, and let wℓ (wr , resp.) be the corresponding
+white vertex on D. Notice that the inner face of D associated with e is the face f incident to the
+extremities of e and to the white vertices wℓ , wr . As wℓ has blue indegree 1, ℓe has two edges on
+its right side. Hence, one extremity v of e is extremal for ℓe , and the other extremity v ′ of e is in
+the middle of the right side of ℓe . Hence the edge (v ′ , wℓ ), which is on the contour of f , is a blue
+edge with a black origin. In addition, the edge (wℓ , v) goes into v (as v is extremal for ℓe ), and
+each of the other two edges of f is either red or is blue with wr as origin, by the rules to translate
+a plane bipolar orientation into a separating decomposition. Hence any inner face of D, except the
+one corresponding to (s, t), has on its contour exactly one blue edge with a black origin.             
+   Clearly the mappings α and β are mutually inverse, so that we obtain the following result (which
+to our knowledge is new):
+Proposition 8. Schnyder woods with n inner vertices are in bijection with contractible separating
+decompositions with n black inner vertices.
+   Let us now describe the non-intersecting triples of paths associated with contractible separating
+decompositions. Let D be a contractible separating decomposition with 2n inner vertices, and let
+(Pa′ , Pb′ , Pc′ ) = Φ(D) be the associated non-intersecting triple of paths, which has type (n, n). Let
+Tblue be the blue tree of D. Observe that Tblue has one 1-leg on the left and on the right side and all
+the other white vertices have exactly one child. Let T be the tree obtained from Tblue by deleting
+the 1-legs on each side and by merging each white vertex with its unique black child. Then it is
+easily checked that Pa′ is the Dyck path encoding T . In addition, Pb′ is redundant: it is obtained as
+the mirror of Pa′ w.r.t. the diagonal x = y, shifted one step to the right, and with the last (up) step
+moved so as to prepend the path, see Figure 8 (right part). Finally the path Pc′ is also a Dyck path,
+since it does not intersect Pa′ and its respective endpoints are one step up-left of the corresponding
+endpoints of Pa′ . To have a more classical representation, one rotates cw by 45 degrees the two
+paths Pc′ and Pa′ and shifts them to have the same starting point (and same endpoint), see Figure 8
+(lower part). After doing this, the pair (Pa′ , Pc′ ) is a non-crossing pair of Dyck paths (each of length
+2n) that is enough to encode the separating decomposition.
+   Conversely, starting from a pair (Pa′ , Pc′ ) of non-crossing Dyck paths, we rotate the two paths
+ccw by 45 degrees and shift Pc′ one step up-left, so that Pc′ now does not intersect Pa′ . Then we
+          BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                                           12
+
+
+
+
+          c                           c cc
+                             c cc                                                   ba              ba        ba
+          aa                            aa
+                                a a               α
+                                                                                    c                  c cc
+                                             cc                                      ab          c cc b a b        cc
+                                                                                                     a
+                                                  β
+          c                                                         b
+                        c        c                                                  ba      ba           ba
+              a a       aa      aa
+                                                                                        c b c     c
+                                                                                         a a     a
+
+
+
+                    Φ                                                                           Φ
+
+
+
+
+ c
+ a
+
+ c
+ a
+                                                                c
+                                                                    a
+                                                                        b
+                                                                            c
+                                                                                a
+                                                                                    b
+
+        Figure 8. Encoding a Schnyder wood by two non-crossing Dyck paths via the
+        associated contractible separating decomposition.
+
+construct the path Pb′ as the mirror of Pa′ according to the diagonal x = y, with the last step moved
+to the start of the path, and we place Pb′ so as to have its starting point one step bottom-right of the
+starting point of Pa′ . As Pa′ is a Dyck word (i.e., stays weakly above the diagonal x = y), the path
+Pb′ does not intersect Pa′ . Furthermore it is easily checked that the blue tree Tblue of the separating
+decomposition D = Ψ(Pb′ , Pa′ , Pc′ ) has one 1-leg on each side and all other white vertices have one
+child in Tblue . (Proof: by definition of Ψ, the Dyck path P for Tblue is obtained as a shuffle at even
+and odd positions of the path Pa :=↑ Pa′ ↑ and of the path Pb := Pb′ ↑↑. By construction of Pb′ from
+Pa′ , it is easily checked that there is a ∧ at the beginning—starting at position 0—and at the end
+of P and that all the other peaks and valleys of P start at odd position, hence the corresponding
+leaves and forks of T are at black vertices only.)
+    To conclude, we have proved that contractible separating decompositions with n inner vertices
+are encoded (via the bijection Φ) by non-crossing pairs of Dyck paths each having 2n steps. Given
+Proposition 8, we recover Bonichon’s result [4]:
+Theorem 9. Schnyder woods on triangulations with n inner vertices are in bijection with non-
+crossing pairs of Dyck paths that have both 2n steps.
+   As shown in Figure 8, the bijection can be formulated as a mapping Φ operating directly on
+the Schnyder wood S. Indeed, let D = α(S). The blue tree T of S is equal to the tree Tblue of
+D where the 1-legs on each side are deleted and where each white node is merged with its unique
+black child. Hence the path Pa′ (the lower Dyck path) associated with D is the Dyck path encoding
+the blue tree T of S. And the upper Dyck path Pc′ can be read directly on S: Pc′ is obtained by
+walking cw around T , drawing an up-step (down-step) each time an outgoing green edge (incoming
+red edge, resp.) is crossed, and completing the end of the path by down-steps. This mapping is
+exactly the bijection that has been recently described by Bernardi and Bonichon [2] for counting
+           BIJECTIVE COUNTING OF PLANE BIPOLAR ORIENTATIONS AND SCHNYDER WOODS                                     13
+
+
+Schnyder woods (and more generally for counting some intervals of Dyck paths), which itself is a
+reformulation of Bonichon’s original construction [4].
+
+                                                   References
+ [1] R. J. Baxter. Dichromatic polynomials and potts models summed over rooted maps. Annals of Combinatorics,
+     5:17, 2001.
+ [2] O. Bernardi and N. Bonichon. Intervals in catalan lattices and realizers of triangulations. Journal of Combina-
+     torial Theory. Series A, 116(1):55–75, 2009.
+ [3] T. Biedl and F. J. Brandenburg. Partitions of graphs into trees. In Proceedings of Graph Drawing’06 (Karlsruhe),
+     volume 4372 of LNCS, pages 430–439, 2007.
+ [4] N. Bonichon. A bijection between realizers of maximal plane graphs and pairs of non-crossing dyck paths. Discrete
+     Math., 298(1-3):104–114, 2005.
+ [5] N. Bonichon, M. Bousquet-Mélou, and É. Fusy. Baxter permutations and plane bipolar orientations.
+     arXiv:0805.4180, 2008.
+ [6] M. Bousquet-Mélou. Four classes of pattern-avoiding permutations under one roof: Generating trees with two
+     labels. Elect. J. Comb., 2002.
+ [7] W. G. Brown and W.T. Tutte. On the enumeration of rooted nonseparable maps. Canad. J. Math., 16:572–577,
+     1964.
+ [8] N. Chiba, T. Nishizeki, S. Abe, and T. Ozawa. A linear algorithm for embedding planar graphs using pq-trees.
+     J. Comput. Syst. Sci., 30(1):54–76, 1985.
+ [9] H. De Fraysseix, P. Ossona de Mendez, and P. Rosenstiehl. Bipolar orientations revisited. Discrete Appl. Math.,
+     56(2-3):157–179, 1995.
+[10] S. Dulucq and O. Guibert. Baxter permutations. Discr. Math., 180:143–156, 1998.
+[11] S. Felsner. Geometric graphs and arrangements. Vieweg Verlag, 2004.
+[12] S. Felsner, É. Fusy, M. Noy, and D. Orden. Bijections for baxter families and related objects. arXiv:0803.1546,
+     2008.
+[13] É. Fusy. Straight-line drawing of quadrangulations. In Proceedings of Graph Drawing’06, volume 4372 of LNCS,
+     pages 234–239. Springer, 2006.
+[14] I. Gessel and X. Viennot. Binomial determinants, paths, and hook formulae. Adv. Math, 58:300–321, 1985.
+[15] I. Gessel and X. Viennot. Determinants, paths, and plane partitions, 1989. Preprint.
+[16] C. Huemer and S. Kappes. A binary labelling for plane laman graphs and quadrangulations. In Proceedings of
+     EWCG, Delphi, pages 83–86, 2006.
+[17] G. Kant and X. He. Regular edge labeling of 4-connected plane graphs and its applications in graph drawing
+     problems. Theoretical Computer Science, 172(1-2):175–193, 1997.
+[18] A. Lempel, S. Even, and I. Cederbaum. An algorithm for planarity testing of graphs. In Theory of Graphs, Int.
+     Symp (New York), pages 215–232, 1967.
+[19] P. Ossona de Mendez. Orientations bipolaires. PhD thesis, Ecole des Hautes Etudes en Sciences Sociales, Paris,
+     1994.
+[20] R. Tamassia and I. G. Tollis. A unified approach to visibility representations of planar graphs. Discrete Comput.
+     Geom., 1(4):321–341, 1986.
+[21] R. Tamassia and I. G. Tollis. Planar grid embedding in linear time. IEEE Trans. on Circuits and Systems,
+     CAS-36(9):1230–1234, 1989.
+
+   É. Fusy, G. Schaeffer: LIX, École Polytechnique, 91128 Palaiseau Cedex, France.
+   E-mail address: fusy@lix.polytechnique.fr, schaeffe@lix.polytechnique.fr
+
+   D. Poulalhon: LIAFA, Université Paris Diderot, case 7014, 75205 Paris Cedex 13, France.
+   E-mail address: Dominique.Poulalhon@liafa.jussieu.fr
+

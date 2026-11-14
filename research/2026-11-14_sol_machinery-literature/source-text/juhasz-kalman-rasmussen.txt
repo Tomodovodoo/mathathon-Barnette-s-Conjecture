@@ -1,0 +1,1166 @@
+                                                 SUTURED FLOER HOMOLOGY AND HYPERGRAPHS
+arXiv:1112.2632v1 [math.GT] 12 Dec 2011
+
+
+
+
+                                                      ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+                                                   Abstract. By applying Seifert’s algorithm to a special alternating diagram
+                                                   of a link L, one obtains a Seifert surface F of L. We show that the support
+                                                   of the sutured Floer homology of the sutured manifold complementary to F
+                                                   is affine isomorphic to the set of lattice points given as hypertrees in a cer-
+                                                   tain hypergraph that is naturally associated to the diagram. This implies that
+                                                   the Floer groups in question are supported in a set of Spinc structures that
+                                                   are the integer lattice points of a convex polytope. This property has an im-
+                                                   mediate extension to Seifert surfaces arising from homogeneous link diagrams
+                                                   (including all alternating and positive diagrams).
+                                                       In another direction, together with work in progress of the second author
+                                                   and others, our correspondence suggests a method for computing the “top”
+                                                   coefficients of the HOMFLY polynomial of a special alternating link from the
+                                                   sutured Floer homology of a Seifert surface complement for a certain dual link.
+
+
+
+
+                                                                               1. Introduction
+                                             In this paper, we report on an unexpected coincidence between two sets of integer
+                                          lattice points that appear in the study of alternating links and their Seifert surfaces.
+                                          The first set derives from the first author’s sutured Floer homology theory [9].
+                                          Given a link L ⊂ S 3 with Seifert surface F , we can associate to it the sutured
+                                          Floer homology group SF H(S 3 − F, L), where (S 3 − F, L) is the sutured manifold
+                                          complementary to F . This group decomposes as a direct sum over relative Spinc
+                                          structures on (S 3 − F, L), namely,
+                                                                                   M
+                                                          SF H(S 3 − F, L) =                  SF H(S 3 − F, L, s).
+                                                                                 s∈Spinc (S 3 −F,L)
+
+                                          The set Spinc (S 3 − F, L) of relative Spinc structures can be thought of as an affine
+                                          copy of H1 (S 3 − F ; Z). The support
+                                                        S(F ) = { s ∈ Spinc (S 3 − F, L) | SF H(S 3 − F, L, s) 6= 0 }
+                                          carries a lot of interesting geometric information about F , see [10, 11, 12].
+                                             A priori, SF H(S 3 − F, L, s) is a Z/2Z graded group. However, if L is a non-split
+                                          alternating link and F is an arbitrary minimal genus Seifert surface of L, then by
+                                          [5, Corollary 6.11], each group SF H(S 3 − F, L, s) is either trivial or isomorphic
+                                          to Z, and all nontrivial groups have the same Z/2Z grading. Thus, in this case,
+                                          SF H(S 3 − F, L) is determined by S(F ). Furthermore, we see that S(F ) may be
+
+                                             Key words and phrases. Alternating link, Seifert surface, Floer homology, integer polytope,
+                                          hypergraph.
+                                             AJ was supported by a Royal Society Research Fellowship and OTKA grant NK81203.
+                                             TK was supported by the Japan Society for the Promotion of Science (JSPS) Grant-in-Aid for
+                                          Young Scientists B, no. 21740041.
+                                                                                         1
+2              ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+viewed as the Euler characteristic (function) χ(s) = χ(SF H(S 3 − F, L, s)). Indeed,
+up to an overall sign, χ agrees with the indicator function of S(F ).
+    The second set was introduced by A. Postnikov [17] and (independently, but
+later) by the second author [13], who based on it a new theory of polynomial in-
+variants of bipartite graphs and hypergraphs. Its elements are generalized spanning
+trees called hypertrees. More precisely, if H = (V, E) is a hypergraph with vertex
+set V and hyperedge set E (i.e., V is a finite set and E is a finite multiset of
+subsets of V ), then an obvious two-to-one correspondence associates to it the bi-
+partite graph Bip H with color classes E and V . Now a hypertree in H is a vector
+f : E → N = { 0, 1, 2, . . . } so that Bip H has a spanning tree with valence f (e) + 1
+at every e ∈ E. The set of all hypertrees in H will be denoted by1 QH = Q(V,E) .
+    To place the support S of SF H and the set of hypertrees Q in the same context,
+recall that to any plane graph G we may associate an alternating link LG and a
+surface FG . The latter is obtained by taking a regular neighborhood of G and
+inserting a twist over each edge; LG is its boundary. This is also known as the
+median construction on G. When G is bipartite, LG is naturally oriented so that
+FG is its Seifert surface. The class of oriented links that arise as LG for some
+bipartite plane graph G is called special alternating, and it is known that FG is of
+minimal genus among Seifert surfaces of LG . (Here, we allow multiple edges in G.)
+Let R denote the set of connected components (regions) of S 2 − G and let (E, R)
+be the hypergraph where r ∈ R contains all elements of E that lie along ∂r. Define
+(V, R) similarly. (We will soon shift the meaning of r from region to a point marking
+the region, and thus R will mean the set of those points.) Note that S 3 − FG is a
+handlebody of genus |R| − 1. Our main result is the following.
+Theorem 1.1. Let G be a plane bipartite graph with color classes E, V and regions
+R. Then
+                               = Q(E,R) ∼
+                        S(FG ) ∼          = −Q(V,R) .
+   Here, the first isomorphism means that the (|R| − 1)-dimensional affine lattice
+Spinc (S 3 − FG , L) ∼
+                     = H1 (S 3 − FG , Z) containing S(FG ) has a Z-affine identification
+with a certain hyperplane in ZR so that the image of S(FG ) is Q(E,R) . The second
+isomorphism means that the two sets are translates of each other in ZR ; this is
+quoted from [13, Theorem 8.3] to show that it hardly matters whether we pick E
+or V to play the role of the vertices in our hypergraph.
+   Both sets that appear in Theorem 1.1 can be viewed as multi-variable polyno-
+mials and have representations in determinant form. The theorem is proved by
+showing that a suitable sequence of elimination steps transforms the ‘enhanced ad-
+jacency matrix’ of [13] (which is a large matrix with simple monomial entries) into
+the Turaev torsion (a smaller matrix with entries obtained as Fox derivatives) that
+appears in [5]. It would be very interesting to see if the relationship between the
+two matrices is a special case of some more general phenomenon.
+   The statement of Theorem 1.1 may seem obscure, but in fact it has some far-
+reaching consequences. Firstly, as Q(E,R) is easy to compute, and since the support
+S(FG ) completely determines SF H(S 3 − FG , LG ), we obtain a simple algorithm
+for determining the SF H of complements of Seifert surfaces given by the median
+construction on a bipartite graph. (Proposition 4.3 illustrates the usefulness of this
+   1This slightly deviates from notation in [13], where Q stood for the convex hull of the set of
+                                                         H
+hypertrees.
+                   SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                                  3
+
+
+approach.) According to Hirasawa–Sakuma [7] and Banks [2], every minimal genus
+Seifert surface of a non-split, prime, special alternating link arises in this manner.
+   Together with the Spinc -refined Murasugi and connected sum formulas obtained
+by using [12, Proposition 5.4] in the proofs of [10, Corollary 8.8] and [9, Proposition
+9.15], we can also easily compute SF H for Seifert surfaces obtained by applying
+Seifert’s algorithm to homogeneous link diagrams [4] (which include all alternating
+and positive diagrams). We will call such surfaces standard. Indeed, all standard
+surfaces are Murasugi sums and distant unions of standard Seifert surfaces of non-
+split, prime, special alternating links. When taking the Murasugi sum or distant
+union F of the Seifert surfaces F1 and F2 of the links L1 and L2 , respectively, and
+L = ∂F, then
+            Spinc (S 3 − F, L) ∼
+                               = Spinc (S 3 − F1 , L1 ) × Spinc (S 3 − F2 , L2 ).
+In case of a Murasugi sum,
+    SF H(S 3 − F, L, (s1 , s2 )) ∼
+                                 = SF H(S 3 − F1 , L1 , s1 ) ⊗ SF H(S 3 − F2 , L2 , s2 )
+for every si ∈ Spinc (S 3 − Fi , Li ), i = 1, 2. In particular, notice that
+(1)                              S(F ) ∼ = S(F1 ) × S(F2 ).
+On the other hand, if F is the distant union of F1 and F2 , then using the connected
+sum formula for sutured manifolds,
+                              ∼ SF H(S 3 − F1 , L1 , s1 ) ⊗ SF H(S 3 − F2 , L2 , s2 ) ⊗ Z2 .
+ SF H(S 3 − F, L, (s1 , s2 )) =
+We again have (1) for the supports, though (S 3 − F, L) is no longer a sutured
+L-space as the generators of the Z2 factor lie in different Z/2Z-gradings.
+   As our second application, we derive some previously unknown properties of the
+SF H of standard Seifert surfaces of homogeneous links. We say that P ⊂ Zd is
+convex if P is the intersection of Zd with the convex hull (in Rd ) of P . One of
+the first non-trivial facts about QH is that it is convex, see [13, Theorem 3.4].
+Combining this with (1), we obtain the following.
+Corollary 1.2. If F is a standard Seifert surface of a homogeneous link L, then
+S(F ) is convex.
+    In contrast, if F is a Seifert surface obtained by applying Seifert’s algorithm
+to a non-homogeneous link L, the support S(F ) need not be convex, even if the
+sutured Floer homology is supported in a single Z/2Z grading. (For examples, see
+the computations for three-strand pretzel knots in the last section of [5].)
+    An unpublished theorem of Richard Webb [19] claims that all standard Seifert
+surfaces F of an alternating link have isomorphic S(F ). Thus if L is a special
+alternating link, SF H(S 3 −F, L), together with the Spinc -grading, does not depend
+on the choice of minimal genus Seifert surface F . On the other hand, Altman [1]
+gives an example of a knot K with distinct minimal genus Seifert surfaces F1 and
+F2 for which S(F1 ) is convex and S(F2 ) is not. It would be interesting to know
+whether an alternating link can have non-standard Seifert surfaces whose SF H
+differs from that of the standard ones, or whether a homogeneous link can have a
+non-standard Seifert surface F so that S(F ) is non-convex.
+    Apart from convexity, there is another important context into which Theorem 1.1
+fits. Hypertrees were defined as part of a project aimed at finding spanning tree
+models of some orientation-sensitive link invariants, such as the HOMFLY polyno-
+mial. Namely, by counting hypertrees appropriately, from QH we may read off a
+4            ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+one-variable polynomial invariant IH (ξ) of the hypergraph H [13]. This so-called
+interior polynomial generalizes the partial evaluation T (x, 1) of the Tutte polyno-
+mial T (x, y) of ordinary graphs. Then, extending a result of Jaeger [8], the second
+author proposed the following.
+
+Conjecture. With notation as above, let PLG (v, z) denote the HOMFLY polyno-
+mial of the link LG . Then the part of PLG which (after substituting v = 1) becomes
+the leading term in the Alexander–Conway polynomial ∇LG (z) = PLG (1, z) is equal
+to (vz)|R|−1 I(V,E) (v 2 ).
+
+   As E and V play symmetric roles for LG , this leads us to expect that I(V,E) =
+I(E,V ) . Postnikov and the second author conjecture that this is indeed the case for
+any connected bipartite graph G; and furthermore, that the two polynomials also
+coincide with the so-called h-vector of some (any) triangulation of another polytope
+(called root polytope) derived from G. Then, it has already been proved [14]
+that this h-vector is equivalent to the relevant part of the HOMFLY polynomial.
+Therefore, the only missing step is purely discrete mathematical.
+   Now, if the Conjecture holds true, then the part (hereafter called the top) of
+PLG (v, z) that realizes its maximum z-degree can be read off from either Q(V,E) or
+Q(E,V ) . According to Theorem 1.1, these are equivalent to S(FGE ) and S(FGV ),
+respectively, where GE = Bip(V, R) = Bip(R, V ) and GV = Bip(E, R) = Bip(R, E)
+are two plane bipartite graphs closely related to our original graph G = GR =
+Bip(V, E) = Bip(E, V ). The three graphs together form a structure called a trinity.
+See Figure 4 for an example.
+   In other words, the Conjecture implies that the top of PLG can be computed
+from Floer homology. The alert reader will notice that neither FGE nor FGV is
+a Seifert surface for LG = LGR . It is also among our goals to derive the same
+HOMFLY coefficients from S(FGR ). There are plenty of indications that this should
+be possible, including the following consequence of Theorem 1.1 and results in [13].
+
+Corollary 1.3. With the plane bipartite graphs GR , GE , GV and associated sur-
+faces defined as above, we have |S(FGR )| = |S(FGE )| = |S(FGV )| for the corre-
+sponding supports.
+
+   This is true despite the fact that the three sets are the lattice points in three
+polytopes of different dimensions. Corollary 1.3 is inspired by, and can be viewed
+as an extension of, Tutte’s Tree Trinity Theorem [18]. It is also closely related to
+Postnikov’s duality result |Q(V,E) | = |Q(E,V ) |, see [17].
+   Murasugi and Przytycki [16] showed that under ‘star product’ of links, which is
+essentially Murasugi sum, the top of the HOMFLY polynomial behaves multiplica-
+tively. Thus, for any homogeneous link, the Conjecture implies that coefficients
+along the top of the HOMFLY polynomial can be derived from Floer homology
+groups.
+   The paper is organized as follows. In sections 2 and 3 we review the necessary
+results about hypergraphs and Floer homology, respectively. Theorem 1.1, along
+with some corollaries, is established in section 4. Section 5 contains a detailed
+sample calculation.
+                  SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                                     5
+
+
+                             2. Hypergraph invariants
+   In [13], the second author developed a new theory of hypergraph invariants by
+generalizing the spanning tree polytope and (partially) the Tutte polynomial to
+that context. Presently, we will only require the first item, the so called hypertree
+polytope. This was first defined by A. Postnikov [17], who called it the trimmed
+generalized permutohedron. (In this paper, instead of polytopes, we will only deal
+with their integer lattice points.) The relevant definitions and facts are as follows.
+   A hypergraph is a pair H = (V, E), where V is a finite set and E is a finite multiset
+of non-empty subsets of V . Elements of V are called vertices and the elements of
+E are the hyperedges. Bipartite graphs and hypergraphs can be represented by
+the same type of picture. We formalize this idea in a two-to-one correspondence
+where each hypergraph H has an associated bipartite graph Bip H in which V and
+E become the two color classes and e ∈ E and v ∈ V are connected if and only if
+v ∈ e. We will always assume that Bip H is connected. Conversely, a connected
+bipartite graph G induces two hypergraphs which we call abstract duals. In other
+words, the abstract dual H = (E, V ) of H is defined by interchanging the roles of
+its vertices and hyperedges.
+Definition 2.1. Let H = (V, E) be a hypergraph so that its associated bipartite
+graph Bip H is connected. By a hypertree in H we mean a function (vector) f : E →
+N = { 0, 1, . . . } so that a spanning tree of Bip H can be found which has valence
+f (e) + 1 at each e ∈ E. The set of all hypertrees in H will be denoted with QH .
+  An elementary observation is that all hypertrees lie on the hyperplane
+                    (                                   )
+                                   X
+                Π= f: E →N              f (e) = |V | − 1 ⊂ RE .
+                                         e∈E
+
+Furthermore, it turns out that hypertrees are exactly thePinteger lattice points of a
+polytope which is cut out of Π by inequalities of the form e∈E ′ f (e) ≤ µ(E ′ ), where
+∅ 6= E ′ $ E. Here µ is defined as follows2. Let Bip H E ′ be the bipartite graph with
+color classes E ′ ⊂ E and E ′ ⊂ V , and edges inherited from Bip H. Let
+                           S
+                                                                           S us denote
+the number of its connected components by c(E ′ ). Then, set µ(E ′ ) = | E ′ |−c(E ′ ).
+   For knot theoretical considerations, a case of particular interest is when Bip H is
+a planar graph, i.e., it comes with an embedding in S 2 . Such graphs always occur
+in sets of three, forming a structure called a trinity. Trinities, first investigated by
+Tutte [18], have many equivalent descriptions; we choose to define them as trian-
+gulations of S 2 with a proper three-coloring of the 0-cells (which we will generally
+call ‘points,’ with the understanding that some of them may become ‘vertices’ in a
+graph or hypergraph). See Figure 1 for an example.
+   We will use the names red, emerald and violet for the colors, and denote the
+respective sets of points by R, E and V . Let us color each edge in the triangulation
+with the color that does not occur among its ends. Then E and V together with
+the red edges form a bipartite graph that we will call the red graph and denote
+by GR . Each region (i.e., connected component of the complement) of the red
+graph contains a unique red point. Likewise, the emerald graph GE has red and
+violet points, emerald edges, and regions marked with emerald points. Finally, the
+
+  2If we let µ(∅) = 0 and µ(E) = |V | − 1, we obtain a non-decreasing submodular set function.
+6            ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+
+                   t0
+
+
+
+
+                                                           r3
+                           v0               t1                                 t9
+
+                                                                          v4
+                                                 e1                                            e0
+                                     t2                         t8
+                                           v1
+                         r1
+              t3                                      t7
+                                      e2
+                                t4                                   r2
+                                                                                         t10
+                                     v2
+                                                t6
+                                     e3
+                                                                                    v3
+
+                                                      t5
+
+                                      r0
+
+
+
+
+                        Figure 1. A trinity of plane bipartite graphs.
+
+
+violet graph contains R and E as vertices, violet edges, and a violet point in each
+of its regions.
+   Any one of the six hypergraphs induced by GR , GE , or GV generates the other
+five (and only those) using two operations. One is abstract duality and the other
+one is called planar duality. In the latter, hyperedges are retained, but the vertices
+of the hypergraph are replaced with (points placed in) the regions of its associated
+plane bipartite graph; the containment relation is defined by adjacency.
+   In [13, Theorem 8.3], it is established that the hypertree polytopes of planar
+dual hypergraphs are centrally symmetric. Thus in any trinity, we have Q(V,E) ∼     =
+−Q(R,E) ⊂ RE , Q(R,V ) ∼= −Q(E,V ) ⊂ RV , and
+
+(2)                                  Q(E,R) ∼
+                                            = −Q(V,R) ⊂ RR .
+   Notice that each triangle of a trinity is adjacent to exactly one edge and one
+point of each color. Compared to the orientation of the sphere, the cyclic order of
+the colors around each triangle may be positive or negative. If two triangles share
+an edge, these orientations are opposite. Hence the triangles have a black and white
+checkerboard coloring according to orientation, cf. Figure 1. This coloring can be
+used to orient the dual graphs G∗R , G∗E , and G∗V (dual in the classical, not in the
+hypergraph sense). Namely, each edge in these graphs cuts through a black and a
+white triangle, and we orient it so that its tail end is in black territory.
+                  SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                               7
+
+
+  Next, note that the sets of red edges, emerald edges, violet edges, white triangles,
+and black triangles all have the same cardinality n. In particular, adjacency defines
+natural bijections between white triangles and edges of each color. Now, if we apply
+Euler’s formula to the trinity, we get |R| + |E| + |V | − 3n + 2n = 2, i.e,
+
+(3)     the total number of points exceeds that of the white triangles by 2.
+
+    Let us distinguish one white triangle as the outer one and label it with t0 .
+We will label the red, emerald, and violet points adjacent to t0 with r0 , e0 , and
+v0 , respectively, and call them the roots. According to (3), the non-outer white
+triangles and non-root points are equal in number, so they form a square adjacency
+matrix M . We index the rows of M by points and its columns by triangles. This
+matrix was first investigated by Berman [3] who showed that when we compute the
+determinant det M , all non-zero expansion terms appear with the same sign. We
+call these terms the Tutte matchings of the trinity.
+    A Tutte matching is indeed a complete matching of non-root points to adjacent
+non-outer white triangles. Equivalently, it can be thought of as a collection of edges
+from G∗R , G∗E and G∗V . Namely, whenever a triangle and a point are matched, we
+choose the dual edge that cuts through the triangle and ends at the point. It turns
+out that such a collection is the union of three so called spanning arborescences of
+G∗R , G∗E and G∗V , respectively, rooted at the respective points adjacent to t0 . (Given
+an arbitrary vertex q, called root, in a directed graph D, a spanning arborescence
+is a spanning tree of D which contains a directed path from q to any other vertex
+p 6= q of D.) Each spanning arborescence occurs in relation to exactly one Tutte
+matching. This fact is the basis of the proof of Tutte’s Tree Trinity Theorem
+[18], i.e., of the claim that G∗R , G∗E and G∗V have the same number of spanning
+arborescences. (These counts do not depend on the position of the roots either,
+and of course they are equal to | det M |.)
+
+Definition 2.2. If a non-outer white triangle ti is adjacent to the red point rj and
+the non-root emerald point ek , then in M , at the intersection of row ek and column
+ti , let us change the entry 1 to rj . After it becomes a matrix entry, we will think of
+rj as an indeterminate associated with the original point. Call the resulting matrix
+the enhanced adjacency matrix and denote it with Mr→e .
+
+   By varying the colors, altogether six such matrices can be associated to a trin-
+ity. According to [13, Theorem 10.5], we may use enhanced adjacency matrices to
+compute the set of hypertrees in any hypergraph H as long as Bip H is planar.
+
+Proposition 2.3. In any trinity, for the set of hypertrees in the hypergraph with
+emerald vertices and red hyperedges, we have
+
+                                  Q(E,R) = det Mr→e
+
+in the following sense. The determinant on the right hand side is a sum of mono-
+mials in the indeterminates r ∈ R. Either each monomial has coefficient +1, or
+each has coefficient −1. If we write the exponents in the monomials as vectors, the
+set we obtain is exactly the left hand side.
+8              ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+Example 2.4. The adjacency matrix associated with the trinity of Figure 1 is
+                              t    t2   t3    t4       t5        t6        t7    t8    t9   t10
+                        1                                                                     
+                    r1   0         1    1     1        0         0         0     0     0     0
+                       0
+                    r2            0    0     0        0         1         1     1     0     1 
+                                                                                               
+                       1
+                    r3            0    0     0        0         0         0     0     1     0 
+                                                                                               
+                       1
+                    e1            1    0     0        0         0         0     1     0     0 
+                                                                                               
+                 M=    0
+                    e2            0    0     1        0         0         1     0     0     0 
+                                                                                               .
+                       0
+                    e3            0    1     0        1         1         0     0     0     0 
+                                                                                               
+                       0
+                    v1            1    0     0        0         0         1     0     0     0 
+                                                                                               
+                       0
+                    v2            0    0     1        0         1         0     0     0     0 
+                                                                                               
+                    v3  0         0    0     0        1         0         0     0     0     1 
+                    v4   0         0    0     0        0         0         0     1     1     0
+Its determinant is 11. One of its enhancements is as follows.
+                              t    t2    t3       t4        t5        t6        t7    t8    t9    t10
+                        1                                                                          
+                    r1   0         1     1     1            0         0         0     0     0     0
+                       0
+                    r2            0     0     0            0         1         1     1     0     1 
+                                                                                                    
+                       1
+                    r3            0     0     0            0         0         0     0     1     0 
+                                                                                                    
+                        r3
+                    e1            r1    0     0            0         0         0     r2    0     0 
+                                                                                                    
+(4)          Mr→e =    0
+                    e2            0     0     r1           0         0         r2    0     0     0 
+                                                                                                    .
+                       0
+                    e3            0     r1    0            r0        r2        0     0     0     0 
+                                                                                                    
+                       0
+                    v1            1     0     0            0         0         1     0     0     0 
+                                                                                                    
+                       0
+                    v2            0     0     1            0         1         0     0     0     0 
+                                                                                                    
+                    v3  0         0     0     0            1         0         0     0     0     1 
+                    v4   0         0     0     0            0         0         0     1     1     0
+The determinant of the latter is r0 r12 + r0 r1 r2 + r12 r2 + r0 r22 + r1 r22 + r23 + r0 r1 r3 +
+r12 r3 + r0 r2 r3 + r1 r2 r3 + r22 r3 . If we interpret this formula as in Proposition 2.3, we
+obtain the picture in Figure 2 for the set Q(E,R) of hypertrees.
+
+
+                                          r33
+                                         ✑
+                                        ✑ ❆
+                                      ✑     ❆
+                                   ✑          ❆
+                                  ✑
+                                 ✑             ❆
+                                ✑                ❆
+                               ✑      ✈           ❆✈
+                             ✑
+                            ✑        ✡❆          ✡❆
+                                                 ✡
+                           ✑       ✈ ❆
+                                   ✡           ✈ ❆
+                                               ✡
+                     r03 ✑✑        ❍
+                                   ❍ ❆✈              ❆✈r23
+                         ❍❍           ❍❍    ✡
+                           ❍❍            ❍✡
+                                          ✈         ✡✡
+                             ❍❍       ✡ ✑
+                                      ✈  ✑❆        ✡
+                                                   ✈
+                                ❍❍ ✡✑✑     ❆ ✡
+                                   ✡
+                                  ❍✑
+                                   ✈
+                                   ❍
+                                              ❆✡
+                                               ✈
+                                      ❍❍    ✡
+                                         ❍✡
+                                          r13
+
+        Figure 2. The eleven hypertrees in a hypergraph and their convex hull.
+                  SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                              9
+
+
+                3. Decategorified sutured Floer homology
+   Sutured Floer homology [9] is an invariant of balanced sutured manifolds. A
+sutured manifold (M, γ) is an oriented three-manifold M , together with an ori-
+ented, null-homologous multicurve γ (the sutures) on ∂M, see [6]. Since γ is null-
+homologous, it divides ∂M − γ into two pieces R+ and R− , with the property that
+R+ lies on one side of each curve in γ, and R− lies on the other. (Note that R±
+need not be connected.) The condition that (M, γ) is balanced means that
+  (i) χ(R+ ) = χ(R− ),
+ (ii) every component of ∂M contains at least one suture and
+(iii) M has no closed components.
+   The sutured manifolds we consider in this paper all arise from the following
+construction. Suppose that L ⊂ S 3 is an oriented link, and that F is a Seifert
+surface for L. Let us thicken F slightly to F × [ −ε, ε ] ⊂ S 3 , and let MF be the
+closure of its complement. The link L is a subset of ∂MF , and the pair (MF , L) is
+a balanced sutured manifold. Note that both subsurfaces R± are homeomorphic to
+int F . Thus in this context, we will prefer to use the notation R+ = F+ = F × {ε}
+and R− = F− = F × {−ε}.
+   When L is an alternating link and F is a minimal genus Seifert surface of L, the
+sutured Floer homology groups SF H(MF , L) are completely determined by their
+Euler characteristic according to [5, Corollary 6.6]. The main result of [5] identifies
+this Euler characteristic with a certain Turaev torsion τ (MF , L). For our purposes,
+τ (MF , L) is best viewed as an element of the group ring Z[H1 (MF ; Z)] which is
+well defined up to multiplication by a unit in the group ring.
+   Let now G = GR be the red graph of a trinity. As we saw in the previous
+section, any connected plane bipartite graph uniquely arises in this way. Namely,
+color the edges of G in red and its two color classes in emerald and violet; place a red
+point in each region of G and make the appropriate emerald and violet connections
+between these new points and the old ones. In what follows, let us assume that G
+is 2-connected, i.e., that it has no cut vertices.
+   We use the so called median construction to associate the alternating link LG
+to G. I.e., along the boundary of each region of G, we first connect the midpoints of
+consecutive edges by disjoint simple curves. There are exactly two ways to specify
+over- and undercrossing information at the midpoints themselves so that the union
+of these curves becomes an alternating link. We use the convention of Figure 3. We
+also place a positive spin (as in a small counterclockwise spinning top) at each violet
+point and a negative spin at each emerald point. The link LG inherits an orientation
+from the spins as shown in Figure 3 so that its diagram becomes positive. Seifert
+circles of the diagram correspond to the emerald and violet points so that they are
+not nested in one another. Hence LG is a special alternating link, and in fact, any
+positive special alternating link arises as the result of this construction. (Changing
+one or both of our choices to the opposite, i.e., mirroring and/or reversing LG , does
+not make any major difference.)
+   By repeating our construction for the other two colors, we end up associating
+three distinct special alternating links to our trinity. See Figure 4 for an example.
+These links are of course closely related; see, for instance, Corollary 4.2.
+   Our construction is such that G is recovered as the Seifert graph of LG . Hence,
+if we apply Seifert’s construction to the diagram of LG , we obtain a Seifert surface
+10            ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+
+
+                Figure 3. The two strands of LG crossing an edge of G.
+
+
+
+
+ Figure 4. The bipartite graphs of a trinity and the associated special alternating links.
+
+
+FG which deformation retracts onto G. Let MG = MFG be the complement of
+this surface. It is easy to see that MG is a handlebody of genus |R| − 1. We are
+interested in understanding the group SF H(MG , LG ). Since LG is alternating, it
+suffices to study the torsion τ (MG , LG ). We now recall from [5] how to compute
+τ (M, γ) in the case when R− is connected and M is a handlebody of genus g.
+   First, we choose a system of co-oriented compressing disks A1 , . . . , Ag ⊂ M so
+that when we cut M along the Ai , the result is a ball. We also fix a basepoint
+p ∈ R− disjoint from the Ai . These data determine a specific isomorphism between
+π1 (M, p) and the free group generated by elements a1 , . . . , ag . Namely, if c is a loop
+based at p, we can isotope c so it is transverse to the Ai . Then the word associated
+to c is obtained by traversing c and recording either an ai or an a−1  i  (depending on
+the sign of intersection) each time we pass through Ai .
+   Since (M, γ) is balanced, χ(R− ) = 21 χ(∂M ) = 1 − g. It follows that π1 (R− , p) is
+a free group on g generators. Choose a set of generators for π1 (R− , p) and consider
+their images W1 , . . . , Wg ∈ π1 (M, p) ∼
+                                         = ha1 , . . . , ag i.
+                       SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                                                  11
+
+
+Proposition 3.1. [5, Prop. 5.1] If M is a handlebody and R− is connected, then,
+up to multiplication by a unit, we have
+                                       τ (M, γ) ∼ det(|dai Wj |),
+where dai denotes the Fox free derivative with respect to ai and | · | : Z[π1 (M )] →
+Z[H1 (M )] is the abelianization.
+Example 3.2. Let us choose G to be the red bipartite graph GR of Figure 4. One way
+to compute the corresponding Turaev torsion is as follows. Please refer to Figure 6.
+Our basepoint p will be the push-off of v0 on the side of F facing the viewer. We
+fix loops on that side F− of the surface that go counterclockwise once around the
+boundary of the region marked with r1 , clockwise around r0 , and counterclockwise
+around r3 . (The second loop appears in the figure as a counterclockwise path
+around the outside contour of GR .)
+   Our compressing disks correspond to the regions r1 , r2 , and r3 . We co-orient
+each toward the center of the sphere containing the diagram. (Our figures are drawn
+from a viewpoint which is outside of the sphere.) For the corresponding free group
+generators we will use the same symbols rj .
+   With these conventions, the three loops that we described above yield the words
+                   r1 r2−1 r1 r2−1 r1 r3−1 ,   r1 r0−1 r2 r0−1 ,     and r3 r2−1 r3 r0−1 ,
+respectively. Note that we also counted intersections with the region r0 , which did
+not contribute a compressing disk. In other words, r0 = 1 but we will keep the
+symbol r0 around as its presence helps the formalism in the proof of Theorem 1.1.
+Finally, the Turaev torsion is
+         1 + r1 r2−1 + r12 r2−2         1          0
+(5)       −r1 r2−1 − r12 r2−2        r1 r0−1    −r3 r2−1           = r0−1 r1 + r0−1 r12 r2−1 + r0−1 r13 r2−2
+            −r13 r2−2 r3−1              0      1 + r3 r2−1
+
+
++r0−1 r1 r2−1 r3 +r0−1 r12 r2−2 r3 +r0−1 r13 r2−3 r3 +r13 r2−3 +r1 r2−1 +r12 r2−2 +r1 r2−2 r3 +r12 r2−3 r3 .
+The reader may check that (5) agrees with a monomial (r0−1 r1 r2−3 ) times the second
+determinant of Example 2.4. Our main result says that this is not a coincidence.
+
+                                        4. The main result
+  Due to Propositions 2.3 and 3.1, we may re-state Theorem 1.1 in the following
+equivalent form.
+Theorem 4.1. Let G be a 2-connected plane bipartite graph (with color classes E
+and V ) and let us realize it as the red graph G = GR of a trinity. Let the positive
+special alternating link LG , Seifert surface FG and handlebody MG be associated
+to G as above. Then, the Turaev torsion τ (MG , LG ) is, up to multiplication by a
+monomial, equal to the determinant of the enhanced adjacency matrix Mr→e .
+   By writing ‘equal’ above, we assume various identifications through which both
+determinants become polynomials in indeterminates corresponding to the red points
+of the trinity. For det Mr→e this occurs naturally; for τ (MG , LG ) it is made explicit
+below. The proof is not deep but complicated. In the next section, we carry out a
+concrete computation based on the same method. The reader may wish to study
+that first or to read it parallel to the proof.
+12              ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+Proof. We are going to describe a very specific way of computing the Turaev torsion,
+along with an equally specific way of manipulating the enhanced adjacency matrix
+so that eventually the two determinants are shown to coincide up to a monomial
+factor. Let us fix an outer white triangle t0 , with adjacent points (roots) r0 , e0 ,
+and v0 as before. Other points will be labeled with r1 , . . . , r|R|−1 , e1 , . . . , e|E|−1 ,
+and v1 , . . . , v|V |−1 . All additional choices will be dictated by an arbitrarily fixed
+Tutte matching. I.e., we break the symmetry by singling out one expansion term
+in det Mr→e .
+   The Turaev torsion: We compute τ (MG , LG ) using the following procedure.
+First, let us choose compressing disks for MG the same way as in Example 3.2: Let
+S 2 denote the sphere containing G, and let us fix an ‘outside viewpoint’ (which is
+used to draw our diagrams) and a ‘center’. Connect these two points by a path
+through r0 and thicken it slightly into a 3-ball. We may think of MG as this 3-ball
+with |R| − 1 one-handles attached so that each handle passes through a non-root
+red point. For each j = 1, 2, . . . , |R| − 1, there is an obvious disk contained in S 2 ,
+centered at rj , which is the co-core to one of these handles. We co-orient each disk
+toward the center of S 2 . When the j’th compressing disk is identified with a free
+group generator, we will write rj for the latter as well.
+   Our loops in F− will be based at (v0 , −ε). Here, we assume that the thickening
+of F = FG has been parametrized so that near the midpoint of the edge κ of t0
+that connects e0 and v0 , it is F− that faces the region r0 .
+   Next, fix a spanning arborescence A in G∗ rooted at r0 . As we explained in
+Section 2, A assigns an adjacent non-outer white triangle to every non-root red
+point. We choose the labels of these triangles so that tj is assigned to rj for all
+j = 1, 2, . . . , |R| − 1, i.e., that the unique edge of A pointing toward rj reaches rj
+through tj .
+   Let now Γ ⊂ G denote the dual tree of A. Note that Γ contains the edge κ
+because t0 is not matched to any point. For all j, if we add the dual of the edge
+of A pointing toward rj (suppose it has endpoints e∗ and v ∗ ) to Γ, a unique cycle
+is created. We describe it as a sequence λj of edges of G that starts at v0 , follows
+the unique path in Γ to v ∗ , contains the edge v ∗ e∗ as the next entry, finally returns
+from e∗ to v0 along the unique path that exists in Γ. In Figure 5 we indicate the two
+sequences of edges that, along with v ∗ e∗ , make up the loop. Note that, in addition
+to the point v0 appearing twice, it is possible for the first (leftmost) several edges
+to agree, in reverse order, with the last (rightmost) several edges. Other than these
+coincidences, the edges in λj , and hence the white triangles adjacent to them, are
+all different (in fact, it will sometimes be more useful to think of λj as a sequence of
+triangles rather than of edges) but there may be repetitions among the red points
+adjacent to those white triangles. In particular, both rj and r0 may occur several
+times.
+    It is easy to see that the loops λj serve as free generators for π1 (G, v0 ) and
+hence their push-offs to F− freely generate π1 (F− ). Let us proceed to the word Wj ,
+j = 1, 2, . . . , |R| − 1, in the letters r0 , r1 , . . . , r|R|−1 , that is derived from λj . (Here
+the letter r0 will be used to keep track of intersections with the region r0 . We do
+this just to preserve symmetry. In the free group, r0 = 1.) As LG is alternating, the
+exponents +1 and −1 alternate in Wj . Our conventions regarding the thickened
+surface have been set so that F− faces the observer near violet points, while near
+emerald points we see F+ . Hence in Wj the first letter has exponent +1, the last
+                        SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                                    13
+
+                                          y              b               rj
+
+
+                                         tk
+
+v0               pl ′        pl   pk ′        pk                    v∗        e∗       w          v0
+
+                        tl
+
+
+
+                        x                                       a                  c
+
+
+ Figure 5. Schematic image of the loop λj corresponding to the non-root red point rj .
+
+
+has −1, and the edge v ∗ e∗ contributes rj+1 . Highlighting that contribution, let us
+write Wj = Uj rj Zj .
+   When we consider the Fox derivatives of Wj with respect to r1 , . . . , r|R|−1 , we see
+that every letter in Wj that is different from r0±1 contributes exactly one monomial
+to exactly one Fox derivative. Namely, if the red point x appears on the right side
+of the path (cf. Figure 5) then the contribution is
+                                         −W x x−1 to ∂Wj /∂x,
+and a red point y on the left side contributes
+                                              W y to ∂Wj /∂y.
+Here, W z denotes the part of Wj that precedes the letter z. (This notation is sloppy
+because z may appear several times in Wj and thus there can be several different
+W z ’s; yet we hope that no confusion will arise.) Our task in the next part of the
+proof is to arrive at the same monomials in an entirely different way.
+    Manipulating the enhanced adjacency matrix: We will carry out a sequence of
+elimination steps on Mr→e inspired by the proof of the Tree Trinity Theorem. We
+choose a deconstruction order < of the points e1 , . . . , e|E|−1 , v1 , . . . , v|V |−1 , by which
+we mean an order so that the smallest point is a vertex of valence 1 in Γ, then the
+second smallest is a vertex of valence 1 in the tree that remains if we erase the
+first vertex and its adjacent edge from Γ, and so on. After removing all non-root
+vertices in this manner, only the edge κ remains of Γ. For ease of exposition, we
+will assign a second label to non-root emerald and violet points so that
+      { e1 , . . . , e|E|−1 , v1 , . . . , v|V |−1 } = { p|R| > p|R|+1 > · · · > pn−2 > pn−1 }.
+Here, n − 1 = |R| + |E| + |V | − 3 is the number of non-root points in the trinity.
+   The deconstruction order can be used to match non-outer white triangles to
+the non-root emerald and violet vertices in a one-to-one fashion. The non-root
+red vertices have already been matched to triangles by the arborescence A and we
+will not use those triangles again, so that our construction will result in a Tutte
+matching. The tree Γ contains an edge if and only if the white triangle adjacent
+to the edge has not been matched to a red point. For the emerald or violet point
+pn−1 having valence 1 in Γ means that all but one of the adjacent white triangles
+have been matched to red points, so that there is only one choice left. We match
+that triangle to pn−1 . A similar unique choice of a triangle exists for pn−2 and so
+on. We complete the labeling of the white triangles so that the process matches
+the point pi with the triangle ti for each i = |R|, . . . , n − 1.
+   The same matching can be described without reference to the deconstruction
+order as follows: given a non-root point pi in Γ, the tree has a unique edge adjacent
+14             ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+to it which is such that its other endpoint is closer to κ than pi is. The white
+triangle adjacent to this edge is ti .
+    From our assumptions on the labeling it follows that if we list the rows and
+columns of Mr→e in the orders r1 , . . . , r|R|−1 , p|R| , . . . , pn−1 and t1 , . . . , tn−1 , re-
+spectively, then no zeros appear along the main diagonal and the bottom right
+(n − |R|) × (n − |R|) block is upper triangular. Indeed, if i ≥ |R|, then the red edge
+of the triangle ti is in Γ and pi is the endpoint of this edge which is farther away
+in Γ from κ. Therefore the other emerald or violet point of ti is larger than pi in
+the deconstruction order.
+    We will use the n−|R| diagonal entries of this block one by one, from the bottom
+up, as pivots and at each stage we will perform elementary column operations to
+eliminate non-zero entries to the left of the pivot. By our remark on upper trian-
+gularness, these operations only affect the first |R| − 1 columns. After elimination,
+the upper left (|R| − 1) × (|R| − 1) block B is such that its determinant differs from
+det Mr→e only by a monomial factor, namely the product of the pivots. (In fact
+the factor is the hypertree in (E, R), written as a monomial, which is associated
+to the chosen arborescence/Tutte matching.) Therefore it suffices to show that for
+each j = 1, . . . , |R| − 1, the j’th column of B (indexed by the triangle tj ) coincides
+with Uj−1 times the j’th column (indexed by the word Wj ) of the Turaev torsion.
+    Why the two determinants are equal: We will start with a rough description
+of the effect of our elimination steps and fill in some details later. It suffices to
+concentrate on just one arbitrary column, say the j’th. In the original enhanced
+adjacency matrix, the j’th column contains three non-zero entries: 1 in the j’th row
+which corresponds to the summand Uj in ∂Wj /∂rj ; another 1 in the row indexed
+by v ∗ ; and rj in the row indexed by e∗ . If e∗ or v ∗ is a root, then one of the latter
+two is missing. During the elimination process, the number of non-zero entries in
+the bottom n − |R| positions never increases: it stays two for a while, then goes
+down to one and eventually to zero. (Or else, it stays one for a while and then
+becomes zero.)
+    It is best to think of what is happening in the j’th column as two superimposed,
+left and right processes LP and RP , one for each section of λj before and after the
+edge v ∗ e∗ . (If e∗ or v ∗ is a root, then the corresponding process is empty.) Each
+process has a non-zero monomial entry, called the can, in one of the bottom n − |R|
+positions which it moves gradually upward until it disappears (as in ‘kicking the
+can down the road’). The can is not constant in the process. In each elimination
+step, if it affects the j’th column, then one of the two processes takes a step. In
+that step, the presence of the two (or one) other non-zero entries in the column of
+the pivot results in the following:
+     (1) A new non-zero monomial entry (can) is created in one of the lower n −
+         |R| positions of the j’th column. It is higher up than the entry which is
+         eliminated in the step. If the column of the pivot belongs to a white triangle
+         which is adjacent to e0 or v0 , then this development does not occur and the
+         process terminates.
+     (2) A new summand (contribution) is added to one of the entries in the upper
+         |R| − 1 positions of the j’th row. If the column of the pivot belongs to a
+         white triangle adjacent to r0 , then no contribution occurs.
+It is also not hard to see that the sequence of pivots for LP and RP starts in
+the rows indexed by v ∗ and e∗ , respectively, and that the rows of other pivots are
+                  SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                            15
+
+
+indexed by the emerald and violet points along λj that occur as we move toward
+v0 along the respective paths. In particular, emerald pivots (equal to some ri ) and
+violet pivots (equal to 1) alternate in LP as well as in RP . If at either end of λj
+the point adjacent to v0 is e0 , then the corresponding process ends after the pivot
+which is in the row of the other violet neighbor of e0 along λj . It is also possible
+for the two processes to merge after a while as edges and white triangles at the
+beginning and end of λj coincide. After this happens, the cans of LP and RP
+occur in the same position as a sum of two monomials.
+    Finally, we need to examine the monomials (cans and contributions) in (1) and
+(2) above in more concrete terms. Please refer to Figure 5 for notation. Let us
+first consider the left process LP and the stage when the pivot is the (k, k)-entry
+y, eliminating the can C y in the position (k, j). The new can is −y −1 C y and it is
+in the row indexed by pk′ . A contribution of −y −1 C y is added to the j’th entry
+in the row indexed by y. Let now the pivot be the (l, l)-entry 1 and denote the
+corresponding can by C x . In this case the new can is −xC x and it is in the row
+indexed by pl′ . A contribution of −C x is added to the j’th entry in the row indexed
+by x.
+    From this it is clear that the sequence of cans for LP is 1, −a, b−1 a, and so
+on so that C y is −1 times the product (with alternating exponents) of red points
+(labels) along λj between pk and v ∗ and C x is described similarly but without
+the negative sign. Then if we look at the contributions −y −1 C y and −C x of the
+previous paragraph, we see that if we multiply them by Uj , we get W y and −W x x−1 ,
+respectively, just as we expected and exactly where we expected them.
+    A similar analysis applies to the right process RP . There, the first can is rj in
+the row of e∗ , the next one is −c−1 rj (note that the first pivot is c) in the row
+indexed by w and so on. The entry 1 in the (j, j)-position plays the role of first
+contribution, then the second one is −c−1 rj in the row indexed by c and so on.
+After multiplying with Uj , these also conform to our expected values.              
+
+
+
+    Having established Theorem 1.1, Corollary 1.3 is now immediate: |S(FG )| is
+the number of hypertrees in (E, R), but that is the same (by Proposition 2.3) as
+| det M | of the ‘un-enhanced’ adjacency matrix M of the trinity. That number (the
+number of Tutte matchings) is clearly color-independent.P
+    Let us recall that if F is of minimal genus, then s χ(SF H(MF , L, s)) is the
+leading coefficient of the Alexander polynomial ∆L , cf. [5, Lemma 6.4] and [10,
+Theorem 1.5]. (Note that ∆ and Conway’s version ∇ have the same leading coef-
+ficient.) Thus, in our class of examples, |S(FG )| is the leading coefficient of ∆LG ,
+and we also obtain the following result.
+
+Corollary 4.2. The determinant of the adjacency matrix, i.e., the number of Tutte
+matchings, is the leading coefficient in the Alexander polynomial of any of the three
+alternating links associated to the trinity.
+
+  This last fact has a more direct proof [14] using the Tree Trinity Theorem [18]
+and Kauffman’s state model [15] for the Alexander polynomial. We now prove
+Corollary 1.2.
+16            ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+Proof. First, suppose FG is a standard Seifert surface of a special alternating link
+LG , so that S(FG ) ∼= Q(E,R) . By [13, Theorem 3.4], Q(E,R) is cut out by a system
+of linear inequalities in ZR , so it is clearly convex.
+   Next, suppose F is a standard Seifert surface of a homogeneous link. It is well
+known that any such F is a Murasugi sum of standard Seifert surfaces for special
+alternating links. Now (1), along with the fact that the product of convex sets is
+convex, proves the desired result.                                                 
+
+
+   As another application of Theorem 1.1, we analyze the following situation. Let
+the edge ε of the 2-connected plane bipartite graph G be adjacent to the regions
+r1 and r2 . Let G′ be the graph in which ε is replaced with a path of three edges.
+Then the handlebodies MG and MG′ have a natural identification so that we can
+think of the supports S(FG ) and S(FG′ ) as subsets of the same affine space over
+H1 (MG ; Z). In that group, let ε∗ denote the homology class of a meridian (in S 3 )
+of ε.
+
+Proposition 4.3. With the above conventions, S(FG′ ) ∼
+                                                     = S(FG ) ∪ (S(FG ) + ε∗ ),
+meaning that the two sides differ by a translation.
+
+   For the convex hulls of the supports, the statement is that Conv(S(FG′ )) is the
+Minkowski sum of Conv(S(FG )) and a certain line segment. Note that our main
+example is an instance of G′ , which explains the ‘elongated’ shape of the polytope
+in Figure 2 in the direction from r13 to r23 .
+
+
+Proof. We will prove the relevant claim on sets of hypertrees and leave it to the
+reader to work out the various identifications. Let E and V denote the color classes
+of G, and let E ′ = E ∪ {e∗ } and V ′ = V ∪ {v ∗ } be the corresponding color classes
+in G′ . Both G and G′ have the same set R of regions. Then, we claim that
+
+                   Q(E ′ ,R) = (Q(E,R) + i{r1 } ) ∪ (Q(E,R) + i{r2 } ),
+
+where the i{ri } are standard generators in ZR (indicator functions of singleton sets).
+    To see this, note that any hypertree f in (E, R) induces two hypertrees in (E ′ , R)
+via increasing by 1 the value of f either at r1 or at r2 . Indeed, these have obvious
+spanning trees (in Bip(E ′ , R)) realizing them which are built from a realization (in
+Bip(E, R)) of f by adding either the edge r1 e∗ or the edge r2 e∗ .
+    To establish the converse, it suffices to show that any hypertree g in (E ′ , R) has
+a realization that is of valence one at e∗ . If the realization Γ of g is not such, then
+e∗ is a valence two point in it. Let e denote the emerald endpoint of ε. Then r1 e
+and r2 e are edges in Bip(E ′ , R), but at most one of them can be an edge in Γ. If
+one, say r1 e, is in Γ, then remove r2 e∗ from Γ and replace it with r2 e to get the
+realization of g with the desired property. If neither r1 e nor r2 e is in Γ, then add
+r1 e to Γ and kill the resulting cycle by removing its other edge adjacent to r1 . If
+this was r1 e∗ , we are done; otherwise, apply the previous step.                      
+                 SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                            17
+
+
+                            5. A sample calculation
+
+
+
+
+                                              r3
+                       v0
+
+                                                     VI
+                                        VII                            e0
+
+
+                                    V
+
+                     r1
+                               IV
+                                                   r2
+
+                              II
+
+
+
+                             III
+
+                                                           I
+
+
+
+
+                               r0
+
+
+
+
+ Figure 6. The spanning arborescence A ⊂ G∗R , its dual tree Γ ⊂ GR , and a decon-
+ struction order for the latter.
+
+   We will show explicit reduction steps on the enhanced adjacency matrix in our
+main running example. The computation will use the spanning arborescence (of
+G∗R ) indicated in Figure 6. We also fix the deconstruction order v3 < v2 < e3 <
+e2 < v1 < v4 < e1 as shown in the figure. For better visibility, we have rearranged
+the rows and columns of the matrix (4) to reflect this order and the Tutte matching
+determined by the arborescence: it now appears as the main diagonal. (Thus we
+see that the chosen arborescence corresponds to the hypertree/monomial r1 r2 r3 of
+Example 2.4.) We briefly indicate the p-labels that appear in the proof of The-
+orem 1.1, but we did not re-label the white triangles. The signs of all expansion
+terms in the determinant are still positive, but this is not just by coincidence any
+more, rather by design. Note how the bottom right 7 × 7 submatrix is already
+upper triangular at the start.
+   In each of the seven steps below, we use the encircled pivot to clear out non-zero
+entries to its left. Each column of the top left 3 × 3 block that remains at the end
+is equal to a monomial times the corresponding column of the determinant (5). As
+the computation in Example 3.2 was carried out using the procedure in the first half
+of the proof of Theorem 1.1, this indeed illustrates the correctness of our method.
+18    ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+
+
+                       t     t10           t9    t1    t8    t2    t7       t3       t6       t5
+                 4                                                                              
+             r1   1              0         0     0     0     1     0     1           0        0
+                0
+             r2                 1         0     0     1     0     1     0           1        0 
+                0
+             r3                 0         1     1     0     0     0     0           0        0 
+                0
+       p 4 = e1                 0         0     r3    r2    r1    0     0           0        0 
+       p5 = v4 0               0         1     0     1     0     0     0           0        0 ;
+       p6 = v1 0               0         0     0     0     1     1     0           0        0 
+                 r1
+       p 7 = e2                 0         0     0     0     0     r2    0           0        0 
+                0
+       p 8 = e3                 0         0     0     0     0     0     r1          r2       r0 
+                                                                                                 
+       p9 = v2  1               0         0     0     0     0     0     0           1        0
+      p10 = v3    0              1         0     0     0     0     0     0           0        1❧
+
+                  t        t10        t9        t1    t8    t2    t7    t3       t6       t
+              4                                                                     5
+                                                                                       
+          r1   1            0          0        0     0     1     0     1        0 0
+          r2 
+              0            1          0        0     1     0     1     0        1 0  
+             0
+          r3               0          1        1     0     0     0     0        0 0  
+             0
+          e1               0          0        r3    r2    r1    0     0        0 0  
+             0
+          v4               0          1        0     1     0     0     0        0 0  ;
+             0
+          v1               0          0        0     0     1     1     0        0 0  
+              r1
+          e2               0          0        0     0     0     r2    0        0 0  
+             0
+          e3              −r0         0        0     0     0     0     r1       r2 r0 
+                                                                                 1❧ 0 
+                                                                                       
+          v2  1            0          0        0     0     0     0     0
+          v3   0            0          0        0     0     0     0     0        0 1❧
+
+                  t4        t10            t9    t1    t8    t2    t7    t3      t6           t5
+                                                                             
+          r1    1           0              0     0     0     1     0 1 0 0
+          r2 
+              −1           1              0     0     1     0     1 0 1 0   
+          r3 
+               0           0              1     1     0     0     0 0 0 0   
+          e1 
+               0           0              0     r3    r2    r1    0 0 0 0   
+          v4 
+               0           0              1     0     1     0     0 0 0 0   ;
+              0
+          v1               0              0     0     0     1     1 0 0 0   
+              r1
+          e2               0              0     0     0     0     r2 0 0 0 
+                                                                   0 r❧
+                                                                              
+              −r2
+          e3              −r0             0     0     0     0        1 r2 r0 
+                                                                   0 0 1❧ 0 
+                                                                              
+          v2  0            0              0     0     0     0
+          v3    0           0              0     0     0     0     0 0 0 1❧
+
+                  t4                 t10         t9   t1    t8    t2 7  t
+                                                                        3  6  5  t        t        t
+          1 + r1−1 r2            r1−1 r0
+                                                                               
+     r1                                          0    0     0     1 0 1 0 0
+     r2 
+            −1                     1            0    0     1     0 1 0 1 0    
+     r3 
+             0                     0            1    1     0     0 0 0 0 0    
+     e1 
+             0                     0            0    r3    r2    r1 0 0 0 0   
+     v4 
+             0                     0            1    0     1     0 0 0 0 0    ;
+     v1      0                     0            0    0     0     1 1 0 0 0
+                                                                  0 r2❧ 0 0 0 
+                                                                               
+     e2      r1                    0            0    0     0
+                                                                  0 0 r1❧ r2 r0 
+                                                                               
+     e3      0                     0            0    0     0
+                                                                  0 0 0 1❧ 0 
+                                                                               
+     v2      0                     0            0    0     0
+     v3       0                     0            0    0     0     0 0 0 0 1❧
+                    SUTURED FLOER HOMOLOGY AND HYPERGRAPHS                                                   19
+
+
+
+                           t4         t10          t9    t1    t8    t2    t7    t3    t6    t5
+                1 + r1−1 r2         r1−1 r0
+                                                                                  
+           r1                                      0     0     0     1 0 1 0 0
+                       −1
+           r2  −1 − r2 r1
+                                      1           0     0     1     0 1 0 1 0    
+           r3 
+                   0                  0           1     1     0     0 0 0 0 0    
+           e1 
+                   0                  0           0     r3    r2    r1 0 0 0 0   
+           v4      0                  0           1     0     1     0 0 0 0 0    ;
+                    −1
+                                                                     1❧ 1 0 0 0 
+              
+               −r2 r1
+           v1                         0           0     0     0
+                                                                     0 r2❧ 0 0 0 
+                                                                                   
+           e2 
+                   0                  0           0     0     0
+                                                                     0 0 r1❧ r2 r0 
+                                                                                   
+           e3      0                  0           0     0     0
+                                                                     0 0 0 1❧ 0 
+                                                                                  
+           v2      0                  0           0     0     0
+           v3       0                  0           0     0     0     0 0 0 0 1❧
+
+                           t4                t10        t9    t1    t8    t2    t7    t3    t6    t5
+           1 + r1−1 r2 + r2−1 r1          r1−1 r0
+                                                                                   
+      r1                                                0     0     0 1 0 1 0 0
+      r2 
+             −1 − r2−1 r1                    1         0     0     1 0 1 0 1 0    
+      r3                   0                 0         1     1     0 0 0 0 0 0
+                         r2−1 r12
+                                                                                   
+      e1                                     0         0     r3    r2 r1 0 0 0 0 
+                                                                    1❧ 0 0 0 0 0 
+                                                                                   
+      v4                   0                 0         1     0                     ;
+                                                                    0 1❧ 1 0 0 0 
+         
+      v1                   0                 0         0     0
+                                                                    0 0 r2❧ 0 0 0 
+                                                                                   
+      e2                   0                 0         0     0
+                                                                    0 0 0 r1❧ r2 r0 
+                                                                                   
+      e3                   0                 0         0     0
+                                                                    0 0 0 0 1❧ 0 
+                                                                                   
+      v2                   0                 0         0     0
+      v3                    0                 0         0     0     0 0 0 0 0 1❧
+
+                          t4                t10         t9     t1    t8    t2    t7    t3    t6    t5
+          1 + r1−1 r2 + r2−1 r1        r1−1 r0
+                                                                             
+     r1                                                  0  0 0 1 0 1 0 0
+     r2 
+            −1 − r2−1 r1                 1             −1 0 1 0 1 0 1 0     
+     r3            0                     0              1  1 0 0 0 0 0 0
+                 r2−1 r12                               −r2 r❧
+                                                                             
+     e1                                  0                  3 r2 r1 0 0 0 0 
+                                                            0 1❧ 0 0 0 0 0 
+                                                                             
+     v4            0                     0              0                    ;
+                                                            0 0 1❧ 1 0 0 0 
+        
+     v1            0                     0              0
+                                                            0 0 0 r2❧ 0 0 0 
+                                                                             
+     e2            0                     0              0
+                                                            0 0 0 0 r1❧ r2 r0 
+                                                                             
+     e3            0                     0              0
+                                                            0 0 0 0 0 1❧ 0 
+                                                                             
+     v2            0                     0              0
+     v3             0                     0              0  0 0 0 0 0 0 1❧
+
+                    t4                t10               t9          t1    t8    t2    t7    t3    t6    t5
+     1 + r1−1 r2 + r2−1 r1          r1−1 r0
+                                                                                 
+r1                                                     0     0 0 1 0 1 0 0
+r2 
+       −1 − r2−1 r1                  1               −1     0 1 0 1 0 1 0
+        −r3−1 r2−1 r12                                  −1
+                                                                                  
+r3 
+                                     0            1 + r3 r2 1 0 0 0 0 0 0 
+                                                             r3❧ r2 r1 0 0 0 0 
+                                                                                  
+e1                 0                 0                0
+                                                             0 1❧ 0 0 0 0 0 
+                                                                                 
+v4                 0                 0                0                          .
+                                                             0 0 1❧ 1 0 0 0 
+   
+v1                 0                 0                0
+                                                             0 0 0 r❧
+                                                                                 
+e2                 0                 0                0                2 0 0 0
+                                                             0 0 0 0 r❧
+                                                                                 
+e3                 0                 0                0                  1 r2 r0 
+                                                             0 0 0 0 0 1❧ 0 
+                                                                                 
+v2                 0                 0                0
+v3                  0                 0                0     0 0 0 0 0 0 1❧
+20              ANDRÁS JUHÁSZ, TAMÁS KÁLMÁN, AND JACOB RASMUSSEN
+
+
+                                          References
+ [1] Irida Altman, Sutured Floer homology distinguishes between Seifert surfaces,
+     arXiv:1012.5904.
+ [2] Jessica E. Banks, Minimal Genus Seifert Surfaces for Alternating Links, arXiv:1106.3180.
+ [3] K. A. Berman, A proof of Tutte’s trinity theorem and a new determinant formula, SIAM J.
+     Algebraic Discrete Methods 1 (1980), no. 1, 64–69.
+ [4] P. R. Cromwell, Homogeneous links, J. London Math. Soc. 39 (1989), no. 3, 535–552.
+ [5] S. Friedl, A. Juhász, and J. Rasmussen, The decategorification of sutured Floer homology,
+     arXiv:0903.5287.
+ [6] D. Gabai, Foliations and the topology of 3-manifolds, J. Diff. Geom. 18 (1983), 445–503.
+ [7] M. Hirasawa and M. Sakuma, Minimal genus Seifert surfaces for alternating links, in KNOTS
+     ’96 (Tokyo), pp. 383–394, World Sci. Publ., River Edge, NJ, 1997.
+ [8] F. Jaeger, Tutte polynomials and link polynomials, Proc. Amer. Math. Soc. 103 (1988), no.
+     2, 647–654.
+ [9] A. Juhász, Holomorphic discs and sutured manifolds, Algebr. Geom. Topol. 6 (2006), 1429–
+     1457.
+[10] A. Juhász, Floer homology and surface decompositions, Geom. Topol. 12 (2008), 299–350.
+[11] A. Juhász, Knot Floer homology and Seifert surfaces, Algebr. Geom. Topol. 8 (2008), 603–
+     608.
+[12] A. Juhász, The sutured Floer homology polytope, Geom. Topol. 14 (2010), no. 3, 1303–1354.
+[13] T. Kálmán, A version of Tutte’s polynomial for hypergraphs, arXiv:1103.1057.
+[14] T. Kálmán and H. Murakami, Root polytopes and the Homfly polynomial of alternating links,
+     in progress.
+[15] L. H. Kauffman, Formal Knot Theory, Mathematical Notes 30, Princeton Univ. Press, Prince-
+     ton, NJ, 1983.
+[16] K. Murasugi and J. Przytycki, The skein polynomial of a planar star product of two links,
+     Math. Proc. Camb. Phil. Soc. 106 (1989), 273–276.
+[17] A. Postnikov, Permutohedra, Associahedra, and Beyond, Int. Math. Res. Not. 2009, no. 6,
+     1026–1106.
+[18] W. T. Tutte, The dissection of equilateral triangles into equilateral triangles, Proc. Cambridge
+     Philos. Soc. 44 (1948), 463–482.
+[19] R. Webb, Alexander polynomials of sutured handlebodies, Trinity College summer research
+     report, 2009.
+
+     Cambridge University
+     E-mail address: A.Juhasz@dpmms.cam.ac.uk
+
+     Tokyo Institute of Technology
+     E-mail address: kalman@math.titech.ac.jp
+     URL: www.math.titech.ac.jp/~kalman
+
+     Cambridge University
+     E-mail address: J.Rasmussen@dpmms.cam.ac.uk
+

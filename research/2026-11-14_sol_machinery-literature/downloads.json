@@ -1,0 +1,114 @@
+[
+  {
+    "key": "hine-kalman",
+    "url": "https://arxiv.org/pdf/1808.06091",
+    "bytes": 315703,
+    "sha256": "d9616efa3ee9cd8aafae7bd0d1c00c2c4841e9ee0df0296975f24b8124237291",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kalman-hypergraphs",
+    "url": "https://www.math.titech.ac.jp/top/~kalman/hypertutte.pdf",
+    "bytes": 674605,
+    "sha256": "e6bb22e83788a043af6350697aefbf550cd73f0c515582ce08d1ec9ddc9137ba",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kalman-postnikov",
+    "url": "https://arxiv.org/pdf/1602.04449",
+    "bytes": 419845,
+    "sha256": "4c5b489968deb407ac5df611db4725345d9bc09fbd7ccf0c3e4cb778f5c32b1b",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "juhasz-kalman-rasmussen",
+    "url": "https://arxiv.org/pdf/1112.2632",
+    "bytes": 615046,
+    "sha256": "17c625e72e498e6aeafe23a673b44eabe10e2253c8a95f7f0612743ea4d802b1",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kalman-murakami",
+    "url": "https://arxiv.org/pdf/1305.4925",
+    "bytes": 771472,
+    "sha256": "1dec4025da2e856499da31e053148e67323155828093f43bc3b093889116e987",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kalman-tothmeresz",
+    "url": "https://arxiv.org/pdf/1810.00812",
+    "bytes": 545995,
+    "sha256": "6665667ba3aa49195f1c181ba0e694566b2c8632b71f145c30c052c8ed64d81f",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kenyon-double-dimer",
+    "url": "https://arxiv.org/pdf/1105.4158",
+    "bytes": 488395,
+    "sha256": "987a0cb5f24a1c538d81aaceb0f41384a3dbe39b82b08a753f2ca88faa0ce5d6",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "kenyon-propp-wilson",
+    "url": "https://arxiv.org/pdf/math/9903025",
+    "bytes": 674096,
+    "sha256": "699143935c401a7860d5ba5f4434d80b93d9b725e5c0d008fa501b9db9c8454d",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "propp-orientations",
+    "url": "https://arxiv.org/pdf/math/0209005",
+    "bytes": 5093809,
+    "sha256": "27d18c9dd31d43bf03f894e26bec681d3661e8dd11e1de6adf933f0449e570f4",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "burton-pemantle",
+    "url": "https://arxiv.org/pdf/math/0404048",
+    "bytes": 412179,
+    "sha256": "5ac77ebeb5a5e81b043c13563717fdf6a203dfbb18a9ee9cd30bbded7bba39a0",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "stein",
+    "url": "https://msp.org/pjm/1971/37-1/pjm-v37-n1-p20-p.pdf",
+    "bytes": 1073978,
+    "sha256": "d4928010e98a76f1b3748c7c0a2eb3e1ea8666d54f5f2de0a7432ccf54453aab",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "fps-bipolar",
+    "url": "https://arxiv.org/pdf/0803.0400",
+    "bytes": 312870,
+    "sha256": "b4e08936ca0e34d60a584ca977c1e3a1e5ce9a21b9462f8b598953dbb385a629",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "bousquet-melou-schaeffer",
+    "url": "https://arxiv.org/pdf/math/0211070",
+    "bytes": 672444,
+    "sha256": "8ace54ded97b6b055706fb732ea57a0596465cf7820a44b20027528d8e70a6fb",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "alon-nullstellensatz",
+    "url": "https://www.tau.ac.il/~nogaa/PDFS/null2.pdf",
+    "bytes": 305123,
+    "sha256": "5933068242b0ecc6bba6944bf6d396492bb31c630d4cd7616e477b0a3e1646b7",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "jung-induced-forests",
+    "url": "https://arxiv.org/pdf/2608.17350",
+    "bytes": 361106,
+    "sha256": "af3e123b6a24073934ec014b51ddfcda779898b39169c104f075a299a937a1f8",
+    "status": "downloaded and text extracted"
+  },
+  {
+    "key": "makarov-induced-forests",
+    "url": "https://arxiv.org/pdf/2608.13964",
+    "bytes": 317401,
+    "sha256": "4383a896a1273b10d9781076cbd153d2b85498192b4453af40bdc29cb2051c0b",
+    "status": "downloaded and text extracted"
+  }
+]

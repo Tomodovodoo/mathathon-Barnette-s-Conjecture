@@ -1,0 +1,1612 @@
+                                           ROOT POLYTOPES, TUTTE POLYNOMIALS, AND A DUALITY
+                                                    THEOREM FOR BIPARTITE GRAPHS
+arXiv:1602.04449v1 [math.CO] 14 Feb 2016
+
+
+
+
+                                                               TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+                                                    Abstract. Let G be a connected bipartite graph with color classes E and V
+                                                    and root polytope Q. Regarding the hypergraph H = (V, E) induced by G, we
+                                                    prove that the interior polynomial of H is equivalent to the Ehrhart polynomial
+                                                    of Q, which in turn is equivalent to the h-vector of any triangulation of Q. It
+                                                    follows that the interior polynomials of H and its transpose H = (E, V ) agree.
+                                                        When G is a complete bipartite graph, our result recovers a well known hy-
+                                                    pergeometric identity due to Saalschütz. It also implies that certain extremal
+                                                    coefficients in the Homfly polynomial of a special alternating link can be read
+                                                    off of an associated Floer homology group.
+
+
+
+
+                                                                                1. Introduction
+                                              The interior polynomial I [4] is an invariant of hypergraphs (and of integer
+                                           polymatroids) that generalizes the specialization T (x, 1) of the Tutte polynomial of
+                                           ordinary graphs (matroids). It first arose as a byproduct of the first author’s study
+                                           of polynomial invariants of knots. In that context, it was natural to conjecture
+                                           that IH = IH , where H is the ‘abstract dual’ (also known as transpose) of the
+                                           hypergraph H resulting from interchanging the roles of its vertices and hyperedges.
+                                           That is, I is an invariant of the bipartite graph G that captures the common
+                                           structure of H and H.
+                                              In this paper we verify that conjecture. As an intermediary between the two
+                                           polynomials, we insert the Ehrhart polynomial εG of the root polytope QG , which
+                                           was introduced and studied by the second author [8]. (For the definition of QG see
+                                           Section 3.) We also show that εG has an equivalent description as the h-vector of
+                                           an arbitrary triangulation of QG . (In particular, all triangulations of QG have the
+                                           same h-vector hG .) Explicitly, we will prove the following.
+
+                                           Theorem 1.1. If E and V are the color classes of the connected bipartite graph G,
+                                           then the interior polynomial I of either hypergraph induced by G is related to hG
+                                           via the formula
+
+                                           (1.1)                           I(x) = x|E|+|V |−1 hG (x−1 ).
+                                               We chose the somewhat unusual labels for the color classes to ease the transition
+                                           to the hypergraph point of view. In the proof, we argue that if the sequence
+                                           a0 , a1 , . . . , a|E|+|V |−2 of rational numbers (which will later turn out to consist of
+                                           non-negative integers, with at least max{ |E|, |V | } − 1 zeros at the end) is such that
+
+
+                                              The first author was supported by consecutive Japan Society for the Promotion of Science
+                                           (JSPS) Grant-in-Aids for Young Scientists B (nos. 21740041 and 25800037).
+                                                                                          1
+2                     TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+for any non-negative integer s, we have1
+                                                 |E|+|V |−2
+                                                     X                                    
+                                                                    s + |E| + |V | − 2 − k
+(1.2)    εG (s) := (s · QG ) ∩ (ZE ⊕ ZV ) =                   ak                            ,
+                                                                        |E| + |V | − 2
+                                                     k=0
+                                         P|E|+|V |−2
+then both sides of (1.1) agree with k=0           ak xk . This boils down to a delicate
+analysis of interior faces in a triangulation of QG in which we will rely on previous
+work by the second author [8]. We note that a key result of [8] is the claim IH (1) =
+IH (1), which is proven by equating both sides to hG (1). That is, in [8] it is shown
+that H and H have the same number of so-called hypertrees (see Definition 2.2)
+and that that number is the number of simplices in each triangulation of QG .
+    If G is a complete bipartite graph on (m+1)+(n+1) vertices then QG = ∆m ×∆n
+is the product of an m- and an n-dimensional unit simplex. If we consider (1.2) in
+this special case and for ak we substitute the coefficients of the interior polynomial
+from a separate computation [4, Example 7.2], we obtain the well known identity
+                             min{m,n}
+                                       X m n s + m + n − k
+                 s+m s+n
+(1.3)                             =
+                  m         n                  k    k         m+n
+                                         k=0
+
+due to Saalschütz. See Example 5.3. The other form in which (1.3) often appears,
+                       min{m,n}X m n  q + k 
+                      q    q
+(1.4)                        =                              ,
+                      m n                 k     k    m+n
+                                         k=0
+
+is related to (1.3) by an application of Ehrhart reciprocity to QG .
+   Both our main theorem and its proof are entirely combinatorial. Yet the result
+serves as a crucial step in a knot theoretical program advanced by Juhász, Mura-
+kami, Rasmussen, and the first author. Namely, in [5] it is shown that certain
+extremal coefficients in the Homfly polynomial of a special alternating link agree
+with coefficients in the h-vector hG , where G is the Seifert graph of the link. By
+the main result of this paper, we see that those same Homfly coefficients are also
+the coefficients of the interior polynomial of either one of the corresponding two
+hypergraphs. By definition, interior polynomials are derived from the structure of
+the set of hypertrees of the hypergraph (see [4] and Section 2). Finally, in [3] it is
+proven that the hypertrees in question appear as the supporting Spinc structures of
+some Floer homology groups that are naturally associated to the special alternating
+link. Hence it is possible to read certain Homfly coefficients directly out of Floer
+homology. To the best of our knowledge such a result is the first of its kind. In
+order to keep this paper concise, we omit a full explanation and mention only one
+topological corollary of Theorem 1.1.
+Corollary 1.2. Regarding a positive special alternating link diagram with Seifert
+graph G, the coefficient of z b1 (G) in its Homfly polynomial P (v, z) is v b1 (G) I(v 2 ),
+where I is the common interior polynomial of the two hypergraphs induced by G.
+(Here the first Betti number (also known as nullity) b1 (G) is the highest exponent
+of z that occurs in P [7].)
+
+   1The dimension of Q is |E| + |V | − 2. The binomial coefficient on the right hand side is the
+                          G
+number of lattice points in a standard simplex of that dimension and of sidelength s − k. When
+considered for all k, these binomial coefficients form a basis in the sense of Lemma 3.8.
+               ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                           3
+
+
+   Observations by Murakami and the first author [5] concerning generalized park-
+ing functions [9] for the dual of a plane bipartite graph G yield that their natural
+enumerator also coincides with the interior polynomial of G. See Corollary 5.9.
+   Some of our results provide new information on the Tutte polynomial T (x, y) in
+the classical (graph and matroid) context. As a special case of Theorem 2.10 we
+see that T (1, y) and T (x, 1) are equivalent to lattice point counts in the Minkowski
+sum of a simplex or inverted simplex of variable sidelength with the spanning tree
+polytope (for graphs) or base polytope (for matroids). Our duality theorem (Corol-
+lary 5.4) can be used to express T (x, 1) in the case of a graph as a sum written in
+terms of activities associated to vertices instead of edges, cf. Corollary 5.7.
+   This paper updates its predecessor [4] by replacing the two longest proofs.
+Namely, Corollary 5.4 implies that the two deletion-contraction formulas estab-
+lished there [4, Proposition 6.14 and Theorem 7.3] are equivalent, so a separate
+proof of the latter is no longer necessary. We also give a new proof of the well-
+definedness of the interior (and exterior) polynomial, shorter and more elegant than
+the original [4, Theorem 5.4].
+   The paper is organized as follows. In Section 2 we recall the construction of the
+interior polynomial and re-prove that it is well-defined. In Section 3 we summarize
+some facts about the root polytope and establish the equivalence of its Ehrhart
+polynomial with the common h-vector of its triangulations. Section 4 contains a
+few lemmas needed for the proof of Theorem 1.1, which is given in Section 5. At
+the end of the paper we discuss several corollaries.
+   Acknowledgements. We are grateful to Péter Frenkel for recognizing Saalschütz’s
+identity, and to Suho Oh and Dylan Thurston for stimulating conversations.
+
+                           2. The interior polynomial
+   In this section we set notation, recall some necessary material from [4], and give
+a new, shorter proof of one of that paper’s key results.
+
+2.1. Hypertrees. A bipartite graph is a triple G = (V0 , V1 , E), where V0 and V1
+are disjoint finite sets, called color classes, and E is a finite set of edges connecting
+an element of V0 to an element of V1 . Multiple edges are not allowed. We will treat
+(V0 , V1 , E), (V1 , V0 , E), and the graph (V0 ∪ V1 , E) as the same object.
+    A hypergraph is a pair H = (V, E), where V is a finite set and E is a finite
+multiset of non-empty subsets of V . Elements of V are called vertices and the
+elements of E are the hyperedges.
+    The sets V and E that constitute the hypergraph H may be viewed as the color
+classes of a bipartite graph Bip H, where we connect v ∈ V to e ∈ E with an edge
+if v ∈ e. We will call the result the bipartite graph associated to the hypergraph H.
+We will sometimes refer to E as the emerald color class of Bip(V, E) and to V as
+the violet color class.
+    The construction of Bip H is reversible if we specify one color class in the bipartite
+graph G = (V0 , V1 , E). Let us denote the resulting hypergraphs with
+(2.1)                    H0 = (V1 , V0 )   and H1 = (V0 , V1 ).
+Definition 2.1. The bipartite graph G above is said to induce the hypergraphs H0
+and H1 . Two hypergraphs are called abstract duals if they can be obtained in
+the form (2.1). In other words, the abstract dual (also known as the transpose)
+4                   TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+H = (E, V ) of a hypergraph H = (V, E) is defined by interchanging the roles of its
+vertices and hyperedges.
+   A certain generalization of the notion of a spanning tree to hypergraphs plays a
+central role in this paper. It appears in both authors’ previous work. Although it
+was first introduced as the ‘left (or right) degree vector’ [8], we will use the following
+terminology instead.
+Definition 2.2. Let H = (V, E) be a hypergraph so that its associated bipartite
+graph Bip H is connected. (In this situation it is common to call H itself connected.)
+By a hypertree in H we mean a function (vector) f : E → N = { 0, 1, . . . } so that a
+spanning tree of Bip H can be found which has valence f (e) + 1 at each e ∈ E. Such
+a spanning tree is said to realize or to induce f . We denote the set of all hypertrees
+in H with BH .
+                                                          P
+   It is easy to show that all hypertrees f in H satisfy e∈E f (e) = |V | − 1. The
+set BH is such that (Conv BH ) ∩ ZE = BH , cf. Lemma 2.7, where Conv denotes
+the usual convex hull. We will call Conv BH the hypertree polytope of H.
+   The definition of the interior polynomial is based on hypertrees and the following
+concept. It is a natural extension of internal activity used in the case of graphs
+(and matroids). A small difference is that if we specialize our version to graphs,
+external edges of a spanning tree become internally active; another is that we count
+inactive hyperedges instead of active ones. But since the number of external edges
+is the same for all spanning trees (namely, the first Betti number of the graph,
+also known as its nullity), all this just mirrors and shifts the distribution of the
+‘classical’ statistic.
+Definition 2.3. Let (V, E) be a hypergraph and let us order the set E arbitrarily.
+A hyperedge e ∈ E is internally active with respect to the hypertree f if it is not
+possible to decrease f (e) by 1 and increase f at a hyperedge smaller than e by 1
+so that another hypertree results. Let ι(f ) denote the number of internally active
+hyperedges with respect to f .
+      If the hypertree f ∈ BH and the hyperedges e, e′ ∈ E are such that changing the
+value f (e) to f (e) − 1 and the value f (e′ ) to f (e′ ) + 1 results in another hypertree
+f ′ , then we say that f and f ′ are related by a transfer of valence from e to e′ .
+      We call a hyperedge internally inactive with respect to a hypertree if it is not
+internally active and denote the number of such hyperedges (for a given f ) by
+ῑ(f ) = |E| − ι(f ). This value will be called the internal inactivity of f .
+Definition 2.4. Let H = (V, E) be a hypergraph so that Bip H is connected.
+                    P order on E we consider the generating function of internal
+For some fixed linear
+inactivity, IH (ξ) = f ∈BH ξ ῑ(f ) , and call it the interior polynomial of H.
+    If H is a graph with Tutte polynomial T (x, y), then its interior polynomial is
+ξ |V |−1 T (1/ξ, 1). For any H, the polynomial IH is independent of the order that
+is used to define ῑ [4, Theorem 5.4]. We give a new proof of this fact in the next
+subsection. There is an analogous notion of external activity and a corresponding
+exterior polynomial of hypergraphs [4]. However it does not play much of a role in
+this paper other than in the planar case, cf. [4, Theorem 8.3] and Corollary 5.8.
+Example 2.5. Let the complete bipartite graph K2,3 induce the hypergraph H with
+three hyperedges and H with two hyperedges. Both have three hypertrees, namely
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                                 5
+
+
+(1, 0, 0), (0, 1, 0), (0, 0, 1) in H and (2, 0), (1, 1), (0, 2) in H. In both cases, up to
+isomorphism there is only one way to order hyperedges and the resulting interior
+polynomial is 1 + 2ξ 2 .
+Example 2.6. Both hypergraphs induced by the plane bipartite graph pictured in
+Figure 1 have the interior polynomial I(ξ) = 1 + 4ξ + 7ξ 2 + 4ξ 3 . This claim can
+be verified by a completely elementary computation. For example, if we treat the
+four emerald points a, b, c, d as hyperedges and write hypertrees f in the form of a
+vector (f (a), f (b), f (c), f (d)), then (1, 0, 1, 2) becomes a hypertree. This is because
+the spanning tree pictured on the right realizes it.
+                                c
+
+
+                                d
+                                            b
+
+
+                                    a
+            Figure 1. A plane bipartite graph with one of its spanning trees.
+
+    The other 15 hypertrees (and the 16 hypertrees of the abstract dual hypergraph
+with the five violet hyperedges) may be found by solving the system of inequalities
+given in Lemma 2.7 below, whose necessity is particularly easy to see, or by any
+number of ad hoc methods2. We do not, however, recommend enumerating all
+spanning trees as there are 217 of those.
+    For any order of the hyperedges, the smallest hyperedge is always internally
+active with respect to any hypertree. If a hypertree assigns 0 to a hyperedge, then
+that hyperedge is automatically internally active with respect to the hypertree. So
+if we use the order a < b < c < d in our example, then with respect to (1, 0, 1, 2) the
+hyperedges a and b are internally active. On the other hand, c and d are internally
+inactive. This is demonstrated by the upper right and lower left spanning trees
+(and their induced hypertrees) of Figure 5. Indeed, one shows a transfer of valence
+from c to b and the other a transfer of valence from d to a. Hence ῑ(1, 0, 1, 2) = 2
+so that the hypertree contributes 1 to the coefficient of ξ 2 in I. The other 15 (or
+rather, 31) internal inactivities can be computed the same way.
+   At times it will be convenient to rely on submodular function techniques, that is
+to say, on Lemma 2.8 below. This is made possible by the following observations.
+   For a bipartite graph G with color classes E and V and for a subset E ′ ⊂ E,
+we let G E ′ denote the graph formed by E ′ , all edges of G adjacent to elements
+of E ′ , and their endpoints in V . We S let c(E ′ ) denote  the number of connected
+                                           ′
+components of G E ′ and we also let E = V ∩ G E ′ (this notation is natural if
+we view (V, E) as a hypergraph). Finally we let µ(∅) = 0 and otherwise
+                                          S
+                               µ(E ′ ) = | E ′ | − c(E ′ ).
+   2Another systematic way is to construct the Minkowski sum P
+                                                                   E (see [8] and Section 3) and
+enumerate integer translates of the unit simplex in it, cf. the discussion right before and after
+formula (3.10). If |E| = 4 then PE is 3-dimensional. But for instance for our abstract dual
+hypergraph of five hyperedges, it becomes 4-dimensional so that the count is much harder to
+carry out ‘by hand.’
+6                    TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+Then µ is a non-decreasing (i.e., E ′′ ⊂ E ′ implies µ(E ′′ ) ≤ µ(E ′ )) submodular
+function on the power set of E. The latter means that for all A, B ⊂ E we have
+                        µ(A) + µ(B) ≥ µ(A ∪ B) + µ(A ∩ B).
+This fact is probably ‘part of the folklore.’ For a proof, see [4, Proposition 4.7].
+Lemma 2.7 ([4], Theorem 3.4). If G is connected, then µ(E) = |V | − 1 and the
+hypertrees f in (V, E) are exactly the integer solutions of the system of inequalities
+                            X                     X
+ f (e) ≥ 0 for all e ∈ E;      f (e) = |V | − 1;       f (e) ≤ µ(E ′ ) for all E ′ ⊂ E.
+                             e∈E                    e∈E ′
+
+   We note that the non-negativityPof f follows from the other constraints. We say
+                                                         ) holds. If E ′ is
+that the set E ′ ⊂ E is tight at f if e∈E ′ f (e) = µ(E ′P               Ptight at f and
+it so happens that for another hypertree g, we have e∈E ′ f (e) = e∈E ′ g(e) (for
+example, if f and g differ by a transfer of valence between elements of E ′ ), then E ′
+is also tight at g. The next lemma follows immediately from [11, Theorem 44.2].
+Lemma 2.8. If the sets A, B ⊂ E are both tight at the hypertree f , then so are
+A ∪ B and A ∩ B.
+  Let now Γ be a spanning tree in G which induces the hypertree f : E → N. For
+any subset E ′ ⊂ E, the connected components of Γ E ′ induce a partition of E ′ .
+Lemma 2.9. Let E ′ ⊂ E be a tight set at the hypertree f and Γ ⊂ G a realization
+of f . Then each part in the partition of E ′ induced by Γ is itself tight at f .
+Proof. An equivalent definition of µ is that a cycle-free subgraph of G E ′ is a span-
+ning forest of G E ′ if and only if it has |E ′ | + µ(E ′ ) edges. Since now E ′ is tight,
+                                     P            P
+we have |E ′ | + µ(E ′ ) = |E ′ | + e∈E ′ f (e) = e∈E ′ (f (e) + 1), which is the number
+of edges in Γ E ′ (note that f (e) + 1 is the degree of e in Γ and each edge of Γ E ′
+has a unique endpoint in E ′ ). Thus Γ E ′ is a spanning forest in G E ′ ; in particular,
+the connected components of Γ E ′ and those of G E ′ induce the same partition of
+E ′ and for each part E ′′ of that partition,P    Γ E ′′ is a spanning tree in G E ′′ . By
+                                                                          ′′      ′′
+the
+P    same    logic as above the    latter implies  e∈E ′′ (f (e) + 1) = |E | + µ(E ), i.e.,
+                      ′′
+   e∈E ′′ f (e) = µ(E ), as claimed.                                                     
+2.2. Order-independence. The fact that the interior polynomial is independent
+of the order imposed on the hyperedges was proved in [4] using a straightforward
+but rather long argument. The reasoning that establishes the main theorem of
+this paper can also be viewed as a rather circuitous proof of order-independence.
+Here we give a third argument which is shorter than the other two. It also serves
+to emphasize that interior (and exterior) polynomials correspond to Ehrhart-type
+lattice point counts not just in the sense of (1.2) but in a more direct way as well.
+(One might expect this observation to be the basis of a short proof of Theorem 1.1,
+but so far no such connection has been found.)
+   We fix the connected hypergraph H = (V, E) whose set of hypertrees is BH .
+Let the inverted standard simplex ∇E be the convex hull of the set { −i{e} ∈ RE |
+e ∈ E }. Here and in the rest of the paper iS denotes the indicator function of
+the set S ⊂ E. For a positive integer k we are going to count lattice points in the
+Minkowski sum
+                                  Conv BH + k∇E .
+               ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                           7
+
+
+First of all, each of these is of the form f + v, where f is a hypertree and v is
+an integer vector in k∇E , i.e., a vector with non-positive integer entries whose
+sum is −k. This follows from [11, Corollary 46.2c] because Conv BH is the base
+polytope of an integer polymatroid (by Lemma 2.7 and the submodularity of µ),
+and ∇E is a translate of another such polytope by the integer vector −iE : indeed
+∇E corresponds to the (|E| − 1)-uniform matroid on the set E.
+   After fixing an order on E, we partition our lattice points f + v according to the
+lowest possible f ∈ BH in the following version of the lexicographic order:
+(2.2)     f1 is smaller than f2 if they are different and if for the smallest
+          element e of E with f1 (e) 6= f2 (e), we have f1 (e) > f2 (e)
+(this is rather natural because the sum of the entries in f is fixed). For a hypertree f ,
+let Pf be the corresponding set of the partition.
+   We claim that Pf is the set of lattice points in a(n inverted) simplex of sidelength
+k and dimension ι(f ) − 1 = |E| − 1 − ῑ(f ). More precisely, if we let
+         ∇f = Conv{ −i{e} | e ∈ E is internally active with respect to f },
+then we have
+(2.3)                            Pf = f + (k∇f ∩ ZE ).
+As this is the key idea of the proof we included Figure 2 to illustrate it. The solid
+black dots of the figure represent the hypertrees of some hypergraph H = (V, E) of
+three hyperedges e0 , e1 , e2 . They are included in the regular triangle with vertices
+(|V | − 1)i{ei } , i = 0, 1, 2, although we changed those labels to ei for simplicity (for
+the example we let |V | = 17 but that is not important). Instead of Conv BH +k∇E ,
+we constructed its integer translate Conv BH + k(∇E + i{e0 } ) (using k = 5) which is
+in the same (hyper)plane as BH . Figure 2 also shows the partition that corresponds
+to the order e0 < e1 < e2 . It consists of the lattice points in
+       • a single triangle shaded grey, one of whose vertices is the unique hypertree
+         with ῑ = 0;
+       • one line segment for each hypertree with ῑ = 1, which are the hypertrees
+         represented by the medium-sized black dots;
+       • a singleton for each hypertree with ῑ = 2.
+   To prove (2.3), we establish the two-way inclusion as follows.
+   Proof that f +(k∇f ∩ZE ) ⊂ Pf . Assume that u ∈ f +(k∇f ∩ZE ) is also an element
+of g + (k∇E ∩ ZE ) for some hypertree g. We claim that f ≤ g lexicographically.
+Suppose that f 6= g and let e denote the smallest hyperedge where they differ.
+Let A be the set of hyperedges that are larger than e and internally active with
+respect to f . Since f is such that no element of A can transfer valence to e, for all
+a ∈ A there exists a set Ta of hyperedges that is tight at f , contains e, and does not
+contain a. Put T = ∩a∈A Ta if A 6= ∅ and T = E otherwise. Then the set T is tight
+at f (by Lemma 2.8) and contains e. Hence if we had g(e) > f (e) then T would
+need to have an element e′ so that g(e′ ) < f (e′ ). Because of the way we chose e,
+this e′ would obviously satisfy e < e′ and such elements of T are internally inactive
+with respect to f . Now from u ∈ f + (k∇f ∩ ZE ) it follows that u(e′ ) = f (e′ );
+on the other hand u ∈ g + (k∇E ∩ ZE ) implies g(e′ ) ≥ u(e′ ) = f (e′ ), which is a
+contradiction. Therefore g(e) < f (e) and thus f < g as claimed.
+   Proof that Pf ⊂ f + (k∇f ∩ ZE ). Assume the contrary, namely that a vector
+u ∈ Pf exists so that u(e) < f (e) for a hyperedge e that is internally inactive with
+8                     TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+                                                  e2
+
+
+
+
+                           e0                                            e1
+
+
+
+
+      Figure 2. Minkowski sum of a hypertree polytope and an inverted simplex.
+
+
+respect to f . Let g be a hypertree that results from f by a single transfer of valence
+from e to a smaller hyperedge. Then g < f lexicographically and u ∈ g+(k∇E ∩ZE )
+since each component of u is bounded above by the corresponding component of g.
+This contradicts the definition of Pf and thus concludes the proof of (2.3).
+   From (2.3) it follows that if the interior polynomial, using the given order, of H
+is IH (ξ) = a0 + a1 ξ + a2 ξ 2 + · · · , then for all k, the polytope (Conv BH ) + k∇E
+contains
+                                                                      
+                 k + |E| − 1              k + |E| − 2          k + |E| − 3
+             a0                  + a1                   + a2                  + ···
+                   |E| − 1                  |E| − 2              |E| − 3
+                                                              
+lattice points. Since the binomial coefficients { k+n      n    | n = 0, 1, 2, . . . } constitute
+a basis of the polynomial ring Q[k] (this is obvious from the fact that the degree
+of k+nn    is n) and (Conv BH ) + k∇E does not depend on the order, the order-
+independence of a0 , a1 , a2 , . . . follows.
+   There is a similar proof for the order-independence of the exterior polynomial
+[4] using the standard simplex ∆E = −∇E instead of ∇E . Both arguments extend
+to the case of integer polymatroids without difficulty to yield the following result.
+Theorem 2.10. Let S be a finite ground set and µ : P(S) → Z a submodular and
+non-decreasing function on its power set. Let
+               Pµ = { x ∈ RS | x ≥ 0 and x · iU ≤ µ(U ) for all U ⊂ S }
+be the polymatroid associated to µ and Bµ = { x ∈ Pµ | x · iS = µ(S) } its base
+polytope. Then the interior and exterior polynomials Iµ and Xµ [4], in the standard
+basis 1, id, id2 , . . . , id|S|−1 , have the same coefficients as the polynomials (in k)
+                   (Bµ + k∇S ) ∩ ZS         and    (Bµ + k∆S ) ∩ ZS ,
+                                                
+respectively, in the basis k+|S|−1
+                            |S|−1
+                                   , . . . , k+2
+                                              2 , k + 1, 1.
+
+   Theorem 2.10 offers new interpretations of the specializations T (x, 1) and T (1, y)
+of the Tutte polynomial of a matroid (graph) in terms of lattice point counts in
+               ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                          9
+
+
+Minkowski sums of the base polytope (spanning tree polytope) and a simplex.
+Interestingly though, this does not lead to a new interpretation of the two-variable
+polynomial T (x, y). Tempting as it may be to count lattice points in the base
+polytope plus k times the inverted simplex plus l times the standard simplex, the
+resulting two-variable polynomial (when evaluated for a matroid/graph) will be
+fundamentally different from (less subtle than) T (x, y).
+
+                               3. The root polytope
+   In this section we recall the general notions of f -vector and h-vector and discuss
+the root polytope of a bipartite graph. Most of the results have also appeared in
+[8] but some, notably Proposition 3.6 and Theorem 3.10, are new.
+3.1. Triangulations. A triangulation of a polytope Q is a collection of maximal
+simplices, each spanned by the vertices of Q, so that each two intersect in a common
+face and their union is Q. A triangulation is an instance of a pure simplicial
+complex, i.e., one in which all maximal simplices have the same dimension. To a
+d-dimensional simplicial complex, it is customary to associate the f -vector
+(3.1)       f (y) = y d+1 + f0 y d + f1 y d−1 + · · · + fd−2 y 2 + fd−1 y + fd ,
+where fk , for k ≥ 0, is the number of k-dimensional simplices in the complex. The
+h-vector of the same complex is defined as h(x) = f (x − 1). The latter notion
+becomes significant (for example, it has positive coefficients) for so-called shellable
+complexes, that is complexes with a shelling order. Here a shelling order of a pure
+simplicial complex, σ1 < σ2 < · · · < σfd , lists the maximal simplices in such a way
+that each σi , i ≥ 1, intersects the set σ1 ∪ · · · ∪ σi−1 in a union of ci codimension
+one faces. We always have c1 = 0 but assume as part of the definition that ci ≥ 1
+for i ≥ 2. Whether such an order exists is a subtle question, but when it does, it is
+not hard to show [12] that
+                                                 fd
+                                                 X
+(3.2)                       h(x) = f (x − 1) =          xd+1−ci .
+                                                  i=1
+
+Definition 3.1. Let G be a bipartite graph with color classes E and V . In the
+space RE ⊕ RV we consider all vectors of the form i{e} + i{v} , where e ∈ E, v ∈ V ,
+and ev is an edge in G. We denote their convex hull by QG and call it the root
+polytope of G.
+   The sum of the coordinates for each vertex of QG is 2. Furthermore, the sum
+of the E-coordinates equals that of the V -coordinates. When G is connected there
+are no more affine relations and the dimension of QG is |E| + |V | − 2.
+   In [8] the vertices of QG are given in the form i{e} − i{v} . The two versions are
+isometric via multiplying each V -coordinate by −1.
+Example 3.2. The root polytope of the complete bipartite graph with color classes
+E and V is, by definition, the direct product of the unit simplices ∆E and ∆V .
+In Figure 3 we picture it in the case when |E| = 3 and |V | = 2, mainly to set
+notation for Example 3.13. Note that we replaced the symbols i{x} with x for
+better readability.
+   The vertices of QG obviously correspond to edges of G; it is also not hard to
+verify [8, Lemma 12.5] that a set of vertices is affinely independent if and only if the
+10                     TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+                                                              e2 + v1
+                             v1
+
+                                                e0 + v1
+
+
+
+                  e0         e1        e2                     e2 + v0      e1 + v1
+
+
+                                                e0 + v0
+
+                             v0
+                                                                           e1 + v0
+
+
+          Figure 3. The complete bipartite graph K2,3 and its root polytope.
+
+
+corresponding set of edges is cycle-free. In other words, simplices in QG (spanned
+by vertices) correspond to forests in G. In particular, maximal simplices in QG
+are in a one-to-one correspondence with spanning trees in G. Next we establish an
+elementary property of these simplices.
+Lemma 3.3. If the vertices of the simplex σ are the vertices v1 , . . . , vm of QG ,
+then for each positive integer s, the set of integer points in s · σ agrees with the set
+           A = { λ1 v1 + · · · + λm vm | λ1 , . . . , λm ∈ N, λ1 + · · · + λm = s }.
+                                                               Pm
+Proof. Each point of s · σ can be uniquely written as i=1 λi vi , where the λi are
+non-negative reals summing to s. Since the vi are integer vectors, the relation
+A ⊂ (s · σ) ∩ (ZE ⊕ ZV ) is clear. Conversely, let p be an integerPm        point in s · σ. We
+need to check that the unique solution (in λ1 , . . . , λm ) of i=1 λi vi = p is integer.
+    In terms of the forest Σ that corresponds to σ, the unknowns λi are associated to
+the edges of Σ and the coordinates of p are associated to the vertices. The condition
+is that the value at each vertex be the sum of the values on the adjacent edges. Now
+this system of equations is in ‘triangular form’: Σ has at least one degree 1 vertex
+and the corresponding equation forces the unknown on the adjacent edge to take
+an integer value. Then we can remove this vertex-edge pair and look for another
+degree 1 vertex. This way a simple inductive argument can be constructed which
+shows that if the system of equations has a solution (which we assumed) then that
+solution needs to be integer.                                                                
+
+  As to the relative position of two maximal simplices in QG , we recall the following
+basic observation.
+Lemma 3.4 ([8, Lemma 12.6]). Let Γ1 and Γ2 be spanning trees in G. The fol-
+lowing two statements are equivalent.
+     (1) The simplices in QG that correspond to the Γi intersect in a common face.
+     (2) There does not exist a cycle ε1 , ε2 , . . . , ε2k of edges in G, where k ≥ 2, so
+         that all odd-index edges are from Γ1 and all even-index edges are from Γ2 .
+   If two maximal simplices (spanning trees) satisfy the equivalent conditions of
+Lemma 3.4 then we call them compatible. A triangulation of QG is then a collection
+of pairwise compatible maximal simplices whose union is QG . Since all maximal
+simplices have the same volume [8, Lemma 12.5], each triangulation of QG consists
+of the same number of them. Theorem 3.10 below shows that the triangulations
+have much more in common.
+               ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                         11
+
+
+3.2. Facets. Our next goal is to describe the root polytope by a system of linear
+inequalities. In other words, we shall discuss the facets (codimension one strata of
+the boundary) of QG . These turn out to be in a one-to-one correspondence with
+certain cuts in G, as follows. A cut in a graph is a set of edges that is obtained by
+splitting the set of vertices into the disjoint union of two subsets, and then taking
+the set of edges between the two subsets. A non-empty cut is minimal if it does
+not contain any other non-empty cuts. For example, all star-cuts (when the vertex
+set is split into a non-isolated singleton and the rest) are minimal.
+   In a bipartite graph G with color classes E and V we may speak of directed cuts,
+that is cuts which arise from a splitting V ∪ E = S ∪ T so that each edge in the
+cut is adjacent to S at an element of V (and then to T at an element of E). In
+other words, G has no edges between E ∩ S and V ∩ T . For instance, star-cuts in
+a bipartite graph are directed.
+Lemma 3.5. Let the splitting V ∪E = S ∪T induce the non-empty directed cut C in
+the bipartite graph G. Then the root polytope QG has a supporting hyperplane which
+does not contain any of the vertices corresponding to elements of C but contains all
+other vertices.
+Proof. Assume that all the edges of C are adjacent to S at elements of V . The
+linear functional λC : RE ⊕ RV → R which is defined to take the value 1 at i{x} if
+x ∈ (S ∩ V ) ∪ (T ∩ E) and the value −1 if x ∈ (S ∩ E) ∪ (T ∩ V ) is such that its value
+at vertices of QG corresponding to elements of C is 2, while at all other vertices λC
+vanishes. Thus the hyperplane ΠC = ker λC has the required properties.                
+
+Proposition 3.6. Let G be a connected bipartite graph. For each minimal di-
+rected cut C of G, the supporting hyperplane ΠC of Lemma 3.5 intersects the root
+polytope QG in a facet. Furthermore, each facet of QG arises this way.
+Proof. Let the minimal directed cut C belong to the splitting V ∪ E = S ∪ T .
+The subgraphs of G induced by S and T , respectively, are connected for otherwise
+C would not be minimal. By picking spanning trees in each, we obtain a two-
+component forest in G whose edge set is disjoint from C. The vertices of QG
+that correspond to edges of the forest are affinely independent, i.e., they form an
+(|E| + |V | − 3)-dimensional simplex. The fact that this simplex lies in ΠC proves
+the first claim.
+    Conversely, every facet of QG contains some |E| + |V | − 2 affinely independent
+vertices which span a codimension 1 (rel. QG ) simplex σ. The cycle-free subgraph
+of G to which these correspond is a two-component forest F . The vertex sets of
+the two components define a minimal cut C in G. The cut C is directed because
+if it was not then F would have two extensions to spanning trees of G that satisfy
+the compatibility condition of Lemma 3.4 — but that would mean that the corre-
+sponding maximal simplices lie on opposite sides of σ, which is clearly impossible.
+Finally, as ΠC contains σ, it has to intersect QG in the given facet.             
+
+Example 3.7. The root polytope of Figure 3 has five facets which correspond (in
+the manner described in Lemma 3.5) to the star-cuts at each of the five vertices.
+In this case the graph has no other minimal directed cuts.
+3.3. Ehrhart polynomials. For s ∈ N let us define εG (s) = |(s·QG )∩(ZE ⊕ZV )|.
+This is well known to be a polynomial in s (which can then be extended to all s ∈ C),
+12                    TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+called the Ehrhart polynomial of QG . Let us write εG as in (1.2),
+                                           |E|+|V |−2
+                                              X
+(3.3)                           εG (s) =                ak Ck (s),
+                                              k=0
+                                                  |−2−k
+using the binomial coefficients Ck (s) = s+|E|+|V
+                                           |E|+|V |−2
+                                                         and rational numbers ak .
+There is a unique such expression because the degree of εG is the dimension of QG
+and the following observation.
+Lemma 3.8. The expressions C0 (s), . . . , C|E|+|V |−2 (s) form a basis over Q in the
+space P|E|+|V |−2 of polynomials with rational coefficients and of degree no greater
+than |E| + |V | − 2.
+  Why we prefer this basis will be made clear by Theorem 3.10. Then in Re-
+mark 3.12 we explain how one naturally arrives at it.
+Proof. The degree of each Ck (s) is exactly |E| + |V | − 2. As their number equals
+the dimension, it suffices to show that the Ck (s) span P|E|+|V |−2 . Since an element
+of P|E|+|V |−2 is determined by its values at 0, 1, 2, . . . , |E| + |V | − 2, it suffices to ar-
+bitrarily fix rational numbers r0 , r1 , . . . , r|E|+|V |−2 and to find a linear combination
+of the Ck (s) that takes the value rj at j for each j = 0, 1, . . . , |E| + |V | − 2.
+    The roots of Ck (s) are the consecutive integers k − |E| − |V | + 2, . . . , k − 1. In
+particular, C0 (s) is the only polynomial among the Ck (s) that does not vanish at
+0. This determines the coefficient of C0 (s) in the desired linear combination. Since
+only C0 (s) and C1 (s) take non-zero values at 1, the coefficient of C1 (s) also gets
+determined. By a trivial induction proof, the same is true for all coefficients and
+the resulting linear combination obviously satisfies our requirement.                           
+                                                                 s+m−1
+                                                                        
+Remark 3.9. The set A of Lemma 3.3 has cardinality m−1 . Thus the simplices
+                                                                                    
+σ that appear in Lemma 3.3 have Ehrhart polynomials εσ (s) = s+dim                σ
+                                                                             dim σ . It follows
+                                                                                     s−1
+that the number of lattice points in s times the relative interior of σ is dim           σ . This
+is the same observation that the standard proof of Ehrhart            reciprocity   is based on
+                                                               s−1            dim σ −s+dim σ
+and in any case it follows from that principle since dim          σ = (−1)              dim σ   .
+Theorem 3.10. If εG is the Ehrhart polynomial of QG (as described in (3.3)),
+then the h-vector h of any triangulation of QG satisfies
+(3.4)       x|E|+|V |−1 h(x−1 ) = a0 + a1 x + a2 x2 + · · · + a|E|+|V |−2 x|E|+|V |−2 .
+In particular, all triangulations of QG share the same h-vector.
+   We will denote the common h-vector described in Theorem 3.10 by hG .
+   It is obvious from (3.1) that the left hand side of (3.4) is a polynomial. Since
+the Euler characteristic of a convex polytope is 1, we have
+                                 d                              d
+                                                                          !
+                                X                              X
+    h(0) = f (−1) = (−1)d+1 +      (−1)d−l fl = (−1)d+1 1 −       (−1)l fl = 0,
+                                    l=0                                 l=0
+implying that both sides of (3.4) are in P|E|+|V |−2 . Their degree is in fact much
+lower than |E| + |V | − 2, but we will only see that after proving Theorem 1.1:
+indeed by [4, Proposition 6.1] the degree of the interior polynomial is at most
+min{ |E|, |V | } − 1. This does not contradict the requirement that the degree of the
+Ehrhart polynomial εG be dim QG = |E| + |V | − 2 because each Ck (s) in (3.3) has
+that degree.
+                 ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                                       13
+
+
+Proof. Let us put |E| + |V | − 2 = d. Fix a triangulation T of QG with h-vector h
+and corresponding f -vector f (y) = h(y + 1), cf. (3.1). That means that
+                                                d
+                                                X
+                                      d+1
+  h(x) = f (x − 1) = (x − 1)                +         fl (x − 1)d−l
+                                                l=0
+                                d+1
+                                X                            Xd−i                   !
+                                                d+1−i    d+1               d−l−i d − l
+                            =          (−1)                   +     fl (−1)               xi ,
+                                i=1
+                                                          i                        i
+                                                                      l=0
+
+where we used the fact that h(0) = 0. Thus the left hand side of (3.4) (putting
+i = d + 1 − k above) is
+                X d                          X   k−1                              !
+                              k    d+1                           k−l−1       d−l
+(3.5)                  (−1)                     +       fl (−1)                          xk .
+                                  d+1−k                                  d+1−k
+                k=0                                l=0
+                                                                                                   
+    In order to address the right hand side of (3.4), first we express s−1                     l     (for
+                                                  s+d−k
+                                                         
+l = 0, 1, . . . , d) in the basis Ck (s) =           d      (k = 0, 1, . . . , d) of Lemma 3.8. (Why
+weneed this will be made         clear
+                                         by  (3.6) below.)     To do so we will rely on the identity
+  n     Pp              i p n+p−i
+  m   =      i=0  (−1)    i     m+p    .  (This  holds    for  any  integers n, m and non-negative
+integer p. It is very easy to prove by induction onp based on just the basic relation
+in Pascal’s triangle.) Applying it directly to s−1             l    with p = d − l gives
+                       d−l
+                         X                                         
+         s−1                        i d−l        s−1+d−l−i
+                     =        (−1)
+              l          i=0
+                                         i             l+d−l
+                         d−l−1
+                          X                                                              
+                                      i d−l         s−1+d−l−i                        d−l s − 1
+                     =           (−1)                                       + (−1)               .
+                          i=0
+                                            i                 d                             d
+Here the last term is not one of our basis elements. To express it in the basis we
+apply our identity again, this time to s−1
+                                        −1 = 0 with p = d + 1:
+           d−l−1
+              X                                 
+      s−1             i d−l     s + d − (l + i + 1)
+           =      (−1)
+       l      i=0
+                          i              d
+                                                                 
+                                  Xd                         
+                                              d + 1   s + d − j
+             + (−1)d−l (−1)d+1 −     (−1)j                       
+                                  j=0
+                                                j         d
+
+                 Xd                                                  
+                                     d−l                 d+1         s+d−k
+                =     (−1)k−l−1               + (−1)l+k                       .
+                                   k−l−1                    k            d
+                 k=0
+                         d−l
+                              
+If k ≤ l then of course k−l−1   = 0.
+   Now as the relative interiors of the simplices of T partition QG , by Remark 3.9
+we obtain
+                     X                X  d          
+                                s−1                s−1
+(3.6) εG (s) =                          =     fl
+                                dim σ               l
+                    simplices σ in T                     l=0
+
+           X d 
+           d X                                                
+                    k−l−1    d−l         l+k d + 1            s+d−k
+         =      (−1)               + (−1)             · fl ·         ,
+                            k−l−1              k                d
+            k=0 l=0
+14                    TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+that is that in (3.3) (and the right hand side of (3.4)) we have
+                  Xd                                           
+                            k−l−1     d−l             l+k d + 1
+           ak =         (−1)                    + (−1)                · fl
+                                    k−l−1                    k
+                  l=0
+                             X  d            k−1
+                                               X                         
+                       k d+1             l             k−l−1       d−l
+               = (−1)                (−1) fl +     (−1)                     fl
+                           k                                  k−l−1
+                                 l=0           l=0
+                              k−1 X                      
+                       k d+1                k−l−1    d−l
+(3.7)          = (−1)            +     (−1)                   fl .
+                           k                        k−l−1
+                                       l=0
+
+Comparing the last formula to (3.5) completes the proof.                                     
+
+Remark 3.11. From (3.7) we see that a0 = 1 and a1 = −(d + 1) + f0 . Here f0
+is the number of edges in G and d + 1 = |E| + |V | − 1 is the number of edges in
+a spanning tree of G, i.e., we have a1 = b1 (G). These values are consistent with
+[4, Proposition 6.2 and Theorem 6.3] and our expectation (cf. Theorem 1.1) that
+they be the two lowest-degree coefficients in the common interior polynomial of the
+hypergraphs (V, E) and (E, V ). As to a2 , see Proposition 5.5.
+Remark 3.12. The proof of Theorem 3.10 becomes far more transparent if we as-
+sume T to be shellable3. This also makes the appearance of Ck (s) more natural.
+                       P ci order with the quantities ci as in (3.2), then the left
+Indeed if there is a shelling
+hand side of (3.4) is     x where the summation is over all maximal simplices.
+We may also count lattice points in s · QG using the shelling order, going over the
+maximal simplices one-by-one. If we do so then the i’th simplex contributes lattice
+points as described in Lemma 3.3, except that the points along ci of its facets have
+already been counted. Geometrically that means that what is left to count are
+the lattice points in a simplex of full dimension |E| + |V | − 2 but with reduced
+sidelength s − ci . (By sidelength we mean the number of lattice points along a
+side of the simplex minus one. In the absence of shellability one is forced to work
+with lower-dimensional simplices too, and that causes complications.) The number
+of those points is exactly Cci (s). Therefore ak , that is the number of times Ck (s)
+appears in εG (s), is equal to the number of maximal simplices with ci = k, and
+that in turn is exactly the coefficient of xk on the left hand side.
+3.4. Cross-sections. A remarkable property of triangulations of the root polytope
+is that they ‘pair up’ hypertrees in the hypergraph H = (V, E) and its abstract dual
+(transpose) H = (E, V ). To set up the correspondence, we recall the following facts
+from [8]. First, QG naturally projects onto the standard unit simplices ∆E ⊂ RE
+and ∆V ⊂ RV . The preimage of the barycenter iV /|V | ∈ ∆V under the second
+projection pr2 : QG → ∆V is the (|E| − 1)-dimensional Minkowski sum
+                                              !
+                                   1    X           1
+(3.8)                      SE =            ∆v +         · iV ,
+                                 |V |              |V |
+                                             v∈V
+                        E
+where ∆v ⊂ ∆E ⊂ R is the convex hull of the set { i{e} | ev is an edge in G }. In
+particular, for a maximal simplex γ in QG that corresponds to the spanning tree Γ
+
+   3It seems unlikely for all triangulations of Q to be shellable, but at present we do not know
+                                                 G
+any counterexamples.
+                 ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                                 15
+
+
+in G, we have
+                                                           !
+                                      1        X                    1
+(3.9)                       γ ∩ SE =                 ∆Γv       +        · iV ,
+                                     |V |                          |V |
+                                               v∈V
+
+where ∆Γv is the face of ∆v spanned by unit vectors corresponding to neighbors
+of v in Γ. Moreover, a quick dimension count shows that the Minkowski sum in
+the latter formula is a direct sum, i.e., its elements have unique representations as
+sums of one vector from eachP   summand. Below we will sometimes replace SE with
+its homothetic image4 PE = v∈V ∆v so that our formulas look simpler, however
+we will continue to think of PE as a cross-section of QG . We will refer to the set
+described in (3.9), as well as to the homothetic set
+                                        X
+(3.10)                           MΓ =        ∆Γv ⊂ PE ,
+                                             v∈V
+
+as the Minkowski cell associated to the spanning tree Γ.
+    Next, we recall that MΓ contains a unique translate of the unit simplex ∆E and
+it is f + ∆E [8] where f ∈ RE is the hypertree in H induced by Γ. (The interior of
+MΓ is disjoint from other integer translates of ∆E .) Let us denote the barycenter
+of this translated simplex with
+                                            1
+(3.11)                           f+ = f +      · iE .
+                                           |E|
+We will call both f + and (depending on context) the corresponding point
+                          1           1
+(3.12)                        · f+ +      · i V ∈ γ ∩ SE ⊂ SE ⊂ Q G ,
+                         |V |        |V |
+the emerald marker of the simplex γ. Note that the set of emerald markers is a
+simple dilation of the set BH of hypertrees. If markers are meant in the sense of
+(3.11), then in fact it is a translation of BH , so that for instance vectors connecting
+hypertrees are the same as vectors connecting the corresponding markers. Of course
+each maximalsimplex in QG also contains a unique violet marker, i.e., an element
+             1
+of the set |E|   BH + |V1 | iV + |E|1
+                                       · iE .
+    Now if we fix a triangulation of QG , then each emerald and violet marker will
+lie in the interior of a unique simplex; as this simplex has unique markers of each
+color (which are essentially the hypertrees that are induced by the spanning tree
+corresponding to the simplex), we see that a bijection is induced this way between
+BH and BH . In Section 5, we exploit this picture further to prove our main theorem.
+Example 3.13. We examine the root polytope of the complete bipartite graph G =
+K2,3 . Let the emerald color class be E = { e0 , e1 , e2 } along with violet color class
+V = { v0 , v1 }. In this case QG is the product of the 2-simplex ∆E and the 1-simplex
+∆V . In Example 3.2 we labeled its vertices (using the symbol x in place of i{x} ).
+In the upper left panel of Figure 4 we indicated the cross-sections SE and SV , as
+well as all markers for both colors (three each). We also chose a triangulation of
+the root polytope and showed the Minkowski cells that occur in the cross-sections.
+These are just three isometric segments in the one-dimensional cross-section SV ,
+whereas in SE we get two triangles and a rhombus. By examining the spanning trees
+
+  4Both S
+            E and PE belong, as rather special cases, to the class of generalized permutohedra [8].
+16                  TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+corresponding to the three maximal simplices (shown on the right), the interested
+reader may check the validity of Lemma 3.4 and the formula (3.10).
+   The f - and h-vectors of our triangulation are f (y) = y 4 + 6y 3 + 12y 2 + 10y + 3
+and h(x) = f (x − 1) = x4 + 2x3 , respectively. The coefficients of the latter are
+explained by the fact that the triangulation is shellable so that the second and third
+maximal simplices are both attached along a single facet, cf. (3.2). Comparing the
+h-vector to the interior polynomial of Example 2.5, we see that Theorem 1.1 holds
+in this case.
+
+
+
+
+     Figure 4. The root polytope of the graph K2,3 with cross-sections and mark-
+     ers of both colors (upper left), and a triangulation (lower left and middle) with
+     the corresponding spanning trees (right). Cf. Figure 3.
+
+
+
+   We will need one more piece of information about the spanning tree Γ ⊂ G,
+corresponding maximal simplex γ ⊂ QG , and induced hypertree f ∈ BH . In (3.11)
+we gave the coordinates of the emerald marker f + (as it appears in the enlarged
+cross-section PE ) of γ in the natural basis of RE . However it will also be useful
+for us to describe the marker in terms of the direct sum decomposition (3.10) of
+the Minkowski cell MΓ . It is convenient to identify the vertices of ∆Γv with the
+edges of Γ adjacent to v. Then the barycentric coordinates of a point in ∆Γv can be
+thought of as non-negative real numbers (weights) written on these edges, subject
+to the condition that their sum is 1. (Since we have |V | such conditions on the
+|E| + |V | − 1 weights, this correctly identifies the dimension of MΓ as |E| − 1.) By
+taking the sum of the weights assigned to edges adjacent to a vertex e ∈ E, we
+recover the standard e-coordinate in RE .
+              ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                        17
+
+
+Lemma 3.14. Let Γ be a spanning tree of G that induces the hypertree f . The
+weights (on the edges of Γ) that produce the emerald marker f + ∈ MΓ are given as
+follows. For each v ∈ V , the elements of E are partitioned according to the edge of
+G adjacent to v through which they can be reached from v by a path in Γ. Let the
+weight of the edge be the size of the corresponding set divided by |E|.
+Proof. Our assignment obviously satisfies all |V | constraints and furthermore, if the
+vertex e ∈ E has degree d = f (e) + 1 in Γ, then the sum of the weights on the edges
+adjacent to e is
+           1                                    1             1
+              ((|E| − 1)(d − 1) + d) = d − 1 +     = f (e) +     = f + (e),
+          |E|                                  |E|           |E|
+as claimed. The formula is valid because when we compute the d weights, e appears
+in all d relevant counts of emerald vertices, whereas all other elements of E appear
+d − 1 times.                                                                      
+
+                            4. Preparatory results
+   In this section we prove a few more technical results needed for our main theorem.
+Regarding a polytope, we say that a simplex spanned by some of its vertices is
+interior if it is not part of the boundary of the polytope, i.e., if the (relative)
+interior points of the simplex are interior points of the polytope. E.g., all maximal
+simplices are interior but 0-dimensional simplices (vertices) are never interior.
+   Let Γ be a tree in our usual bipartite graph G of color classes E and V , and let
+C ⊂ Γ be a connected subgraph. If ε is an edge in Γ \ C, then there is a clear sense
+in which one endpoint of ε is closer to C than the other. Depending on the color
+class of this endpoint, we say that the emerald or the violet endpoint of ε faces C.
+Lemma 4.1. Let G be a connected bipartite graph with root polytope QG . Let us
+fix an arbitrary triangulation T of QG . Let Σ be a cycle-free subgraph of G so that
+the corresponding simplex σ ⊂ QG is an interior face of T, and let C be a connected
+component of Σ. Then there is a unique maximal simplex in T containing σ so that
+in the corresponding spanning tree ΓC ⊃ Σ, all edges of ΓC \ Σ have their violet
+endpoint face C.
+  Because of the resemblance between ΓC and an arborescence in a directed graph,
+we may refer to this statement as the ‘arborescence lemma.’
+
+Proof. We start with uniqueness. (This part of the proof works for all faces σ of
+T, including those along the boundary of QG .) Let us assume that Γ1 and Γ2
+are different spanning trees in G so that both satisfy the conditions stipulated for
+ΓC . We will show that they violate the compatibility condition of Lemma 3.4 and
+hence the corresponding simplices cannot both be part of T. Let us pick an edge
+ε ∈ Γ1 \ Γ2 and let e be the emerald endpoint of ε. Let us also fix an arbitrary
+vertex x of C and consider the unique paths p1 ⊂ Γ1 and p2 ⊂ Γ2 from e to x. The
+first edge along p1 is clearly ε. Now let us find the first vertex y (after e) along
+p1 that is also a vertex along p2 (since x is such a vertex, y is well-defined). If
+we follow p1 from e to y and then follow p2 from y back to e, we obtain a cycle
+as described in (2) of Lemma 3.4. Indeed, each time we step from an emerald to
+a violet vertex, that edge is either in Σ, hence in Γ1 , or if not then it has to be
+along the first half of our loop (from e to y) which is again part of Γ1 . Similarly,
+18                   TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+steps taken from violet to emerald vertices are either in Σ, hence in Γ2 , or along
+the second half of the loop which is part of Γ2 as well.
+   We will establish the existence of ΓC by an iterative argument that is very similar
+to the second half of the proof of Theorem 10.1 in [4]. A spanning tree Γ containing
+Σ (or rather, the set of edges Γ \ Σ) can be viewed as a rooted tree in which the
+connected components of Σ play the role of vertices and C is the root. Let us call
+an edge of Γ \ Σ bad if its emerald endpoint faces C and let us call other edges of
+Γ \ Σ good.
+   In order to be more precise, for any spanning tree Γ containing Σ, let us consider
+the tree Γred which results from contracting each connected component of Σ to a
+point (vertex). The edges of Γred inherit a good/bad classification from Γ. The
+vertex corresponding to C will be treated as the root of Γred . In a rooted tree,
+edges ε have a well-defined distance d(ε) ∈ N to the root (those adjacent to the
+root have d = 0 etc.). Let us now associate the following quantities to Γ.
+      • Let n(Γ) denote the smallest value of d among bad edges of Γred . If there
+        are no bad edges, let n(Γ) be one more than the maximal value of d among
+        the edges of Γred .
+      • For 1 ≤ m ≤ n(Γ), let λΓ (m) be the number of edges ε of Γred with
+        d(ε) = m − 1. These values are positive. For m > n(Γ), we let λΓ (m) = 0.
+Then for a pair of spanning trees Γ1 , Γ2 extending Σ, we write Γ1 ≺ Γ2 if either
+     (1) the sequence λΓ1 (1), λΓ1 (2), λΓ1 (3) . . . is smaller in lexicographic order than
+         the sequence λΓ2 (1), λΓ2 (2), λΓ2 (3) . . ., or
+     (2) the two sequences coincide (implying n(Γ1 ) = n(Γ2 ) = n) but the number
+         of bad edges with d = n is higher in Γred    1   than in Γred
+                                                                     2 .
+   The relation ≺ is a so called strict weak order on the set of spanning trees of G
+containing Σ, in particular it is (obviously) transitive and asymmetric. To finish
+the proof of the Lemma, it suffices to show that if a tree Γ ⊃ Σ corresponds to a
+maximal simplex in T and does not satisfy the conditions for ΓC (i.e., Γ has bad
+edges), then there is another tree Γe containing Σ, with Γ ≺ Γ, e which also appears
+as a maximal simplex in T. Let us pick a bad edge ε of Γ from among those that
+are closest to the root in Γred . As Σ represents an interior face of T, so does the
+larger set Γ \ {ε}. I.e., there exists an edge δ of G so that Γ  e = (Γ \ {ε}) ∪ {δ}
+corresponds to a maximal simplex of T. An application of Lemma 3.4 to Γ and Γ         e
+shows that δ is a good edge for Γ.e
+   It is easy to check that Γ ≺ Γ                                                 e red
+                                  e is indeed true. If δ is closer to the root in Γ
+                 red                                    red
+than ε was in Γ , or if ε was the only bad edge of Γ at distance d(ε) from the
+root, then the relation holds by part (1) of its definition. Otherwise it holds by
+part (2). This completes the proof.                                                  
+
+   The following ‘path lemma’ will soon be useful as well. The term ‘transfer of
+valence’ was introduced right after Definition 2.3.
+
+Lemma 4.2. Let Γ be a spanning tree of the connected bipartite graph G that
+induces the hypertree f in H = (V, E) (here as usual, E and V are the color classes
+of G). Let a, b, c be distinct elements of E so that the unique path from c to a in Γ
+passes through b. Suppose that f is such that c can transfer valence to a. Then f is
+also such that b can transfer valence to a.
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                               19
+
+
+Proof. Assume that b cannot transfer valence to a. Then there exists a set T of
+hyperedges that is tight at f , contains a, but does not contain b. (Cf. Lemma 2.7
+and the discussion right after it.) We have to have c ∈ T for otherwise no transfer
+would be possible from c to a. For the same reason, in view of Lemma 2.9, a and c
+have to be in the same connected component of the forest Γ T . Hence a and c can
+be connected by a path in Γ T , but since b 6∈ T , that is different from the path, in
+Γ, that passes through b. This contradicts the cycle-freeness of Γ.                 
+
+   Let T be a fixed triangulation of QG and let us also fix an order of the color
+class E (which we also think of as the set of hyperedges in the hypergraph (V, E)).
+Let γ be a maximal simplex of T and Γ the corresponding spanning tree of G. Let
+Γ induce the hypertree f and let e ∈ E be an internally inactive hyperedge with
+respect to f . Let e′ be the smallest hyperedge so that f is such that e can transfer
+valence to e′ , and let the hypertree g be the result of that transfer.
+   We will refer to the hyperedge e′ above as the favorite of e (with respect to
+the chosen order). If e is indeed internally inactive then we have e′ < e; for an
+internally active hyperedge, let us define its favorite to be itself.
+   Let us now connect the two emerald markers f + and g+ (cf. (3.11)) by a straight
+line segment, which we call the feeler for the pair (f , e). (So technically, the feeler
+is defined to be a subset of the Minkowski sum PE discussed in Section 3, but we
+may also think of it as a subset of the cross-section SE ⊂ QG since PE and SE are
+related by a dilation.) Let γ ′ be the maximal simplex that the feeler enters right
+after it leaves γ. (In Lemma 4.3 we will see that the feeler exits γ through a relative
+interior point of a facet so that it enters the interior of the next maximal simplex.
+It is possible for g+ to be the emerald marker of γ ′ , but it will typically not be
+the case.) If Γ′ is the spanning tree that corresponds to γ ′ , then the symmetric
+difference of Γ and Γ′ consists of exactly two edges of G. In the next Lemma we
+identify one of those two edges.
+
+Lemma 4.3. Let the hypertrees f , g ∈ BH differ by a single transfer of valence
+from e to e′ . Let us connect the emerald markers f + and g+ by a line segment l
+in PE . If f + is an interior point of the Minkowski cell MΓ (for a spanning tree Γ
+inducing f , cf. (3.10)) then l leaves MΓ through a codimension 1 stratum of its
+boundary which corresponds to removing from Γ the first edge along the unique path
+from e to e′ .
+
+Proof. In Lemma 3.14 we described the starting point f + of l in terms of the direct
+sum decomposition (3.10) of MΓ . We will extend that description to the initial
+segment of l. Let the path p in Γ from e to e′ be ε1 , δ1 , ε2 , δ2 , . . . , εk , δk and assume
+that at f + these edges have the weights u1 , v1 , u2 , v2 , . . . , uk , vk , respectively, as
+given in Lemma 3.14. (Note that emerald and violet vertices alternate along p and
+since e and e′ are both emerald, there has to be an even number of edges.) Then
+we claim that l is parametrized by the weights
+
+(4.1)                 u1 − t, v1 + t, u2 − t, v2 + t, . . . , uk − t, vk + t
+
+along p, while all other weights are constant. Indeed, this ensures that sums of
+weights on edges adjacent to a violet vertex remain fixed at 1; the sums of weights
+on edges adjacent to an emerald vertex also remain constant except in the cases of
+e and e′ , which is consistent with the direction of l.
+20                    TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+   The segment l reaches the boundary of γ (which is the maximal simplex corre-
+sponding to Γ) when it reaches the boundary of its (dilated) cross-section MΓ , i.e.,
+when one of the weights becomes zero. By (4.1), this will occur on one of the εi .
+In fact, from Lemma 3.14 it easily follows that u1 < u2 < · · · < uk , from which we
+see that it is the edge ε1 (and only that) that gets removed from Γ when we pass
+from γ to the adjacent maximal simplex.                                            
+   Note that Lemma 4.3 does not provide any information on the unique edge in
+Γ′ \ Γ. That depends on the nature of the triangulation T. If the feeler intersects
+only the maximal simplices marked by f + and g+ , then this edge will be adjacent
+to e′ ; otherwise we have basically no control over it.
+Remark 4.4. Let us substitute t = u1 in (4.1) and use the resulting values as new
+weights on the edges ε1 , δ1 , ε2 , δ2 , . . . , εk , δk , while we keep the weights provided by
+f + on other edges of Γ. These are the barycentric coordinates (in the simplex γ
+that corresponds to Γ) of the point where the feeler leaves the Minkowski cell, i.e.,
+the simplex. But they also correspond to the following operation. Let C be the
+component of Γ \ {ε1 } that does not contain e′ . Now remove ε1 from Γ and then
+identify e and e′ to obtain a new tree. (One can imagine this as transporting C
+along the path p from e to e′ .) Let the merged vertex have multiplicity 2. If we
+apply the edge-weight formula of Lemma 3.14 to this tree, it is easy to see that we
+obtain exactly the weights we have just described. This observation may sound ad
+hoc but it will be useful in the proof of Theorem 5.1 below.
+   The last result in this section is an extension of [4, Lemma 7.4]. It allows
+us to generate hypercubes of hypertrees in certain situations. We state it in the
+hypergraph context even though it holds for integer polymatroids as well.
+Lemma 4.5. Let { a1 , . . . , am } and { x1 , . . . , xm } be disjoint collections of hyper-
+edges in the connected hypergraph H = (V, E). Let f : E → N be a hypertree which
+is such that xj can transfer valence to aj for all j but xj cannot transfer valence
+to ai for any i < j. Then f is such that any subset of the transfers mentioned
+    Pis simultaneously possible, that is, for any subset J ⊂ { 1, . . . , m }, the vector
+above
+f + j∈J (i{aj } − i{xj } ) is another hypertree.
+Proof. Without loss of generality we may assume that J = { 1, . . . , m } and m ≥ 2.
+If the
+    Pk−1                                          Pk a smallest index k so that u =
+        statement fails to be true then there exists
+f + j=1 (i{aj } − i{xj } ) is a hypertree but f + j=1 (i{aj } − i{xj } ) is not. The latter
+implies that there is a set K of hyperedges that is tight at u, contains ak but does
+not contain xk . Now at f , there exist tight sets L1 , . . . , Lk−1 of hyperedges so that
+Li contains ai but does not contain xk . By Lemma 2.8, L = L1 ∪ · · · ∪ Lk−1 is also
+tight at f . Since a1 , . . . , ak−1 ∈ L, we have to have x1 , . . . , xk−1 ∈ L too for the
+first k − 1 of our assumed transfers to be possible. That implies that L is also a
+tight set at u and hence the same is true for L ∪ K. But since u and f produce the
+same sum of values over elements of L ∪ K, we eventually obtain that L ∪ K is a
+tight set at f . That is a contradiction because L ∪ K separates xk from ak .            
+
+                                   5. The main result
+  To prove Theorem 1.1, it remains to show that the interior polynomial I of the
+connected hypergraph (V, E) satisfies
+(5.1)                         I(x) = a0 + a1 x + · · · + ad xd .
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                                21
+
+
+First we give the reduction of this claim to a somewhat technical result, Theo-
+rem 5.1, and then proceed to prove the latter.
+    The sequence a0 , a1 , . . . , ad of (5.1), where first of all d = |E| + |V | − 2 is the
+dimension of the root polytope QG , was defined in (1.2) (and then again in (3.3)) in
+terms of the Ehrhart polynomial of QG . However, in Theorem 3.10 we have already
+            Pd
+equated k=0 ak xk to the right hand side of (1.1) so that from now on we may
+think of a0 , a1 , . . . , ad as the coefficient sequence of the h-vector hG . In particular,
+as we have seen in Remark 3.12, if a triangulation of QG has a shelling order then ak
+is the number of maximal simplices that are adjacent (through a facet) to exactly
+k ‘previous’ maximal simplices.
+    Let us fix a shellable triangulation T (such as a regular triangulation5, cf. [12])
+of QG with f -vector f (y) as in (3.1). Let the number of interior simplices of T
+of dimension m be f˜m for m = 0, 1, . . . , d. (Note that f˜0 = 0 and f˜d = fd .)
+Similar to the proof of Theorem 3.10 (and especially to Remark 3.12), we may use
+T in conjunction with Lemma 3.3 to count interior lattice points in the dilation
+s · QG (where s is a positive integer). This time we will count points along interior
+facets when the second maximal simplex adjacent to the facet is encountered in the
+shelling order. By doing so we find that the number of such points is
+                                                                                
+                    s−1              s                  s−1+k                  s−1+d
+     ε̃G (s) = a0              + a1      + · · · + ak            + · · · + ad           .
+                        d            d                    d                      d
+This is because   of the following reason: in the interior of each maximal simplex
+there are s−1d     lattice points (cf. Remark 3.9) whose convex hull is a d-dimensional
+simplex of sidelength s − d − 1. (We may assume here that s ≥ d + 1 since from
+Ehrhart theory we know that the result of our lattice point count is a polynomial
+in s, determined uniquely by just finitely many of its values.) If the interior (to
+s · QG ) lattice points along k facets of the maximal simplex are to be counted as
+well, the sidelength of the convex hull (which is still   a simplex) increases by k so
+that the number of lattice points becomes s−1+k      d    .
+    On the other hand, using the obvious partition of the interior of QG and Re-
+mark 3.9, the same quantity can also be expressed as
+                                                                                
+                    s−1               s−1                    s−1                   s−1
+    ε̃G (s) = f˜d           + f˜d−1         + · · · + f˜d−l         + · · · + f˜1       .
+                      d              d−1                      d−l                   1
+   Let us manipulate the first expression using Vandermonde’s identity6
+                                                                   
+  s−1+k           k    s−1         k    s−1             k    s−1            k   s−1
+             =                 +               +· · ·+             +· · ·+
+      d           0       d         1 d−1               l    d−l            k  d−k
+                                
+and equate coefficients of s−1
+                            d−l (noting that these polynomials have different degrees
+in s and hence they are linearly independent) to find that
+                                                          
+                              l          l+1                  d
+                    f˜d−l =       al +        al+1 + · · · +    ad .
+                              l           l                   l
+
+   5Roughly speaking, a regular triangulation is one obtained by assigning a (generic) new co-
+ordinate to each vertex, thereby lifting them to one dimension higher, then taking their convex
+hull and projecting ‘back down’ its upper boundary. Not all triangulations of a root polytope are
+regular, not even for complete bipartite graphs [10].
+   6This step is also found in one of Andrews’s proofs [1] of the Saalschütz formula.
+22                    TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+Notice that the right hand side is exactly the coefficient of (x − 1)l in the Taylor
+                               Pd        k
+expansion, centered at 1, of     k=0 ak x . Therefore to show (5.1), it suffices to
+prove that I(x) has the same expansion, that is that the coefficient of (x − 1)k in
+the Taylor expansion of I(x) centered at 1 is f˜d−k for all k ≥ 0 (here for negative
+u we define f˜u = 0). In other words, what is left to prove is that
+
+(5.2)                                I (k) (1) = k! · f˜d−k
+
+holds for all k ≥ 0. We note that the case when k = 0 is settled in [8].
+   Now if we recall Definition 2.4 of the interior polynomial, we see that the Taylor
+                          P|E|−1 
+coefficient in question is i=k ki χi , where χi is the number of those hypertrees
+in (V, E) whose internal inactivity is exactly i. Put another way, it is the number of
+tuples consisting of a hypertree and exactly k of its internally inactive hyperedges.
+Therefore Theorem 1.1 is a corollary of the following statement. (Note that from
+here on we will not rely on the condition of shellability.)
+
+Theorem 5.1. Let T be a triangulation of the root polytope QG of the connected
+bipartite graph G, and let k ≥ 0 be an integer. Then the number of codimension k
+interior simplices of T agrees with the number of pairs (f , S), where f is a hypertree
+in the hypergraph (V, E) induced by G and S is a set of k distinct internally inactive
+hyperedges with respect to f . Here inactivity is defined with respect to an arbitrarily
+fixed order on E.
+
+Proof. As the case k = 0 follows from [8, Lemma 12.8 and Theorem 12.9], we may
+assume that k ≥ 1. We shall define a map σ from the second named set to the first
+and show that it is one-to-one and onto.
+   If the pair (f , { e1 , . . . , ek }) is as described in the Theorem, then first we find
+the unique maximal simplex γf in T which belongs to a spanning tree Γf of G that
+induces f . (See [8] or subsection 3.4.) For each 1 ≤ i ≤ k, we construct the feeler
+for the pair (f , ei ). By Lemma 4.3, the i’th feeler leaves γf through a facet that
+corresponds to (removing) an edge εi of Γf which is adjacent to ei . Hence these
+k facets are mutually different and thus their intersection is a codimension k face
+σ(f , { e1 , . . . , ek }) of T.
+    Well-definedness of σ. We need to show that the face σ(f , { e1 , . . . , ek }) lies in
+the interior of QG . This is because one is able to find enough hypertrees near f
+(namely the endpoints of the k feelers and some others) so that the convex hull
+of the corresponding emerald markers, which is k-dimensional and interior to QG ,
+meets σ(f , { e1 , . . . , ek }) in just one point and that point is in the relative interior
+of both sets. A detailed computation follows.
+    Let the favorite of ei be e′i (1 ≤ i ≤ k). (Favorites were defined in Section 4.)
+The sets { e1 , . . . , ek } and { e′1 , . . . , e′k } are disjoint by [4, Lemma 5.2], which says
+that if a hypertree is such that the hyperedge c can transfer valence to b and b can
+transfer valence to a, then c can transfer valence to a as well. As { e′1 , . . . , e′k } may
+have less than k elements, let us also write it as S ′ = { a1 , a2 , . . . , am } where we
+assume a1 < a2 < · · · < am . There is then an obvious partition of S = { e1 , . . . , ek }
+into m parts S1 , . . . , Sm so that the favorite of each element of Si is ai .
+    For each i = 1, . . . , m, we may write an arbitrary linear combination vi of the
+vectors i{ai } − i{e} for e ∈ Si so that the coefficients are positive and their sum
+is less than 1. Then, by Lemma 4.5, we may add the sum of these vectors to the
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                             23
+
+
+emerald marker f + (cf. (3.11)) and obtain an interior point of QG that way. It is
+enough to show that σ(f , { e1 , . . . , ek }) contains one of these points.
+   Since for all i = 1, . . . , m, the hypertree f is such that no hyperedge from Ki =
+Si+1 ∪ · · · ∪ Sm can transfer valence to ai , there exist sets of hyperedges that are
+tight at f and separate ai from the elements of Ki . The intersection Ti′ of these
+sets is also tight at f (by Lemma 2.8), contains ai (hence it contains Si , too), and is
+disjoint from Ki . Lemmas 4.2 and 2.9 allow us to assume that Γf T ′ is connected:
+                                                                             i
+indeed, all hyperedges along paths in Γf between elements of Si and ai are such
+that they can transfer valence to ai and thus they have to be in Ti′ . By letting
+Ti = T1′ ∪ · · · ∪ Ti′ , we get a nested sequence T1 ⊂ · · · ⊂ Tm of sets, each of which is
+tight (again by Lemma 2.8) at f . Let us reiterate that
+
+(5.3)      for each ej ∈ S, the path pej in Γf from ej to e′j lies in Γf Ti ,
+
+where i is the index so that e′j = ai , i.e., that ej ∈ Si .
+   We will construct the vectors vi mentioned above inductively, starting from
+vm . (One way to think about this next part of the proof is that we will build a
+polygonal path in PE from f + to σ(f , { e1 , . . . , ek }), that is from an interior point of
+the Minkowski cell MΓf of (3.10) to a codimension k stratum of its boundary. We
+will choose the length of each segment carefully so that the path stays within the
+cell.) The set Sm has a partial order < defined by the rooted tree (Γf , am ), namely
+we let x < y if the path in Γf from y to am passes through x. The coefficients
+of the vectors i{am } − i{e} in vm (where e ∈ Sm ) are again defined inductively
+starting from the maximal elements of Sm . If e is one of those and the weight, in
+the description of f + provided by Lemma 3.14, is u on the edge ε that starts the
+path pe from e to am in Γf , then let the coefficient of i{am } − i{e} be u. Because
+(by the definition of the partial order and the observation (5.3) above) none of the
+paths pe′ for e 6= e′ ∈ S passes through e, in particular none of them contains ε,
+this is the only time in the process that the weight on ε changes (cf. (4.1) in the
+proof of Lemma 4.3). Hence our choice u for the coefficient of i{am } − i{e} is the
+unique way we can reduce the weight on ε to 0.
+   As discussed in the proof of Lemma 4.3, edge weights (barycentric coordinates)
+representing the point f + + u(i{am } − i{e} ) of γf are positive except for that of
+ε. As explained in Remark 4.4, this is ‘demonstrated’ by applying the formula of
+Lemma 3.14 to a rearranged tree, where we erase ε and transport the part C of Γf
+that ‘lies beyond’ e to the favorite am of e. Since paths pe′ for e 6= e′ ∈ S (along
+which weight changes are due to occur) are either disjoint from, or contained in
+C, this transporting operation does not disrupt the structure of the tree that is
+relevant for the rest of the construction.
+   Next, we iterate the process that was described in the previous two paragraphs.
+There will be one step for each element e of Sm and it will occur after all elements of
+Sm above e in the partial order have been dealt with. During the step we determine
+the coefficient ue of the vector i{am } − i{e} in the linear combination vm , namely we
+define ue to be the current weight on the edge εe which is adjacent to e and points
+toward am . In light of (4.1) and the fact that εe is not part of the path ph for
+any element h ∈ S that we will address later (which is, again, guaranteed by (5.3)
+and the partial order), this is the unique choice that results in the weight on εe
+becoming 0. At the end of each step we update the weights on the edges of Γf using
+(4.1), or rather on the edges of the tree that results from our previous transports,
+24                     TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+and note that these new weights are the same as what the recipe of Lemma 3.14
+produces for the rearranged tree where we erase εe and identify e with am , denoting
+the new point by am and increasing its multiplicity by 1. In particular, all edge
+weights in the rearranged tree are positive.
+   After we have assigned coefficients to each vector i{am } − i{e} where e ∈ Sm ,
+noting that they are all positive, we also have to make sure that the sum of the
+coefficients is less than 1. That is because it is equal to the proportion, among all
+elements of E, of the emerald vertices of all the (disjoint) subtrees that have been
+transported to am so far in the process. This set includes the vertices that were
+merged with am but it does not include the ‘original’ vertex am itself, and hence
+its proportion in E is less than 1.
+   After this we continue performing the same operations as above (to the rear-
+ranged tree and the updated weights) for am−1 , am−2 and so forth down to a1 . By
+the exact same arguments as above, each vector i{ai } − i{e} , for e ∈ Si , will receive
+a positive coefficient in the linear combination vi . The sum of the coefficients, for
+each given i, is strictly less than 1. These coefficients are also the unique choices
+that result in a weight of 0 on each edge εi , 1 ≤ i ≤ k, i.e., which guarantee that
+      Pk
+f + + i=1 vi is a point of the simplex σ(f , S). We also see that it is an interior
+point of said simplex because the weights on edges other than the εi remain positive
+at the end. This completes the proof of well-definedness for our correspondence σ.
+   Let now σ be a codimension k interior face of T. Let the edges of G which corre-
+spond to the vertices of σ form the (k + 1)-component forest Σ. From the point of
+view of Σ, the statement that σ = σ(f , { e1 , . . . , ek }) for some pair (f , { e1 , . . . , ek })
+can be described as follows. We add k distinct edges ε1 , . . . , εk of G to Σ to obtain
+a spanning tree Γ which is a realization of f , and which is also such that the cor-
+responding maximal simplex is in T. For each i, the emerald endpoint of εi is ei ;
+furthermore and most crucially, εi is the first edge along the unique path in Γ that
+connects ei to its favorite (in relation to f ) hyperedge. In particular, the emerald
+endpoints of the ‘extra’ edges ε1 , . . . , εk are all distinct and, obviously, Σ and the
+extra edges determine the pair (f , { e1 , . . . , ek }). Let us call the collection ε1 , . . . , εk
+good with respect to σ if it fits the description above (with the given triangulation T
+and for the pair (f , { e1 , . . . , ek }) that the collection determines).
+   We need to show that for the given σ, there exists a unique collection ε1 , . . . , εk
+of edges not in Σ that is good in the sense of the previous paragraph. We start
+with uniqueness.
+   Injectivity of σ. Let ε1 , . . . , εk and δ1 , . . . , δk be two different good collections. If
+we enlarge Σ with the edges common to them, their remaining parts are still good
+collections for this larger forest/interior cell. (Note that favorites of hyperedges
+are decided not by Σ but by the actual spanning tree containing it and the latter
+remains the same even as we declare Σ to be bigger.) Hence we may assume that
+the two collections are disjoint.
+   Let the hyperedge a be the smallest favorite that occurs among simplices of T
+containing σ. (By this we mean the favorites of those hyperedges that received
+an extra edge in the extension and became internally inactive with respect to the
+hypertree induced by the extension. That set is non-empty because k ≥ 1 and the
+emerald endpoint of ε1 has a favorite different from itself.) Let Γa be the spanning
+tree in G provided by Lemma 4.1 applied to Σ and its component containing a.
+That is, Γa represents a maximal simplex in T, contains Σ, and has all its edges
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                               25
+
+
+beyond Σ face a with their violet endpoint. We are going to argue that Γa and
+the spanning trees Γε = Σ ∪ { ε1 , . . . , εk } and Γδ = Σ ∪ { δ1 , . . . , δk } cannot all be
+compatible (i.e., it is not possible for all three pairs to satisfy the condition given
+in Lemma 3.4), which will contradict their coexistence in T.
+   Let the emerald endpoints of the εi form the set S ε ⊂ E, and let the emerald
+endpoints of the δj form the set S δ ⊂ E. Within these, let Saε and Saδ denote the
+set of those hyperedges whose favorite is a. If e ∈ Saε , then by Lemma 4.2, all
+elements of S ε along the path pe in Γε from e to a also belong to Saε , and hence
+the edges εi adjacent to them belong to pe so that their violet endpoints face a.
+Similar observations hold true for Saδ . If a component of Σ contains an element of
+Saε as well as an element of Saδ then, just like in the proof of Lemma 4.1, it is easy
+to see that Γε and Γδ are not compatible trees. In the same way we obtain that
+
+(5.4) the edges εi adjacent to elements of Saε , as well as the edges δj
+                                     adjacent to elements of Saδ , are edges in Γa , too.
+    Let now f ε be the hypertree induced by Γε . For each element e ∈ S ε \ Saε ,
+there is a set of hyperedges that is tight at f ε , contains a, and does not contain
+e. The intersection T ε of these sets is also tight by Lemma 2.8, it is disjoint from
+S ε \Saε , and it contains Saε for otherwise thoseP  hyperedges could   P not transfer valence
+                                                                ε
+to
+P   a.  By     the  observation  (5.4), we see that    e∈T ε  f   (e) ≤   e∈T ε fa (e) but since
+            ε                                              ε
+   e∈T ε  f   (e)  is already at  the maximal   value µ(T    )  allowed  for any hypertree, it
+follows that
+• T ε is also a tight set at the hypertree fa induced by Γa and
+• Γa T ε = Γε T ε consists only of edges of Σ and the εi adjacent to elements of Saε .
+By the same token there is a set T δ ⊂ E that is tight at fa , contains a, and intersects
+S δ in exactly Saδ . By Lemma 2.8, T = T ε ∩ T δ is also tight at fa . It contains a
+and since Saε ∩ Saδ = ∅, the forest Γa T consists only of edges of Σ. However that
+means that a cannot receive a transfer of valence at any hypertree induced by an
+extension of Σ, which contradicts the definition of a.
+   Surjectivity of σ. It remains to show that any (k + 1)-component forest Σ ⊂ G,
+provided that it represents an interior face of T, can be extended to a spanning tree
+by a good collection of edges so that the corresponding maximal simplex occurs in
+T. It is tempting to think that the tree Γa defined above (i.e., the set of its edges
+beyond Σ) would satisfy the requirement but, unfortunately, that is not always the
+case (see Example 5.2 below). Instead, we devise the following iterative procedure.
+   Let a1 = a be the ‘smallest favorite’ hyperedge and Γ1 = Γa the spanning tree
+that we used before. In the set S1 of the k emerald endpoints of the edges in Γ1 \ Σ,
+let us consider those that cannot transfer valence to a1 . These are separated from
+a1 by sets that are tight at the hypertree f1 = fa induced by Γ1 . The intersection T1
+of these sets is also tight at f1 , it contains a1 , and hence it intersects S1 in exactly
+those of its elements that can transfer valence to a1 at f1 . By Lemmas 4.2 and 2.9,
+we may assume that Γ1 T1 is connected. We add to Σ the edges of Γ1 \ Σ that are
+adjacent to elements of S1 ∩T1 . During the rest of the construction we will keep the
+subgraph Γ1 T1 fixed so that T1 remains a tight set at subsequent hypertrees, too.
+This serves to ‘protect’ the transfers of valence that we have found from elements
+of S1 ∩ T1 to a1 , as well as to maintain the situation that the extra edges adjacent
+to those emerald vertices point toward a1 . Indeed, if an element of S1 ∩ T1 got
+26                  TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+separated from a1 by a tight set at a later stage, then the intersection of that set
+with T1 would also be tight at that hypertree; but then the same set would be tight
+at f1 as well, contradicting the possibility of the transfer at f1 .
+   Next, let a2 be the smallest hyperedge not in T1 . Let us apply Lemma 4.1 to the
+forest Σ ∪ (Γ1 T1 ) and its component containing a2 to obtain the spanning tree Γ2
+that induces the hypertree f2 . There is again a tight set T2′ of hyperedges that
+contains a2 and all emerald endpoints of the edges in Γ2 \ Σ \ (Γ1 T ) that can
+                                                                            1
+transfer valence to a2 at f2 but does not contain any of those that cannot. We may
+assume that Γ2 T ′ is connected. We let T2 = T1 ∪ T2′ ; by Lemma 2.8, this set is also
+                   2
+tight at f2 , as well as at later hypertrees. The set T2 will protect the transfers of
+valence that we have just found to a2 . The set T1 , on the other hand, will guarantee
+that the givers of those transfers will not find receivers smaller than a2 at any time
+during the rest of the process.
+   We iterate our construction, always taking the smallest hyperedge ai+1 outside of
+the last element Ti of our sequence of nested tight sets. In each step ai+1 , possibly
+with other hyperedges, will be added to Ti to form the next tight set Ti+1 . Thus
+the sequence {Ti } is strictly increasing, and eventually the tight set will be E itself.
+At that stage, all emerald vertices that have an extra edge adjacent to them have
+it point in the direction of their favorite. This completes the proof of surjectivity
+and hence the proof of the Theorem, as well as the proof of Theorem 1.1.              
+Example 5.2. We use the plane bipartite graph G of Example 2.6 to illustrate some
+of the subtlety of the proof of Theorem 5.1. Let us consider one of the triangulations
+provided by [5, Theorem 1.1]. Namely, we orient the edges of the dual graph G∗
+so that each has an emerald point to its right, we fix the root of G∗ in the outside
+region, construct all (say, outgoing) spanning arborescences relative to it, and then
+consider the spanning trees of G that are dual to those. The maximal simplices of
+QG that correspond to the latter form a triangulation T.
+
+
+                       Γ4                                      Γ3
+
+                                           c
+
+                                           d
+                                                   b
+
+                                               a
+
+                       Γ1                                      Γ2
+
+
+
+     Figure 5. A codimension 2 interior simplex and the four maximal simplices
+     containing it, each represented by the corresponding cycle-free subgraph.
+
+   We let Σ be the three-component forest shown in the middle of Figure 5. The
+corresponding codimension 2 simplex σ lies in the interior of QG and it is contained
+in exactly four maximal simplices. These are represented by the corresponding
+spanning trees Γi , 1 ≤ i ≤ 4. The four black line segments indicate adjacency
+                ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                              27
+
+
+through a facet. Let us also use the symbol fi to denote the hypertree (in the
+hypergraph with emerald hyperedges) induced by Γi .
+    Let us choose the order a < b < c < d on the emerald color class E. First
+we illustrate the last (surjectivity) part of the proof. The hypertree f2 is the one
+that extends the valence distribution of Σ at the lexicographically smallest multiset,
+namely { a, b }. That hypertree does not in general have to be realized by a maximal
+simplex adjacent to Σ and in any case, only d is internally inactive with respect
+to f2 and d did not even receive an extra edge when Σ was extended to Γ2 . The
+spanning tree that results if we apply Lemma 4.1 to the component of Σ containing
+a is Γ3 . The only internally inactive hyperedge with respect to f3 is d. Indeed, the
+set { a, d } is tight at f3 so that b cannot transfer valence to a, regardless of the fact
+that it received an extra edge pointing toward a. The unique good collection of
+extra edges for Σ is in fact the one that extends it to Γ4 . With respect to f4 , the
+hyperedge d is internally inactive and its favorite is a, but since the set { a, d } is
+still tight, the favorite of the other internally inactive hyperedge, c, ends up being
+b. In the case of Γ4 the extra edges are received exactly by d and c and they indeed
+point toward their respective favorites.
+    This same example is a good illustration of the first (well-definedness) part of the
+proof, too. If we think of the black line segments of Figure 5 as connections between
+the appropriate emerald markers fi+ , then in that sense they form a proper regular
+square. Each side is in fact a feeler (in this case neither crosses into more than two
+maximal simplices). For example with respect to f1 , the hyperedge c is internally
+inactive and its favorite is b. Since a transfer of valence at f1 from c to b results in
+f2 , the corresponding feeler connects f1+ to f2+ . In SE (cf. (3.8)), the
+                                                                        a-coordinates
+of the emerald markers dilated from f1+ and f2+ are both 51 2 + 41 = 0.45, and the
+                                                                                
+a-coordinates of the points corresponding to f3+ and f4+ are both 51 1 + 14 = 0.25,
+cf. (3.11) and (3.12), whereas any point along σ∩SE has a-coordinate 51 + 15 = 0.4 (σ
+is parametrized by weights on the edges of Σ and along SE , the sum of the weights
+on edges adjacent to the same violet vertex has to be 1/5). This and a similar
+computation of b-coordinates show that σ intersects the square formed by the four
+feelers, viewed as a subset of SE ⊂ QG , at the midpoint of the southeast quarter
+square. (The intersection point is interior to σ because its barycentric coordinates
+are 1/10 on the two edges connecting c and d and 1/5 on the other four edges.)
+In particular, as the triangle spanned by the two feelers adjacent to f4+ is disjoint
+from σ, we need f2+ (i.e., an application of Lemma 4.5) as well to demonstrate that
+σ is an interior simplex.
+Example 5.3. Let G be the complete bipartite graph with color classes of size m + 1
+and n + 1, respectively. It is not hard to verify (see [4, Example 7.2]) that in the
+interior
+       polynomial
+                    I(ξ) of either hypergraph that G induces, the coefficient of ξ k
+    m n
+is k k . On the other hand, the root polytope QG is the product of an m- and
+an n-dimensional
+                  unit simplex, so that the number of lattice points in s · QG is
+ s+m s+n
+  m      n    and thus the Saalschütz formula (1.3) follows from (1.2) and (5.1).
+   It is in fact possible to give a proof of the classical Saalschütz formula using
+the point of view of this paper but without relying on the interior polynomial and
+Theorem 1.1. Let us consider the following concrete triangulation of QG [2]. We
+denote the color classes of G by E = { e0 , e1 , . . . , em } and V = { v0 , v1 , . . . , vn }.
+We fix two horizontal lines on the plane and write the symbols for the elements of
+E and V , respectively, on them from left to right in the indicated order. We call a
+28                   TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+subgraph of G non-crossing if the straight line segments in our figure that represent
+its edges only intersect at endpoints. The maximal simplices that correspond to two
+non-crossing spanning trees share a common facet if and only if the two trees differ
+by a single (obviously defined) ‘N ↔ N transition.’ A non-crossing spanning tree
+can be uniquely described by a zigzag, that is a non-crossing path in G containing
+the leftmost edge e0 v0 and the rightmost edge em vn . Here the zigzag is a subgraph
+of the corresponding tree and the degree 2 vertices of the zigzag are exactly the
+degree ≥ 2 vertices of the tree.
+    It turns out [2] that the collection of simplices in QG = ∆E ×∆V that correspond
+to non-crossing spanning trees is a shellable triangulation. For example, it is not
+hard to verify that the hypertree order (2.2) induces a shelling order. It is also
+not hard to show that in order for a simplex to have k adjacent (through a facet)
+simplices that are smaller in the shelling order, its zigzag has to have exactly k
+degree 2 vertices among e1 , . . . , em . Once we have fixed those, the zigzag will be
+uniquely determined by the choice     nof its k degree 2 vertices among v0 , . . . , vn−1 .
+Hence we see that there are m      k   k such trees and therefore (1.3) follows by the
+argument outlined in Remark 3.12.
+    The version (1.4) of Saalschütz’s identity can be derived in essentially the same
+way, by counting interior lattice points in (q + 1)QG with the help of the same
+triangulation as above, using the process explained at the beginning of this section.
+   The following obvious corollary of Theorem 1.1 was stated as Conjecture 7.1 in
+[4] and was also mentioned in [3, 5].
+Corollary 5.4. Any pair H, H of abstract dual (transpose) hypergraphs satisfies
+                                     IH (x) = IH (x).
+   Now that we know that the interior polynomial is not just an invariant of a
+hypergraph but actually an invariant of the underlying bipartite graph, it becomes
+an interesting problem to express individual coefficients directly in terms of the
+graph (i.e., without either breaking the symmetry between the color classes or
+using the root polytope). As we recalled (and re-proved) in Remark 3.11, such
+formulas are known [4] for the constant term (which is always 1) and the linear
+coefficient (which is the first Betti number). Here we present one for the quadratic
+coefficient.
+Proposition 5.5. Let the connected bipartite graph G have first Betti number (nul-
+                                                                             a2 in
+lity) b1 and let it have N cycles of length four. Then the quadratic coefficient
+the common interior polynomial of the hypergraphs induced by G is b12+1 − N .
+
+      Let the color classes of G be E and V . The formula (3.7) gives a2 =
+Proof.
+ d+1
+  2    − df0 + f1 , where d = |E| + |V | − 2 is the dimension of the root polytope QG ,
+f0 is the number of edges in G, and f1 is the number of 1-dimensional simplices in
+an arbitrary
+             triangulation of QG . Since b1 = f0 − d − 1, it suffices to show that
+N = f20 − f1 . In other words, we wish to prove that in any triangulation T of QG ,
+the set of pairs of vertices that are not connected by an edge in T is in a one-to-one
+correspondence with the set of four-cycles of G.
+   Any pair ε, δ of edges of G is disjoint from |E| + |V | − 4 (or |E| + |V | − 3, if ε
+and δ share an endpoint) star-cuts. The supporting hyperplanes of these cuts (as
+in Lemma 3.5, but this time let us take their intersections with the affine hull of
+               ROOT POLYTOPES, TUTTE POLYNOMIALS, AND DUALITY                           29
+
+
+QG ) intersect in an affine subspace7, which in turn intersects QG in the convex hull
+of 2, 3, or 4 vertices. Indeed, if ε and δ are adjacent then there are no other edges
+connecting their endpoints. Otherwise, there may be one or two such additional
+edges, the latter case being when ε and δ are opposite edges along a four-cycle. (As
+G is bipartite and does not have multiple edges, there may be at most one such
+four-cycle.) Therefore the segment in QG determined by ε and δ is either an edge
+of QG and hence part of T, or a diagonal of a quadrilateral (in fact, square) face of
+QG . Since T induces triangulations of all faces, exactly one of the two diagonals will
+be a one-simplex in T. Finally, square faces of QG are in a bijection with four-cycles
+of G: we saw how a four-cycle gives rise to a square face and conversely, the four
+vertices of a square are affinely dependent, i.e., the four corresponding edges form
+a cycle.                                                                            
+Example 5.6. Regarding our two running examples, K2,3 has nullity b1 = 2 with
+3 four-cycles, implying a2 = 0. The graph of Figure 1 also has N = 3 but with
+b1 = 4, yielding a2 = 7. These match the results of Examples 2.5 and 2.6.
+   Corollary 5.4 implies a new formula for TG (x, 1) of an ordinary (not necessarily
+bipartite) graph G = (V, E). This can be used, for instance, to write the so-called
+reliability polynomial of an arbitrary connected plane graph as a generating function
+of activities associated to its regions. To set up the formula, enumerate all possible
+valence distributions h : V → N of spanning trees in the graph G′ that is obtained
+from G by adding a new vertex in the middle of each edge. (Say that we subtract
+1 from the actual valence at each v ∈ V , although this is not important right now.)
+All spanning trees of G′ are obtained from spanning trees of G by adding one of the
+two halves for each of the b1 (G) external edges. Despite this multitude of choices,
+the set B(E,V ) of our valence distributions ends up being equinumerous with the
+set B(V,E) of spanning trees.
+Corollary 5.7. Order the set V arbitrarily and compute the internalPactivity ι(h)
+                                                                       ι(h)−1
+for each h ∈ B(E,V ) as in Definition 2.3. Then we have TG (x, 1) = h x       .
+   In spite of the fact that the case of a plane bipartite graph is often simpler
+than the general one, due mainly to the presence of the dual graph of the planar
+embedding which is naturally directed and balanced, the following two corollaries
+eluded proof until now. (Plane bipartite graphs also form triples called trinities. See
+the seminal paper [13] by Tutte that contains the proof of the so-called Tree Trinity
+Theorem, or [4, Sections 8-10].) The first one was predicted in [4, Subsection 10.3],
+where it is also explained why the planar duality formula [4, Theorem 8.3] and
+Corollary 5.4 suffice to establish it.
+Corollary 5.8. The interior and exterior polynomials associated to the six hyper-
+graphs induced by the plane bipartite graphs in the same trinity altogether form a
+three-element set.
+   Shapiro and the second author defined so-called parking functions for an arbi-
+trary directed graph [9]. These objects have a natural enumerator p which is a
+one-variable polynomial with positive integer coefficients. Such a parking function
+enumerator can in particular be associated to the dual graph of a plane bipartite
+  7For some very small graphs we may be talking about an intersection of zero hyperplanes,
+which we take to be the affine hull of QG .
+30                     TAMÁS KÁLMÁN AND ALEXANDER POSTNIKOV
+
+
+graph (see, e.g., [5] for details). Combining Theorem 1.1 with [5, Corollary 1.5]
+yields our last result. In the case when one of the hypergraphs induced by the bi-
+partite graph is in fact a graph, this easily follows from a formula of Merino López
+[6] via the connection noted in [9] between parking functions and the chip firing
+game (a.k.a. abelian sandpile model). The general case is however new.
+Corollary 5.9. Let G be a connected plane bipartite graph so that the common
+interior polynomial of its induced hypergraphs is I. Then I = p, where p is the
+parking function enumerator associated to the dual graph G∗ .
+
+                                         References
+ [1] G. E. Andrews, Identities in combinatorics, I: On sorting two ordered sets, Discr. Math. 11
+     (1975), 97–106.
+ [2] I. M. Gelfand, M. I. Graev, and A. Postnikov, Combinatorics of hypergeometric functions
+     associated with positive roots, in “Arnold–Gelfand Mathematical Seminars: Geometry and
+     Singularity Theory,” Birkhäuser, Boston, 1996, 205–221.
+ [3] A. Juhász, T. Kálmán, and J. Rasmussen, Sutured Floer homology and hypergraphs, Math.
+     Res. Lett. 19 (2012), no. 6, 1309–1328.
+ [4] T. Kálmán, A version of Tutte’s polynomial for hypergraphs, Adv. Math. 244 (2013), no. 10,
+     823–873.
+ [5] T. Kálmán and H. Murakami, Root polytopes, parking functions, and the HOMFLY polyno-
+     mial, arXiv:1305.4925.
+ [6] C. Merino López, Chip firing and the Tutte polynomial, Ann. Comb. 1 (1997), no. 3, 253–259.
+ [7] H. R. Morton: Seifert circles and knot polynomials, Math. Proc. Camb. Phil. Soc. 99 (1986),
+     107–109.
+ [8] A. Postnikov, Permutohedra, Associahedra, and Beyond, Int. Math. Res. Not. 2009, no. 6,
+     1026–1106.
+ [9] A. Postnikov and B. Shapiro, Trees, parking functions, syzygies, and deformations of mono-
+     mial ideals, Trans. Amer. Math. Soc. 356 (2004), no. 8, 3109–3142.
+[10] F. Santos, The Cayley trick and triangulations of products of simplices, in “Integer Points in
+     Polyhedra – Geometry, Number Theory, Algebra, Optimization,” A. Barvinok, M. Beck, C.
+     Haase, B. Reznick, and V. Welker (eds.), Contemp. Math. 374, AMS, Providence, 2005.
+[11] A. Schrijver, Combinatorial optimization. Polyhedra and efficiency. Algorithms and Combi-
+     natorics 24, Springer-Verlag, Berlin, 2003.
+[12] E. Swartz, From polytopes to enumeration, http://www.math.cornell.edu/~ ebs/math455.pdf.
+[13] W. T. Tutte, The dissection of equilateral triangles into equilateral triangles, Proc. Cambridge
+     Philos. Soc. 44 (1948), 463–482.
+
+     Tokyo Institute of Technology
+     E-mail address: kalman@math.titech.ac.jp
+     URL: www.math.titech.ac.jp/~kalman
+
+     Massachusetts Institute of Technology
+     E-mail address: apost@math.mit.edu
+
