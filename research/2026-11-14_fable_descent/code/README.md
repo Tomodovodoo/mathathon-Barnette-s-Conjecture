@@ -12,6 +12,7 @@ Run everything from this folder (`research/2026-11-14_fable_descent/code`) in Gi
 | `run_walk.sh` | Batch driver for `walk.exe` on random instances. |
 | `summarize.py` | Census outputs to `data/census_summary.json` and `data/census_tables.md`. |
 | `verify_witness.py` | Independent check of the `k`-witnesses with the reference lab (no shared code with the engine). |
+| `verify_heights.py` | Independent check of Lemma B: takes the spoke weights from the reference lab and tests the three heights on every move from every pair with `V` vertices. |
 | `gm_lengths.py` | Lengths of the marked walk of the trees paper from every pair, using the reference lab. |
 
 Build: `g++ -O2 -o descent.exe descent.cpp` and `g++ -O2 -o walk.exe walk.cpp`. The binaries are not committed.
@@ -42,4 +43,6 @@ Output lines of `descent.exe`: `T` totals, `K` histogram of `k`, `S` one line pe
 | `families.txt` | see `data/README.md` |
 | `witnesses.txt` | selected `W` lines of the files above (`grep -m1` commands in `data/README.md`) |
 | `witnesses_verified.json` | `python verify_witness.py ../data/witnesses.txt > ../data/witnesses_verified.json` |
+| `heights_check.txt` | `for v in 12 13 14 15 16; do python verify_heights.py $v; done > ../data/heights_check.txt` |
+| `census_23_partIof8.txt`, `I = 0..7` | `$P -ba 23 I/8 \| ./descent.exe -pots 1 -w 1 > ../data/census_23_partIof8.txt` (about 4 minutes each, potential `k` only) |
 | `gm_lengths_V.json` | `python gm_lengths.py V > ../data/gm_lengths_V.json` |

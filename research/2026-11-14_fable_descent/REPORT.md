@@ -7,7 +7,7 @@ Fable 5.2, 2026-11-14, folder `research/2026-11-14_fable_descent/`.
 2. Every variant that would bound the search is false: strict descent in `k` (`V = 16`, least), lookahead two (`V = 21`, least), lookahead three (`V = 40`), any potential that charges for the number of `D`-cycles (`V = 16`), the plateau-free height potentials (`V = 16` or `18`), and plateau moves ordered by a height or by the size of the Q-cycles (`V = 18` or `40`). Twenty-seven of the 28 potentials I tested die. `k` alone survives.
 3. Two structural facts, both proved here: a D-swap destroys exactly the Q-cycles that meet its cycle, and there are three heights with constant sum such that every exchange move transfers the number of enclosed white faces from one to another. Gluing into a white face gives products, so the trick that killed R2 cannot touch C3.
 4. Complexity: the tree-pair search is in PPADS (find a sink), by merging the phases of the marked walk into one instance. It is not shown to be in PPAD, because the walk has many useless sources, and C3 would not put it in PLS. `COMPLEXITY.md` has the paragraph for the exposition.
-5. Lengths: in practice a handful of moves (mean 1 to 8, most 17, up to `V = 300`). The only proved statement is a lower bound, `2(V - 3)/13` moves on chains of the `V = 16` trap.
+5. Lengths: in practice a handful of moves (batch means 1 to 8, most 17, up to `V = 300`). The only proved statement is a lower bound, `2(V - 3)/13` moves on chains of the `V = 16` trap.
 
 ## What I set out to do
 
@@ -71,7 +71,7 @@ The lesson for the next person: the census to 22 vertices is not a safe guide he
 
 - **Topology route, R9.** "Each phase is END-OF-LINE" should read "each phase is a find-a-sink instance". With that change the phases merge and the problem is in PPADS. END-OF-LINE proper is useless here because other sources are free (`COMPLEXITY.md` 3).
 - **Constructive folder.** "A tree matching within ten moves on every tested instance" is an observation about those instances. The chain of six `V = 16` traps (`V = 81`) needs twelve.
-- **Graph-theory folder.** Its weak descent D2 first fails at `V = 16`, not `V = 30` or `50`. The witness is the first line of `data/witnesses.txt`. Its conjecture D3 with two steps fails at `V = 21`.
+- **Graph-theory folder.** Its weak traps start at `V = 16` (not 30) and its deep traps at `V = 21` (not 50), both least by exhaustion. The witnesses are lines 1 and 8 of `data/witnesses.txt`. Its conjecture D3 with two steps fails at `V = 21`.
 - **Digestion 09, door 4.** The requested search for a closed plateau has now been done exactly to `V = 22` and on random instances to `V = 80`. The entry can say so, and can add that no tie-break rule survives.
 - **Exposition.** Two statements are short and I think worth a figure. The three heights: a D-swap moves `W` units of height between `r` and `s`, a Q-reversal between `r` and `u`, where `W = B + 1` is the number of white faces inside the cycle. And the `V = 16` picture: one Hamiltonian D-cycle, `Q_s` and `Q_r` each with a cycle, so the proof has to change the 2-factor.
 - **Anyone with a census need.** `code/descent.exe` builds every exchange graph for `V <= 22` in about twelve minutes and checks the component theorem on the way.

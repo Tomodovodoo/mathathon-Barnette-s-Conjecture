@@ -15,11 +15,14 @@ All files are `COMPUTED`. Commands are run from `../code` in Git Bash (see `../c
 | `walk_random_B.txt` | Sampling on larger instances with the final `walk.cpp` | `bash run_walk.sh ../data/walk_random_B.txt "skew" "200 300" 8 21 1500 0.5` |
 | `witnesses.txt` | One witness line for each refutation quoted in `DESCENT.md` | `grep -m1` on the files above, listed below |
 | `witnesses_verified.json` | Independent recomputation of the `k`-witnesses with the reference lab | `python verify_witness.py ../data/witnesses.txt > ../data/witnesses_verified.json` |
+| `heights_check.txt` | Lemma B checked with the lab's weights, `V = 12..16` | `for v in 12 13 14 15 16; do python verify_heights.py $v; done` |
+| `census_23_partIof8.txt` (`I = 0..7`) | The census at `V = 23` in eight plantri parts, potential `k` only | `$P -ba 23 I/8 \| ./descent.exe -pots 1 -w 1` |
 | `gm_lengths_V.json` (`V = 12..17`) | Marked-walk lengths from every non-tree pair, and the distance to the nearest tree pair | `python gm_lengths.py V > ../data/gm_lengths_V.json` |
 
 ## Incidents
 
 - `walk_random_A.txt`: the driver was started as a background job with a 15 minute limit. The limit fell during the batch `skew V=200`. That batch has no summary line and its partial witness lines must not be used. The shell loop survived the limit and went on with the `ins` batches while the orphaned `skew V=200` process was still running, so two heavy processes overlapped for about a minute before I killed the orphan. The `ins` batches completed normally. I also overwrote the header of the `ins V=150` batch by mistake and restored it by hand. No number in the report comes from the unfinished batch.
+- `verify_heights.py` (Python, about a minute) ran while part 0 of the `V = 23` census was still running in the background.
 - The `ins`, `skew` models are not uniform, and `skew` (insertion at a vertex chosen with probability proportional to the cube of its degree) is the harder one for every variant.
 
 ## families.txt

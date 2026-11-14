@@ -33,7 +33,7 @@ For a potential `Phi` and a move set I ask three questions, in increasing streng
 - **Strict descent.** Does every non-tree pair have a move to a strictly smaller `Phi`? A non-tree pair without one is a *strict local minimum*.
 - **Escape radius.** The least number of exchange moves from a pair to a pair with strictly smaller `Phi`, with no condition on the pairs in between. Strict descent with a lookahead of `L` moves works iff the radius is at most `L` everywhere.
 
-Move sets: single exchange moves, and macro moves, where a macro move of length at most two is any pair at distance at most two with `Phi` not larger. The variant "reverse a cycle of `D`, then make a forced repair" is a macro move of length two, so it is covered: where macro moves of length two fail, it fails. The data say the useful compound move has the other order, a Q-reversal followed by a D-swap (Section 4).
+Move sets: single exchange moves, and macro moves, where a macro move of length at most two is any pair at distance at most two with `Phi` not larger. The variant "reverse a cycle of `D`, then make a forced repair" is a macro move of length two, so it is covered. Where macro moves of length two fail, it fails. The data say the useful compound move has the other order, a Q-reversal followed by a D-swap (Section 4).
 
 The engine `code/descent.cpp` enumerates all 2-factors of a rooted instance, all their orientations, builds `E`, and answers the three questions for 28 potentials by breadth-first search on the digraph of allowed moves. It reproduces the refereed totals exactly (5,088 rooted instances, 24,744 pairs, 24,090 tree pairs for `V <= 16`, and 4,656,948 rooted instances with a pair for `V <= 22`). An independent check of the main witnesses with the reference lab is in `data/witnesses_verified.json`.
 
@@ -61,7 +61,7 @@ The engine `code/descent.cpp` enumerates all 2-factors of a rooted instance, all
 
 The candidate named in the brief, `(c, then the white faces inside the Q-cycles)`, is `(c, wq)`. It dies at `V = 16` for a reason that has nothing to do with the heights: `c` has to go up before `k` can go down (Proposition E).
 
-Three things in this table surprised me. First, the height tie-breaks looked right on the whole census and then failed on the first random instances with 40 vertices. Second, lookahead two fails at 21 vertices and at no rooted instance with 22. Third, the plateau-free potentials, which would have given a polynomial algorithm outright (Corollary B1), fail earlier than anything else.
+Three things in this table surprised me. First, the height tie-breaks looked right on the whole census and then failed on the first random instances with 40 vertices. Second, lookahead two fails at 21 vertices and at no rooted instance with 22. Third, the plateau-free potentials, which would have given a polynomial algorithm outright (Corollary B1), fail as early as plain strict descent does.
 
 ## 4. Traps
 
@@ -71,9 +71,9 @@ Three things in this table surprised me. First, the height tie-breaks looked rig
 
 - strict descent in `k` fails, and the escape is "Q-reversal, then D-swap";
 - anything that charges for `c` is stuck, because the escape goes through `c = 3`;
-- this is the instance behind the remark that one 2-factor can carry no tree pair.
+- it is an instance of the known fact that one 2-factor can carry no tree pair (the instance has three 2-factors, with 1, 3 and 3 cycles, and 18 pairs).
 
-The graph-theory folder reported strict descent ("weak descent" there, with a free choice of mate) as true exhaustively to `V = 15` and first failing in random tests at `V = 30`. The exhaustive answer is 16.
+The graph-theory folder calls a strict local minimum a weak trap. It found the first one at `V = 30` by random search, after an exhaustive check to `V = 15`. The exhaustive answer is 16. Its deep trap (no lowering swap under any mate) is a pair with no exit of the form "Q-reversals, then one D-swap". The least one is at `V = 21` (the six pairs of Section 4.2), against `V = 50` found there by sampling.
 
 ### 4.2 What strict local minima look like
 
@@ -92,10 +92,10 @@ The graph-theory folder reported strict descent ("weak descent" there, with a fr
 - Every one has `k = 1`. Pairs with `k = 2` or `3` exist in this range (64,964 of them at `V <= 21`) and all of them have a D-swap that lowers `k`.
 - In 15,178 of 15,364 the Q-cycle `K` has all its vertices on one D-cycle `C`. Swapping `C` destroys `K` (Lemma A) and creates exactly one new cycle.
 - Whenever an exit of length two exists, "reverse `K`, then swap a cycle of the new 2-factor" is one. A second D-swap works in about half of the cases.
-- Both regularities weaken with size. On 40 random triangulations with 40 vertices (`data/sinkstats_random40.txt`, 11,778 strict local minima) 65 have `k = 2`, 15% have a Q-cycle that meets two or three D-cycles, and 143 have only the exit "D then D".
-- The six pairs with no exit of length two (all at `V = 21`, plantri graph 47751, root `(0, 1, 2)`, `c = 2`) have a Q-cycle that meets both D-cycles. The radius-4 traps found at `V = 50` to `200` also have `k = 1`.
+- These regularities weaken with size. On 40 random triangulations with 40 vertices (`data/sinkstats_random40.txt`, 11,778 strict local minima) 65 have `k = 2`, 15% have a Q-cycle that meets two or three D-cycles, and 143 have only the exit "D then D".
+- The six pairs with no exit of length two (all at `V = 21`, plantri graph 47751, root `(0, 1, 2)`, `c = 2`) have a Q-cycle that meets both D-cycles. The radius-4 pairs found by sampling at `V = 60` to `200` also have `k = 1`.
 
-So the picture asked for in the brief is nearly right, with one correction. A trap is a single Q-cycle sitting on a single D-cycle. What blocks the swap is not nesting but the twin cycle: `f` and `f'` of Lemma A each have a cycle through `V(C)`.
+So the picture asked for in the brief is nearly right, with one correction. A small trap is a single Q-cycle sitting on a single D-cycle. What blocks the swap is not nesting but the twin cycle: `f` and `f'` of Lemma A each have a cycle through `V(C)`.
 
 ### 4.3 When does a D-swap destroy a Q-cycle without creating one
 
@@ -137,12 +137,11 @@ Three families named in the brief are vacuous for descent, each for a provable r
 | Quantity | Range | Value |
 | --- | --- | --- |
 | Largest distance in `E` from a pair to a tree pair | census | 0 for `V <= 11`, 1 for `V = 12..15`, 2 for `V = 16..19`, 3 for `V = 20..22` |
-| | random exact | up to 5 (`V = 50`) |
+| | random exact | up to 5 (`V = 50`, `60`) |
 | Largest length of a shortest non-increasing path to a tree pair | census | 3 |
-| | random exact | up to 5 (`V = 50`) |
+| | random exact | up to 5 (`V = 50`, `60`) |
 | | sampled, `V = 150` | 8 |
-| | random exact, `V = 60` | 5 |
-| Moves used by nearest-improvement descent (go to the nearest pair with smaller `k`, repeat) | sampled, 520,284 starts | mean 1.2 to 3.4, largest 12 (`V = 150`, start with `k = 7`). Table below |
+| Moves used by nearest-improvement descent (go to the nearest pair with smaller `k`, repeat) | sampled, 536,258 starts | mean 1.0 to 7.7 per batch, largest 17 (`V = 300`, start with `k = 13`). Table below |
 | Marked walk of the trees paper, from every non-tree pair (reference lab) | all rooted instances, `V = 12..17`, 2,610 starts | at most 7 involution moves, at most 8 exchange moves with the initial normalisation, 293 restarts. The nearest tree pair is at distance at most 2 in the same range |
 
 Nearest-improvement descent on sampled non-tree pairs (`data/walk_random_A.txt`, `data/walk_random_B.txt`; the walk is biased towards large `k`):
@@ -169,7 +168,7 @@ The mean grows roughly linearly with `V` in the skew model, from 1.15 at `V = 40
 
 **Comparison with the marked walk.** Up to `V = 17` the marked walk is as short as everything else: 0 moves in 65% of the starts (orienting all D-cycles counterclockwise already gives a tree pair), at most 7 otherwise. Its `2^{O(n log n)}` bound is not visible at these sizes. I did not run it on large instances, because the reference implementation is slow there, so I cannot say where it starts to lose against descent.
 
-Nothing here is an upper bound. What is proved: a non-increasing path, if it exists, has no a priori length bound, because plateau moves are free. The refinement that would have bounded it, D-swaps monotone in `w_s`, gives paths of length `O(n^4)` when it applies and is false in general (`V = 40`).
+Nothing here is an upper bound. No bound on the length of a non-increasing path is known, because plateau moves are free. The refinement that would have bounded it, D-swaps monotone in `w_s`, gives paths of length `O(n^4)` when it applies and is false in general (`V = 40`).
 
 ## 6. The proof attempt and where it stops
 
@@ -194,7 +193,7 @@ Nothing here is an upper bound. What is proved: a non-increasing path, if it exi
 | Proposition E (potentials monotone in `c` are trapped at `V = 16`) | `COMPUTED`, with the parity of `c` from the trees paper |
 | Proposition F (bounded escape radius gives a polynomial algorithm) | `PROVED-HERE` |
 | C3 | `CONJECTURE`. Test: find a closed plateau. `COMPUTED` none for `V <= 22` |
-| Escape radius of `k` is unbounded | `HUNCH`. Observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 50` |
+| Escape radius of `k` is unbounded | `HUNCH`. Observed maxima 1, 2, 3, 4 at `V = 15, 16, 21, 40` |
 | Every strict local minimum of `k` has `k = 1` | `COMPUTED` true for `V <= 21`, `REFUTED` at `V = 40` (65 of 11,778 strict local minima of 40 random triangulations have `k = 2`) |
 | C3 restricted to D-swaps monotone in `w_s` | `REFUTED`, `V = 40` |
 | Strict descent in any of the twelve plateau-free height potentials | `REFUTED`, `V = 16` or `18` |
