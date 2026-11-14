@@ -72,7 +72,7 @@ Throughout, $m = c_{\min}$ and $A_C > 0$ is the white-face count of $C$ or, in a
 | linear weights | $P(x) = \mathcal F(1 + x a)$ | coefficient of $x^m$ is $(-1)^{(n-m)/2}\sum \prod A_C$ | real signs and a polynomial of degree at most $n$ |
 | heights | $F(s) = \prod_{i=1}^m h_s(w_i)$ for chosen faces $w_i$ | $S_F = (-1)^{(n-m)/2} N$ with $N \ge 1$ a count | no weights at all |
 
-The first three are published. They are the same computation. Li's marks are the monomials of the Taylor coefficient of order $m$ for one choice of weights, and the three signs agree up to a constant (`research/2026-11-14_fable_dependency-graph/correspondence.md`, notes 3.1 and 3.3, proved in this project and not refereed).
+The first three are published. They are the same computation. Li uses sets of distinct marked crossings, not ordered lists or marks with repetition. Identifying their signed count with a polynomial coefficient requires those multiplicities and signs to be checked. The three pair signs agree up to a constant (`research/2026-11-14_fable_dependency-graph/correspondence.md`, notes 3.1 and 3.3, proved in this project and not refereed).
 
 The last two came out of this project. Linear weights are section 7 of `research/2026-11-14_astra_route-dimers/PROOF.md`. A second model refereed that proof and found it correct, then rewrote it with real signs in `research/2026-11-14_fable_referee-determinants/SIGNIFICANCE.md` section 2. The rewrite has had no second reader. Heights are sections 1 to 3 of `fable_route-combinatorics/PROOF.md`. A second model refereed them, found that the argument follows, and wrote a self-contained version. For both, no human has read the proof.
 
@@ -130,7 +130,7 @@ The term $-z^2$ of $D_1$ and the term $+z^2$ of $D_2$ cancel. These are the two 
 
 $$Z(z) = z^{-4} - z^{-3} + z^{-2} - z^{-1} - z + z^{3},$$
 
-six terms, one for each tree matching. $Z(1) = 0$ and $Z'(1) = 0$, and the coefficient of $(z-1)^2$ is $6 \cdot 1 + 3 \cdot 1 = 9$, with sign $(-1)^{(10-2)/2} = +1$. The lab's `polynomial()` returns the same six coefficients with exponents shifted by 5.
+six terms, one for each tree matching. $Z(1) = 0$ and $Z'(1) = 0$, and the coefficient of $(z-1)^2$ is $6 \cdot 1 + 3 \cdot 1 = 9$, with sign $(-1)^{(10-2)/2} = +1$. The lab run recorded in `research/2026-11-14_astra_audit-digestions/outputs/verification.json` gives $1-z^2-z^4+z^5-z^6+z^7=z^3 Z(z^{-1})$. Its embedding reverses orientation and its weights add a state-independent shift. Comparison must allow reflection as well as a monomial factor; a shift alone does not describe this run.
 
 **As an exponential sum** (OpenAI). $Z(x) = \sum i^J e^{x\omega(s)} = -\bigl(e^{-4x} - e^{-3x} + e^{-2x} - e^{-x} - e^{x} + e^{3x}\bigr)$. Its Taylor series starts with $-9x^2$, and $-9 = (-i)^2(6 \cdot 1 + 3 \cdot 1)$.
 
@@ -149,7 +149,7 @@ six terms, one for each tree matching. $Z(1) = 0$ and $Z'(1) = 0$, and the coeff
 
 The total is $1$. The predicted value is $(-1)^{(n-m)/2} N$ with $N$ the number of ways to send $8$ and $18$ to different cycles of one cover that contain them. Face 8 lies only in the 7-cycle of $D_1$ and face 18 lies in both cycles of $D_1$ and in no cycle of $D_2$. So $N = 1$. With $w_1 = w_2 = 18$ the same sum is $2$, for the two bijections in $D_1$.
 
-**Li's version** on this example would list pairs with two marked ray crossings. I did not run it. The lab implements it in `barnette_lab/li.py` and its agreement with the other versions is computed there on a finite range that the referee of the determinant reports did not cover.
+**Li's version, independently rerun with the lab.** There are 213 objects with two distinct marks. The first involution fixes 141 objects, of signs 66 positive and 75 negative. The second fixes 9 objects, all negative. Both signed sums are $-9$. Every image remains in the object set, each map squares to the identity, and every nonfixed orbit reverses sign. These are finite checks, not a general referee verdict on the implementation. All fixed points and the translation from lab face IDs to `running.json` are in `research/2026-11-14_astra_audit-digestions/outputs/verification.json`; the command is in that folder's README. The sign differs from the real-sign coefficient $+9$ by the convention-dependent global factor.
 
 ![The two cycles pushed onto spokes, with their white-face counts](../../paper/figures/renders/11-spokes.png)
 

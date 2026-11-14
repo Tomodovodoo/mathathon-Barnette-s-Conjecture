@@ -16,7 +16,7 @@ The proof gives more. For every edge $e$ of $G$ there is a Hamiltonian cycle tha
 2. Pass to the dual $T = G^*$. It is a triangulation of the sphere whose faces are coloured black and white, opposite colours across every edge. A Hamiltonian cycle of $G$ is the same thing as a split of the vertices of $T$ into two sets that each induce a tree (step 02).
 3. Pick a black face $t_0$ as the outer face. Its corners are the roots. There are as many other black faces as non-root vertices. A state gives every such black face one of its corners, using every non-root vertex once (step 03).
 4. A state $s$ picks, in each black face, the edge opposite the chosen corner. Call this edge set $Q_s$. If $Q_s$ is a forest with one root in each component, the state can be turned into a Hamiltonian cycle. Such a state is a tree matching.
-5. To certify and control $Q_s$ we use a second state $r$ that differs from $s$ in every face. The two together are a pair. A pair exists exactly when no separating triangle of $T$ has $t_0$ on its wrong side (step 03).
+5. To certify and control $Q_s$ we use a second state $r$ that differs from $s$ in every face. The two together are a pair. A pair exists exactly when no separating triangle of $T$ has black faces along all three edges on the side away from $t_0$ (step 03).
 6. One counting lemma, the disk identity, says that a cycle built from edges leaving the corners chosen by a state encloses one more white face than black faces (step 04).
 7. Give every pair a sign. For a fixed second state $s$ whose $Q_s$ has a cycle, reversing that cycle changes the first state and flips the sign, so all such pairs cancel (step 05).
 8. Regroup the same signed sum by the cycles that $r$ and $s$ form together. With suitable weights the groups with the fewest cycles all contribute with one sign, so the sum is not zero. Hence some pair survives the cancellation, and its $Q_s$ is a forest (step 06).
@@ -90,7 +90,7 @@ All numbers were computed by `research/2026-11-14_fable_digestions/code/examples
 
 Every claim that is not in one of the three papers carries its review status in plain words where it is used. The words mean the following.
 
-- "Published" means stated and proved in one of the three papers. All three are preprints. None has been through journal review. The OpenAI argument has a Lean 4 formalisation. An agent of this project rebuilt it and found that the main theorem depends only on the three standard axioms (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, a computation, not refereed).
+- "Published" in the original wording meant stated and proved in a supplied paper, not peer review. Below we call these supplied-preprint results. All three are preprints. None has been through journal review. The OpenAI argument has a Lean 4 formalisation. An agent of this project rebuilt it and found that the main theorem depends only on the three standard axioms (`research/2026-11-14_opus_lean-formalisation/REPORT.md`, a computation, not refereed).
 - "Proved in this project and checked by a second model" means a full proof is written in a research folder and a different model refereed it line by line and recomputed its claims with its own code. No human has read it.
 - "Proved in this project, not yet refereed" means the proof exists in a research folder and nobody has checked it. Treat it as a lead.
 - "Computed" means checked by a program on a stated finite range. It says nothing beyond that range.

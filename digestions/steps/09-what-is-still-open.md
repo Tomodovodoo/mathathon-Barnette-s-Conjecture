@@ -1,5 +1,7 @@
 # 09. What is still open
 
+Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
+
 ## What we want at this point and why
 
 The proof shows that a Hamiltonian cycle exists. It does not say how to find one fast, how many there are, or whether a simpler argument could replace the signed count. This file collects the open questions that the project has met, each with what is known and how firmly. It is the place to start for anyone who wants to add something new.
@@ -72,16 +74,18 @@ Let $m = c_{\min}$ be the least number of cycles formed by a pair, and write TM 
 
 The conjecture $\mathrm{TM} \ge 2^m$ says that instances whose cycle covers need many cycles have more tree matchings, not fewer. A proof would have to explain the moment identities of step 06 by some structure finer than a partition into cubes.
 
-One more counting question has a precise form. Li counts objects with $m$ distinct marked crossings. The linear-weight version of step 06 counts the same pairs through an elementary symmetric function of the weights. The determinant referee conjectures that these are the same count for unit marks and proposes a test on an instance with $m = 2$. Not done.
+One more counting question has a precise form. Li counts objects with $m$ distinct marked crossings. The linear-weight version of step 06 counts the same pairs through an elementary symmetric function of the weights. The determinant referee conjectures that these are the same count for unit marks and proposes a test on an instance with $m = 2$. The running-example lab replay in step 06 gives absolute signed count 9, matching its lowest coefficient. A general identification remains unproved.
 
 ## 3. Canonical choices and the lattice of pairs
 
 Step 06 lists the canonical choices that fail. Two questions survive.
 
-**The lattice-extreme conjecture.** A 2-factor of the incidence graph, that is a pair up to reversing cycles, is the same as an orientation of the spoke graph with prescribed out-degrees. By a theorem of Felsner such orientations form a distributive lattice with a least and a greatest element. The conjecture says that the least or the greatest element always contains a forest pair.
+**The lattice-extreme conjecture, now reported refuted.** `research/2026-11-14_opus_conjectures/PREDICTIONS.md` reports joint failures at 18 vertices, in 26 rooted instances from two triangulations. Independent replay and the final report are pending. The following describes the older evidence, not the current verdict.
+
+**Original statement.** A 2-factor of the incidence graph, that is a pair up to reversing cycles, is the same as an orientation of the spoke graph with prescribed out-degrees. By a theorem of Felsner such orientations form a distributive lattice with a least and a greatest element. The conjecture says that the least or the greatest element always contains a forest pair.
 
 - Source: `opus_route-graph-theory/ROUTES.md`, route O6. In 180 random instances with 80, 100 and 120 vertices the least element failed 14 times, the greatest 11 times, and never both.
-- The referee confirms that each extreme alone can fail, with certified examples at 40 and 120 vertices. The referee also found that the saved 80-vertex "maximum" is not a lattice maximum, since it still has directed cycles in both senses. So the experiment tested orientations where no further face flip was possible, and those need not be the extremes of the lattice. The conjecture stays a conjecture, for the precisely defined extremes, and the evidence for it is weaker than the report suggests.
+- The referee confirms that each extreme alone can fail, with certified examples at 40 and 120 vertices. The referee also found that the saved 80-vertex "maximum" is not a lattice maximum, since it still has directed cycles in both senses. So the experiment tested orientations where no further face flip was possible, and those need not be the extremes of the lattice. That correction weakened the original evidence. The subsequent conjecture campaign reports a counterexample to the precisely defined joint-extreme statement.
 - Felsner's theorem was cited from memory in the report. Whether face flips generate the whole lattice for these graphs is itself open there.
 - If true, the conjecture would give an explicit candidate. It would not by itself give a polynomial algorithm, since one would still search among the orientations of the cycles of the extreme 2-factor.
 
@@ -120,5 +124,5 @@ Step 06 lists the canonical choices that fail. Two questions survive.
 Three suggestions, in order of how well posed they are.
 
 1. Prove or refute $\mathrm{TM} \ge 2^{c_{\min}}$. The data and two programs are in `fable_route-combinatorics/` and `astra_referee-combinatorics/`.
-2. Test the lattice-extreme conjecture with true lattice extremes, on an exhaustive list of triangulations, where failures of the single extremes start to appear.
+2. Independently replay the reported 18-vertex joint failures of the true lattice extremes, then test the proposed distance-one and join/meet-irreducible replacements.
 3. Look for a polynomial-size formula for the signed sum, or show that the coefficient extraction is hard in some precise sense.

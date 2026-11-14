@@ -1,5 +1,7 @@
 # 07. Recovery: from a forest pair to the Hamiltonian cycle
 
+Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
+
 ## What we want at this point and why
 
 Step 06 produced a pair $(r,s)$ whose opposite-edge graph $Q_s$ is a forest. That is a statement about $n$ edges opposite chosen corners. The theorem asks for a Hamiltonian cycle of $G$ that avoids the edge dual to $e_0$, or equally for two induced trees of $T$ with $e_0$ inside one of them. This step is the translation. It is a chain of six links, and each link is either a planar duality or a count.

@@ -78,7 +78,7 @@ A warning first. The letter $H$ means the full spoke graph in O and T and the re
 | $\omega(s)$ | $\sum_t a(t, s(t))$ | $\omega(s)$ | the number of available marks, with signs | $\omega(s)$ |
 | $L^+(C)$, $L^-(C)$ | the sum of $a(t,\text{head})$ along a cycle of $D$ in its counterclockwise and clockwise orientation. The difference is positive | $L^+$, $L^-$ | not named | $L^+$, $L^-$ |
 | spoke detour | the route from tail through the centre to head that replaces an edge of $D$ | "two-spoke route", the slide | not needed, cycles live on spokes from the start | spoke detour |
-| inner white face | a white face that shares no edge with $t_0$ | a bounded face of $H_0$ | a white vertex | same as O |
+| inner white face | a white face that shares no edge with $t_0$ | a bounded face of $H_0$ | a white vertex not adjacent to $b_0$ | same as O |
 | height $h_s(w)$ | the signed number of crossings of a fixed path from the inner white face $w$ to $t_0$ with the spokes of $s$ | not used | the crossings of the ray of $w$ with $M_2$ | not used |
 | $\mathcal F(w)$ | the polynomial $\sum \varepsilon(r,s)\, w^s$ in one variable per spoke | not used | not used | not used. From this project |
 | the signed sum | the sum over pairs that is evaluated in two ways | $Z(x) = \sum i^J e^{x\omega(s)}$ | $\lvert O^+\rvert - \lvert O^-\rvert$ | $Z_{\mathcal C}(z) = \sum \varepsilon z^{\omega(s)}$ on one exchange component |

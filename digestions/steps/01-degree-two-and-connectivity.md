@@ -16,7 +16,7 @@ In a cubic graph, choosing a 2-factor is the same as choosing the edges you leav
 
 *Proof.* A spanning subgraph has degree two at every vertex exactly when its complement has degree one at every vertex. $\square$
 
-**Lemma 2** (König 1916, a textbook fact; cited from memory). Every regular bipartite graph of positive degree has a perfect matching. A cubic bipartite graph is the union of three disjoint perfect matchings.
+**Lemma 2** (standard consequence of Hall's theorem, proved below). Every regular bipartite graph of positive degree has a perfect matching. A cubic bipartite graph is the union of three disjoint perfect matchings.
 
 *Proof sketch.* For a set $S$ of black vertices, the $3|S|$ edges leaving $S$ end in the neighbours of $S$, and each neighbour absorbs at most three. So $S$ has at least $|S|$ neighbours and Hall's condition holds. Remove a perfect matching and repeat on the 2-regular remainder. $\square$
 
@@ -46,7 +46,7 @@ Each bad 2-factor is a pair of opposite faces of the cube. Each omitted matching
 
 ![Two 2-factors of the running graph](../../paper/figures/renders/02-two-factors.png)
 
-The share of good 2-factors drops as graphs grow. These counts are computed by `examples.py`, by listing all perfect matchings and counting the components of each complement.
+In these three examples the share of connected 2-factors decreases. This table does not assert monotonicity for arbitrary graphs. These counts are computed by `examples.py`, by listing all perfect matchings and counting the components of each complement.
 
 | Graph | Vertices | 2-factors | with 1, 2, 3, 4, 5 cycles |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ The share of good 2-factors drops as graphs grow. These counts are computed by `
 
 ## What does not work
 
-**Counting 2-factors.** The number of perfect matchings of a planar graph is a determinant (Kasteleyn), so 2-factors can be counted fast. The count does not see connectivity. Nothing in the 112 above tells you that 28 of them are connected. The proof of Barnette's conjecture is a count too, and its whole difficulty is to build one in which the disconnected objects cancel.
+**Counting 2-factors.** For a bipartite planar graph, a suitably signed bipartite adjacency determinant counts perfect matchings in absolute value. For a general planar graph the corresponding formula is a Pfaffian, so 2-factors can be counted fast. The count does not see connectivity. Nothing in the 112 above tells you that 28 of them are connected. The proof of Barnette's conjecture is a count too, and its whole difficulty is to build one in which the disconnected objects cancel.
 
 **Dropping a hypothesis.** The statement is false as soon as one of the four hypotheses goes. These are published results, cited here through the project's literature review `research/2026-11-14_opus_history-literature/` and the limits study `research/2026-11-14_astra_limits/HYPOTHESES.md`. I did not open the original papers.
 
@@ -67,7 +67,7 @@ The share of good 2-factors drops as graphs grow. These counts are computed by `
 
 So no argument that uses only three of the hypotheses can work. Step 08 says where each one enters.
 
-**Local repair.** A natural plan is to start from any 2-factor and merge its cycles one pair at a time by small exchanges around a face. All partial results before 2026 that bound the face sizes are of this local kind (Goodey 1975 for faces of size 4 and 6, Schnieders 2025 for sizes up to 8). Schnieders explains why it stops there. With faces of unbounded size some faces are not covered by any bounded neighbourhood, and from face size 10 on the statement is true only because of 3-connectivity, which no bounded neighbourhood can certify. This is a quotation of his discussion as reported in `WHAT-WAS-HARD.md` section 3, not something checked here.
+**Local repair.** A natural plan is to start from any 2-factor and merge its cycles one pair at a time by small exchanges around a face. The face-size results cited here use local structure (Goodey 1975 for faces of size 4 and 6, Schnieders 2025 for sizes up to 8). Schnieders explains why it stops there. With faces of unbounded size some faces are not covered by any bounded neighbourhood, and from face size 10 on the statement is true only because of 3-connectivity, which no bounded neighbourhood can certify. This is a quotation of his discussion as reported in `WHAT-WAS-HARD.md` section 3, not something checked here.
 
 **Grinberg's criterion.** The classical tool for showing that a planar graph has no Hamiltonian cycle gives nothing for Barnette graphs. All faces are even, there are at least six 4-faces, and the usual divisibility argument has no modulus to work with. This is proved in `WHAT-WAS-HARD.md` section 2, in this project, not refereed.
 

@@ -1,5 +1,7 @@
 # 08. Gluing across separating triangles, and what each hypothesis is for
 
+Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
+
 ## What we want at this point and why
 
 Steps 03 to 07 prove the two-trees theorem for a rooted triangulation $(T, t_0)$ that has a pair of states. By step 03 that fails exactly when some separating triangle has black inner boundary. This step removes the restriction by cutting $T$ along such a triangle and gluing solutions of the two pieces. It is the only induction in the proof, and it is the reason the theorem carries a prescribed edge $e_0$ from the start.

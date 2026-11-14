@@ -1,0 +1,118 @@
+[
+  {
+    "file": "digestions/steps/01-degree-two-and-connectivity.md",
+    "old": "The number of perfect matchings of a planar graph is a determinant (Kasteleyn)",
+    "new": "For a bipartite planar graph, a suitably signed bipartite adjacency determinant counts perfect matchings in absolute value. For a general planar graph the corresponding formula is a Pfaffian"
+  },
+  {
+    "file": "digestions/steps/01-degree-two-and-connectivity.md",
+    "old": "All partial results before 2026 that bound the face sizes are of this local kind",
+    "new": "The face-size results cited here use local structure"
+  },
+  {
+    "file": "digestions/steps/01-degree-two-and-connectivity.md",
+    "old": "The share of good 2-factors drops as graphs grow.",
+    "new": "In these three examples the share of connected 2-factors decreases. This table does not assert monotonicity for arbitrary graphs."
+  },
+  {
+    "file": "digestions/steps/01-degree-two-and-connectivity.md",
+    "old": "**Lemma 2** (K\u00f6nig 1916, a textbook fact; cited from memory).",
+    "new": "**Lemma 2** (standard consequence of Hall's theorem, proved below)."
+  },
+  {
+    "file": "digestions/steps/00-overview.md",
+    "old": "has $t_0$ on its wrong side",
+    "new": "has black faces along all three edges on the side away from $t_0$"
+  },
+  {
+    "file": "digestions/steps/00-overview.md",
+    "old": "- \"Published\" means stated and proved in one of the three papers.",
+    "new": "- \"Published\" in the original wording meant stated and proved in a supplied paper, not peer review. Below we call these supplied-preprint results."
+  },
+  {
+    "file": "digestions/steps/03-states-and-pairs.md",
+    "old": "**Two states that may agree somewhere.** If $r(t) = s(t)$ is allowed, the signed count of step 06 is trivially non-zero and proves nothing useful. More precisely, drop the requirement that $s$ is a bijection.",
+    "new": "**Dropping the second bijection.** Keep $r$ a state and keep the choices distinct in each face, but drop the requirement that $s$ is a bijection."
+  },
+  {
+    "file": "digestions/steps/06-nonvanishing.md",
+    "old": "The lab's `polynomial()` returns the same six coefficients with exponents shifted by 5.",
+    "new": "The lab run recorded in `research/2026-11-14_astra_audit-digestions/outputs/verification.json` gives $1-z^2-z^4+z^5-z^6+z^7=z^3 Z(z^{-1})$. Its embedding reverses orientation and its weights add a state-independent shift. Comparison must allow reflection as well as a monomial factor; a shift alone does not describe this run."
+  },
+  {
+    "file": "digestions/steps/06-nonvanishing.md",
+    "old": "**Li's version** on this example would list pairs with two marked ray crossings. I did not run it. The lab implements it in `barnette_lab/li.py` and its agreement with the other versions is computed there on a finite range that the referee of the determinant reports did not cover.",
+    "new": "**Li's version, independently rerun with the lab.** There are 213 objects with two distinct marks. The first involution fixes 141 objects, of signs 66 positive and 75 negative. The second fixes 9 objects, all negative. Both signed sums are $-9$. Every image remains in the object set, each map squares to the identity, and every nonfixed orbit reverses sign. These are finite checks, not a general referee verdict on the implementation. All fixed points and the translation from lab face IDs to `running.json` are in `research/2026-11-14_astra_audit-digestions/outputs/verification.json`; the command is in that folder's README. The sign differs from the real-sign coefficient $+9$ by the convention-dependent global factor."
+  },
+  {
+    "file": "digestions/steps/06-nonvanishing.md",
+    "old": "Li's marks are the monomials of the Taylor coefficient of order $m$ for one choice of weights, and the three signs agree up to a constant",
+    "new": "Li uses sets of distinct marked crossings, not ordered lists or marks with repetition. Identifying their signed count with a polynomial coefficient requires those multiplicities and signs to be checked. The three pair signs agree up to a constant"
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
+    "old": "**The lattice-extreme conjecture.**",
+    "new": "**The lattice-extreme conjecture, now reported refuted.** `research/2026-11-14_opus_conjectures/PREDICTIONS.md` reports joint failures at 18 vertices, in 26 rooted instances from two triangulations. Independent replay and the final report are pending. The following describes the older evidence, not the current verdict.\n\n**Original statement.**"
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
+    "old": "The conjecture stays a conjecture, for the precisely defined extremes, and the evidence for it is weaker than the report suggests.",
+    "new": "That correction weakened the original evidence. The subsequent conjecture campaign reports a counterexample to the precisely defined joint-extreme statement."
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
+    "old": "2. Test the lattice-extreme conjecture with true lattice extremes, on an exhaustive list of triangulations, where failures of the single extremes start to appear.",
+    "new": "2. Independently replay the reported 18-vertex joint failures of the true lattice extremes, then test the proposed distance-one and join/meet-irreducible replacements."
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
+    "old": "Not done.",
+    "new": "The running-example lab replay in step 06 gives absolute signed count 9, matching its lowest coefficient. A general identification remains unproved."
+  },
+  {
+    "file": "digestions/steps/GLOSSARY.md",
+    "old": "| inner white face | a white face that shares no edge with $t_0$ | a bounded face of $H_0$ | a white vertex | same as O |",
+    "new": "| inner white face | a white face that shares no edge with $t_0$ | a bounded face of $H_0$ | a white vertex not adjacent to $b_0$ | same as O |"
+  },
+  {
+    "file": "digestions/steps/03-states-and-pairs.md",
+    "change": "Added exact review snapshot; final structure report not available."
+  },
+  {
+    "file": "digestions/steps/07-recovery.md",
+    "change": "Added exact review snapshot; final structure report not available."
+  },
+  {
+    "file": "digestions/steps/08-gluing-and-hypotheses.md",
+    "change": "Added exact review snapshot; final structure report not available."
+  },
+  {
+    "file": "digestions/steps/09-what-is-still-open.md",
+    "change": "Added exact review snapshot; final structure report not available."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "old": "Every one of these is `REFUTED`, with counterexamples between 12 and 80 vertices (routes N.x3 to N.x6, N.x14).",
+    "new": "Several individual rules are `REFUTED` (routes N.x3 to N.x6, N.x14). The conjecture campaign now reports a joint failure of the two true lattice extremes at 18 vertices; that computation awaits independent replay. Monotone descent allowing plateaus is a separate conjecture."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "old": "Li counts lists of `cmin` marked ray crossings",
+    "new": "Li counts sets of `cmin` distinct marked ray crossings"
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "old": "This is why no parity or mod `p` count can work",
+    "new": "This rules out this unweighted signed sum, including its reduction modulo any prime; it does not rule out every possible modular invariant"
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "old": "Every counterclockwise cycle contributes the same amount to the sign, so the sign of a group depends on `n` and `c` only.",
+    "new": "A counterclockwise cycle of length `h` contributes `(-1)^((h+3)/2)`. Multiplying over a cover gives `(-1)^((n-c)/2)`, so the group sign depends on `n` and `c`, although individual cycle signs depend on length."
+  },
+  {
+    "file": "digestions/route-map/HOW-IT-WORKS.md",
+    "old": "One statement survives the search: the minimum or the maximum of the lattice of pairs always carries a tree pair [`CONJECTURE`, D.7, no joint failure in 180 random instances].",
+    "new": "The minimum-or-maximum rule, D.7, is now reported refuted at 18 vertices in `opus_conjectures/PREDICTIONS.md`, with independent replay pending."
+  }
+]

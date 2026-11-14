@@ -1,5 +1,7 @@
 # 03. States, pairs, and when a pair exists
 
+Review snapshot, 14 November 2026: the structure referee's `INTEGRATION.md` supplies the specific verdicts cited below. Its `REPORT.md` still calls itself a provisional work log. These are AI checks, with human review pending.
+
 ## What we want at this point and why
 
 Step 02 turned the problem into finding two induced trees in the triangulation $T$, with a prescribed edge $e_0$ of the outer black face $t_0$ inside one of them. We now want a finite object to search for that encodes such a pair of trees. That object is a state. This step explains why states are the right object, why the proof needs two of them at once, and exactly when two exist.
@@ -109,7 +111,7 @@ It has two perfect matchings, the states $s_1 = (3,4,5)$ and $s_2 = (5,3,4)$, wr
 ## What does not work
 
 - **One state.** The prism example above. Also, in the octahedron with every face split in four, 34 of the 54 states have an acyclic $Q_s$ and are not tree matchings (`research/2026-11-14_fable_dependency-graph/correspondence.md`, note 3.5, computed).
-- **Two states that may agree somewhere.** If $r(t) = s(t)$ is allowed, the signed count of step 06 is trivially non-zero and proves nothing useful. More precisely, drop the requirement that $s$ is a bijection. For any choice of one corner per face, the signed sum over states $r$ avoiding that choice is a determinant, and the sum over all choices is non-zero for an easy reason. It produces a choice function whose opposite edges form a rooted forest, but that function may use a vertex twice, and step 07 needs each vertex used once. So the whole difficulty is the second bijection. This is the side remark in section 4 of `fable_route-combinatorics/PROOF.md`, proved in this project and checked by a second model, not yet read by a human.
+- **Dropping the second bijection.** Keep $r$ a state and keep the choices distinct in each face, but drop the requirement that $s$ is a bijection. For any choice of one corner per face, the signed sum over states $r$ avoiding that choice is a determinant, and the sum over all choices is non-zero for an easy reason. It produces a choice function whose opposite edges form a rooted forest, but that function may use a vertex twice, and step 07 needs each vertex used once. So the whole difficulty is the second bijection. This is the side remark in section 4 of `fable_route-combinatorics/PROOF.md`, proved in this project and checked by a second model, not yet read by a human.
 - **Graphs that are only 2-connected.** Then $T$ has parallel edges. On the 26-vertex non-Hamiltonian example every root has eight states and no pair, so the proof stops here and nowhere later (`astra_limits/HYPOTHESES.md`, computed in this project, not yet refereed).
 - **Rooting anywhere.** Pairs depend on $t_0$. The double octahedron has them for 8 roots out of 14. This is why step 08 is needed.
 
