@@ -1,0 +1,4853 @@
+{
+ "description": "Statement-level blueprint of the Barnette proofs in this repository.",
+ "sources": {
+  "main": "paper/main/barnette.tex",
+  "primal": "proofs/primal/primal.tex",
+  "involutions": "proofs/involutions/involutions.tex",
+  "openai": "papers/OpenAI-Barnette.pdf",
+  "lean": "github.com/openai/math lean/OAI/Combinatorics/Hamiltonian at 4eaee87548250b2682affda7d05d947c05554bae"
+ },
+ "status_vocabulary": {
+  "checked-exact": "machine-checked counterpart, exact",
+  "checked-form": "machine-checked counterpart in different form",
+  "refereed": "refereed by a second model only",
+  "unrefereed": "unrefereed",
+  "example": "example (computed)"
+ },
+ "relation_vocabulary": {
+  "exact": "same proposition",
+  "primal-form": "same content stated on the cubic graph or the algebraic dual",
+  "different-form": "same content with another device (for example phase instead of sign)",
+  "stronger": "Lean proves more",
+  "weaker": "Lean proves less",
+  "none": "no counterpart"
+ },
+ "referees": {
+  "main": "research/2026-11-14_sol_referee-main (FOLLOWS)",
+  "primal": "research/2026-11-14_fable_referee-primal (FOLLOWS, on the pre-revision text; Remarks 14-15 added afterwards)",
+  "involutions": "author audit only (research/2026-11-14_sol_li-completion/AUDIT.md); independent referee in progress"
+ },
+ "nodes": [
+  {
+   "id": "thm:main",
+   "source": "main",
+   "label": "thm:main",
+   "number": "1.1",
+   "kind": "theorem",
+   "title": "OpenAI {\\cite[Theorem~1.1 and Corollary~7.1",
+   "section": 1,
+   "line": 52,
+   "statement": "{openai2026}}] Let $G$ be a finite simple graph that is cubic, bipartite, planar and $3$-connected, and let $e$ be an edge of $G$. Then $G$ has a Hamiltonian cycle that does not contain $e$.",
+   "proof_lines": 4,
+   "proof_words": 64,
+   "explicit_uses": [
+    "lem:dual",
+    "thm:T",
+    "prop:target"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Thm 1.1 + Cor 7.1",
+   "primal": "Theorem T",
+   "involutions": "-",
+   "lean": [
+    "lean:main",
+    "lean:Duality.connected_complement_matching",
+    "lean:PlaneEmbedding.exists_exact_dual"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "Lean main has no prescribed edge; the edge-avoiding form is proved for graphs with an algebraic dual and is not restated for drawings (a few lines would combine it with exists_exact_dual).",
+   "gap": null
+  },
+  {
+   "id": "lem:dual",
+   "source": "main",
+   "label": "lem:dual",
+   "number": "2.1",
+   "kind": "lemma",
+   "title": "",
+   "section": 2,
+   "line": 111,
+   "statement": "Let $G$ be as in Theorem~\\ref{thm:main}. Then $\\T$ is a simple graph with at least four vertices, every face of $\\T$ is bounded by a triangle, and the faces of $\\T$ can be coloured black and white so that every edge of $\\T$ has one black and one white face.",
+   "proof_lines": 12,
+   "proof_words": 234,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "background: Jordan curve theorem",
+    "background: Euler formula"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "proof of Thm 1.1 (Sec 7, paragraphs 1-2)",
+   "primal": "Lemma 1; last paragraph of proof of Thm T",
+   "involutions": "-",
+   "lean": [
+    "lean:cut_card_three",
+    "lean:Duality.simple_dual_edge",
+    "lean:Duality.cubic_face_triangles_edge",
+    "lean:make_coloredDual",
+    "lean:black_dual_card"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "\"T simple with triangular faces\" is \"the algebraic dual D is simple and the star of every vertex of G is a triangle of D\"; Lean argues by gradients of small support, not Jordan curves.",
+   "gap": null
+  },
+  {
+   "id": "lem:connected",
+   "source": "main",
+   "label": "lem:connected",
+   "number": "2.2",
+   "kind": "lemma",
+   "title": "",
+   "section": 2,
+   "line": 136,
+   "statement": "Let $R$ be a finite graph embedded in the sphere such that every face of $R$ is bounded by a cycle of $R$. Then $R$ is connected.",
+   "proof_lines": 7,
+   "proof_words": 106,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "background: the sphere is connected"
+   ],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "none (tacit)",
+   "primal": "none (map rules in Sec 2)",
+   "involutions": "-",
+   "lean": [
+    "lean:region_connected",
+    "lean:Bond.connected_shore"
+   ],
+   "lean_relation": "none",
+   "lean_route": "different",
+   "covered": false,
+   "bridge": null,
+   "gap": "Lean has no topological plane graphs. Nearest: region_connected (the region network of a connected shore A of G is connected) and Bond.connected_shore. These state connectivity of the inside of a cycle for the algebraic region network built from a vertex set of G, not for a plane graph whose faces are bounded by cycles. Far: different objects; the Lean needs no such lemma because connectivity is a field of Duality and survives minors (Duality.minor)."
+  },
+  {
+   "id": "eq:counts",
+   "source": "main",
+   "label": "eq:counts",
+   "number": "(2.3)",
+   "kind": "equation",
+   "title": "",
+   "section": 2,
+   "line": 153,
+   "statement": "\\#\\{\\text{black faces}\\}=\\#\\{\\text{white faces}\\}=k,\\qquad |E(\\T)|=3k,\\qquad |V(\\T)|=k+2 .",
+   "proof_lines": 1,
+   "proof_words": 39,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "lem:connected (T connected, for Euler)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "(2.1)",
+   "primal": "Lemma 1 (counts)",
+   "involutions": "Sec 1",
+   "lean": [
+    "lean:cubic_cards",
+    "lean:black_dual_card",
+    "lean:Duality.euler",
+    "lean:nonroots_card"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "faces of T = vertices of G; Euler is a rank identity (Duality.euler).",
+   "gap": null
+  },
+  {
+   "id": "def:selection",
+   "source": "main",
+   "label": null,
+   "number": "2.4",
+   "kind": "definition",
+   "title": "",
+   "section": 2,
+   "line": 169,
+   "statement": "A \\emph{selection} is a set $P$ of edges of $\\T$ that contains exactly one side of every face of $\\T$. We write $P^*$ for the set of edges of $G$ that cross the edges of $P$.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "\"one selected edge at each black and white triangle\" (Sec 6.1)",
+   "primal": "perfect matching P of G",
+   "involutions": "-",
+   "lean": [
+    "lean:Duality.connected_complement_matching"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "a selection is a perfect matching P of G: (N.star v).filter (. in P) has card 1 for every v.",
+   "gap": null
+  },
+  {
+   "id": "lem:duality.1",
+   "source": "main",
+   "label": "lem:duality",
+   "number": "2.5(1)",
+   "kind": "lemma",
+   "title": "duality",
+   "section": 2,
+   "line": 178,
+   "statement": "Let $M$ be a connected plane graph and $N\\subseteq E(M)$. (1) If $N$ contains a cycle $Z$, then an edge of $M^*$ joins a face inside $Z$ to a face outside $Z$ exactly when it crosses an edge of $Z$, and $M^*-N^*$ is disconnected.",
+   "proof_lines": 12,
+   "proof_words": 283,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "background: Jordan curve theorem"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 6.2 (Jordan curve labelling)",
+   "primal": "circuit-cut fact; Lemma 2(a)",
+   "involutions": "background",
+   "lean": [
+    "lean:Duality.circuit_cut",
+    "lean:Duality.bond_of_circuit"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "a cycle of T is a flow circuit of D, equal to c times the gradient of the indicator of a root-free vertex set A of G; its support is the cut of A, a bond.",
+   "gap": null
+  },
+  {
+   "id": "lem:duality.2",
+   "source": "main",
+   "label": "lem:duality",
+   "number": "2.5(2)",
+   "kind": "lemma",
+   "title": "duality",
+   "section": 2,
+   "line": 178,
+   "statement": "Let $M$ be a connected plane graph and $N\\subseteq E(M)$. (2) If $N$ is acyclic, then $M^*-N^*$ is connected. If $N$ is a spanning tree of $M$, then $M^*-N^*$ is a spanning tree of $M^*$.",
+   "proof_lines": 12,
+   "proof_words": 283,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "background: Euler formula"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 2.1",
+   "primal": "circuit-cut fact (converse direction)",
+   "involutions": "-",
+   "lean": [
+    "lean:Duality.complement_connected",
+    "lean:conserved_supported_acyclic"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "Lean proves \"N acyclic in T implies G minus N* connected\". The spanning-tree sentence is not a lemma; where it is needed (lem:Y) Lean uses remainder_connected plus remainder_independent and an edge count.",
+   "gap": null
+  },
+  {
+   "id": "prop:target.1",
+   "source": "main",
+   "label": "prop:target",
+   "number": "2.6(1)",
+   "kind": "proposition",
+   "title": "",
+   "section": 2,
+   "line": 203,
+   "statement": "Let $P$ be an acyclic selection of a coloured triangulation $\\T$ with dual $G$. (1) The edges of $G$ not in $P^*$ form a Hamiltonian cycle of $G$.",
+   "proof_lines": 8,
+   "proof_words": 152,
+   "explicit_uses": [
+    "lem:duality"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "proof of Thm 1.1, last paragraph",
+   "primal": "Lemma 12, second paragraph",
+   "involutions": "-",
+   "lean": [
+    "lean:Duality.hamiltonian",
+    "lean:Duality.complement_connected",
+    "lean:matching_complement_two",
+    "lean:cycle_at_of_connected_two"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": null,
+   "gap": null
+  },
+  {
+   "id": "prop:target.2",
+   "source": "main",
+   "label": "prop:target",
+   "number": "2.6(2)",
+   "kind": "proposition",
+   "title": "",
+   "section": 2,
+   "line": 203,
+   "statement": "Let $P$ be an acyclic selection of a coloured triangulation $\\T$ with dual $G$. (2) $P$ is a forest with exactly two components, and an edge of $\\T$ lies in $P$ exactly when its two ends lie in the same component.",
+   "proof_lines": 8,
+   "proof_words": 152,
+   "explicit_uses": [
+    "lem:duality"
+   ],
+   "implicit_uses": [
+    "eq:counts (k edges on k+2 vertices)",
+    "background: a cycle meets an edge cut evenly"
+   ],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "Thm 2.2 (two induced trees)",
+   "primal": "Remark 15 (part)",
+   "involutions": "-",
+   "lean": [],
+   "lean_relation": "none",
+   "lean_route": "-",
+   "covered": false,
+   "bridge": null,
+   "gap": "Theorem 2.2 is not stated anywhere in the Lean (opus_lean-formalisation DIFFERENCES item 22). Nearest: Duality.circuit_cut + cap_matching_boundary (exactly one cut edge of a 3-cut lies in a perfect matching). Far: the Lean glues perfect matchings with connected complement and never needs the two-component structure of P."
+  },
+  {
+   "id": "lem:selections-give-states",
+   "source": "main",
+   "label": "lem:selections-give-states",
+   "number": "3.1",
+   "kind": "lemma",
+   "title": "",
+   "section": 3,
+   "line": 239,
+   "statement": "Each of the three components of $P_0$ contains exactly one root. Orient every edge of $P_0$ towards the root of its component, and for $t\\in A$ let $s(t)$ be the tail of the side of $t$ in $P_0$. Then $s$ is a bijection from $A$ to $X$, and $s(t)$ is a corner of $t$ for every $t$.",
+   "proof_lines": 5,
+   "proof_words": 151,
+   "explicit_uses": [
+    "prop:target"
+   ],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "none",
+   "primal": "Remark 15 (stronger: also uniqueness)",
+   "involutions": "-",
+   "lean": [],
+   "lean_relation": "none",
+   "lean_route": "-",
+   "covered": false,
+   "bridge": null,
+   "gap": "No counterpart; the Lean never goes from a Hamiltonian cycle back to a state. Off the main route (motivation and Sec 7 remark only)."
+  },
+  {
+   "id": "def:state",
+   "source": "main",
+   "label": null,
+   "number": "3.2",
+   "kind": "definition",
+   "title": "",
+   "section": 3,
+   "line": 255,
+   "statement": "A \\emph{state} is a bijection $s\\colon A\\to X$ such that $s(t)$ is a corner of $t$ for every $t\\in A$.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "openai": "Sec 2 (state)",
+   "primal": "Sec 3 (state)",
+   "involutions": "Sec 1 (state)",
+   "lean": [
+    "lean:TriangleSystem.State",
+    "lean:ColoredDual.State"
+   ],
+   "lean_relation": "exact",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": null,
+   "gap": null
+  },
+  {
+   "id": "ex:states",
+   "source": "main",
+   "label": "ex:states",
+   "number": "3.3",
+   "kind": "example",
+   "title": "",
+   "section": 3,
+   "line": 294,
+   "statement": "In the example, $t_0=\\{0,4,5\\}$, $e_0=\\{0,4\\}$, $c=5$ and $n=10$. Two of its states, which we call $\\alpha$ and $\\beta$, are \\[ \\begin{array}{c|cccccccccc} t & 016 & 023 & 178 & 129 & 349 & 4\\,10\\,11 & 5\\,6\\,11 & 6\\,7\\,12 & 8\\,11\\,12 & 8\\,9\\,10\\\\\\hline \\alpha(t) & 1 & 3 & 7 & 2 & 9 & 11 & 6 & 12 & 8 & 10\\\\ \\beta(t) & 6 & 2 & 8 & 1 & 3 & 10 & 11 & 7 & 12 & 9 \\end{array} \\] where a face is named by its corners. The sides opposite $\\alpha$ contain the triangle on $1,8,9$, while those opposite $\\beta$ form a forest with components $\\{0,1,3,7\\}$, $\\{2,4,8,9,10,11\\}$ and $\\{5,6,12\\}$, one root in each (Figure~\\ref{fig:Q}). The two states differ in every face; we come back to this in Section~\\ref{sec:pairs}.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "example",
+   "status_text": "example (computed)"
+  },
+  {
+   "id": "def:good",
+   "source": "main",
+   "label": null,
+   "number": "3.4",
+   "kind": "definition",
+   "title": "",
+   "section": 3,
+   "line": 322,
+   "statement": "A state $s$ is \\emph{good} if $Q_s$ is a forest in which each component contains exactly one root.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Prop 5.1 + Lemma 6.1 (no name)",
+   "primal": "\"circuit-free Q_s\" with partner; Remark 14",
+   "involutions": "Theorem 1 (forest Q_s)",
+   "lean": [
+    "lean:oppositeGraph",
+    "lean:ColoredDual.augQ"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "-",
+   "covered": true,
+   "bridge": "Lean never names good states; it works with \"second state of a pair with oppositeGraph acyclic\" and adds two root sides (augQ).",
+   "gap": null
+  },
+  {
+   "id": "lem:good",
+   "source": "main",
+   "label": "lem:good",
+   "number": "3.5",
+   "kind": "lemma",
+   "title": "",
+   "section": 3,
+   "line": 326,
+   "statement": "A state $s$ is good if and only if $S_s$ is a spanning tree of $\\T$.",
+   "proof_lines": 3,
+   "proof_words": 67,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "eq:counts (|S_s| = |V(T)|-1)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 6.1 (\"the remainder is a spanning tree of H\")",
+   "primal": "Lemma 9, first paragraph; Remark 14",
+   "involutions": "-",
+   "lean": [
+    "lean:ColoredDual.removed_acyclic",
+    "lean:ColoredDual.augQ_acyclic"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "Lean proves only \"pair with Q_s acyclic implies S_s (removed) acyclic\", i.e. lem:partner followed by the direction good => spanning tree that lem:Y uses. The converse is not formalised.",
+   "gap": null
+  },
+  {
+   "id": "lem:Y",
+   "source": "main",
+   "label": "lem:Y",
+   "number": "3.6",
+   "kind": "lemma",
+   "title": "",
+   "section": 3,
+   "line": 336,
+   "statement": "Let $s$ be a good state. Then $Y_s$ is a tree on the $2k$ faces of $\\T$, in which every face of $A$ has degree two and $t_0$ has degree one. Root $Y_s$ at $t_0$, and let $P_s$ consist of the side that each black face shares with its child. Then $P_s$ is a selection, $e_0\\in P_s$, and for every $t\\in A$ the side of $t$ in $P_s$ contains $s(t)$.",
+   "proof_lines": 10,
+   "proof_words": 242,
+   "explicit_uses": [
+    "lem:good",
+    "lem:duality"
+   ],
+   "implicit_uses": [
+    "txt:two-faces",
+    "eq:counts (2k faces)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 6.1 (tree on white faces, rooted at y0)",
+   "primal": "Lemmas 9 and 10",
+   "involutions": "-",
+   "lean": [
+    "lean:ColoredDual.remainder_connected",
+    "lean:ColoredDual.remainder_independent",
+    "lean:ColoredDual.remainder_black_degree",
+    "lean:tree_matching",
+    "lean:ColoredDual.recovery_matching"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "Lean proves that Y_s (complement of removed in G) is a spanning tree with black degrees 2 and root degree 1, then gets SOME perfect matching inside it by Hall (tree_matching). The explicit rooting rule that defines P_s is not formalised; only existence is, which is all the theorem needs.",
+   "gap": null
+  },
+  {
+   "id": "lem:outdegree",
+   "source": "main",
+   "label": "lem:outdegree",
+   "number": "3.7",
+   "kind": "lemma",
+   "title": "outdegree",
+   "section": 3,
+   "line": 366,
+   "statement": "Let $F$ be a set of edges of $\\T$, each directed, such that every vertex has at most one outgoing edge in $F$. Then every cycle of $F$ is a directed cycle. A component of $F$ with $q$ vertices, of which $\\gamma$ have no outgoing edge, has $q-\\gamma$ edges; so $\\gamma\\le1$, the component is a tree if $\\gamma=1$, and it contains exactly one cycle if $\\gamma=0$.",
+   "proof_lines": 2,
+   "proof_words": 59,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "inline in Lemma 5.2, 6.1, 6.2",
+   "primal": "inline (Sec 3, Lemma 9)",
+   "involutions": "inline (Lemma 4)",
+   "lean": [
+    "lean:CycleCoordinates.tail_orientation",
+    "lean:addSink_acyclic"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": false,
+   "bridge": null,
+   "gap": "tail_orientation states \"injective tails on a cycle force a directed cycle\" (first sentence). The component count (q - gamma edges, gamma <= 1, tree iff gamma = 1) is not formalised: Lean replaces it by addSink_acyclic (outdegree <= 1 plus a sink gives acyclicity). Close: about 30-60 Lean lines on top of Mathlib SimpleGraph.IsTree.card_edgeFinset."
+  },
+  {
+   "id": "lem:disk",
+   "source": "main",
+   "label": "lem:disk",
+   "number": "3.8",
+   "kind": "lemma",
+   "title": "disk identity",
+   "section": 3,
+   "line": 390,
+   "statement": "In this situation $W=B+1$ and $h=2\\ell+3$. In particular $h$ is odd and $Z$ encloses at least one white face.",
+   "proof_lines": 17,
+   "proof_words": 269,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "txt:inside (Euler for R_Z)",
+    "lem:outdegree (vertices of Z lie in X)",
+    "def:state (both halves of bijectivity)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 4.1",
+   "primal": "Lemma 5",
+   "involutions": "Lemma 2",
+   "lean": [
+    "lean:state_disk_delta",
+    "lean:ColoredDual.cycle_disk",
+    "lean:state_disk_count",
+    "lean:disk_boundary_imbalance",
+    "lean:white_positive_of_boundary"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "Lean states h = 2l+3 as |cut A| = 2|blackCut A| + 3 and W >= 1 as white_positive_of_boundary; W = B+1 is not stated (it follows from cubic_black_region_count). disk_count_identity (PairPhases:22) is the paper's arithmetic, proved and unused.",
+   "gap": null
+  },
+  {
+   "id": "prop:recover",
+   "source": "main",
+   "label": "prop:recover",
+   "number": "3.9",
+   "kind": "proposition",
+   "title": "",
+   "section": 3,
+   "line": 428,
+   "statement": "If $s$ is a good state, then $P_s$ is an acyclic selection containing $e_0$. Consequently, if $\\T$ has a good state for $t_0$ and $e_0$, then $G$ has a Hamiltonian cycle avoiding the edge that crosses $e_0$.",
+   "proof_lines": 16,
+   "proof_words": 247,
+   "explicit_uses": [
+    "lem:Y",
+    "lem:outdegree",
+    "prop:target"
+   ],
+   "implicit_uses": [
+    "lem:disk (\"the disk identity gives\")"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 6.2 and end of Sec 6.2",
+   "primal": "Lemmas 11 and 12",
+   "involutions": "-",
+   "lean": [
+    "lean:ColoredDual.selected_forest",
+    "lean:ColoredDual.selectNet_forest",
+    "lean:matching_cut_balance",
+    "lean:ColoredDual.recover_connected_complement"
+   ],
+   "lean_relation": "stronger",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "Lean (and primal Lemma 12) prove acyclicity for every perfect matching compatible with s, not only P_s. \"Matched across Z\" count = matching_cut_balance. The component-per-root step uses addSink in Lean, lem:outdegree here.",
+   "gap": null
+  },
+  {
+   "id": "ex:recover",
+   "source": "main",
+   "label": "ex:recover",
+   "number": "3.10",
+   "kind": "example",
+   "title": "",
+   "section": 3,
+   "line": 454,
+   "statement": "The state $\\beta$ of Example~\\ref{ex:states} is good. Its selection $P_\\beta$ has eleven edges forming two trees, on $\\{0,2,4,6,7,8\\}$ and $\\{1,3,5,9,10,11,12\\}$, and Figure~\\ref{fig:selected} shows it with the Hamiltonian cycle of $G$ that crosses the other $22$ edges. The example has six good states, and they give six different Hamiltonian cycles avoiding the edge of $G$ that crosses $e_0$; these are all such cycles of this $G$. On the cube (Figure~\\ref{fig:cube}), with $t_0=\\{0,1,2\\}$ and $e_0=\\{0,1\\}$, both states are good; for $s$ the tree $Y_s$ makes the black faces $135$, $234$, $045$ select $35$, $23$, $04$, and with $e_0$ these form the trees on $\\{0,1,4\\}$ and $\\{2,3,5\\}$.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "example",
+   "status_text": "example (computed)"
+  },
+  {
+   "id": "def:pair",
+   "source": "main",
+   "label": null,
+   "number": "4.1",
+   "kind": "definition",
+   "title": "",
+   "section": 4,
+   "line": 479,
+   "statement": "A \\emph{pair} is an ordered pair $(r,s)$ of states with $r(t)\\neq s(t)$ for every $t\\in A$; we call $r$ a \\emph{partner} of $s$, and $s$ the \\emph{second state}. For a pair we write $u(t)$ for the third corner of $t$.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "openai": "Sec 2 (pair)",
+   "primal": "Sec 3 (pair)",
+   "involutions": "Sec 1 (pair)",
+   "lean": [
+    "lean:TriangleSystem.Partner",
+    "lean:TriangleSystem.Pair"
+   ],
+   "lean_relation": "exact",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": null,
+   "gap": null
+  },
+  {
+   "id": "lem:partner",
+   "source": "main",
+   "label": "lem:partner",
+   "number": "4.2",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 484,
+   "statement": "Let $(r,s)$ be a pair, and direct the edge of $Q_s$ in each $t\\in A$ from $r(t)$ to $u(t)$. Then every vertex of $X$ has outdegree one and every root outdegree zero. Each component of $Q_s$ either is a tree containing exactly one root, or contains no root and exactly one cycle, which is directed. So $s$ is good if and only if $Q_s$ is acyclic, and a good state has exactly one partner.",
+   "proof_lines": 3,
+   "proof_words": 101,
+   "explicit_uses": [
+    "lem:outdegree"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 5.2 proof (outdegree) and Lemma 6.1",
+   "primal": "Sec 3; Lemma 9; Remark 14 (uniqueness)",
+   "involutions": "Lemma 4 proof",
+   "lean": [
+    "lean:TriangleSystem.OppositeCycle.partner_orientation",
+    "lean:ColoredDual.augQ_acyclic"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "\"a cycle of Q_s is directed by r\" is partner_orientation; \"acyclic Q_s with a partner has one root per component\" is replaced by augQ_acyclic. Uniqueness of the partner of a good state is not formalised; the main route needs it only for the regrouped formula of lem:cancel, which prop:good does not need.",
+   "gap": null
+  },
+  {
+   "id": "lem:reversals",
+   "source": "main",
+   "label": "lem:reversals",
+   "number": "4.3",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 517,
+   "statement": "Let $(r,s)$ be a pair. \\begin{enumerate} \\item Let $K$ be a cycle of $Q_s$, and put $\\tilde r(t)=u(t)$ for the faces $t$ whose edge lies on $K$ and $\\tilde r(t)=r(t)$ otherwise. Then $(\\tilde r,s)$ is a pair, $\\tilde r$ directs $K$ the other way round, and the same operation applied to $(\\tilde r,s)$ and $K$ returns $(r,s)$. \\item Let $C$ be a cycle of $D(r,s)$, and exchange $r(t)$ and $s(t)$ for the faces $t$ whose edge lies on $C$. The result is a pair whose set of $D$-edges is $D(r,s)$ with $C$ reversed. \\end{enumerate}",
+   "proof_lines": 4,
+   "proof_words": 100,
+   "explicit_uses": [
+    "lem:partner"
+   ],
+   "implicit_uses": [
+    "txt:D (part 2)"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "openai": "Lemma 5.2 proof (1); Sec 5.3 grouping (2)",
+   "primal": "Lemma 7 proof (1); Lemma 8 (2)",
+   "involutions": "Lemma 4 (1); Lemma 5 case 1 (2)",
+   "lean": [
+    "lean:TriangleSystem.OppositeCycle.reverse",
+    "lean:TriangleSystem.OppositeCycle.reversal_involutive",
+    "lean:TriangleSystem.OppositeCycle.reversal_ne",
+    "lean:TriangleSystem.Pair.orient",
+    "lean:TriangleSystem.Pair.groupEquiv"
+   ],
+   "lean_relation": "exact",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "(2) appears as the bijection between orientation bits of the cycles of next and the pairs with the same D (groupEquiv).",
+   "gap": null
+  },
+  {
+   "id": "lem:sign",
+   "source": "main",
+   "label": "lem:sign",
+   "number": "4.4",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 559,
+   "statement": "Both reversals of Lemma~\\ref{lem:reversals} change the sign $\\eps$. If $D(r,s)$ has $c$ cycles, of which $c^+$ run counterclockwise, then $n\\equiv c\\pmod 2$ and \\[ \\eps(r,s)=(-1)^{(n+c)/2}(-1)^{c^+}. \\]",
+   "proof_lines": 6,
+   "proof_words": 168,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "txt:delta",
+    "txt:D (lengths add up to n)"
+   ],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "(5.1): phase i^J",
+   "primal": "Lemmas 7-8 (same real sign)",
+   "involutions": "Definition 3 (sign with floor(J/2))",
+   "lean": [
+    "lean:phase",
+    "lean:TriangleSystem.rawIndexSum",
+    "lean:TriangleSystem.OppositeCycle.reverse_phase",
+    "lean:phase_add_six",
+    "lean:TriangleSystem.Pair.group_sum_product"
+   ],
+   "lean_relation": "none",
+   "lean_route": "different",
+   "covered": false,
+   "bridge": null,
+   "gap": "The real sign eps = prod delta(r(t),s(t)) does not occur in the Lean, which uses phase(rawIndexSum) = I^(sum delta div 3) and proves only that one Q_s-reversal multiplies it by -1 (reverse_phase) and that it factorises over D-cycles (group_sum_product). Distance: the identity eps = i^n * phase(rawIndexSum), which needs 3 | sum delta from the disk identity on every D-cycle (primal STATUS.md, phase comparison). Estimated 60-120 Lean lines; see FORMALISATION.md."
+  },
+  {
+   "id": "lem:cancel",
+   "source": "main",
+   "label": "lem:cancel",
+   "number": "4.5",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 581,
+   "statement": "Let $s$ be a state for which $Q_s$ contains a cycle. Then $\\sum_r\\eps(r,s)=0$, the sum running over the partners $r$ of $s$. Consequently, for every function $F$ on states, \\[ \\sum_{(r,s)\\ \\text{pair}}\\eps(r,s)\\,F(s)=\\sum_{s\\ \\text{good}}F(s)\\,\\eps(r_s,s), \\] where $r_s$ is the partner of the good state $s$.",
+   "proof_lines": 5,
+   "proof_words": 118,
+   "explicit_uses": [
+    "lem:reversals",
+    "lem:sign",
+    "lem:partner"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 5.2",
+   "primal": "Lemma 7",
+   "involutions": "Lemma 4",
+   "lean": [
+    "lean:TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+    "lean:ColoredDual.opposite_disk"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "Lean cancels with the complex phase and any weight in a C-module; the real-sign version follows through the uncovered lem:sign bridge. The regrouped formula (sum over good states with their unique partner) is not stated.",
+   "gap": null
+  },
+  {
+   "id": "lem:height",
+   "source": "main",
+   "label": "lem:height",
+   "number": "4.6",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 635,
+   "statement": "Let $(r,s)$ be a pair, $C$ a clockwise cycle of $D(r,s)$, and $(r',s')$ the pair obtained by reversing $C$. Then $\\eta_{s'}(y)-\\eta_s(y)$ is $1$ if the white face $y$ lies inside $C$ and $0$ otherwise. Hence $\\omega(s')-\\omega(s)=L(C)$, the number of white faces inside $C$, and $L(C)\\ge1$.",
+   "proof_lines": 18,
+   "proof_words": 391,
+   "explicit_uses": [
+    "lem:duality"
+   ],
+   "implicit_uses": [
+    "lem:disk (L(C) >= 1)",
+    "txt:D (faces of C lie in A)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 5.3 and (5.3)",
+   "primal": "Lemma 6",
+   "involutions": "crossing pairing (Lemmas 5-6)",
+   "lean": [
+    "lean:whiteCharge_cut_integral",
+    "lean:ColoredDual.StateCycle.signed",
+    "lean:ColoredDual.paired_sign",
+    "lean:white_positive_of_boundary"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "Lean proves the summed statement for EVERY flow with boundary whiteCharge (slope = c * #white faces inside), hence for the path flow of the heights. The per-white-face statement (jump 1 or 0 at each y) is not formalised; the main route uses only the sum.",
+   "gap": null
+  },
+  {
+   "id": "lem:difference",
+   "source": "main",
+   "label": "lem:difference",
+   "number": "4.7",
+   "kind": "lemma",
+   "title": "",
+   "section": 4,
+   "line": 672,
+   "statement": "Let $\\omega_0,L_1,\\dots,L_c$ be real numbers and $m\\le c$ a nonnegative integer. Then \\[ \\sum_{x\\in\\{0,1\\}^c}(-1)^{x_1+\\dots+x_c}\\bigl(\\omega_0+x_1L_1+\\dots+x_cL_c\\bigr)^m =\\begin{cases}0 & \\text{if } m<c,\\\\ (-1)^c\\,c!\\,L_1\\cdots L_c & \\text{if } m=c.\\end{cases} \\]",
+   "proof_lines": 4,
+   "proof_words": 101,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "Taylor coefficient of the product (5.4)-(5.5)",
+   "primal": "Lemma 8 (product of linear polynomials)",
+   "involutions": "Sec 7 (moment comparison, off-route)",
+   "lean": [
+    "lean:TriangleSystem.Pair.cycle_factor_witness",
+    "lean:common_phase_sum_ne_zero"
+   ],
+   "lean_relation": "none",
+   "lean_route": "different",
+   "covered": false,
+   "bridge": null,
+   "gap": "The Lean never forms omega^m: it factorises each D-class as a product of polynomials X * q_C with q_C(0) > 0 (cycle_factor_witness) and reads off the lowest coefficient (common_phase_sum_ne_zero). Distance: the identity itself is self-contained algebra (Mathlib has only the one-variable fwdDiff_iter_pow_eq_factorial). PROVED in Lean here: research/2026-11-14_opus_blueprint/lean/FiniteDifference.lean (see FORMALISATION.md)."
+  },
+  {
+   "id": "prop:good",
+   "source": "main",
+   "label": "prop:good",
+   "number": "4.8",
+   "kind": "proposition",
+   "title": "",
+   "section": 4,
+   "line": 688,
+   "statement": "If $\\T$ has a pair, then it has a good state.",
+   "proof_lines": 20,
+   "proof_words": 290,
+   "explicit_uses": [
+    "lem:cancel",
+    "lem:reversals",
+    "lem:sign",
+    "lem:height",
+    "lem:difference"
+   ],
+   "implicit_uses": [
+    "txt:D (class of a pair)",
+    "lem:partner (acyclic Q_s with a partner is good)"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Prop 5.1",
+   "primal": "Lemma 8",
+   "involutions": "Theorem 1",
+   "lean": [
+    "lean:ColoredDual.forest_pair",
+    "lean:TriangleSystem.Pair.forest_pair_of_disk_circulation",
+    "lean:TriangleSystem.Pair.total_sum_ne_zero"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "forest_pair: if a pair exists, some pair has oppositeGraph of its second state acyclic; that state is good by lem:partner. Same conclusion, different nonvanishing argument (phase * prod (1 + aX) instead of eps * omega^m).",
+   "gap": null
+  },
+  {
+   "id": "ex:count",
+   "source": "main",
+   "label": "ex:count",
+   "number": "4.9",
+   "kind": "example",
+   "title": "",
+   "section": 4,
+   "line": 718,
+   "statement": "In the example the $8$ pairs fall into two classes of four, both with $m=2$ cycles: a $7$-cycle enclosing $6$ white faces and a triangle enclosing $1$ (the class of $(\\beta,\\alpha)$), and a $7$-cycle enclosing $3$ and a triangle enclosing $1$. Table~\\ref{tab:pairs} lists all eight, with the weights of the paths of faces chosen as shortest paths. In each class the four values of $\\eps\\,\\omega^2$ add up to $2\\,L_1L_2$: $16-9-4+9=12$ and $4-1-1+4=6$. So $\\Sigma=18$, while $\\sum\\eps=\\sum\\eps\\,\\omega=0$. The two pairs with a cycle in $Q_s$ have the same second state $\\alpha$ and cancel; the six good states are the second states of the other six pairs, three with $\\eps=+1$ and three with $\\eps=-1$.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "example",
+   "status_text": "example (computed)"
+  },
+  {
+   "id": "rem:other-sums",
+   "source": "main",
+   "label": "rem:other-sums",
+   "number": "4.10",
+   "kind": "remark",
+   "title": "",
+   "section": 4,
+   "line": 748,
+   "statement": "OpenAI test the signed count against $\\exp(x\\,\\omega(s))$ with the phase $i^{J}$, where $J=\\frac13\\sum_t\\delta(r(t),s(t))$, and read off the Taylor coefficient of order $m$. Since $i^{J}=i^{-n}\\eps$, that coefficient is $i^{-n}\\Sigma/m!$. The unsigned manuscript \\cite{constructive2026} uses the integer polynomial $\\sum\\eps(r,s)z^{\\omega(s)}$ and its coefficient of $(z-1)^m$, which is $\\sum\\eps(r,s)\\binom{\\omega(s)}{m}=\\Sigma/m!$, because the sums of $\\eps\\,\\omega^j$ with $j<m$ vanish by Lemma~\\ref{lem:difference}. Li \\cite{li2026} marks $m$ distinct crossings, which gives a symmetric function of degree $m$ in the crossing signs in place of the power. None of these arguments is constructive.",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "(5.2)",
+   "primal": "(6.1)",
+   "involutions": "Sec 7",
+   "lean": [
+    "lean:TriangleSystem.Pair.term"
+   ],
+   "lean_relation": "none",
+   "lean_route": "-",
+   "covered": false,
+   "bridge": null,
+   "gap": "Off-route remark. The referee (sol_referee-main) noted that sum eps z^omega is a Laurent polynomial, not an integer polynomial, since omega can be negative (Table 4.2 has omega = -4)."
+  },
+  {
+   "id": "eq:hall",
+   "source": "main",
+   "label": "eq:hall",
+   "number": "(5.1)",
+   "kind": "equation",
+   "title": "",
+   "section": 5,
+   "line": 768,
+   "statement": "\\sum_{t\\in A}\\min\\bigl(2,|V(t)\\cap S|\\bigr)\\ \\ge\\ 2|S|\\qquad\\text{for all } S\\subseteq X .",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "(3.1)",
+   "primal": "(3.1)",
+   "involutions": "-",
+   "lean": [
+    "lean:ColoredDual.state_capacity"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": null,
+   "gap": null
+  },
+  {
+   "id": "prop:pair",
+   "source": "main",
+   "label": "prop:pair",
+   "number": "5.2",
+   "kind": "proposition",
+   "title": "",
+   "section": 5,
+   "line": 779,
+   "statement": "If $\\T$ has no separating triangle, then $\\T$ has a pair.",
+   "proof_lines": 34,
+   "proof_words": 660,
+   "explicit_uses": [
+    "eq:hall",
+    "eq:density",
+    "eq:counts"
+   ],
+   "implicit_uses": [
+    "txt:two-faces / one black face per edge (\"would share the side ab\")",
+    "lem:dual (simplicity, via the definition of coloured triangulation)",
+    "background: Euler formula for H"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Prop 3.1",
+   "primal": "Lemma 4 (different proof: minimal deficit)",
+   "involutions": "hypothesis",
+   "lean": [
+    "lean:ColoredDual.pair_nonempty",
+    "lean:ColoredDual.state_capacity",
+    "lean:capacity_full",
+    "lean:induced_density",
+    "lean:region_density",
+    "lean:region_balance_rim",
+    "lean:rim_defect",
+    "lean:rim_three_cut",
+    "lean:complement_singleton_root",
+    "lean:induced_euler_bound"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "same",
+   "covered": true,
+   "bridge": "\"no separating triangle\" is TrivialThreeCuts (every 3-edge cut of G has a singleton side). The density bound is proved globally (induced_euler_bound), not per component.",
+   "gap": null
+  },
+  {
+   "id": "lem:cap",
+   "source": "main",
+   "label": "lem:cap",
+   "number": "6.1",
+   "kind": "lemma",
+   "title": "",
+   "section": 6,
+   "line": 826,
+   "statement": "The three faces of $\\T$ in $\\mathsf{D}$ that have a side on $\\Delta$ have the same colour. Colouring the cap with the other colour makes $\\T_{\\mathsf{D}}$ a coloured triangulation with fewer vertices than $\\T$.",
+   "proof_lines": 5,
+   "proof_words": 130,
+   "explicit_uses": [
+    "lem:connected"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "proof of Thm 2.2 (cap colouring)",
+   "primal": "Lemma 13, first part",
+   "involutions": "-",
+   "lean": [
+    "lean:threeCut_black_card",
+    "lean:cap_coloring",
+    "lean:cap_simple",
+    "lean:cap_cubic",
+    "lean:cap_threeConnected",
+    "lean:cap_duality"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "the piece is the contraction G / A^c; its dual comes from Duality.minor instead of lem:connected.",
+   "gap": null
+  },
+  {
+   "id": "thm:T",
+   "source": "main",
+   "label": "thm:T",
+   "number": "6.2",
+   "kind": "theorem",
+   "title": "",
+   "section": 6,
+   "line": 839,
+   "statement": "Let $\\T$ be a coloured triangulation, $t_0$ a face of $\\T$ and $e_0$ a side of $t_0$. Then $\\T$ has an acyclic selection containing $e_0$.",
+   "proof_lines": 23,
+   "proof_words": 399,
+   "explicit_uses": [
+    "prop:pair",
+    "prop:good",
+    "prop:recover",
+    "lem:cap",
+    "prop:target"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Thm 2.2",
+   "primal": "Theorem T (first sentence)",
+   "involutions": "-",
+   "lean": [
+    "lean:Duality.connected_complement_matching",
+    "lean:irreducible_matching",
+    "lean:cap_matching_boundary",
+    "lean:cap_glue_matching",
+    "lean:cap_glue_connected"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "statement: perfect matching P containing e with G - P connected (no face parameter). Route: Lean glues matchings (cap_glue_connected); the paper glues acyclic selections using prop:target.2, which is not formalised.",
+   "gap": null
+  },
+  {
+   "id": "txt:two-faces",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "two faces share at most one side",
+   "section": 2,
+   "line": 131,
+   "statement": "From now on $\\T$ is a \\emph{coloured triangulation}: a simple graph with at least four vertices, embedded in the sphere so that every face is bounded by a triangle, with a black and white colouring of its faces in which every edge has one face of each colour. Two faces share at most one side, since two faces with two common sides would have the same three corners, and that triangle would bound both of them, leaving no room for a fourth vertex. The next lemma shows that $\\T$ is connected. We use it again for the inside of a cycle and for the pieces of Section~\\ref{sec:glue}.",
+   "proof_lines": 1,
+   "proof_words": 107,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "tacit",
+   "primal": "Lemma 1 (two faces share at most one edge)",
+   "involutions": "-",
+   "lean": [
+    "lean:TriangleSystem",
+    "lean:ColoredDual.system"
+   ],
+   "lean_relation": "primal-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "a field of TriangleSystem: two triangles sharing two vertices coincide; supplied for ColoredDual.system from simplicity of D.",
+   "gap": null
+  },
+  {
+   "id": "txt:inside",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "the inside of a directed cycle Z is a connected plane graph R_Z",
+   "section": 3,
+   "line": 383,
+   "statement": "Euler's formula needs a connected plane graph, so we first say what the inside of $Z$ is. Let $R_Z$ consist of $Z$ and the vertices and edges of $\\T$ inside $Z$. By the Jordan curve theorem the outside of $Z$ is an open disk; it contains no point of $R_Z$ and its boundary is $Z$, so it is one face of $R_Z$, bounded by the cycle $Z$. Every other face of $R_Z$ lies inside $Z$ and contains no vertex or edge of $\\T$, so it lies in one face of $\\T$; conversely a face of $\\T$ inside $Z$ is a connected region disjoint from $R_Z$ whose boundary triangle lies in $R_Z$. So the faces of $R_Z$ are the $B+W$ faces of $\\T$ inside $Z$ and the outside of $Z$, each bounded by a cycle, and $R_Z$ is connected by Lemma~\\ref{lem:connected}. A vertex strictly inside $Z$ has all its faces inside $Z$, so no vertex is pinched between the two sides.",
+   "proof_lines": 1,
+   "proof_words": 167,
+   "explicit_uses": [
+    "lem:connected"
+   ],
+   "implicit_uses": [
+    "background: Jordan curve theorem (only Jordan is needed although the text says \"open disk\")"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 4, one sentence (\"its bounded disk contains no root\")",
+   "primal": "Lemma 2 (cut side, no-pinch)",
+   "involutions": "background",
+   "lean": [
+    "lean:Duality.circuit_cut",
+    "lean:Bond.connected_shore",
+    "lean:region_connected",
+    "lean:region_euler",
+    "lean:mixed_corner_on_boundary"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "the inside of Z is the root-free shore A of the bond cut(A) = Z; Euler for R_Z is region_euler |A| + |U| = |E(A)| + 1; \"no vertex is pinched\" is mixed_corner_on_boundary. The paper's object R_Z and its connectivity via lem:connected have no counterpart.",
+   "gap": null
+  },
+  {
+   "id": "txt:D",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "D(r,s) is a disjoint union of directed cycles covering X",
+   "section": 4,
+   "line": 497,
+   "statement": "Besides $Q_s$ a pair gives the set $D(r,s)$ of edges $r(t)\\to s(t)$, $t\\in A$ (Figure~\\ref{fig:local}(b)). Every vertex of $X$ is $r(t)$ for one $t$ and $s(t')$ for one $t'$, so it has one outgoing and one incoming edge in $D(r,s)$. The edges come from distinct black faces, so they are distinct even as undirected edges, and $\\T$ is simple. Hence $D(r,s)$ is a union of disjoint directed cycles of $\\T$, each of length at least three, covering $X$, and each face $t\\in A$ supplies one edge to exactly one of them. The edges of $D(r,s)$ are chosen sides for the state $r$, and so are the edges of $Q_s$ directed as in Lemma~\\ref{lem:partner}. So the disk identity applies to every cycle of $D(r,s)$ and to every cycle of $Q_s$.",
+   "proof_lines": 1,
+   "proof_words": 149,
+   "explicit_uses": [
+    "lem:partner"
+   ],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 5 (D is a union of vertex-disjoint cycles)",
+   "primal": "Lemma 8, first paragraph",
+   "involutions": "Sec 2 (D_p)",
+   "lean": [
+    "lean:TriangleSystem.Pair.next",
+    "lean:CycleClass",
+    "lean:ColoredDual.pairedCycle"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "cycles of D are the cycles of the permutation next = r^-1 o s of the black triangles; pairedCycle turns one into a state cycle of T.",
+   "gap": null
+  },
+  {
+   "id": "txt:delta",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "definition of delta; delta-sum of a cycle of chosen sides is -3 ccw, +3 cw",
+   "section": 4,
+   "line": 549,
+   "statement": "\\subsection*{A sign} We want to count pairs so that the pairs with cyclic $Q_s$ cancel. Reversing a cycle of $Q_s$ pairs them up, so we need a sign that this reversal changes. For adjacent vertices $v,w$ put $\\delta(v,w)=1$ if the black face of the edge $vw$ lies to the left of $v\\to w$, and $\\delta(v,w)=-1$ otherwise; equivalently $\\delta(v,w)=1$ when $w$ follows $v$ in the counterclockwise order of the corners of that black face. Along a directed cycle $Z$ of $\\T$ traversed counterclockwise the inside is on the left, so the sum of $\\delta$ along $Z$ is $\\ell-(h-\\ell)=2\\ell-h$, and by the disk identity a counterclockwise cycle of chosen sides has $\\delta$-sum $-3$ and a clockwise one $+3$. For a pair put \\[ \\eps(r,s)=\\prod_{t\\in A}\\delta\\bigl(r(t),s(t)\\bigr). \\]",
+   "proof_lines": 1,
+   "proof_words": 137,
+   "explicit_uses": [],
+   "implicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Sec 4 (delta)",
+   "primal": "Sec 2 (delta), Lemma 3",
+   "involutions": "Sec 2 (delta)",
+   "lean": [
+    "lean:TriangleSystem.indexDelta",
+    "lean:Triangle.index_delta",
+    "lean:blackDelta",
+    "lean:ColoredDual.cycle_disk"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "delta is indexDelta of the stored corner labelling; \"counterclockwise\" is the sign c in cycle flow = c * gradient(1_A); cycle_disk gives blackDelta = -3c.",
+   "gap": null
+  },
+  {
+   "id": "txt:heights",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "heights eta_s(y) and weight omega(s) along fixed paths of faces",
+   "section": 4,
+   "line": 616,
+   "statement": "For each white face $y$ fix a path of faces $y=f_0,f_1,\\dots,f_j=t_0$ in $G$: consecutive faces share a side, and no face is repeated. Such a path exists because $G$ is connected. A black face $t\\in A$ on the path is entered across one of its sides and left across another. These two sides meet in one corner $v$ of $t$, and we say that the path \\emph{turns around} $v$ in $t$. Put $\\kappa_y(t,v)=1$ if the path turns around $v$ in $t$ with $v$ on its left, $\\kappa_y(t,v)=-1$ if it turns around $v$ with $v$ on its right, and $\\kappa_y(t,v)=0$ if the path misses $t$ or turns around another corner of $t$. (Combinatorially: if $a'$ is the far end of the side of entry and $b'$ the far end of the side of exit, then $v$ is on the left exactly when $v,a',b'$ is the counterclockwise order of the corners of $t$.) The \\emph{height} of a state $s$ at $y$ and its \\emph{weight} are \\[ \\eta_s(y)=\\sum_{t\\in A}\\kappa_y\\bigl(t,s(t)\\bigr),\\qquad \\omega(s)=\\sum_{y\\ \\text{white}}\\eta_s(y). \\] The paths are fixed once and for all; Figure~\\ref{fig:heights} shows one.",
+   "proof_lines": 1,
+   "proof_words": 208,
+   "explicit_uses": [],
+   "implicit_uses": [
+    "lem:duality.2 with N empty: G connected, so paths of faces exist"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "openai": "Lemma 5.3 (spoke circulations, different weights)",
+   "primal": "Lemma 6 (integer path flow and local potentials)",
+   "involutions": "rays rho_w and crossings (Sec 1)",
+   "lean": [
+    "lean:whiteCharge",
+    "lean:boundary_of_sum_zero",
+    "lean:ColoredDual.weights"
+   ],
+   "lean_relation": "different-form",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "summing the unit path flows from each white face y to t0 gives a flow alpha on G with boundary whiteCharge; the heights kappa are then the potentials ColoredDual.weights alpha up to one additive constant per black triangle (constants cancel on every cycle). This identification is not formalised.",
+   "gap": null
+  },
+  {
+   "id": "txt:flow",
+   "source": "main",
+   "label": null,
+   "number": "",
+   "kind": "text",
+   "title": "a pair exists if the capacity condition (5.1) holds (max-flow)",
+   "section": 5,
+   "line": 759,
+   "statement": "Proposition~\\ref{prop:good} needs one pair. Let $\\mathcal{B}$ be the bipartite graph on $A\\cup X$ in which $t$ is joined to its corners in $X$. States are the perfect matchings of $\\mathcal{B}$. A spanning subgraph of $\\mathcal{B}$ with all degrees two is a union of disjoint even cycles, and taking alternate edges along each cycle splits it into two states that differ in every face, that is, a pair. We find such a subgraph as a flow (Figure~\\ref{fig:flow}). Give the edges of a network capacity $2$ from a source to each $x\\in X$, capacity $1$ from $x$ to each face $t\\in A$ with corner $x$, and capacity $2$ from each $t\\in A$ to a sink. An integral flow of value $2n$ saturates every source and sink edge, and the incidences that carry flow form the required subgraph. A cut with $S\\subseteq X$ on the source side and the best placement of each $t$ has capacity $2(n-|S|)+\\sum_{t\\in A}\\min\\bigl(2,|V(t)\\cap S|\\bigr)$, where $V(t)$ is the set of corners of $t$. By the integral max-flow min-cut theorem \\cite{fordfulkerson1956}, a pair exists if \\begin{equation} \\sum_{t\\in A}\\min\\bigl(2,|V(t)\\cap S|\\bigr)\\ \\ge\\ 2|S|\\qquad\\text{for all } S\\subseteq X . \\end{equation}",
+   "proof_lines": 1,
+   "proof_words": 203,
+   "explicit_uses": [
+    "prop:good"
+   ],
+   "implicit_uses": [
+    "background: integral max-flow min-cut (Ford-Fulkerson)"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "openai": "Prop 3.1, first paragraph",
+   "primal": "Lemma 4, first paragraph",
+   "involutions": "-",
+   "lean": [
+    "lean:BMatching.two_matchings"
+   ],
+   "lean_relation": "exact",
+   "lean_route": "different",
+   "covered": true,
+   "bridge": "two_matchings: equal sides and 2|S| <= sum_b min(2, |S cap N(b)|) give two disjoint perfect matchings. Lean uses Hall twice instead of max-flow.",
+   "gap": null
+  },
+  {
+   "id": "rem:which",
+   "source": "main",
+   "label": null,
+   "number": "Sec 7",
+   "kind": "remark",
+   "title": "which Hamiltonian cycles arise",
+   "section": 7,
+   "line": 893,
+   "statement": "\\subsection*{Which Hamiltonian cycles arise (proved; computed)} For fixed $t_0$ and $e_0$, Lemma~\\ref{lem:selections-give-states} assigns a state $s_C$ to every Hamiltonian cycle $C$ avoiding the edge across $e_0$. \\emph{Proved:} $C$ is produced by Proposition~\\ref{prop:recover} exactly when $s_C$ is good, and different good states give different cycles. The complement $P$ of $C$ avoids $S_{s_C}$, because its side in each $t\\in A$ contains $s_C(t)$ and its side in $t_0$ is $e_0$; so it is a perfect matching of the tree $Y_{s_C}$, and a tree has at most one perfect matching; hence $P=P_{s_C}$. Conversely $s_{C}$ is recovered from $P_s$ when $C$ comes from $s$. \\emph{Computed:} in the example all six such cycles arise. In the hexagonal prism, whose dual is the hexagonal bipyramid, take a black face as $t_0$ and its side on the equator as $e_0$; there are three states, two of them good, and four Hamiltonian cycles avoiding the edge, so only two arise. (For the two other sides of $t_0$ there are two such cycles, and both arise.)",
+   "proof_lines": 9,
+   "proof_words": 166,
+   "explicit_uses": [
+    "lem:selections-give-states",
+    "prop:recover"
+   ],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "none",
+   "primal": "Remarks 14-15",
+   "involutions": "-",
+   "lean": [],
+   "lean_relation": "none",
+   "lean_route": "-",
+   "covered": false,
+   "bridge": null,
+   "gap": "Off-route. No Lean counterpart."
+  },
+  {
+   "id": "rem:poly",
+   "source": "main",
+   "label": null,
+   "number": "Sec 7",
+   "kind": "remark",
+   "title": "the polynomial behind the count",
+   "section": 7,
+   "line": 910,
+   "statement": "\\subsection*{The polynomial behind the count (proved)} Give each corner choice $(t,v)$ a variable $w_{t,v}$ and put $F(w)=\\sum_{(r,s)}\\eps(r,s)\\prod_{t\\in A}w_{t,s(t)}$. By Lemmas~\\ref{lem:partner} and~\\ref{lem:cancel} the coefficient of a state $s$ is $0$ unless $s$ is good, and $\\pm1$ if it is; so the monomials of $F$ are exactly the good states. Grouping by the undirected cycles of $D$ as in Proposition~\\ref{prop:good}, \\[ F(w)=\\sum_{D}(-1)^{(n-c(D))/2}\\prod_{C\\in D}\\bigl(w^{C+}-w^{C-}\\bigr), \\] where $w^{C\\pm}$ is the product of $w_{t,v}$ over the faces of $C$, with $v$ the head of the edge of $C$ in $t$ when $C$ runs counterclockwise $(+)$ or clockwise $(-)$. Proposition~\\ref{prop:good} is the statement $F\\neq0$, read off at $w_{t,v}=1+\\xi\\kappa(t,v)$ with $\\kappa=\\sum_y\\kappa_y$: each factor is then $\\xi L(C)+O(\\xi^2)$. OpenAI's exponential sum is, up to the factor $i^{-n}$, the substitution $w_{t,v}=e^{\\xi a(t,v)}$ with their spoke weights $a$.",
+   "proof_lines": 11,
+   "proof_words": 128,
+   "explicit_uses": [
+    "lem:partner",
+    "lem:cancel",
+    "prop:good",
+    "prop:good"
+   ],
+   "implicit_uses": [],
+   "status": "refereed",
+   "status_text": "refereed by a second model only",
+   "openai": "(5.4)",
+   "primal": "(6.3)",
+   "involutions": "-",
+   "lean": [
+    "lean:TriangleSystem.Pair.group_sum_product"
+   ],
+   "lean_relation": "weaker",
+   "lean_route": "-",
+   "covered": false,
+   "bridge": null,
+   "gap": "Off-route. group_sum_product is this factorisation after the substitution w_(t,v) = 1 + a(t,v) X, with the phase in place of the sign."
+  },
+  {
+   "id": "PT",
+   "source": "primal",
+   "label": null,
+   "number": "T",
+   "kind": "theorem",
+   "title": "",
+   "line": 19,
+   "statement": "Every finite simple cubic bipartite 3-edge-connected plane graph $G$ has, for every edge $e_0$, a perfect matching $P$ containing $e_0$ such that $G-P$ is connected. Consequently every cubic bipartite 3-vertex-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge. The connected complement of a perfect matching in a cubic graph has degree two at every vertex, so it is one cycle. This is what we will construct. Working with 3-edge-connectivity keeps the induction within precisely the hypotheses it needs. Fix an orientation of the sphere, a bipartition $B,\\allowbreak W$ of $V(G)$, and an edge $e_0=b_0w_0$ with $b_0\\in B$. Write $\\mathcal F$ for the faces of $G$. The three faces at $b_0$ form $R$. Put \\begin{equation*} A=B\\setminus\\{b_0\\},\\qquad X=\\mathcal F\\setminus R,\\qquad n=|A|. \\end{equation*} We use faces as incidence labels. We never construct a triangulation, a spoke graph, or a labelling by the two sides of the final Hamiltonian cycle. A \\emph{face link} is simply an edge $e$ of $G$, regarded as joining its two incident faces. A face circuit is a cyclic list of distinct faces $f_0,\\allowbreak \\ldots,\\allowbreak f_{h-1}$ and distinct edges $e_i$ with $e_i$",
+   "proof_lines": 3,
+   "proof_words": 224,
+   "explicit_uses": [
+    "PL4",
+    "PL5",
+    "PL6",
+    "PL7",
+    "PL8",
+    "PL9",
+    "PL10",
+    "PL11",
+    "PL12",
+    "PL13"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:Duality.connected_complement_matching",
+    "lean:matching_strong",
+    "lean:main"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": "plane map versus algebraic dual"
+  },
+  {
+   "id": "Pcircuit",
+   "source": "primal",
+   "label": null,
+   "number": "circuit-cut fact",
+   "kind": "lemma",
+   "title": "",
+   "line": 39,
+   "statement": "PROVED-HERE. In a connected sphere map, face circuits are exactly bonds, and each bond has connected shores. This assertion allows loops and parallel face links.",
+   "proof_lines": 7,
+   "proof_words": 381,
+   "explicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:Duality.circuit_cut",
+    "lean:Duality.bond_of_circuit",
+    "lean:Bond.connected_shore"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": "converse (bond => face circuit) proved by kernel duality in Lean"
+  },
+  {
+   "id": "PL1",
+   "source": "primal",
+   "label": null,
+   "number": "1",
+   "kind": "lemma",
+   "title": "elementary setup",
+   "line": 49,
+   "statement": "PROVED-HERE. Facial boundaries are cycles; each vertex is incident with three distinct faces; two faces share at most one edge; and \\begin{equation*} |B|=|W|=n+1,\\qquad |E|=3(n+1),\\qquad |\\mathcal F|=n+3,\\qquad |X|=n. \\end{equation*}",
+   "proof_lines": 3,
+   "proof_words": 179,
+   "explicit_uses": [
+    "Pcircuit"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:ColoredDual.cubic_cards",
+    "lean:ColoredDual.nonroots_card",
+    "lean:make_coloredDual"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL2",
+   "source": "primal",
+   "label": null,
+   "number": "2",
+   "kind": "lemma",
+   "title": "face circuits and cut-side faces",
+   "line": 59,
+   "statement": "PROVED-HERE; Lean counterparts are \\nolinkurl{Duality.circuit_cut}, \\nolinkurl{Bond.connected_shore}, \\nolinkurl{region_euler}, and \\nolinkurl{mixed_corner_on_boundary}. (a) A face circuit is exactly the edge set of a bond of $G$, a nonempty inclusion-minimal edge cut. Its two shores induce connected graphs. If a face circuit avoids the three faces in $R$, let $S$ be the unique shore not containing $b_0$. Call this its \\emph{cut side}. No root face meets $S$. (b) For connected complementary shores $S,\\allowbreak \\overline S$, let $E_S$ be all edges with an end in $S$, and $U_S$ all faces incident with a vertex of $S$. Then \\begin{equation*} |S|+|U_S|=|E_S|+1. \\tag{2.1} \\end{equation*} A face meeting both shores contains a cut edge on its boundary. If the cut is a face circuit, the mixed faces are precisely its listed faces. This is the no-pinch assertion needed here.",
+   "proof_lines": 5,
+   "proof_words": 323,
+   "explicit_uses": [
+    "Pcircuit"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:Duality.circuit_cut",
+    "lean:Bond.connected_shore",
+    "lean:region_euler",
+    "lean:mixed_corner_on_boundary"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL3",
+   "source": "primal",
+   "label": null,
+   "number": "3",
+   "kind": "lemma",
+   "title": "orientation of a bond",
+   "line": 77,
+   "statement": "PROVED-HERE. On an oriented face circuit with cut side $S$, there is a common $\\sigma\\in\\{1,\\allowbreak -1\\}$ such that \\begin{equation*} \\delta(f_i,f_{i+1})=\\sigma\\bigl(\\mathbf1_S(b_i)-\\mathbf1_S(w_i)\\bigr). \\tag{2.2} \\end{equation*} Call $\\sigma=+1$ the positive orientation.",
+   "proof_lines": 8,
+   "proof_words": 188,
+   "explicit_uses": [
+    "PL2"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:cycle_cut_scalar",
+    "lean:blackDelta_cut",
+    "lean:Triangle.index_delta"
+   ],
+   "lean_relation": "different-form",
+   "covered": true,
+   "note": "no single Lean counterpart; coherence of orientations comes from the algebra (oriented_face)"
+  },
+  {
+   "id": "PL4",
+   "source": "primal",
+   "label": null,
+   "number": "4",
+   "kind": "lemma",
+   "title": "a pair exists in the irreducible case",
+   "line": 100,
+   "statement": "PROVED-HERE, expanding Li, Lemma 9 and Claim 12; its conclusion matches Lean's \\nolinkurl{ColoredDual.pair_nonempty}. Suppose every three-edge cut has a singleton shore. Then a pair exists.",
+   "proof_lines": 39,
+   "proof_words": 595,
+   "explicit_uses": [
+    "PL1"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:ColoredDual.pair_nonempty"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": "hypothesis is literally TrivialThreeCuts; proof differs (minimal deficit and max-flow versus density and Hall)"
+  },
+  {
+   "id": "PL5",
+   "source": "primal",
+   "label": null,
+   "number": "5",
+   "kind": "lemma",
+   "title": "the cut-side identity",
+   "line": 144,
+   "statement": "PROVED-HERE, restating the conjunction of Lean's \\nolinkurl{state_disk_count} and \\nolinkurl{disk_boundary_imbalance}; LIT in equivalent form, OpenAI, Lemma 4.1. Let $r$ be a state. At each $b\\in A$ choose one of the two edges of face $r(b)$ incident with $b$, directing its face link from $r(b)$ to its other face. Suppose some chosen links form a directed face circuit $C$. Let $S$ be its cut side, $h=|C|$, and let $\\ell$ count its cut edges whose black endpoint belongs to $S$. Then \\begin{equation*} h=2\\ell+3,\\qquad |W\\cap S|=|B\\cap S|+1,\\qquad \\sum_{C}\\delta=-3\\sigma. \\tag{4.1} \\end{equation*} In particular $h$ is odd and $S$ contains a white vertex.",
+   "proof_lines": 22,
+   "proof_words": 269,
+   "explicit_uses": [
+    "PL2",
+    "PL3"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:state_disk_count",
+    "lean:disk_boundary_imbalance",
+    "lean:state_disk_delta"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL6",
+   "source": "primal",
+   "label": null,
+   "number": "6",
+   "kind": "lemma",
+   "title": "the weights",
+   "line": 178,
+   "statement": "PROVED-HERE, a primal restatement of Lean's \\nolinkurl{boundary_of_sum_zero}, \\nolinkurl{whiteCharge_cut_integral}, and \\nolinkurl{StateCycle.signed}. There are integer weights $a(b,\\allowbreak f)$ for incident pairs $b\\in A$, $f\\ni b$, such that for every directed state circuit with cut side $S$, \\begin{equation*} \\sum_{b\\text{ on }C}\\bigl(a(b,f_{\\rm head})-a(b,f_{\\rm tail})\\bigr) =\\sigma|W\\cap S|. \\tag{5.1} \\end{equation*}",
+   "proof_lines": 11,
+   "proof_words": 191,
+   "explicit_uses": [
+    "PL5",
+    "PL3"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:boundary_of_sum_zero",
+    "lean:whiteCharge_cut_integral",
+    "lean:ColoredDual.StateCycle.signed"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": "Lean allows any real flow; the note specialises to an integer path flow"
+  },
+  {
+   "id": "PL7",
+   "source": "primal",
+   "label": null,
+   "number": "7",
+   "kind": "lemma",
+   "title": "cancellation",
+   "line": 214,
+   "statement": "PROVED-HERE. For any fixed $s$ for which $Q_s$ contains a face circuit, \\begin{equation*} \\sum_{r:(r,s)\\text{ pair}}\\varepsilon(r,s)=0. \\tag{6.2} \\end{equation*}",
+   "proof_lines": 1,
+   "proof_words": 138,
+   "explicit_uses": [
+    "PL5"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:TriangleSystem.OppositeCycle.fixed_second_state_cancels"
+   ],
+   "lean_relation": "different-form",
+   "covered": true,
+   "note": "real sign versus complex phase; ratio i^n (primal STATUS.md)"
+  },
+  {
+   "id": "PL8",
+   "source": "primal",
+   "label": null,
+   "number": "8",
+   "kind": "lemma",
+   "title": "nonvanishing",
+   "line": 222,
+   "statement": "PROVED-HERE. If there is at least one pair, $Z\\ne0$. Hence there is a pair whose $Q_s$ has no face circuit.",
+   "proof_lines": 26,
+   "proof_words": 402,
+   "explicit_uses": [
+    "PL1",
+    "PL6",
+    "PL7"
+   ],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:TriangleSystem.Pair.total_sum_ne_zero",
+    "lean:TriangleSystem.Pair.forest_pair_of_disk_circulation"
+   ],
+   "lean_relation": "different-form",
+   "covered": true,
+   "note": "same linear products as Lean; real prefactor (-1)^((n-c)/2) not in Lean"
+  },
+  {
+   "id": "PL9",
+   "source": "primal",
+   "label": null,
+   "number": "9",
+   "kind": "lemma",
+   "title": "the recovery tree",
+   "line": 253,
+   "statement": "PROVED-HERE, restating Lean's \\nolinkurl{removed_acyclic}, \\nolinkurl{remainder_connected}, and \\nolinkurl{remainder_black_degree}. For a pair with circuit-free $Q_s$, put \\begin{equation*} K=G-\\bigl(Q_s\\cup(\\partial\\{b_0\\}\\setminus\\{e_0\\})\\bigr). \\end{equation*} Then $K$ is a spanning tree, with degree two at every black vertex other than $b_0$, and degree one at $b_0$.",
+   "proof_lines": 3,
+   "proof_words": 161,
+   "explicit_uses": [
+    "PL2"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:ColoredDual.removed_acyclic",
+    "lean:ColoredDual.remainder_connected",
+    "lean:ColoredDual.remainder_black_degree",
+    "lean:ColoredDual.remainder_independent"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL10",
+   "source": "primal",
+   "label": null,
+   "number": "10",
+   "kind": "lemma",
+   "title": "the selected matching",
+   "line": 265,
+   "statement": "PROVED-HERE, a constructive version of Lean's \\nolinkurl{tree_matching} and \\nolinkurl{recovery_matching}. Root $K$ at $b_0$. For every white vertex select its edge toward the root. These edges form a perfect matching $P\\subseteq E(K)$ containing $e_0$.",
+   "proof_lines": 1,
+   "proof_words": 83,
+   "explicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:tree_matching",
+    "lean:ColoredDual.recovery_matching"
+   ],
+   "lean_relation": "weaker",
+   "covered": true,
+   "note": "Lean gives existence by Hall; the rooting rule is not formalised"
+  },
+  {
+   "id": "PL11",
+   "source": "primal",
+   "label": null,
+   "number": "11",
+   "kind": "lemma",
+   "title": "matching cut balance",
+   "line": 269,
+   "statement": "PROVED-HERE; Lean's \\nolinkurl{matching_cut_balance}. If the cut $\\partial S$ is contained in any perfect matching of a cubic bipartite graph and $\\ell$ of its $h$ edges have black ends in $S$, then $h=2\\ell$.",
+   "proof_lines": 1,
+   "proof_words": 45,
+   "explicit_uses": [],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:matching_cut_balance"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL12",
+   "source": "primal",
+   "label": null,
+   "number": "12",
+   "kind": "lemma",
+   "title": "the complement is one cycle",
+   "line": 273,
+   "statement": "PROVED-HERE, restating Lean's \\nolinkurl{selectNet_forest}, \\nolinkurl{selected_forest}, and \\nolinkurl{recover_connected_complement}. Let $s$ be any state and $P$ any perfect matching whose edge at every $b\\in A$ lies on $s(b)$. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.",
+   "proof_lines": 5,
+   "proof_words": 210,
+   "explicit_uses": [
+    "PL5",
+    "PL11",
+    "PL9"
+   ],
+   "status": "checked-exact",
+   "status_text": "machine-checked counterpart, exact",
+   "lean": [
+    "lean:ColoredDual.selectNet_forest",
+    "lean:ColoredDual.selected_forest",
+    "lean:ColoredDual.recover_connected_complement"
+   ],
+   "lean_relation": "exact",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PL13",
+   "source": "primal",
+   "label": null,
+   "number": "13",
+   "kind": "lemma",
+   "title": "caps and gluing",
+   "line": 283,
+   "statement": "PROVED-HERE, expanding Li, Appendix C, and matching the statements of Lean's \\nolinkurl{cap_simple}, \\nolinkurl{cap_cubic}, \\nolinkurl{cap_threeConnected}, \\nolinkurl{cap_coloring}, \\nolinkurl{cap_glue_matching}, and \\nolinkurl{cap_glue_connected}. Suppose $\\partial S$ has size three and both shores have at least two vertices. Contract either shore to a new vertex, deleting internal loops. The resulting two capped graphs are smaller simple cubic bipartite 3-edge-connected plane graphs. Hamiltonian cycles in the caps that omit the same one of the three boundary edges glue to a Hamiltonian cycle of $G$.",
+   "proof_lines": 11,
+   "proof_words": 300,
+   "explicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:cap_simple",
+    "lean:cap_cubic",
+    "lean:cap_threeConnected",
+    "lean:cap_coloring",
+    "lean:cap_glue_matching",
+    "lean:cap_glue_connected",
+    "lean:cap_duality"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "PR14",
+   "source": "primal",
+   "label": null,
+   "number": "14",
+   "kind": "remark",
+   "title": "the partner is unique when it exists",
+   "line": 320,
+   "statement": "PROVED-HERE. If $Q_s$ is a forest, $s$ has a partner exactly when each component of $Q_s$ contains one root face. In that case the partner is unique, and the recovery graph of Lemma 9 is a tree for each root edge. If there is no partner, that graph is never a tree.",
+   "proof_lines": 1,
+   "proof_words": 164,
+   "explicit_uses": [
+    "PL9",
+    "Pcircuit"
+   ],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [],
+   "lean_relation": "none",
+   "covered": false,
+   "note": "added in the revision after the Fable referee"
+  },
+  {
+   "id": "PR15",
+   "source": "primal",
+   "label": null,
+   "number": "15",
+   "kind": "remark",
+   "title": "compatible matchings",
+   "line": 324,
+   "statement": "PROVED-HERE. For a fixed black root and a perfect matching $P$, there exists a compatible state exactly when $G-P$ is connected. The compatible state is unique.",
+   "proof_lines": 5,
+   "proof_words": 345,
+   "explicit_uses": [
+    "PL12"
+   ],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [],
+   "lean_relation": "none",
+   "covered": false,
+   "note": "added in the revision after the Fable referee"
+  },
+  {
+   "id": "I:main",
+   "source": "involutions",
+   "label": "main",
+   "number": "1",
+   "kind": "theorem",
+   "title": "Forest-pair lemma",
+   "line": 34,
+   "statement": "If a pair exists, a pair exists for which $Q_s$ is a forest.",
+   "proof_lines": 5,
+   "proof_words": 58,
+   "explicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:ColoredDual.forest_pair"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "I:disk",
+   "source": "involutions",
+   "label": "disk",
+   "number": "2",
+   "kind": "lemma",
+   "title": "Disk identity",
+   "line": 64,
+   "statement": "Select one outgoing side from the corner chosen by a state in every face of $A$. A simple directed cycle among these sides encloses no root. If it has length $h$ and $\\ell$ of its boundary sides have their black face inside, then $h-2\\ell=3$. Its length is odd, its disk contains a white face, and its $\\delta$-sum is $-3$ counterclockwise and $3$ clockwise.",
+   "proof_lines": 17,
+   "proof_words": 157,
+   "explicit_uses": [],
+   "status": "checked-form",
+   "status_text": "machine-checked counterpart in different form",
+   "lean": [
+    "lean:state_disk_delta"
+   ],
+   "lean_relation": "primal-form",
+   "covered": true,
+   "note": null
+  },
+  {
+   "id": "I:objects",
+   "source": "involutions",
+   "label": "objects",
+   "number": "3",
+   "kind": "definition",
+   "title": "",
+   "line": 111,
+   "statement": "A token is a crossing $(w,t)$ of $\\rho_w$ with the spoke $t\\to s(t)$. An object is $o=(p,M)$, where $M$ is an unordered set of exactly $m$ distinct tokens. The same white face may occur more than once, with different spokes. The same spoke may occur more than once, with different white faces. The identical crossing may not occur twice. Let $\\Omega$ be this finite set. For a token let $d(w,t)=0$ if the spoke $t\\to s(t)$ goes left to right across the ray and $1$ otherwise. Give the object sign \\[ \\sigma(o)=(-1)^{\\lfloor J(p)/2\\rfloor+\\sum_{(w,t)\\in M}d(w,t)}. \\]",
+   "proof_lines": 0,
+   "proof_words": 0,
+   "explicit_uses": [],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [],
+   "lean_relation": "none",
+   "covered": false,
+   "note": "rays, tokens and the sign with floor(J/2) have no Lean counterpart"
+  },
+  {
+   "id": "I:one",
+   "source": "involutions",
+   "label": "one",
+   "number": "4",
+   "kind": "lemma",
+   "title": "",
+   "line": 140,
+   "statement": "The map $\\iota_1$ is an involution. Its fixed objects are exactly those with $Q_s$ a forest, and it reverses sign at every other object.",
+   "proof_lines": 15,
+   "proof_words": 153,
+   "explicit_uses": [
+    "I:disk"
+   ],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [
+    "lean:TriangleSystem.OppositeCycle.reversal_involutive",
+    "lean:TriangleSystem.OppositeCycle.reverse_phase"
+   ],
+   "lean_relation": "weaker",
+   "covered": false,
+   "note": "Lean has the reversal and its phase flip, not the action on marked objects"
+  },
+  {
+   "id": "I:two",
+   "source": "involutions",
+   "label": "two",
+   "number": "5",
+   "kind": "lemma",
+   "title": "",
+   "line": 188,
+   "statement": "This defines an involution on $\\Omega$ which reverses sign off its fixed set. Its fixed objects have exactly $m$ cycles, one token on each, whose white-face point is inside that cycle and whose crossing is first along its ray.",
+   "proof_lines": 30,
+   "proof_words": 314,
+   "explicit_uses": [],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [],
+   "lean_relation": "none",
+   "covered": false,
+   "note": null
+  },
+  {
+   "id": "I:fixed",
+   "source": "involutions",
+   "label": "fixed",
+   "number": "6",
+   "kind": "lemma",
+   "title": "",
+   "line": 226,
+   "statement": "The fixed set of $\\iota_2$ is nonempty and every member has sign $(-1)^{\\lfloor m/2\\rfloor}$. In fact its cardinality is \\[ F=\\sum_{\\substack{D\\text{ unoriented cover}\\\\c(D)=m}} \\prod_{C\\subset D} a(C), \\qquad a(C)=\\#\\{\\text{white faces inside }C\\}. \\]",
+   "proof_lines": 14,
+   "proof_words": 139,
+   "explicit_uses": [
+    "I:disk"
+   ],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [
+    "lean:common_phase_sum_ne_zero"
+   ],
+   "lean_relation": "none",
+   "covered": false,
+   "note": "F = sum prod a(C) is the lowest coefficient magnitude of Lean's polynomial for the white-charge weights; Lean only proves it is positive"
+  },
+  {
+   "id": "I:walk",
+   "source": "involutions",
+   "label": "walk",
+   "number": "7",
+   "kind": "lemma",
+   "title": "",
+   "line": 268,
+   "statement": "This procedure terminates at a forest pair without repeating an object.",
+   "proof_lines": 11,
+   "proof_words": 135,
+   "explicit_uses": [
+    "I:fixed"
+   ],
+   "status": "unrefereed",
+   "status_text": "unrefereed",
+   "lean": [],
+   "lean_relation": "none",
+   "covered": false,
+   "note": "constructive alternating path; the Lean proof is not constructive"
+  },
+  {
+   "id": "lean:main",
+   "source": "lean",
+   "label": "OAI.Barnette.main",
+   "kind": "theorem",
+   "statement": "theorem main : MainStatement.{u}",
+   "file": "Main.lean",
+   "line": 47,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.connected_complement_matching",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.connected_complement_matching",
+   "kind": "theorem",
+   "statement": "theorem Duality.connected_complement_matching (h : N.Duality D) (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (h3 : N.ThreeEdgeConnected) (black : V → Prop) (hb : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (e : E) : ∃ P : Finset E, e ∈ P ∧ (∀ v, ((N.star v).filter (· ∈ P)).card = 1) ∧ (N.restrict (Subtype.val : ↥Pᶜ → E)).graph.Connected",
+   "file": "Gluing.lean",
+   "line": 294,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:PlaneEmbedding.exists_exact_dual",
+   "source": "lean",
+   "label": "OAI.Barnette.PlaneEmbedding.exists_exact_dual",
+   "kind": "theorem",
+   "statement": "theorem exists_exact_dual (E : PlaneEmbedding G) (hG : G.Connected) : ∃ (P : Network V G.edgeSet) (F : Type) (_ : Fintype F) (D : Network F G.edgeSet), P.Realizes G ∧ P.Duality D",
+   "file": "ExactDual.lean",
+   "line": 116,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cut_card_three",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cut_card_three",
+   "kind": "lemma",
+   "statement": "lemma cut_card_three (h : ThreeVertexConnected N.graph) (hV : 5 ≤ Fintype.card V) (A : Finset V) (hin : A.Nonempty) (hout : ∃ w, w ∉ A) : 3 ≤ (N.cut A).card",
+   "file": "CutSpaces.lean",
+   "line": 51,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.simple_dual_edge",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.simple_dual_edge",
+   "kind": "theorem",
+   "statement": "theorem Duality.simple_dual_edge (h : N.Duality D) (h3 : N.ThreeEdgeConnected) : D.Simple",
+   "file": "ThreeCuts.lean",
+   "line": 37,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.cubic_face_triangles_edge",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.cubic_face_triangles_edge",
+   "kind": "theorem",
+   "statement": "theorem Duality.cubic_face_triangles_edge (h : N.Duality D) (hN : N.Simple) (h3 : N.ThreeEdgeConnected) (hc : N.graph.IsRegularOfDegree 3) : ∀ v, Nonempty (D.Triangle (N.star v))",
+   "file": "ThreeCuts.lean",
+   "line": 82,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:make_coloredDual",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.make_coloredDual",
+   "kind": "lemma",
+   "statement": "lemma make_coloredDual (h : N.Duality D) (hN : N.Simple) (h3 : N.ThreeEdgeConnected) (hc : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hb : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) : Nonempty (N.ColoredDual D)",
+   "file": "ThreeCuts.lean",
+   "line": 101,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:black_dual_card",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.black_dual_card",
+   "kind": "lemma",
+   "statement": "lemma black_dual_card (h : N.Duality D) (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) : Fintype.card F = (Finset.univ.filter black).card + 2",
+   "file": "MinorDuality.lean",
+   "line": 179,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:region_connected",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.region_connected",
+   "kind": "lemma",
+   "statement": "lemma region_connected (A : Finset V) (hA : (N.graph.induce {v | v ∈ A}).Connected) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) : (N.region D A).graph.Connected",
+   "file": "DiskRegions.lean",
+   "line": 74,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Bond.connected_shore",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Bond.connected_shore",
+   "kind": "lemma",
+   "statement": "lemma Bond.connected_shore (h : N.graph.Connected) {A : Finset V} (hA : N.Bond A) (hin : A.Nonempty) (hout : ∃ v, v ∉ A) : (N.graph.induce {v | v ∈ A}).Connected",
+   "file": "Bonds.lean",
+   "line": 163,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cubic_cards",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.cubic_cards",
+   "kind": "lemma",
+   "statement": "lemma cubic_cards : Fintype.card E = 3*(Finset.univ.filter M.black).card ∧ Fintype.card V = 2*(Finset.univ.filter M.black).card",
+   "file": "Matching.lean",
+   "line": 477,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.euler",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.euler",
+   "kind": "theorem",
+   "statement": "theorem Duality.euler (h : N.Duality D) : Fintype.card V + Fintype.card F = Fintype.card E + 2",
+   "file": "Network.lean",
+   "line": 192,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:nonroots_card",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.nonroots_card",
+   "kind": "lemma",
+   "statement": "lemma nonroots_card (root : V) (hr : M.black root) : Fintype.card (M.nonroots root) = Fintype.card (M.Black root)",
+   "file": "BMatching.lean",
+   "line": 341,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.circuit_cut",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.circuit_cut",
+   "kind": "theorem",
+   "statement": "theorem Duality.circuit_cut (h : N.Duality D) (x : E → ℝ) (hx : D.FlowCircuit x) (root : V) : ∃ (A : Finset V) (c : ℝ), A.Nonempty ∧ root ∉ A ∧ c ≠ 0 ∧ x = c • N.gradient (fun v => if v ∈ A then 1 else 0) ∧ N.cut A = D.flowSupport x",
+   "file": "FlowCircuits.lean",
+   "line": 71,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.bond_of_circuit",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.bond_of_circuit",
+   "kind": "lemma",
+   "statement": "lemma Duality.bond_of_circuit (h : N.Duality D) (x : E → ℝ) (hx : D.FlowCircuit x) (A : Finset V) (hA : N.cut A = D.flowSupport x) : N.Bond A",
+   "file": "Bonds.lean",
+   "line": 109,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.complement_connected",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.complement_connected",
+   "kind": "lemma",
+   "statement": "lemma Duality.complement_connected (h : N.Duality D) (hD : D.Simple) (S : Finset E) (ha : (D.restrict (Subtype.val : S → E)).graph.IsAcyclic) : (N.restrict (Subtype.val : ↥(Sᶜ) → E)).graph.Connected",
+   "file": "Matching.lean",
+   "line": 79,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:conserved_supported_acyclic",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.conserved_supported_acyclic",
+   "kind": "lemma",
+   "statement": "lemma conserved_supported_acyclic (hN : N.Simple) (S : Finset E) (ha : (N.restrict (Subtype.val : S → E)).graph.IsAcyclic) (x : E → ℝ) (hx : N.boundary x = 0) (hs : ∀ e, e ∉ S → x e = 0) : x = 0",
+   "file": "Matching.lean",
+   "line": 68,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Duality.hamiltonian",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Duality.hamiltonian",
+   "kind": "theorem",
+   "statement": "theorem Duality.hamiltonian (h : N.Duality D) (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (h3 : N.ThreeEdgeConnected) (black : V → Prop) (hb : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) : HasHamiltonianCycle N.graph",
+   "file": "Main.lean",
+   "line": 13,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:matching_complement_two",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.matching_complement_two",
+   "kind": "lemma",
+   "statement": "lemma matching_complement_two (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (P : Finset E) (hP : ∀ v, ((N.star v).filter (· ∈ P)).card = 1) : (N.restrict (Subtype.val : ↥Pᶜ → E)).graph.IsRegularOfDegree 2",
+   "file": "Gluing.lean",
+   "line": 26,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cycle_at_of_connected_two",
+   "source": "lean",
+   "label": "OAI.Barnette.SimpleCycle.cycle_at_of_connected_two",
+   "kind": "lemma",
+   "statement": "lemma cycle_at_of_connected_two [DecidableEq V] (hc : G.Connected) (hd : G.IsRegularOfDegree 2) (v : V) : ∃ p : G.Walk v v, p.IsHamiltonianCycle",
+   "file": "CappedDuality.lean",
+   "line": 187,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.State",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.State",
+   "kind": "def",
+   "statement": "def State (X : Set V)",
+   "file": "TriangleSystem.lean",
+   "line": 19,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.State",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.State",
+   "kind": "abbrev",
+   "statement": "abbrev State (root : V)",
+   "file": "ColoredDual.lean",
+   "line": 46,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:oppositeGraph",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.oppositeGraph",
+   "kind": "def",
+   "statement": "def oppositeGraph {X : Set V} (s : T.State X) : SimpleGraph V",
+   "file": "TriangleSystem.lean",
+   "line": 105,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.augQ",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.augQ",
+   "kind": "abbrev",
+   "statement": "abbrev augQ (P : (M.system root).Pair (M.nonroots root)) (i : Fin 3) : Network F (M.Black root ⊕ Fin 2)",
+   "file": "Matching.lean",
+   "line": 276,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.removed_acyclic",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.removed_acyclic",
+   "kind": "lemma",
+   "statement": "lemma removed_acyclic (P : (M.system root).Pair (M.nonroots root)) (ha : ((M.system root).oppositeGraph P.right).IsAcyclic) (i : Fin 3) : (D.restrict (Subtype.val : M.removed P i → E)).graph.IsAcyclic",
+   "file": "Matching.lean",
+   "line": 330,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.augQ_acyclic",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.augQ_acyclic",
+   "kind": "lemma",
+   "statement": "lemma augQ_acyclic (P : (M.system root).Pair (M.nonroots root)) (ha : ((M.system root).oppositeGraph P.right).IsAcyclic) (i : Fin 3) : (M.augQ P i).graph.IsAcyclic",
+   "file": "Matching.lean",
+   "line": 281,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.remainder_connected",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.remainder_connected",
+   "kind": "lemma",
+   "statement": "lemma remainder_connected (P : (M.system root).Pair (M.nonroots root)) (ha : ((M.system root).oppositeGraph P.right).IsAcyclic) (i : Fin 3) : (N.restrict (Subtype.val : ↥((M.removed P i)ᶜ) → E)).graph.Connected",
+   "file": "Matching.lean",
+   "line": 342,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.remainder_independent",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.remainder_independent",
+   "kind": "lemma",
+   "statement": "lemma remainder_independent (P : (M.system root).Pair (M.nonroots root)) (hr : M.black root) (ha : ((M.system root).oppositeGraph P.right).IsAcyclic) (i : Fin 3) : Function.Injective (N.restrict (Subtype.val : ↥((M.removed P i)ᶜ) → E)).boundary",
+   "file": "Matching.lean",
+   "line": 487,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.remainder_black_degree",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.remainder_black_degree",
+   "kind": "lemma",
+   "statement": "lemma remainder_black_degree (P : (M.system root).Pair (M.nonroots root)) (hr : M.black root) (i : Fin 3) (v : V) (hv : M.black v) : ((N.star v).filter fun e => e ∈ (M.removed P i)ᶜ).card = if v = root then 1 else 2",
+   "file": "Matching.lean",
+   "line": 444,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:tree_matching",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.tree_matching",
+   "kind": "lemma",
+   "statement": "lemma tree_matching (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (H : Finset E) (hi : Function.Injective (N.restrict (Subtype.val : H → E)).boundary) (root : V) (_hr : black root) (hd : ∀ v, black v → ((N.star v).filter (fun e => e ∈ H)).card = if v = root then 1 else 2) (hbal : Fintype.card {v // black v} = Fintype.card {v // ¬black v}) : ∃ P : Finset E, P ⊆ H ∧ ∀ v, ((N.star v).filter fun e => e ∈ P).card = 1",
+   "file": "ForestMatching.lean",
+   "line": 51,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.recovery_matching",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.recovery_matching",
+   "kind": "lemma",
+   "statement": "lemma recovery_matching (P : (M.system root).Pair (M.nonroots root)) (hr : M.black root) (ha : ((M.system root).oppositeGraph P.right).IsAcyclic) (i : Fin 3) : ∃ S : Finset E, S ⊆ (M.removed P i)ᶜ ∧ ∀ v, ((N.star v).filter fun e => e ∈ S).card = 1",
+   "file": "ForestMatching.lean",
+   "line": 226,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:CycleCoordinates.tail_orientation",
+   "source": "lean",
+   "label": "OAI.Barnette.CycleCoordinates.tail_orientation",
+   "kind": "theorem",
+   "statement": "theorem tail_orientation {A : Type*} (face : Fin (C.n + 3) ↪ A) (tail : A → V) (htail : Function.Injective tail) (hend : ∀ i, tail (face i) = C.vertex i ∨ tail (face i) = C.vertex (i + 1)) : (∀ i, tail (face i) = C.vertex i) ∨ (∀ i, tail (face i) = C.vertex (i + 1))",
+   "file": "FlowCircuits.lean",
+   "line": 255,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:addSink_acyclic",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.addSink_acyclic",
+   "kind": "lemma",
+   "statement": "lemma addSink_acyclic (ha : Q.graph.IsAcyclic) (ht : Function.Injective Q.tail) (r : Fin 2 → V) (hr : Function.Injective r) (hd : ∀ a i, Q.tail a ≠ r i) (z : V) (hz : z ∉ Set.range (Q.addSink r z).tail) : (Q.addSink r z).graph.IsAcyclic",
+   "file": "Matching.lean",
+   "line": 114,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:state_disk_delta",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.state_disk_delta",
+   "kind": "theorem",
+   "statement": "theorem state_disk_delta (h : N.Duality D) (sN : N.Simple) (hdeg : N.graph.IsRegularOfDegree 3) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (root : V) (m : V → F) (hm_inj : Set.InjOn m {v | black v ∧ v ≠ root}) (hm_face : ∀ v, black v → v ≠ root → m v ∈ Set.range (face v).corner) (hm_range : ∀ z, z ∉ Set.range (face root).corner ↔ ∃ v, black v ∧ v ≠ root ∧ m v = z) (C : Barnette.CycleCoordinates D.graph) (hchoice : ∀ i, N.blackEndpoint black (D.cycleEdge C i) ≠ root ∧ m (N.blackEndpoint black (D.cycleEdge C i)) = C.vertex i) : ∃ (A : Finset V) (c : ℝ), A.Nonempty ∧ root ∉ A ∧ (c = 1 ∨ c = -1) ∧ D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0) ∧ N.cut A = D.cycleEdges C ∧ (N.cut A).card = 2 * (N.blackCut black A).card + 3 ∧ N.blackDelta D black C = -3*c",
+   "file": "StateDisk.lean",
+   "line": 442,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.cycle_disk",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.cycle_disk",
+   "kind": "lemma",
+   "statement": "lemma cycle_disk {root : V} (s : M.State root) (C : Barnette.CycleCoordinates D.graph) (t : Fin (C.n+3) → M.Black root) (he : ∀ i, D.cycleEdge C i ∈ N.star (t i).val) (hv : ∀ i, s.value (t i) = C.vertex i) : ∃ (A : Finset V) (c : ℝ), A.Nonempty ∧ root ∉ A ∧ (c = 1 ∨ c = -1) ∧ D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0) ∧ N.cut A = D.cycleEdges C ∧ (N.cut A).card = 2 * (N.blackCut M.black A).card + 3 ∧ N.blackDelta D M.black C = -3*c",
+   "file": "ColoredDual.lean",
+   "line": 83,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:state_disk_count",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.state_disk_count",
+   "kind": "theorem",
+   "statement": "theorem state_disk_count (h : N.Duality D) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (root : V) (m : V → F) (hm_inj : Set.InjOn m {v | black v ∧ v ≠ root}) (hm_face : ∀ v, black v → v ≠ root → m v ∈ Set.range (face v).corner) (hm_range : ∀ z, z ∉ Set.range (face root).corner ↔ ∃ v, black v ∧ v ≠ root ∧ m v = z) (C : Barnette.CycleCoordinates D.graph) (hchoice : ∀ i, N.blackEndpoint black (D.cycleEdge C i) ≠ root ∧ m (N.blackEndpoint black (D.cycleEdge C i)) = C.vertex i) (A : Finset V) (hroot : root ∉ A) (hcut : N.cut A = D.cycleEdges C) : (A.filter black).card + (N.cut A).card = (N.regionVertices D A).card + (N.blackCut black A).card",
+   "file": "StateDisk.lean",
+   "line": 260,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:disk_boundary_imbalance",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.disk_boundary_imbalance",
+   "kind": "lemma",
+   "statement": "lemma disk_boundary_imbalance (h : N.Duality D) (sN : N.Simple) (hdeg : N.graph.IsRegularOfDegree 3) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (A : Finset V) (hA : (N.graph.induce {v | v ∈ A}).Connected) (hAc : (N.graph.induce {v | v ∉ A}).Connected) (hm : (A.filter black).card + (N.cut A).card = (N.regionVertices D A).card + (N.blackCut black A).card) : (N.cut A).card = 2 * (N.blackCut black A).card + 3",
+   "file": "StateDisk.lean",
+   "line": 428,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:white_positive_of_boundary",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.white_positive_of_boundary",
+   "kind": "lemma",
+   "statement": "lemma white_positive_of_boundary (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (A : Finset V) (hcount : (N.cut A).card = 2 * (N.blackCut black A).card + 3) : 0 < (A.filter fun v => ¬black v).card",
+   "file": "Circulation.lean",
+   "line": 227,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.selected_forest",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.selected_forest",
+   "kind": "lemma",
+   "statement": "lemma selected_forest (s : M.State root) (P : Finset E) (hd : ∀ v, ((N.star v).filter fun e => e ∈ P).card = 1) (_hr : M.black root) (hi : ∀ t : M.Black root, D.Incident (N.matchingEdge P hd t.val) (s.value t)) (i : Fin 3) (he0 : N.matchingEdge P hd root = (M.face root).edge i) : (D.restrict (Subtype.val : P → E)).graph.IsAcyclic",
+   "file": "ForestMatching.lean",
+   "line": 338,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.selectNet_forest",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.selectNet_forest",
+   "kind": "lemma",
+   "statement": "lemma selectNet_forest (s : M.State root) (P : Finset E) (hd : ∀ v, ((N.star v).filter fun e => e ∈ P).card = 1) (hi : ∀ t : M.Black root, D.Incident (N.matchingEdge P hd t.val) (s.value t)) : (M.selectNet s P hd).graph.IsAcyclic",
+   "file": "ForestMatching.lean",
+   "line": 307,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:matching_cut_balance",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.matching_cut_balance",
+   "kind": "lemma",
+   "statement": "lemma matching_cut_balance (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (P : Finset E) (hd : ∀ v, ((N.star v).filter fun e => e ∈ P).card = 1) (A : Finset V) (hcut : N.cut A ⊆ P) : (N.cut A).card = 2*(N.blackCut black A).card",
+   "file": "ForestMatching.lean",
+   "line": 176,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.recover_connected_complement",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.recover_connected_complement",
+   "kind": "lemma",
+   "statement": "lemma recover_connected_complement (Q : (M.system root).Pair (M.nonroots root)) (hr : M.black root) (ha : ((M.system root).oppositeGraph Q.right).IsAcyclic) (i : Fin 3) : ∃ P : Finset E, (M.face root).edge i ∈ P ∧ (∀ v, ((N.star v).filter fun e => e ∈ P).card = 1) ∧ (N.restrict (Subtype.val : ↥(Pᶜ) → E)).graph.Connected",
+   "file": "ForestMatching.lean",
+   "line": 375,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Partner",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Partner",
+   "kind": "def",
+   "statement": "def Partner {X : Set V} (r s : T.State X) : Prop",
+   "file": "TriangleSystem.lean",
+   "line": 82,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair",
+   "kind": "def",
+   "statement": "def Pair (X : Set V)",
+   "file": "PairPhases.lean",
+   "line": 189,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.partner_orientation",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.partner_orientation",
+   "kind": "theorem",
+   "statement": "theorem partner_orientation (hrs : T.Partner r s) : (∀ i, r.value (C.face i) = C.cycle.vertex i) ∨ (∀ i, r.value (C.face i) = C.cycle.vertex (i + 1))",
+   "file": "CycleReversal.lean",
+   "line": 106,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.reverse",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.reverse",
+   "kind": "def",
+   "statement": "noncomputable def reverse (r : T.State X) (hrs : T.Partner r s) : T.State X",
+   "file": "CycleReversal.lean",
+   "line": 171,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.reversal_involutive",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.reversal_involutive",
+   "kind": "theorem",
+   "statement": "theorem reversal_involutive : Function.Involutive C.reversal",
+   "file": "CycleReversal.lean",
+   "line": 238,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.reversal_ne",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.reversal_ne",
+   "kind": "theorem",
+   "statement": "theorem reversal_ne (r : T.Partners s) : C.reversal r ≠ r",
+   "file": "CycleReversal.lean",
+   "line": 243,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.orient",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.orient",
+   "kind": "def",
+   "statement": "noncomputable def orient (P : @Pair A V T X) (b : CycleClass P.next → Bool) : P.Group",
+   "file": "PairPhases.lean",
+   "line": 286,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.groupEquiv",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.groupEquiv",
+   "kind": "def",
+   "statement": "noncomputable def groupEquiv [Finite A] (P : @Pair A V T X) : (CycleClass P.next → Bool) ≃ P.Group",
+   "file": "PairPhases.lean",
+   "line": 359,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:phase",
+   "source": "lean",
+   "label": "OAI.Barnette.phase",
+   "kind": "def",
+   "statement": "noncomputable def phase (n : ℤ) : ℂ",
+   "file": "PairPhases.lean",
+   "line": 9,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.rawIndexSum",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.rawIndexSum",
+   "kind": "def",
+   "statement": "def rawIndexSum [Fintype A] (r s : T.State X) : ℤ",
+   "file": "PairPhases.lean",
+   "line": 30,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.reverse_phase",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.reverse_phase",
+   "kind": "theorem",
+   "statement": "theorem reverse_phase [Fintype A] (r : T.State X) (hrs : T.Partner r s) (hdisk : C.cyclicDelta r = 3 ∨ C.cyclicDelta r = -3) : phase (rawIndexSum (C.reverse r hrs) s) = -phase (rawIndexSum r s)",
+   "file": "PairPhases.lean",
+   "line": 81,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:phase_add_six",
+   "source": "lean",
+   "label": "OAI.Barnette.phase_add_six",
+   "kind": "theorem",
+   "statement": "theorem phase_add_six (n : ℤ) : phase (n + 6) = -phase n",
+   "file": "PairPhases.lean",
+   "line": 11,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.group_sum_product",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.group_sum_product",
+   "kind": "theorem",
+   "statement": "theorem group_sum_product (P : @Pair A V T X) (w : A → Fin 3 → ℝ) (hdisk : ∀ c, P.cycleDelta c = 3 ∨ P.cycleDelta c = -3) : (∑ Q : P.Group, term w Q.val) = ∏ c, C (phase (P.cycleDelta c)) * (P.cycleRightWeight w c - P.cycleLeftWeight w c)",
+   "file": "PairPolynomials.lean",
+   "line": 238,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+   "kind": "theorem",
+   "statement": "theorem fixed_second_state_cancels [Fintype A] {M : Type*} [AddCommGroup M] [Module ℂ M] (hdisk : ∀ r : T.Partners s, C.cyclicDelta r.val = 3 ∨ C.cyclicDelta r.val = -3) (weight : M) : (∑ r : T.Partners s, phase (rawIndexSum r.val s) • weight) = 0",
+   "file": "PairPhases.lean",
+   "line": 91,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.opposite_disk",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.opposite_disk",
+   "kind": "lemma",
+   "statement": "lemma opposite_disk {s : M.State root} (C : (M.system root).OppositeCycle s) (r : (M.system root).Partners s) (α : E → ℝ) (hα : N.boundary α = whiteCharge M.black root) : C.cyclicDelta r.val = 3 ∨ C.cyclicDelta r.val = -3",
+   "file": "Forest.lean",
+   "line": 200,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:whiteCharge_cut_integral",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.whiteCharge_cut_integral",
+   "kind": "lemma",
+   "statement": "lemma whiteCharge_cut_integral (black : V → Prop) (root : V) (A : Finset V) (hr : root ∉ A) (α : E → ℝ) (hα : N.boundary α = whiteCharge black root) (c : ℝ) (x : E → ℝ) (hx : x = c • N.gradient (fun v => if v ∈ A then 1 else 0)) : ∑ e, α e * x e = c * ((A.filter fun v => ¬black v).card : ℝ)",
+   "file": "Circulation.lean",
+   "line": 208,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.StateCycle.signed",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.StateCycle.signed",
+   "kind": "theorem",
+   "statement": "theorem signed (α : E → ℝ) (hα : N.boundary α = whiteCharge M.black root) : (C.delta = -3 ∧ 0 < C.slope α) ∨ (C.delta = 3 ∧ C.slope α < 0)",
+   "file": "ColoredDual.lean",
+   "line": 183,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.paired_sign",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.paired_sign",
+   "kind": "lemma",
+   "statement": "lemma paired_sign (P : (M.system root).Pair (M.nonroots root)) (c : Barnette.CycleClass P.next) (α : E → ℝ) (hα : N.boundary α = whiteCharge M.black root) : (P.cycleDelta c = -3 ∧ 0 < P.cycleSlope (M.weights α root) c) ∨ (P.cycleDelta c = 3 ∧ P.cycleSlope (M.weights α root) c < 0)",
+   "file": "Forest.lean",
+   "line": 156,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.cycle_factor_witness",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.cycle_factor_witness",
+   "kind": "theorem",
+   "statement": "theorem cycle_factor_witness (P : @Pair A V T X) (w : A → Fin 3 → ℝ) (c : CycleClass P.next) (hsign : (P.cycleDelta c = -3 ∧ 0 < P.cycleSlope w c) ∨ (P.cycleDelta c = 3 ∧ P.cycleSlope w c < 0)) : ∃ (q : ℂ[X]) (a : ℝ), 0 < a ∧ q.coeff 0 = (a : ℂ) ∧ C (phase (P.cycleDelta c)) * (P.cycleRightWeight w c - P.cycleLeftWeight w c) = C (-Complex.I) * (Polynomial.X * q)",
+   "file": "PairPolynomials.lean",
+   "line": 288,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:common_phase_sum_ne_zero",
+   "source": "lean",
+   "label": "OAI.Barnette.common_phase_sum_ne_zero",
+   "kind": "theorem",
+   "statement": "theorem common_phase_sum_ne_zero {D : Type*} (s : Finset D) (hs : s.Nonempty) (c : D → ℕ) (p : D → ℂ[X]) (a : D → ℝ) (ha : ∀ d ∈ s, 0 < a d) (hp : ∀ d ∈ s, (p d).coeff 0 = (a d : ℂ)) : (∑ d ∈ s, C ((-Complex.I) ^ c d) * (X ^ c d * p d)) ≠ 0",
+   "file": "PairPolynomials.lean",
+   "line": 12,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.forest_pair",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.forest_pair",
+   "kind": "theorem",
+   "statement": "theorem forest_pair (hex : Nonempty ((M.system root).Pair (M.nonroots root))) : ∃ P : (M.system root).Pair (M.nonroots root), ((M.system root).oppositeGraph P.right).IsAcyclic",
+   "file": "Forest.lean",
+   "line": 234,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "kind": "theorem",
+   "statement": "theorem forest_pair_of_disk_circulation (hex : Nonempty (@Pair A V T X)) (hdisk : ∀ (s : T.State X) (C : T.OppositeCycle s) (r : T.Partners s), C.cyclicDelta r.val = 3 ∨ C.cyclicDelta r.val = -3) (w : A → Fin 3 → ℝ) (hsign : ∀ (P : @Pair A V T X) c, (P.cycleDelta c = -3 ∧ 0 < P.cycleSlope w c) ∨ (P.cycleDelta c = 3 ∧ P.cycleSlope w c < 0)) : ∃ P : @Pair A V T X, (T.oppositeGraph P.right).IsAcyclic",
+   "file": "PairPolynomials.lean",
+   "line": 423,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.total_sum_ne_zero",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.total_sum_ne_zero",
+   "kind": "theorem",
+   "statement": "theorem total_sum_ne_zero (hex : Nonempty (@Pair A V T X)) (w : A → Fin 3 → ℝ) (hsign : ∀ (P : @Pair A V T X) c, (P.cycleDelta c = -3 ∧ 0 < P.cycleSlope w c) ∨ (P.cycleDelta c = 3 ∧ P.cycleSlope w c < 0)) : (∑ P : @Pair A V T X, term w P) ≠ 0",
+   "file": "PairPolynomials.lean",
+   "line": 348,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.term",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.term",
+   "kind": "def",
+   "statement": "noncomputable def term (w : A → Fin 3 → ℝ) (P : @Pair A V T X) : ℂ[X]",
+   "file": "PairPolynomials.lean",
+   "line": 224,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.state_capacity",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.state_capacity",
+   "kind": "lemma",
+   "statement": "lemma state_capacity (hcut : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (root : V) (hr : M.black root) (S : Finset (M.nonroots root)) : 2*S.card ≤ ∑ t : M.Black root, min 2 ((S.filter fun x => x.val ∈ Set.range (M.face t.val).corner).card)",
+   "file": "BMatching.lean",
+   "line": 378,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.pair_nonempty",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.pair_nonempty",
+   "kind": "theorem",
+   "statement": "theorem pair_nonempty (hcut : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (root : V) (hr : M.black root) : Nonempty ((M.system root).Pair (M.nonroots root))",
+   "file": "BMatching.lean",
+   "line": 403,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:capacity_full",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.capacity_full",
+   "kind": "theorem",
+   "statement": "theorem capacity_full (h : N.Duality D) (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (hcut : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (face : ∀ v, D.Triangle (N.star v)) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (root : V) (hbroot : black root) (S : Finset F) (hr : ∀ i, (face root).corner i ∉ S) : 2*S.card ≤ ∑ v ∈ Finset.univ.filter black, min 2 ((Finset.univ.filter fun i => (face v).corner i ∈ S).card)",
+   "file": "MinorDuality.lean",
+   "line": 220,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:induced_density",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.induced_density",
+   "kind": "theorem",
+   "statement": "theorem induced_density (h : N.Duality D) (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (hcut : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (root : V) (hbroot : black root) (U : Finset F) (hr : N.star root ⊆ D.inducedEdges U) : ((D.inducedEdges U).card : ℤ) - (N.fullBlack D black U).card ≤ 2*(U.card : ℤ)-4",
+   "file": "MinorDuality.lean",
+   "line": 87,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:region_density",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.region_density",
+   "kind": "lemma",
+   "statement": "lemma region_density (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (hcut : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (root : V) (hbroot : black root) (U : Finset F) (hr : N.star root ⊆ D.inducedEdges U) (q : N.Regions D U) : 4 + N.regionBalance D black U q - 2*(N.regionBlack D black U q : ℤ) ≤ N.rim D U q",
+   "file": "MinorDuality.lean",
+   "line": 55,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:region_balance_rim",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.region_balance_rim",
+   "kind": "lemma",
+   "statement": "lemma region_balance_rim (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (U : Finset F) (q : N.Regions D U) : 3 * N.regionBalance D black U q = 2 * (N.blackRim D black U q : ℤ) - N.rim D U q",
+   "file": "Contraction.lean",
+   "line": 223,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:rim_defect",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.rim_defect",
+   "kind": "lemma",
+   "statement": "lemma rim_defect (b d : ℕ) (β : ℤ) (hb : b ≤ d) (hd : 4 ≤ d) (hβ : 3*β = 2*(b:ℤ) - d) : β ≤ (d:ℤ)-4",
+   "file": "Contraction.lean",
+   "line": 273,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:rim_three_cut",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.rim_three_cut",
+   "kind": "lemma",
+   "statement": "lemma rim_three_cut (hN : N.ThreeEdgeConnected) (U : Finset F) (_hm : 3 ≤ (D.inducedEdges U).card) (q : N.Regions D U) (hq : N.rim D U q = 3) : (N.cut (N.regionShore D U q)).card = 3",
+   "file": "Contraction.lean",
+   "line": 346,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:complement_singleton_root",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.complement_singleton_root",
+   "kind": "lemma",
+   "statement": "lemma complement_singleton_root (hN : N.Simple) (h3 : N.graph.IsRegularOfDegree 3) (hcut : N.ThreeEdgeConnected) (U : Finset F) (root : V) (hr : N.star root ⊆ D.inducedEdges U) (q : N.Regions D U) (hq : N.rim D U q = 3) {v : V} (hv : (N.regionShore D U q)ᶜ = {v}) : v = root",
+   "file": "Contraction.lean",
+   "line": 407,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:induced_euler_bound",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.induced_euler_bound",
+   "kind": "lemma",
+   "statement": "lemma induced_euler_bound (h : N.Duality D) (U : Finset F) (hU : U.Nonempty) : (D.inducedEdges U).card + 2 ≤ U.card + Fintype.card (N.Regions D U)",
+   "file": "Contraction.lean",
+   "line": 121,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:threeCut_black_card",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.threeCut_black_card",
+   "kind": "lemma",
+   "statement": "lemma threeCut_black_card (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hb : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (A : Finset V) (hA : (N.cut A).card = 3) : (N.blackCut black A).card = 0 ∨ (N.blackCut black A).card = 3",
+   "file": "ThreeCuts.lean",
+   "line": 367,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_coloring",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_coloring",
+   "kind": "lemma",
+   "statement": "lemma cap_coloring (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (black : V → Prop) (hb : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (A : Finset V) (hA : (N.cut A).card = 3) : ∀ e, N.capBlack black A ((N.cap A).tail e) ↔ ¬N.capBlack black A ((N.cap A).head e)",
+   "file": "ThreeCuts.lean",
+   "line": 381,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_simple",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_simple",
+   "kind": "lemma",
+   "statement": "lemma cap_simple (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (h3 : N.ThreeEdgeConnected) (A : Finset V) (hcut : (N.cut A).card = 3) (hA : 2 ≤ A.card) (ho : Aᶜ.Nonempty) : (N.cap A).Simple",
+   "file": "ThreeCuts.lean",
+   "line": 352,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_cubic",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_cubic",
+   "kind": "lemma",
+   "statement": "lemma cap_cubic (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (h3 : N.ThreeEdgeConnected) (A : Finset V) (hcut : (N.cut A).card = 3) (hA : 2 ≤ A.card) (ho : Aᶜ.Nonempty) : (N.cap A).graph.IsRegularOfDegree 3",
+   "file": "ThreeCuts.lean",
+   "line": 360,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_threeConnected",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_threeConnected",
+   "kind": "lemma",
+   "statement": "lemma cap_threeConnected (hN : N.ThreeEdgeConnected) (A : Finset V) (hA : Aᶜ.Nonempty) : (N.cap A).ThreeEdgeConnected",
+   "file": "ThreeCuts.lean",
+   "line": 230,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_duality",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_duality",
+   "kind": "lemma",
+   "statement": "lemma cap_duality (h : N.Duality D) (hN : N.Simple) (h3 : N.ThreeEdgeConnected) (A : Finset V) (hcut : (N.cut A).card = 3) (ha : A.Nonempty) (ho : Aᶜ.Nonempty) : ∃ (L : Type uF) (_ : Fintype L) (dual : Network L (N.regionEdges A)), (N.cap A).Duality dual",
+   "file": "CappedDuality.lean",
+   "line": 148,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:irreducible_matching",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.irreducible_matching",
+   "kind": "lemma",
+   "statement": "lemma irreducible_matching (M : N.ColoredDual D) (h3 : N.ThreeEdgeConnected) (htr : N.TrivialThreeCuts) (e : E) : ∃ P : Finset E, e ∈ P ∧ (∀ v, ((N.star v).filter fun e => e ∈ P).card = 1) ∧ (N.restrict (Subtype.val : ↥(Pᶜ) → E)).graph.Connected",
+   "file": "ThreeCuts.lean",
+   "line": 109,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_matching_boundary",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_matching_boundary",
+   "kind": "lemma",
+   "statement": "lemma cap_matching_boundary (A : Finset V) (P : Finset (N.regionEdges A)) (hP : ∀ v, (((N.cap A).star v).filter (· ∈ P)).card = 1) : ∃ c : E, c ∈ N.cut A ∧ c ∈ P.image Subtype.val ∧ ∀ e ∈ N.cut A, e ∈ P.image Subtype.val ↔ e = c",
+   "file": "Gluing.lean",
+   "line": 51,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_glue_matching",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_glue_matching",
+   "kind": "lemma",
+   "statement": "lemma cap_glue_matching (A : Finset V) (P : Finset (N.regionEdges A)) (Q : Finset (N.regionEdges Aᶜ)) (hP : ∀ v, (((N.cap A).star v).filter (· ∈ P)).card = 1) (hQ : ∀ v, (((N.cap Aᶜ).star v).filter (· ∈ Q)).card = 1) (hcut : ∀ e ∈ N.cut A, e ∈ P.image Subtype.val ↔ e ∈ Q.image Subtype.val) : ∀ v, ((N.star v).filter (· ∈ P.image Subtype.val ∪ Q.image Subtype.val)).card = 1",
+   "file": "Gluing.lean",
+   "line": 94,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cap_glue_connected",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cap_glue_connected",
+   "kind": "lemma",
+   "statement": "lemma cap_glue_connected (hN : N.Simple) (hc : N.graph.IsRegularOfDegree 3) (h3 : N.ThreeEdgeConnected) (A : Finset V) (hA : (N.cut A).card = 3) (ha : 2 ≤ A.card) (ho : 2 ≤ Aᶜ.card) (P : Finset (N.regionEdges A)) (Q : Finset (N.regionEdges Aᶜ)) (hP : ∀ v, (((N.cap A).star v).filter (· ∈ P)).card = 1) (hQ : ∀ v, (((N.cap Aᶜ).star v).filter (· ∈ Q)).card = 1) (hPc : ((N.cap A).restrict (Subtype.val : ↥Pᶜ → N.regionEdges A)).graph.Connected) (hQc : ((N.cap Aᶜ).restrict (Subtype.val : ↥Qᶜ → N.regionEdges Aᶜ)).graph.Connected) (hcut : ∀ e ∈ N.cut A, e ∈ P.image Subtype.val ↔ e ∈ Q.image Subtype.val) : (N.restrict (Subtype.val : ↥(P.image Subtype.val ∪ Q.image Subtype.val)ᶜ → E)).graph.Connected",
+   "file": "Gluing.lean",
+   "line": 167,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem",
+   "kind": "structure",
+   "statement": "structure TriangleSystem (A V : Type*)",
+   "file": "TriangleSystem.lean",
+   "line": 9,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.system",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.system",
+   "kind": "def",
+   "statement": "def system (root : V) : Barnette.TriangleSystem (M.Black root) F",
+   "file": "ColoredDual.lean",
+   "line": 29,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:region_euler",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.region_euler",
+   "kind": "theorem",
+   "statement": "theorem region_euler (h : N.Duality D) (A : Finset V) (hA : (N.graph.induce {v | v ∈ A}).Connected) (hAc : (N.graph.induce {v | v ∉ A}).Connected) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) : A.card + (N.regionVertices D A).card = (N.regionEdges A).card + 1",
+   "file": "DiskRegions.lean",
+   "line": 252,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:mixed_corner_on_boundary",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.mixed_corner_on_boundary",
+   "kind": "theorem",
+   "statement": "theorem mixed_corner_on_boundary (h : N.Duality D) (sD : D.Simple) (face : ∀ v, D.Triangle (N.star v)) (A : Finset V) {z : F} (hzin : z ∈ N.regionVertices D A) (hzout : z ∈ N.regionVertices D Aᶜ) : ∃ e ∈ N.cut A, D.Incident e z",
+   "file": "StateDisk.lean",
+   "line": 129,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.Pair.next",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.Pair.next",
+   "kind": "def",
+   "statement": "noncomputable def next (P : @Pair A V T X) : Equiv.Perm A",
+   "file": "PairPhases.lean",
+   "line": 204,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:CycleClass",
+   "source": "lean",
+   "label": "OAI.Barnette.CycleClass",
+   "kind": "def",
+   "statement": "def CycleClass (p : Equiv.Perm A)",
+   "file": "PairPhases.lean",
+   "line": 115,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.pairedCycle",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.pairedCycle",
+   "kind": "def",
+   "statement": "def pairedCycle (P : (M.system root).Pair (M.nonroots root)) (a : M.Black root) : M.StateCycle P.left",
+   "file": "Forest.lean",
+   "line": 100,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:TriangleSystem.indexDelta",
+   "source": "lean",
+   "label": "OAI.Barnette.TriangleSystem.indexDelta",
+   "kind": "def",
+   "statement": "def indexDelta (i j : Fin 3) : ℤ",
+   "file": "TriangleSystem.lean",
+   "line": 96,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:Triangle.index_delta",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.Triangle.index_delta",
+   "kind": "lemma",
+   "statement": "lemma Triangle.index_delta (v : V) (t : D.Triangle (N.star v)) (ht : ∀ i, N.gradient (fun w => if w = v then 1 else 0) (t.edge i) = D.arcSign (t.edge i) (t.corner i)) (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (hv : black v) {i j : Fin 3} (hij : i ≠ j) : (Barnette.TriangleSystem.indexDelta i j : ℝ) = N.gradient (fun w => if black w then 1 else 0) (t.side D i j) * D.arcSign (t.side D i j) (t.corner i)",
+   "file": "TriangleSystem.lean",
+   "line": 291,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:blackDelta",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.blackDelta",
+   "kind": "def",
+   "statement": "def blackDelta (black : V → Prop) (C : Barnette.CycleCoordinates D.graph) : ℝ",
+   "file": "StateDisk.lean",
+   "line": 385,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:whiteCharge",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.whiteCharge",
+   "kind": "def",
+   "statement": "def whiteCharge (black : V → Prop) (root : V) : V → ℝ",
+   "file": "Circulation.lean",
+   "line": 183,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:boundary_of_sum_zero",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.boundary_of_sum_zero",
+   "kind": "lemma",
+   "statement": "lemma boundary_of_sum_zero (h : N.graph.Connected) (b : V → ℝ) (hb : ∑ v, b v = 0) : ∃ x, N.boundary x = b",
+   "file": "Circulation.lean",
+   "line": 154,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.weights",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.weights",
+   "kind": "def",
+   "statement": "def weights (α : E → ℝ) (root : V) (t : M.Black root) : Fin 3 → ℝ",
+   "file": "ColoredDual.lean",
+   "line": 102,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:BMatching.two_matchings",
+   "source": "lean",
+   "label": "OAI.Barnette.BMatching.two_matchings",
+   "kind": "theorem",
+   "statement": "theorem two_matchings (R : A → B → Prop) (hcard : Fintype.card A = Fintype.card B) (hcap : ∀ S : Finset A, 2*S.card ≤ ∑ b, min 2 ((S.filter fun a => R a b).card)) : ∃ f g : A ≃ B, (∀ a, R a (f a) ∧ R a (g a)) ∧ (∀ a, f a ≠ g a)",
+   "file": "BMatching.lean",
+   "line": 286,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:matching_strong",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.matching_strong",
+   "kind": "theorem",
+   "statement": "private theorem matching_strong (n : ℕ) : ∀ {V : Type uV} {E : Type uE} {F : Type uF} [Fintype V] [Fintype E] [Fintype F] (N : Network V E) (D : Network F E), Fintype.card V = n → N.Duality D → N.Simple → N.graph.IsRegularOfDegree 3 → N.ThreeEdgeConnected → ∀ (black : V → Prop), (∀ e, black (N.tail e) ↔ ¬black (N.head e)) → ∀ e : E, ∃ P : Finset E, e ∈ P ∧ (∀ v, ((N.star v).filter (· ∈ P)).card = 1) ∧ (N.restrict (Subtype.val : ↥Pᶜ → E)).graph.Connected",
+   "file": "Gluing.lean",
+   "line": 244,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.cubic_cards",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.cubic_cards",
+   "kind": "lemma",
+   "statement": "lemma cubic_cards : Fintype.card E = 3*(Finset.univ.filter M.black).card ∧ Fintype.card V = 2*(Finset.univ.filter M.black).card",
+   "file": "Matching.lean",
+   "line": 477,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:ColoredDual.nonroots_card",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.ColoredDual.nonroots_card",
+   "kind": "lemma",
+   "statement": "lemma nonroots_card (root : V) (hr : M.black root) : Fintype.card (M.nonroots root) = Fintype.card (M.Black root)",
+   "file": "BMatching.lean",
+   "line": 341,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:cycle_cut_scalar",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.cycle_cut_scalar",
+   "kind": "lemma",
+   "statement": "lemma cycle_cut_scalar (C : Barnette.CycleCoordinates D.graph) (A : Finset V) (c : ℝ) (hx : D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0)) : c = 1 ∨ c = -1",
+   "file": "StateDisk.lean",
+   "line": 416,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  },
+  {
+   "id": "lean:blackDelta_cut",
+   "source": "lean",
+   "label": "OAI.Barnette.Network.blackDelta_cut",
+   "kind": "lemma",
+   "statement": "lemma blackDelta_cut (black : V → Prop) (hc : ∀ e, black (N.tail e) ↔ ¬black (N.head e)) (C : Barnette.CycleCoordinates D.graph) (A : Finset V) (c : ℝ) (hx : D.cycleFlow C = c • N.gradient (fun v => if v ∈ A then 1 else 0)) (hcut : N.cut A = D.cycleEdges C) : N.blackDelta D black C = c * (2 * (N.blackCut black A).card - (N.cut A).card)",
+   "file": "StateDisk.lean",
+   "line": 390,
+   "status": "checked-exact",
+   "status_text": "machine-checked (Lean 4, commit 4eaee875)"
+  }
+ ],
+ "edges": [
+  {
+   "src": "thm:main",
+   "dst": "lean:main",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:main",
+   "dst": "lean:Duality.connected_complement_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:main",
+   "dst": "lean:PlaneEmbedding.exists_exact_dual",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:main",
+   "dst": "lem:dual",
+   "type": "uses"
+  },
+  {
+   "src": "thm:main",
+   "dst": "thm:T",
+   "type": "uses"
+  },
+  {
+   "src": "thm:main",
+   "dst": "prop:target.1",
+   "type": "uses"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "lean:cut_card_three",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "lean:Duality.simple_dual_edge",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "lean:Duality.cubic_face_triangles_edge",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "lean:make_coloredDual",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "lean:black_dual_card",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:connected",
+   "dst": "lean:region_connected",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:connected",
+   "dst": "lean:Bond.connected_shore",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "eq:counts",
+   "dst": "lean:cubic_cards",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "eq:counts",
+   "dst": "lean:black_dual_card",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "eq:counts",
+   "dst": "lean:Duality.euler",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "eq:counts",
+   "dst": "lean:nonroots_card",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "eq:counts",
+   "dst": "lem:connected",
+   "type": "uses"
+  },
+  {
+   "src": "def:selection",
+   "dst": "lean:Duality.connected_complement_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:duality.1",
+   "dst": "lean:Duality.circuit_cut",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:duality.1",
+   "dst": "lean:Duality.bond_of_circuit",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:duality.2",
+   "dst": "lean:Duality.complement_connected",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:duality.2",
+   "dst": "lean:conserved_supported_acyclic",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "lean:Duality.hamiltonian",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "lean:Duality.complement_connected",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "lean:matching_complement_two",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "lean:cycle_at_of_connected_two",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "lem:duality.2",
+   "type": "uses"
+  },
+  {
+   "src": "prop:target.1",
+   "dst": "def:selection",
+   "type": "uses"
+  },
+  {
+   "src": "prop:target.2",
+   "dst": "lem:duality.1",
+   "type": "uses"
+  },
+  {
+   "src": "prop:target.2",
+   "dst": "eq:counts",
+   "type": "uses"
+  },
+  {
+   "src": "prop:target.2",
+   "dst": "def:selection",
+   "type": "uses"
+  },
+  {
+   "src": "lem:selections-give-states",
+   "dst": "prop:target.2",
+   "type": "uses"
+  },
+  {
+   "src": "def:state",
+   "dst": "lean:TriangleSystem.State",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "def:state",
+   "dst": "lean:ColoredDual.State",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "def:good",
+   "dst": "lean:oppositeGraph",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "def:good",
+   "dst": "lean:ColoredDual.augQ",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "def:good",
+   "dst": "def:state",
+   "type": "uses"
+  },
+  {
+   "src": "lem:good",
+   "dst": "lean:ColoredDual.removed_acyclic",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:good",
+   "dst": "lean:ColoredDual.augQ_acyclic",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:good",
+   "dst": "eq:counts",
+   "type": "uses"
+  },
+  {
+   "src": "lem:good",
+   "dst": "def:good",
+   "type": "uses"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lean:ColoredDual.remainder_connected",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lean:ColoredDual.remainder_independent",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lean:ColoredDual.remainder_black_degree",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lean:tree_matching",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lean:ColoredDual.recovery_matching",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lem:good",
+   "type": "uses"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "lem:duality.2",
+   "type": "uses"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "txt:two-faces",
+   "type": "uses"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "eq:counts",
+   "type": "uses"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "def:selection",
+   "type": "uses"
+  },
+  {
+   "src": "lem:outdegree",
+   "dst": "lean:CycleCoordinates.tail_orientation",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:outdegree",
+   "dst": "lean:addSink_acyclic",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lean:state_disk_delta",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lean:ColoredDual.cycle_disk",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lean:state_disk_count",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lean:disk_boundary_imbalance",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lean:white_positive_of_boundary",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "txt:inside",
+   "type": "uses"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "lem:outdegree",
+   "type": "uses"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "def:state",
+   "type": "uses"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lean:ColoredDual.selected_forest",
+   "type": "corresponds-to",
+   "relation": "stronger"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lean:ColoredDual.selectNet_forest",
+   "type": "corresponds-to",
+   "relation": "stronger"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lean:matching_cut_balance",
+   "type": "corresponds-to",
+   "relation": "stronger"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lean:ColoredDual.recover_connected_complement",
+   "type": "corresponds-to",
+   "relation": "stronger"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lem:Y",
+   "type": "uses"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lem:outdegree",
+   "type": "uses"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "lem:disk",
+   "type": "uses"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "prop:target.1",
+   "type": "uses"
+  },
+  {
+   "src": "def:pair",
+   "dst": "lean:TriangleSystem.Partner",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "def:pair",
+   "dst": "lean:TriangleSystem.Pair",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "def:pair",
+   "dst": "def:state",
+   "type": "uses"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "lean:TriangleSystem.OppositeCycle.partner_orientation",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "lean:ColoredDual.augQ_acyclic",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "lem:outdegree",
+   "type": "uses"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "def:pair",
+   "type": "uses"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "def:good",
+   "type": "uses"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lean:TriangleSystem.OppositeCycle.reverse",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lean:TriangleSystem.OppositeCycle.reversal_involutive",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lean:TriangleSystem.OppositeCycle.reversal_ne",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lean:TriangleSystem.Pair.orient",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lean:TriangleSystem.Pair.groupEquiv",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "lem:partner",
+   "type": "uses"
+  },
+  {
+   "src": "lem:reversals",
+   "dst": "txt:D",
+   "type": "uses"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lean:phase",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lean:TriangleSystem.rawIndexSum",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lean:TriangleSystem.OppositeCycle.reverse_phase",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lean:phase_add_six",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lean:TriangleSystem.Pair.group_sum_product",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lem:reversals",
+   "type": "uses"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "lem:disk",
+   "type": "uses"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "txt:delta",
+   "type": "uses"
+  },
+  {
+   "src": "lem:sign",
+   "dst": "txt:D",
+   "type": "uses"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "lean:TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "lean:ColoredDual.opposite_disk",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "lem:reversals",
+   "type": "uses"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "lem:sign",
+   "type": "uses"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "lem:partner",
+   "type": "uses"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lean:whiteCharge_cut_integral",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lean:ColoredDual.StateCycle.signed",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lean:ColoredDual.paired_sign",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lean:white_positive_of_boundary",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:height",
+   "dst": "txt:heights",
+   "type": "uses"
+  },
+  {
+   "src": "lem:height",
+   "dst": "txt:D",
+   "type": "uses"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lem:duality.1",
+   "type": "uses"
+  },
+  {
+   "src": "lem:height",
+   "dst": "lem:disk",
+   "type": "uses"
+  },
+  {
+   "src": "lem:difference",
+   "dst": "lean:TriangleSystem.Pair.cycle_factor_witness",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "lem:difference",
+   "dst": "lean:common_phase_sum_ne_zero",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lean:ColoredDual.forest_pair",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lean:TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lean:TriangleSystem.Pair.total_sum_ne_zero",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:cancel",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:reversals",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:sign",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:height",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:difference",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "txt:D",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "lem:partner",
+   "type": "uses"
+  },
+  {
+   "src": "rem:other-sums",
+   "dst": "lean:TriangleSystem.Pair.term",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "rem:other-sums",
+   "dst": "lem:difference",
+   "type": "uses"
+  },
+  {
+   "src": "eq:hall",
+   "dst": "lean:ColoredDual.state_capacity",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "eq:hall",
+   "dst": "def:pair",
+   "type": "uses"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:ColoredDual.pair_nonempty",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:ColoredDual.state_capacity",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:capacity_full",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:induced_density",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:region_density",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:region_balance_rim",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:rim_defect",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:rim_three_cut",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:complement_singleton_root",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lean:induced_euler_bound",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "txt:flow",
+   "type": "uses"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "eq:hall",
+   "type": "uses"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "eq:counts",
+   "type": "uses"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "txt:two-faces",
+   "type": "uses"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "lem:dual",
+   "type": "uses"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:threeCut_black_card",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:cap_coloring",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:cap_simple",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:cap_cubic",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:cap_threeConnected",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lean:cap_duality",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "lem:connected",
+   "type": "uses"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lean:Duality.connected_complement_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lean:irreducible_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lean:cap_matching_boundary",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lean:cap_glue_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lean:cap_glue_connected",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "prop:pair",
+   "type": "uses"
+  },
+  {
+   "src": "thm:T",
+   "dst": "prop:good",
+   "type": "uses"
+  },
+  {
+   "src": "thm:T",
+   "dst": "prop:recover",
+   "type": "uses"
+  },
+  {
+   "src": "thm:T",
+   "dst": "lem:cap",
+   "type": "uses"
+  },
+  {
+   "src": "thm:T",
+   "dst": "prop:target.2",
+   "type": "uses"
+  },
+  {
+   "src": "txt:two-faces",
+   "dst": "lean:TriangleSystem",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "txt:two-faces",
+   "dst": "lean:ColoredDual.system",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lean:Duality.circuit_cut",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lean:Bond.connected_shore",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lean:region_connected",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lean:region_euler",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lean:mixed_corner_on_boundary",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "lem:connected",
+   "type": "uses"
+  },
+  {
+   "src": "txt:D",
+   "dst": "lean:TriangleSystem.Pair.next",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:D",
+   "dst": "lean:CycleClass",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:D",
+   "dst": "lean:ColoredDual.pairedCycle",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:D",
+   "dst": "def:pair",
+   "type": "uses"
+  },
+  {
+   "src": "txt:D",
+   "dst": "lem:partner",
+   "type": "uses"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "lean:TriangleSystem.indexDelta",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "lean:Triangle.index_delta",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "lean:blackDelta",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "lean:ColoredDual.cycle_disk",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "lem:disk",
+   "type": "uses"
+  },
+  {
+   "src": "txt:heights",
+   "dst": "lean:whiteCharge",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:heights",
+   "dst": "lean:boundary_of_sum_zero",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:heights",
+   "dst": "lean:ColoredDual.weights",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:heights",
+   "dst": "lem:duality.2",
+   "type": "uses"
+  },
+  {
+   "src": "txt:flow",
+   "dst": "lean:BMatching.two_matchings",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "txt:flow",
+   "dst": "eq:hall",
+   "type": "uses"
+  },
+  {
+   "src": "txt:flow",
+   "dst": "def:pair",
+   "type": "uses"
+  },
+  {
+   "src": "rem:which",
+   "dst": "lem:selections-give-states",
+   "type": "uses"
+  },
+  {
+   "src": "rem:which",
+   "dst": "prop:recover",
+   "type": "uses"
+  },
+  {
+   "src": "rem:which",
+   "dst": "lem:Y",
+   "type": "uses"
+  },
+  {
+   "src": "rem:poly",
+   "dst": "lean:TriangleSystem.Pair.group_sum_product",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "rem:poly",
+   "dst": "lem:partner",
+   "type": "uses"
+  },
+  {
+   "src": "rem:poly",
+   "dst": "lem:cancel",
+   "type": "uses"
+  },
+  {
+   "src": "rem:poly",
+   "dst": "prop:good",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL4",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL5",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL6",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL7",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL8",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL9",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL10",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL11",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL12",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "PL13",
+   "type": "uses"
+  },
+  {
+   "src": "PT",
+   "dst": "lean:Duality.connected_complement_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PT",
+   "dst": "lean:matching_strong",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PT",
+   "dst": "lean:main",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "thm:T",
+   "dst": "PT",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "Pcircuit",
+   "dst": "lean:Duality.circuit_cut",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "Pcircuit",
+   "dst": "lean:Duality.bond_of_circuit",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "Pcircuit",
+   "dst": "lean:Bond.connected_shore",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:duality.1",
+   "dst": "Pcircuit",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL1",
+   "dst": "Pcircuit",
+   "type": "uses"
+  },
+  {
+   "src": "PL1",
+   "dst": "lean:ColoredDual.cubic_cards",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL1",
+   "dst": "lean:ColoredDual.nonroots_card",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL1",
+   "dst": "lean:make_coloredDual",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:dual",
+   "dst": "PL1",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL2",
+   "dst": "Pcircuit",
+   "type": "uses"
+  },
+  {
+   "src": "PL2",
+   "dst": "lean:Duality.circuit_cut",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL2",
+   "dst": "lean:Bond.connected_shore",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL2",
+   "dst": "lean:region_euler",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL2",
+   "dst": "lean:mixed_corner_on_boundary",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "txt:inside",
+   "dst": "PL2",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL3",
+   "dst": "PL2",
+   "type": "uses"
+  },
+  {
+   "src": "PL3",
+   "dst": "lean:cycle_cut_scalar",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "PL3",
+   "dst": "lean:blackDelta_cut",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "PL3",
+   "dst": "lean:Triangle.index_delta",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "txt:delta",
+   "dst": "PL3",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL4",
+   "dst": "PL1",
+   "type": "uses"
+  },
+  {
+   "src": "PL4",
+   "dst": "lean:ColoredDual.pair_nonempty",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "prop:pair",
+   "dst": "PL4",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL5",
+   "dst": "PL2",
+   "type": "uses"
+  },
+  {
+   "src": "PL5",
+   "dst": "PL3",
+   "type": "uses"
+  },
+  {
+   "src": "PL5",
+   "dst": "lean:state_disk_count",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL5",
+   "dst": "lean:disk_boundary_imbalance",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL5",
+   "dst": "lean:state_disk_delta",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "PL5",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL6",
+   "dst": "PL5",
+   "type": "uses"
+  },
+  {
+   "src": "PL6",
+   "dst": "PL3",
+   "type": "uses"
+  },
+  {
+   "src": "PL6",
+   "dst": "lean:boundary_of_sum_zero",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL6",
+   "dst": "lean:whiteCharge_cut_integral",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL6",
+   "dst": "lean:ColoredDual.StateCycle.signed",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:height",
+   "dst": "PL6",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL7",
+   "dst": "PL5",
+   "type": "uses"
+  },
+  {
+   "src": "PL7",
+   "dst": "lean:TriangleSystem.OppositeCycle.fixed_second_state_cancels",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "PL7",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL8",
+   "dst": "PL1",
+   "type": "uses"
+  },
+  {
+   "src": "PL8",
+   "dst": "PL5",
+   "type": "uses"
+  },
+  {
+   "src": "PL8",
+   "dst": "PL6",
+   "type": "uses"
+  },
+  {
+   "src": "PL8",
+   "dst": "PL7",
+   "type": "uses"
+  },
+  {
+   "src": "PL8",
+   "dst": "lean:TriangleSystem.Pair.total_sum_ne_zero",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "PL8",
+   "dst": "lean:TriangleSystem.Pair.forest_pair_of_disk_circulation",
+   "type": "corresponds-to",
+   "relation": "different-form"
+  },
+  {
+   "src": "prop:good",
+   "dst": "PL8",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL9",
+   "dst": "PL2",
+   "type": "uses"
+  },
+  {
+   "src": "PL9",
+   "dst": "lean:ColoredDual.removed_acyclic",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL9",
+   "dst": "lean:ColoredDual.remainder_connected",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL9",
+   "dst": "lean:ColoredDual.remainder_black_degree",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL9",
+   "dst": "lean:ColoredDual.remainder_independent",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "PL9",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL10",
+   "dst": "PL9",
+   "type": "uses"
+  },
+  {
+   "src": "PL10",
+   "dst": "lean:tree_matching",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "PL10",
+   "dst": "lean:ColoredDual.recovery_matching",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:Y",
+   "dst": "PL10",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL11",
+   "dst": "lean:matching_cut_balance",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "PL11",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL12",
+   "dst": "PL5",
+   "type": "uses"
+  },
+  {
+   "src": "PL12",
+   "dst": "PL11",
+   "type": "uses"
+  },
+  {
+   "src": "PL12",
+   "dst": "PL9",
+   "type": "uses"
+  },
+  {
+   "src": "PL12",
+   "dst": "Pcircuit",
+   "type": "uses"
+  },
+  {
+   "src": "PL12",
+   "dst": "lean:ColoredDual.selectNet_forest",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL12",
+   "dst": "lean:ColoredDual.selected_forest",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "PL12",
+   "dst": "lean:ColoredDual.recover_connected_complement",
+   "type": "corresponds-to",
+   "relation": "exact"
+  },
+  {
+   "src": "prop:recover",
+   "dst": "PL12",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PL13",
+   "dst": "PL1",
+   "type": "uses"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_simple",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_cubic",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_threeConnected",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_coloring",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_glue_matching",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_glue_connected",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "PL13",
+   "dst": "lean:cap_duality",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:cap",
+   "dst": "PL13",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PR14",
+   "dst": "PL9",
+   "type": "uses"
+  },
+  {
+   "src": "PR14",
+   "dst": "Pcircuit",
+   "type": "uses"
+  },
+  {
+   "src": "lem:partner",
+   "dst": "PR14",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "PR15",
+   "dst": "PL12",
+   "type": "uses"
+  },
+  {
+   "src": "PR15",
+   "dst": "Pcircuit",
+   "type": "uses"
+  },
+  {
+   "src": "lem:selections-give-states",
+   "dst": "PR15",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:main",
+   "dst": "I:one",
+   "type": "uses"
+  },
+  {
+   "src": "I:main",
+   "dst": "I:two",
+   "type": "uses"
+  },
+  {
+   "src": "I:main",
+   "dst": "I:fixed",
+   "type": "uses"
+  },
+  {
+   "src": "I:main",
+   "dst": "I:objects",
+   "type": "uses"
+  },
+  {
+   "src": "I:main",
+   "dst": "lean:ColoredDual.forest_pair",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "prop:good",
+   "dst": "I:main",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:disk",
+   "dst": "lean:state_disk_delta",
+   "type": "corresponds-to",
+   "relation": "primal-form"
+  },
+  {
+   "src": "lem:disk",
+   "dst": "I:disk",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:objects",
+   "dst": "I:disk",
+   "type": "uses"
+  },
+  {
+   "src": "txt:heights",
+   "dst": "I:objects",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:one",
+   "dst": "I:disk",
+   "type": "uses"
+  },
+  {
+   "src": "I:one",
+   "dst": "I:objects",
+   "type": "uses"
+  },
+  {
+   "src": "I:one",
+   "dst": "lean:TriangleSystem.OppositeCycle.reversal_involutive",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "I:one",
+   "dst": "lean:TriangleSystem.OppositeCycle.reverse_phase",
+   "type": "corresponds-to",
+   "relation": "weaker"
+  },
+  {
+   "src": "lem:cancel",
+   "dst": "I:one",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:two",
+   "dst": "I:objects",
+   "type": "uses"
+  },
+  {
+   "src": "I:two",
+   "dst": "I:disk",
+   "type": "uses"
+  },
+  {
+   "src": "prop:good",
+   "dst": "I:two",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:fixed",
+   "dst": "I:disk",
+   "type": "uses"
+  },
+  {
+   "src": "I:fixed",
+   "dst": "I:two",
+   "type": "uses"
+  },
+  {
+   "src": "I:fixed",
+   "dst": "lean:common_phase_sum_ne_zero",
+   "type": "corresponds-to",
+   "relation": "none"
+  },
+  {
+   "src": "prop:good",
+   "dst": "I:fixed",
+   "type": "corresponds-to",
+   "relation": "informal"
+  },
+  {
+   "src": "I:walk",
+   "dst": "I:one",
+   "type": "uses"
+  },
+  {
+   "src": "I:walk",
+   "dst": "I:two",
+   "type": "uses"
+  },
+  {
+   "src": "I:walk",
+   "dst": "I:fixed",
+   "type": "uses"
+  }
+ ],
+ "analysis": {
+  "skeleton": [
+   "thm:main",
+   "lem:dual",
+   "txt:two-faces",
+   "lem:connected",
+   "eq:counts",
+   "def:selection",
+   "lem:duality.1",
+   "lem:duality.2",
+   "prop:target.2",
+   "prop:target.1",
+   "def:state",
+   "def:good",
+   "lem:good",
+   "lem:Y",
+   "lem:outdegree",
+   "txt:inside",
+   "lem:disk",
+   "prop:recover",
+   "def:pair",
+   "lem:partner",
+   "txt:D",
+   "lem:reversals",
+   "txt:delta",
+   "lem:sign",
+   "lem:cancel",
+   "txt:heights",
+   "lem:height",
+   "lem:difference",
+   "prop:good",
+   "txt:flow",
+   "eq:hall",
+   "prop:pair",
+   "lem:cap",
+   "thm:T"
+  ],
+  "off_skeleton": [
+   "lem:selections-give-states",
+   "rem:other-sums",
+   "rem:poly",
+   "rem:which"
+  ],
+  "never_used": [
+   "rem:other-sums",
+   "rem:poly",
+   "rem:which"
+  ],
+  "order_problems": [],
+  "longest_chain": [
+   "thm:main",
+   "thm:T",
+   "prop:good",
+   "lem:cancel",
+   "lem:sign",
+   "lem:reversals",
+   "txt:D",
+   "lem:partner",
+   "def:pair",
+   "def:state"
+  ],
+  "uncovered_on_route": [
+   "lem:connected",
+   "prop:target.2",
+   "lem:outdegree",
+   "lem:sign",
+   "lem:difference"
+  ],
+  "uncovered_off_route": [
+   "lem:selections-give-states",
+   "rem:other-sums",
+   "rem:which",
+   "rem:poly"
+  ],
+  "proof_words_skeleton": 5626,
+  "proof_words_covered": 5040,
+  "status_counts": {
+   "checked-form": 25,
+   "refereed": 9,
+   "checked-exact": 4,
+   "example": 3
+  },
+  "status_counts_skeleton": {
+   "checked-form": 25,
+   "refereed": 5,
+   "checked-exact": 4
+  },
+  "consistency_problems": []
+ }
+}

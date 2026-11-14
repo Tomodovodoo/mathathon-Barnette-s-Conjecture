@@ -1,0 +1,299 @@
+[
+ {
+  "id": "PT",
+  "kind": "theorem",
+  "number": "T",
+  "label": null,
+  "title": "",
+  "statement": "Every finite simple cubic bipartite 3-edge-connected plane graph $G$ has, for every edge $e_0$, a perfect matching $P$ containing $e_0$ such that $G-P$ is connected. Consequently every cubic bipartite 3-vertex-connected planar graph has a Hamiltonian cycle avoiding any prescribed edge. The connected complement of a perfect matching in a cubic graph has degree two at every vertex, so it is one cycle. This is what we will construct. Working with 3-edge-connectivity keeps the induction within precisely the hypotheses it needs. Fix an orientation of the sphere, a bipartition $B,\\allowbreak W$ of $V(G)$, and an edge $e_0=b_0w_0$ with $b_0\\in B$. Write $\\mathcal F$ for the faces of $G$. The three faces at $b_0$ form $R$. Put \\begin{equation*} A=B\\setminus\\{b_0\\},\\qquad X=\\mathcal F\\setminus R,\\qquad n=|A|. \\end{equation*} We use faces as incidence labels. We never construct a triangulation, a spoke graph, or a labelling by the two sides of the final Hamiltonian cycle. A \\emph{face link} is simply an edge $e$ of $G$, regarded as joining its two incident faces. A face circuit is a cyclic list of distinct faces $f_0,\\allowbreak \\ldots,\\allowbreak f_{h-1}$ and distinct edges $e_i$ with $e_i$ incident with $f_i,\\allowbreak f_{i+1}$, with indices modulo $h$. This is an incidence description on $G$; no drawn arcs through faces are required. Forest and connected-component language for face links means the corresponding ordinary finite incidence relation on the face labels. Face circuits are precisely cycles of the dual graph $G^*$. This relation retains the cycle-cut content of planar duality. Avoiding the triangulation does not remove that content.",
+  "proof": "Apply strong induction on $|V(G)|$, with the quantifier \"for every edge $e_0$\" retained. If there is no nontrivial three-edge cut, Lemmas 4 through 12 prove the assertion. Otherwise use Lemma 13. Choose as the first cap a side on which $e_0$ remains an edge; if $e_0$ crosses the cut either side works. By induction choose its Hamiltonian cycle avoiding $e_0$. It omits exactly one cap edge, say $a$. In the other cap use induction with prescribed avoided edge $a$. The cycles glue by Lemma 13. If $e_0$ is internal to the first side, its avoidance persists. If it is a boundary edge, it is precisely $a$ and is again avoided. The complement is the desired matching containing $e_0$. Finally a cubic 3-vertex-connected graph is 3-edge-connected in the present setting. To see this directly, suppose a cut had at most two edges. Each shore has at least three vertices: a singleton has three outgoing edges, and a two-vertex set has at least four in a simple cubic graph. Delete the at most two cut endpoints on one shore. A vertex remains on that shore and all vertices remain on the other, with no path between them. This contradicts 3-vertex-connectivity. The theorem therefore applies to every graph in Barnette's conjecture.",
+  "line": 19,
+  "explicit_uses": [
+   "PL4",
+   "PL5",
+   "PL6",
+   "PL7",
+   "PL8",
+   "PL9",
+   "PL10",
+   "PL11",
+   "PL12",
+   "PL13"
+  ],
+  "statement_refs": [],
+  "proof_lines": 3,
+  "proof_words": 224,
+  "source": "primal"
+ },
+ {
+  "id": "Pcircuit",
+  "kind": "lemma",
+  "number": "circuit-cut fact",
+  "label": null,
+  "title": "",
+  "statement": "PROVED-HERE. In a connected sphere map, face circuits are exactly bonds, and each bond has connected shores. This assertion allows loops and parallel face links.",
+  "proof": "We give the cycle-cut argument without drawing a separating curve. Over $\\mathbb F_2$, the boundary vectors of the faces span the cycle space of $G$. Here is the standard Euler proof of this fact. Their sum is zero. Every other dependence assigns equal coefficients to the two faces at each edge. All faces are linked by successive edge incidences, so those coefficients are all equal. Face-incidence connectivity follows, for example, by contracting a spanning tree and deleting the remaining loops one by one. The resulting one-vertex graph remains connected at each deletion, so Euler forces its face count to fall by one; that deletion merges its two incident faces. Eventually only one face remains. Thus the boundary span has dimension $|\\mathcal F|-1=|E|-|V|+1$, the cycle-space dimension. Facial boundaries are even-degree edge sets, so their span is the whole cycle space. An edge set is therefore a cut exactly when it meets every facial boundary evenly. For completeness, the orthogonal complement of the cycle space is the cut space: if an edge indicator has even sum on every cycle, its path sum from a fixed vertex is independent of the path; its value on an edge is the difference of the two vertex path sums. In characteristic two this is the cut of the vertices assigned value one. A face circuit meets each of its faces twice, and all other faces zero times, so is a cut. A proper nonempty subset cannot meet all those faces evenly: following the cyclic list propagates the choice of one edge to all of them. Hence this cut is a bond. Conversely, the edge set of a cut gives an even-degree face-link relation. A nonempty such relation contains a circuit, which is itself a cut by the argument just given. Minimality of a bond makes it that single circuit. The assertions include loops or parallel face links if present; 3-edge-connectivity rules out circuits of length one or two. A cut is minimal precisely when both shores are connected. If a shore had two components, the boundary of one would be a proper nonempty subcut. Conversely, if both shores are connected, deleting a proper subset leaves an edge joining the shores and leaves each shore connected.",
+  "line": 39,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 7,
+  "proof_words": 381,
+  "source": "primal"
+ },
+ {
+  "id": "PL1",
+  "kind": "lemma",
+  "number": "1",
+  "label": null,
+  "title": "elementary setup",
+  "statement": "PROVED-HERE. Facial boundaries are cycles; each vertex is incident with three distinct faces; two faces share at most one edge; and \\begin{equation*} |B|=|W|=n+1,\\qquad |E|=3(n+1),\\qquad |\\mathcal F|=n+3,\\qquad |X|=n. \\end{equation*}",
+  "proof": "A cut vertex of a connected cubic graph has a component attached by at most one of its three edges, producing a bridge. Thus our graph is 2-connected. In a 2-connected plane graph the facial boundary walks have no repeated vertex: a repetition separates the incident sectors into two nonempty blocks, and paths between the corresponding parts must pass through that vertex. This is the usual boundary-walk criterion for a cut vertex. Consequently each facial boundary is a cycle. If a face used two sectors at a cubic vertex it would repeat that vertex. The three faces there are distinct. Two faces sharing two edges would give a two-edge face circuit. The general fact makes that a two-edge bond, impossible here. Count edges from the two colour classes to get $3|B|=|E|=3|W|$, and use Euler's formula $|V|-|E|+|\\mathcal F|=2$. This proves the displayed counts. The following lemma isolates the two planar facts used by the four-count identity. Its first part also supplies the cycle-cut test used later.",
+  "line": 49,
+  "explicit_uses": [
+   "Pcircuit"
+  ],
+  "statement_refs": [],
+  "proof_lines": 3,
+  "proof_words": 179,
+  "source": "primal"
+ },
+ {
+  "id": "PL2",
+  "kind": "lemma",
+  "number": "2",
+  "label": null,
+  "title": "face circuits and cut-side faces",
+  "statement": "PROVED-HERE; Lean counterparts are \\nolinkurl{Duality.circuit_cut}, \\nolinkurl{Bond.connected_shore}, \\nolinkurl{region_euler}, and \\nolinkurl{mixed_corner_on_boundary}. (a) A face circuit is exactly the edge set of a bond of $G$, a nonempty inclusion-minimal edge cut. Its two shores induce connected graphs. If a face circuit avoids the three faces in $R$, let $S$ be the unique shore not containing $b_0$. Call this its \\emph{cut side}. No root face meets $S$. (b) For connected complementary shores $S,\\allowbreak \\overline S$, let $E_S$ be all edges with an end in $S$, and $U_S$ all faces incident with a vertex of $S$. Then \\begin{equation*} |S|+|U_S|=|E_S|+1. \\tag{2.1} \\end{equation*} A face meeting both shores contains a cut edge on its boundary. If the cut is a face circuit, the mixed faces are precisely its listed faces. This is the no-pinch assertion needed here.",
+  "proof": "The general circuit-cut fact above proves the first two assertions of (a). For the no-pinch statement, traverse the boundary walk of a face with vertices in both shores. Membership must change somewhere, along a cut edge. A face on the circuit has two such edges and meets both shores; a face off it has none. Since $b_0\\notin S$, a root face meeting $S$ would be mixed and hence on the circuit, contrary to its avoidance of $R$. Finally delete the vertices of $S$ and all incident edges. All faces in $U_S$ merge into one face: removing the star of one vertex joins its incident sectors, and stars at adjacent vertices of the connected graph $G[S]$ make these mergers connected. No face outside $U_S$ changes. Each deleted edge has both sides in $U_S$, so every deletion either merges two faces coming from $U_S$ or leaves the face count unchanged. Removing the isolated vertices of $S$ at the end changes no face. The remaining graph $G[\\overline S]$ is connected, so its face count is $|\\mathcal F|-|U_S|+1$. Subtract its Euler equation from the Euler equation for $G$ to obtain (2.1). This argument also handles a singleton shore. It requires both shores connected; it makes no assumption that a boundary has been drawn as a round disk. We need the oriented version of (a). For a directed transition $f\\to g$ across an edge with black end $b$, put $\\delta(f,\\allowbreak g)=+1$ when $b$ is on the left of the transition, and $-1$ otherwise. Equivalently, use at every black vertex the cyclic order induced by the same fixed orientation of the sphere, choosing the sense for which the black vertex lies on the left. Give these three cyclic transitions sign $+1$. The sense cannot be chosen independently at different vertices. This definition uses only the oriented rotation system. Orient every edge of $G$ from black to white.",
+  "line": 59,
+  "explicit_uses": [
+   "Pcircuit"
+  ],
+  "statement_refs": [],
+  "proof_lines": 5,
+  "proof_words": 323,
+  "source": "primal"
+ },
+ {
+  "id": "PL3",
+  "kind": "lemma",
+  "number": "3",
+  "label": null,
+  "title": "orientation of a bond",
+  "statement": "PROVED-HERE. On an oriented face circuit with cut side $S$, there is a common $\\sigma\\in\\{1,\\allowbreak -1\\}$ such that \\begin{equation*} \\delta(f_i,f_{i+1})=\\sigma\\bigl(\\mathbf1_S(b_i)-\\mathbf1_S(w_i)\\bigr). \\tag{2.2} \\end{equation*} Call $\\sigma=+1$ the positive orientation.",
+  "proof": "The real signed facial boundary vectors span the real cycle space by exactly the dimension proof in Lemma 2, orienting every facial boundary consistently. Give each crossed edge the value $\\delta(f_i,\\allowbreak f_{i+1})$ and the other edges value zero. Orient each facial boundary with that face on its left. If the transition $f\\to g$ across $e=bw$ has $b$ on its left, the edge directed $b\\to w$ has $g$ on its left and $f$ on its right. Thus $\\delta(f,\\allowbreak g)=[\\partial g](e)=-[\\partial f](e)$, also when the transition is reversed. Writing $x(e_i)=\\delta(f_i,\\allowbreak f_{i+1})$, its pairing with the boundary of $f_i$ is \\begin{equation*} \\langle x,\\partial f_i\\rangle =\\delta(f_{i-1},f_i)^2-\\delta(f_i,f_{i+1})^2=0. \\end{equation*} Only the arrival and departure edges contribute. A face off the circuit has pairing zero because no supported edge lies on it. It is therefore a vertex gradient. Since its support is a bond, its vertex potential is constant on each connected shore. Its nonzero values have magnitude one, giving (2.2). This also proves that reversing a circuit reverses $\\sigma$.",
+  "line": 77,
+  "explicit_uses": [
+   "PL2"
+  ],
+  "statement_refs": [],
+  "proof_lines": 8,
+  "proof_words": 188,
+  "source": "primal"
+ },
+ {
+  "id": "PL4",
+  "kind": "lemma",
+  "number": "4",
+  "label": null,
+  "title": "a pair exists in the irreducible case",
+  "statement": "PROVED-HERE, expanding Li, Lemma 9 and Claim 12; its conclusion matches Lean's \\nolinkurl{ColoredDual.pair_nonempty}. Suppose every three-edge cut has a singleton shore. Then a pair exists.",
+  "proof": "The two incidence parts have equal size $n$, by Lemma 1. We first explain the exact capacity criterion. Direct a network from a source to each face of $X$ with capacity two, from a face to each incident $b\\in A$ with capacity one, and from each $b$ to the sink with capacity two. For a source-side set of faces $Y$, minimizing the contribution of each black vertex to a cut gives $\\min(2,\\allowbreak |N(b)\\cap Y|)$. Thus every source-sink cut has capacity at least $2n$ exactly when \\begin{equation*} \\sum_{b\\in A}\\min(2,|N(b)\\cap Y|)\\ge 2|Y|\\quad\\hbox{for every }Y\\subseteq X. \\tag{3.1} \\end{equation*} Integral max-flow then gives a degree-two spanning subgraph of the incidence relation. It consists of even cycles, whose alternate edges give the required pair. Integral max-flow is the only matching existence theorem used here. Suppose (3.1) fails. Choose a nonempty inclusion-minimal set $Y$ of positive deficit \\begin{equation*} d(Y)=2|Y|-\\sum_{b\\in A}\\min(2,|N(b)\\cap Y|)>0. \\end{equation*} Let $K$ be the union in $G$ of the boundaries of faces of $Y$. Write $B_j,\\allowbreak W_j$ for vertices incident with exactly $j$ faces of $Y$, for $j=1,\\allowbreak 2,\\allowbreak 3$. The root is not in $K$. Distinct components of $K$ partition $Y$, and the deficit adds over this partition. Minimality therefore makes $K$ connected. There is no vertex in $W_1$. If $w\\in W_1$ lies on $f\\in Y$, its two neighbours along $f$ are distinct black vertices in $A$, since the root is not in $K$. Each is incident with a face outside $Y$, namely the other face at its edge to $w$, and hence belongs to $B_1$ or $B_2$. Removing $f$ lowers the sum in the deficit by at least two and lowers $2|Y|$ by two. The remaining set still has positive deficit, so it is nonempty, contradicting minimality. A vertex in $B_2\\cup B_3\\cup W_2\\cup W_3$ has all three of its edges in $K$, whereas a vertex in $B_1$ has just two. Its third edge must leave $V(K)$: if its white endpoint were in $K$, that endpoint would be in $W_2\\cup W_3$ and the edge would already belong to $K$. Thus $K=G[V(K)]$, and its cut has size $c=|B_1|$, with all ends in $V(K)$ black. Counting its internal edges from the two colours gives \\begin{equation*} c=3\\bigl(|B\\cap V(K)|-|W\\cap V(K)|\\bigr). \\tag{3.2} \\end{equation*} Let $k$ be the number of faces of the embedded connected graph $K$ not among the original faces $Y$. It is at least one: the omitted root lies in one of these faces. Euler and the degree count give \\begin{equation*} 2|Y|+2k=4+|B_2|+|B_3|+|W_2|+|W_3|. \\end{equation*} Subtracting $|B_1|+2|B_2|+2|B_3|$ yields \\begin{equation*} d(Y)=4-2k-c/3. \\end{equation*} The cut is nonempty, since $K$ omits $b_0$ and $G$ is connected. By (3.2), $3$ divides $c$, so $c\\ge3$. Since $d(Y)\\ge1$ and $k\\ge1$, necessarily $k=1$ and $c=3$. This cut is nontrivial. Its $K$ shore contains a facial cycle, containing at least two vertices. Its other shore contains $b_0$ and a white endpoint of the cut. This contradicts the hypothesis, proving (3.1). The stronger colour-sensitive obstruction is visible here: a deficient set produces a root-free three-edge cut whose inner ends are black. We will not need the converse or the sharper decomposition theorem from the constructive paper.",
+  "line": 100,
+  "explicit_uses": [
+   "PL1"
+  ],
+  "statement_refs": [],
+  "proof_lines": 39,
+  "proof_words": 595,
+  "source": "primal"
+ },
+ {
+  "id": "PL5",
+  "kind": "lemma",
+  "number": "5",
+  "label": null,
+  "title": "the cut-side identity",
+  "statement": "PROVED-HERE, restating the conjunction of Lean's \\nolinkurl{state_disk_count} and \\nolinkurl{disk_boundary_imbalance}; LIT in equivalent form, OpenAI, Lemma 4.1. Let $r$ be a state. At each $b\\in A$ choose one of the two edges of face $r(b)$ incident with $b$, directing its face link from $r(b)$ to its other face. Suppose some chosen links form a directed face circuit $C$. Let $S$ be its cut side, $h=|C|$, and let $\\ell$ count its cut edges whose black endpoint belongs to $S$. Then \\begin{equation*} h=2\\ell+3,\\qquad |W\\cap S|=|B\\cap S|+1,\\qquad \\sum_{C}\\delta=-3\\sigma. \\tag{4.1} \\end{equation*} In particular $h$ is odd and $S$ contains a white vertex.",
+  "proof": "Every tail belongs to $X$, so the circuit avoids $R$. Both shores are connected by Lemma 2. Put $U=U_S$ and $E_S$ as in that lemma. The four counts are \\begin{equation*} \\begin{aligned} 3|S|+h&=2|E_S|,\\\\ 3|B\\cap S|+h&=|E_S|+\\ell,\\\\ |S|+|U|&=|E_S|+1,\\\\ |B\\cap S|+h&=|U|+\\ell. \\end{aligned}\\tag{4.2} \\end{equation*} The first counts ends at $S$. In the second, $3|B\\cap S|$ counts internal edges and the $\\ell$ black-ended boundary edges; adding $h$ gives the displayed form. The third is (2.1). Here are all details of the state count, the fourth equation. The set $U$ is the union of $r(B\\cap S)$ and the $h$ faces of $C$. Indeed, $U$ contains no root face by Lemma 2. A face in $U$ off $C$ has every boundary vertex in $S$ by the no-pinch statement, so its unique state partner is in $B\\cap S$. Conversely both sets are contained in $U$. Their intersection has size $\\ell$: a face on $C$ is the assigned face of the black endpoint of its outgoing circuit edge, and that endpoint is in $S$ exactly for those $\\ell$ edges. Bijection of $r$ makes this count exact, with no duplicates. Inclusion-exclusion proves the fourth equation. Eliminating $|S|,\\allowbreak |U|,\\allowbreak |E_S|$ from (4.2) gives $h-2\\ell=3$. The colour degree count on the cut is \\begin{equation*} 3\\bigl(|B\\cap S|-|W\\cap S|\\bigr)=2\\ell-h=-3, \\end{equation*} which gives the second assertion. Sum (2.2) to get the final assertion. Only the third count and the no-pinch part of the fourth need the planar facts of Lemma 2.",
+  "line": 144,
+  "explicit_uses": [
+   "PL2",
+   "PL3"
+  ],
+  "statement_refs": [],
+  "proof_lines": 22,
+  "proof_words": 269,
+  "source": "primal"
+ },
+ {
+  "id": "PL6",
+  "kind": "lemma",
+  "number": "6",
+  "label": null,
+  "title": "the weights",
+  "statement": "PROVED-HERE, a primal restatement of Lean's \\nolinkurl{boundary_of_sum_zero}, \\nolinkurl{whiteCharge_cut_integral}, and \\nolinkurl{StateCycle.signed}. There are integer weights $a(b,\\allowbreak f)$ for incident pairs $b\\in A$, $f\\ni b$, such that for every directed state circuit with cut side $S$, \\begin{equation*} \\sum_{b\\text{ on }C}\\bigl(a(b,f_{\\rm head})-a(b,f_{\\rm tail})\\bigr) =\\sigma|W\\cap S|. \\tag{5.1} \\end{equation*}",
+  "proof": "Send one unit along a path in $G$ from $b_0$ to each $w\\in W$, adding signed flows on the edges oriented black to white. Call the resulting integer flow $\\alpha$. Its outgoing divergence is $|W|$ at $b_0$, $-1$ at each white vertex, and zero at every other black vertex. At $b\\in A$ define local face potentials, up to an additive constant, by \\begin{equation*} a(b,g)-a(b,f)=-\\delta(f,g)\\alpha(e) \\tag{5.2} \\end{equation*} when $f,\\allowbreak g$ are the two faces at $e\\ni b$. These three equations are consistent. Following the three faces in their positive cyclic order gives the negative sum of $\\alpha$ on the three edges oriented away from $b$, which is zero. Fix one potential to zero to obtain integer values. Now sum (5.2) around $C$ and use (2.2). The result is $-\\sigma$ times the outward flux of $\\alpha$ through $\\partial S$. The root is outside $S$, so summing divergences over $S$ gives outward flux $-|W\\cap S|$. This proves (5.1). Lemma 5 makes this strictly positive for $\\sigma=+1$. Neither integrality of the flow nor of the weights is needed for existence; integer paths make exact examples easy.",
+  "line": 178,
+  "explicit_uses": [
+   "PL5",
+   "PL3"
+  ],
+  "statement_refs": [],
+  "proof_lines": 11,
+  "proof_words": 191,
+  "source": "primal"
+ },
+ {
+  "id": "PL7",
+  "kind": "lemma",
+  "number": "7",
+  "label": null,
+  "title": "cancellation",
+  "statement": "PROVED-HERE. For any fixed $s$ for which $Q_s$ contains a face circuit, \\begin{equation*} \\sum_{r:(r,s)\\text{ pair}}\\varepsilon(r,s)=0. \\tag{6.2} \\end{equation*}",
+  "proof": "If there are no partners the sum is empty. Otherwise fix a circuit of $Q_s$ by a rule depending only on $s$, for instance a fixed total order on finite edge subsets. Every partner $r$ directs it cyclically, as observed in Section 3. On its black vertices replace $r(b)$ by the third face $u(b)$, leaving $s$ fixed. The new tails are precisely the old heads, so the result $r'$ is still a bijection onto $X$; it differs from $s$ everywhere. The operation is a fixed-point-free involution because the chosen undirected circuit is unchanged. At each changed black vertex, $\\delta(u(b),\\allowbreak s(b))=-\\delta(r(b),\\allowbreak s(b))$. Lemma 5 says the number of changes is odd, so the sign reverses. Since $L_s$ depends only on $s$, the same cancellation holds in (6.1).",
+  "line": 214,
+  "explicit_uses": [
+   "PL5"
+  ],
+  "statement_refs": [],
+  "proof_lines": 1,
+  "proof_words": 138,
+  "source": "primal"
+ },
+ {
+  "id": "PL8",
+  "kind": "lemma",
+  "number": "8",
+  "label": null,
+  "title": "nonvanishing",
+  "statement": "PROVED-HERE. If there is at least one pair, $Z\\ne0$. Hence there is a pair whose $Q_s$ has no face circuit.",
+  "proof": "A pair selects at each black vertex the edge whose incident faces are $r(b)$ and $s(b)$, directed from the former to the latter. Call this collection $D$. Each face in $X$ has one incoming and one outgoing link. There are no loops, and no two-edge circuits, by Lemma 1 and the fact that each primal edge has exactly one black endpoint and is selected at most once. Thus $D$ is a disjoint union of simple face circuits covering $X$. Each is a state circuit for $r$. Fix the undirected collection $D$. Its pairs are exactly the independent choices of direction on its circuits. Indeed, a choice of direction supplies each face once as tail and once as head, and each black vertex labels exactly one selected edge. There are exactly $2^{c(D)}$ such pairs. For a circuit of length $h$, its positive orientation has delta-sum $-3$, and hence $(h+3)/2$ negative local signs. The reverse orientation has the opposite product sign because $h$ is odd. Let $L_C^+$ and $L_C^-$ be the products of $1+a(b,\\allowbreak f_{\\rm head})z$ along the two orientations. The group's sum is therefore \\begin{equation*} (-1)^{(n-c(D))/2}\\prod_{C\\subset D}(L_C^+-L_C^-). \\tag{6.3} \\end{equation*} To check the prefactor, multiply $(-1)^{(h+3)/2}$ over the circuits. The exponent is $(n+3c(D))/2$, which differs from $(n-c(D))/2$ by $2c(D)$. Both are integers because all circuit lengths are odd. Each difference has constant term zero and, by Lemma 6, linear coefficient \\begin{equation*} \\lambda_C=\\sum_{b\\text{ on }C}\\bigl(a(b,f_{\\rm head+})-a(b,f_{\\rm head-})\\bigr) =|W\\cap S_C|>0. \\end{equation*} Let $m$ be the least number of circuits in any $D$, which exists because pairs exist. All terms of degree below $m$ vanish. The coefficient of degree $m$ is \\begin{equation*} [z^m]Z=(-1)^{(n-m)/2}\\sum_{D:c(D)=m}\\prod_{C\\subset D}|W\\cap S_C|\\ne0. \\tag{6.4} \\end{equation*} Every factor in this nonempty sum is positive. This proves nonvanishing. If every second state had cyclic $Q_s$, Lemma 7 would instead make $Z=0$. Some $Q_s$ is therefore circuit-free. Oddness is enough for Lemma 7. The exact signed value three is needed in (6.3) to give all groups with the same number of circuits the same sign. This distinction is easy to lose when compressing the proof.",
+  "line": 222,
+  "explicit_uses": [
+   "PL1",
+   "PL6",
+   "PL7"
+  ],
+  "statement_refs": [],
+  "proof_lines": 26,
+  "proof_words": 402,
+  "source": "primal"
+ },
+ {
+  "id": "PL9",
+  "kind": "lemma",
+  "number": "9",
+  "label": null,
+  "title": "the recovery tree",
+  "statement": "PROVED-HERE, restating Lean's \\nolinkurl{removed_acyclic}, \\nolinkurl{remainder_connected}, and \\nolinkurl{remainder_black_degree}. For a pair with circuit-free $Q_s$, put \\begin{equation*} K=G-\\bigl(Q_s\\cup(\\partial\\{b_0\\}\\setminus\\{e_0\\})\\bigr). \\end{equation*} Then $K$ is a spanning tree, with degree two at every black vertex other than $b_0$, and degree one at $b_0$.",
+  "proof": "Orient $Q_s$ using its partner $r$. Each nonroot face has outdegree one and each root face outdegree zero. Since it is a forest of face links, a component with $v$ faces and $k$ roots has both $v-k$ edges by outdegree counting and $v-1$ edges by being a tree. Hence $k=1$. This includes isolated root faces. The two removed edges at $b_0$ join the three root faces as a two-edge path. Adding them to $Q_s$ therefore joins its three components into a face-link tree. Call the added collection $L$. If $G-L$ were disconnected, $L$ would contain a bond of $G$, and hence a face circuit by Lemma 2, a contradiction. Thus $K$ is connected. It has $3(n+1)-(n+2)=2n+1=|V(G)|-1$ edges, and is a tree. Each nonroot black vertex lost exactly $q_s(b)$, and the root lost its other two edges. This proves the degree statements.",
+  "line": 253,
+  "explicit_uses": [
+   "PL2"
+  ],
+  "statement_refs": [],
+  "proof_lines": 3,
+  "proof_words": 161,
+  "source": "primal"
+ },
+ {
+  "id": "PL10",
+  "kind": "lemma",
+  "number": "10",
+  "label": null,
+  "title": "the selected matching",
+  "statement": "PROVED-HERE, a constructive version of Lean's \\nolinkurl{tree_matching} and \\nolinkurl{recovery_matching}. Root $K$ at $b_0$. For every white vertex select its edge toward the root. These edges form a perfect matching $P\\subseteq E(K)$ containing $e_0$.",
+  "proof": "Every white vertex has exactly one parent edge. Every nonroot black vertex has degree two in $K$, one parent and one child, both white. It is selected by its white child, and by no other white vertex. The root has the single white child $w_0$ and is selected by it through $e_0$. Each black and white vertex is therefore covered exactly once. Since $P$ avoids $q_s(b)$, its edge at $b\\ne b_0$ lies on the assigned face $s(b)$.",
+  "line": 265,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 1,
+  "proof_words": 83,
+  "source": "primal"
+ },
+ {
+  "id": "PL11",
+  "kind": "lemma",
+  "number": "11",
+  "label": null,
+  "title": "matching cut balance",
+  "statement": "PROVED-HERE; Lean's \\nolinkurl{matching_cut_balance}. If the cut $\\partial S$ is contained in any perfect matching of a cubic bipartite graph and $\\ell$ of its $h$ edges have black ends in $S$, then $h=2\\ell$.",
+  "proof": "Let $p$ count matching edges internal to $S$, and $b=|B\\cap S|$, $w=|W\\cap S|$. Matching degrees give $b=p+\\ell$ and $w=p+h-\\ell$, so $b-w=2\\ell-h$. Cubic degrees give $3(b-w)=2\\ell-h$. Subtract to obtain $b=w$ and $h=2\\ell$.",
+  "line": 269,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 1,
+  "proof_words": 45,
+  "source": "primal"
+ },
+ {
+  "id": "PL12",
+  "kind": "lemma",
+  "number": "12",
+  "label": null,
+  "title": "the complement is one cycle",
+  "statement": "PROVED-HERE, restating Lean's \\nolinkurl{selectNet_forest}, \\nolinkurl{selected_forest}, and \\nolinkurl{recover_connected_complement}. Let $s$ be any state and $P$ any perfect matching whose edge at every $b\\in A$ lies on $s(b)$. Then $G-P$ is a Hamiltonian cycle. Here $e_0$ denotes the edge of $P$ at $b_0$. The pair and the forest in Lemmas 9 and 10 are needed only to produce such a matching.",
+  "proof": "First consider $P\\setminus\\{e_0\\}$ as face links. Direct its edge at $b\\in A$ from $s(b)$ to the other incident face. Every nonroot face has one outgoing link and root faces have none. Any face circuit would therefore be directed and would be a state circuit for $s$. Its cut side would satisfy $h=2\\ell+3$ by Lemma 5. All its edges belong to $P$, so Lemma 11 gives $h=2\\ell$, a contradiction. Thus these links are a forest. The same component count as in Lemma 9 gives exactly one root face per component. Adding $e_0$, which joins two distinct root faces, still creates no face circuit. If $G-P$ were disconnected, $P$ would contain a bond and hence a face circuit, again a contradiction. Thus $G-P$ is connected. It has degree two everywhere because $P$ is a perfect matching. Following successive edges in a finite degree-two graph closes a cycle without a branch; connectedness says it contains every vertex. It is the required Hamiltonian cycle and avoids $e_0$. The phrase \"one selected edge per face\" from the original paper has become \"one selected edge per vertex of $G$\" here. We do not claim that the perfect matching uses one edge on each primal face.",
+  "line": 273,
+  "explicit_uses": [
+   "PL5",
+   "PL11",
+   "PL9"
+  ],
+  "statement_refs": [],
+  "proof_lines": 5,
+  "proof_words": 210,
+  "source": "primal"
+ },
+ {
+  "id": "PL13",
+  "kind": "lemma",
+  "number": "13",
+  "label": null,
+  "title": "caps and gluing",
+  "statement": "PROVED-HERE, expanding Li, Appendix C, and matching the statements of Lean's \\nolinkurl{cap_simple}, \\nolinkurl{cap_cubic}, \\nolinkurl{cap_threeConnected}, \\nolinkurl{cap_coloring}, \\nolinkurl{cap_glue_matching}, and \\nolinkurl{cap_glue_connected}. Suppose $\\partial S$ has size three and both shores have at least two vertices. Contract either shore to a new vertex, deleting internal loops. The resulting two capped graphs are smaller simple cubic bipartite 3-edge-connected plane graphs. Hamiltonian cycles in the caps that omit the same one of the three boundary edges glue to a Hamiltonian cycle of $G$.",
+  "proof": "Each shore is connected. Otherwise its distinct components would each have boundary size at least three, exceeding the total three. Let $\\ell$ be the number of cut edges with black ends in $S$. The colour count gives \\begin{equation*} 3(|B\\cap S|-|W\\cap S|)=2\\ell-3. \\end{equation*} The right side is one of $-3,\\allowbreak -1,\\allowbreak 1,\\allowbreak 3$, and is divisible by three. Hence $\\ell=0$ or $3$. All cut ends on each shore have the same colour, so the new cap vertex receives the opposite colour. The three ends on each shore are distinct. If a vertex $v$ had two boundary edges, removing it from that shore would leave a nonempty set with at most two boundary edges: one remaining old cut edge plus at most one edge to $v$. If it had all three, connectedness of that nontrivial shore would already fail. This contradicts 3-edge-connectivity. Caps are therefore simple and cubic. Contracting a spanning tree of the removed connected shore and deleting the resulting loops preserves planarity. Every edge cut in a cap lifts to an edge cut of equal size in $G$, by placing the entire contracted shore on the side containing its cap vertex. The rotation at the cap is the boundary rotation of the contracted shore, independent of the chosen spanning tree. Thus every cap is 3-edge-connected. Each has fewer vertices because the contracted shore had at least two. Delete the cap vertex from a Hamiltonian cycle in each cap. What remains is a spanning path in that shore whose two ends correspond to the two used boundary edges. If the cycles omit the same third edge, their two paths and those two boundary edges form a single cycle through both shores. Their complementary matchings likewise agree on the cut, using exactly the omitted edge.",
+  "line": 283,
+  "explicit_uses": [],
+  "statement_refs": [],
+  "proof_lines": 11,
+  "proof_words": 300,
+  "source": "primal"
+ },
+ {
+  "id": "PR14",
+  "kind": "remark",
+  "number": "14",
+  "label": null,
+  "title": "the partner is unique when it exists",
+  "statement": "PROVED-HERE. If $Q_s$ is a forest, $s$ has a partner exactly when each component of $Q_s$ contains one root face. In that case the partner is unique, and the recovery graph of Lemma 9 is a tree for each root edge. If there is no partner, that graph is never a tree.",
+  "proof": "A partner orients each edge of $Q_s$ with one outgoing edge at each nonroot face and none at a root. In a tree component the sum of outgoing degrees gives one root. Conversely, orient a component toward its unique root. For the edge $q_s(b)$ let $r(b)$ be its tail. Each nonroot face is used once, the tail is incident with $b$ and differs from $s(b)$, so this defines a partner. The orientation toward a root is forced, proving uniqueness. There are three components since $Q_s$ has $n$ edges and $n+3$ vertices. Lemma 9 adds two root-face links. These join the three components into a face tree exactly when the three roots lie in distinct components. Indeed, all added edges have root endpoints, so a rootless component cannot be joined. By the circuit-cut test and the edge count, that face tree condition is equivalent to its complementary primal graph being a tree. This proves every assertion.",
+  "line": 320,
+  "explicit_uses": [
+   "PL9",
+   "Pcircuit"
+  ],
+  "statement_refs": [],
+  "proof_lines": 1,
+  "proof_words": 164,
+  "source": "primal"
+ },
+ {
+  "id": "PR15",
+  "kind": "remark",
+  "number": "15",
+  "label": null,
+  "title": "compatible matchings",
+  "statement": "PROVED-HERE. For a fixed black root and a perfect matching $P$, there exists a compatible state exactly when $G-P$ is connected. The compatible state is unique.",
+  "proof": "The forward direction is Lemma 12. Conversely suppose the complement $C$ is connected. The face links in $P$ have no circuit, since such a circuit would be a cut disjoint from $C$. They form a forest with two components, since $|P|=n+1$ and there are $n+3$ faces. Let $e_0$ be the matching edge at the root; it joins two root faces. Each of the other two root edges has its ends in different components of this forest. Otherwise the path between its faces in $P$, together with that edge, would be a face circuit and hence a cut met by the cycle $C$ exactly once, impossible since every cycle meets every cut evenly. The third root face therefore lies in the other component from the two ends of $e_0$. Removing $e_0$ leaves three trees, one per root. Orient these toward their roots and assign to each $b\\in A$ the tail face of its matching edge. This gives a bijection onto $X$ and a face incident with the matching edge, hence the required state. Every compatible state must give this same orientation, proving uniqueness. COMPUTED before these proofs: the independent referee checked 25,272 forest-state/root-edge cases without a partner, 3,256 forest states with a partner, and 186,476 matching/root pairs on 56 graph records with 8 to 24 primal vertices. The records include the cube twice. The three observations held throughout that range. See the referee's code/README.md for commands. These finite observations motivated Remarks 14 and 15; they do not replace the proofs. The tree-matching criterion in the structure referee's INTEGRATION.md, Sections 6 and 7, describes the same one-root-per-component condition through the incidence graph. Remark 15 covers every Hamiltonian complement, but does not assert that every compatible state is itself a forest state with a partner. The exact cube and 20-vertex worked-example data remain in EXAMPLES.md. The illustrated running example below instead uses the current 13-face example, whose primal graph has 22 vertices.",
+  "line": 324,
+  "explicit_uses": [
+   "PL12"
+  ],
+  "statement_refs": [],
+  "proof_lines": 5,
+  "proof_words": 345,
+  "source": "primal"
+ }
+]
