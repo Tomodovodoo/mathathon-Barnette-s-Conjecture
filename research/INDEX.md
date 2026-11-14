@@ -1,4 +1,4 @@
-﻿# Research runs
+# Research runs
 
 Status is `running`, `done` (report delivered, not refereed), `refereed` or `stale`. All folders are prefixed `2026-11-14_`.
 
@@ -82,7 +82,7 @@ Status is `running`, `done` (report delivered, not refereed), `refereed` or `sta
 | `fable_sign-free-note/` | Fable 5.2 | `proofs/sign-free/`: the part of the proof with no sign | done, referee running | 11 pages, five figures; statements checked by own code through 12 vertices. |
 | `opus_reconcile/` | Opus 5.5 | Facts reconciled across the five summary documents | done | `FACTS.md`. Four documents agree; atlas repaired in `fable_atlas-repair/`. |
 | `sol_release-check/` | GPT-6.1 Sol | Build of every product from a clean clone | running | |
-| `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | running | |
+| `astra_citation-audit/` | GPT-6 Astra | Every citation and the library | done | 63 cite commands, 23 keys, none missing; numbered citations match their sources. Kelmans and the 1969 Waterloo page are known only through secondary sources. `PDF-RIGHTS.md`. |
 | `fable_atlas-repair/` | Fable 5.2 | Atlas resynchronised with the final status data | running | |
 | `astra_final-proofread/` | GPT-6 Astra | Last proofread of the exposition, report only | running | |
 | `opus_notes-proofread/` | Opus 5.5 | Last proofread of the primal and bijective notes | running | |
