@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{barnette-figs}[2026/11/14 encodings for the Barnette figures]
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.markings}
+% Okabe-Ito colours. Every coloured object also differs in shape, weight or dash,
+% so the figures survive greyscale printing.
+\definecolor{bfS}{HTML}{0072B2}% state s, edges of D
+\definecolor{bfR}{HTML}{D55E00}% state r, edges of Q_s
+\definecolor{bfW}{HTML}{009E73}% tree on the white faces
+\definecolor{bfH}{HTML}{AA3377}% cycles in the cubic graph G
+\colorlet{bfblack}{black!17}% a black face of T
+\tikzset{
+  bf/.style={line cap=round,line join=round,every node/.style={font=\footnotesize,inner sep=1.2pt}},
+  bf edge/.style={draw=black!62,line width=.4pt},
+  bf vertex/.style={fill=black},
+  bf root/.style={draw=black,fill=white,line width=.7pt},
+  bf s/.style={fill=bfS,draw=bfS,line width=.3pt},
+  bf r/.style={fill=white,draw=bfR,line width=.9pt},
+  bf D/.style={draw=bfS,line width=1.1pt,shorten >=1.6pt,shorten <=1.2pt,-{Stealth[length=4.2pt,width=3.6pt]}},
+  bf Q/.style={draw=bfR,line width=1.1pt,dash pattern=on 3pt off 1.6pt},
+  bf Qdir/.style={bf Q,shorten >=1.6pt,shorten <=1.2pt,-{Stealth[length=4.2pt,width=3.6pt]}},
+  bf P/.style={draw=black,line width=1.6pt},
+  bf G/.style={draw=black!35,line width=.3pt},
+  bf cycle/.style={draw=bfH,line width=1.3pt},
+  bf spoke/.style={draw=black!70,line width=.4pt},
+  bf kept/.style={draw=black,line width=1.1pt},
+  bf cut/.style={draw=black!70,line width=.5pt,dash pattern=on 1.4pt off 1.4pt},
+  bf wtree/.style={draw=bfW,line width=1.1pt,dash pattern=on 4pt off 1.2pt on 1pt off 1.2pt},
+  bf detour/.style={draw=bfS,line width=1.1pt},
+}
+% additions for the sign-free note
+\tikzset{
+  bf arc/.style={draw=black!75,line width=.6pt,shorten >=2pt,shorten <=1.6pt,-{Stealth[length=3.6pt,width=3pt]}},
+  bf arc faint/.style={draw=black!45,line width=.4pt,shorten >=2pt,shorten <=1.6pt,-{Stealth[length=3pt,width=2.6pt]}},
+}
