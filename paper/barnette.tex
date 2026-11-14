@@ -23,7 +23,7 @@
 Barnette's conjecture states that every cubic, bipartite, $3$-connected planar graph has a Hamiltonian cycle.
 It was proved by OpenAI in 2026, in the stronger form that the cycle can be chosen to avoid any prescribed edge.
 We give a short and self-contained account of the proof.
-In the dual triangulation a Hamiltonian cycle is encoded by a choice of one corner in each black face, and the task is to find a choice for which the sides opposite the chosen corners form a spanning forest.
+The proof works in the dual triangulation, where a Hamiltonian cycle is constructed from a suitable choice of one corner in each black face.
 Such a choice is shown to exist by a signed count over pairs of choices: the unsuitable choices cancel under a sign-reversing involution, and a generating function with one factor $1-z^{a}$ for every cycle formed by a pair shows that the count is not zero.
 \end{abstract}
 
@@ -34,7 +34,7 @@ Such a choice is shown to exist by a signed count over pairs of choices: the uns
 Tait conjectured in 1884 that every cubic $3$-connected planar graph is Hamiltonian, and Tutte~\cite{Tutte} disproved this in 1946 with a graph that is not bipartite.
 Barnette~\cite{Barnette} conjectured that bipartiteness suffices: every cubic, bipartite, $3$-connected planar graph is Hamiltonian.
 The conjecture was known for graphs whose faces have size four or six~\cite{Goodey} and for graphs with at most $64$ vertices~\cite{HMM}, later $90$~\cite{BGM}; by a result of Kelmans it is equivalent to several statements that prescribe how the cycle passes through given edges, see~\cite{Alt}.
-Without $3$-connectedness the statement fails, and for $2$-connected cubic bipartite planar graphs it is NP-complete to decide Hamiltonicity~\cite{ANS}.
+Without $3$-connectedness the statement fails~\cite{AEHS}, and for $2$-connected cubic bipartite planar graphs it is NP-complete to decide Hamiltonicity~\cite{ANS}.
 In 2026 the conjecture was proved by OpenAI~\cite{OpenAI}, in the following form.
 
 \begin{theorem}[{\cite{OpenAI}}]\label{thm:main}
@@ -51,15 +51,18 @@ The problem is to find a perfect matching $M$ containing $e$ whose complement is
 We pass to the dual $T$ of $G$, a triangulation of the sphere whose faces are coloured black and white according to the bipartition of $G$.
 A perfect matching $M$ becomes a set $M^*$ of edges of $T$ that contains exactly one side of every face, and $G-M$ is connected precisely when $M^*$ contains no cycle.
 Suppose that this is the case.
-Then $M^*$ is a forest with two components, and deleting the edge $e_0$ dual to $e$ leaves three trees, one through each corner of the black face $t_0$ at $e_0$.
+Then $M^*$ is a forest with two components, which lie on the two sides of the Hamiltonian cycle $G-M$.
+Let $e_0$ be the edge of $T$ dual to $e$, and $t_0$ the black face at $e_0$.
+The Hamiltonian cycle passes through $t_0$ across its two sides other than $e_0$, so it separates the third corner of $t_0$ from the ends of $e_0$; hence deleting $e_0$ from $M^*$ leaves three trees, one through each corner of $t_0$.
 Orient the three trees towards these corners.
-Every other vertex $x$ of $T$ then has exactly one outgoing edge, and this edge is a side of exactly one black face $t\neq t_0$.
+Every other vertex of $T$ then has exactly one outgoing edge, and this edge is a side of exactly one black face $t\neq t_0$.
 So every black face $t\ne t_0$ is assigned one of its corners $s(t)$, the tail of its side in $M^*$, and $s$ is a bijection from these faces onto the vertices off $t_0$.
 
 The proof runs this backwards.
 A bijection $s$ of this kind is called a \emph{state}.
-In each black face a state rules out the side opposite the chosen corner, and we call $s$ \emph{good} if the sides ruled out, together with two sides of $t_0$, form a spanning tree of $T$.
-For a good state the dual spanning tree of $G$ has a perfect matching $M$ containing $e$, and a counting argument inside cycles, the disk identity of Lemma~\ref{lem:disk}, shows that $M^*$ is acyclic (Figure~\ref{fig:overview}).
+Since the side of $t$ in $M^*$ is to contain $s(t)$, a state rules out, in each black face, the side opposite the chosen corner, and we call $s$ \emph{good} if the sides ruled out, together with the two sides of $t_0$ other than $e_0$, form a spanning tree of $T$.
+For a good state the dual spanning tree of $G$ has a perfect matching $M$ containing $e$, and $M^*$ is acyclic (Figure~\ref{fig:overview}).
+This rests on a count that is used throughout, the disk identity of Lemma~\ref{lem:disk}: a cycle of $T$ whose edges all contain the corner chosen in their black face has exactly one more white face than black faces inside it.
 Everything therefore comes down to the existence of a good state.
 
 No direct construction of a good state is known.
@@ -68,15 +71,16 @@ Take two states $r$ and $s$ that differ in every face.
 The first state orients the sides opposite the corners chosen by $s$ so that one edge leaves every vertex off $t_0$; hence the only obstruction to $s$ being good is a directed cycle among these sides, and reversing such a cycle turns $r$ into another state.
 There is a sign $\eps(r,s)=\pm1$, a product of local signs, that changes under this reversal.
 Consequently all terms with $s$ not good cancel in any sum $\sum\eps(r,s)f(s)$ over pairs, and it remains to choose $f$ so that the sum is not zero.
-Here a second structure enters.
+For this the same sum is grouped in a second way.
 The edges of $T$ from $r(t)$ to $s(t)$ form disjoint directed cycles through all vertices off $t_0$.
-Reversing one of these cycles $C$ exchanges $r$ and $s$ along it, changes the sign, and raises a suitable integer weight $\omega(s)$ by the number $a(C)$ of white faces inside $C$, which the disk identity shows to be positive.
+Reversing one of these cycles $C$ exchanges $r$ and $s$ along it and also changes the sign; so the sum vanishes for $f=1$, and $f$ has to tell the two directions of $C$ apart.
+There is an integer weight $\omega(s)$, a height function, that increases by the number $a(C)$ of white faces inside $C$ when $C$ is turned from clockwise to counterclockwise, and $a(C)$ is positive by the disk identity.
 So the $2^c$ pairs that produce the same $c$ cycles $C_1,\dots,C_c$ contribute
 \[
 \pm z^{\omega_0}\prod_{i=1}^{c}\bigl(1-z^{a(C_i)}\bigr)
 \]
 to the Laurent polynomial $Z(z)=\sum\eps(r,s)z^{\omega(s)}$, a term that vanishes to order exactly $c$ at $z=1$.
-The terms of lowest order come from the families with the fewest cycles, and they all carry the same sign.
+The terms of lowest order come from the families with the fewest cycles, and they all carry the same sign, because the sign of a pair depends only on the number of its cycles and on how many of them run counterclockwise.
 Hence $Z\neq0$, although $Z(1)=0$, and a good state exists.
 
 Two points remain.
@@ -114,17 +118,9 @@ The faces of $T$ correspond to the vertices of $G$, hence are bounded by triangl
 Finally $|V(T)|=|E(G)|-|V(G)|+2=\tfrac12|V(G)|+2\ge4$.
 \end{proof}
 
-\begin{lemma}\label{lem:matching}
-Let $M$ be a perfect matching of $G$ such that $M^*$ contains no cycle.
-Then $G-M$ is a Hamiltonian cycle of $G$.
-\end{lemma}
-
-\begin{proof}
-$G-M$ is a spanning subgraph with all degrees two, and it is connected by duality.
-\end{proof}
-
-From here until Theorem~\ref{thm:dual} we fix an Eulerian triangulation $T$ with $n+1$ black faces, a black face $t_0$ and a side $e_0$ of $t_0$, and we look for a perfect matching $M$ of $G$ that contains $e_0^*$ and has $M^*$ acyclic.
-We draw $T$ in the plane with $t_0$ as the unbounded face, so that the \emph{inside} of a cycle is its bounded side, and a cycle can run clockwise or counterclockwise.
+From here until Theorem~\ref{thm:dual} we fix an Eulerian triangulation $T$ with $n+1$ black faces, a black face $t_0$ and a side $e_0$ of $t_0$.
+We look for a perfect matching $M$ of $G$ that contains $e_0^*$ and for which $M^*$ is acyclic: then $G-M$ is a spanning subgraph of $G$ with all degrees two, it is connected by duality, and so it is a Hamiltonian cycle avoiding $e_0^*$.
+We draw $T$ in the plane with $t_0$ as the unbounded face, so that the \emph{inside} of a cycle is its bounded side and a directed cycle runs clockwise or counterclockwise.
 The three corners of $t_0$ are the \emph{roots}.
 Let $A$ be the set of black faces other than $t_0$ and $X$ the set of vertices other than the roots, so that $|A|=|X|=n$.
 
@@ -133,9 +129,9 @@ Equivalently, a state is a perfect matching of the bipartite graph $H$ with vert
 For a state $s$ let $Q_s$ be the spanning subgraph of $T$ whose edges are the sides opposite $s(t)$ in $t$, for $t\in A$.
 These $n$ edges are distinct, because an edge lies on only one black face.
 We call $s$ \emph{good} if $Q_s$ together with the two sides of $t_0$ other than $e_0$ is a spanning tree $S_s$ of $T$; equivalently, if $Q_s$ is a forest and its three components each contain one root.
-In the introduction we saw that states are what an acyclic set $M^*$ leaves behind, and that the side of $t$ in $M^*$ then has $s(t)$ as an end, so that it is not the side of $t$ in $Q_s$.
-We now show that, conversely, a good state determines such an $M$.
-The argument needs a count that will be used again in Section~\ref{sec:pairs}.
+We saw in the introduction how a matching $M$ of the kind we are looking for determines a state.
+Conversely, a good state determines such an $M$; this is Proposition~\ref{prop:recover} below.
+Its proof needs a count that will be used again in Section~\ref{sec:pairs}.
 
 \begin{lemma}[Disk identity]\label{lem:disk}
 Let $r$ be a state and let $C$ be a cycle of $T$ of length $h$ whose edges lie on $h$ distinct black faces, such that for every edge $f$ of $C$ the black face $t_f$ at $f$ belongs to $A$ and $r(t_f)$ is an end of $f$.
@@ -167,7 +163,7 @@ In $Y$ the vertex $t_0$ has degree one, its edge being $e_0^*$, and every $t\in 
 Root $Y$ at $t_0$.
 Every black face then has exactly one child, every child of a black face is white, and every white face has a parent; so the edges that join the black faces to their children form a perfect matching $M$ of $G$.
 It contains $e_0^*$, and for $t\in A$ the side of $t$ in $M^*$ is not in $Q_s$, so $s(t)$ is one of its ends.
-By Lemma~\ref{lem:matching} it suffices to show that $M^*$ is acyclic.
+It remains to show that $M^*$ is acyclic.
 
 Direct the side of each $t\in A$ in $M^*$ away from $s(t)$.
 This orients the spanning subgraph $N$ of $T$ with edge set $M^*\setminus\{e_0\}$ so that every vertex of $X$ has outdegree one and every root has outdegree zero.
@@ -183,8 +179,10 @@ A component of $N$ with $\nu$ vertices has $\nu-1$ edges and so contains exactly
 
 \section{Pairs of states}\label{sec:pairs}
 
+It remains to find a good state.
+Whether a state $s$ is good depends on the components of $Q_s$, and the key to the proof is that a second state, different from $s$ in every face, turns this into a question about directed cycles.
 A \emph{pair} is an ordered pair $(r,s)$ of states with $r(t)\neq s(t)$ for every $t\in A$; for a pair, $u(t)$ denotes the third corner of $t$.
-A pair gives two spanning subgraphs of $T$ with $n$ directed edges, each containing one side of every $t\in A$ directed away from $r(t)$: the graph $Q_s$, in which we direct the side of $t$ from $r(t)$ to $u(t)$, and the graph $D(r,s)$ with the edges $r(t)\to s(t)$, $t\in A$.
+A pair gives two spanning subgraphs of $T$ with $n$ directed edges, each containing one side of every $t\in A$ directed away from $r(t)$: the graph $Q_s$, in which $r$ directs the side of $t$ from $r(t)$ to $u(t)$, and the graph $D(r,s)$ with the edges $r(t)\to s(t)$, $t\in A$.
 Since $r$ is a bijection onto $X$, in both graphs every vertex of $X$ has outdegree one and every root has outdegree zero.
 In a directed graph with this property every cycle is a directed cycle, because its edges have distinct tails; and a component with $\nu$ vertices, $\rho$ of them roots, has $\nu-\rho$ edges, so that it is either a tree containing exactly one root, or contains no root and exactly one cycle.
 
@@ -247,18 +245,37 @@ If $C$ runs clockwise, they are the $\ell=(h-3)/2$ edges whose black face is ins
 The lengths of the cycles are odd and add up to $n$, so $c\equiv n$, and the total number of factors $-1$ is $(n-3c)/2+3c^+$, which has the parity of $(n+c)/2+c^+$.
 \end{proof}
 
-By (2), reversing a cycle of $D(r,s)$ also changes the sign, and all pairs whose cycles run clockwise and whose $2$-factors have the same number of cycles have the same sign.
+The first part of the lemma makes the states that are not good disappear from signed sums over pairs.
+
+\begin{lemma}\label{lem:cancel}
+For every function $f$ on the set of states,
+\[
+\sum_{(r,s)}\eps(r,s)f(s)\ =\sum_{(r,s)\,:\,s\text{ good}}\eps(r,s)f(s),
+\]
+where both sums are over pairs.
+\end{lemma}
+
+\begin{proof}
+For every state $s$ such that $Q_s$ contains a cycle, choose one cycle $K_s$ of $Q_s$.
+If $r$ is a state such that $(r,s)$ is a pair, then so is $r^{K_s}$, and $r\mapsto r^{K_s}$ is an involution without fixed points on the set of these states $r$.
+It changes $\eps(r,s)$ by Lemma~\ref{lem:sign}(1), so the terms with this $s$ cancel.
+By Lemma~\ref{lem:pair}(1) the remaining terms are those in which $s$ is good.
+\end{proof}
 
 \subsection*{The weight}
+By Lemma~\ref{lem:sign}(2), reversing a cycle of $D(r,s)$ changes the sign as well.
+So the pairs with a given $2$-factor cancel one another when $f=1$, and to obtain a sum that is not zero we need a function $f$ of the second state that distinguishes the two directions of a cycle.
+
 Choose a point $p_t$ in every face $t\in A$ and join it to the corners of $t$ in $X$ by arcs inside $t$ that meet only in $p_t$.
 This draws $H$ in the plane, and a state $s$ is drawn as the $n$ arcs from $p_t$ to $s(t)$.
 For each white face $y$ fix an arc $\gamma_y$ from a point of $y$ to a point of $t_0$ that avoids the vertices of $T$ and the points $p_t$ and crosses the arcs of $H$ transversally, in finitely many points.
 For an arc $\alpha$ of $H$ with a direction, let $\cross{\alpha}{\gamma_y}$ be the number of points in which $\gamma_y$ crosses $\alpha$ from the left of $\alpha$ to its right, minus the number of points in which it crosses from right to left.
-The \emph{weight} of a state $s$ is the integer
+For $t\in A$ and a corner $v\in X$ of $t$ put $\omega(t,v)=\sum_y\cross{p_t\to v}{\gamma_y}$, the sum being over the white faces.
+As the sign of a pair is a product of local signs, the \emph{weight} of a state $s$ is the sum of local weights
 \[
-\omega(s)=\sum_{y}\ \sum_{t\in A}\cross{p_t\to s(t)}{\gamma_y},
+\omega(s)=\sum_{t\in A}\omega\bigl(t,s(t)\bigr).
 \]
-the first sum being over the white faces.
+Weights of this kind are known as height functions of perfect matchings; see Thurston~\cite{Thurston}.
 For a cycle $C$ of $T$ let $a(C)$ be the number of white faces inside $C$.
 
 \begin{lemma}\label{lem:weight}
@@ -269,7 +286,8 @@ Then $\omega(s')-\omega(s)=a(C)\ge1$.
 \begin{proof}
 The states $s$ and $s'$ differ only on the faces $t$ with a side on $C$, where $s'(t)=r(t)$.
 Let $\Gamma$ be the closed curve that runs, for each of these faces in turn, from $s(t)$ to $p_t$ and on to $r(t)$.
-It is obtained from $C$ by pushing every edge into its black face, so it is a simple closed curve with the same white faces inside as $C$; and it runs counterclockwise, because it follows the clockwise cycle $C$ backwards.
+It is obtained from $C$ by pushing every edge into its black face, and the region between an edge and its detour through $p_t$ lies in that face; so $\Gamma$ is a simple closed curve with the same white faces inside as $C$.
+It runs counterclockwise, because it follows the clockwise cycle $C$ backwards.
 Since $\cross{\alpha}{\gamma_y}$ changes sign with the direction of $\alpha$,
 \[
 \omega(s')-\omega(s)=\sum_y\ \sum_{t\,:\,r(t)s(t)\in E(C)}\Bigl(\cross{p_t\to r(t)}{\gamma_y}-\cross{p_t\to s(t)}{\gamma_y}\Bigr)=\sum_y\cross{\Gamma}{\gamma_y},
@@ -279,10 +297,8 @@ The left of $\Gamma$ is its inside, and $\gamma_y$ ends outside $\Gamma$; so $\c
 Hence the sum is $a(C)$, which is positive by Lemma~\ref{lem:pair}(3).
 \end{proof}
 
-The cycles of $D(r,s)$ use different faces, so the effects of reversing several of them add up.
-Weights of this kind are known as height functions of perfect matchings; see Thurston~\cite{Thurston}.
-
 \subsection*{The count}
+We can now evaluate the sum of Lemma~\ref{lem:cancel} for a suitable $f$ in a second way, grouping the pairs by their $2$-factors.
 
 \begin{proposition}\label{prop:good}
 If $T$ has a pair, then $T$ has a good state.
@@ -294,17 +310,11 @@ Consider the Laurent polynomial
 Z(z)=\sum_{(r,s)}\eps(r,s)\,z^{\omega(s)},
 \]
 the sum being over all pairs.
-We show first that the pairs $(r,s)$ in which $s$ is not good contribute nothing.
-For every state $s$ such that $Q_s$ contains a cycle, choose one cycle $K_s$ of $Q_s$.
-If $r$ is a state such that $(r,s)$ is a pair, then so is $r^{K_s}$, and $r\mapsto r^{K_s}$ is an involution without fixed points on the set of these states.
-It changes $\eps(r,s)$ by Lemma~\ref{lem:sign}(1) and does not change $\omega(s)$.
-So the terms with a given $s$ of this kind cancel, and by Lemma~\ref{lem:pair}(1) the sum $Z(z)$ extends only over pairs $(r,s)$ in which $s$ is good.
-It therefore suffices to prove that $Z\neq0$.
+By Lemma~\ref{lem:cancel}, applied to the coefficient of each power of $z$, only the pairs $(r,s)$ in which $s$ is good contribute to $Z$; so it suffices to prove that $Z\neq0$.
 
-For this we group the pairs by their $2$-factors.
 Let $F$ be a $2$-factor of $H$ with $c=c(F)$ cycles, let $(r,s)$ be the pair with $2$-factor $F$ in which all cycles of $D(r,s)$ run clockwise, let $\mathcal C_F$ be the set of these $c$ cycles, and put $\omega_F=\omega(s)$.
 The other pairs with $2$-factor $F$ arise by reversing the cycles in a subset $\mathcal J$ of $\mathcal C_F$.
-Such a pair has sign $(-1)^{(n+c)/2+|\mathcal J|}$ by Lemma~\ref{lem:sign}(2), and its second state has weight $\omega_F+\sum_{C\in\mathcal J}a(C)$ by Lemma~\ref{lem:weight}.
+Such a pair has sign $(-1)^{(n+c)/2+|\mathcal J|}$ by Lemma~\ref{lem:sign}(2), and its second state has weight $\omega_F+\sum_{C\in\mathcal J}a(C)$ by Lemma~\ref{lem:weight}, applied to one cycle after another.
 Summing over $\mathcal J$ and then over $F$ we get
 \[
 Z(z)=\sum_{F}(-1)^{(n+c(F))/2}\,z^{\omega_F}\prod_{C\in\mathcal C_F}\bigl(1-z^{a(C)}\bigr).
@@ -325,7 +335,7 @@ Figure~\ref{fig:example} shows an example with $n=10$ in which $H$ has twelve pe
 Z(z)=z^{\omega_0}(1-z)\bigl((1-z^6)+z^2(1-z^3)\bigr)
 \]
 for some integer $\omega_0$ depending on the arcs $\gamma_y$.
-Of the eight pairs, two have the same second state, which is not good, and cancel; the other six second states are good.
+Expanded, $Z(z)=z^{\omega_0}(1-z+z^2-z^3-z^5+z^7)$: the two terms $\mp z^{\omega_0+6}$, one from each $2$-factor, belong to two pairs with the same second state, which is not good, and the six remaining terms belong to six good states.
 
 \begin{figure}[t]
 \centering
@@ -336,6 +346,8 @@ Of the eight pairs, two have the same second state, which is not good, and cance
 
 \section{Proof of the theorem}\label{sec:proof}
 
+It remains to find a pair, and to deal with the triangulations that have none.
+A pair is a $2$-factor of $H$, and the condition for its existence turns out to be a planar edge count, which we prove first.
 A \emph{separating triangle} of $T$ is a triangle of $T$ that has vertices of $T$ on both of its sides.
 For a set $U$ of vertices of $T$ let $e(U)$ be the number of edges of $T$ with both ends in $U$, and $b(U)$ the number of black faces of $T$ with all three corners in $U$.
 
@@ -347,7 +359,7 @@ Then $e(U)-b(U)\le 2|U|-4$.
 \begin{proof}
 Let $K$ be a component of the subgraph of $T$ induced by $U$, with $p$ vertices and $q$ edges, and let $b_K$ be the number of black faces of $T$ with all corners in $K$.
 We claim that $q-b_K\le 2p$, and that $q-b_K\le 2p-4$ if $K$ contains the roots.
-Since the corners of a face are pairwise adjacent, $b(U)$ is the sum of the numbers $b_K$, and the lemma follows by summing over the components.
+Since the corners of a face are pairwise adjacent, the roots lie in one component and $b(U)$ is the sum of the numbers $b_K$; so the lemma follows by summing over the components.
 
 If $p\le3$, then $q\le\binom p2\le 2p$; and if moreover $K$ contains the roots, then $K$ is the boundary of $t_0$ and $q-b_K\le 3-1$.
 Let $p\ge4$, and regard $K$ as a connected plane graph with $f$ faces.
@@ -414,13 +426,13 @@ We keep the notation of Sections~\ref{sec:states}--\ref{sec:proof}.
 
 The proof is due to OpenAI~\cite{OpenAI}: states and pairs, the disk identity, the cancellation, the weighted count, the flow argument and the induction are all in their paper.
 They use the complex phase $i^{J}$ with $J=\tfrac13\sum_t\delta_t(r(t),s(t))$, which equals $i^{-n}\eps(r,s)$, and weights obtained from a circulation, and they extract the coefficient of $x^m$ from $\sum i^{J}e^{x\omega(s)}$; with $z=e^{x}$ this is, up to a constant factor, the evaluation of $Z(z)/(1-z)^m$ at $z=1$.
-The real sign and an integer polynomial in place of the exponential sum are taken from~\cite{Constructive}.
+The real sign and an integer polynomial in place of the exponential sum are taken from~\cite{Constructive}, where it is also shown that $T$ has a pair if and only if no separating triangle of $T$ has three black faces along its inner side.
 Li~\cite{Li} works in $G$ and replaces the evaluation of $Z(z)/(1-z)^m$ at $z=1$ by a second sign-reversing involution, on pairs with $m$ marked crossings.
-The translation of Hamiltonian cycles of $G$ into partitions of the vertices of $T$ into two induced trees is due to Stein~\cite{Stein}.
+The translation of Hamiltonian cycles of $G$ into partitions of the vertices of $T$ into two induced trees is due to Stein~\cite{Stein}, and states are the states of Tutte's theory of trinities; see~\cite{HineKalman}.
 
 Bipartiteness gives the colouring of the faces of $T$, and with it the equality $|A|=|X|$ and the disk identity; Tutte's graph~\cite{Tutte} shows that it cannot be dropped.
 Planarity is used throughout, and Georges~\cite{Georges} found a cubic, bipartite, $3$-connected graph that is not Hamiltonian.
-$3$-connectedness enters only in Lemma~\ref{lem:dual}, to make $T$ a simple graph, and it cannot be dropped~\cite{ANS}.
+$3$-connectedness enters only in Lemma~\ref{lem:dual}, to make $T$ a simple graph, and it cannot be dropped~\cite{AEHS}.
 
 A good state $s$ can be recovered from the matching $M$ of Proposition~\ref{prop:recover}, by orienting $M^*-e_0$ towards the roots, so different good states give different Hamiltonian cycles.
 Not every Hamiltonian cycle avoiding $e$ arises in this way: in the hexagonal prism there are edges avoided by four Hamiltonian cycles for which only two states are good.
@@ -428,12 +440,15 @@ A good state $s$ forms a pair with exactly one state, obtained by orienting the 
 Since $Z(1)=0$, the number of good states is even.
 The count cannot be carried out one $2$-factor at a time: a computer search finds an Eulerian triangulation with $16$ vertices and a $2$-factor $F$ of $H$ with a single cycle such that neither of the two pairs with $2$-factor $F$ has a good second state.
 
-The proof does not say how to find a good state.
-The manuscript~\cite{Constructive} shows that a search through the perfect matchings of $H$ finds one in time $3^{|V(G)|/4}$ up to a polynomial factor, and it describes an exchange procedure on pairs that ends at a good state, without a polynomial bound on its length.
+The proof gives no way of finding a good state other than a search through all states.
+The planar graph $H$ has at most $3^{n/2}$ perfect matchings, and the manuscript~\cite{Constructive} derives from this an algorithm that finds the cycle of Theorem~\ref{thm:main} in time $3^{|V(G)|/4}$ up to a polynomial factor; it also describes an exchange procedure on pairs that ends at a good state, without a polynomial bound on its length.
 Whether a Hamiltonian cycle of a cubic, bipartite, $3$-connected planar graph can be found in polynomial time is open.
-We do not know either whether the number of good states is at least $2^m$, where $m$ is the least number of cycles of a $2$-factor of $H$.
+It is also open whether the number of good states is at least $2^m$, where $m$ is the least number of cycles of a $2$-factor of $H$.
 
 \begin{thebibliography}{99}
+
+\bibitem{AEHS}
+T.~Asano, N.~Saito, G.~Exoo, and F.~Harary, \emph{The smallest $2$-connected cubic bipartite planar nonhamiltonian graph}, Discrete Math. \textbf{38} (1982), 1--6.
 
 \bibitem{ANS}
 T.~Akiyama, T.~Nishizeki, and N.~Saito, \emph{NP-completeness of the Hamiltonian cycle problem for bipartite graphs}, J. Inform. Process. \textbf{3} (1980), 73--76.
@@ -461,6 +476,9 @@ J.~P. Georges, \emph{Non-Hamiltonian bicubic graphs}, J. Combin. Theory Ser. B \
 
 \bibitem{Goodey}
 P.~R. Goodey, \emph{Hamiltonian circuits in polytopes with even sided faces}, Israel J. Math. \textbf{22} (1975), 52--56.
+
+\bibitem{HineKalman}
+C.~Hine and T.~K\'alm\'an, \emph{Clock theorems for triangulated surfaces}, preprint, arXiv:1808.06091, 2018.
 
 \bibitem{HMM}
 D.~A. Holton, B.~Manvel, and B.~D. McKay, \emph{Hamiltonian cycles in cubic $3$-connected bipartite planar graphs}, J. Combin. Theory Ser. B \textbf{38} (1985), 279--297.
