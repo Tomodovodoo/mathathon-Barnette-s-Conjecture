@@ -1,4 +1,4 @@
-﻿"""Generate vector PDF figures and render the PDFs to PNG. Run from root."""
+"""Generate vector PDF figures and render the PDFs to PNG. Run from root."""
 from pathlib import Path
 import json
 import matplotlib
@@ -29,9 +29,10 @@ for key,(x,y,w,h,t) in boxes.items():
 def arrow(a,b):
     x,y,w,h,_=boxes[a];X,Y,W,H,_=boxes[b]
     start=(x+w/2,y);end=(X+W/2,Y+H)
+    if Y>y:start=(x+w/2,y+h);end=(X+W/2,Y)
     if y==Y:start=(x+w,y+h/2);end=(X,Y+H/2)
     ax.add_patch(FancyArrowPatch(start,end,arrowstyle='-|>',mutation_scale=12,color='#63716d',lw=1,shrinkA=6,shrinkB=6))
-for a,b in [('sources','paper'),('sources','companions'),('lean','companions'),('research','maps'),('research','companions'),('paper','digestions'),('companions','figures'),('maps','synthesis'),('figures','synthesis')]:arrow(a,b)
+for a,b in [('sources','paper'),('sources','companions'),('lean','companions'),('research','maps'),('research','companions'),('paper','digestions'),('figures','companions'),('maps','synthesis'),('figures','synthesis')]:arrow(a,b)
 ax.text(.3,.65,'The lab checks finite instances. AI reports audit written arguments.\nThe upstream Lean build certifies its own formal route, not every new manuscript.',size=11)
 fig.savefig(out/'products.pdf',bbox_inches='tight');plt.close(fig)
 fig,ax=plt.subplots(figsize=(11.7,8.3));fig.patch.set_facecolor('#faf9f5');ax.axis('off')

@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-11-14T12:45:43.854578+00:00",
-  "run_folders": 57,
-  "reports": 50,
+  "timestamp": "2026-11-14T12:58:26.541101+00:00",
+  "run_folders": 59,
+  "reports": 55,
   "models": {
     "GPT-6 Astra": 16,
-    "Fable 5.2": 14,
-    "Opus 5.5": 13,
+    "Fable 5.2": 15,
+    "Opus 5.5": 14,
     "GPT-6.1 Sol": 14
   },
   "routes": 226,
@@ -174,6 +174,11 @@
       "bytes": 5700
     },
     {
+      "path": "research/2026-11-14_astra_synthesis/REPORT.md",
+      "sha256": "443772ed5f41a75af9d53a9fba373157b2ef4d930c7a057d5b230dbe77d48305",
+      "bytes": 5487
+    },
+    {
       "path": "research/2026-11-14_fable_atlas-review/REPORT.md",
       "sha256": "15d8a7ab6473e07b2e51683eb13f1cf12e9b7b668accf1b2ead66ab2d0dd7ab3",
       "bytes": 8066
@@ -239,9 +244,19 @@
       "bytes": 8074
     },
     {
+      "path": "research/2026-11-14_opus_blueprint/REPORT.md",
+      "sha256": "554761c4dfb68d0845309189323124a47caa3c847d17fe3d22ac8ae5c112b44d",
+      "bytes": 8503
+    },
+    {
       "path": "research/2026-11-14_opus_conjectures/REPORT.md",
       "sha256": "e8200a2553de8f42cf4187f988b609b2d255b518ded5c4a3fac8cac2bc9acd44",
       "bytes": 9290
+    },
+    {
+      "path": "research/2026-11-14_opus_cross-audit/REPORT.md",
+      "sha256": "43c9855bbff93b24810163fafe85e4ce65685083e68e68d99ce6696a4f55c875",
+      "bytes": 6249
     },
     {
       "path": "research/2026-11-14_opus_history-literature/REPORT.md",
@@ -304,6 +319,11 @@
       "bytes": 7251
     },
     {
+      "path": "research/2026-11-14_sol_involutions-revision/REPORT.md",
+      "sha256": "a51d71f65bd4f791261aa4133d0cf12a9dadd4b01836607f37e77ce9ada0031f",
+      "bytes": 6792
+    },
+    {
       "path": "research/2026-11-14_sol_li-completion/REPORT.md",
       "sha256": "3dfb23fa10fafcff6924e63098bdc53af8854cd162520d142bed10dd86899f9e",
       "bytes": 9696
@@ -322,6 +342,11 @@
       "path": "research/2026-11-14_sol_referee-conjectures/REPORT.md",
       "sha256": "fadf6838ea50cc55bebfd0727f66c316e4f9d36d3145799a9ff94d157a502035",
       "bytes": 8721
+    },
+    {
+      "path": "research/2026-11-14_sol_referee-covers/REPORT.md",
+      "sha256": "663a3143fced57acec96e0516490fa6c3029ad8110b9ade42a49729caeba7af5",
+      "bytes": 9079
     },
     {
       "path": "research/2026-11-14_sol_referee-main/REPORT.md",
@@ -356,11 +381,8 @@
   ],
   "pending": [
     "2026-11-14_astra_main-revision",
-    "2026-11-14_astra_synthesis",
     "2026-11-14_fable_descent",
-    "2026-11-14_opus_blueprint",
-    "2026-11-14_opus_cross-audit",
-    "2026-11-14_sol_involutions-revision",
-    "2026-11-14_sol_referee-covers"
+    "2026-11-14_fable_referee-involutions-v2",
+    "2026-11-14_opus_lean-devices"
   ]
 }
