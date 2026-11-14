@@ -1,0 +1,8 @@
+S4   D= 4 recurrence [3, -1] holds on 14 consecutive terms: True; equals referee brute force for L=2..19: True
+M4   D= 2 recurrence [1] holds on 12 consecutive terms: True; equals referee brute force for L=2..14: True
+S6   D=15 recurrence [7, -9, 7, -1] holds on 25 consecutive terms: True; equals referee brute force for L=2..12: True
+M6   D=39 recurrence [0, 4, 4, 0, 1, 0, -4, -4] holds on 49 consecutive terms: True; equals referee brute force for L=2..12: True
+H4   D=12 recurrence [2, -1, 4] holds on 22 consecutive terms: True; equals referee brute force for L=0..10: True
+H6   D=64 recurrence [2, -1, 40, 8, 64, -16] holds on 74 consecutive terms: True; equals referee brute force for L=0..6: True
+Pm4  D= 2 recurrence [1] holds on 12 consecutive terms: True; equals referee brute force for L=2..14: True
+Pm6  D=36 recurrence [4, -4, 4] holds on 46 consecutive terms: True; equals referee brute force for L=2..9: True
