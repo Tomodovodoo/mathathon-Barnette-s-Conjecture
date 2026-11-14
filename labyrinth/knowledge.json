@@ -895,7 +895,7 @@
    "status": "forced",
    "title": "Step B: Prove the disk identity",
    "statement": "Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.",
-   "note": "One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). Several readings of what it says, no second proof yet.",
+   "note": "One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). A second derivation, as the theorem of turning tangents for an angle structure, is proved in the topology folder and unreviewed.",
    "tags": [
     "step"
    ],
@@ -2491,7 +2491,7 @@
   {
    "id": "k.B.5",
    "title": "Gauss-Bonnet form for any cycle",
-   "statement": "For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside.",
+   "statement": "For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.",
    "where": [
     "research/2026-11-14_opus_route-topology/PREDICTIONS.md P2"
    ],
@@ -3296,7 +3296,7 @@
    "title": "leading coefficient checked exactly",
    "statement": "The first nonzero coefficient equals the signed sum of products of enclosed face counts on every instance tested.",
    "where": [
-    "research/2026-11-14_sol_route-constructive/supplemental.py (49 groups); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_astra_route-dimers/code/linear.py; research/2026-11-14_fable_referee-determinants/code/results.json"
+    "research/2026-11-14_sol_route-constructive/supplemental.py (49 groups); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_astra_route-dimers/code/linear.py; research/2026-11-14_fable_referee-determinants/code/results.json; research/2026-11-14_opus_lean-formalisation/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices)"
    ],
    "tags": [
     "step N"
@@ -3307,7 +3307,7 @@
    "tier": "T4",
    "status": "computed",
    "evidence": [
-    "research/2026-11-14_sol_route-constructive/supplemental.py (49 groups); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_astra_route-dimers/code/linear.py; research/2026-11-14_fable_referee-determinants/code/results.json"
+    "research/2026-11-14_sol_route-constructive/supplemental.py (49 groups); research/2026-11-14_fable_route-combinatorics/lab/dets.py 12; research/2026-11-14_astra_route-dimers/code/linear.py; research/2026-11-14_fable_referee-determinants/code/results.json; research/2026-11-14_opus_lean-formalisation/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices)"
    ],
    "links": [
     {
@@ -3328,6 +3328,10 @@
     },
     {
      "to": "src.agent.refd",
+     "rel": "cites"
+    },
+    {
+     "to": "src.agent.lean",
      "rel": "cites"
     },
     {
@@ -4760,8 +4764,8 @@
   },
   {
    "id": "k.U.5h",
-   "title": "tree matchings inside the state lattice",
-   "statement": "The tree matchings are not an interval of the clock lattice and not always an antichain (predicted).",
+   "title": "order-theoretic position in the state lattice",
+   "statement": "Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found.",
    "where": [
     "research/2026-11-14_opus_route-topology/PREDICTIONS.md P6; research/2026-11-14_sol_machinery-literature/REFORMULATIONS.md 9"
    ],
@@ -4773,7 +4777,7 @@
    "kind": "conjecture",
    "tier": "T5",
    "status": "open",
-   "test": "Outcome pending in topo/ROUTES.md.",
+   "test": "Decided on the topology agent's sample (166 lattices); a description of the subset is still missing.",
    "links": [
     {
      "to": "m.step.U",
@@ -6119,7 +6123,7 @@
    "title": "the Lean proof builds here; standard axioms only",
    "statement": "#print axioms gives propext, Classical.choice, Quot.sound. No sorry, admit, axiom or native_decide in the 31 files.",
    "where": [
-    "research/2026-11-14_opus_lean-formalisation/build/axioms.out (Lean 4.34.1)"
+    "research/2026-11-14_opus_lean-formalisation/REPORT.md item 1; research/2026-11-14_opus_lean-formalisation/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)"
    ],
    "tags": [
     "step G2"
@@ -6130,7 +6134,7 @@
    "tier": "T4",
    "status": "computed",
    "evidence": [
-    "research/2026-11-14_opus_lean-formalisation/build/axioms.out (Lean 4.34.1)"
+    "research/2026-11-14_opus_lean-formalisation/REPORT.md item 1; research/2026-11-14_opus_lean-formalisation/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)"
    ],
    "links": [
     {
@@ -6641,6 +6645,201 @@
    ]
   },
   {
+   "id": "p.B.6",
+   "title": "Hopf's Umlaufsatz for a flat angle structure",
+   "statement": "The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 1; research/2026-11-14_opus_route-topology/ROUTES.md"
+   ],
+   "tags": [
+    "step B"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.B",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.DI",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.K.4",
+   "title": "cancellation as a Morse matching",
+   "statement": "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 2"
+   ],
+   "tags": [
+    "step K"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.K",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.K",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.F.6",
+   "title": "Alexander duality: #cycles = 1 + b1(P)",
+   "statement": "The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 2"
+   ],
+   "tags": [
+    "step F"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.F",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.JC",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "p.U.7",
+   "title": "sutured Floer support; point-rainbow white trees",
+   "statement": "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "theorem",
+   "tier": "T2",
+   "status": "established: proved here (unreviewed)",
+   "review": {
+    "state": "unreviewed",
+    "date": "2026-11-14"
+   },
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "supports"
+    }
+   ]
+  },
+  {
+   "id": "k.U.7h",
+   "title": "local search from a point-rainbow tree",
+   "statement": "Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices"
+   ],
+   "tags": [
+    "step U"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "conjecture",
+   "tier": "T5",
+   "status": "open",
+   "test": "Measure plateaus and step counts at 18 to 20 vertices (1543 triangulations at 18); look for a potential such as black excess plus a white-tree distance.",
+   "links": [
+    {
+     "to": "m.step.U",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    },
+    {
+     "to": "wp.FP",
+     "rel": "suggests"
+    }
+   ]
+  },
+  {
+   "id": "x.D.x1",
+   "title": "the partner of a tree matching is a tree matching",
+   "statement": "Swapping r and s would then be a free involution on tree matchings and explain why their number is even.",
+   "where": [
+    "research/2026-11-14_opus_route-topology/REPORT.md item 5"
+   ],
+   "tags": [
+    "step D"
+   ],
+   "created": "2026-11-14",
+   "updated": "2026-11-14",
+   "kind": "deadend",
+   "tier": null,
+   "status": "refuted",
+   "lesson": "The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s.",
+   "note": "Smallest known counterexample: 6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).",
+   "links": [
+    {
+     "to": "m.step.D",
+     "rel": "instance-of"
+    },
+    {
+     "to": "src.agent.topo",
+     "rel": "cites"
+    }
+   ]
+  },
+  {
    "id": "e.census16",
    "kind": "exhaustive",
    "tier": "T3",
@@ -6941,8 +7140,12 @@
    "title": "Is there an existence proof with no signed count?",
    "statement": "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
    "why": "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
-   "next": "First test: conjecture k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.",
+   "next": "First test: conjecture k.U.7h (local search from a point-rainbow tree, 450 of 450 so far) at 18 vertices, recording the longest plateau; then k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.",
    "links": [
+    {
+     "to": "k.U.7h",
+     "rel": "suggests"
+    },
     {
      "to": "k.N.11",
      "rel": "suggests"
@@ -7057,10 +7260,14 @@
    "tier": null,
    "status": "open",
    "title": "Is there a second proof of the disk identity?",
-   "statement": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5).",
-   "why": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5).",
-   "next": "First test: peel a boundary vertex with its matched face on the enumerated cycles and check that 2l - h is invariant (h.B.3).",
+   "statement": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity from the theorem of turning tangents (p.B.6); nobody has refereed that.",
+   "why": "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity from the theorem of turning tangents (p.B.6); nobody has refereed that.",
+   "next": "First test: referee p.B.6 on the 9-vertex non-bijective disk (lim/examples/nonbijective_disk.json), where the angle structure must fail to be flat.",
    "links": [
+    {
+     "to": "p.B.6",
+     "rel": "suggests"
+    },
     {
      "to": "h.B.3",
      "rel": "suggests"

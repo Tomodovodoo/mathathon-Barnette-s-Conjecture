@@ -135,7 +135,7 @@ STEPS = [
     dict(id="B", frm=["T", "S"], to="DI", title="Prove the disk identity", verdict="forced",
          must="Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.",
          freedom="One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). "
-                 "Several readings of what it says, no second proof yet."),
+                 "A second derivation, as the theorem of turning tangents for an angle structure, is proved in the topology folder and unreviewed."),
     dict(id="C", frm=["P", "DI"], to="M", title="Sign the pairs", verdict="forced",
          must="Define the sign and show that both reversals flip it. The disk identity is used twice here: "
               "on the cycles of D and on the cycle of Q_s.",
@@ -820,6 +820,35 @@ route("G.5", "G", "sharp primal hypothesis; gluing at black-inner cuts", "PROVED
 
 # the LP hunch of the machinery agent was tested by the graph-theory agent and is now the dead end U.x5
 R[:] = [r for r in R if r["id"] != "U.3h"]
+
+# ------------------------------------------------------------------ third pass
+# Folded in at 11:10 UTC: route-topology (topo) and the report of lean-formalisation (lean).
+route("B.6", "B", "Hopf's Umlaufsatz for a flat angle structure", "PROVED-HERE", "topo", "topo/REPORT.md item 1; topo/ROUTES.md",
+      "The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. "
+      "The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1.")
+route("K.4", "K", "cancellation as a Morse matching", "PROVED-HERE", "topo", "topo/REPORT.md item 2",
+      "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. "
+      "The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed.")
+route("F.6", "F", "Alexander duality: #cycles = 1 + b1(P)", "PROVED-HERE", "topo", "topo/REPORT.md item 2",
+      "The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P.")
+route("U.7", "U", "sutured Floer support; point-rainbow white trees", "PROVED-HERE", "topo",
+      "topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices",
+      "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G "
+      "(Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree.")
+route("U.7h", "U", "local search from a point-rainbow tree", "CONJECTURE", "topo", "topo/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices",
+      "Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a "
+      "cancellation-free local-search proof of the key lemma.",
+      test="Measure plateaus and step counts at 18 to 20 vertices (1543 triangulations at 18); look for a potential such as black excess plus a white-tree distance.")
+route("D.x1", "D", "the partner of a tree matching is a tree matching", "REFUTED", "topo", "topo/REPORT.md item 5",
+      "Swapping r and s would then be a free involution on tree matchings and explain why their number is even.",
+      lesson="The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s.",
+      cex="6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).")
+_upd("U.5h", text="Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom "
+                  "states are often tree matchings. No order-theoretic pattern was found.",
+     label="order-theoretic position in the state lattice", test="Decided on the topology agent's sample (166 lattices); a description of the subset is still missing.")
+_upd("N.c", src="con,comb,dim,refd,lean", where="+; lean/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices)")
+_upd("G2.c", where="lean/REPORT.md item 1; lean/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)")
+_upd("B.5", text="+ The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.")
 
 STEP_NOTES = {
     "E": "The Lean proof skips this node: it selects P inside G without building the white tree.",

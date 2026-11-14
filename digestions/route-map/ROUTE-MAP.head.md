@@ -7,8 +7,8 @@ Summary.
 1. The proof is one chain of 16 waypoints. Every published proof (OpenAI, Li, the trees paper, the Lean formalisation) passes through the same chain. Nobody has a second way to reach a tree matching.
 2. The chain is forced at the disk identity, the sign, the cancellation with `s` fixed, the comparison, tree-cotree duality and the gluing. It is free at three steps: the first pair (A), the nonvanishing (N) and the last step from the selected edges to one cycle (F).
 3. The direct edge from the triangulation to two induced trees, which is where every attack before 2026 worked, has no complete route.
-4. The bypass from states to a tree matching with no signed count has eight exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
-5. This file lists 161 routes: 46 published, 34 proved in this project (none human-checked), 8 computed, 14 conjectures, 25 hunches and 34 refuted, each refuted one with its lesson and smallest known counterexample.
+4. The bypass from states to a tree matching with no signed count has nine exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
+5. This file lists {N} routes: {LIT} published, {PH} proved in this project (none human-checked), {CO} computed, {CJ} conjectures, {HU} hunches and {RE} refuted, each refuted one with its lesson and smallest known counterexample.
 
 ## The picture
 

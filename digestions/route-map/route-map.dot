@@ -78,7 +78,7 @@ digraph routemap {
   "M" -> "N" [label="N.H heights as test functions, no weights", color="#1f5fbf", status="PROVED-HERE", role="route", src="comb,refc"];
   "M" -> "N" [label="N.lin linear weights 1 + x a", color="#1f5fbf", status="PROVED-HERE", role="route", src="dim,refd"];
   "M" -> "N" [label="N.id spoke weights are a height function", color="#1f5fbf", status="PROVED-HERE", role="fact", src="comb"];
-  "M" -> "N" [label="N.c leading coefficient checked exactly", color="#1b8a5a", style=dashed, status="COMPUTED", role="route", src="con,comb,dim,refd"];
+  "M" -> "N" [label="N.c leading coefficient checked exactly", color="#1b8a5a", style=dashed, status="COMPUTED", role="route", src="con,comb,dim,refd,lean"];
   "M" -> "N" [label="N.x1 zero, vertex-only or face-only weights", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="lim,dim,alg"];
   "M" -> "N" [label="N.x2 parity or mod p count without weights", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="comb,dep,alg"];
   "M" -> "N" [label="N.x3 tree pair among the fewest-cycle pairs", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="dep,comb,gt"];
@@ -121,7 +121,7 @@ digraph routemap {
   "S" -> "FP" [label="U.1h support of the tree-degree polynomial", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="mach,topo"];
   "S" -> "FP" [label="U.2h spanning-tree parity / matroid parity", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="hist,mach"];
   "S" -> "FP" [label="U.4h Bernardi process, Schnyder woods, blossom trees", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="mach"];
-  "S" -> "FP" [label="U.5h tree matchings inside the state lattice", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="topo,mach"];
+  "S" -> "FP" [label="U.5h order-theoretic position in the state lattice", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="topo,mach"];
   "S" -> "FP" [label="U.6h describe partnered Hamiltonian cycles in G alone", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="comb"];
   "FP" -> "IT" [label="R.1 out-degree count", color="black", status="LIT", role="route", src="O,L,T"];
   "FP" -> "IT" [label="R.c unique partner checked on 140358 states", color="#1b8a5a", style=dashed, status="COMPUTED", role="route", src="comb,con"];
@@ -178,6 +178,12 @@ digraph routemap {
   "K" -> "FP" [label="D.7 extremes of Felsner's lattice of pairs", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="gt"];
   "K" -> "FP" [label="D.8 finding a tree matching is in PPAD", color="#b9a26a", style=dotted, status="HUNCH", role="route", src="gt"];
   "JC" -> "GL" [label="G.5 sharp primal hypothesis; gluing at black-inner cuts", color="#1f5fbf", status="PROVED-HERE", role="fact", src="gt"];
+  "S" -> "DI" [label="B.6 Hopf's Umlaufsatz for a flat angle structure", color="#1f5fbf", status="PROVED-HERE", role="route", src="topo"];
+  "M" -> "K" [label="K.4 cancellation as a Morse matching", color="#1f5fbf", status="PROVED-HERE", role="fact", src="topo"];
+  "SE" -> "JC" [label="F.6 Alexander duality: #cycles = 1 + b1(P)", color="#1f5fbf", status="PROVED-HERE", role="fact", src="topo"];
+  "S" -> "FP" [label="U.7 sutured Floer support; point-rainbow white trees", color="#1f5fbf", status="PROVED-HERE", role="equiv", src="topo"];
+  "S" -> "FP" [label="U.7h local search from a point-rainbow tree", color="#c77700", style=dotted, status="CONJECTURE", role="route", src="topo"];
+  "K" -> "FP" [label="D.x1 the partner of a tree matching is a tree matching", color="#c62828", style=dashed, arrowhead=tee, status="REFUTED", role="route", src="topo"];
   "T" -> "DI" [color="gray", label="B (input)"];
   "DI" -> "M" [color="gray", label="C (input)"];
   "N" -> "FP" [color="gray", label="D (input)"];

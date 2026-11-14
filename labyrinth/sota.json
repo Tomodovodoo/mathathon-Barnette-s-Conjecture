@@ -113,10 +113,11 @@
    "group": "The theorem and its proofs",
    "cls": "Existence proof with no signed count",
    "result": "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
-   "status": "open; 34 dead ends recorded",
+   "status": "open; 35 dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)",
    "kind": "partial",
    "refs": [
     "q.structural",
+    "k.U.7h",
     "x.U.x5",
     "x.N.x14"
    ],
@@ -258,7 +259,7 @@
    "group": "Verification",
    "cls": "Formal verification",
    "result": "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
-   "status": "computed (lean-formalisation; report pending)",
+   "status": "computed (lean-formalisation, unreviewed)",
    "kind": "computed",
    "refs": [
     "c.G2.c",
@@ -277,7 +278,7 @@
    "id": "review",
    "group": "Verification",
    "cls": "Review state of the proofs written in this project",
-   "result": "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, the referees' own additions. Human-checked: none.",
+   "result": "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, route-topology, lean-formalisation, the referees' own additions. Human-checked: none.",
    "status": "partial",
    "kind": "partial",
    "refs": [

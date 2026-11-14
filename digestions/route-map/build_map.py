@@ -35,9 +35,9 @@ for r in RT.ROUTES:
     BY_STEP[r["step"]].append(r)
 
 # role of a route in the picture
-FACT_IDS = {"C.5", "A.6", "G.5", "S0.3", "ST.2", "ST.3", "ST.4", "A.d", "A.4", "C.1", "C.2", "K.2", "K.3", "N.id", "D.2", "D.4", "D.5",
+FACT_IDS = {"K.4", "F.6", "C.5", "A.6", "G.5", "S0.3", "ST.2", "ST.3", "ST.4", "A.d", "A.4", "C.1", "C.2", "K.2", "K.3", "N.id", "D.2", "D.4", "D.5",
             "F.2", "F.3", "G.1", "G.2", "G2.3", "G2.4", "G2.6", "E2.2", "J2.2", "G2.5"}
-EQUIV_IDS = {"TG.1", "TG.2", "U.1", "U.2", "U.3", "U.4", "U.5", "U.6"}
+EQUIV_IDS = {"U.7", "TG.1", "TG.2", "U.1", "U.2", "U.3", "U.4", "U.5", "U.6"}
 
 
 def role(r):
@@ -387,7 +387,7 @@ def draw(detail, stem):
         lx, ly = 3.2, yn + 1.75
     else:
         lx, ly = xmin + 0.4, pos["IT"][1] - 0.8
-    items = [("LIT", "published (2026 papers: unrefereed preprints)"), ("PROVED-HERE", "proved in this project, unrefereed"),
+    items = [("LIT", "published (2026 papers: unrefereed preprints)"), ("PROVED-HERE", "proved in this project (AI-refereed at best)"),
              ("COMPUTED", "computed check"), ("CONJECTURE", "conjecture with a stated test"), ("HUNCH", "hunch"),
              ("REFUTED", "refuted (kept, with its lesson)"), ("PARTIAL", "published, partial (stops short)")]
     lw_ = 3.7 if detail else 2.9
@@ -455,6 +455,9 @@ def md_escape(s):
 def export_md():
     c_all = Counter(r["status"] for r in RT.ROUTES)
     intro = (HERE / "ROUTE-MAP.head.md").read_text(encoding="utf-8")
+    for key, val in {"{N}": len(RT.ROUTES), "{LIT}": c_all["LIT"], "{PH}": c_all["PROVED-HERE"], "{CO}": c_all["COMPUTED"],
+                     "{CJ}": c_all["CONJECTURE"], "{HU}": c_all["HUNCH"], "{RE}": c_all["REFUTED"]}.items():
+        intro = intro.replace(key, str(val))
     tail = (HERE / "ROUTE-MAP.tail.md").read_text(encoding="utf-8")
     L = [intro.rstrip(), ""]
     L += ["## Counts", "",

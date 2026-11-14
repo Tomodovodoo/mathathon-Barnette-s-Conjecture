@@ -242,7 +242,8 @@ DOORS = [
      "count the orientations to be searched.", ["k.D.7", "h.D.8", "h.U.2h", "h.N.3"]),
     ("q.structural", "Is there an existence proof with no signed count?",
      "Every reformulation of the target is exact and none has an existence argument; every structural shortcut tested fails on long D-cycles.",
-     "First test: conjecture k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.", ["k.N.11", "h.U.1h", "h.N.5"]),
+     "First test: conjecture k.U.7h (local search from a point-rainbow tree, 450 of 450 so far) at 18 vertices, recording the longest plateau; "
+     "then k.N.11 on exhaustive exchange graphs at 20 to 30 vertices.", ["k.U.7h", "k.N.11", "h.U.1h", "h.N.5"]),
     ("q.canonical", "Is there a canonical forest pair?",
      "Seven extremal rules are refuted. Only 'lattice min or max' survives, on random samples.",
      "First test: exhaustive census to 24 vertices for k.D.7; apply the Hine-Kalman bijection to the 8 tree matchings of f.cls6-12 (k.D.6).", ["k.D.7", "k.D.6"]),
@@ -256,8 +257,10 @@ DOORS = [
      "Exactly those avoiding e0* whose state has a partner; equivalently partitions with acyclic white parent map. No description in G alone.",
      "First test: on the hexagonal prism compare the 2 partnered and 2 unpartnered avoiding cycles face by face (k.U.6h).", ["k.U.6h", "p.U.5"]),
     ("q.disk", "Is there a second proof of the disk identity?",
-     "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5).",
-     "First test: peel a boundary vertex with its matched face on the enumerated cycles and check that 2l - h is invariant (h.B.3).", ["h.B.3", "h.B.2", "h.B.1", "p.C.5"]),
+     "All papers use one double count. Parity suffices three times and the value 3 once (p.C.5). The topology agent derives the identity "
+     "from the theorem of turning tangents (p.B.6); nobody has refereed that.",
+     "First test: referee p.B.6 on the 9-vertex non-bijective disk (lim/examples/nonbijective_disk.json), where the angle structure must fail to be flat.",
+     ["p.B.6", "h.B.3", "h.B.2", "h.B.1", "p.C.5"]),
     ("q.roots", "Can a different rooting remove the separating-triangle induction?",
      "With t0 a face the obstruction is exact. Roots of three colours not on a face are untested.",
      "First test: on the 9-vertex double octahedron with the obstructed root, enumerate all root triples and count pairs (k.A.2).", ["k.A.2", "k.G.3"]),
@@ -345,9 +348,13 @@ ev("2026-11-14T10:54:40Z", "reviewed", "astra referee on route-combinatorics: FO
 ev("2026-11-14T10:54:50Z", "reviewed", "fable referee on the determinant claims of route-constructive and route-dimers: all CORRECT, two wording fixes; the two determinants coincide", ["p.N.lin", "p.K.2", "p.ST.4", "p.U.2", "x.N.x9", "x.N.x10"], ["research/2026-11-14_fable_referee-determinants/REFEREE-dimers.md"])
 ev("2026-11-14T10:54:50Z", "proved", "Parity of state cycles is enough for three of the four uses of the disk identity; the value 3 is used once (referee-determinants, unreviewed)", ["p.C.5"])
 ev("2026-11-14T10:54:50Z", "refuted", "Positivity of the coefficient norm or of the constrained Laplacian terms does not give existence", ["x.U.x7"])
+ev("2026-11-14T10:56:00Z", "documented", "Lean report: the formal proof is simpler than the paper in five places; flow weights checked on 71224 rooted triangulations up to 18 vertices", ["c.G2.c", "th.N.Lean", "c.N.c"], ["research/2026-11-14_opus_lean-formalisation/REPORT.md"])
+ev("2026-11-14T11:00:00Z", "proved", "Topology: the disk identity as the theorem of turning tangents; cancellation as a Morse matching; last step as Alexander duality; tree matchings and sutured Floer homology (route-topology, unreviewed)", ["p.B.6", "p.K.4", "p.F.6", "p.U.7"], ["research/2026-11-14_opus_route-topology/REPORT.md"])
+ev("2026-11-14T11:00:00Z", "refuted", "The partner of a tree matching need not be a tree matching (6 of 442)", ["x.D.x1"])
+ev("2026-11-14T11:00:00Z", "proposed", "Conjecture R6': local search from a point-rainbow tree reaches a tree matching (450 of 450 up to 16 vertices)", ["k.U.7h"])
 ev("2026-11-14T10:55:00Z", "answered", "Dependency-graph conjecture A2 answered: not every avoiding Hamiltonian cycle comes from a tree matching (prism: 4 against 2); the image is characterised", ["x.A.x1", "p.U.5"])
 ev("2026-11-14T10:48:00Z", "computed", "Cross-check for this map: the two independent enumerations agree on all 7868 rooted triangulations up to 16 vertices", ["e.census16"], ["labyrinth/frontier_crosscheck.json"])
-ev("2026-11-14T11:00:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
+ev("2026-11-14T11:15:00Z", "documented", "Route map and labyrinth seeded: 16 waypoints, 17 steps, %d routes" % len(RT.ROUTES), ["m.two-evaluations"], ["digestions/route-map/ROUTE-MAP.md"])
 E.sort(key=lambda e: e["ts"])
 old = []
 pth = LAB / "events.jsonl"
@@ -389,7 +396,8 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              "Four uses in OpenAI, three in Li. In the real-sign form three uses need only that state cycles are odd; the value 3 is used once.",
              "proved here (refd, unreviewed)", "proved", ["p.C.5", "p.B.0"], [], [("2026-11-14", "four uses of the full identity (dependency-graph audit)")]),
          row("structural", G1, "Existence proof with no signed count", "None. Eight exact reformulations of the target; every relaxation and every local or extremal rule tested is refuted.",
-             "open; 34 dead ends recorded", "partial", ["q.structural", "x.U.x5", "x.N.x14"], []),
+             "open; %d dead ends recorded. Most promising: conjecture k.U.7h (local search from a point-rainbow tree)" % sum(1 for r in RT.ROUTES if r["status"] == "REFUTED"),
+             "partial", ["q.structural", "k.U.7h", "x.U.x5", "x.N.x14"], []),
          row("tm-lower", G2, "Lower bound on the number of tree matchings of a rooted triangulation with a pair",
              "At least 2 cmin, and always even. Conjecture: at least 2^cmin (5088 cases, equality in 4609).",
              "2 cmin proved here (1 AI referee; human check pending); 2^cmin conjecture", "proved", ["p.D.2", "k.D.3", "e.census16"], [],
@@ -418,11 +426,12 @@ S = {"about": "Best known result for each tracked question on 2026-11-14. Edited
              [("2026-11-14", "77 rooted runs, 55 triangulations up to 14 vertices (route-constructive)")]),
          row("formal", G4, "Formal verification", "The upstream Lean proof builds locally (Lean 4.34.1); axioms propext, Classical.choice, Quot.sound. "
              "It proves the conjecture as usually stated, by a route that differs from the paper in four places. Not formalised: Corollary 7.2, Theorem 2.2.",
-             "computed (lean-formalisation; report pending)", "computed", ["c.G2.c", "th.G2.2"], [],
+             "computed (lean-formalisation, unreviewed)", "computed", ["c.G2.c", "th.G2.2"], [],
              [("2026-10-10", "third-party report of a kernel replay (cert-machine), not reproduced here")]),
          row("review", G4, "Review state of the proofs written in this project",
              "AI-refereed: route-combinatorics (FOLLOWS with corrections), determinant claims of route-constructive and route-dimers (CORRECT). "
-             "Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, the referees' own additions. "
+             "Under review: route-graph-theory, limits. Unreviewed: dependency-graph, machinery-literature, route-algebra, route-topology, "
+             "lean-formalisation, the referees' own additions. "
              "Human-checked: none.", "partial", "partial", ["q.human"], []),
          row("hypotheses", G4, "Which hypotheses are needed", "Each one, with a witness: K4 (bipartite), theta of cubes on 26 vertices (3-connected), "
              "triangular bipyramid radial graph (cubic), 3 x 3 torus (sphere).",
@@ -432,4 +441,6 @@ for e in S["entries"]:
     for ref in e["refs"]:
         assert ref in IDS, (e["id"], ref)
 (LAB / "sota.json").write_text(json.dumps(S, indent=1), encoding="ascii")
+from collections import Counter
+print(sorted(Counter(n["id"].split(".")[0] for n in nodes).items()))
 print(len(nodes), "nodes,", len(E), "backfilled events,", len(old), "live events kept,", len(S["entries"]), "state-of-the-art rows")

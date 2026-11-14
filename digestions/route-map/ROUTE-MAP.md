@@ -7,8 +7,8 @@ Summary.
 1. The proof is one chain of 16 waypoints. Every published proof (OpenAI, Li, the trees paper, the Lean formalisation) passes through the same chain. Nobody has a second way to reach a tree matching.
 2. The chain is forced at the disk identity, the sign, the cancellation with `s` fixed, the comparison, tree-cotree duality and the gluing. It is free at three steps: the first pair (A), the nonvanishing (N) and the last step from the selected edges to one cycle (F).
 3. The direct edge from the triangulation to two induced trees, which is where every attack before 2026 worked, has no complete route.
-4. The bypass from states to a tree matching with no signed count has eight exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
-5. This file lists 161 routes: 46 published, 34 proved in this project (none human-checked), 8 computed, 14 conjectures, 25 hunches and 34 refuted, each refuted one with its lesson and smallest known counterexample.
+4. The bypass from states to a tree matching with no signed count has nine exact reformulations and no existence argument. Every relaxation tested drops a constraint and fails on a small example, most often the hexagonal prism.
+5. This file lists 167 routes: 46 published, 38 proved in this project (none human-checked), 8 computed, 15 conjectures, 25 hunches and 35 refuted, each refuted one with its lesson and smallest known counterexample.
 
 ## The picture
 
@@ -42,7 +42,7 @@ Status. The three 2026 papers are unrefereed preprints. `LIT` on a 2026 statemen
 
 ## Counts
 
-16 waypoints, 17 steps, 161 routes: 46 `LIT`, 34 `PROVED-HERE`, 8 `COMPUTED`, 14 `CONJECTURE`, 25 `HUNCH`, 34 `REFUTED`.
+16 waypoints, 17 steps, 167 routes: 46 `LIT`, 38 `PROVED-HERE`, 8 `COMPUTED`, 15 `CONJECTURE`, 25 `HUNCH`, 35 `REFUTED`.
 
 | Step | From | To | Verdict | Published arguments | `LIT` | `PROVED-HERE` | `COMPUTED` | `CONJECTURE` | `HUNCH` | `REFUTED` |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,16 +50,16 @@ Status. The three 2026 papers are unrefereed preprints. `LIT` on a 2026 statemen
 | TG Restate the goal | T | 2T | forced | 0 | 6 | 0 | 0 | 1 | 1 | 2 |
 | ST Define states and count | T | S | forced | 1 | 3 | 1 | 0 | 0 | 0 | 0 |
 | A Find two disjoint states | S | P | free | 4 | 4 | 3 | 2 | 1 | 3 | 1 |
-| B Prove the disk identity | T, S | DI | forced | 1 | 2 | 1 | 1 | 1 | 4 | 1 |
+| B Prove the disk identity | T, S | DI | forced | 1 | 2 | 2 | 1 | 1 | 4 | 1 |
 | C Sign the pairs | P, DI | M | forced | 1 | 4 | 4 | 0 | 0 | 1 | 1 |
-| K Cancel with s fixed | M | K | forced | 1 | 1 | 3 | 1 | 0 | 0 | 1 |
+| K Cancel with s fixed | M | K | forced | 1 | 1 | 4 | 1 | 0 | 0 | 1 |
 | N Show the total is not zero | M | N | free | 5 | 5 | 3 | 1 | 3 | 9 | 15 |
-| D Compare the two evaluations | K, N | FP | forced | 1 | 1 | 3 | 0 | 3 | 1 | 0 |
-| U Unsigned routes (bypass) | S | FP | open | 0 | 0 | 6 | 0 | 2 | 3 | 8 |
+| D Compare the two evaluations | K, N | FP | forced | 1 | 1 | 3 | 0 | 3 | 1 | 1 |
+| U Unsigned routes (bypass) | S | FP | open | 0 | 0 | 7 | 0 | 3 | 3 | 8 |
 | R One root per component | FP | IT | forced | 2 | 2 | 0 | 1 | 0 | 0 | 1 |
 | E Tree-cotree duality | IT | WT | rigid | 2 | 2 | 0 | 0 | 0 | 1 | 0 |
 | E2 Root at y0 and select | WT | SE | rigid | 1 | 1 | 1 | 0 | 0 | 0 | 0 |
-| F Show P leaves one cycle | SE | JC | free | 2 | 3 | 3 | 1 | 1 | 1 | 0 |
+| F Show P leaves one cycle | SE | JC | free | 2 | 3 | 4 | 1 | 1 | 1 | 0 |
 | J2 Sides of the curve | JC | 2T | forced | 1 | 2 | 0 | 0 | 0 | 0 | 0 |
 | G Cut at separating triangles | JC, 2T | GL | forced | 1 | 4 | 3 | 0 | 1 | 1 | 1 |
 | G2 Conclude | GL | HC | forced | 2 | 3 | 2 | 1 | 1 | 0 | 0 |
@@ -180,15 +180,16 @@ Freedom. Four published arguments (flow with a density bound; Ore deficiency wit
 
 What must be shown. Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.
 
-Freedom. One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). Several readings of what it says, no second proof yet.
+Freedom. One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). A second derivation, as the theorem of turning tangents for an angle structure, is proved in the topology folder and unreviewed.
 
 | Id | Route | Status | Source | Statement |
 | --- | --- | --- | --- | --- |
 | B.L | the same count on hexagons of the spoke graph | `LIT` | L Claim 25 | t_in = \|C\|/4 - 3/2 for an alternating cycle of the spoke graph. Same identity with t_in = l (dep/correspondence.md 3.2). |
 | B.O | Euler + side count + bijection, on triangles | `LIT` | O Lemma 4.1, (4.1), (4.2); T Lemma 4.1 | B + W = 2I + h - 2, 3(B - W) = 2l - h and B = I + l give 2l - h = -3. T adds that the length is odd. |
 | B.0 | reading: W = B + 1, degree -1 of the colouring | `PROVED-HERE`, partly AI-refereed | dep/skeleton.md B0; comb/PROOF.md Section 1 | With the vertex 3-colouring c, delta(v, w) = c(w) - c(v) mod 3. The identity says the disk of a directed state cycle holds one more white face than black faces; the colouring map has degree -1 on it. |
+| B.6 | Hopf's Umlaufsatz for a flat angle structure | `PROVED-HERE`, unreviewed | topo/REPORT.md item 1; topo/ROUTES.md | The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1. |
 | B.c | checked on every enumerated cycle | `COMPUTED` | con/VERIFICATION.md (1466 directed cycles); dep/scripts/check_nodes.py; refd/code/results.json | All disk equalities hold on every cycle enumerated, with all outgoing choices for n <= 6. |
-| B.5 | Gauss-Bonnet form for any cycle | `CONJECTURE` | topo/PREDICTIONS.md P2 | For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. |
+| B.5 | Gauss-Bonnet form for any cycle | `CONJECTURE` | topo/PREDICTIONS.md P2 | For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md. |
 | B.1 | integer lift of Kasteleyn's sign lemma | `HUNCH` | dep/skeleton.md B1 | The faces of the spoke graph are hexagons, 6 = 2 mod 4, which is Kasteleyn's condition. The common sign of all states uses only the parity part of the disk identity. |
 | B.2 | discrete Morse theory | `HUNCH` | dep/skeleton.md B2 | Read the state as a pairing of black faces with vertices in the disk and compute the degree from the unpaired cells. |
 | B.3 | peel the disk | `HUNCH` | dep/skeleton.md B3 | Remove a boundary vertex with its matched black face and show 2l - h does not change. |
@@ -236,6 +237,7 @@ Freedom. All three papers use the same involution. It is the statement that a tw
 | K.1 | twisted incidence determinant of Q_s | `PROVED-HERE`, partly AI-refereed | dep/skeleton.md C1; comb/PROOF.md Prop. 5 | For fixed s the partner sum is kappa det N_s, where N_s is the incidence matrix of Q_s reduced at the roots. It vanishes exactly when Q_s has a cycle. Lemma 5.2 is 'the rows of an incidence matrix around a cycle are dependent'. |
 | K.2 | support of the multivariate polynomial (fact) | `PROVED-HERE`, partly AI-refereed | dim/PROOF.md 4; alg/PROOF.md 1 | With one variable per incidence, F(w) has coefficient +1 or -1 on each tree matching and 0 on every other state. So CT F(w)F(1/w) is the number of tree matchings. |
 | K.3 | quartic Berezin integral (fact) | `PROVED-HERE`, unreviewed | alg/PROOF.md 5 | F(w) is a two-species Grassmann integral with one quartic term per black face. It has an exact Gaussian decoupling, with no assured sign. |
+| K.4 | cancellation as a Morse matching (fact) | `PROVED-HERE`, unreviewed | topo/REPORT.md item 2 | Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed. |
 | K.c | checked on every cyclic second state | `COMPUTED` | con/VERIFICATION.md; dep/scripts/check_nodes.py (35 cases); comb/lab/dets.py 12; refd/code/results.json | Every state with a cycle in Q_s has zero signed partner sum; the partner count is 2^k or 0 on 140358 states (comb/lab/extra2.py 16). |
 | K.x1 | choose the cycle using r | `REFUTED` | lim/HYPOTHESES.md (disk identity and bijectivity) | Let the reversed cycle depend on the partner. |
 
@@ -257,7 +259,7 @@ Freedom. The widest step: five published arguments, two more proved here, and a 
 | N.H | heights as test functions, no weights | `PROVED-HERE`, partly AI-refereed | comb/PROOF.md Sections 2-3 (Theorem B); refc/REWRITTEN-PROP-5-1.md (self-contained rewrite by the referee) | Test the signed measure against a product of cmin heights at white faces. Pairs with one D form a cube, partners of one s form a cube, and the product is a cmin-fold difference that survives only on covers with exactly cmin cycles. |
 | N.id | spoke weights are a height function (fact) | `PROVED-HERE`, AI-refereed | comb/PROOF.md 2.3 | omega(s) is the volume under the height of s, and L+(C) - L-(C) is the number of white faces inside C, which is B + 1. |
 | N.lin | linear weights 1 + x a | `PROVED-HERE`, partly AI-refereed | dim/PROOF.md 7; refd/SIGNIFICANCE.md Section 2 (full proof with real signs and parity only) | Replace e^{xa} by 1 + xa. The polynomial has degree at most n and the same leading coefficient; on the forest side it is a signed elementary symmetric moment. The Lean proof uses the same polynomial (lean/DIFFERENCES.md item 16). |
-| N.c | leading coefficient checked exactly | `COMPUTED` | con/supplemental.py (49 groups); comb/lab/dets.py 12; dim/code/linear.py; refd/code/results.json | The first nonzero coefficient equals the signed sum of products of enclosed face counts on every instance tested. |
+| N.c | leading coefficient checked exactly | `COMPUTED` | con/supplemental.py (49 groups); comb/lab/dets.py 12; dim/code/linear.py; refd/code/results.json; lean/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices) | The first nonzero coefficient equals the signed sum of products of enclosed face counts on every instance tested. |
 | N.11 | non-increasing exchange path to a tree pair | `CONJECTURE` | gt/ROUTES.md D3 | From every pair there is a path of exchanges along which the number of Q-cycles never increases and reaches 0. A sign-free form of T Theorem 5.2. |
 | N.12 | Li's marked objects are the e_m coefficient | `CONJECTURE` | refd/REPORT.md (still open) | Li's objects with cmin distinct marks are the elementary symmetric reading of the linear-weight coefficient. |
 | N.9 | a test function with one sign on all covers | `CONJECTURE` | comb/REPORT.md, open question 2 | There is a test function of s for which every cycle cover contributes with the same sign, so that no minimum over the number of cycles is taken. |
@@ -330,11 +332,13 @@ Freedom. The comparison is one line. No canonical forest pair is known: every ex
 | D.6 | a canonical forest pair | `CONJECTURE` | comb/REPORT.md step 3 | Under a bijection from states to trinity arborescences, tree matchings have a tree description that singles one out. |
 | D.7 | extremes of Felsner's lattice of pairs | `CONJECTURE` | gt/ROUTES.md O4-O6 | The face-flip minimum or the face-flip maximum of the lattice of pairs always carries a tree pair. Each extreme alone fails (at 40 and at 80 vertices); they never failed together in 180 random instances. |
 | D.8 | finding a tree matching is in PPAD | `HUNCH` | gt/REPORT.md (leads) | Each phase of the marked walk follows a path in a graph of degree at most 2 with alternating signs. |
+| D.x1 | the partner of a tree matching is a tree matching | `REFUTED` | topo/REPORT.md item 5 | Swapping r and s would then be a free involution on tree matchings and explain why their number is even. |
 
 - **D.3, conjecture.** Test: Find a rooted triangulation with a pair and fewer than 2^cmin tree matchings; start at 17 vertices with cmin = 3.
 - **D.6, conjecture.** Test: Write the Hine-Kalman bijection on the 12-vertex class 6 example where every extremal rule fails, and look at the images of its 8 tree matchings.
 - **D.7, conjecture.** Test: Exhaustive census of Eulerian triangulations up to about 24 vertices, where one-cycle covers start to appear.
 - **D.8, hunch.** Would place the search problem between polynomial time and the 3^(N/4) enumeration. Test: Write one phase of T Theorem 5.3 as an END-OF-LINE instance with polynomial-size circuits for the two involutions.
+- **D.x1, refuted.** Lesson: The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s. Smallest known counterexample: 6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).
 
 ### U. Unsigned routes (bypass) (S to FP)
 
@@ -350,8 +354,10 @@ Freedom. Many exact reformulations are proved. None has an existence argument. E
 | U.4 | unique partner: \|det K_{B-s}\| = 1 (reformulation) | `PROVED-HERE`, unreviewed | mach/REFORMULATIONS.md 2 (after T Prop. 2.1) | Zeroing the entries of s in K_B gives a determinant equal to the number of partners up to sign. A tree matching is a state where it is 1. |
 | U.5 | tree matchings = partnered Hamiltonian cycles (reformulation) | `PROVED-HERE`, partly AI-refereed | comb/PROOF.md Prop. 7; lim/HYPOTHESES.md; gt/PROOFS.md Thm 7.2 (explicit left inverse; image = partitions with acyclic white parent map) | Tree matchings are in bijection with the Hamiltonian cycles avoiding e0* whose state has a partner. So 3 #TM <= #HC(G). |
 | U.6 | rooted functional orientations; two-sided hypertrees (reformulation) | `PROVED-HERE`, unreviewed | mach/REFORMULATIONS.md 5, 7 | Two more exact restatements of the target, as an orientation problem and as a simultaneous hypertree realisation. |
-| U.5h | tree matchings inside the state lattice | `CONJECTURE` | topo/PREDICTIONS.md P6; mach/REFORMULATIONS.md 9 | The tree matchings are not an interval of the clock lattice and not always an antichain (predicted). |
+| U.7 | sutured Floer support; point-rainbow white trees (reformulation) | `PROVED-HERE`, unreviewed | topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices | A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree. |
+| U.5h | order-theoretic position in the state lattice | `CONJECTURE` | topo/PREDICTIONS.md P6; mach/REFORMULATIONS.md 9 | Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found. |
 | U.6h | describe partnered Hamiltonian cycles in G alone | `CONJECTURE` | comb/REPORT.md, open question 3 | There is a description, without states, of the Hamiltonian cycles of G avoiding e0* whose state has a partner. |
+| U.7h | local search from a point-rainbow tree | `CONJECTURE` | topo/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices | Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma. |
 | U.1h | support of the tree-degree polynomial | `HUNCH` | mach/ROUTE-IDEAS.md 2; topo/PREDICTIONS.md P8, P9 | Show the target degree vector d* lies in the support of det L_H(y), from plane incidence inequalities. |
 | U.2h | spanning-tree parity / matroid parity | `HUNCH` | hist/REPORT.md (leads); mach/ROUTE-IDEAS.md 10 | 'Each black centre keeps exactly two of its three spokes' looks like the spanning tree parity problem that Feder and Subi solve in polynomial time for 2- and 3-sided faces. |
 | U.4h | Bernardi process, Schnyder woods, blossom trees | `HUNCH` | mach/ROUTE-IDEAS.md 4, 11, 12, 13 | A canonical tree or orientation of the map might produce a tree matching directly. |
@@ -364,8 +370,9 @@ Freedom. Many exact reformulations are proved. None has an existence argument. E
 | U.x7 | positivity of the norm or of the Laplacian terms | `REFUTED` | refd/REPORT.md; alg/PROOF.md 6 | CT F(w)F(1/w) and the constrained Laplacian coefficient are sums of nonnegative terms, so they are positive. |
 | U.x8 | tree count as an unrooted invariant | `REFUTED` | alg/REPORT.md; alg/invariants.json | The number of tree matchings equals a fixed evaluation of a Tutte, Penrose, Tait or flow invariant of G. |
 
-- **U.5h, conjecture.** Test: Outcome pending in topo/ROUTES.md.
+- **U.5h, conjecture.** Test: Decided on the topology agent's sample (166 lattices); a description of the subset is still missing.
 - **U.6h, conjecture.** Test: For the hexagonal prism list the 2 partnered and 2 unpartnered avoiding cycles and compare their face sequences; then test any candidate rule on the 176726 unpartnered cycles of the survey.
+- **U.7h, conjecture.** Test: Measure plateaus and step counts at 18 to 20 vertices (1543 triangulations at 18); look for a potential such as black excess plus a white-tree distance.
 - **U.1h, hunch.** An unsigned target: no cancellation to explain. If every lattice point of the degree polytope were realised (P9), convexity would finish. Test: Enumerate H-trees on the cube and the hexagonal bipyramid; compare the support with the lattice points of its convex hull.
 - **U.2h, hunch.** If it is a matroid parity instance, Lovasz gives a polynomial algorithm, against 3^(N/4). Test: Design the gadget for one black centre and two adjacent centres; enumerate feasible parity solutions against partial spoke choices.
 - **U.4h, hunch.** Each theory uses three colours and rooted trees on triangulations, as the target does. Test: On the octahedron and the hexagonal bipyramid, test every facewise corner rule for bijectivity on X and for the forest condition.
@@ -433,6 +440,7 @@ Freedom. Two published arguments. O, T and the Lean proof count against the disk
 | F.1 | W - B = 1 against W - B = 3 | `PROVED-HERE`, AI-refereed | comb/PROOF.md Section 5 | The disk-identity argument restated as two incompatible counts of white minus black faces. |
 | F.2 | forest certificate implies Hamiltonian cycle (fact) | `PROVED-HERE`, unreviewed | expo/DEPENDENCY-AUDIT.md | Conditional conversion: a spanning forest selecting one side per face has a complementary dual that is a Hamiltonian cycle. |
 | F.3 | recovery is injective, with known image (fact) | `PROVED-HERE`, partly AI-refereed | lim/HYPOTHESES.md; comb/PROOF.md Section 6 | For fixed t0 and e0 the map from tree matchings to cycles is injective. Its image is the set of avoiding cycles whose state is a tree matching. |
+| F.6 | Alexander duality: #cycles = 1 + b1(P) (fact) | `PROVED-HERE`, unreviewed | topo/REPORT.md item 2 | The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P. |
 | F.c | recovery checked on every tree matching | `COMPUTED` | con/VERIFICATION.md (744 recoveries); lim/code/campaign.py 14 (3618 certificates) | Every selected P is a two-component forest and both sides induce trees. |
 | F.4 | remove a leaf of the white tree | `CONJECTURE` | dep/skeleton.md F1 | Removing a leaf of the white tree with the black face whose spoke it crosses leaves a rooted triangulation with a tree matching, and the cycle of the larger graph is a local detour. |
 | F.5 | a potential along the selected out-edges | `HUNCH` | dep/skeleton.md F2 | Follow selected out-edges from a vertex to a root; a quantity that decreases along the walk proves connectivity. |
@@ -488,7 +496,7 @@ Freedom. None.
 | G2.3 | consequences: P4 for Pfaffian braces (fact) | `LIT` | O Cor. 7.2 via Gorsky-Steiner-Wiederrecht Thm 4.16 | The auditor could not open the cited theorem; the corollary is indeterminate in dep/audit-openai.md. |
 | G2.4 | all three proofs close (fact) | `PROVED-HERE`, unreviewed | dep/REPORT.md (verdicts) | Reverse-Lamport audits: O and T follow as written; L follows once four routine unwritten steps are supplied. |
 | G2.6 | an even number of avoiding cycles (fact) | `PROVED-HERE`, unreviewed | alg/PROOF.md 2 (from Thomason 1978, Cor. 1.5) | Every cubic bipartite graph has an even number of Hamiltonian cycles avoiding each edge. |
-| G2.c | the Lean proof builds here; standard axioms only | `COMPUTED` | lean/build/axioms.out (Lean 4.34.1) | #print axioms gives propext, Classical.choice, Quot.sound. No sorry, admit, axiom or native_decide in the 31 files. |
+| G2.c | the Lean proof builds here; standard axioms only | `COMPUTED` | lean/REPORT.md item 1; lean/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7) | #print axioms gives propext, Classical.choice, Quot.sound. No sorry, admit, axiom or native_decide in the 31 files. |
 | G2.5 | ordered pairs of edges (global H+-) (fact) | `CONJECTURE` | hist/REPORT.md (still open) | Some Hamiltonian cycle contains x and avoids y for any two edges. Not implied by the theorem. |
 
 - **G2.5, conjecture.** Test: lim/data/strengthenings.json searched every edge pair on the small corpus; extend the search or find a counterexample across a 3-edge cut.
@@ -513,18 +521,18 @@ All four published proofs do the same thing at these places, and the project fou
 
 ## What the dead ends have in common
 
-The 34 refuted routes fall into four groups.
+Most of the refuted routes fall into four groups.
 
 1. **Drop a constraint** (U.x1, U.x2, U.x3, U.x5, N.x9, N.x10, R.x1, B.x1). The target has three independent constraints: one spoke per black face, one per non-root vertex, and acyclicity. Any two are easy. The hexagonal prism dual, with 8 vertices, 3 states and 2 tree matchings, refutes most two-constraint shortcuts.
 2. **Pick an extreme** (N.x3 to N.x6, N.x14, and each half of D.7 taken alone). Highest state, lowest state, one-way cover, largest rank difference, lattice minimum, lattice maximum, single-swap descent. Each fails, at 12 to 80 vertices, typically on one long `D`-cycle where swapping `r` and `s` removes any preference.
 3. **Count without weights** (N.x1, N.x2, N.x12, N.x13, N.x15, U.x7). The unweighted signed count is zero and the number of tree matchings is even. Positivity statements on the `s` side are equivalent to existence and prove nothing.
 4. **Weaken a hypothesis** (S0.x1 to S0.x3, G.x1, TG.x1). Each hypothesis has a witness, and each fails at a different waypoint.
 
-The one place where the data still leave a structural statement standing is D.7: the minimum or the maximum of Felsner's lattice of pairs always carries a tree pair.
+Two structural statements survive the data. D.7 says the minimum or the maximum of Felsner's lattice of pairs always carries a tree pair. U.7h says a local search from a point-rainbow tree always reaches a tree matching.
 
 ## Limits of this map
 
 - It was compiled from the agents' reports. I recomputed one thing myself: the agreement of the two enumerations up to 16 vertices (`labyrinth/make_frontier.py`). Everything else carries the status its author or referee gave it.
-- Reports from route-topology, lean-formalisation (its `REPORT.md`), referee-structure and the manuscript drafts had not arrived when the map was frozen. Three topology predictions are listed as conjectures with outcome pending.
+- The map was frozen at 11:15 UTC on 2026-11-14. The reports of referee-structure, primal-proof, route-categorical, conjectures and the manuscript drafts had not arrived or were provisional. Two topology predictions (TG.h2, B.5) are listed as conjectures with the outcome to be read in the topology folder.
 - A route listed as `LIT` for the Lean proof rests on the lean-formalisation agent's reading in `DIFFERENCES.md`, which nobody has refereed.
 - "Smallest known counterexample" means smallest found, not proved minimal, unless the entry says so.

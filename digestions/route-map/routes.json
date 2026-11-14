@@ -154,7 +154,7 @@
    "title": "Prove the disk identity",
    "verdict": "forced",
    "must": "Euler's formula on the disk, a signed count of sides, and B = I + l, which holds because a state is a bijection.",
-   "freedom": "One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). Several readings of what it says, no second proof yet."
+   "freedom": "One double count in all three papers, on triangles (O, T) or on hexagons of the spoke graph (L). A second derivation, as the theorem of turning tangents for an angle structure, is proved in the topology folder and unreviewed."
   },
   {
    "id": "C",
@@ -736,7 +736,7 @@
    "status": "CONJECTURE",
    "src": "topo",
    "where": "topo/PREDICTIONS.md P2",
-   "text": "For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside.",
+   "text": "For a state s and a simple cycle C avoiding the roots, B - W = 2m - h + 2, with m the boundary vertices whose matched face lies inside. The topology agent reports the orientation-free form W = B + 1 as proved (B.6); the status of this exact formula is in topo/ROUTES.md.",
    "test": "Outcome pending in topo/ROUTES.md.",
    "role": "route"
   },
@@ -969,8 +969,8 @@
    "step": "N",
    "label": "leading coefficient checked exactly",
    "status": "COMPUTED",
-   "src": "con,comb,dim,refd",
-   "where": "con/supplemental.py (49 groups); comb/lab/dets.py 12; dim/code/linear.py; refd/code/results.json",
+   "src": "con,comb,dim,refd,lean",
+   "where": "con/supplemental.py (49 groups); comb/lab/dets.py 12; dim/code/linear.py; refd/code/results.json; lean/REPORT.md item 5 (71224 rooted triangulations up to 18 vertices)",
    "text": "The first nonzero coefficient equals the signed sum of products of enclosed face counts on every instance tested.",
    "role": "route"
   },
@@ -1459,12 +1459,12 @@
   {
    "id": "U.5h",
    "step": "U",
-   "label": "tree matchings inside the state lattice",
+   "label": "order-theoretic position in the state lattice",
    "status": "CONJECTURE",
    "src": "topo,mach",
    "where": "topo/PREDICTIONS.md P6; mach/REFORMULATIONS.md 9",
-   "text": "The tree matchings are not an interval of the clock lattice and not always an antichain (predicted).",
-   "test": "Outcome pending in topo/ROUTES.md.",
+   "text": "Outcome (topo): the tree matchings are neither an interval nor an antichain of the clock lattice, and the top and bottom states are often tree matchings. No order-theoretic pattern was found.",
+   "test": "Decided on the topology agent's sample (166 lattices); a description of the subset is still missing.",
    "role": "route"
   },
   {
@@ -1908,7 +1908,7 @@
    "label": "the Lean proof builds here; standard axioms only",
    "status": "COMPUTED",
    "src": "lean",
-   "where": "lean/build/axioms.out (Lean 4.34.1)",
+   "where": "lean/REPORT.md item 1; lean/build/axioms.out (Lean 4.34.1, Mathlib d13f23b7)",
    "text": "#print axioms gives propext, Classical.choice, Quot.sound. No sorry, admit, axiom or native_decide in the 31 files.",
    "role": "route"
   },
@@ -2080,6 +2080,69 @@
    "where": "gt/PROOFS.md; gt/ROUTES.md G",
    "text": "In G the obstruction is a non-trivial 3-edge cut whose black-ended side avoids b0. Li's cyclic 4-edge-connectivity is sufficient and not sharp: 1714 of 4494 rooted instances with separating triangles still have pairs.",
    "role": "fact"
+  },
+  {
+   "id": "B.6",
+   "step": "B",
+   "label": "Hopf's Umlaufsatz for a flat angle structure",
+   "status": "PROVED-HERE",
+   "src": "topo",
+   "where": "topo/REPORT.md item 1; topo/ROUTES.md",
+   "text": "The state defines a flat signed-angle structure, and a vertex-local identity says turning equals minus colour winding. The disk identity is then the theorem of turning tangents. Orientation-free form: every chosen-edge disk has W = B + 1.",
+   "role": "route"
+  },
+  {
+   "id": "K.4",
+   "step": "K",
+   "label": "cancellation as a Morse matching",
+   "status": "PROVED-HERE",
+   "src": "topo",
+   "where": "topo/REPORT.md item 2",
+   "text": "Pairs are combinatorial vector fields, tree pairs are gradient fields, and the cancellation reverses a closed orbit. The matching is acyclic and its critical cells are the forest pairs. Its Euler characteristic Z(1) is always 0, so a graded version is needed.",
+   "role": "fact"
+  },
+  {
+   "id": "F.6",
+   "step": "F",
+   "label": "Alexander duality: #cycles = 1 + b1(P)",
+   "status": "PROVED-HERE",
+   "src": "topo",
+   "where": "topo/REPORT.md item 2",
+   "text": "The complement of the 2-factor retracts onto P, so the number of cycles is one more than the first Betti number of P.",
+   "role": "fact"
+  },
+  {
+   "id": "U.7",
+   "step": "U",
+   "label": "sutured Floer support; point-rainbow white trees",
+   "status": "PROVED-HERE",
+   "src": "topo",
+   "where": "topo/REPORT.md item 3 (conditional on T Thm 1.2); COMPUTED on 826 instances up to 16 vertices",
+   "text": "A tree matching exists iff a named spin-c structure is supported in the sutured Floer homology of the special alternating link of G (Juhasz-Kalman-Rasmussen), iff the white faces have a 'point-rainbow' spanning tree.",
+   "role": "equiv"
+  },
+  {
+   "id": "U.7h",
+   "step": "U",
+   "label": "local search from a point-rainbow tree",
+   "status": "CONJECTURE",
+   "src": "topo",
+   "where": "topo/REPORT.md item 4 (R6'); 450 of 450 instances up to 16 vertices",
+   "text": "Same-colour exchanges from a point-rainbow tree, never increasing the black excess, reach a tree matching. A proof would be a cancellation-free local-search proof of the key lemma.",
+   "test": "Measure plateaus and step counts at 18 to 20 vertices (1543 triangulations at 18); look for a potential such as black excess plus a white-tree distance.",
+   "role": "route"
+  },
+  {
+   "id": "D.x1",
+   "step": "D",
+   "label": "the partner of a tree matching is a tree matching",
+   "status": "REFUTED",
+   "src": "topo",
+   "where": "topo/REPORT.md item 5",
+   "text": "Swapping r and s would then be a free involution on tree matchings and explain why their number is even.",
+   "lesson": "The evenness is a signed cancellation, Z(1) = 0, and not a free involution. Forest pairs are not symmetric in r and s.",
+   "cex": "6 failures among 442 tree matchings tested (topo data; smallest instance not recorded here).",
+   "role": "route"
   }
  ]
 }

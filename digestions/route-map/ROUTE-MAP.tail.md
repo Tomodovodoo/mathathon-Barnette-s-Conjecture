@@ -18,18 +18,18 @@ All four published proofs do the same thing at these places, and the project fou
 
 ## What the dead ends have in common
 
-The 34 refuted routes fall into four groups.
+Most of the refuted routes fall into four groups.
 
 1. **Drop a constraint** (U.x1, U.x2, U.x3, U.x5, N.x9, N.x10, R.x1, B.x1). The target has three independent constraints: one spoke per black face, one per non-root vertex, and acyclicity. Any two are easy. The hexagonal prism dual, with 8 vertices, 3 states and 2 tree matchings, refutes most two-constraint shortcuts.
 2. **Pick an extreme** (N.x3 to N.x6, N.x14, and each half of D.7 taken alone). Highest state, lowest state, one-way cover, largest rank difference, lattice minimum, lattice maximum, single-swap descent. Each fails, at 12 to 80 vertices, typically on one long `D`-cycle where swapping `r` and `s` removes any preference.
 3. **Count without weights** (N.x1, N.x2, N.x12, N.x13, N.x15, U.x7). The unweighted signed count is zero and the number of tree matchings is even. Positivity statements on the `s` side are equivalent to existence and prove nothing.
 4. **Weaken a hypothesis** (S0.x1 to S0.x3, G.x1, TG.x1). Each hypothesis has a witness, and each fails at a different waypoint.
 
-The one place where the data still leave a structural statement standing is D.7: the minimum or the maximum of Felsner's lattice of pairs always carries a tree pair.
+Two structural statements survive the data. D.7 says the minimum or the maximum of Felsner's lattice of pairs always carries a tree pair. U.7h says a local search from a point-rainbow tree always reaches a tree matching.
 
 ## Limits of this map
 
 - It was compiled from the agents' reports. I recomputed one thing myself: the agreement of the two enumerations up to 16 vertices (`labyrinth/make_frontier.py`). Everything else carries the status its author or referee gave it.
-- Reports from route-topology, lean-formalisation (its `REPORT.md`), referee-structure and the manuscript drafts had not arrived when the map was frozen. Three topology predictions are listed as conjectures with outcome pending.
+- The map was frozen at 11:15 UTC on 2026-11-14. The reports of referee-structure, primal-proof, route-categorical, conjectures and the manuscript drafts had not arrived or were provisional. Two topology predictions (TG.h2, B.5) are listed as conjectures with the outcome to be read in the topology folder.
 - A route listed as `LIT` for the Lean proof rests on the lean-formalisation agent's reading in `DIFFERENCES.md`, which nobody has refereed.
 - "Smallest known counterexample" means smallest found, not proved minimal, unless the entry says so.

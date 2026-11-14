@@ -111,7 +111,7 @@ Reading the map as a whole (Section "Where the proofs are forced" of `ROUTE-MAP.
 | --- | --- | --- | --- |
 | dual, states, count | 1 (the Lean proof builds the dual algebraically) | hypotheses each shown necessary by a witness | forced |
 | first pair | 4 | one exact Euler identity | free |
-| disk identity | 1 | readings (one more white face; winding of the 3-colouring), no second proof | forced |
+| disk identity | 1 | readings (one more white face; winding of the 3-colouring); a derivation from the theorem of turning tangents, unreviewed | forced |
 | sign, cancellation with `s` fixed | 1 | determinant form | forced |
 | nonvanishing | 5 | heights; linear weights | free |
 | forest pair to incidence tree to white tree to `P` | 1 | none sought | forced |
@@ -124,8 +124,8 @@ The proof is rigid where it is new and flexible where it is technical. The pair,
 
 I would not call the problem understood yet, for four reasons the map makes visible.
 
-- **No structural proof.** The target has eight exact unsigned reformulations (a spanning tree with prescribed degrees, a three-matroid intersection, a white tree with two label constraints, and others; routes U.1 to U.6). Each is `PROVED-HERE`. None has an existence argument, and the abstract version of the problem is NP-hard [`PROVED-HERE` modulo a cited theorem, route-graph-theory, under review]. So any structural proof must use the hexagonal faces of the spoke graph, which is what the disk identity does.
-- **No canonical choice.** One statement survives the search: the minimum or the maximum of the lattice of pairs always carries a tree pair [`CONJECTURE`, D.7, no joint failure in 180 random instances].
+- **No structural proof.** The target has nine exact unsigned reformulations (a spanning tree with prescribed degrees, a three-matroid intersection, a white tree with two label constraints, and others; routes U.1 to U.7). Each is `PROVED-HERE`. None has an existence argument, and the abstract version of the problem is NP-hard [`PROVED-HERE` modulo a cited theorem, route-graph-theory, under review]. So any structural proof must use the hexagonal faces of the spoke graph, which is what the disk identity does.
+- **No canonical choice.** One statement survives the search: the minimum or the maximum of the lattice of pairs always carries a tree pair [`CONJECTURE`, D.7, no joint failure in 180 random instances]. A second survivor is a local search on white spanning trees that reached a tree matching in all 450 instances tried [`CONJECTURE`, U.7h, route-topology].
 - **No fast algorithm.** The proof gives exponential search. Tree matchings can be exponentially rare among states, `2^q` among `3^q` in an explicit family [`PROVED-HERE`, limits, under review], so sampling states does not help.
 - **How many.** Every rooted triangulation with a pair up to 16 vertices has at least `2^cmin` tree matchings, with equality in 4609 of 5088 cases [`COMPUTED`; `CONJECTURE` D.3]. Only `2·cmin` is proved [`PROVED-HERE`, AI-refereed]. Something organises the tree matchings that the signed sum does not see.
 
