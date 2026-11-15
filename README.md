@@ -19,7 +19,7 @@ Read [`paper/barnette.pdf`](paper/barnette.pdf). It is short and self-contained.
 | `proofs/` | Companion notes: the bijective proof by two involutions, the part of the argument that needs no sign, and what is known about algorithms. |
 | `digestions/` | `routes.md`: a map of the routes to the theorem, how the different presentations of the count translate into each other, the routes that fail and the open ones. `figures/` holds its figures and the scripts that draw them. |
 | `workings/` | `barnette/`, a small Python package that follows the paper and finds the cycle. |
-| `research/` | Open problems and the counterexample graphs someone would need to continue. Work in progress goes here and leaves when it is done. |
+| `research/` | Open problems and the counterexample graphs someone would need to continue; [`research/experiments/`](research/experiments/README.md), measurements of the algorithm on all graphs with at most 42 vertices and on larger families. Work in progress goes here and leaves when it is done. |
 | `skills/` | Skills for writing and auditing. |
 
 The state of the repository before it was cut down to this is kept under the git tag `archive-2026-11-14`.
