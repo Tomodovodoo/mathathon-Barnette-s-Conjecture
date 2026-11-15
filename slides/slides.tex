@@ -8,6 +8,7 @@
 \setbeamerfont{frametitle}{size=\Large,series=\bfseries}
 \setbeamersize{text margin left=1cm,text margin right=1cm}
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\textbullet}
 \definecolor{cyclecolor}{HTML}{8C2858}
 \newcommand{\definedterm}[1]{\textcolor{cyclecolor}{\textbf{#1}}}
 
@@ -109,7 +110,6 @@
   \begin{columns}[c,onlytextwidth]
     \begin{column}{0.70\textwidth}
       \small
-      \setbeamertemplate{itemize item}{\textbullet}
       \setlength{\leftmargini}{1em}
       \begin{itemize}[<+->]
         \setlength{\itemsep}{0.65em}
@@ -160,7 +160,6 @@
 \begin{frame}[c]{What do AI proofs lack, and what can humans add?}
   \setlength{\leftmargini}{1em}
   \begin{itemize}[<+->]
-    \setbeamertemplate{itemize item}{\textbullet}
     \setlength{\itemsep}{0.9em}
     \item \textbf{Human intuition:} Choose representative examples that clarify the proof.
     \item \textbf{Proof structure:} Distinguish the key steps from smaller details.
@@ -170,7 +169,7 @@
   \end{itemize}
   \vspace{0.65em}
   \uncover<6->{\noindent
-    \makebox[\linewidth][c]{\small\textcolor{cyclecolor}{Use AI for quality over quantity to produce \textbf{better} papers, expositions, and applications.}}\par}
+    \makebox[\linewidth][c]{\fontsize{11.5}{14}\selectfont\textcolor{cyclecolor}{Use AI for quality over quantity to produce \textbf{better} papers, expositions, and applications.}}\par}
 \end{frame}
 
 \begin{frame}[plain,c]
@@ -189,11 +188,11 @@
     \item {\bfseries Strengthen conclusions}\par
       E.g., Lemma~2.1 becomes an if and only if statement.
     \item {\bfseries Standard techniques vs.\ new connections}\par
-      Distinguish standard tools from new connections in the proof.
+      Distinguish classical graph theory/discrete geometry tools from novel constructions.
     \item {\bfseries mathlib}\par
       Contribute to mathlib with reusable theorems, e.g., tree--cotree duality.
     \item {\bfseries Polynomial-time algorithms}\par
-      Does a polynomial-time algorithm to find a Hamiltonian cycle exist?
+      Does there exist a polynomial-time algorithm for finding a Hamiltonian cycle?
   \end{itemize}
 \end{frame}
 
@@ -203,17 +202,17 @@
   \smallskip
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item Digest the proof through conversations with AI and among team members to clarify arguments and develop examples.
-    \item Compare sources (OpenAI's preprint, cited works, and online AI-generated expositions).
-    \item Build the interactive walkthrough and test its diagrams against the mathematical constructions.
+    \item Proof digestion with AI and conversations, use examples and visualizations.
+    \item Compare sources (OpenAI's preprint, cited works, online AI-generated expositions).
   \end{itemize}
   \vspace{0.8em}
-  \uncover<4->{{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Sources:\par}}
+  \uncover<3->{{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Sources\par}}
   \smallskip
   \begin{itemize}[<+->]
     \setlength{\itemsep}{0.55em}
-    \item OpenAI's preprint, Li's note, and the constructive notes.\,\cite{barnette-proof,li-note,constructive-notes}
-    \item \textbf{AI assistance:} Use personal Claude and GPT models for proof exploration, slides, report, figures, and checks of correctness, grammar, and layout.
+    \item OpenAI's preprint and Li's note.\,\cite{barnette-proof,li-note}
+    \item \textbf{AI assistance:} Use personal Claude and GPT models for proof exploration, simplification, generalization, slides, report, and figures.
+    \item \textbf{AI-assisted review:} Check mathematical correctness, grammar, and layout.
     \item \textbf{Open Math OS:} Test it for proof exploration.\,\cite{math-os}
   \end{itemize}
 \end{frame}
@@ -261,10 +260,6 @@
     \bibitem{li-note}
     Z.~Li, \emph{\href{https://arxiv.org/abs/2610.30490}{A note on the proof of Barnette's conjecture}}.
     arXiv:2610.30490, 2026.
-
-    \bibitem{constructive-notes}
-    \emph{A constructive proof of Barnette's conjecture}.
-    Collaborator's working notes, October 18, 2026.
 
     \bibitem{math-os}
     Open Math Model, \emph{\href{https://www.openmathmodel.org/}{Open Math OS}}.
