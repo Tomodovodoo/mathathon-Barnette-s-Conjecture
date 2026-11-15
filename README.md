@@ -12,6 +12,11 @@ For an overview of the Mathathon project, read the four-page [project report](su
 
 Read [`paper/barnette.pdf`](paper/barnette.pdf). It is short and self-contained. For a map of the proof and of the routes around it, with a figure for each step, see [`digestions/routes.md`](digestions/routes.md).
 
+Two pages run in the browser, served by GitHub Pages from `main`:
+
+- [Every Vertex Once](https://tomodovodoo.github.io/mathathon-Barnette-s-Conjecture/): hold a key and a runner threads a Hamiltonian cycle around a polytope. Source in `Every Vertex Once/`.
+- [Proof walkthrough](https://tomodovodoo.github.io/mathathon-Barnette-s-Conjecture/barnette-proof-walkthrough.html): the proof step by step on small examples. Source in `barnette-proof-walkthrough.html`.
+
 ## Layout
 
 | Folder | Contents |
