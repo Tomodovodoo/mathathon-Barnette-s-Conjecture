@@ -162,13 +162,15 @@
   \begin{itemize}[<+->]
     \setbeamertemplate{itemize item}{\textbullet}
     \setlength{\itemsep}{0.9em}
-    \item \textbf{Human intuition}
+    \item \textbf{Human intuition:} Choose representative examples that clarify the proof.
     \item \textbf{Proof structure:} Distinguish the key steps from smaller details.
-    \item \textbf{Credit and novelty:} Credit key ideas from earlier work and explain which steps are new.
     \item \textbf{Reasoned choices:} Revisit decisions the AI proof leaves unexplained and make informed decisions.
+    \item \textbf{Credit and novelty:} Credit key ideas from earlier work and explain which steps are new.
     \item \textbf{Notation and naming:} Use standard notation and naming conventions.
-    \item Use AI for quality over quantity. Produce \textbf{better} papers, expositions, and applications.
   \end{itemize}
+  \vspace{0.65em}
+  \uncover<6->{\noindent
+    \makebox[\linewidth][c]{\small\textcolor{cyclecolor}{Use AI for quality over quantity to produce \textbf{better} papers, expositions, and applications.}}\par}
 \end{frame}
 
 \begin{frame}[plain,c]
@@ -191,18 +193,28 @@
     \item {\bfseries mathlib}\par
       Contribute to mathlib with reusable theorems, e.g., tree--cotree duality.
     \item {\bfseries Polynomial-time algorithms}\par
-      Investigate whether a polynomial-time algorithm to find a Hamiltonian cycle exists.
+      Does a polynomial-time algorithm to find a Hamiltonian cycle exist?
   \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Methods and Sources}
+\begin{frame}[c]
   \setlength{\leftmargini}{1em}
+  {\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Methods\par}
+  \smallskip
   \begin{itemize}[<+->]
-    \setlength{\itemsep}{1em}
-    \item \textbf{Proof comparison:} Trace the steps in OpenAI's preprint, Li's note, and the constructive notes.\,\cite{barnette-proof,li-note,constructive-notes}
+    \setlength{\itemsep}{0.55em}
+    \item Digest the proof through conversations with AI and among team members to clarify arguments and develop examples.
+    \item Compare sources (OpenAI's preprint, cited works, and online AI-generated expositions).
+    \item Build the interactive walkthrough and test its diagrams against the mathematical constructions.
+  \end{itemize}
+  \vspace{0.8em}
+  \uncover<4->{{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}Sources:\par}}
+  \smallskip
+  \begin{itemize}[<+->]
+    \setlength{\itemsep}{0.55em}
+    \item OpenAI's preprint, Li's note, and the constructive notes.\,\cite{barnette-proof,li-note,constructive-notes}
     \item \textbf{AI assistance:} Use personal Claude and GPT models for proof exploration, slides, report, figures, and checks of correctness, grammar, and layout.
     \item \textbf{Open Math OS:} Test it for proof exploration.\,\cite{math-os}
-    \item \textbf{Verification:} Check proposed shortcuts with counterexamples and compare independent Python and C implementations.
   \end{itemize}
 \end{frame}
 
