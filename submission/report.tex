@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=1.2em,itemsep=3pt,topsep=3pt}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{.5em}{}
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\pagestyle{plain}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Understanding the proof of Barnette's conjecture}\par
+\vspace{4pt}
+{\large Mathathon project report: Problem 57, Combinatorics}\par
+\vspace{5pt}
+Convex Curiosity\par
+Anouk Brose (aebrose), Santiago Morales Duarte, Tomodovodoo\par
+\vspace{4pt}
+{\footnotesize
+\url{https://github.com/Tomodovodoo/mathathon-Barnette-s-Conjecture}\par
+15 November 2026}
+\end{center}
+\vspace{-2pt}
+
+\textbf{Abstract.} We set out to make the proof of Barnette's conjecture easier to understand, explain and generalise. We compared the existing accounts, shortened parts of the argument, tested simpler routes, and built examples and visualizations. This report explains our goals, the changes we made, the approaches that failed, and how we used AI and checked its output. We present the full exposition and supporting code separately.
+
+\section{Our goal}
+We wanted to understand why the proof of Barnette's conjecture works. The theorem says that every cubic, bipartite, $3$-connected planar graph has a cycle that visits each vertex exactly once. We read OpenAI's proof~\cite{OpenAI}, Li's account~\cite{Li}, and a collaborator's constructive notes~\cite{Constructive}. We asked why the proof needs two matchings, how its signed count forces a cycle to exist, and where it uses each assumption.
+
+Our background in polytopes and polyhedral graphs shaped the project. We wanted to follow each change of viewpoint from the graph to the matchings, trees and counts that solve the problem. The theorem takes one sentence to state. Understanding the objects in its proof takes much more work. We aimed to explain what each object does before asking the reader to use it.
+
+We studied the assumptions so that others could reuse and generalise the lemmas. A proof may state a lemma under all the assumptions of the main theorem even when the lemma needs fewer. We tried to separate those needs. We also looked for known theorems that could explain a step or replace it with a simpler argument.
+
+We brought these questions together in a systematic proof digestion during the event. We compared the earlier accounts, simplified the route, tested shortcuts, and explained the same examples in text, diagrams and an interactive walkthrough. This work gives readers a path through the proof and gives researchers precise questions for further work. Our checks support the argument and our explanations. Our exposition has not undergone journal peer review.
+
+\newpage
+\section{What we simplified and clarified}
+We organised the exposition around the problem of joining cycles. Removing a perfect matching from a cubic graph leaves a union of cycles. The proof must find a matching that leaves just one. In the plane dual, a suitable assignment of corners, called a \emph{good state}, gives a tree that solves this problem. We first explain how to use a good state. We then explain why one exists, using a pair of disjoint corner assignments.
+
+We shortened the step from a good state to the Hamiltonian cycle. We colour one spanning tree, then take all edges whose endpoints share a colour. A short argument with an innermost cycle shows that these edges form two induced trees. The Hamiltonian cycle follows. This removes the disk identity from this part of the proof. We connect the construction to Li's directed-trace argument and Stein's induced-tree characterisation~\cite{Li,Stein}. Our change starts directly from the tree of a good state and separates this construction from the existence argument.
+
+We explain the signed count by separating its two groupings. Grouping by the second state cancels the terms that fail the tree condition. Grouping by the union of the two matchings shows that the weighted sum still has a nonzero term. This answers the question that first made the count hard to follow: why does cancellation force something to exist instead of cancelling everything?
+
+We made the weight visible by defining it through crossings with fixed arcs. Reversing a clockwise cycle raises the weight by the number of white faces inside it. Each cycle then contributes a factor $1-z^a$, where $a$ counts those faces. The lowest-order terms at $z=1$ share a sign, so they cannot cancel. The constructive notes already use the real-sign polynomial method~\cite{Constructive}. We explain its geometry and show how it expresses the same count as OpenAI's exponential sum, finite differences and Li's marked involutions.
+
+We separated the assumptions needed by each step. We handle separating triangles first by gluing cycles that avoid compatible edges. We then distinguish the flow argument that supplies a pair, the disk identity that controls signs, and the positive weight change that prevents complete cancellation. The flow argument uses the absence of separating triangles. The count only needs a pair. This tells us which part needs a new argument if we change the setting.
+
+\section{What we tried and learned}
+We tried to replace the signed count with tree and matching theorems. Tutte-state lattices~\cite{HineKalman} suggest choosing extreme states. The theorems of Rado, Nash-Williams and Edmonds suggest choosing or packing trees. These routes expose two constraints: a state must choose one corner in each face and use each nonroot vertex once. The tree-packing results can meet either constraint separately. They do not ensure both at once.
+
+We used counterexamples to find where the shortcuts fail. An $8$-vertex dual example shows that an acyclic opposite-edge graph can put two roots in one component and none in another. A $16$-vertex example has a $2$-factor whose two orientations both fail the tree condition. Other examples defeat strict descent and unconditional lifting after contraction. These tests left sharper questions about moves that preserve the cycle count and contractions that preserve enough structure. We identified the missing steps, but did not complete a new proof without signs.
+
+\newpage
+\section{How we developed and checked the explanation}
+We developed the explanation by testing each proposed change against the argument it had to replace. We reconstructed the source proofs, mapped their dependencies, wrote alternative drafts and checked examples. Reviews then guided the next revision. The source proofs predate the event. We carried out the comparisons, simplifications, experiments and visual explanations during the project.
+
+We shortened the proof by removing unnecessary steps before cutting words. An earlier floating-body-proof rewrite helped us recognise this approach. We placed definitions beside their first use, invoked standard theorems directly, and separated construction, existence and running-time questions. We kept the material that helps readers understand the argument.
+
+We used visualizations to explain changes that are hard to follow in symbols. The cube follows the whole construction. One $13$-vertex example shows the two cycle systems and cancellation between different matching unions. A crossing diagram explains the weight change. The interactive walkthrough lets readers follow the steps, while the route map shows which alternatives succeed, fail or remain open. Scripts compute and check the states, cycles and enclosed faces in the diagrams. We revised layouts, labels and scales to keep the relevant objects clear.
+
+We checked the implementations against each other and against small examples. The Python code follows the objects in the proof and reconstructs Hamiltonian cycles. Its suite passed all $40$ tests during report preparation. We compared the faster C code with the Python code on $8{,}100$ instances. All $331{,}807$ recorded comparisons passed, covering states, pairs, weights, searches, walks and recovered cycles.
+
+We also tested the algorithms across all $826{,}150$ graphs in the class with at most $42$ vertices. Taking root choices up to symmetry gives $33{,}585{,}490$ instances. We tested larger constructed and sampled graphs as well. The summaries record $313{,}839{,}573$ successful output-cycle checks, including repeated checks on the same instances. During report preparation, we inspected those summaries and the earlier comparison records without rerunning the full census. These finite tests check the code and examples. The written argument proves the theorem.
+
+We used Lean to check that the real-sign and finite-difference argument could replace part of the existing formal proof. We rebuilt the main theorem through that replacement, and a separate rebuild confirmed it. This showed that the simplification changed the proof's dependencies, not just its wording. The check covers the replacement within the existing formal model. It leaves some geometric translations in our exposition outside its scope. We claim this supporting check, not a new formalisation of the official theorem.
+
+\newpage
+\section{AI use, attribution, and outcome}
+We use Claude and GPT models to help understand the proof, explore simpler routes, and explain the mathematics through text and visualizations. In this project, we used them to compare arguments, connect steps to known theorems, develop examples, write code and review explanations. We checked their suggestions against the source papers, mathematical arguments and computations.
+
+\begin{itemize}
+\item We asked AI to explore alternative constructions, weaker assumptions and links to known theorems. This helped develop the direct recovery argument and proposals for descent and tree-based proofs. Counterexamples ruled out several proposals.
+\item We used AI to compare the source accounts and review drafts. This helped us separate construction from existence, explain the two groupings of the count, and introduce definitions when readers need them.
+\item We used AI to help write code, draw examples and run experiments. The examples show how weights change and terms cancel. Automated checks test that the pictures match the mathematics.
+\item We asked for separate mathematical reviews and used independent computations and Lean checks. These checks exposed missing assumptions, overstrong claims and attribution errors. We corrected them before using the results.
+\end{itemize}
+
+We tried Open Math OS with open models to seek further proof continuations~\cite{MathOS}. Those runs produced incorrect or unsupported claims. We accepted no useful continuation from them.
+
+We set the goals, chose which questions to pursue, made the mathematical and editorial decisions, and developed the interactive walkthrough. We used reviews to restore necessary assumptions, credit earlier arguments, narrow claims and correct walk counts that depend on the drawing. These internal checks do not amount to external peer review.
+
+We credit the theorem and its central counting method to the earlier sources. Our work explains those ideas, shortens specific steps and tests proposed alternatives. The exposition, walkthrough, route map, companion notes and code let readers study the argument in several ways.
+
+We turned our study of the proof into a clearer route through it. We simplified the recovery step, explained the count through shared examples, and showed where easier-looking approaches fail. Readers can now follow why each step works and which assumptions it needs. Those distinctions also define the next questions: which exchanges lead to a good state, what contractions must preserve, and which lemmas extend to other settings.
+
+\vspace{2pt}
+{\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+\bibitem{OpenAI} OpenAI, \emph{Paired states and Hamiltonian cycles in cubic bipartite planar graphs}, preprint, 24 September 2026.
+\bibitem{Li} Z.~Li, \emph{A note on the proof of Barnette's conjecture}, arXiv:2610.30490, 2026.
+\bibitem{Constructive} \emph{A constructive proof of Barnette's conjecture}, collaborator's working notes, 18 October 2026, supplied without an author line as \texttt{papers/barnette\_trees.pdf}.
+\bibitem{Stein} S.~K.~Stein, \emph{B-sets and planar maps}, Pacific J. Math. \textbf{37} (1971), 217--224.
+\bibitem{HineKalman} C.~Hine and T.~K\'alm\'an, \emph{Clock theorems for triangulated surfaces}, arXiv:1808.06091, 2018.
+\bibitem{MathOS} Open Math Model, \emph{Open Math OS}, \url{https://www.openmathmodel.org/}, accessed 15 November 2026.
+\end{thebibliography}}
+\end{document}

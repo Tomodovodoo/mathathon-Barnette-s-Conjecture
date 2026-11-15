@@ -8,12 +8,15 @@ A constructive and explanatory account of the proof: why it works, and how one g
 
 ## Start here
 
+For an overview of the Mathathon project, read the four-page [project report](submission/report.pdf), with its [TeX source](submission/report.tex).
+
 Read [`paper/barnette.pdf`](paper/barnette.pdf). It is short and self-contained. For a map of the proof and of the routes around it, with a figure for each step, see [`digestions/routes.md`](digestions/routes.md).
 
 ## Layout
 
 | Folder | Contents |
 | --- | --- |
+| `submission/` | The four-page Mathathon project report, its self-contained TeX source, and the build script. |
 | `paper/` | The exposition: `barnette.tex`, `barnette.pdf`, and `figures/` with the script that draws them. |
 | `papers/` | The accounts of the proof and the background literature, with `INDEX.md` and `barnette.bib`. |
 | `proofs/` | Companion notes: the bijective proof by two involutions, the part of the argument that needs no sign, and what is known about algorithms. |
