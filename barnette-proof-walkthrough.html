@@ -103,11 +103,15 @@ svg#fig { display: block; width: 100%; height: auto; max-height: 82vh; }
 .rtag { font-family: var(--ui); font-size: 11.5px; line-height: 1.6; padding: 0 8px; border-radius: 99px; border: 1px solid var(--line); background: color-mix(in srgb, var(--face) 30%, transparent); color: var(--ink); white-space: nowrap; }
 .prose { font-family: var(--display); font-size: 16.5px; line-height: 1.5; max-width: 66ch; display: flex; flex-direction: column; gap: 10px; }
 .prose p { margin: 0; }
+.prose .term { position: relative; cursor: help; padding-bottom: 2px; background-image: linear-gradient(var(--panel), var(--panel)), radial-gradient(circle, color-mix(in srgb, var(--wtree) 70%, var(--panel)) 1px, transparent 1.3px); background-size: 5px 3px, 7px 3px; background-position: 100% 100%, 0 100%; background-repeat: no-repeat, repeat-x; }
+.prose .term[aria-expanded="true"] { background-color: color-mix(in srgb, var(--wtree) 14%, transparent); border-radius: 3px; }
+.prose .term .pop { position: absolute; left: 0; top: calc(100% + 6px); z-index: 5; width: min(300px, 70vw); padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); box-shadow: 0 6px 20px rgba(0, 0, 0, .16); font-family: var(--ui); font-size: 13.5px; line-height: 1.45; font-weight: 400; font-style: normal; cursor: default; }
 .prose .bgbox { border: 1px solid var(--line); border-radius: 8px; padding: 2px 12px; }
 .prose .bgbox p { padding: 2px 0 10px; }
 .prose .bgbtn { border: 0; background: none; padding: 7px 0; margin: 0; width: 100%; text-align: left; cursor: pointer; font-family: var(--ui); font-size: 13.5px; font-weight: 600; color: var(--ink); }
 .prose .claim { border-left: 3px solid var(--ink); padding: 2px 0 2px 12px; }
 .prose .claim b { font-family: var(--ui); font-size: 13px; letter-spacing: .02em; }
+.prose ul.tight { margin: 4px 0 0; padding-left: 20px; }
 .prose .claim ul { margin: 4px 0 0; padding-left: 20px; }
 .prose .claim li { margin: 2px 0; }
 .prose .cite { font-family: var(--ui); font-size: 13px; line-height: 1.45; color: var(--muted); }
@@ -181,6 +185,19 @@ footer.about p { margin: 0; }
 #fig .e0.wide { stroke-width: 11; }
 .hint { font-size: 12.5px; color: var(--muted); }
 #fig .lbl { font-family: var(--display); font-style: italic; font-size: 17px; fill: var(--ink); }
+#fig .rootv { transform-box: fill-box; transform-origin: center; }
+#fig.hot-roots .rootv { fill: #f2b600; stroke: var(--ink); stroke-width: 2; animation: rootbounce 1.5s ease-in-out infinite alternate; }
+@keyframes rootbounce { from { transform: translateY(0) scale(1.15); } to { transform: translateY(-9px) scale(1.45); } }
+@media (prefers-reduced-motion: reduce) { #fig.hot-roots .rootv { animation: none; transform: scale(1.45); } }
+.prose .hov { cursor: default; border-bottom: 2px solid #f2b600; }
+#fig .xv, #fig .ms, #fig .mr { transform-box: fill-box; transform-origin: center; }
+#fig.hot-X .xv, #fig.hot-X .ms, #fig.hot-X .mr { fill: #f2b600; stroke: var(--ink); stroke-width: 1.5; animation: rootbounce 1.5s ease-in-out infinite alternate; }
+#fig.hot-A .bf { fill: #f2b600; animation: facepulse 1.5s ease-in-out infinite alternate; }
+#fig.hot-state .ms, #fig.hot-state .mr { fill: #f2b600; stroke: var(--ink); stroke-width: 1.5; animation: rootbounce 1.5s ease-in-out infinite alternate; }
+#fig.hot-state .mcs, #fig.hot-state .mcr { fill: #f2b600; animation: facepulse 1.5s ease-in-out infinite alternate; }
+@keyframes facepulse { from { fill-opacity: .45; } to { fill-opacity: .95; } }
+@media (prefers-reduced-motion: reduce) { #fig.hot-X .xv, #fig.hot-X .ms, #fig.hot-X .mr, #fig.hot-A .bf { animation: none; } }
+#fig .lbl.qlab { fill: var(--q); }
 #fig .lbl.sm { font-family: var(--mono); font-style: normal; font-size: 12px; }
 #fig .lbl.halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
 #fig .ge { stroke: var(--ink); stroke-width: 2.3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
@@ -923,8 +940,8 @@ const EXAMPLES = (() => {
       if (o.dimV && o.dimV(v)) cls = 'tv dimmed';
       if (o.soft) cls = 'tv soft';
       const p = D.pos[v];
-      if (M.isRoot[v]) mk('rect', { x: f1(p[0] - (o.soft ? 6 : 7.5)), y: f1(p[1] - (o.soft ? 6 : 7.5)), width: o.soft ? 12 : 15, height: o.soft ? 12 : 15, rx: 1.5, class: cls }, g);
-      else mk('circle', { cx: f1(p[0]), cy: f1(p[1]), r: o.soft ? 4 : 4.8, class: cls }, g);
+      if (M.isRoot[v]) mk('rect', { x: f1(p[0] - (o.soft ? 6 : 7.5)), y: f1(p[1] - (o.soft ? 6 : 7.5)), width: o.soft ? 12 : 15, height: o.soft ? 12 : 15, rx: 1.5, class: cls + ' rootv' }, g);
+      else mk('circle', { cx: f1(p[0]), cy: f1(p[1]), r: o.soft ? 4 : 4.8, class: cls + ' xv' }, g);
       if (o.ring && o.ring.has(v)) mk('circle', { cx: f1(p[0]), cy: f1(p[1]), r: 10.5, class: 'vS' }, g);
     }
   }
@@ -1006,9 +1023,21 @@ const EXAMPLES = (() => {
         if (S.showT) { drawBase(g, { soft: true }); drawVerts(g, { soft: true }); } if (S.showG) drawG(g);
       }
     } else if (id === 'states') {
-      drawBase(g); drawE0(g); const s = D.states[S.st];
+      drawBase(g); const s = D.states[S.st];
       if (S.showQ) drawQ(g, s, null);
       drawVerts(g); drawPointers(g, s);
+      {
+        const area = t => { const [a, b, c] = M.faces[t].map(v => D.pos[v]); return Math.abs((b[0] - a[0]) * (c[1] - a[1]) - (c[0] - a[0]) * (b[1] - a[1])); };
+        let li = 0; M.A.forEach((t, i) => { if (area(t) > area(M.A[li])) li = i; });
+        const c = centroid(M.A[li]), P = D.pos[s[li]], dx = P[0] - c[0], dy = P[1] - c[1], dl = Math.hypot(dx, dy) || 1;
+        mk('text', { x: f1(c[0] - 6 * dx / dl), y: f1(c[1] - 6 * dy / dl + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 't';
+        mk('text', { x: f1(P[0] + 20 * dx / dl), y: f1(P[1] + 20 * dy / dl + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'r(t)';
+        if (S.showQ) {
+          const [x, y] = M.faces[M.A[li]].filter(v => v !== s[li]); const m = edgePt(x, y, 0.5), ex = m[0] - c[0], ey = m[1] - c[1], el = Math.hypot(ex, ey) || 1;
+          const q = mk('text', { x: f1(m[0] + 18 * ex / el), y: f1(m[1] + 18 * ey / el + 6), 'text-anchor': 'middle', class: 'lbl halo qlab' }, g); q.textContent = 'Q';
+          mk('tspan', { dy: 5, style: 'font-size:12px' }, q).textContent = 's';
+        }
+      }
     } else if (noPairs && id !== 'glue') {
       const V = D.violator;
       drawBase(g, { hlFaces: V ? M.A.filter((t, i) => V.contrib[i] > 0) : null }); drawE0(g);
@@ -1101,10 +1130,10 @@ const EXAMPLES = (() => {
     black: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--face)"/>') + 'black triangle',
     root: sw('<rect x="8" y="0" width="14" height="14" rx="1.5" style="fill:var(--ink)"/>') + 'root (vertex of t₀)',
     e0: sw('<path d="M5 7 H25" style="stroke:color-mix(in srgb, var(--ink) 60%, var(--tedge));stroke-width:4"/><rect x="1" y="3" width="8" height="8" rx="1" style="fill:var(--ink)"/><rect x="21" y="3" width="8" height="8" rx="1" style="fill:var(--ink)"/>') + 'e₀: the chosen side of t₀. Its two endpoints must land in the same tree. The Hamiltonian cycle avoids the edge of G that crosses e₀.',
-    gG: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:2.3"/><circle cx="8" cy="7" r="4.3" style="fill:var(--ink)"/><circle cx="22" cy="7" r="3.6" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.8"/>') + 'graph G: black lines, with its black and white vertices',
-    tT: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.2"/><circle cx="8" cy="7" r="3.2" style="fill:var(--tedge)"/><circle cx="22" cy="7" r="3.2" style="fill:var(--tedge)"/>') + 'triangulation T: grey lines and dots',
+    gG: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:2.3"/><circle cx="8" cy="7" r="4.3" style="fill:var(--ink)"/><circle cx="22" cy="7" r="3.6" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.8"/>') + 'graph G: black edges, black and white vertices',
+    tT: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.2"/><circle cx="8" cy="7" r="3.2" style="fill:var(--tedge)"/><circle cx="22" cy="7" r="3.2" style="fill:var(--tedge)"/>') + 'dual graph T with grey edges and vertices and triangular faces colored according to vertices of G',
     gv: sw('<circle cx="8" cy="7" r="4.3" style="fill:var(--ink)"/><circle cx="22" cy="7" r="4.3" style="fill:var(--panel);stroke:var(--ink);stroke-width:1.6"/>') + 'vertices of G',
-    ring: sw('<path d="M2 12 A20 20 0 0 1 28 12" style="fill:none;stroke:var(--ink);stroke-width:3"/>') + 'ring: the vertex of G at infinity, the one “inside” the triangle t₀ of T',
+    ring: sw('<path d="M2 12 A20 20 0 0 1 28 12" style="fill:none;stroke:var(--ink);stroke-width:3"/>') + 'ring outside: vertex of G depicted “at infinity”',
     s: sw('<path d="M3 13 L27 13 L15 3 Z" style="fill:var(--face)"/><path d="M15 3 L9.96 7.2 L20.04 7.2 Z" style="fill:var(--pair);fill-opacity:.5"/><circle cx="15" cy="3" r="3" style="fill:var(--pair)"/>') + 'chosen vertex s(t)',
     sel: sw('<path d="M3 13 L27 13 L15 3 Z" style="fill:var(--face)"/><path d="M15 3 L9.96 7.2 L20.04 7.2 Z" style="fill:var(--pair);fill-opacity:.5"/><circle cx="15" cy="3" r="3" style="fill:var(--pair)"/>') + 'chosen vertex s(t); the shaded corner shows which black triangle t chooses it',
     r: sw('<path d="M3 13 L27 13 L15 3 Z" style="fill:var(--face)"/><path d="M15 3 L9.96 7.2 L20.04 7.2 Z" style="fill:var(--q);fill-opacity:.5"/><circle cx="15" cy="3" r="3" style="fill:var(--q)"/>') + 'chosen vertex r(t)',
@@ -1125,7 +1154,7 @@ const EXAMPLES = (() => {
   function renderLegend() {
     const id = STEPS[S.step].id; let keys = ['root'];
     if (id === 'thm') keys = ['trees', 'ham'];
-    else if (id === 'dual') keys = (S.showG ? ['gG'] : []).concat(S.showT ? ['tT'] : [], S.showG ? ['ring'] : []);
+    else if (id === 'dual') keys = (S.showG ? ['gG', 'ring'] : []).concat(S.showT ? ['tT'] : []);
     else if (id === 'states') keys = ['root', 'sel'].concat(S.showQ ? ['qhi'] : []);
     else if (!D.pairs.length && id !== 'glue') keys = ['viol', 'touch', 'root'];
     else if (id === 'pairs') keys = ['r', 's', 'd', 'root'];
@@ -1135,7 +1164,8 @@ const EXAMPLES = (() => {
     else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 'wt'], ['wt', 'p', 's'], ['trees', 'ham']][S.sub7];
     else if (id === 'glue') keys = D.sol.pieces ? (S.sub8 === 0 ? ['sep', 'inside'] : S.sub8 === 3 ? ['trees', 'ham', 'sep'] : ['trees', 'sep']) : ['trees', 'ham'];
     document.getElementById('figcap').innerHTML = id === 'thm' ? 'In the figure, Theorem 2.2 is applied to the outer triangle <i>t</i><sub>0</sub> and one of its sides, <i>e</i><sub>0</sub>.' : '';
-    document.getElementById('legend').innerHTML = keys.concat(S.hideE0 || id === 'dual' ? [] : ['e0']).map(k => { const j = LG[k].indexOf('</svg>') + 6; return `<span>${LG[k].slice(0, j)}<span>${LG[k].slice(j)}</span></span>`; }).join('');
+    document.getElementById('legend').style.flexDirection = id === 'dual' ? 'column' : '';
+    document.getElementById('legend').innerHTML = keys.concat(S.hideE0 || id === 'dual' || id === 'states' ? [] : ['e0']).map(k => { const j = LG[k].indexOf('</svg>') + 6; return `<span>${LG[k].slice(0, j)}<span>${LG[k].slice(j)}</span></span>`; }).join('');
   }
 
   // ---------- text panels ----------
@@ -1147,6 +1177,15 @@ const EXAMPLES = (() => {
   };
   const stateTag = q => (!q.forest ? '<span class="tag cyc">cycle</span>' : q.partners ? '<span class="tag ok">forest</span>' : '<span class="tag na">no partner</span>');
   const E0NAMES = () => D.outerEdges.map(([u, v]) => { const a = ((D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v])) % 360 + 360) % 360; return a > 200 && a < 340 ? 'bottom' : a < 90 || a >= 340 ? 'upper right' : 'upper left'; });
+  const TERMS = {
+    'cubic': 'A graph is cubic if every vertex has exactly three neighbours.',
+    'bipartite': 'A graph is bipartite if its vertices can be split into two classes so that every edge joins the two classes.',
+    '3-connected': 'A graph is 3-connected if it has more than three vertices and stays connected after deleting any two of them.',
+    'planar': 'A graph is planar if it can be drawn in the plane without crossing edges.',
+    'Hamiltonian cycle': 'A Hamiltonian cycle is a closed path that visits every vertex of the graph exactly once.',
+  };
+  TERMS['separating triangle'] = 'A separating triangle of T is a 3-cycle in T with vertices strictly on both sides. Example: the “Two cubes, glued” graph has one, the triangle along which its two octahedra are joined.';
+  const term = k => `<span class="term" role="button" tabindex="0" data-act="term" data-k="${k}" aria-expanded="${S.term === k}">${k}${S.term === k ? `<span class="pop" role="note">${TERMS[k]}</span>` : ''}</span>`;
   const e0Row = () => `<div class="ctl"><div class="lab">Prescribed outer edge <span class="keep">e<sub>0</sub></span></div><div class="row" role="group">${E0NAMES().map((n, k) => `<button class="btn" data-act="e0" data-i="${k}" aria-pressed="${k === S.e0k && !S.hideE0}">${n}</button>`).join('')}<span class="hint">click the chosen one again to hide it</span></div></div>`;
   const subSeg = (labels, cur, act) => `<div class="row" role="group">${labels.map((l, i) => `<button class="btn" data-act="${act}" data-i="${i}" aria-pressed="${i === cur}">${l}</button>`).join('')}</div>`;
 
@@ -1155,11 +1194,11 @@ const EXAMPLES = (() => {
       const M = D.M;
       return `<div class="prose">
         <div class="bgbox"><button class="bgbtn" data-act="toggle" data-k="bg" aria-expanded="${!!S.bg}"><span aria-hidden="true">${S.bg ? '▾' : '▸'}</span> Background: graph theory terms</button>${S.bg ? `<p>All graphs are finite and simple (no loops, no parallel edges). A graph is <b>cubic</b> if every vertex has exactly three neighbours, and <b>bipartite</b> if its vertices can be split into two classes so that every edge joins the two classes. It is <b>planar</b> if it can be drawn in the plane without crossing edges. A fixed such drawing is a <b>plane graph</b>, and the regions it cuts the plane into are its <b>faces</b>. It is <b>3-connected</b> if it has more than three vertices and stays connected after deleting any two of them. A <b>cycle</b> is a closed path that visits no vertex twice, a <b>Hamiltonian cycle</b> is a cycle through every vertex of the graph, and a <b>tree</b> is a connected graph with no cycle. For a set of vertices, the <b>induced</b> subgraph keeps every edge with both ends in the set.</p>` : ''}</div>
-        <p class="claim"><b>BARNETTE’S CONJECTURE</b> (1969 ${cref(2)}). Every cubic, bipartite, 3-connected planar graph <i>G</i> has a Hamiltonian cycle.</p>
+        <p class="claim"><b>BARNETTE’S CONJECTURE</b> (1969 ${cref(2)}). Every ${term('cubic')}, ${term('bipartite')}, ${term('3-connected')} ${term('planar')} graph <i>G</i> has a ${term('Hamiltonian cycle')}.</p>
         <p>The proof works in the dual. The <b>dual graph</b> <i>G</i><sup>*</sup> of a plane graph <i>G</i> has a vertex for every face of <i>G</i> and an edge for every edge of <i>G</i>, joining the two faces on either side of it. A <b>triangulation</b> is a plane graph in which every face is a triangle.</p>
         <p><i>G</i> being cubic, bipartite, 3-connected and planar is equivalent to its dual graph <i>G</i><sup>*</sup> = <i>T</i> being a simple <i>Eulerian</i> triangulation of the sphere (every vertex of <i>T</i> has even degree), so the conjecture can be stated for <i>T</i>.</p>
         
-        <p>In the picture, any triangle <i>t</i><sub>0</sub> of <i>T</i> can be drawn as the outermost triangle (the shaded ring), and the vertex of <i>G</i> corresponding to it is drawn as the outermost black ring.</p>
+        
         <p class="claim"><b>THEOREM</b> (Dual Form; ${cref(3)}, ${cref(4)}). <i>G</i> is Hamiltonian if and only if the vertices of <i>T</i> admit a partition into two sets that each induce a tree. The Hamiltonian cycle is the closed curve running between the two trees.</p>
         <p class="cite">Originally due to Stein ${cref(3, 'Theorem 2.2')}, in a formulation about partitioning the regions of a planar map. Proved in the two-tree form used here by Alt, Payne, Schmidt and Wood ${cref(4, 'Lemma 5')}.</p></div>
         <div class="do"><b>Try it.</b> Show the graph <i>G</i>, the triangulation <i>T</i>, or both.</div>
@@ -1171,21 +1210,23 @@ const EXAMPLES = (() => {
     },
     thm() {
       return `<div class="prose">
-        <div class="claim"><b>THEOREM 2.2</b> (OpenAI ${cref(1)}, §2). For every triangle <i>t</i> of <i>T</i> and every edge <i>e</i> of <i>t</i>, there exists a partition of the vertices of <i>T</i> into two sets such that:<ul><li>the subgraphs of <i>T</i> induced on the two sets are trees,</li><li>both endpoints of <i>e</i> lie in one tree,</li><li>the third vertex of <i>t</i> lies in the other tree.</li></ul></div>
-        <p>Theorem 2.2 is the statement the OpenAI paper proves. Barnette’s conjecture follows from it, by the Dual Form theorem in Step 1.</p>
-        <p>The proof has a case distinction. A <i>separating triangle</i> of <i>T</i> is three mutually adjacent vertices that do not bound a face, so <i>T</i> has vertices on both sides of it.</p>
-        <p><b>Case 1: <i>T</i> has no separating triangle.</b> The partition is constructed directly, from a pair of states (Steps 3 to 8). This is also the base case of the induction below.</p>
-        <p><b>Case 2: <i>T</i> has a separating triangle.</b> This case uses induction on the number of vertices. Cut <i>T</i> along the triangle into two smaller triangulations, apply the theorem to each, and glue the two partitions (Step 9).</p></div>
+        <p class="claim"><b>THEOREM 2.2</b> (OpenAI ${cref(1)}, §2). There exists a partition of the vertices of <i>T</i> into two sets, each inducing a tree in <i>T</i>.</p>
+        <p>Barnette’s conjecture follows from it, by the Dual Form theorem in Step 1.</p>
+        <p>The proof has the following case distinction.</p>
+        <p><b>Case 1: <i>T</i> has no ${term('separating triangle')}.</b> The partition is constructed directly, from a pair of states (Steps 3 to 8). This is also the base case of the induction below.</p>
+        <p><b>Case 2: <i>T</i> has a separating triangle.</b> This case uses induction on the number of vertices. Cut <i>T</i> along the triangle into two smaller triangulations, apply the theorem to each, and glue the two partitions (Step 9).</p>
+        </div>
         <div class="do"><b>Try it.</b> Choose one of the arcs <i>e</i><sub>0</sub> of <i>t</i><sub>0</sub>. The figure shows the partition of <i>T</i> into two trees that the theorem gives.</div>` + e0Row();
     },
     states() {
       const M = D.M, q = D.qinfo[S.st];
       return `<div class="prose">
-        <p>Call the three vertices of <i>t</i><sub>0</sub> the <b>roots</b>. Let <i>A</i> be the other <i>k</i> − 1 black triangles and <i>X</i> the <i>k</i> − 1 non-root vertices.</p>
-        <p class="claim"><b>DEFINITION</b> (State). A <strong>state</strong> is a bijection <i>r</i> : <i>A</i> → <i>X</i> with <i>r</i>(<i>t</i>) ∈ <i>V</i>(<i>t</i>), where <i>V</i>(<i>t</i>) is the vertex set of the triangle <i>t</i>.</p>
-        <p>A state assigns to each black triangle (except for <i>t</i><sub>0</sub>) one of its vertices. The figure shows one state. The notion comes from Tutte’s theory of trinity ${cref(5)}; see ${cref(6)} for a modern treatment.</p>
+        <p>From now on, fix one black triangle <i>t</i><sub>0</sub> of <i>T</i>, drawn as the outer shaded ring. Everything that follows holds for any choice of <i>t</i><sub>0</sub>.</p>
+        <p>Call the three vertices of <i>t</i><sub>0</sub> the <b class="hov" data-hov="roots">roots</b>. Let <i class="hov" data-hov="A">A</i> be all black triangles of <i>T</i> except for <i>t</i><sub>0</sub>, and let <i class="hov" data-hov="X">X</i> be all non-root vertices of <i>T</i>.</p>
+        <p class="claim"><b>DEFINITION</b> (State). A <strong class="hov" data-hov="state">state</strong> is a bijection <i>r</i> : <i>A</i> → <i>X</i> with <i>r</i>(<i>t</i>) ∈ <i>V</i>(<i>t</i>), where <i>V</i>(<i>t</i>) is the vertex set of the triangle <i>t</i>.</p>
+        <p>A state assigns to each black triangle (except for <i>t</i><sub>0</sub>) one of its vertices. The figure shows one state in blue. The notion <i>state</i> comes from Tutte’s theory of trinity ${cref(5)}; see ${cref(6)} for a modern treatment.</p>
         
-        <p>For a state <i>s</i>, let <i>Q<sub>s</sub></i> be the set of opposite edges: for each triangle <i>t</i> of <i>A</i>, the edge of <i>t</i> opposite its chosen vertex <i>s</i>(<i>t</i>).</p>
+        <p>For a state <i>s</i>, let <i>Q<sub>s</sub></i> be the set of edges opposite to <i>s</i>(<i>t</i>) for all triangles <i>t</i>.</p>
         <p>In the next step we consider a <i>partner state</i> <i>r</i> to <i>s</i>, that chooses a different vertex than <i>s</i> for each triangle, and orients edges in <i>Q<sub>s</sub></i> away from <i>r</i>(<i>t</i>).</p>
         </div>
         <div class="ctl"><div class="row"><button class="btn tog" data-act="toggle" data-k="showQ" aria-pressed="${S.showQ}"><span>Show Q<sub>s</sub></span></button></div><div class="lab">All ${plural(D.states.length, 'state')}</div><div class="row">${D.states.map((s, i) => `<button class="chip" data-act="state" data-i="${i}" aria-pressed="${i === S.st}"><span>${i + 1}</span></button>`).join('')}</div>
@@ -1339,7 +1380,11 @@ const EXAMPLES = (() => {
   }
   function moveFigOptions() {
     const fc = document.getElementById('figctl'); fc.textContent = '';
+    document.getElementById('panel').querySelectorAll('dl.read').forEach(el => el.remove());
+    document.getElementById('panel').querySelectorAll('.do').forEach(el => { if (/^\s*Try it/.test(el.textContent)) el.remove(); });
     document.getElementById('panel').querySelectorAll('.ctl, .figopt').forEach(el => fc.appendChild(el));
+    const pop = document.querySelector('#panel .pop');
+    if (pop) { const over = pop.getBoundingClientRect().right - (document.getElementById('panel').getBoundingClientRect().right - 14); if (over > 0) pop.style.left = -over + 'px'; }
   }
   function renderChrome() {
     document.getElementById('examples').innerHTML = EXAMPLES.map((e, i) => `<button data-act="ex" data-i="${i}" aria-pressed="${i === S.ex}">${e.name}<small>${e.sub}</small></button>`).join('');
@@ -1374,6 +1419,7 @@ const EXAMPLES = (() => {
     else if (a === 'state') S.st = i;
     else if (a === 'cyc') S.cyc = i;
     else if (a === 'view') { S.showG = k !== 'T'; S.showT = k !== 'G'; }
+    else if (a === 'term') S.term = S.term === k ? '' : k;
     else if (a === 'toggle') S[k] = !S[k];
     else if (a === 'ztab') S.ztab = k;
     else if (a === 'sub7') S.sub7 = i;
@@ -1385,10 +1431,13 @@ const EXAMPLES = (() => {
     }
     render();
   }
-  function onClick(ev) { const el = ev.target.closest('[data-act]'); if (!el || el.disabled) return; act(el.getAttribute('data-act'), el); }
+  function onClick(ev) { const el = ev.target.closest('[data-act]'); if (!el || el.disabled) { if (S.term) { S.term = ''; render(); } return; } if (el.getAttribute('data-act') !== 'term' && S.term) { S.term = ''; if (el.getAttribute('data-act') === 'ref') render(); } act(el.getAttribute('data-act'), el); }
 
   function init() {
     document.addEventListener('click', onClick);
+    const hov = (ev, on) => { const el = ev.target.closest && ev.target.closest('[data-hov]'); if (el) document.getElementById('fig').classList.toggle('hot-' + el.getAttribute('data-hov'), on); };
+    document.addEventListener('mouseover', ev => hov(ev, true));
+    document.addEventListener('mouseout', ev => hov(ev, false));
     document.addEventListener('keydown', ev => {
       if (ev.target.closest('input, textarea, select')) return;
       if (ev.key === 'ArrowRight') { setStep(S.step + 1); render(); } else if (ev.key === 'ArrowLeft') { setStep(S.step - 1); render(); }
