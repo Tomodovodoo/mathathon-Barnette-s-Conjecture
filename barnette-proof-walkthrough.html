@@ -18,7 +18,7 @@
   --pair: #1c6fd1;
   --q: #ff6a00;
   --wtree: #7b4bc4;
-  --clsa: #34d058; --clsm: #219647;
+  --clsa: #34d058; --clsm: #219647; --ham: #d81b60;
   --clsb: #0d5c36;
   --hl: rgba(250, 190, 20, 0.38);
   --focus: #1c6fd1;
@@ -31,14 +31,14 @@
   :root:not([data-theme="light"]) {
     --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
     --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff8a2b; --wtree: #b99aff;
-    --clsa: #7af28a; --clsm: #4dc170; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+    --clsa: #7af28a; --clsm: #4dc170; --ham: #ff5c93; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
   --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff8a2b; --wtree: #b99aff;
-  --clsa: #7af28a; --clsm: #4dc170; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+  --clsa: #7af28a; --clsm: #4dc170; --ham: #ff5c93; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -120,8 +120,11 @@ svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .prose.scroll5 > p { opacity: .5; transition: opacity .3s; }
 .prose.scroll5 > p.cur, .prose.scroll5 > p:hover, .prose.scroll5 > p:focus-visible { opacity: 1; }
 .prose .claim.go { cursor: pointer; }
+.prose .alg .sub { display: block; margin: 4px 0 0 20px; }
+.prose .alg > b:first-child { display: inline-block; min-width: 20px; }
 .prose .fact.go { cursor: pointer; border-radius: 6px; margin-left: -6px; margin-right: -6px; padding: 4px 6px; transition: background .15s; }
 .prose .fact.go:hover, .prose .fact.go:focus-visible { background: color-mix(in srgb, var(--wtree) 10%, transparent); outline: none; }
+.prose .fact.go[data-col="g"]:hover, .prose .fact.go[data-col="g"]:focus-visible { background: color-mix(in srgb, var(--clsm) 22%, transparent); }
 .prose .fact.go[data-hov="f1"]:hover, .prose .fact.go[data-hov="f1"]:focus-visible { background: color-mix(in srgb, var(--q) 20%, transparent); }
 .prose .claim { border-left: 3px solid var(--ink); padding: 2px 0 2px 12px; }
 .prose .claim b { font-family: var(--ui); font-size: 13px; letter-spacing: .02em; }
@@ -142,10 +145,13 @@ svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .figbox .figtog[aria-pressed="true"] { border-color: var(--q); color: var(--q); }
 .figbox .figtog sub { font-size: .75em; }
 .figbox .replay { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 17px; line-height: 1; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-.figbox.hasslide { padding-bottom: 42px; }
-.figbox .figslide { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); width: min(70%, 400px); height: 28px; }
+.figbox.hasslide { padding-bottom: 54px; }
+.figbox .figslide { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); width: min(70%, 400px); height: 28px; }
 .figbox .figslide .ticks { position: absolute; left: 11px; right: 11px; top: 50%; height: 2px; margin-top: -1px; background: var(--line); display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
 .figbox .figslide .ticks span { width: 10px; height: 10px; margin: 0 -5px; border-radius: 50%; background: var(--panel); border: 1.5px solid var(--tedge); box-sizing: border-box; }
+.figbox .figslide .ticks span { position: relative; }
+.figbox .figslide .ticks span::after { content: attr(data-n); position: absolute; left: 50%; top: 15px; transform: translateX(-50%); font-family: var(--ui); font-size: 11px; line-height: 1; color: var(--muted); }
+.figbox .figslide .ticks span.on::after { color: var(--ink); }
 .figbox .figslide .ticks span.on { background: var(--ink); border-color: var(--ink); }
 .figbox .figslider { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
 .figbox .figslider::-webkit-slider-runnable-track { background: transparent; height: 28px; }
@@ -254,28 +260,32 @@ footer.about p { margin: 0; }
 .figsvg.showF1 .f1h { display: inline; }
 .figsvg.showSp .f1h { display: inline; }
 .figsvg.spin .f1h { animation: figfade .9s ease both; }
-.figsvg.lift:not(.spin) .qgo, .figsvg.lift:not(.spin) .tv, .figsvg.lift:not(.spin) .ms { transform: translate(-5px, -11px); }
-.figsvg.lift:not(.spin) .qgo { filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); }
-.figsvg.lift:not(.spin) .tv, .figsvg.lift:not(.spin) .ms { filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); }
-.figsvg.lift:not(.spin) .te, .figsvg.lift:not(.spin) .mcs { opacity: .3; }
+.figsvg.lift:not(.spin) .qgo, .figsvg.lift:not(.spin) .tv, .figsvg.lift:not(.spin) .ms { transform: translate(-7px, -15px); }
+.figsvg.lift:not(.spin) .te { opacity: .3; }
 .figsvg.lift.spin .qgo { animation: liftq 1.3s ease .9s forwards; }
 .figsvg.lift.spin .tv, .figsvg.lift.spin .ms { animation: liftv 1.3s ease .9s forwards; }
-.figsvg.lift.spin .te, .figsvg.lift.spin .mcs { animation: liftbg 1.3s ease .9s forwards; }
-@keyframes liftq { to { transform: translate(-5px, -11px); filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); } }
-@keyframes liftv { to { transform: translate(-5px, -11px); filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); } }
+.figsvg.lift.spin .te { animation: liftbg 1.3s ease .9s forwards; }
+@keyframes liftq { to { transform: translate(-7px, -15px); } }
+@keyframes liftv { to { transform: translate(-7px, -15px); } }
 @keyframes liftbg { to { opacity: .3; } }
-.figsvg.pre1 .tofaint, .figsvg.pre1.mfainta .ms, .figsvg.pre1.mfainta .mcs { animation-delay: 4.6s; animation-duration: 1.4s; }
-.figsvg.pre1 .fadein.now { animation-delay: 2.3s; animation-duration: 1.1s; }
+.figsvg.pre1 .tofaint, .figsvg.pre1.mfainta .ms, .figsvg.pre1.mfainta .mcs { animation-delay: 5.6s; animation-duration: 1.4s; }
+.figsvg.pre1 .fadein.now { animation-delay: 2.8s; animation-duration: 1.1s; }
 .figsvg.lift.spin.quick .f1h { animation: none; }
-.figsvg.lift.spin.quick .qgo, .figsvg.lift.spin.quick .tv, .figsvg.lift.spin.quick .ms, .figsvg.lift.spin.quick .te, .figsvg.lift.spin.quick .mcs { animation-delay: .5s; }
+.figsvg.lift.spin.quick .qgo, .figsvg.lift.spin.quick .tv, .figsvg.lift.spin.quick .ms, .figsvg.lift.spin.quick .te { animation-delay: .5s; }
 .figsvg.unl .qgo { animation: unlq 1.3s ease both; }
 .figsvg.unl .tv, .figsvg.unl .ms { animation: unlv 1.3s ease both; }
 .figsvg.unl .te { animation: unlbg 1.3s ease both; }
 .figsvg.unl:not(.pre1) .f1h { display: inline; animation: figout 1.3s ease both; }
-.figsvg.unl.pre1 .qgo { animation: unlq 1.3s ease both, tofaint 1.4s ease-in-out 4.6s both; }
-.figsvg.unl.pre1.mfainta .ms { animation: unlv 1.3s ease both, tofaint 1.4s ease-in-out 4.6s both; }
-@keyframes unlq { from { transform: translate(-5px, -11px); filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); } }
-@keyframes unlv { from { transform: translate(-5px, -11px); filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); } }
+.figsvg.unl.pre1 .qgo { animation: unlq 1.3s ease both, tofaint 1.4s ease-in-out 5.6s both; }
+.figsvg.unl.pre1.mfainta .ms { animation: unlv 1.3s ease both, tofaint 1.4s ease-in-out 5.6s both; }
+@keyframes unlq { from { transform: translate(-7px, -15px); } }
+@keyframes unlv { from { transform: translate(-7px, -15px); } }
+.figsvg .qsh { display: none; transform: translate(10px, 17px); }
+.figsvg .qsh path { stroke: #000 !important; opacity: .42 !important; animation: none !important; }
+.figsvg.lift .qsh { display: inline; }
+.figsvg.lift.spin .qsh { animation: figfade 1.3s ease .9s both; }
+.figsvg.lift.spin.quick .qsh { animation-delay: .5s; }
+.figsvg.unl .qsh { display: inline; animation: figout 1.3s ease both; }
 @keyframes unlbg { from { opacity: .3; } }
 @keyframes figout { from { opacity: 1; } to { opacity: 0; } }
 .figsvg.f1x0 .f1e0, .figsvg.f1x1 .f1e1, .figsvg.f1x2 .f1e2 { display: none; }
@@ -305,7 +315,8 @@ footer.about p { margin: 0; }
 .figsvg .gvw { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
 .figsvg .ring { stroke: var(--ink); stroke-width: 4; fill: none; }
 .figsvg .ring.thin { stroke-width: 1.5; opacity: .3; stroke-dasharray: 3 4; }
-.figsvg .ham { stroke: var(--ink); stroke-width: 5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.figsvg .ham { stroke: var(--ham); stroke-width: 5.5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.figsvg .hamh { stroke: var(--panel); stroke-width: 10; fill: none; stroke-linejoin: round; stroke-linecap: round; }
 .figsvg .d { stroke: var(--pair); stroke-width: 6.5; opacity: .6; fill: none; stroke-linecap: round; }
 .figsvg .dh { fill: color-mix(in srgb, var(--pair) 72%, var(--ink)); stroke: var(--panel); stroke-width: 1.2; stroke-linejoin: round; }
 .figsvg .d.sel { stroke-width: 8.5; }
@@ -366,8 +377,9 @@ footer.about p { margin: 0; }
 .figbox .figghost { position: absolute; pointer-events: none; opacity: 1; transition: opacity 1s ease .45s; }
 .figbox .figghost.out { opacity: 0; }
 .figsvg.frozen, .figsvg.frozen * { animation: none !important; }
-.figsvg.xin { animation: figfade .5s ease both; }
-@media (prefers-reduced-motion: reduce) { .figbox .figghost { display: none; } .figsvg.xin { animation: none; } }
+.figsvg .nin { animation: ninfade .7s ease backwards; }
+@keyframes ninfade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .figbox .figghost { display: none; } .figsvg .nin { animation: none; } }
 </style>
 </head>
 <body>
@@ -1040,9 +1052,9 @@ const EXAMPLES = (() => {
       const a = D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v]);
       const p = arcPt(a + 13, (RT + RG) / 2);
       if (!S.hideE0) mk('text', { x: f1(p[0]), y: f1(p[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'e₀';
-      const k2 = (S.e0k + 1) % 3; const [u2, v2] = D.outerEdges[k2];
+      const near = STEPS[S.step].id === 'trees'; const k2 = near ? S.e0k : (S.e0k + 1) % 3; const [u2, v2] = D.outerEdges[k2];
       const a2 = D.rootAng[u2] + 0.5 * angDiff(D.rootAng[u2], D.rootAng[v2]);
-      const p2 = arcPt(a2 + 13, (RT + RG) / 2);
+      const p2 = arcPt(a2 + (near ? -13 : 13), (RT + RG) / 2);
       mk('text', { x: f1(p2[0]), y: f1(p2[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 't₀';
     }
   }
@@ -1065,7 +1077,7 @@ const EXAMPLES = (() => {
     const M = D.M; const inHam = o.ham ? new Set(o.ham.edges) : null;
     M.edges.forEach((E, id) => { if (inHam && inHam.has(id)) return; mk('path', { d: gEdgeD(id), class: 'ge' + (inHam ? ' faint' : '') }, g); });
     if (!o.noRing) mk('circle', { cx: CX, cy: CY, r: RG, class: 'ring' + (o.ham ? ' thin' : '') }, g);
-    if (o.ham) drawHam(g, o.ham);
+    if (o.ham) { const before = g.lastChild; drawHam(g, o.ham); const hs = []; for (let n = before ? before.nextSibling : g.firstChild; n; n = n.nextSibling) if (n.classList && n.classList.contains('ham')) hs.push(n); if (hs.length) { const first = hs[0]; hs.forEach(h => { const c = h.cloneNode(false); c.setAttribute('class', 'hamh'); g.insertBefore(c, first); }); } }
     M.faces.forEach((F, i) => { if (i === M.t0) return; mk('circle', { cx: f1(D.fc[i][0]), cy: f1(D.fc[i][1]), r: o.ham ? 4.3 : 5.4, class: M.col[i] === 0 ? 'gvb' : 'gvw' }, g); });
   }
   function drawHam(g, ham) {
@@ -1184,18 +1196,21 @@ const EXAMPLES = (() => {
       if (!res) { drawBase(g); drawE0(g); drawVerts(g); }
       else if (sub === 0) { drawBase(g); drawE0(g); drawQ(g, p.s, null); drawMarkers(g, p, 's'); drawVerts(g); }
       else if (sub === 1 || sub === 2) {
-        drawBase(g, { dim: true }); if (sub !== 1) drawE0(g);
+        drawBase(g, { dim: true }); if (sub !== 1) { const h0 = S.hideE0; if (or5()) S.hideE0 = true; drawE0(g); S.hideE0 = h0; }
         if (sub === 1) {
           const ph = o5(), an = !w5() && !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); S.anim7 = false;
+          { const df = mk('defs', {}, g), fl = mk('filter', { id: 'shblur', x: '-10%', y: '-10%', width: '120%', height: '120%' }, df); mk('feGaussianBlur', { stdDeviation: '6' }, fl); }
+          const sh = mk('g', { class: 'qsh', filter: 'url(#shblur)' }, g);
           const go = mk('g', Object.assign({ class: 'qgo' }, ph === 1 ? (an ? { class: 'tofaint' } : { opacity: 0.25 }) : ph >= 2 ? (an && ph === 2 ? { class: 'fromfaint' } : { style: 'display:none' }) : {}), g);
           go.classList.add('qgo'); { const R3 = M.roots, f1 = mk('g', { class: 'f1h' }, go); const E0 = e0(); [[0, 1], [1, 2], [0, 2]].forEach(([a, b]) => { if (E0.includes(R3[a]) && E0.includes(R3[b])) return; mk('path', { d: edgeD(R3[a], R3[b]), class: 'q', style: 'stroke-width:6.5;opacity:1' }, f1); }); }
+          sh.innerHTML = go.innerHTML;
           const fig = document.getElementById('fig'); fig.classList.add('msoft'); if (ph === 0) fig.classList.add('msoft0'); if (sp5() || (ph === 1 && !w5())) fig.classList.add('showSp'); const tr = S.tr; S.tr = null; if (sp5()) fig.classList.add('lift'); if (sp5() && an) fig.classList.add('spin'); if (sp5() && tr && tr.pv === 2) fig.classList.add('spin', 'quick'); if (tr && tr.pv === 1 && (S.ph5 | 0) !== 1 && Math.abs(tr.nx - 1) === 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) fig.classList.add('unl'); if (an && ph === 1) fig.classList.add('pre1'); if (ph === 1) fig.classList.add(an ? 'mfainta' : 'mfaint'); else if (ph >= 2) fig.classList.add(an && ph === 2 ? 'mgonea' : 'mgone');
           M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:6.5;opacity:1' }, go); });
-          if ((S.ph5 | 0) >= 1) { const [u2, v2] = D.outerEdges[(S.e0k + 1) % 3]; const p2 = arcPt(D.rootAng[u2] + 0.5 * angDiff(D.rootAng[u2], D.rootAng[v2]) + 13, (RT + RG) / 2); mk('text', Object.assign({ x: f1(p2[0]), y: f1(p2[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' + (an && sp5() ? ' fadein now' : '') }), g).textContent = 't₀'; }
+          if ((S.ph5 | 0) >= 1) { const [u2, v2] = D.outerEdges[S.e0k]; const p2 = arcPt(D.rootAng[u2] + 0.5 * angDiff(D.rootAng[u2], D.rootAng[v2]) - 13, (RT + RG) / 2); mk('text', Object.assign({ x: f1(p2[0]), y: f1(p2[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' + (an && sp5() ? ' fadein now' : '') }), g).textContent = 't₀'; }
           drawMarkers(g, p, 's');
           S.fade7 = an && ph === 1;
         }
-        if (sub === 2) { const qg = mk('g', { opacity: 0.25 }, g); M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:6.5' }, qg); }); const E0 = e0(), R3 = M.roots; [[0, 1], [1, 2], [0, 2]].forEach(([a, b]) => { if (E0.includes(R3[a]) && E0.includes(R3[b])) return; mk('path', { d: edgeD(R3[a], R3[b]), class: 'q', style: 'stroke-width:6.5' }, qg); }); }
+        if (sub === 2) { const qg = mk('g', { opacity: 0.25 }, g); M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:6.5;opacity:1' }, qg); }); const E0 = e0(), R3 = M.roots; [[0, 1], [1, 2], [0, 2]].forEach(([a, b]) => { if (E0.includes(R3[a]) && E0.includes(R3[b])) return; mk('path', { d: edgeD(R3[a], R3[b]), class: 'q', style: 'stroke-width:6.5;opacity:1' }, qg); }); }
         if ((sub === 1 && o5() >= 1) || sub === 2) gFaint(mk('g', S.fade7 ? { class: 'fadein now' } : {}, g));
         const wg = mk('g', sub === 2 ? (or5() ? {} : an5 ? { class: 'wfade' } : { opacity: 0.4 }) : (sub === 1 && o5() < 1 ? { style: 'display:none' } : (sub === 1 && S.fade7 ? { class: 'fadein now' } : {})), g); S.fade7 = false;
         for (const we of res.wEdges) {
@@ -1208,11 +1223,11 @@ const EXAMPLES = (() => {
             arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 7, 'wth' + (an5 && or5() ? ' fadein now' : ''));
           }
         }
-        M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: 6.5, style: 'stroke-width:2.8', class: 'wn' + (f === res.y0 && sub !== 1 ? ' root' : '') }, wg); });
+        { mk('path', { d: gEdgeD(res.e0id), class: 'wt' }, wg); if (sub === 2) { const m0 = edgePt(...e0(), 0.5), y0c = D.fc[res.y0]; arrowHead(wg, lerp(m0, y0c, 0.5), Math.atan2(y0c[1] - m0[1], y0c[0] - m0[0]) * 180 / Math.PI, 7, 'wth' + (an5 && or5() ? ' fadein now' : '')); } }
+        M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: 6.5, style: 'stroke-width:2.8', class: 'wn' }, wg); });
         if (sub === 2) { if (!or5()) { const pg5 = mk('g', { class: 'pstrong pmid' + (an5 ? ' fadein now' : '') }, g); drawClasses(pg5, res.cls); } drawMarkers(g, p, 's'); document.getElementById('fig').classList.add('mfaint'); }
         const y = D.fc[res.y0]; const dir = [y[0] - CX, y[1] - CY]; const dl = Math.hypot(dir[0], dir[1]) || 1;
-        if (sub !== 1) mk('text', { x: f1(y[0] - 21 * dir[1] / dl), y: f1(y[1] + 21 * dir[0] / dl + 6), 'text-anchor': 'middle', class: 'lbl halo' + (sub === 1 && S.fade7late ? ' fadein now' : '') }, g).textContent = 'y₀';
-        if (sub === 2) drawE0Label(g);
+        if (sub === 2 && !or5()) drawE0Label(g);
         drawVerts(g);
       } else { const st5 = id === 'glue' ? 4 : o5(); drawBase(g, { dim: true }); if (st5 === 3) gFaint(g); drawE0(g); drawClasses(mk('g', { class: 'pstrong' + (an5 && st5 === 3 ? ' psplit' : '') }, g), res.cls); if (st5 >= 4) drawG(mk('g', an5 ? { class: 'fadein now' } : {}, g), { ham: res.ham }); drawVerts(g, { cls: res.cls }); }
     }
@@ -1261,11 +1276,11 @@ const EXAMPLES = (() => {
     q: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:6.5"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
     qhi: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.4"/><path d="M2 7 H28" style="stroke:var(--q);stroke-width:6.5;stroke-linecap:round"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
     disk: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'inside the selected cycle',
-    wt: sw('<path d="M2 7 H28" style="stroke:var(--wtree);stroke-width:2.6"/><circle cx="15" cy="7" r="4" style="fill:var(--panel);stroke:var(--wtree);stroke-width:2.2"/>') + 'spanning tree of G',
+    wt: sw('<path d="M2 7 H28" style="stroke:var(--wtree);stroke-width:2.6"/><circle cx="15" cy="7" r="4" style="fill:var(--panel);stroke:var(--wtree);stroke-width:2.2"/>') + 'spanning tree S(G) of G',
     p: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:8;opacity:.6"/>') + 'selected sides P',
     pg: sw('<path d="M2 3.5 H28" style="stroke:var(--clsa);stroke-width:6"/><path d="M2 10.5 H28" style="stroke:var(--clsb);stroke-width:6"/>') + 'selected sides P',
     trees: sw('<path d="M2 3.5 H28" style="stroke:var(--clsa);stroke-width:6;opacity:.6"/><path d="M2 10.5 H28" style="stroke:var(--clsb);stroke-width:6;opacity:.6"/>') + 'the two induced trees',
-    ham: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:5"/>') + 'Hamiltonian cycle of G',
+    ham: sw('<path d="M2 7 H28" style="stroke:var(--ham);stroke-width:5.5"/>') + 'Hamiltonian cycle of G',
     spoke: sw('<path d="M2 7 H28" style="stroke:var(--muted);stroke-width:1.2"/>') + 'spoke, with its weight a(t, v) if nonzero',
     sep: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:6;opacity:.6;stroke-dasharray:2 6;stroke-linecap:round"/>') + 'separating triangle',
     inside: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'inside the separating triangle',
@@ -1313,7 +1328,8 @@ const EXAMPLES = (() => {
     'planar': 'A graph is planar if it can be drawn in the plane without crossing edges.',
     'Hamiltonian cycle': 'A Hamiltonian cycle is a closed path that visits every vertex of the graph exactly once.',
   };
-  TERMS['a standard result in graph theory'] = 'Let M be a connected plane graph with dual graph M*. A set F of edges of M is a spanning tree of M exactly when the dual edges of the edges not in F form a spanning tree of M*. Here we use M = <i>T</i>, the triangulation itself. (This is the paper’s Lemma 2.1, see also Diestel, <i>Graph Theory</i>, Section 4.6.)';
+  TERMS['Lemma 2.1'] = 'Lemma 2.1. Let M be a connected graph embedded on the sphere. The duals of the edges complementary to a spanning tree of M form a spanning tree of M*. Here M = <i>T</i> and M* = <i>G</i>. (See also Diestel, <i>Graph Theory</i>, Section 4.6.)';
+  TERMS['2‑factor'] = 'A 2-factor of a graph is a set of its edges with exactly two at every vertex. Equivalently, it is a collection of cycles that together pass through every vertex exactly once. Here: G is cubic and the matching P uses one edge at each vertex, so the other two edges at each vertex form a 2-factor.';
   TERMS['separating triangle'] = 'A separating triangle of T is a 3-cycle in T with vertices strictly on both sides. Example: the “Two cubes, glued” graph has one, the triangle along which its two octahedra are joined.';
   const term = k => `<span class="term" role="button" tabindex="0" data-act="term" data-k="${k}" aria-expanded="${S.term === k}">${k}${S.term === k ? `<span class="pop" role="note">${TERMS[k]}</span>` : ''}</span>`;
   const e0Row = () => `<div class="ctl"><div class="lab">Prescribed outer edge <span class="keep">e<sub>0</sub></span></div><div class="row" role="group">${E0NAMES().map((n, k) => `<button class="btn" data-act="e0" data-i="${k}" aria-pressed="${k === S.e0k && !S.hideE0}">${n}</button>`).join('')}<span class="hint">click the chosen one again to hide it</span></div></div>`;
@@ -1458,18 +1474,16 @@ const EXAMPLES = (() => {
       const p = curPair(); const res = construction();
       const it = (st, cls, html, extra = '') => `<p class="${cls} go${st === (S.ph5 | 0) ? ' cur' : ''}" data-act="ph5" data-i="${st}"${extra} tabindex="0">${html}</p>`;
       const J = ' data-jump="1"';
+      const tg = x => `<span class="tag">${x}</span>`, SG = '<i>S</i>(<i>G</i>)', ST = '<i>S</i>(<i>T</i>)', T0 = '<i>t</i><sub>0</sub>', QS = '<i>Q<sub>s</sub></i>';
       const items = [
-        it(0, 'claim', `<b>CLAIM</b> (Step 4). There exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest in which every component contains exactly one root.`, J),
-        it(1, 'fact', `<b>Fact 1.</b> <span class="tag">clear</span><br><i>Q<sub>s</sub></i> together with any two edges of <i>t</i><sub>0</sub> is a spanning tree of <i>T</i>.`, ' data-hov="f1"'),
-        it(2, 'fact', `<b>Fact 2.</b> <span class="tag">standard result</span><br>By ${term('a standard result in graph theory')} (Lemma 2.1), complementing a spanning tree of a plane graph gives a spanning tree of its dual. Here the plane graph is <i>T</i> and its dual is <i>G</i>. Every edge of <i>G</i> crosses exactly one edge of <i>T</i>. So the edges of <i>G</i> that cross the non-orange edges of <i>T</i> form a spanning tree of <i>G</i>, drawn in purple.`, J),
-        it(2, 'fact', `<b>Fact 3.</b> <span class="tag">clear by inspection</span><br>A black triangle <i>t</i> has one orange side and two others, the two sides adjacent to <i>s</i>(<i>t</i>). The purple tree uses every non-orange edge, so it crosses the boundary of <i>t</i> <b>exactly twice</b>: it comes in across one side adjacent to <i>s</i>(<i>t</i>) and goes out across the other. It links <i>t</i> to the two white triangles behind these sides. In particular, <i>t</i> is never a leaf of the purple tree.`, J),
-        it(3, 'fact', `<b>Orientation.</b> <span class="tag">definition</span><br>We orient the spanning tree of <i>G</i> as follows: choose some edge <i>e</i><sub>0</sub> of the outer triangle (ring) <i>t</i><sub>0</sub>, and orient the edges of the spanning tree away from that edge.`, J),
-        it(4, 'fact', `<b>Selection.</b> <span class="tag">definition</span><br>In each black triangle, <b>select the side where the oriented tree leaves</b>. Finally select <i>e</i><sub>0</sub>.`, J),
-        it(4, 'fact', `<b>Fact 4.</b> <span class="tag">clear from the rule</span><br>Every triangle of either colour has exactly one selected side. <i>Why:</i> the oriented tree leaves each black triangle once. It enters each white triangle other than <i>y</i><sub>0</sub> exactly once, because the purple graph is a tree. Here <i>y</i><sub>0</sub> is the white triangle at <i>e</i><sub>0</sub>; it shares <i>e</i><sub>0</sub> with <i>t</i><sub>0</sub>.`, J),
-        it(4, 'fact', `<b>Consequence.</b> <span class="tag">clear</span><br>The selection <i>P</i> is a perfect matching of <i>G</i>, and the other edges of <i>G</i> form a 2-factor.`, J),
-        it(4, 'fact', `<b>Still open.</b> <span class="tag">needs a real proof</span><br>That the 2-factor is a single cycle. This is Lemma 6.2 below, and it is the only place in Step 5 where a real argument is needed (the disk identity).`, J),
+        it(0, 'claim', `<b>INPUT</b> (the claim of Step 4). A state <i>s</i> such that ${QS} is a forest in which every component contains exactly one root.`, J),
+        it(1, 'fact alg', `<b>1.</b> Add two edges of ${T0} to ${QS}.<br><span class="sub"><b>Claim.</b> This is a spanning tree ${ST} of <i>T</i>.</span>`, ' data-hov="f1"'),
+        it(2, 'fact alg', `<b>2.</b> Take the spanning tree ${SG} of <i>G</i> dual to ${ST}, that is, the set of edges of <i>G</i> that do not cross any edge of ${ST}.<br><span class="sub">It is a spanning tree by a standard result in graph theory (${cref(1)}, ${term('Lemma 2.1')}).</span>`, J),
+        it(3, 'fact alg', `<b>3.</b> Orient ${SG} away from ${T0}.`, J),
+        it(4, 'fact alg', `<b>4.</b> For each black triangle of <i>T</i>, select the side where ${SG} leaves the triangle.<br><span class="sub"><b>Claim.</b> The selected sides correspond to a perfect matching of <i>G</i>. Since every vertex of <i>G</i> has degree 3, the other edges of <i>G</i> form a ${term('2‑factor')} of <i>G</i>.</span>`, J + ' data-col="g"'),
+        it(5, 'fact alg', `<b>Final claim.</b> ${tg('needs a real proof')} This 2‑factor is a single cycle.`, J),
         it(5, 'claim', `<b>LEMMA 6.2.</b> The selected edge set <i>P</i> is a forest.`, J),
-        it(5, 'fact', `Set <i>e</i><sub>0</sub> aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.`, J),
+        it(5, 'fact', `Call the selected side of <i>t</i><sub>0</sub> <i>e</i><sub>0</sub>. Set it aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.`, J),
         it(5, 'fact', `By counting the edges and vertices of <i>P</i>, we get <b>two trees</b>: <i>P</i> has one edge in each triangle of <i>A</i> plus <i>e</i><sub>0</sub>, and <i>T</i> has three more vertices than <i>A</i> has triangles, so the forest <i>P</i> has two components. They are the two green trees.`, J),
         it(6, 'fact', `The edges of <i>G</i> crossing the unselected sides form a connected 2-regular graph, a single closed curve through all triangles: <b>the Hamiltonian cycle</b>. An edge of <i>T</i> stays on one side of the curve exactly when it is selected, so each side induces a tree, and <i>e</i><sub>0</sub> lies in one of them.`, J),
       ];
@@ -1514,7 +1528,7 @@ const EXAMPLES = (() => {
     if (wantRb && !rb) { rb = document.createElement('button'); rb.className = 'replay'; rb.setAttribute('data-act', 'replay7'); rb.setAttribute('title', 'Replay animation'); rb.setAttribute('aria-label', 'Replay animation'); rb.textContent = '↻'; fb.appendChild(rb); } else if (!wantRb && rb) rb.remove();
     fb.querySelectorAll('.fignav, .figtog').forEach(e => e.remove());
     fb.classList.toggle('hasslide', wantRb);
-    { let sl = fb.querySelector('.figslide'); if (!wantRb) { if (sl) sl.remove(); } else { const n = PH5.length, ph = S.ph5 | 0; if (!sl) { sl = document.createElement('div'); sl.className = 'figslide'; sl.innerHTML = `<div class="ticks">${PH5.map(() => '<span></span>').join('')}</div><input type="range" class="figslider" min="0" max="${n - 1}" step="1" aria-label="Stage of the construction">`; fb.appendChild(sl); } const inp = sl.querySelector('input'); if (+inp.value !== ph) inp.value = ph; inp.setAttribute('aria-valuetext', `Stage ${ph + 1} of ${n}`); sl.querySelectorAll('.ticks span').forEach((t, k) => t.classList.toggle('on', k <= ph)); } }
+    { let sl = fb.querySelector('.figslide'); if (!wantRb) { if (sl) sl.remove(); } else { const n = PH5.length, ph = S.ph5 | 0; if (!sl) { sl = document.createElement('div'); sl.className = 'figslide'; sl.innerHTML = `<div class="ticks">${PH5.map((_, k) => `<span data-n="${k >= 1 && k <= 4 ? k : ''}"></span>`).join('')}</div><input type="range" class="figslider" min="0" max="${n - 1}" step="1" aria-label="Stage of the construction">`; fb.appendChild(sl); } const inp = sl.querySelector('input'); if (+inp.value !== ph) inp.value = ph; inp.setAttribute('aria-valuetext', `Stage ${ph + 1} of ${n}`); sl.querySelectorAll('.ticks span').forEach((t, k) => t.classList.toggle('on', k <= ph)); } }
     if (STEPS[S.step].id === 'states') { const tb = document.createElement('button'); tb.className = 'figtog'; tb.setAttribute('data-act', 'toggle'); tb.setAttribute('data-k', 'showQ'); tb.setAttribute('aria-pressed', String(!!S.showQ)); tb.innerHTML = (S.showQ ? 'Hide' : 'Show') + ' <i>Q<sub>s</sub></i>'; fb.appendChild(tb); }
     const fc = document.getElementById('figctl'); fc.textContent = '';
     document.getElementById('panel').querySelectorAll('dl.read').forEach(el => el.remove());
@@ -1537,10 +1551,11 @@ const EXAMPLES = (() => {
       </div>
       <div class="merge" title="Theorem 2.2 implies Barnette’s conjecture" aria-label="End of proof: Theorem 2.2 implies Barnette’s conjecture"><span class="qed"></span></div>`;
   }
-  function render() { const o5s = document.querySelector('.scroll5'), st0 = o5s ? o5s.scrollTop : null; renderChrome(); renderPanel(); moveFigOptions(); renderFigure(); renderLegend(); fixScroll5(st0); }
+  function render() { const o5s = document.querySelector('.scroll5'), st0 = o5s ? o5s.scrollTop : null; renderChrome(); renderPanel(); moveFigOptions(); renderFigure(); renderLegend(); fixScroll5(st0); pruneGhost(); }
   function fixScroll5(st0) {
     const el = document.querySelector('.scroll5'); if (!el) { S._ph = null; return; }
     if (st0 != null) el.scrollTop = st0;
+    const pop = el.querySelector('.pop'); if (pop) { let a = pop.getBoundingClientRect(); const b = el.getBoundingClientRect(); if (a.right > b.right - 6) { pop.style.left = (b.right - 6 - a.right) + 'px'; a = pop.getBoundingClientRect(); } if (a.bottom > b.bottom - 6) el.scrollTo({ top: el.scrollTop + a.bottom - b.bottom + 10, behavior: 'smooth' }); }
     const ph = S.ph5 | 0; if (S._ph === ph && st0 != null) return; S._ph = ph;
     const cur = [...el.querySelectorAll('p.cur')]; if (!cur.length) return;
     const top = cur[0].offsetTop - el.offsetTop, bot = cur[cur.length - 1].offsetTop - el.offsetTop + cur[cur.length - 1].offsetHeight;
@@ -1560,6 +1575,19 @@ const EXAMPLES = (() => {
     if (id !== 'dual') S.peek = false;
     try { history.replaceState(null, '', '#' + id); } catch (e) { /* hash is optional */ }
   }
+  function figKey(el, root) {
+    let op = 1, n = el.parentNode; while (n && n !== root) { const c = getComputedStyle(n); if (c.display === 'none') return null; op *= parseFloat(c.opacity); n = n.parentNode; }
+    const cs = getComputedStyle(el); if (cs.display === 'none') return null; op *= parseFloat(cs.opacity);
+    let tf = cs.transform; n = el.parentNode; while (n && n !== root) { tf += getComputedStyle(n).transform; n = n.parentNode; }
+    return [el.tagName, ['d', 'cx', 'cy', 'r', 'x', 'y', 'width', 'height', 'transform'].map(a => el.getAttribute(a) || '').join(';'), cs.stroke, cs.fill, cs.strokeWidth, cs.fillOpacity, op.toFixed(2), tf, el.tagName === 'text' ? el.textContent : ''].join('|');
+  }
+  function pruneGhost() {
+    const gh = S._ghost; S._ghost = null; if (!gh || !gh.isConnected) return; const svg = document.getElementById('fig'); const sel = 'path, circle, rect, text, line';
+    const mine = new Map(); svg.querySelectorAll(sel).forEach(el => { if (el.closest('defs')) return; const k = figKey(el, svg); if (k) { if (!mine.has(k)) mine.set(k, []); mine.get(k).push(el); } });
+    const seen = new Set();
+    gh.querySelectorAll(sel).forEach(el => { const k = figKey(el, gh); if (!k) return; if (mine.has(k)) { el.style.display = 'none'; seen.add(k); } });
+    mine.forEach((els, k) => { if (seen.has(k)) return; els.forEach(el => { let n = el, anim = false; while (n && n !== svg.parentNode) { if (getComputedStyle(n).animationName !== 'none') { anim = true; break; } n = n.parentNode; } if (!anim) el.classList.add('nin'); }); });
+  }
   function snapFig() {
     const svg = document.getElementById('fig'), fb = document.querySelector('.figbox'); if (!svg || !fb) return;
     fb.querySelectorAll('.figghost').forEach(e => e.remove());
@@ -1567,7 +1595,7 @@ const EXAMPLES = (() => {
     const gh = svg.cloneNode(true); gh.removeAttribute('id'); gh.removeAttribute('role'); gh.setAttribute('aria-hidden', 'true'); gh.classList.remove('showF1', 'xin'); gh.classList.add('figghost', 'frozen');
     const a = svg.getBoundingClientRect(), b = fb.getBoundingClientRect();
     gh.style.left = (a.left - b.left - fb.clientLeft) + 'px'; gh.style.top = (a.top - b.top - fb.clientTop) + 'px'; gh.style.width = a.width + 'px'; gh.style.height = a.height + 'px';
-    fb.appendChild(gh); svg.classList.remove('xin'); void svg.getBoundingClientRect(); svg.classList.add('xin');
+    fb.appendChild(gh); svg.classList.remove('xin'); S._ghost = gh;
     requestAnimationFrame(() => { void gh.getBoundingClientRect(); gh.classList.add('out'); setTimeout(() => { gh.remove(); }, 1500); });
   }
   function act(a, el) {
