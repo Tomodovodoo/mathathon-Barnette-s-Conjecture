@@ -120,6 +120,23 @@ svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .prose.scroll5 > p { opacity: .5; transition: opacity .3s; }
 .prose.scroll5 > p.cur, .prose.scroll5 > p:hover, .prose.scroll5 > p:focus-visible { opacity: 1; }
 .prose .claim.go { cursor: pointer; }
+.prose .fact.cur4 { background: color-mix(in srgb, var(--pair) 12%, transparent); }
+.prose details.why { margin: 12px 0 4px; border-top: 1px solid var(--line); padding-top: 8px; }
+.prose details.why > summary { cursor: pointer; font-family: var(--ui); font-size: 13.5px; font-weight: 600; color: var(--muted); }
+.prose details.why[open] > summary { margin-bottom: 6px; }
+table.cmp { border-collapse: collapse; font-family: var(--ui); font-size: 13.5px; margin: 8px 0; }
+table.cmp th, table.cmp td { border: 1px solid var(--line); padding: 4px 10px; text-align: center; }
+table.cmp td.same { background: color-mix(in srgb, var(--clsm) 14%, transparent); }
+table.cmp td.diff { background: color-mix(in srgb, var(--ham) 14%, transparent); font-weight: 600; }
+table.z tr.mate td { background: color-mix(in srgb, var(--ham) 12%, transparent); }
+table.z tr.g.min td { background: color-mix(in srgb, var(--clsm) 16%, transparent); font-weight: 600; }
+.figsvg .h4in { stroke: var(--clsm); stroke-width: 7; fill: none; stroke-linecap: round; }
+.figsvg .h4out { stroke: var(--ham); stroke-width: 7; fill: none; stroke-linecap: round; }
+.figsvg .h4ptr { stroke: var(--ink); stroke-width: 2.2; fill: none; stroke-linecap: round; }
+.figsvg .h4ri { fill: none; stroke: var(--pair); stroke-width: 3.5; }
+.figsvg .h4rl { fill: none; stroke: var(--ham); stroke-width: 3.5; }
+.figsvg .h4side { stroke: var(--ham); stroke-width: 9; fill: none; stroke-linecap: round; opacity: .55; }
+.figsvg .h4dim { opacity: .22; }
 .prose .alg .sub { display: block; margin: 4px 0 0 20px; }
 .prose .alg > b:first-child { display: inline-block; min-width: 20px; }
 .prose .fact.go { cursor: pointer; border-radius: 6px; margin-left: -6px; margin-right: -6px; padding: 4px 6px; transition: background .15s; }
@@ -127,6 +144,17 @@ svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .prose .fact.go[data-col="g"]:hover, .prose .fact.go[data-col="g"]:focus-visible { background: color-mix(in srgb, var(--clsm) 22%, transparent); }
 .prose .fact.go[data-hov="f1"]:hover, .prose .fact.go[data-hov="f1"]:focus-visible { background: color-mix(in srgb, var(--q) 20%, transparent); }
 .prose .claim { border-left: 3px solid var(--ink); padding: 2px 0 2px 12px; }
+
+/* minimal Forest-to-trees list */
+.prose.scroll5 { max-height: min(70vh, 620px); border: 0; gap: 2px; padding: 2px 6px 18px 6px; margin: 0 -6px; -webkit-mask-image: linear-gradient(#000 calc(100% - 26px), transparent); mask-image: linear-gradient(#000 calc(100% - 26px), transparent); }
+.prose.scroll5 > p { margin: 0; padding: 10px 12px; border-radius: 10px; border-left: 0; line-height: 1.5; opacity: .55; }
+.prose.scroll5 > p.go { margin-left: 0; margin-right: 0; padding: 10px 12px; }
+.prose.scroll5 > p.cur { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.prose.scroll5 > p.claim:first-child { padding-bottom: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--line); border-radius: 10px 10px 0 0; }
+.prose.scroll5 .alg .sub { margin: 4px 0 0 24px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.prose.scroll5 .alg > b:first-child { min-width: 24px; }
+.prose.scroll5 > p.claim:not(:first-child) { background: none; }
+.prose.scroll5 > p.fact:not(.alg) { font-size: 15px; color: var(--muted); }
 .prose .claim b { font-family: var(--ui); font-size: 13px; letter-spacing: .02em; }
 .prose ul.tight { margin: 4px 0 0; padding-left: 20px; }
 .prose .claim ul { margin: 4px 0 0; padding-left: 20px; }
@@ -144,6 +172,7 @@ svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .figbox .figtog { position: absolute; bottom: 10px; right: 10px; font-family: var(--ui); font-size: 12.5px; line-height: 1; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
 .figbox .figtog[aria-pressed="true"] { border-color: var(--q); color: var(--q); }
 .figbox .figtog sub { font-size: .75em; }
+.btn:disabled { opacity: .4; cursor: default; pointer-events: none; }
 .figbox .replay { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 17px; line-height: 1; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .figbox.hasslide { padding-bottom: 54px; }
 .figbox .figslide { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); width: min(70%, 400px); height: 28px; }
@@ -280,6 +309,10 @@ footer.about p { margin: 0; }
 .figsvg.unl.pre1.mfainta .ms { animation: unlv 1.3s ease both, tofaint 1.4s ease-in-out 5.6s both; }
 @keyframes unlq { from { transform: translate(-7px, -15px); } }
 @keyframes unlv { from { transform: translate(-7px, -15px); } }
+.figsvg.mout .mcs { animation: figout 1.3s ease both; }
+.figsvg.lift.spin.mout .ms { animation: liftv 1.3s ease .9s forwards, figout 1.3s ease both; }
+.figsvg.unl:not(.pre1) .ms { animation: unlv 1.3s ease both, figfade 1.3s ease both; }
+.figsvg.unl:not(.pre1) .mcs { animation: figfade 1.3s ease both; }
 .figsvg .qsh { display: none; transform: translate(10px, 17px); }
 .figsvg .qsh path { stroke: #000 !important; opacity: .42 !important; animation: none !important; }
 .figsvg.lift .qsh { display: inline; }
@@ -311,6 +344,20 @@ footer.about p { margin: 0; }
 .figsvg .lbl.halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
 .figsvg .ge { stroke: var(--ink); stroke-width: 2.3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
 .figsvg .ge.faint { stroke-width: 1.5; opacity: .28; stroke-dasharray: 3 4; }
+.figsvg .pe { stroke: var(--ink); stroke-width: 2.3; stroke-linecap: round; }
+.figsvg .pe.back { stroke-width: 1.4; stroke-dasharray: 3 4; opacity: .6; }
+.figsvg .pe.po { stroke: var(--q); stroke-width: 4.5; }
+.figsvg .pe.pp { stroke: var(--wtree); stroke-width: 4.5; }
+.figsvg .pe.pp.dim2 { opacity: .35; }
+.figsvg .pe.pg { stroke: var(--clsm); stroke-width: 5; }
+.figsvg .pe.ph { stroke: var(--ham); stroke-width: 5; }
+.figsvg .pe.dim { opacity: .28; }
+.figsvg .pf.c0 { fill: var(--clsa); }
+.figsvg .pf.c1 { fill: var(--clsb); }
+
+.figsvg.polyon { cursor: grab; touch-action: none; }
+.figsvg.polyon.dragging { cursor: grabbing; }
+.figsvg .pf { fill: color-mix(in srgb, var(--pair) 16%, var(--panel)); stroke: none; }
 .figsvg .gvb { fill: var(--ink); stroke: var(--panel); stroke-width: 1.2; }
 .figsvg .gvw { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
 .figsvg .ring { stroke: var(--ink); stroke-width: 4; fill: none; }
@@ -352,9 +399,43 @@ footer.about p { margin: 0; }
 .figsvg .va { fill: var(--clsa); stroke: var(--panel); stroke-width: 1.5; }
 .figsvg .vb { fill: var(--clsb); stroke: var(--panel); stroke-width: 1.5; }
 .figsvg .vS { fill: none; stroke: var(--q); stroke-width: 3; }
+.figsvg .pc path, .figsvg .pc rect, .figsvg .pc circle { vector-effect: non-scaling-stroke; }
+.figsvg .capedge { stroke: var(--ham); stroke-width: 15; opacity: .32; fill: none; stroke-linecap: round; }
+.figsvg .capring { fill: none; stroke: var(--ham); stroke-width: 4; opacity: .7; }
+.figsvg .capw { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-dasharray: 5 5; }
+.figsvg .capf { stroke: var(--ink); stroke-width: 1.6; stroke-dasharray: 5 5; }
+.figsvg .capband { fill: none; stroke: color-mix(in srgb, var(--ink) 14%, var(--panel)); stroke-width: 44; stroke-linejoin: round; }
+.figsvg .capbandw { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-dasharray: 5 5; }
 .figsvg .sep { stroke: var(--q); stroke-width: 7.5; opacity: .6; fill: none; stroke-linejoin: round; stroke-dasharray: 2 7; stroke-linecap: round; }
 .figsvg .click { cursor: pointer; }
 .figsvg .dimmed { opacity: .25; }
+
+/* roomier step outline */
+nav.steps { gap: 14px; padding: 14px; border-radius: 14px; align-items: stretch; }
+nav.steps .trunk { flex: 0 0 24%; border-right: 0; gap: 10px; }
+nav.steps .branches { gap: 12px; }
+nav.steps .branch + .branch { border-top: 0; }
+nav.steps .branch { gap: 6px; }
+nav.steps .bl { padding: 0 2px 2px; font-size: 12px; letter-spacing: .01em; text-transform: none; }
+nav.steps .brow { gap: 10px; }
+nav.steps button { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px 11px; gap: 4px; background: color-mix(in srgb, var(--face) 14%, var(--panel)); }
+nav.steps .trunk button:last-child, nav.steps .brow > :last-child { border-right: 1px solid var(--line); }
+nav.steps .brow .techbtn { background: color-mix(in srgb, var(--face) 22%, transparent); }
+nav.steps .tech { border: 0; box-shadow: none; background: transparent; gap: 6px; padding: 10px; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--wtree) 55%, transparent); }
+nav.steps .tech .brow { gap: 8px; }
+nav.steps .tech .brow > :last-child { border-right: 1px solid var(--line); }
+nav.steps .bnote { padding: 6px 4px; line-height: 1.4; border: 0 !important; }
+nav.steps .merge { border: 1px dashed var(--line); border-radius: 10px; padding: 0 16px; }
+nav.steps .n { font-size: 11.5px; }
+nav.steps .t { font-size: 13.5px; line-height: 1.25; }
+nav.steps button:hover { border-color: var(--tedge); }
+nav.steps button[aria-current="step"] { border-color: var(--ink); }
+nav.steps { flex-direction: column; gap: 6px; }
+nav.steps .navmain { display: flex; gap: 14px; align-items: stretch; }
+nav.steps .merge { border: 0 !important; padding: 0 4px; justify-content: flex-end; align-self: flex-end; }
+@media (max-width: 940px) { nav.steps .navmain { flex-direction: column; } }
+
+@media (max-width: 940px) { nav.steps .trunk { flex: 0 0 auto; } nav.steps .brow button { flex: 1 1 40%; } }
 
 @media (max-width: 940px) {
   main { grid-template-columns: minmax(0, 1fr); }
@@ -364,6 +445,14 @@ footer.about p { margin: 0; }
   nav.steps .brow { flex-wrap: wrap; }
   nav.steps .brow button { flex: 1 1 30%; }
   nav.steps .merge { border-left: 0; border-top: 1px solid var(--line); padding: 8px 12px; justify-content: center; }
+}
+@media (max-width: 940px) {
+  nav.steps .trunk { border-bottom: 0 !important; }
+  nav.steps .branches > .branch > .brow { flex-direction: column; }
+  nav.steps .brow > button, nav.steps .brow > .tech { flex: 0 0 auto; width: 100%; }
+  nav.steps .tech .brow { flex-direction: row; flex-wrap: wrap; }
+  nav.steps .tech .brow button { flex: 1 1 40%; width: auto; }
+  nav.steps .bnote { padding: 2px 4px; }
 }
 @media (max-width: 480px) {
   .wrap { padding: 16px 16px 32px; }
@@ -385,9 +474,8 @@ footer.about p { margin: 0; }
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="eyebrow">OPENAI MATH RELEASE · FAMILY 180 · 24 SEPTEMBER 2026</div>
     <h1>An exposition of OpenAI’s proof of Barnette’s conjecture</h1>
-    <p class="lede">The proof of Barnette’s conjecture in OpenAI’s release <a href="https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf" target="_blank" rel="noopener">Paired states and Hamiltonian cycles in cubic bipartite planar graphs</a> <button class="cref" data-act="ref" data-i="1">[1]</button> is visualised in six steps below, with different example graphs.</p>
+    <p class="lede">The proof of Barnette’s conjecture in OpenAI’s release <a href="https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf" target="_blank" rel="noopener">Paired states and Hamiltonian cycles in cubic bipartite planar graphs</a> <button class="cref" data-act="ref" data-i="1">[1]</button> is simplified and visualized below, with different example graphs.</p>
   </header>
   <div class="bar"><span class="lab">Example graph G</span><div class="seg" id="examples"></div></div>
   <nav class="steps" id="steps" aria-label="Steps of the proof"></nav>
@@ -401,8 +489,6 @@ footer.about p { margin: 0; }
     <section class="panel" id="panel"></section>
   </main>
   <footer class="about">
-    <p><b>What this page checks.</b> For each example it lists every state and every pair, and recomputes the phases, the disk counts, the cancellation and the construction of step 5. That confirms the identities on these graphs. It is not a check of the proof.</p>
-    <p><b>Status of the proof.</b> The manuscript <button class="cref" data-act="ref" data-i="1">[1]</button> was produced by an unreleased OpenAI model and is not peer reviewed. The same repository contains a Lean formalisation of the main theorem (<a href="https://github.com/openai/math/blob/main/lean/docs/180.md" target="_blank" rel="noopener">lean/docs/180.md</a>), which was not re-run for this page. Zhentao Li's note <button class="cref" data-act="ref" data-i="8">[8]</button> is a condensed exposition of the same proof which, according to its abstract, replaces the exponential sum by two sign-reversing involutions.</p>
     <p><b>Names and numbers.</b> Results are cited by the paper’s own numbers and section titles. The paper prints a name for only two of them: Lemma 4.1 (Disk identity) and Corollary 7.2 (Prescribed paths in Pfaffian graphs). “State”, “pair” and “root” are defined in its running text, not as numbered definitions.</p>
     <p>Use the left and right arrow keys to move between steps.</p>
     <section class="refs" aria-label="References">
@@ -1141,13 +1227,14 @@ const EXAMPLES = (() => {
 
   // ---------- the figure for each step ----------
   function renderFigure() {
-    const svg = document.getElementById('fig'); svg.textContent = ''; svg.classList.remove('mfaint', 'mfainta', 'mgone', 'mgonea', 'msoft', 'msoft0', 'pre1', 'showSp', 'spin', 'lift', 'quick', 'unl');
+    const wasPoly = polyShown; polyShown = false; polyStop(); const svg = document.getElementById('fig'); svg.textContent = ''; svg.classList.remove('polyon', 'dragging'); svg.classList.remove('mfaint', 'mfainta', 'mgone', 'mgonea', 'msoft', 'msoft0', 'pre1', 'showSp', 'spin', 'lift', 'quick', 'unl', 'mout');
     const g = mk('g', {}, svg); const M = D.M; const p = curPair(); const id = STEPS[S.step].id;
     const noPairs = !D.pairs.length; D.dots = [];
     if (id === 'dual' || id === 'thm') {
       if (id === 'thm') {
         drawBase(g, { dim: true }); drawClasses(g, D.sol.cls); drawG(g, { ham: D.solChk.ham }); drawVerts(g, { cls: D.sol.cls });
       } else {
+        if (S.poly) { svg.classList.add('polyon'); polyStart(g); return; }
         if (S.showT) { drawBase(g, { soft: true }); drawVerts(g, { soft: true }); } if (S.showG) drawG(g);
       }
     } else if (id === 'states') {
@@ -1172,13 +1259,24 @@ const EXAMPLES = (() => {
       if (V) M.A.forEach((t, i) => { if (V.contrib[i] > 0) { const c = centroid(t); mk('text', { x: f1(c[0]), y: f1(c[1] + 5), 'text-anchor': 'middle', class: 'lbl sm halo' }, g).textContent = V.contrib[i]; } });
       drawVerts(g, { ring: V ? V.S : null });
     } else if (id === 'pairs') {
-      drawBase(g); drawE0(g); drawD(g, p); drawMarkers(g, p); drawVerts(g);
+      const h = S.h4 | 0; drawBase(g); drawE0(g); drawD(mk('g', h === 0 ? { class: 'h4dim' } : {}, g), p);
+      if (h === 2) { const c = p.cycles[0], a = c.verts[0], v = c.verts[1 % c.h], b = c.verts[2 % c.h]; mk('path', { d: edgeD(a, v, 8), class: 'h4in' }, g); mk('path', { d: edgeD(v, b, 8), class: 'h4out' }, g);
+        const lab = (u, w, tx) => { const m = edgePt(u, w, 0.5), dx = m[0] - CX, dy = m[1] - CY, l = Math.hypot(dx, dy) || 1; mk('text', { x: f1(m[0] + 20 * dx / l), y: f1(m[1] + 20 * dy / l + 5), 'text-anchor': 'middle', class: 'lbl sm halo' }, g).textContent = tx; }; lab(a, v, 'in'); lab(v, b, 'out'); drawMarkers(g, p); drawVerts(g); mk('circle', { cx: f1(D.pos[v][0]), cy: f1(D.pos[v][1]), r: 11, class: 'h4ri' }, g); }
+      else { drawMarkers(g, p); drawVerts(g); }
     } else if (id === 'disk') {
       const c = p.cycles[Math.min(S.cyc, p.cycles.length - 1)];
-      drawBase(g, { hlFaces: c.faces }); drawE0(g); drawD(g, p, { sel: Math.min(S.cyc, p.cycles.length - 1), click: true, delta: true }); drawMarkers(g, p, 'r'); drawVerts(g);
+      const h = S.h4 | 0, onC = new Set(c.verts), ins = new Set(); c.faces.forEach(f => M.faces[f].forEach(v => { if (!onC.has(v)) ins.add(v); }));
+      drawBase(g, { hlFaces: c.faces }); drawE0(g);
+      if (h === 2 || h === 3) for (let j = 0; j < c.h; j++) if (c.faces.includes(M.A[c.tris[j]])) mk('path', { d: edgeD(c.verts[j], c.verts[(j + 1) % c.h], 4), class: 'h4side' }, g);
+      drawD(g, p, { sel: Math.min(S.cyc, p.cycles.length - 1), click: true, delta: h === 0 || h === 4 });
+      if (h === 3) c.faces.forEach(f => { if (M.col[f] !== 0) return; const i2 = M.A.indexOf(f); if (i2 < 0) return; const ce = centroid(f), q = D.pos[p.r[i2]]; mk('path', { d: `M${pt(ce)} L${pt(lerp(ce, q, 0.78))}`, class: 'h4ptr' }, g); arrowHead(g, lerp(ce, q, 0.78), Math.atan2(q[1] - ce[1], q[0] - ce[0]) * 180 / Math.PI, 6, 'dh'); });
+      if (h !== 3) drawMarkers(g, p, 'r'); drawVerts(g);
+      if (h === 1 || h === 3) ins.forEach(v => mk('circle', { cx: f1(D.pos[v][0]), cy: f1(D.pos[v][1]), r: 10, class: 'h4ri' }, g));
+      if (h === 3) for (let j = 0; j < c.h; j++) if (c.faces.includes(M.A[c.tris[j]])) mk('circle', { cx: f1(D.pos[c.verts[j]][0]), cy: f1(D.pos[c.verts[j]][1]), r: 10, class: 'h4rl' }, g);
     } else if (id === 'flip') {
       const qc = C.qCycles(M, p.r, p.s); const selTris = new Set(qc.length ? qc[0].tris : []);
-      drawBase(g, { hlFaces: qc.length ? qc[0].faces : null }); drawE0(g); drawQ(g, p.s, p.r, { selTris, click: true }); drawMarkers(g, p); drawVerts(g);
+      drawBase(g, { hlFaces: qc.length ? qc[0].faces : null }); drawE0(g); drawD(mk('g', { style: 'opacity:.4' }, g), p); drawQ(g, p.s, p.r, { selTris, click: true }); drawMarkers(g, p); drawVerts(g);
+      { const lab = (u, w, tx, cls) => { const m = edgePt(u, w, 0.5), dx = m[0] - CX, dy = m[1] - CY, l = Math.hypot(dx, dy) || 1; const t = mk('text', { x: f1(m[0] + 24 * dx / l), y: f1(m[1] + 24 * dy / l + 5), 'text-anchor': 'middle', class: 'lbl sm halo' + (cls || '') }, g); t.textContent = tx; }; const c0 = p.cycles[0]; lab(c0.verts[0], c0.verts[1 % c0.h], 'D'); if (qc.length) lab(qc[0].verts[0], qc[0].verts[1 % qc[0].h], 'cycle in Qₛ'); }
     } else if (id === 'sum') {
       drawBase(g, { dim: true }); drawE0(g);
       M.A.forEach((t, i) => {
@@ -1192,7 +1290,7 @@ const EXAMPLES = (() => {
       drawD(g, p); drawVerts(g);
     } else if (id === 'trees' || id === 'glue') {
       if (id === 'glue' && D.sol.pieces) return renderGlue(g);
-      const res = construction(); const sub = id === 'glue' ? 3 : sub5(); const an5 = sub >= 2 && id !== 'glue' && !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); if (sub >= 2 && id !== 'glue') S.anim7 = false;
+      const res = construction(); if (id === 'trees' && S.poly && res) { svg.classList.add('polyon'); S.anim7 = false; S.tr = null; polyStart(g, wasPoly, polyOverlay(res)); return; } const sub = id === 'glue' ? 3 : sub5(); const an5 = sub >= 2 && id !== 'glue' && !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); if (sub >= 2 && id !== 'glue') S.anim7 = false;
       if (!res) { drawBase(g); drawE0(g); drawVerts(g); }
       else if (sub === 0) { drawBase(g); drawE0(g); drawQ(g, p.s, null); drawMarkers(g, p, 's'); drawVerts(g); }
       else if (sub === 1 || sub === 2) {
@@ -1204,7 +1302,7 @@ const EXAMPLES = (() => {
           const go = mk('g', Object.assign({ class: 'qgo' }, ph === 1 ? (an ? { class: 'tofaint' } : { opacity: 0.25 }) : ph >= 2 ? (an && ph === 2 ? { class: 'fromfaint' } : { style: 'display:none' }) : {}), g);
           go.classList.add('qgo'); { const R3 = M.roots, f1 = mk('g', { class: 'f1h' }, go); const E0 = e0(); [[0, 1], [1, 2], [0, 2]].forEach(([a, b]) => { if (E0.includes(R3[a]) && E0.includes(R3[b])) return; mk('path', { d: edgeD(R3[a], R3[b]), class: 'q', style: 'stroke-width:6.5;opacity:1' }, f1); }); }
           sh.innerHTML = go.innerHTML;
-          const fig = document.getElementById('fig'); fig.classList.add('msoft'); if (ph === 0) fig.classList.add('msoft0'); if (sp5() || (ph === 1 && !w5())) fig.classList.add('showSp'); const tr = S.tr; S.tr = null; if (sp5()) fig.classList.add('lift'); if (sp5() && an) fig.classList.add('spin'); if (sp5() && tr && tr.pv === 2) fig.classList.add('spin', 'quick'); if (tr && tr.pv === 1 && (S.ph5 | 0) !== 1 && Math.abs(tr.nx - 1) === 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) fig.classList.add('unl'); if (an && ph === 1) fig.classList.add('pre1'); if (ph === 1) fig.classList.add(an ? 'mfainta' : 'mfaint'); else if (ph >= 2) fig.classList.add(an && ph === 2 ? 'mgonea' : 'mgone');
+          const fig = document.getElementById('fig'); fig.classList.add('msoft'); if (ph === 0) fig.classList.add('msoft0'); if (sp5() || (ph === 1 && !w5())) fig.classList.add('showSp'); if ((S.ph5 | 0) >= 1) fig.classList.add(sp5() && an ? 'mout' : 'mgone'); const tr = S.tr; S.tr = null; if (sp5()) fig.classList.add('lift'); if (sp5() && an) fig.classList.add('spin'); if (sp5() && tr && tr.pv === 2) fig.classList.add('spin', 'quick'); if (tr && tr.pv === 1 && (S.ph5 | 0) !== 1 && Math.abs(tr.nx - 1) === 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) fig.classList.add('unl'); if (an && ph === 1) fig.classList.add('pre1'); if (ph === 1) fig.classList.add(an ? 'mfainta' : 'mfaint'); else if (ph >= 2) fig.classList.add(an && ph === 2 ? 'mgonea' : 'mgone');
           M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:6.5;opacity:1' }, go); });
           if ((S.ph5 | 0) >= 1) { const [u2, v2] = D.outerEdges[S.e0k]; const p2 = arcPt(D.rootAng[u2] + 0.5 * angDiff(D.rootAng[u2], D.rootAng[v2]) - 13, (RT + RG) / 2); mk('text', Object.assign({ x: f1(p2[0]), y: f1(p2[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' + (an && sp5() ? ' fadein now' : '') }), g).textContent = 't₀'; }
           drawMarkers(g, p, 's');
@@ -1220,12 +1318,12 @@ const EXAMPLES = (() => {
           mk('circle', { cx: f1(D.fc[t][0]), cy: f1(D.fc[t][1]), r: 4.6, class: 'wb' }, wg);
           if (sub === 2) {
             const childIsA = res.parent.get(we.fa) && res.parent.get(we.fa).i === i; const from = childIsA ? ma : mb, to = D.fc[childIsA ? we.fa : we.fb];
-            arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 7, 'wth' + (an5 && or5() ? ' fadein now' : ''));
+            arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 11, 'wth' + (an5 && or5() ? ' fadein now' : ''));
           }
         }
-        { mk('path', { d: gEdgeD(res.e0id), class: 'wt' }, wg); if (sub === 2) { const m0 = edgePt(...e0(), 0.5), y0c = D.fc[res.y0]; arrowHead(wg, lerp(m0, y0c, 0.5), Math.atan2(y0c[1] - m0[1], y0c[0] - m0[0]) * 180 / Math.PI, 7, 'wth' + (an5 && or5() ? ' fadein now' : '')); } }
+        { mk('path', { d: gEdgeD(res.e0id), class: 'wt' }, wg); if (sub === 2) { const m0 = edgePt(...e0(), 0.5), y0c = D.fc[res.y0]; arrowHead(wg, lerp(m0, y0c, 0.5), Math.atan2(y0c[1] - m0[1], y0c[0] - m0[0]) * 180 / Math.PI, 11, 'wth' + (an5 && or5() ? ' fadein now' : '')); } }
         M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: 6.5, style: 'stroke-width:2.8', class: 'wn' }, wg); });
-        if (sub === 2) { if (!or5()) { const pg5 = mk('g', { class: 'pstrong pmid' + (an5 ? ' fadein now' : '') }, g); drawClasses(pg5, res.cls); } drawMarkers(g, p, 's'); document.getElementById('fig').classList.add('mfaint'); }
+        if (sub === 2) { if (!or5()) { const pg5 = mk('g', { class: 'pstrong pmid' + (an5 ? ' fadein now' : '') }, g); drawClasses(pg5, res.cls); } drawMarkers(g, p, 's'); document.getElementById('fig').classList.add('mfaint', 'mgone'); }
         const y = D.fc[res.y0]; const dir = [y[0] - CX, y[1] - CY]; const dl = Math.hypot(dir[0], dir[1]) || 1;
         if (sub === 2 && !or5()) drawE0Label(g);
         drawVerts(g);
@@ -1235,16 +1333,131 @@ const EXAMPLES = (() => {
     drawHits(g);
   }
   function gFaint(gg) { D.M.edges.forEach((E, id) => mk('path', { d: gEdgeD(id), class: 'ge faint' }, gg)); mk('circle', { cx: CX, cy: CY, r: RG, class: 'ring thin', style: 'opacity:.5' }, gg); }
+
+  // ---------- polytope view (Set Up) ----------
+  function polyBuild() {
+    const M = D.M, n = M.n, F = M.faces;
+    const adj = Array.from({ length: n }, () => []); M.edges.forEach(E => { adj[E.u].push(E.v); adj[E.v].push(E.u); });
+    const sub = (a, b) => a.map((x, i) => x - b[i]), dot = (a, b) => a.reduce((t, x, i) => t + x * b[i], 0), crs = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+    const nrm = p => { const l = Math.hypot(...p) || 1; return p.map(x => x / l); };
+    // 1. Tutte embedding of T with the outer triangle t0 fixed
+    const p2 = D.pos.map((q, v) => (M.isRoot[v] ? [(q[0] - CX) / RT, (q[1] - CY) / RT] : [0, 0]));
+    for (let it = 0; it < 4000; it++) for (let v = 0; v < n; v++) if (!M.isRoot[v]) { let x = 0, y = 0; adj[v].forEach(w => { x += p2[w][0]; y += p2[w][1]; }); p2[v] = [x / adj[v].length, y / adj[v].length]; }
+    // 2. Maxwell-Cremona lifting: one plane z = a.p + d for each inner face
+    const pl = new Array(F.length).fill(null); const f0 = F.findIndex((_, f) => f !== M.t0); pl[f0] = [0, 0, 0]; const st = [f0];
+    while (st.length) { const f = st.pop(); for (const E of M.edges) { if (E.black !== f && E.white !== f) continue; const g2 = E.black === f ? E.white : E.black; if (g2 === M.t0 || pl[g2]) continue; const i2 = E.u, j2 = E.v, k = F[f].find(v => v !== i2 && v !== j2); const e = sub(p2[j2], p2[i2]), left = e[0] * (p2[k][1] - p2[i2][1]) - e[1] * (p2[k][0] - p2[i2][0]) > 0; const sg = left ? 1 : -1, a = [pl[f][0] + sg * -e[1], pl[f][1] + sg * e[0]]; pl[g2] = [a[0], a[1], pl[f][2] - ((a[0] - pl[f][0]) * p2[i2][0] + (a[1] - pl[f][1]) * p2[i2][1])]; st.push(g2); } }
+    let Q = p2.map((q, v) => { const f = F.findIndex((Fv, fi) => fi !== M.t0 && Fv.includes(v)); return [q[0], q[1], pl[f][0] * q[0] + pl[f][1] * q[1] + pl[f][2]]; });
+    // affine normalisation (keeps convexity and the face structure)
+    const whiten = pts => { const m = pts.length, c = [0, 1, 2].map(k => pts.reduce((t, p) => t + p[k], 0) / m), X = pts.map(p => sub(p, c)); let A = [0, 1, 2].map(a => [0, 1, 2].map(b => X.reduce((t, p) => t + p[a] * p[b], 0) / m)), Vv = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+      for (let sw = 0; sw < 30; sw++) for (const [a, b] of [[0, 1], [0, 2], [1, 2]]) { if (Math.abs(A[a][b]) < 1e-14) continue; const th = 0.5 * Math.atan2(2 * A[a][b], A[b][b] - A[a][a]), cs = Math.cos(th), sn = Math.sin(th); const Rm = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]; Rm[a][a] = cs; Rm[b][b] = cs; Rm[a][b] = sn; Rm[b][a] = -sn; const mul = (Xm, Ym) => Xm.map(r => [0, 1, 2].map(cc => r[0] * Ym[0][cc] + r[1] * Ym[1][cc] + r[2] * Ym[2][cc])), tr = Xm => [0, 1, 2].map(r => [0, 1, 2].map(cc => Xm[cc][r])); A = mul(mul(tr(Rm), A), Rm); Vv = mul(Vv, Rm); }
+      return X.map(p => { const y = [0, 1, 2].map(k => (p[0] * Vv[0][k] + p[1] * Vv[1][k] + p[2] * Vv[2][k]) / Math.sqrt(Math.max(A[k][k], 1e-12))); return [0, 1, 2].map(r => Vv[r][0] * y[0] + Vv[r][1] * y[1] + Vv[r][2] * y[2]); }); };
+    Q = whiten(Q);
+    // 3. polar dual: one vertex of G for each triangle of T
+    const det3 = (a, b, c2) => dot(a, crs(b, c2));
+    const solve1 = (a, b, c2) => { const d = det3(a, b, c2) || 1e-9; return [0, 1, 2].map(k => det3(...[a, b, c2].map(r => r.map((x, i) => (i === k ? 1 : x)))) / d); };
+    const inc0 = Array.from({ length: n }, () => []); F.forEach((Fv, f) => Fv.forEach(v => inc0[v].push(f)));
+    let V = whiten(F.map(Fv => solve1(...Fv.map(v => Q[v]))));
+    for (let it = 0; it < 14; it++) { Q = whiten(inc0.map(fs => { let bi = [0, 1, 2], bd = 0; for (let x = 0; x < fs.length; x++) for (let y = x + 1; y < fs.length; y++) for (let z = y + 1; z < fs.length; z++) { const d = Math.abs(det3(V[fs[x]], V[fs[y]], V[fs[z]])); if (d > bd) { bd = d; bi = [x, y, z]; } } return solve1(V[fs[bi[0]]], V[fs[bi[1]]], V[fs[bi[2]]]); })); V = whiten(F.map(Fv => solve1(...Fv.map(v => Q[v])))); }
+    // 4. orientation: t0 at the back, aligned with the planar drawing
+    const ez = nrm(V[M.t0].map(x => -x)), ex0 = nrm(Math.abs(ez[0]) < 0.9 ? [0, -ez[2], ez[1]] : [-ez[2], 0, ez[0]]), ey0 = crs(ez, ex0);
+    const B = V.map(p => [dot(p, ex0), dot(p, ey0), dot(p, ez)]);
+    let best = null; for (const mir of [1, -1]) { let sd = 0, sc = 0; B.forEach((p, f) => { if (f === M.t0) return; const tx = (D.fc[f][0] - CX) / RT, ty = (D.fc[f][1] - CY) / RT, x = mir * p[0], y = p[1]; sd += x * tx + y * ty; sc += x * ty - y * tx; }); const sc0 = Math.hypot(sd, sc); if (!best || sc0 > best.sc0) best = { mir, a: Math.atan2(sc, sd), sc0 }; }
+    const ca = Math.cos(best.a), sa = Math.sin(best.a); V = B.map(p => { const x = best.mir * p[0], y = p[1]; return [x * ca - y * sa, x * sa + y * ca, p[2]]; });
+    const mx = Math.max(...V.map(v => Math.hypot(...v))); V = V.map(v => v.map(x => x / mx));
+    // faces of G = vertices of T
+    const inc = Array.from({ length: n }, () => []); F.forEach((Fv, f) => Fv.forEach(v => inc[v].push(f)));
+    const P = [], faces = inc.map((fs, v) => { const c = [0, 1, 2].map(k => fs.reduce((t, f) => t + V[f][k], 0) / fs.length); let nm = [0, 0, 0]; for (let a = 0; a < fs.length; a++) for (let b = a + 1; b < fs.length; b++) { const cr = crs(sub(V[fs[a]], c), sub(V[fs[b]], c)); const sgn = dot(cr, nm) < 0 ? -1 : 1; nm = nm.map((x, i) => x + sgn * cr[i]); } nm = nrm(nm); if (dot(nm, c) < 0) nm = nm.map(x => -x); P[v] = nm; const e1 = nrm(sub(V[fs[0]], c)), e2 = crs(nm, e1); return fs.map(f => [f, Math.atan2(dot(sub(V[f], c), e2), dot(sub(V[f], c), e1))]).sort((a, b) => a[1] - b[1]).map(x => x[0]); });
+    const start = F.map((Fv, f) => (f === M.t0 ? null : D.fc[f]));
+    return { P, V, faces, start };
+  }
+  let polyRaf = 0, polyT0 = 0, polyData = null, polyKey = '', pYaw = 0, pPitch = 0.42, pDrag = null, pLast = 0, pG = null;
+  function polyStop() { if (polyRaf) cancelAnimationFrame(polyRaf); polyRaf = 0; }
+  function polyDraw(g, now) {
+    const M = D.M, { P, V, faces, start } = polyData; const still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const el = (now - polyT0) / 1000, m = still ? 1 : Math.min(1, el / 1.8), e = m * m * (3 - 2 * m);
+    const dt = Math.min(0.1, (now - pLast) / 1000); pLast = now;
+    const th = (still ? 0.5 : 0) + pYaw, tilt = pPitch * e, ct = Math.cos(th), st = Math.sin(th), cx = Math.cos(tilt), sx = Math.sin(tilt), R = 250;
+    const rot = p => { const x = p[0] * ct + p[2] * st, z0 = -p[0] * st + p[2] * ct, y = p[1] * cx - z0 * sx, z = p[1] * sx + z0 * cx; return [x, y, z]; };
+    const W = V.map(rot), N = P.map(rot);
+    const scr = (f, other) => { const w = W[f], k = 1 / (1 - 0.18 * w[2]), q = [CX + R * w[0] * k, CY + R * w[1] * k]; let s0 = start[f]; if (!s0) { const o = D.fc[other] || [CX, CY - 1], dx = o[0] - CX, dy = o[1] - CY, l = Math.hypot(dx, dy) || 1; s0 = [CX + RG * dx / l, CY + RG * dy / l]; } return [s0[0] + (q[0] - s0[0]) * e, s0[1] + (q[1] - s0[1]) * e]; };
+    g.textContent = '';
+    const front = v => N[v][2] > 0.02;
+    const ov = polyOv, ecl = id => (ov ? (ov.ec.get(id) || (ov.dim ? 'dim' : '')) : '');
+    const edges = M.edges.map((E, id) => ({ a: scr(E.black, E.white), b: scr(E.white, E.black), fr: front(E.u) || front(E.v), c: ecl(id), id }));
+    if (e > 0.6) {
+      edges.forEach(E => { if (!E.fr) mk('line', { x1: f1(E.a[0]), y1: f1(E.a[1]), x2: f1(E.b[0]), y2: f1(E.b[1]), class: 'pe back ' + E.c }, g); });
+      const fo = (e - 0.6) / 0.4;
+      faces.map((fs, v) => [v, fs]).filter(([v]) => front(v)).sort((a, b) => N[a[0]][2] - N[b[0]][2]).forEach(([v, fs]) => { mk('polygon', { points: fs.map(f => pt(scr(f, fs[0] === f ? fs[1] : fs[0]))).join(' '), class: 'pf' + (ov && ov.cls ? ' c' + ov.cls[v] : ''), opacity: f1(fo * (0.3 + 0.25 * N[v][2]) * (ov && ov.cls ? 1.5 : 1)) }, g); });
+    }
+    [false, true].forEach(hi => edges.forEach(E => { if ((E.fr || e <= 0.6) && (!!E.c && !/^dim$/.test(E.c)) === hi) mk('line', { x1: f1(E.a[0]), y1: f1(E.a[1]), x2: f1(E.b[0]), y2: f1(E.b[1]), class: 'pe ' + E.c }, g); }));
+    if (ov && ov.arrows.length && e > 0.6) ov.arrows.forEach(A => { const E = edges[A.id]; if (!E.fr) return; const a = scr(A.from, A.to), b = scr(A.to, A.from), ang = Math.atan2(b[1] - a[1], b[0] - a[0]) * 180 / Math.PI, c = [a[0] + (b[0] - a[0]) * 0.58, a[1] + (b[1] - a[1]) * 0.58]; arrowHead(g, c, ang, 10, 'wth pah'); });
+    M.faces.forEach((F, f) => { const fr = F.some(front); if (e > 0.6 && !fr) return; if (f === M.t0 && e < 0.25) return; const q = scr(f, f); mk('circle', { cx: f1(q[0]), cy: f1(q[1]), r: 5, class: M.col[f] === 0 ? 'gvb' : 'gvw' }, g); });
+    polyRaf = !still && el < 1.9 ? requestAnimationFrame(t => polyDraw(g, t)) : 0;
+  }
+  let polyShown = false, polyOv = null;
+  // what Step 5 draws on the polytope: G-edges (dual to the edges of T) for each stage, arrows, and the two green classes
+  function polyOverlay(res) {
+    const M = D.M, p = curPair(), ph = S.ph5 | 0, ec = new Map(), arrows = [], put = (id, c) => ec.set(id, c);
+    if (ph <= 1) {
+      M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); put(M.edgeOf(x, y), 'po'); });
+      if (ph === 1) { const E0 = e0(), R3 = M.roots; [[0, 1], [1, 2], [0, 2]].forEach(([a, b]) => { if (!(E0.includes(R3[a]) && E0.includes(R3[b]))) put(M.edgeOf(R3[a], R3[b]), 'po'); }); }
+    } else if (ph <= 4) {
+      const cls = ph === 4 ? 'pp dim2' : 'pp';
+      res.wEdges.forEach(we => { put(we.ea, cls); put(we.eb, cls); }); put(res.e0id, cls);
+      if (ph === 3) {
+        res.wEdges.forEach(we => { const childIsA = res.parent.get(we.fa) && res.parent.get(we.fa).i === we.i; arrows.push(childIsA ? { id: we.ea, from: we.t, to: we.fa } : { id: we.ea, from: we.fa, to: we.t }); arrows.push(childIsA ? { id: we.eb, from: we.fb, to: we.t } : { id: we.eb, from: we.t, to: we.fb }); });
+        arrows.push({ id: res.e0id, from: M.t0, to: res.y0 });
+      }
+      if (ph === 4) res.P.forEach(id => put(id, 'pg'));
+    } else if (ph === 5) { res.P.forEach(id => put(id, 'pg')); }
+    else if (res.ham) res.ham.edges.forEach(id => put(id, 'ph'));
+    return { ec, arrows, cls: ph === 5 ? res.cls : null, dim: ph >= 1 };
+  }
+  function polyStart(g, keep, ov) {
+    polyStop(); const pk = S.ex + ':' + S.e0k; if (pk !== polyKey || !polyData) { polyData = polyBuild(); polyKey = pk; }
+    polyOv = ov || null; polyShown = true;
+    if (keep) { pDrag = null; pG = g; pLast = performance.now(); polyT0 = pLast - 5000; polyDraw(g, pLast); return; }
+    pYaw = 0; pPitch = 0.42; pDrag = null; pG = g; polyT0 = performance.now(); pLast = polyT0; polyDraw(g, polyT0);
+  }
   function drawE0Label(g) {
     if (S.hideE0) return;
     const [u, v] = e0(); const a = D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v]); const q = arcPt(a + 13, (RT + RG) / 2);
     mk('text', { x: f1(q[0]), y: f1(q[1] + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'e₀';
+  }
+  const centroid2 = vs => [vs.reduce((t, v) => t + D.pos[v][0], 0) / vs.length, vs.reduce((t, v) => t + D.pos[v][1], 0) / vs.length];
+  function gluePieces(g, sub) {
+    const M = D.M, sol = D.sol, tri = sol.tri, in0 = new Set(sol.pieces[0].ids), in1 = new Set(sol.pieces[1].ids), dk = C.disk(M, tri), inside = new Set(dk.faces);
+    const X = M.col[dk.faces.find(f => M.faces[f].filter(v => tri.includes(v)).length === 2)], pe = sol.pieces[1].e0, tc = centroid2(tri);
+    const triD = `M${pt(D.pos[tri[0]])} L${pt(D.pos[tri[1]])} L${pt(D.pos[tri[2]])} Z`;
+    const piece = (set, kind, k, tx, ty, solved, faint) => {
+      const gg = mk('g', Object.assign({ transform: `translate(${f1(tx)},${f1(ty)}) scale(${k})`, class: 'pc' }, faint ? { opacity: 0.4 } : {}), g), outer = kind === 'outer';
+      if (outer) mk('path', { class: 'band', 'fill-rule': 'evenodd', d: `M${CX - RG},${CY} a${RG},${RG} 0 1 0 ${2 * RG},0 a${RG},${RG} 0 1 0 ${-2 * RG},0 Z M${CX - RT},${CY} a${RT},${RT} 0 1 0 ${2 * RT},0 a${RT},${RT} 0 1 0 ${-2 * RT},0 Z` }, gg);
+      const capBlack = outer ? X === 0 : X !== 0;
+      if (!outer) mk('path', { d: triD, class: capBlack ? 'capband' : 'capbandw' }, gg);
+      M.faces.forEach((F, f) => { if (f === M.t0 || M.col[f] !== 0 || !F.every(v => set.has(v)) || (outer ? inside.has(f) : !inside.has(f))) return; mk('path', { d: faceD(f), class: 'bf' }, gg); });
+      if (outer) mk('path', { d: triD, class: capBlack ? 'bf capf' : 'capw' }, gg);
+      M.edges.forEach(E => { if (set.has(E.u) && set.has(E.v)) mk('path', { d: edgeD(E.u, E.v), class: 'te' }, gg); });
+      if (outer) mk('path', { d: edgeD(...e0()), class: 'e0' }, gg);
+      const cls = sol.cls.map((c, v) => (set.has(v) ? c : -1));
+      if (solved) { drawClasses(gg, cls, { only: set }); if (sub >= 1) mk('path', { d: edgeD(pe[0], pe[1]), class: 'capedge' }, gg); }
+      if (!outer && sub === 2) mk('path', { d: edgeD(pe[0], pe[1]), class: 'e0' }, gg);
+      set.forEach(v => { const q = D.pos[v], c = solved ? (cls[v] === 0 ? 'va' : 'vb') : 'tv'; if (M.isRoot[v]) mk('rect', { x: f1(q[0] - 7.5 / k * 0.8), y: f1(q[1] - 7.5 / k * 0.8), width: f1(15 / k * 0.8), height: f1(15 / k * 0.8), rx: 1.5, class: c + ' rootv' }, gg); else mk('circle', { cx: f1(q[0]), cy: f1(q[1]), r: f1(5.4 / k * (tri.includes(v) ? 1.25 : 0.9)), class: c + ' xv' }, gg); });
+      tri.forEach((v, i) => { const q = D.pos[v], dx = q[0] - tc[0], dy = q[1] - tc[1], l = Math.hypot(dx, dy) || 1, o = (outer ? -1 : 1) * 22 / k; mk('text', { x: f1(q[0] + o * dx / l), y: f1(q[1] + o * dy / l + 6 / k), 'text-anchor': 'middle', class: 'lbl halo', style: `font-size:${f1(21 / k)}px` }, gg).textContent = 'abc'[i]; });
+      mk('text', { x: f1(tc[0] + (outer ? 0 : 0)), y: f1(outer ? tc[1] + 5 / k : Math.max(...tri.map(v => D.pos[v][1])) + 44 / k), 'text-anchor': 'middle', class: 'lbl sm halo', style: `font-size:${f1(14 / k)}px;font-style:normal` }, gg).textContent = 'cap';
+      if (!outer && sub === 2) { const m = edgePt(pe[0], pe[1], 0.5), dx = m[0] - tc[0], dy = m[1] - tc[1], l = Math.hypot(dx, dy) || 1; mk('text', { x: f1(m[0] + 20 / k * dx / l), y: f1(m[1] + 20 / k * dy / l + 6 / k), 'text-anchor': 'middle', class: 'lbl halo', style: `font-size:${f1(20 / k)}px` }, gg).textContent = 'e₀′'; }
+    };
+    const k0 = 0.56; piece(in0, 'outer', k0, 196 - CX * k0, 300 - CY * k0, sub >= 1, false);
+    const ids = [...in1], cc = centroid2(ids), ext = Math.max(...ids.map(v => Math.hypot(D.pos[v][0] - cc[0], D.pos[v][1] - cc[1]))) || 1, k1 = Math.min(1.7, 128 / ext);
+    piece(in1, 'inner', k1, 520 - cc[0] * k1, 300 - cc[1] * k1, sub >= 2, sub === 1);
+    mk('text', { x: 196, y: 520, 'text-anchor': 'middle', class: 'lbl sm', style: 'font-style:normal' }, g).textContent = 'outer piece';
+    mk('text', { x: 520, y: 520, 'text-anchor': 'middle', class: 'lbl sm', style: 'font-style:normal' }, g).textContent = 'inner piece';
   }
   function renderGlue(g) {
     const M = D.M, sol = D.sol, tri = sol.tri, sub = S.sub8;
     const in0 = new Set(sol.pieces[0].ids), in1 = new Set(sol.pieces[1].ids);
     const triPath = `M${pt(D.pos[tri[0]])} L${pt(D.pos[tri[1]])} L${pt(D.pos[tri[2]])} Z`;
     const dk = C.disk(M, tri);
+    if (sub < 3) { gluePieces(g, sub); return; }
     if (sub === 0) { drawBase(g, { hlFaces: dk.faces }); drawE0(g); mk('path', { d: triPath, class: 'sep' }, g); drawVerts(g); }
     else if (sub === 1 || sub === 2) {
       const act = sub === 1 ? in0 : in1; const cls = sol.cls.map((c, v) => (act.has(v) ? c : -1));
@@ -1254,7 +1467,7 @@ const EXAMPLES = (() => {
       const lp = sub === 2 ? lerp(m, c, -0.22) : lerp(m, c, 0.2);
       mk('text', { x: f1(lp[0]), y: f1(lp[1] + 5), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = sub === 2 ? 'e₀′' : 'same label';
       drawVerts(g, { cls, dimV: v => !act.has(v) });
-    } else { drawBase(g, { dim: true }); drawE0(g); drawClasses(g, sol.cls); mk('path', { d: triPath, class: 'sep' }, g); drawG(g, { ham: D.solChk.ham }); drawVerts(g, { cls: sol.cls }); }
+    } else { drawBase(g, { dim: true }); drawE0(g); drawClasses(g, sol.cls); mk('path', { d: triPath, class: 'sep' }, g); { const pe = sol.pieces[1].e0, v3 = tri.find(v => !pe.includes(v)); mk('path', { d: edgeD(pe[0], pe[1]), class: 'capedge' }, g); drawG(g, { ham: D.solChk.ham }); drawVerts(g, { cls: sol.cls }); mk('circle', { cx: f1(D.pos[v3][0]), cy: f1(D.pos[v3][1]), r: 13, class: 'capring' }, g); const tc = centroid2(tri); tri.forEach((v, i) => { const q = D.pos[v], dx = q[0] - tc[0], dy = q[1] - tc[1], l = Math.hypot(dx, dy) || 1; mk('text', { x: f1(q[0] + 24 * dx / l), y: f1(q[1] + 24 * dy / l + 6), 'text-anchor': 'middle', class: 'lbl halo' }, g).textContent = 'abc'[i]; }); } }
     flushDots(g);
     drawHits(g);
   }
@@ -1297,7 +1510,7 @@ const EXAMPLES = (() => {
     else if (id === 'disk') keys = ['r', 'd', 'disk'];
     else if (id === 'flip') keys = ['q', 'r', 's', 'disk'];
     else if (id === 'sum') keys = ['spoke', 'd'];
-    else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 's', 'wt'], ['pg', 'q', 'wt', 's'], ['trees', 'ham']][sub5()]; if (id === 'trees' && o5() === 3) keys = ['trees']; if (id === 'trees' && o5() === 0) keys = ['q', 's', 'root']; if (id === 'trees' && or5()) keys = ['q', 'wt', 's'];
+    else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 's', 'wt'], ['pg', 'q', 'wt', 's'], ['trees', 'ham']][sub5()]; if (id === 'trees' && o5() === 3) keys = ['trees']; if (id === 'trees' && o5() === 0) keys = ['q', 's', 'root']; if (id === 'trees' && (S.ph5 | 0) >= 1) keys = keys.filter(k => k !== 's'); if (id === 'trees' && or5()) keys = ['q', 'wt', 's'];
     else if (id === 'glue') keys = D.sol.pieces ? (S.sub8 === 0 ? ['sep', 'inside'] : S.sub8 === 3 ? ['trees', 'ham', 'sep'] : ['trees', 'sep']) : ['trees', 'ham'];
     document.getElementById('figcap').innerHTML = '';
     document.getElementById('legend').style.flexDirection = id === 'dual' ? 'column' : '';
@@ -1305,6 +1518,10 @@ const EXAMPLES = (() => {
   }
 
   // ---------- text panels ----------
+  const acts4 = list => list.map((h, k) => `<p class="fact go alg${(S.h4 | 0) === k ? ' cur4' : ''}" data-act="h4" data-i="${k}" tabindex="0"><b>${k + 1}.</b> ${h}</p>`).join('');
+  const why4 = html => `<details class="why"><summary>Why this works</summary>${html}</details>`;
+  const flipCmp = () => { if (!D.pairs.length) return ''; const p = curPair(), qc = C.qCycles(D.M, p.r, p.s); if (!qc.length) return `<p class="fact">This pair has no cycle in <i>Q<sub>s</sub></i>. Choose a pair marked ✗ below.</p>`; const J2 = C.Jof(D.M, C.flip(D.M, p.r, p.s, qc[0]), p.s);
+    return `<table class="cmp"><thead><tr><th></th><th>original (<i>r</i>, <i>s</i>)</th><th>reversed (<i>r̃</i>, <i>s</i>)</th></tr></thead><tbody><tr><th>second state</th><td class="same"><i>s</i></td><td class="same"><i>s</i></td></tr><tr><th>weight <i>ω</i>(<i>s</i>)</th><td class="same">${sgn(D.omega[p.si])}</td><td class="same">${sgn(D.omega[p.si])}</td></tr><tr><th><i>J</i></th><td>${sgn(p.J)}</td><td>${sgn(J2)}</td></tr><tr><th>phase <i>i<sup>J</sup></i></th><td class="diff">${ph(p.J)}</td><td class="diff">${ph(J2)}</td></tr></tbody></table>`; };
   const pairChips = () => `<div class="ctl"><div class="lab">All ${plural(D.pairs.length, 'pair')} of this triangulation</div><div class="row">${D.pairs.map((p, i) =>
     `<button class="chip" data-act="pair" data-i="${i}" aria-pressed="${i === S.pair}" title="Pair ${i + 1}: phase ${ph(p.J)}, Q_s ${p.forest ? 'is a forest' : 'has a cycle'}"><span>${i + 1}</span>${['disk', 'flip', 'sum'].includes(STEPS[S.step].id) ? `<span class="ph">${ph(p.J)}</span>` : ''}<span class="mk" aria-label="${p.forest ? 'Q_s is a forest' : 'Q_s has a cycle'}">${p.forest ? '✓' : '✗'}</span></button>`).join('')}</div></div>`;
   const o5 = () => { const q = S.ph5 | 0; return q <= 1 ? 0 : q === 2 ? 1 : q === 3 ? 2 : q - 2; }; const w5 = () => false; const sp5 = () => (S.ph5 | 0) === 1; const or5 = () => (S.ph5 | 0) === 3;
@@ -1349,9 +1566,9 @@ const EXAMPLES = (() => {
         <p class="cite">Originally due to Stein ${cref(3, 'Theorem 2.2')}, in a formulation about partitioning the regions of a planar map. Proved in the two-tree form used here by Alt, Payne, Schmidt and Wood ${cref(4, 'Lemma 5')}.</p></div>
         <div class="do"><b>Try it.</b> Show the graph <i>G</i>, the triangulation <i>T</i>, or both.</div>
         <div class="ctl"><div class="row">
-          <button class="btn tog" data-act="view" data-k="G" aria-pressed="${S.showG && !S.showT}">G</button>
-          <button class="btn tog" data-act="view" data-k="T" aria-pressed="${S.showT && !S.showG}">T</button>
-          <button class="btn tog" data-act="view" data-k="both" aria-pressed="${S.showG && S.showT}">Both</button></div></div>
+          <button class="btn tog" data-act="view" data-k="G" ${S.poly ? 'disabled' : ''} aria-pressed="${S.showG && !S.showT}">G</button>
+          <button class="btn tog" data-act="view" data-k="T" ${S.poly ? 'disabled' : ''} aria-pressed="${S.showT && !S.showG}">T</button>
+          <button class="btn tog" data-act="view" data-k="both" ${S.poly ? 'disabled' : ''} aria-pressed="${S.showG && S.showT}">Both</button></div></div>
         <dl class="read"><dt>G</dt><dd>${2 * M.k} vertices, ${3 * M.k} edges, ${M.k + 2} faces</dd><dt>T = G*</dt><dd>${M.k + 2} vertices, ${3 * M.k} edges, ${M.k} black + ${M.k} white triangles (k = ${M.k})</dd></dl>`;
     },
     thm() {
@@ -1359,7 +1576,7 @@ const EXAMPLES = (() => {
         <p class="claim"><b>THEOREM 2.2</b> (OpenAI ${cref(1)}, §2). There exists a partition of the vertices of <i>T</i> into two sets, each inducing a tree in <i>T</i>.</p>
         <p>Barnette’s conjecture follows from it, by the Dual Form theorem in Step 1.</p>
         <p>The proof has the following case distinction.</p>
-        <p><b>Case 1: <i>T</i> has no ${term('separating triangle')}.</b> The partition is constructed directly (Steps 3 to 5). The core claim is that there exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest, together with another state <i>r</i> that differs from <i>s</i> on every triangle. Step 5 turns them into the two trees. This is also the base case of the induction below.</p>
+        <p><b>Case 1: <i>T</i> has no ${term('separating triangle')}.</b> The partition is constructed directly (Steps 3 to 5). The core claim is that there exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest with exactly one root in each component (a “good” state, Step 4). Step 5 turns it into the two trees. This case is also the base case of the induction below.</p>
         <p><b>Case 2: <i>T</i> has a separating triangle.</b> This case uses induction on the number of vertices. Cut <i>T</i> along the triangle into two smaller triangulations, apply the theorem to each, and glue the two partitions (Step 6).</p>
         </div>
         <div class="do"><b>Try it.</b> Choose one of the arcs <i>e</i><sub>0</sub> of <i>t</i><sub>0</sub>. The figure shows the partition of <i>T</i> into two trees that the theorem gives.</div>`;
@@ -1379,25 +1596,34 @@ const EXAMPLES = (() => {
         <dl class="read"><dt>|A| = |X|</dt><dd>${M.A.length}</dd><dt>This state</dt><dd>Q<sub>s</sub> ${q.forest ? 'has no cycle' : 'contains a cycle'}; ${q.partners ? plural(q.partners, 'partner') + ' (step 4a)' : 'no partner (step 4a)'}</dd></dl>`;
     },
     pairs() {
-      const head = `<div class="prose">
-        <p>Recall that <i>A</i> are the black triangles except for <i>t</i><sub>0</sub>, and <i>X</i> are all non-root vertices of <i>T</i>. Our goal is to show that there exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest. For this, we introduce another state <i>r</i> that is disjoint from <i>s</i>.</p>
+      const head = `<div class="prose"><p class="claim"><b>DEFINITION (good state).</b> Call a state <i>s</i> <b>good</b> if <i>Q<sub>s</sub></i> is a forest with exactly one root in each component. Step 4 shows that a good state exists. (“Good” is our shorthand, not the paper’s term.)</p>${acts4([
+        'Take two states <i>r</i> and <i>s</i> that choose <b>different vertices in every black triangle</b>. This is a <b>pair</b>. The figure marks <i>r</i>(<i>t</i>) and <i>s</i>(<i>t</i>) in each triangle.',
+        'In each black triangle, draw an <b>arrow from <i>r</i>(<i>t</i>) to <i>s</i>(<i>t</i>)</b>. Call the set of arrows <i>D</i>.',
+        'Look at one non-root vertex (ringed). Exactly one triangle chooses it for <i>s</i>, which gives <b>one arrow in</b>. Exactly one triangle chooses it for <i>r</i>, which gives <b>one arrow out</b>. So <i>D</i> is a union of disjoint directed cycles.',
+        'A pair exists whenever <i>T</i> has no separating triangle (Proposition 3.1). The max-flow argument is in the detail below.'])}${why4(`
+        <p>Recall that <i>A</i> are the black triangles except for <i>t</i><sub>0</sub>, and <i>X</i> are all non-root vertices of <i>T</i>. Our goal is to show that a good state <i>s</i> exists, that is, <i>Q<sub>s</sub></i> is a forest with one root per component. For this, we introduce another state <i>r</i> that is disjoint from <i>s</i>.</p>
         <p>Two states <i>r</i>, <i>s</i> are called a <strong>pair</strong> if they choose different vertices on every triangle, i.e., if <i>r</i>(<i>t</i>) ≠ <i>s</i>(<i>t</i>) for all <i>t</i> in <i>A</i>. In each triangle <i>t</i>, orient the edge joining these two vertices from <i>r</i>(<i>t</i>) to <i>s</i>(<i>t</i>). This yields a graph <i>D</i> on <i>X</i> consisting of vertex-disjoint directed cycles, since every non-root vertex has exactly one arrow in and one arrow out.</p>
         <p>A pair also gives the orientation on <i>Q<sub>s</sub></i> announced in Step 3. In each triangle <i>t</i>, the edge of <i>Q<sub>s</sub></i> joins <i>r</i>(<i>t</i>) to the third vertex, and we orient it leaving <i>r</i>(<i>t</i>). These are not the arrows of <i>D</i> above, and they need not form cycles. Step 4c comes back to them.</p>
         <p class="claim"><b>PROPOSITION 3.1.</b> If <i>T</i> has no separating triangle, a pair exists.</p>
         <p>This is the only place where the hypothesis of Case 1 is used. With a separating triangle a pair is no longer guaranteed, which is why Case 2 is handled separately (Step 6). <b>Example.</b> The “Two cubes, glued” graph has a separating triangle and no pair. <button class="cref" data-act="ex" data-i="${EXAMPLES.findIndex(e => e.id === 'glued')}">Load that example</button> to see why.</p>
         <p><b>Proof idea.</b> The two states of a pair together form a 2-regular spanning subgraph of the incidence graph, and every such subgraph splits into two states. So by max-flow it is enough to check, for every set <i>S</i> of non-root vertices,</p>
         <div class="eq">Σ<sub><i>t</i> ∈ <i>A</i></sub> min(2, |<i>V</i>(<i>t</i>) ∩ <i>S</i>|) ≥ 2|<i>S</i>|.</div>
-        <p>With <i>U</i> the complement of <i>S</i>, this is the planar density bound <i>e</i>(<i>U</i>) − <i>b</i>(<i>U</i>) ≤ 2|<i>U</i>| − 4, where <i>e</i> counts edges and <i>b</i> black triangles inside <i>U</i>. It follows from Euler's formula, one component of <i>T</i>[<i>U</i>] at a time. The hypothesis is used once: a triangular face of <i>T</i>[<i>U</i>] must be a face of <i>T</i>.</p></div>`;
+        <p>With <i>U</i> the complement of <i>S</i>, this is the planar density bound <i>e</i>(<i>U</i>) − <i>b</i>(<i>U</i>) ≤ 2|<i>U</i>| − 4, where <i>e</i> counts edges and <i>b</i> black triangles inside <i>U</i>. It follows from Euler's formula, one component of <i>T</i>[<i>U</i>] at a time. The hypothesis is used once: a triangular face of <i>T</i>[<i>U</i>] must be a face of <i>T</i>.</p>`)}</div>`;
       if (!D.pairs.length) return head + noPairBox();
       const p = curPair();
       return head + pairChips() + `<dl class="read"><dt>Pair ${S.pair + 1}</dt><dd>${plural(p.cycles.length, 'cycle')} of lengths ${p.cycles.map(c => c.h).join(', ')}</dd><dt>Chip key</dt><dd>number, phase i<sup>J</sup> (step 4b), Q<sub>s</sub> forest or cycle (step 4c)</dd></dl>`;
     },
     disk() {
-      const head = `<div class="prose">
+      const head = `<div class="prose">${acts4([
+        '<b>Select one cycle</b> of <i>D</i> by clicking it. The shaded triangles are the ones inside it.',
+        '<b>Euler.</b> Count everything inside the cycle: <i>B</i> black and <i>W</i> white triangles, <i>I</i> vertices strictly inside (ringed), <i>h</i> vertices on the cycle. Then <i>B</i> + <i>W</i> = 2<i>I</i> + <i>h</i> − 2.',
+        '<b>Sides.</b> Each inside triangle has three sides. The thick sides of the cycle are the <i>l</i> ones whose black triangle is inside. Then 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>.',
+        '<b>Matching: <i>B</i> = <i>I</i> + <i>l</i>.</b> This is where the state enters. Each inside black triangle points to the vertex it chooses. Every vertex strictly inside is chosen once (blue rings, <i>I</i> of them). The other inside black triangles choose a vertex on the cycle, and these are exactly the tails of the thick sides (pink rings, <i>l</i> of them).',
+        'Together the three counts give 2<i>l</i> − <i>h</i> = −3: the signs along a counterclockwise cycle add up to −3, and along a clockwise one to +3.'])}${why4(`
         <p>Give each directed edge a sign: <i>δ</i>(<i>v</i>, <i>w</i>) = +1 if the black triangle of the edge is on the left when travelling from <i>v</i> to <i>w</i>, and −1 otherwise.</p>
         <p class="claim"><b>LEMMA 4.1</b> (Disk identity). Let <i>r</i> be a state and choose, in each triangle <i>t</i>, one side leaving <i>r</i>(<i>t</i>). Every directed cycle of chosen sides avoids the roots, and its <i>δ</i>-sum is −3 if it is counterclockwise and +3 if it is clockwise.</p>
         <p>Three counts prove it. Let the cycle have length <i>h</i>, with <i>I</i> vertices strictly inside, <i>B</i> black and <i>W</i> white triangles inside, and <i>l</i> sides whose black triangle is inside. Euler's formula and counting triangle sides are routine. The third count is where the state enters: it matches the inside black triangles bijectively to the <i>I</i> inside vertices together with the <i>l</i> cycle vertices whose outgoing side has its black triangle inside.</p>
-        <p>So every pair has an integer <i>J</i>(<i>r</i>, <i>s</i>) = ⅓ Σ<sub><i>t</i></sub> <i>δ</i>(<i>r</i>(<i>t</i>), <i>s</i>(<i>t</i>)) = (clockwise cycles) − (counterclockwise cycles). Its phase <i>i<sup>J</sup></i> is the sign used in step 4d.</p></div>`;
+        <p>So every pair has an integer <i>J</i>(<i>r</i>, <i>s</i>) = ⅓ Σ<sub><i>t</i></sub> <i>δ</i>(<i>r</i>(<i>t</i>), <i>s</i>(<i>t</i>)) = (clockwise cycles) − (counterclockwise cycles). Its phase <i>i<sup>J</sup></i> is the sign used in step 4d.</p>`)}</div>`;
       if (!D.pairs.length) return head + noPairBox();
       const p = curPair(), ci = Math.min(S.cyc, p.cycles.length - 1), c = p.cycles[ci];
       const ok = b => (b ? '✓' : '✗');
@@ -1412,12 +1638,15 @@ const EXAMPLES = (() => {
         <dt>Whole pair</dt><dd>J = ${sgn(p.J)}, phase i<sup>J</sup> = ${ph(p.J)}</dd></dl>` + pairChips();
     },
     flip() {
-      const head = `<div class="prose">
+      const head = `<div class="prose">${acts4([
+        'Take a pair whose <b><i>Q<sub>s</sub></i> has a cycle</b> (thick orange, labelled). The faint blue arrows are <i>D</i>; they are a different set of edges.',
+        '<b>Reverse the cycle</b>: on its triangles, replace <i>r</i>(<i>t</i>) by the third vertex. This gives a new first state <i>r̃</i>. The second state <i>s</i> is untouched.',
+        'Compare the two pairs in the table. <b><i>s</i> and its weight <i>ω</i>(<i>s</i>) are the same. The phase changes sign.</b> So the two terms cancel in the sum of step 4d.'])}${flipCmp()}${why4(`
         <p>Fix the second state <i>s</i>. In each triangle, <i>Q<sub>s</sub></i> contains the side joining <i>r</i>(<i>t</i>) to the third corner <i>u</i>(<i>t</i>); orient it away from <i>r</i>(<i>t</i>). Every vertex now has at most one outgoing side, so a cycle of <i>Q<sub>s</sub></i> is automatically a directed cycle.</p>
         <p class="claim"><b>LEMMA 5.2.</b> If <i>Q<sub>s</sub></i> has a cycle, the terms with second state <i>s</i> in the sum <i>Z</i> of step 4d cancel to zero.</p>
         <p><b>The proof reverses that cycle.</b> On its triangles replace <i>r</i>(<i>t</i>) by <i>u</i>(<i>t</i>). The result <i>r̃</i> is again a partner of <i>s</i>, reversing twice gives back <i>r</i>, and <i>J</i>(<i>r̃</i>, <i>s</i>) = <i>J</i>(<i>r</i>, <i>s</i>) ± 2.</p>
         <p>The ±2 is the disk identity applied to the cycle of <i>Q<sub>s</sub></i>. So the two pairs have opposite phases, <i>i<sup>J</sup></i> and −<i>i<sup>J</sup></i>, while anything that depends only on <i>s</i> is the same for both.</p>
-        <p>If <i>Q<sub>s</sub></i> is a forest there is nothing to reverse, and <i>s</i> has at most one partner: the orientation that sends every tree towards its root.</p></div>`;
+        <p>If <i>Q<sub>s</sub></i> is a forest there is nothing to reverse, and <i>s</i> has at most one partner: the orientation that sends every tree towards its root.</p>`)}</div>`;
       if (!D.pairs.length) return head + noPairBox();
       const p = curPair(); const qc = C.qCycles(D.M, p.r, p.s);
       let body;
@@ -1433,17 +1662,22 @@ const EXAMPLES = (() => {
       return head + body + pairChips();
     },
     sum() {
-      const head = `<div class="prose">
+      const head = `<div class="prose">${acts4([
+        'Add up one term <i>i<sup>J</sup></i> · <i>e</i><sup><i>xω</i>(<i>s</i>)</sup> for every pair. The table lists the terms. The same pair stays selected in both views.',
+        '<b>View 1, grouped by <i>s</i>.</b> If <i>Q<sub>s</sub></i> has a cycle, its partners come in couples with opposite phase and equal weight (step 4c). One such couple is highlighted. Only forest states survive.',
+        '<b>View 2, grouped by the cycle set <i>D</i>.</b> A group with <i>c</i> cycles starts at <i>x<sup>c</sup></i> with coefficient (−<i>i</i>)<sup><i>c</i></sup> times a positive number. The groups with the fewest cycles are highlighted: they share the phase (−<i>i</i>)<sup><i>c</i></sup>, so their coefficients add and cannot cancel.',
+        'So the sum is not zero, and only forest states contribute to it. <b>Hence a good state exists.</b> This is all that Step 5 uses.'])}${why4(`
         <p>Put a real weight <i>a</i>(<i>t</i>, <i>v</i>) on every vertex <i>v</i> of every black triangle <i>t</i>, let <i>ω</i>(<i>s</i>) = Σ<sub><i>t</i></sub> <i>a</i>(<i>t</i>, <i>s</i>(<i>t</i>)), and add up all pairs:</p>
         <div class="eq"><i>Z</i>(<i>x</i>) = Σ<sub>pairs (<i>r</i>, <i>s</i>)</sub> <i>i</i><sup><i>J</i>(<i>r</i>, <i>s</i>)</sup> · <i>e</i><sup><i>x ω</i>(<i>s</i>)</sup>.</div>
         <p><b>Sorted by <i>s</i>, the cyclic states vanish.</b> If <i>Q<sub>s</sub></i> has a cycle, step 4c pairs up the partners of <i>s</i> with opposite phases and the same weight. Only pairs with <i>Q<sub>s</sub></i> a forest survive.</p>
         <p><b>Sorted by <i>D</i>, the sum is not zero.</b> Pairs with the same undirected arrow set <i>D</i> are the 2<sup><i>c</i></sup> ways to orient its <i>c</i> cycles, and each cycle <i>C</i> contributes a factor −<i>i e</i><sup><i>xL</i>₊(<i>C</i>)</sup> + <i>i e</i><sup><i>xL</i>₋(<i>C</i>)</sup>. Choose the weights as a positive circulation on the spokes (Lemma 5.3, the numbers in the figure). Then <i>L</i>₊ − <i>L</i>₋ counts the white triangles enclosed by <i>C</i> after sliding each arrow onto two spokes, so it is positive. Each factor vanishes to first order at <i>x</i> = 0, and a group with <i>c</i> cycles starts at <i>x<sup>c</sup></i> with coefficient (−<i>i</i>)<sup><i>c</i></sup> Π (<i>L</i>₊ − <i>L</i>₋). At the smallest <i>c</i> all groups share one phase and have positive size, so nothing cancels.</p>
         <p>Note that <i>Z</i>(0) = 0. Counted with signs alone, the forest pairs cancel exactly. The weights are what tell them apart.</p>
-        <p class="claim"><b>PROPOSITION 5.1.</b> If at least one pair exists, some pair has <i>Q<sub>s</sub></i> a forest. The reason: <i>Z</i> is not identically zero, and only forest pairs contribute to it.</p></div>`;
+        <p class="claim"><b>PROPOSITION 5.1.</b> If at least one pair exists, some pair has <i>Q<sub>s</sub></i> a forest. The reason: <i>Z</i> is not identically zero, and only forest pairs contribute to it.</p>`)}</div>`;
       if (!D.pairs.length) return head + noPairBox();
       const tabs = `<div class="row" role="group"><button class="btn" data-act="ztab" data-k="s" aria-pressed="${S.ztab === 's'}">Sort by second state s</button><button class="btn" data-act="ztab" data-k="d" aria-pressed="${S.ztab === 'd'}">Sort by cycle set D</button></div>`;
       let rows = '';
-      const prow = (i, extra) => { const p = D.pairs[i]; return `<tr class="p${i === S.pair ? ' cur' : ''}" data-act="pair" data-i="${i}"><td>${i + 1}</td>${extra(p)}<td>${ph(p.J)}</td><td>${sgn(D.omega[p.si])}</td><td><span class="tag ${p.forest ? 'ok' : 'cyc'}">${p.forest ? 'forest' : 'cycle'}</span></td></tr>`; };
+      const mate = (() => { let i0 = S.pair; if (D.pairs[i0].forest) { i0 = D.pairs.findIndex(q => !q.forest); if (i0 < 0) return new Set(); } const q = D.pairs[i0], qc = C.qCycles(D.M, q.r, q.s); if (!qc.length) return new Set(); const r2 = C.flip(D.M, q.r, q.s, qc[0]).join(','); const j0 = D.pairs.findIndex(x => x.si === q.si && x.r.join(',') === r2); return new Set(j0 < 0 ? [] : [i0, j0]); })();
+      const prow = (i, extra) => { const p = D.pairs[i]; return `<tr class="p${i === S.pair ? ' cur' : ''}${S.ztab === 's' && mate.has(i) ? ' mate' : ''}" data-act="pair" data-i="${i}"><td>${i + 1}</td>${extra(p)}<td>${ph(p.J)}</td><td>${sgn(D.omega[p.si])}</td><td><span class="tag ${p.forest ? 'ok' : 'cyc'}">${p.forest ? 'forest' : 'cycle'}</span></td></tr>`; };
       if (S.ztab === 's') {
         const bySi = new Map(); D.pairs.forEach((p, i) => { if (!bySi.has(p.si)) bySi.set(p.si, []); bySi.get(p.si).push(i); });
         const forestList = [];
@@ -1459,7 +1693,7 @@ const EXAMPLES = (() => {
       } else {
         for (const G of D.groups) {
           const prod = G.cyc.reduce((x, c) => x * c.gap, 1); const z = iPow(-G.c);
-          rows += `<tr class="g"><td colspan="5">Cycle set ${G.id + 1}: ${plural(G.c, 'cycle')}, L₊ − L₋ = ${G.cyc.map(c => c.gap).join(', ')}. Its ${G.members.length} orientations sum to ${cplx(z[0] * prod, z[1] * prod)}·x<sup>${G.c === 1 ? '' : G.c}</sup> + higher order</td></tr>`;
+          rows += `<tr class="g${G.c === D.cmin ? ' min' : ''}"><td colspan="5">Cycle set ${G.id + 1}: ${plural(G.c, 'cycle')}, L₊ − L₋ = ${G.cyc.map(c => c.gap).join(', ')}. Its ${G.members.length} orientations sum to ${cplx(z[0] * prod, z[1] * prod)}·x<sup>${G.c === 1 ? '' : G.c}</sup> + higher order</td></tr>`;
           rows += G.members.map(i => prow(i, p => `<td>${p.cycles.map(c => (c.ccw ? '↺' : '↻')).join(' ')}</td>`)).join('');
         }
       }
@@ -1481,9 +1715,9 @@ const EXAMPLES = (() => {
         it(2, 'fact alg', `<b>2.</b> Take the spanning tree ${SG} of <i>G</i> dual to ${ST}, that is, the set of edges of <i>G</i> that do not cross any edge of ${ST}.<br><span class="sub">It is a spanning tree by a standard result in graph theory (${cref(1)}, ${term('Lemma 2.1')}).</span>`, J),
         it(3, 'fact alg', `<b>3.</b> Orient ${SG} away from ${T0}.`, J),
         it(4, 'fact alg', `<b>4.</b> For each black triangle of <i>T</i>, select the side where ${SG} leaves the triangle.<br><span class="sub"><b>Claim.</b> The selected sides correspond to a perfect matching of <i>G</i>. Since every vertex of <i>G</i> has degree 3, the other edges of <i>G</i> form a ${term('2‑factor')} of <i>G</i>.</span>`, J + ' data-col="g"'),
-        it(5, 'fact alg', `<b>Final claim.</b> ${tg('needs a real proof')} This 2‑factor is a single cycle.`, J),
-        it(5, 'claim', `<b>LEMMA 6.2.</b> The selected edge set <i>P</i> is a forest.`, J),
-        it(5, 'fact', `Call the selected side of <i>t</i><sub>0</sub> <i>e</i><sub>0</sub>. Set it aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.`, J),
+        it(5, 'fact alg', `<b>Final claim.</b> This 2‑factor is a single cycle.`, J),
+        it(5, 'claim', `<b>LEMMA 6.2.</b> The obtained 2‑factor is a single cycle.`, J),
+        it(5, 'fact', `First, the selected sides form a forest. Call the selected side of <i>t</i><sub>0</sub> <i>e</i><sub>0</sub>. Set it aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.`, J),
         it(5, 'fact', `By counting the edges and vertices of <i>P</i>, we get <b>two trees</b>: <i>P</i> has one edge in each triangle of <i>A</i> plus <i>e</i><sub>0</sub>, and <i>T</i> has three more vertices than <i>A</i> has triangles, so the forest <i>P</i> has two components. They are the two green trees.`, J),
         it(6, 'fact', `The edges of <i>G</i> crossing the unselected sides form a connected 2-regular graph, a single closed curve through all triangles: <b>the Hamiltonian cycle</b>. An edge of <i>T</i> stays on one side of the curve exactly when it is selected, so each side induces a tree, and <i>e</i><sub>0</sub> lies in one of them.`, J),
       ];
@@ -1506,12 +1740,14 @@ const EXAMPLES = (() => {
       }
       const sol = D.sol; const lab = v => (sol.cls[v] === 0 ? 'light green' : 'dark green');
       const texts = [
-        `<p>The dotted triangle is a <b>separating triangle</b>: it has vertices on both sides. In <i>G</i> it is a 3-edge cut with a cycle on each side. Step 4a showed that no pair exists here, so the weighted sum has nothing to work with.</p>
-         <p>Cut along the triangle. Each side becomes a smaller triangulation once it is closed with a triangular <b>cap</b>. Counting sides shows that the three triangles just inside the cut have the same colour, so the cap can be given the other colour and the black and white pattern survives.</p>`,
-        `<p>First solve the piece containing <i>t</i><sub>0</sub> and <i>e</i><sub>0</sub>, by steps 3 to 5 (it has ${sol.pieces[0].ids.length} vertices and no separating triangle).</p>
-         <p>A tree cannot contain all three corners of the cap, so both labels occur on it: exactly two corners share a label.</p>`,
-        `<p>Now solve the other piece with <b>the cap as its outer triangle and that same-label edge as its prescribed edge</b>. This is exactly what the extra condition in Theorem 2.2 provides. After renaming the two labels, the two partitions agree on the three shared vertices.</p>`,
-        `<p>For each label the two trees meet in a single vertex or a single edge, so their union is a tree. It is induced, because no edge of <i>T</i> joins the inside of the triangle to the outside. The prescription at <i>e</i><sub>0</sub> is untouched. The curve between the glued trees is a Hamiltonian cycle of <i>G</i>.</p>${cor}`,
+        `<p class="fact"><b>Cut.</b> The triangle <i>abc</i> has vertices on both sides, so it is a separating triangle. Cut <i>T</i> along it. The figure shows the two pieces side by side. Each piece is closed with a triangular <b>cap</b> on <i>abc</i>, so each is a smaller triangulation.</p>
+         ${why4(`<p>The caps must keep the black and white pattern. Counting sides of the triangles inside <i>abc</i> with signs gives 3(<i>B</i> − <i>W</i>) = the sum of three boundary signs, so the three triangles just inside <i>abc</i> have the same colour. The cap of the outer piece takes that colour and the cap of the inner piece takes the other one.</p><p>In <i>G</i> the triangle is a 3-edge cut with a cycle on each side. No pair exists for this <i>T</i> (Step 4a), which is why Case 1 does not apply directly.</p>`).replace('Why this works', 'Why the caps can be coloured')}`,
+        `<p class="fact"><b>Outer piece.</b> Solve the outer piece by Steps 3 to 5. It has ${sol.pieces[0].ids.length} vertices, no separating triangle, and it keeps the original <i>t</i><sub>0</sub> and <i>e</i><sub>0</sub>.</p>
+         <p class="fact">Now look at the cap <i>abc</i>. A tree cannot contain all three corners of a triangle, so both labels occur. Hence <b>exactly one cap edge has both ends in the same tree</b>. It is highlighted.</p>`,
+        `<p class="fact"><b>Inner piece.</b> Carry the highlighted edge into the inner piece and call it <i>e</i><sub>0</sub>′. The cap is the outer triangle of this piece.</p>
+         <p class="fact">This is where the <b>stronger form of the theorem</b> is needed: Theorem 2.2 lets us prescribe which edge of the outer triangle has both ends in the same tree. We prescribe <i>e</i><sub>0</sub>′. After naming the two trees to match, <i>a</i>, <i>b</i> and <i>c</i> carry the same labels in both pieces.</p>`,
+        `<p class="fact"><b>Glue.</b> Put the pieces back together along <i>abc</i>. For one label the two trees share the highlighted edge. For the other label they share a single vertex (ringed). So for each label the union is again a tree. It is induced, because no edge of <i>T</i> joins the inside of <i>abc</i> to the outside.</p>
+         <p class="fact">The curve between the two glued trees is the Hamiltonian cycle of <i>G</i>. If a smaller piece still has a separating triangle, it is split again in the same way.</p>${cor}`,
       ];
       return subSeg(['a. Cut', 'b. Outer piece', 'c. Inner piece', 'd. Glue'], S.sub8, 'sub8') + `<div class="prose">${texts[S.sub8]}</div>` +
         `<dl class="read"><dt>Separating triangle</dt><dd>${sol.tri.length} vertices, labels ${sol.tri.map(lab).join(', ')}</dd><dt>Pieces</dt><dd>${sol.pieces.map(p => p.ids.length + ' vertices').join(' and ')}</dd><dt>Glued result</dt><dd>${D.solChk.trees ? 'two induced trees' : 'not trees'}, ${D.solChk.ham ? 'Hamiltonian cycle on ' + D.solChk.ham.faces.length + ' vertices' : 'no cycle'}</dd></dl>`;
@@ -1529,6 +1765,7 @@ const EXAMPLES = (() => {
     fb.querySelectorAll('.fignav, .figtog').forEach(e => e.remove());
     fb.classList.toggle('hasslide', wantRb);
     { let sl = fb.querySelector('.figslide'); if (!wantRb) { if (sl) sl.remove(); } else { const n = PH5.length, ph = S.ph5 | 0; if (!sl) { sl = document.createElement('div'); sl.className = 'figslide'; sl.innerHTML = `<div class="ticks">${PH5.map((_, k) => `<span data-n="${k >= 1 && k <= 4 ? k : ''}"></span>`).join('')}</div><input type="range" class="figslider" min="0" max="${n - 1}" step="1" aria-label="Stage of the construction">`; fb.appendChild(sl); } const inp = sl.querySelector('input'); if (+inp.value !== ph) inp.value = ph; inp.setAttribute('aria-valuetext', `Stage ${ph + 1} of ${n}`); sl.querySelectorAll('.ticks span').forEach((t, k) => t.classList.toggle('on', k <= ph)); } }
+    if (STEPS[S.step].id === 'dual' || (STEPS[S.step].id === 'trees' && curPair() && curPair().forest)) { const tb = document.createElement('button'); tb.className = 'figtog'; tb.setAttribute('data-act', 'toggle'); tb.setAttribute('data-k', 'poly'); tb.setAttribute('aria-pressed', String(!!S.poly)); tb.textContent = S.poly ? 'See graph' : 'See polytope'; fb.appendChild(tb); }
     if (STEPS[S.step].id === 'states') { const tb = document.createElement('button'); tb.className = 'figtog'; tb.setAttribute('data-act', 'toggle'); tb.setAttribute('data-k', 'showQ'); tb.setAttribute('aria-pressed', String(!!S.showQ)); tb.innerHTML = (S.showQ ? 'Hide' : 'Show') + ' <i>Q<sub>s</sub></i>'; fb.appendChild(tb); }
     const fc = document.getElementById('figctl'); fc.textContent = '';
     document.getElementById('panel').querySelectorAll('dl.read').forEach(el => el.remove());
@@ -1542,13 +1779,13 @@ const EXAMPLES = (() => {
     const sb = i => `<button data-act="step" data-i="${i}" ${i === S.step ? 'aria-current="step"' : ''}><span class="n">${SNUM[i]}</span><span class="t">${STEPS[i].t}</span></button>`;
     const inTech = S.step >= 3 && S.step <= 6;
     const tech = inTech
-      ? `<div class="tech open"><span class="bl">4 · Technical part: a forest pair exists</span><div class="brow">${[3, 4, 5, 6].map(sb).join('')}</div></div>`
-      : `<button class="techbtn" data-act="step" data-i="3" title="Open the four technical sub-steps 4a to 4d"><span class="n">4 ▸</span><span class="t">Technical part: a forest pair exists</span><span class="n">4a–4d: two disjoint states, disk identity, reversing a cycle, the sum Z(x)</span></button>`;
-    document.getElementById('steps').innerHTML = `<div class="trunk">${sb(0)}${sb(1)}</div>
+      ? `<div class="tech open"><span class="bl">4 · The existence of a “good” state</span><div class="brow">${[3, 4, 5, 6].map(sb).join('')}</div></div>`
+      : `<button class="techbtn" data-act="step" data-i="3" title="Open the four sub-steps 4a to 4d"><span class="n">4 ▸</span><span class="t">The existence of a “good” state</span><span class="n">4a–4d: two disjoint states, disk identity, reversing a cycle, the sum Z(x)</span></button>`;
+    document.getElementById('steps').innerHTML = `<div class="navmain"><div class="trunk">${sb(0)}${sb(1)}</div>
       <div class="branches">
-        <div class="branch"><span class="bl">Case 1 · no separating triangle</span><div class="brow">${sb(2)}${tech}${sb(7)}</div></div>
-        <div class="branch"><span class="bl">Case 2 · separating triangle · induction</span><div class="brow">${sb(8)}<span class="bnote">cuts <i>T</i> into smaller pieces, applies the theorem to each (Case 1 once no separating triangle is left), and glues the results</span></div></div>
-      </div>
+        <div class="branch"><span class="bl">Case 1 (no separating triangle)</span><div class="brow">${sb(2)}${tech}${sb(7)}</div></div>
+        <div class="branch"><span class="bl">Case 2 (separating triangle), by induction</span><div class="brow">${sb(8)}<span class="bnote">applies the procedure to each piece and glues the results</span></div></div>
+      </div></div>
       <div class="merge" title="Theorem 2.2 implies Barnette’s conjecture" aria-label="End of proof: Theorem 2.2 implies Barnette’s conjecture"><span class="qed"></span></div>`;
   }
   function render() { const o5s = document.querySelector('.scroll5'), st0 = o5s ? o5s.scrollTop : null; renderChrome(); renderPanel(); moveFigOptions(); renderFigure(); renderLegend(); fixScroll5(st0); pruneGhost(); }
@@ -1566,7 +1803,7 @@ const EXAMPLES = (() => {
   // ---------- actions ----------
   function setStep(i) {
     if (i < 0 || i >= STEPS.length) return;
-    S.step = i; S.note = ''; S.st5 = -1; const id = STEPS[i].id;
+    if (S.step !== i) { S.poly = false; S.h4 = 0; } S.step = i; S.note = ''; S.st5 = -1; const id = STEPS[i].id;
     if (id === 'trees') { if (!(S.sub7 >= 1)) S.sub7 = 1; S.ph5 = 0; S.anim7 = false; }
     if (D.pairs.length) {
       if ((id === 'trees' || id === 'glue') && !curPair().forest) { S.pair = D.firstForest; }
@@ -1601,7 +1838,7 @@ const EXAMPLES = (() => {
   function act(a, el) {
     const i = +el.getAttribute('data-i'), k = el.getAttribute('data-k');
     if (a === 'ref') { const r = document.getElementById('ref-' + i); if (r) { r.scrollIntoView({ block: 'center' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1600); } return; }
-    if (a === 'ex') { S.ex = i; prepare(i); setStep(S.step); }
+    if (a === 'ex') { S.ex = i; S.poly = false; prepare(i); setStep(S.step); }
     else if (a === 'step') setStep(i);
     else if (a === 'e0') { if (i === S.e0k) S.hideE0 = !S.hideE0; else { S.e0k = i; S.hideE0 = false; resolve(); } }
     else if (a === 'pair') { S.pair = i; S.cyc = 0; S.note = ''; S.st = D.pairs[i].si; if (STEPS[S.step].id === 'trees' && !D.pairs[i].forest) S.note = `Pair ${i + 1} has a cycle in Q<sub>s</sub>, so there is nothing to build from it. Its term cancelled in step 4d. Pick a pair tagged forest.`; }
@@ -1610,6 +1847,7 @@ const EXAMPLES = (() => {
     else if (a === 'view') { S.showG = k !== 'T'; S.showT = k !== 'G'; }
     else if (a === 'term') S.term = S.term === k ? '' : k;
     else if (a === 'toggle') S[k] = !S[k];
+    else if (a === 'h4') { S.h4 = i; if (STEPS[S.step].id === 'sum') { if (i === 1) S.ztab = 's'; if (i === 2) S.ztab = 'd'; } }
     else if (a === 'ztab') S.ztab = k;
     else if (a === 'replay7') S.anim7 = true;
     else if (a === 'ph5') { const pv = S.ph5 | 0, nx = Math.max(0, Math.min(PH5.length - 1, i)), fact = !!(el.getAttribute && el.getAttribute('data-jump') === '1'); const own = !fact && ((pv === 0 && nx === 1) || (pv === 1 && nx === 2) || (pv === 1 && nx === 0)); if (own) { document.querySelectorAll('.figghost').forEach(e => e.remove()); document.getElementById('fig').classList.remove('xin'); } else snapFig(); S.anim7 = nx > pv && !fact; S.tr = fact ? null : { pv, nx }; S.ph5 = nx; }
@@ -1640,6 +1878,10 @@ const EXAMPLES = (() => {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
   document.addEventListener('input', ev => { const t = ev.target; if (!t.classList || !t.classList.contains('figslider')) return; const v = +t.value; if (v === (S.ph5 | 0)) return; const el = document.createElement('i'); el.setAttribute('data-i', v); act('ph5', el); });
+  { const fg = document.getElementById('fig');
+    fg.addEventListener('pointerdown', ev => { if (!fg.classList.contains('polyon')) return; pDrag = { x: ev.clientX, y: ev.clientY }; fg.classList.add('dragging'); try { fg.setPointerCapture(ev.pointerId); } catch (e) {} ev.preventDefault(); });
+    fg.addEventListener('pointermove', ev => { if (!pDrag) return; pYaw += (ev.clientX - pDrag.x) * 0.01; pPitch = Math.max(-1.45, Math.min(1.45, pPitch - (ev.clientY - pDrag.y) * 0.01)); pDrag = { x: ev.clientX, y: ev.clientY }; if (!polyRaf && pG) polyDraw(pG, performance.now()); });
+    const up = () => { pDrag = null; fg.classList.remove('dragging'); }; fg.addEventListener('pointerup', up); fg.addEventListener('pointercancel', up); }
   window.__app = { S, get D() { return D; }, act: (a, attrs) => { const el = document.createElement('i'); for (const k in attrs) el.setAttribute('data-' + k, attrs[k]); act(a, el); }, setStep: i => { setStep(i); render(); } };
 })();
 
