@@ -2,13 +2,13 @@
 
 Every PDF in this folder, with its citation and what it contains. Keys in brackets are the citation keys of [the paper](../paper/barnette.pdf) for the sources it cites.
 
-## The three accounts of the proof
+## Accounts of the proof
 
 | Paper | File | Contents |
 | --- | --- | --- |
 | OpenAI, *Paired states and Hamiltonian cycles in cubic bipartite planar graphs*, preprint, 24 September 2026. [OpenAI] | `OpenAI-Barnette.pdf` | The proof: states and pairs, the disk identity, the cancellation, the weighted count with a complex phase and an exponential sum, the flow argument, the induction over separating triangles. |
 | Z. Li, *A note on the proof of Barnette's conjecture*, arXiv:2610.30490v1, 21 October 2026. [Li] | `A-Note-On-Barnette.pdf` | An exposition of the same proof in the cubic graph $G$, with the evaluation of the count replaced by a second sign-reversing involution. |
-| *A constructive proof of Barnette's conjecture*, anonymous manuscript, 18 October 2026. [Constructive] | `barnette_trees.pdf` | The real sign and the integer polynomial; the criterion for a pair to exist (Theorem 1.2); the exchange walk on pairs (Theorem 5.3); the bound $3^{n/2}$ on the number of states and the search through them (Proposition 6.2, Theorem 1.1). |
+| *A constructive proof of Barnette's conjecture*, working notes of a collaborator, 18 October 2026. Not cited; what is used from them is proved in the paper and in the note on algorithms. | `barnette_trees.pdf` | The real sign and the integer polynomial; the criterion for a pair to exist (Theorem 1.2); the exchange walk on pairs (Theorem 5.3); the bound $3^{n/2}$ on the number of states and the search through them (Proposition 6.2, Theorem 1.1). |
 
 Plain-text copies of these three are in `text/`.
 

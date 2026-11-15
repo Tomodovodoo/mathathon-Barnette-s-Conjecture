@@ -1,16 +1,16 @@
 # Finding the cycle
 
-Notation and terms are those of [the paper](../../paper/barnette.pdf). Proposition 6.9 shows that $T$ has a good state whenever it has a pair, without pointing to one. The anonymous manuscript *A constructive proof of Barnette's conjecture* (`papers/barnette_trees.pdf`, cited as [C]) finds one by two searches. They are stated here in the terms of the paper, with their bounds. [workings/barnette](../../workings/README.md) implements Algorithm E with the test (2) below, and Algorithm W.
+Notation and terms are those of [the paper](../../paper/barnette.pdf). Proposition 6.9 shows that $T$ has a good state whenever it has a pair, without pointing to one. Two searches find one. They are stated here with their bounds. [workings/barnette](../../workings/README.md) implements Algorithm E with the test (2) below, and Algorithm W.
 
 If $G$ has $N$ vertices, then $n=|A|=|X|=N/2-1$. A state $s$ is good when $Q_s$ is a forest with one root in each component; as $Q_s$ has $n$ edges and $n+3$ vertices, this holds exactly when $Q_s$ stays acyclic after the three roots are identified.
 
-Let $H^+$ be the graph on the black faces and the vertices of $T$ in which a face is adjacent to its three corners; it contains $H$, and it is the graph called $H$ in [C]. For a state $s$, removing the $n$ edges $ts(t)$ from $H^+$ leaves $Q_s$ with every edge subdivided by its face, together with $t_0$ joined to the roots. This graph has $2n+4$ vertices and $2n+3$ edges, so $s$ is good exactly when it is connected ([C], (3)).
+Let $H^+$ be the graph on the black faces and the vertices of $T$ in which a face is adjacent to its three corners; it contains $H$. For a state $s$, removing the $n$ edges $ts(t)$ from $H^+$ leaves $Q_s$ with every edge subdivided by its face, together with $t_0$ joined to the roots. This graph has $2n+4$ vertices and $2n+3$ edges, so $s$ is good exactly when it is connected.
 
 Every other step of the proof takes polynomial time: the dual triangulation (Lemma 2.4), the matching $M$ and the cycle $G-M$ of a good state (Lemma 3.4 and Proposition 3.5), a pair by a flow (Proposition 4.6), and the cut along a separating triangle (Proposition 2.7), which replaces $n$ by two numbers with sum $n$. So it suffices to find a good state of a triangulation that has a pair.
 
 ## 1. Enumeration
 
-**Lemma 1** ([C], Lemma 6.1). The number $M_T$ of states is at most $3^{n/2}$.
+**Lemma 1.** The number $M_T$ of states is at most $3^{n/2}$.
 
 *Proof.* Let $K$ be the $n\times n$ matrix with $K_{t,x}=1$ when $x$ is a corner of $t$ and $0$ otherwise, for $t\in A$ and $x\in X$. The states are the nonzero terms of $\det K$. For two states $r,s$, each nontrivial cycle of the permutation $r(t)\mapsto s(t)$ of $X$ is a cycle of $T$ to which the disk identity (Lemma 5.1) applies, so its length is odd and the permutation is even. Hence all terms have the same sign and $M_T=|\det K|$. Each row of $K$ has at most three ones, so $|\det K|\le 3^{n/2}$ by Hadamard's inequality. ∎
 
@@ -21,11 +21,11 @@ Every other step of the proof takes polynomial time: the dual triangulation (Lem
 
 Stop at the first complete choice.
 
-This is the search of [C], Section 6.1, with another second test. There a partial choice, as a set $S$ of edges of $H$, is kept if (1) holds and
+The second test can be replaced by another: a partial choice, as a set $S$ of edges of $H$, is kept if (1) holds and
 
 2′. $H^+-S$ is connected.
 
-**Theorem 2.** If $T$ has a pair, Algorithm E returns a good state after $O(n^3M_T)$ steps, in polynomial space, and so does the search with (2′) in place of (2) ([C], Proposition 6.2). Hence a Hamiltonian cycle of $G$ that avoids a given edge is found in time $3^{N/4}$ up to a polynomial factor, in polynomial space ([C], Theorem 1.1).
+**Theorem 2.** If $T$ has a pair, Algorithm E returns a good state after $O(n^3M_T)$ steps, in polynomial space, and so does the search with (2′) in place of (2). Hence a Hamiltonian cycle of $G$ that avoids a given edge is found in time $3^{N/4}$ up to a polynomial factor, in polynomial space.
 
 *Proof.* A complete choice that satisfies (1) is a state, and it satisfies (2), or (2′), exactly when it is good. Every part of a good state satisfies (1), (2) and (2′), since a subgraph of a forest is a forest and removing fewer edges leaves a connected graph connected. A good state exists by Proposition 6.9. Each partial choice that is kept lies in a state, and a state contains $n+1$ of them, so at most $(n+1)M_T$ are kept. Each has at most three children; a test for a perfect matching takes $O(n^2)$ steps, and (2) and (2′) take $O(n)$. The cuts along separating triangles give at most $n$ triangulations, each with at most $3^{n/2}<3^{N/4}$ states. ∎
 
@@ -56,7 +56,7 @@ Both are involutions: $\beta$ because $s$ and the order of the cycles of $Q_s$ d
 
 **Algorithm W.** Given a pair, repeat: reverse the clockwise cycles of $D(r,s)$; let $h$ be the number of cycles, and put on each cycle the token of rank $L^-+1$; apply $\beta,\alpha,\beta,\dots$ until $\beta$ fixes the marked pair, in which case $s$ is good and the algorithm stops, or $\alpha$ does, in which case it starts again from this pair.
 
-**Theorem 3** ([C], Theorem 5.3). Algorithm W stops, at a pair with good second state, after $2^{O(n\log n)}$ moves.
+**Theorem 3.** Algorithm W stops, at a pair with good second state, after $2^{O(n\log n)}$ moves.
 
 *Proof.* The marked pairs with $h$ tokens, joined by the moves of $\alpha$ and $\beta$, form a graph of maximum degree two. The start of a round is fixed by $\alpha$, so it is an end of a path, which the walk follows to its other end. If that end is fixed by $\beta$, we are done. Otherwise it is fixed by $\alpha$, the path has an odd number of edges, each of which changes the sign (Lemmas 5.5(2) and 6.2(3)), and so its ends have opposite signs. At both ends all cycles run counterclockwise, so the sign is $(-1)^{(n+c)/2+c}$ with $c\equiv n\pmod 2$ (Lemma 6.2(3)). Hence the two numbers of cycles differ by $2$ modulo $4$; the start has $h$ cycles and the end at most $h$, hence at most $h-2$. As $h\le n/3$, there are at most $n/6+1$ rounds.
 
@@ -85,6 +85,6 @@ The condition on $S$ can be written in monadic second-order logic with quantific
 
 ## 4. Polynomial time
 
-Algorithms that use nothing from the proof have better bounds than Theorems 2 and 3. Eppstein finds a Hamiltonian cycle through given edges in a graph with $N$ vertices and maximum degree three in time $O(2^{N/3})$ and linear space (*J. Graph Algorithms Appl.* 11 (2007), 61–81), as [C] notes in its introduction; applied to $G-e$ this is faster than $3^{N/4}$, since $2^{1/3}<3^{1/4}$. For planar graphs with $N$ vertices, Dorn, Penninkx, Bodlaender and Fomin state the bound $O(2^{6.903\sqrt N})$ for a Hamiltonian cycle of least weight (*Algorithmica* 58 (2010), 790–810). Both bounds are taken from the abstracts, the second from that of the technical report UU-CS-2006-006 of the same title; the papers are not in `papers/` and their proofs were not read.
+Algorithms that use nothing from the proof have better bounds than Theorems 2 and 3. Eppstein finds a Hamiltonian cycle through given edges in a graph with $N$ vertices and maximum degree three in time $O(2^{N/3})$ and linear space (*J. Graph Algorithms Appl.* 11 (2007), 61–81); applied to $G-e$ this is faster than $3^{N/4}$, since $2^{1/3}<3^{1/4}$. For planar graphs with $N$ vertices, Dorn, Penninkx, Bodlaender and Fomin state the bound $O(2^{6.903\sqrt N})$ for a Hamiltonian cycle of least weight (*Algorithmica* 58 (2010), 790–810). Both bounds are taken from the abstracts, the second from that of the technical report UU-CS-2006-006 of the same title; the papers are not in `papers/` and their proofs were not read.
 
 It is open whether a good state, or a Hamiltonian cycle of a cubic, bipartite, 3-connected planar graph, can be found in polynomial time. The triangulation `examples.trap()` has pairs from which no reversal of a cycle of $D(r,s)$ or of $Q_s$ lowers the number of cycles of $Q_s$, and a 2-factor of $H$ none of whose pairs has a good second state; see [the open problems](../../research/OPEN-PROBLEMS.md).

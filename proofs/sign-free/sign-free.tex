@@ -65,15 +65,15 @@ Both cannot always be met in one $2$-factor, as a triangulation with $16$ vertic
 
 This note is a companion to the exposition \cite{Paper} of the proof of Barnette's conjecture, and we use the notation and terminology of that paper throughout.
 Its central step is \cite[Proposition~6.9]{Paper}: if $T$ has a pair, then $T$ has a good state.
-The proof given there, like those of \cite{OpenAI,Li,Constructive}, gives every pair a sign, shows that the pairs whose second state is not good cancel, and shows by a second evaluation that the signed sum is not zero.
+The proof given there, like those of \cite{OpenAI,Li}, gives every pair a sign, shows that the pairs whose second state is not good cancel, and shows by a second evaluation that the signed sum is not zero.
 It does not construct a good state, and no polynomial algorithm for finding one is known.
 We collect here what can be proved about good states with no sign and no weight, and show where such arguments stop.
 
 Section~\ref{sec:trees} describes the good states as spanning trees of a plane graph $W$ on the white faces that satisfy two conditions, one for the faces in $A$ and one for the vertices in $X$.
 The trees that satisfy the second condition are called \emph{rainbow trees}; they have an \emph{excess}, and the good states are the rainbow trees of excess~$0$.
 A rainbow tree exists if and only if no separating triangle of $T$ has three black faces along its inner side (Theorem~\ref{thm:R}), and every rainbow tree lies in exactly one $2$-factor of $H$ (Theorem~\ref{thm:S}).
-Hence this is also the condition for a pair to exist (Corollary~\ref{cor:pair}), a criterion that the Remarks of \cite{Paper} quote from \cite{Constructive}; the proof here uses Rado's theorem in place of a flow, and it produces a rainbow tree and not only a pair.
-The Remarks of \cite{Paper} also note that the number of good states is even, because $Z(1)=0$, and that a good state forms a pair with exactly one state.
+Hence this is also the condition for a pair to exist (Corollary~\ref{cor:pair}); the proof uses Rado's theorem in place of the flow of \cite[Section~4]{Paper}, and it produces a rainbow tree and not only a pair.
+The Remarks of \cite{Paper} note that the number of good states is even, because $Z(1)=0$, and that a good state forms a pair with exactly one state.
 Here the first is proved by $n$ explicit involutions without fixed points, built from an exchange move on rainbow trees (Theorem~\ref{thm:even}), and the second is the case of excess~$0$ of Theorem~\ref{thm:S}.
 In every $2$-factor each of the two conditions can be met alone (Section~\ref{sec:packing}).
 Section~\ref{sec:wall} gives the example with $16$ vertices mentioned in \cite{Paper}, a $2$-factor of $H$ that contains no good state, and states the missing step as Conjecture~\ref{conj:X}: from every rainbow tree, exchanges that never raise the excess lead to a good state.
@@ -279,7 +279,6 @@ The three black faces at the edges of $\Delta$ have one corner on the inner side
 So at most $3+2(I-2)=2I-1$ edges of a $2$-factor meet the $I$ vertices on the inner side, and $2I$ are needed.
 \end{proof}
 
-The equivalence of the first and the third statement is part of \cite[Theorem~1.2]{Constructive} and is quoted in the Remarks of \cite{Paper}.
 The paper proves that a pair exists when $T$ has no separating triangle at all \cite[Proposition~4.6]{Paper}: the max-flow min-cut theorem reduces this to the inequality $e(U)-b(U)\le2|U|-4$ for the sets $U$ that contain the roots \cite[Lemma~4.4]{Paper}.
 Here Rado's theorem reduces it to \eqref{eq:rado}, which concerns only the complements of connected sets and follows from the identity \eqref{eq:euler}.
 The result is more than a pair: a rainbow tree already has the acyclicity that a good state needs, and lacks only the face condition.
@@ -590,7 +589,7 @@ A statement of the same kind can be made for pairs, with the two modifications o
 By enumeration up to $20$ vertices, every pair can be turned by such modifications into a pair with a good second state without ever raising the number of cycles of $Q_s$.
 A modification that lowers this number need not exist, first for $16$ vertices, and for $16$ vertices it is not always possible to proceed without raising $c(F)$.
 So here too the number that should reach zero cannot be lowered step by step, the modifications that keep it constant change the $2$-factor, and we know no quantity that decreases along them.
-The exchange procedure of \cite{Constructive} mentioned in the Remarks of \cite{Paper} does reach a good state, but it follows the signed cancellation.
+A walk on pairs that alternates the two reversals of cycles does reach a good state, but it follows the signed cancellation.
 
 \subsection*{What a proof of the conjecture would give}
 Suppose that Conjecture~\ref{conj:X} were proved.
@@ -606,7 +605,6 @@ In the signed proof this is a cycle of $Q_s$, and the disk identity \cite[Lemma~
 The disk identity is not used in this note, and we expect that a proof of Conjecture~\ref{conj:X} has to use it.
 
 \begin{thebibliography}{9}
-\bibitem{Constructive} \emph{A constructive proof of Barnette's conjecture}, anonymous unpublished manuscript, 18 October 2026.
 \bibitem{Diestel} R.~Diestel, \emph{Graph theory}, 5th ed., Graduate Texts in Mathematics, vol.~173, Springer, Berlin, 2017.
 \bibitem{Edmonds} J.~Edmonds, \emph{Edge-disjoint branchings}, Combinatorial Algorithms (R.~Rustin, ed.), Academic Press, New York, 1973, pp.~91--96.
 \bibitem{Li} Z.~Li, \emph{A note on the proof of Barnette's conjecture}, preprint, arXiv:2610.30490, 2026.

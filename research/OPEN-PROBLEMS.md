@@ -56,9 +56,9 @@ A vertex $v\in X$ of degree four can be removed by identifying two opposite neig
 
 **Question.** Can a good state of a triangulation with a pair be found in polynomial time?
 
-**Known.** Proved in the manuscript *A constructive proof of Barnette's conjecture*; the statement numbers are in [algorithm](../proofs/algorithm/algorithm.md). $H$ has at most $3^{n/2}$ perfect matchings, and a search through them finds a good state in time $O(n^3\,3^{n/2})$, which is $3^{N/4}$ up to a polynomial factor for $N=|V(G)|=2n+2$. The exchange walk on pairs ends at a pair with good second state after at most $2^{O(n\log n)}$ moves; no polynomial bound is known.
+**Known.** Proved in [algorithm](../proofs/algorithm/algorithm.md). $H$ has at most $3^{n/2}$ perfect matchings, and a search through them finds a good state in time $O(n^3\,3^{n/2})$, which is $3^{N/4}$ up to a polynomial factor for $N=|V(G)|=2n+2$. The exchange walk on pairs ends at a pair with good second state after at most $2^{O(n\log n)}$ moves; no polynomial bound is known.
 
-Algorithms that use nothing from the proof have better bounds than both. Eppstein's algorithm for graphs of maximum degree three takes time $O(2^{N/3})$ (*J. Graph Algorithms Appl.* 11 (2007), 61–81), as the manuscript itself notes. For planar graphs Dorn, Penninkx, Bodlaender and Fomin state a bound $2^{O(\sqrt N)}$ (*Algorithmica* 58 (2010), 790–810). Both bounds are quoted from the abstracts and were not checked further.
+Algorithms that use nothing from the proof have better bounds than both. Eppstein's algorithm for graphs of maximum degree three takes time $O(2^{N/3})$ (*J. Graph Algorithms Appl.* 11 (2007), 61–81). For planar graphs Dorn, Penninkx, Bodlaender and Fomin state a bound $2^{O(\sqrt N)}$ (*Algorithmica* 58 (2010), 790–810). Both bounds are quoted from the abstracts and were not checked further.
 
 **Computed.** On the chains of $k=1,\dots,10$ copies of the triangulation with 16 vertices [trap-chain-1 to trap-chain-10], drawn as stored, the exchange walk of [workings](../workings/README.md) takes
 
@@ -66,6 +66,6 @@ $$0,\ 3,\ 24,\ 113,\ 562,\ 2811,\ 14060,\ 70309,\ 351558,\ 1757807$$
 
 moves from the stored pair, which is $(9\cdot5^{k-2}-2k+9)/2$ for $4\le k\le10$. These counts depend on the 2-factor of the first pair, on the arcs $\gamma_y$, on the order of the faces, and on which mirror image of the drawing is used: in the mirror image, with the same pair and the same order of faces, the walk takes 3 moves for every $k\le10$. The second state of the stored pair is already good; the walk begins by making the cycles of $D(r,s)$ counterclockwise and does not test this first. So the counts concern the walk as stated, and no lower bound is proved.
 
-**False.** A choice of corners in some faces that extends to a state and passes the second test of the search need not extend to a good state: 8 vertices [prefix-8, prefix-filtered-8]. This holds for the test of the algorithm note, that the opposite sides are acyclic after the roots are identified, and for that of the manuscript, that $H^+$ without the chosen edges is connected. So neither test spares the search backtracking.
+**False.** A choice of corners in some faces that extends to a state and passes the second test of the search need not extend to a good state: 8 vertices [prefix-8, prefix-filtered-8]. This holds for the test of the algorithm note, that the opposite sides are acyclic after the roots are identified, and for the other test given there, that $H^+$ without the chosen edges is connected. So neither test spares the search backtracking.
 
 A positive answer to Question 1 or 2 would not give an algorithm: the search among moves that leave $q(s)$ or the excess unchanged also needs a bound.

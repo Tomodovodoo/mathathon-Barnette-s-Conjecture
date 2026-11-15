@@ -15,7 +15,7 @@ Read [`paper/barnette.pdf`](paper/barnette.pdf). It is short and self-contained.
 | Folder | Contents |
 | --- | --- |
 | `paper/` | The exposition: `barnette.tex`, `barnette.pdf`, and `figures/` with the script that draws them. |
-| `papers/` | The three source papers and the background literature, with `INDEX.md` and `barnette.bib`. |
+| `papers/` | The accounts of the proof and the background literature, with `INDEX.md` and `barnette.bib`. |
 | `proofs/` | Companion notes: the bijective proof by two involutions, the part of the argument that needs no sign, and what is known about algorithms. |
 | `digestions/` | `routes.md`: a map of the routes to the theorem, how the different presentations of the count translate into each other, the routes that fail and the open ones. `figures/` holds its figures and the scripts that draw them. |
 | `workings/` | `barnette/`, a small Python package that follows the paper and finds the cycle. |

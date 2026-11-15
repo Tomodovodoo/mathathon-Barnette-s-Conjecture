@@ -51,37 +51,45 @@ Let $G$ be a cubic, bipartite, $3$-connected planar graph and let $e$ be an edge
 Then $G$ has a Hamiltonian cycle that does not contain $e$.
 \end{theorem}
 
-This paper is a self-contained account of the proof; it uses refinements due to Li~\cite{Li} and to an anonymous manuscript~\cite{Constructive}.
+This paper is a self-contained account of the proof.
 
 \subsection*{The structure of the proof}
 We prove Theorem~\ref{thm:main} in the dual $T$ of $G$.
 Since $G$ is cubic, bipartite and $3$-connected, $T$ is a simple graph and a triangulation of the sphere, and the bipartition of $G$ colours its faces black and white so that the two faces at every edge have different colours (Lemma~\ref{lem:dual}).
 Let $e_0$ be the edge of $T$ dual to $e$, and $t_0$ the black face at $e_0$; we draw $T$ in the plane with $t_0$ as the unbounded face, so that every cycle has an inside.
+
+The proof begins with a reduction.
+A separating triangle of $T$, that is, a triangle with vertices of $T$ on both sides, corresponds to a $3$-edge cut of $G$ with more than one vertex on either side.
+Contracting either side of such a cut to a vertex gives two smaller graphs of the same kind; the theorem, applied to them, provides Hamiltonian cycles that miss the same edge of the cut, and these glue to a Hamiltonian cycle of $G$ avoiding $e$.
+By induction on the number of vertices, it therefore suffices to prove the theorem when $T$ has no separating triangle (Proposition~\ref{prop:reduction}).
+
 A \emph{state} $s$ chooses a corner $s(t)$ off $t_0$ in every black face $t\neq t_0$, so that every vertex off $t_0$ is chosen exactly once.
 A state is \emph{good} if the sides opposite the chosen corners, together with the two sides of $t_0$ other than $e_0$, form a spanning tree of $T$.
-A \emph{pair} $(r,s)$ consists of two states with $r(t)\neq s(t)$ for every such face $t$.
-The theorem is derived from four statements.
+The rest of the proof has two parts: a good state yields the Hamiltonian cycle, by a construction, and a good state exists if $T$ has no separating triangle.
 \begin{enumerate}
 \item\label{step:cycle}
 If $T$ has a good state, then $G$ has a Hamiltonian cycle that avoids $e$ (Proposition~\ref{prop:recover}).
-The cycle is constructed from the state: colour the vertices of $T$ with two colours so that the ends of every edge of the spanning tree have different colours (Figure~\ref{fig:overview}).
+Colour the vertices of $T$ with two colours so that the ends of every edge of the spanning tree have different colours (Figure~\ref{fig:overview}).
 Each of the two colour classes then induces a tree in $T$, and the Hamiltonian cycle consists of the edges of $G$ dual to the edges of $T$ that join the two classes.
-A class contains no cycle, because a cycle would enclose a vertex of the other class, and following the chosen corners from this vertex leads to a cycle with fewer faces inside.
+\end{enumerate}
+For the second part we count, with signs, the \emph{pairs} $(r,s)$ of states that choose different corners in every face: $r(t)\neq s(t)$ for every black face $t\neq t_0$.
+\begin{enumerate}\setcounter{enumi}{1}
 \item\label{step:pair}
 If $T$ has no separating triangle, then $T$ has a pair (Proposition~\ref{prop:pair}).
-A pair exists if and only if the bipartite graph that joins the black faces other than $t_0$ to their corners off $t_0$ has a $2$-factor; by the max-flow min-cut theorem this is the case if a condition of Hall type holds, and this condition is a bound on the number of edges of $T$ spanned by a set of vertices (Lemma~\ref{lem:density}).
+This follows from the max-flow min-cut theorem and a bound on the number of edges of $T$ spanned by a set of vertices (Lemma~\ref{lem:density}).
 \item\label{step:cancel}
 There is a sign $\eps(r,s)=\pm1$ such that, for every function $f$ on the set of states, the terms with $s$ not good cancel in the sum $\sum\eps(r,s)f(s)$ over all pairs (Lemma~\ref{lem:cancel}).
-The first state of a pair directs the sides opposite the corners chosen by the second; a cycle among these sides is then a directed cycle, and reversing it changes $r$ and the sign but not $s$.
+In a pair, $s$ is good if and only if the sides opposite its corners contain no cycle; the state $r$ directs these sides, and reversing a directed cycle among them changes $r$ and the sign but not $s$.
+Hence $T$ has a good state as soon as the sum is not zero for one function $f$.
 \item\label{step:count}
 There is an integer weight $\omega(s)$ such that the Laurent polynomial $Z(z)=\sum\eps(r,s)z^{\omega(s)}$ is not zero if $T$ has a pair (Lemma~\ref{lem:product} and the proof of Proposition~\ref{prop:good}).
-The edges from $r(t)$ to $s(t)$ form disjoint directed cycles, and turning one of them, $C$, from clockwise to counterclockwise changes the sign and raises the weight by the number $a(C)$ of white faces inside $C$.
-The $2^c$ pairs with the same $c$ cycles therefore contribute $\pm z^{\omega_0}\prod_C\bigl(1-z^{a(C)}\bigr)$ to $Z$, where $\omega_0$ is the weight when all cycles run clockwise.
-This contribution vanishes to order exactly $c$ at $z=1$, and its sign depends only on $c$; so the term of lowest order of $Z$ at $z=1$ is, up to sign, a sum of positive integers.
+The function $f=1$ gives zero: the edges from $r(t)$ to $s(t)$ form disjoint directed cycles, and reversing one of them gives a pair of the opposite sign.
+The weight is chosen so that turning such a cycle $C$ from clockwise to counterclockwise also raises $\omega(s)$ by the number $a(C)\ge1$ of white faces inside $C$.
+The $2^c$ pairs with the same $c$ cycles then contribute $\pm z^{\omega_0}\prod_C\bigl(1-z^{a(C)}\bigr)$ to $Z$, with a sign that depends only on $c$.
+This vanishes to order exactly $c$ at $z=1$, so the contributions with the fewest cycles do not cancel in the term of lowest order of $Z$ at $z=1$.
 \end{enumerate}
-By (\ref{step:cancel}) and (\ref{step:count}), a triangulation that has a pair has a good state.
-Statement (\ref{step:cycle}) is a construction, and a pair as in (\ref{step:pair}) is found by computing a maximum flow; the step from a pair to a good state is a proof of existence, which does not exhibit a good state.
-The four statements give
+Thus a triangulation without separating triangle has a pair by (\ref{step:pair}); the sum $Z$ over its pairs is not zero by (\ref{step:count}), and by (\ref{step:cancel}) only the pairs with a good second state contribute to it.
+In all,
 \begin{equation}\label{eq:chain}
 \text{no separating triangle}
 \ \overset{\text{\ref{prop:pair}}}{\Longrightarrow}\
@@ -89,17 +97,11 @@ The four statements give
 \ \overset{\text{\ref{prop:good}}}{\Longrightarrow}\
 \text{a good state}
 \ \overset{\text{\ref{prop:recover}}}{\Longrightarrow}\
-\text{a Hamiltonian cycle avoiding $e$,}
+\text{a Hamiltonian cycle avoiding $e$.}
 \end{equation}
-which proves the theorem when $T$ has no separating triangle.
-A separating triangle of $T$, that is, a triangle with vertices of $T$ on both sides, corresponds to a $3$-edge cut of $G$ with more than one vertex on either side.
-In this case we use induction on the number of vertices.
-Contracting either side of the cut to a vertex gives two smaller graphs of the same kind.
-One of them contains $e$ and has a Hamiltonian cycle avoiding $e$; this cycle misses one edge of the cut, and the other graph has a Hamiltonian cycle that misses the same edge.
-The two cycles glue to a Hamiltonian cycle of $G$ avoiding $e$ (Proposition~\ref{prop:reduction}).
+The pair is found by computing a maximum flow, and the cycle is constructed from the good state; only the middle implication is a proof of existence, which does not exhibit a good state.
 
-The sections follow the logical order of the proof.
-Section~\ref{sec:dual} contains the passage to the dual and the reduction to triangulations without separating triangle, Section~\ref{sec:states} the construction~(\ref{step:cycle}), and Sections~\ref{sec:pairs} to~\ref{sec:count} the existence of a good state, statements~(\ref{step:pair}) to~(\ref{step:count}).
+Section~\ref{sec:dual} contains the passage to the dual and the reduction, Section~\ref{sec:states} the construction~(\ref{step:cycle}), and Sections~\ref{sec:pairs}, \ref{sec:cancel} and~\ref{sec:count} the statements~(\ref{step:pair}), (\ref{step:cancel}) and~(\ref{step:count}).
 
 Statements (\ref{step:cancel}) and (\ref{step:count}) depend on one count, the \emph{disk identity} (Lemma~\ref{lem:disk}): let $C$ be a cycle of $T$ whose edges lie on distinct black faces other than $t_0$; if every edge of $C$ contains the corner that a state chooses in its black face, then $C$ has odd length and exactly one more white face than black faces inside it.
 In (\ref{step:cancel}) and (\ref{step:count}) it makes the sign change, as the cycles reversed are odd, and in (\ref{step:count}) it makes the numbers $a(C)$ positive.
@@ -107,23 +109,14 @@ Apart from Euler's formula, the proof uses two standard results: the duality bet
 
 \subsection*{Sources}
 The theorem and its proof are due to OpenAI~\cite{OpenAI}.
-That Hamiltonian cycles of $G$ correspond to partitions of the vertices of $T$ into two induced trees goes back to Stein~\cite[Theorem~2.2]{Stein}; see also~\cite[Lemma~5]{Alt}.
-States are the states of Tutte's theory of trinities~\cite{TutteTrinity,HineKalman}, and grouping pairs of perfect matchings by the cycles they form is familiar from the double-dimer model~\cite{Kenyon}.
-The new ingredients of OpenAI's proof are the disk identity~\cite[Lemma~4.1]{OpenAI}, the cancellation, in which the first state changes and the second is kept, weights that tell the two directions of a cycle apart~\cite[Lemma~5.3]{OpenAI}, and the edge count from which a pair is obtained.
-Statements (\ref{step:cycle}) to (\ref{step:count}) are, in this order, \cite[Section~6]{OpenAI}, \cite[Proposition~3.1]{OpenAI}, \cite[Lemma~5.2]{OpenAI} and \cite[Proposition~5.1]{OpenAI}.
-For (\ref{step:count}), OpenAI use the complex phase $i^{J}$, where $J=\tfrac13\sum_t\delta_t(r(t),s(t))$ in the notation of Definition~\ref{def:sign}; it equals $i^{-n}\eps(r,s)$, where $n$ is the number of black faces other than $t_0$. They show that the coefficient of $x^m$ in $\sum i^{J}e^{x\omega(s)}$ is not zero, where $m$ is the least number of cycles.
-Their induction is carried out in $T$, for a statement on partitions of the vertices of $T$ into two induced trees~\cite[Theorem~2.2]{OpenAI}.
+Statements (\ref{step:cycle}) to (\ref{step:count}) are, in this order, \cite[Section~6]{OpenAI}, \cite[Proposition~3.1]{OpenAI}, \cite[Lemma~5.2]{OpenAI} and \cite[Proposition~5.1]{OpenAI}, and the disk identity is \cite[Lemma~4.1]{OpenAI}.
+States are the states of Tutte's theory of trinities~\cite{TutteTrinity,HineKalman}, grouping pairs of perfect matchings by the cycles they form is familiar from the double-dimer model~\cite{Kenyon}, and that Hamiltonian cycles of $G$ correspond to partitions of the vertices of $T$ into two induced trees goes back to Stein~\cite[Theorem~2.2]{Stein}.
+The reduction follows Li~\cite[Theorem~3]{Li}; the argument goes back to Kelmans (see~\cite[Theorem~8]{Alt}).
 
-The anonymous manuscript~\cite{Constructive} replaces the phase by the sign $\eps$ and the exponential sum by an integer polynomial, and determines its term of lowest order at $z=1$. It proves in this way that every class of pairs that is closed under the two reversals of cycles contains pairs with good second state, of both signs in equal numbers~\cite[Theorem~5.2]{Constructive}. Section~\ref{sec:count} uses this argument for the sum over all pairs.
-It also proves that $T$ has a pair if and only if no separating triangle of $T$ has three black faces along its inner side~\cite[Theorem~1.2]{Constructive}, and it makes the proof constructive; see Section~\ref{sec:remarks}.
-Li~\cite{Li} gives a version of the proof in terms of $G$, in which the weighted sum is replaced by a second sign-reversing involution, on pairs with $m$ marked crossings~\cite[Definitions~22 and~23, Appendix~B]{Li}, and the induction is a gluing of Hamiltonian cycles along $3$-edge cuts of $G$~\cite[Theorem~3]{Li}, an argument that goes back to Kelmans (see~\cite[Theorem~8]{Alt}); the proof of Proposition~\ref{prop:reduction} follows it.
-
-The present account keeps these arguments, with the following changes in presentation.
-The weights are defined by counting crossings with fixed arcs from the white faces to $t_0$ (Definition~\ref{def:weight}), a variant of the construction in~\cite[Lemma~5.3]{OpenAI}.
-For these weights, turning a cycle $C$ from clockwise to counterclockwise raises the weight by exactly the number $a(C)$ of white faces inside $C$ (Lemma~\ref{lem:weight}), where~\cite{OpenAI,Constructive} use only that the difference is positive; this gives the product formula of Lemma~\ref{lem:product} its explicit form. Li's marked crossings are crossings with rays from the white faces as well~\cite[Definitions~13 and~18]{Li}.
-The two trees in (\ref{step:cycle}) are obtained as the colour classes of the tree of the good state (Lemma~\ref{lem:matching}), where~\cite{OpenAI,Constructive} pass through a spanning tree of the graph of faces and vertices, and~\cite[Lemma~30]{Li} through a spanning tree on the white faces.
-With the colouring, the proof that the two classes contain no cycle (Proposition~\ref{prop:recover}) does not use the disk identity, which~\cite[Lemma~6.2]{OpenAI} uses a second time.
-The sign is written as a product of local signs~\eqref{eq:sign}, and the cancellation is stated for an arbitrary function $f$, which separates (\ref{step:cancel}) from (\ref{step:count}).
+The presentation differs from~\cite{OpenAI} in three points.
+The sign $\eps$ and the integer Laurent polynomial $Z$ take the place of a complex phase and an exponential sum.
+The weights count crossings with fixed arcs from the white faces to $t_0$ (Definition~\ref{def:weight}), so that turning a cycle $C$ raises the weight by exactly $a(C)$ (Lemma~\ref{lem:weight}), where~\cite{OpenAI} uses only that the difference is positive.
+In (\ref{step:cycle}), the two trees are the colour classes of the tree of the good state (Lemma~\ref{lem:matching}), and the proof that they contain no cycle does not use the disk identity.
 
 \begin{figure}[t]
 \centering
@@ -546,7 +539,7 @@ The left of $\Gamma$ is its inside, and $\gamma_y$ ends outside $\Gamma$; so $\c
 
 With the weight as exponent, the signed sum over the pairs with a given $2$-factor factorises.
 
-\begin{lemma}[Product formula; {\cite[(5.4)]{OpenAI}}, {\cite[(11)]{Constructive}}]\label{lem:product}
+\begin{lemma}[Product formula; {\cite[(5.4)]{OpenAI}}]\label{lem:product}
 For a $2$-factor $F$ of $H$ let $\omega_F$ be the weight of the second state of the pair with $2$-factor $F$ in which all cycles of $D(r,s)$ run clockwise.
 Then the Laurent polynomial $Z(z)$ defined by the sum over all pairs is also a sum over all $2$-factors of $H$:
 \begin{equation}\label{eq:product}
@@ -561,7 +554,7 @@ Such a pair has $|\mathcal J|$ counterclockwise cycles, so its sign is $(-1)^{(n
 The sum of $(-1)^{|\mathcal J|}z^{\sum_{C\in\mathcal J}a(C)}$ over all $\mathcal J\subseteq\cC_F$ is the product in~\eqref{eq:product}.
 \end{proof}
 
-\begin{proposition}[{\cite[Proposition~5.1]{OpenAI}}, {\cite[Theorem~5.2]{Constructive}}]\label{prop:good}
+\begin{proposition}[{\cite[Proposition~5.1]{OpenAI}}]\label{prop:good}
 If $T$ has a pair, then $T$ has a good state.
 \end{proposition}
 
@@ -603,14 +596,18 @@ $3$-connectedness enters only in Lemma~\ref{lem:dual}, to make $T$ a simple grap
 \emph{Good states.}
 A good state is recovered from its matching $M$ by the construction before Definition~\ref{def:state}, so distinct good states give distinct Hamiltonian cycles.
 Not every Hamiltonian cycle avoiding $e$ arises: in the hexagonal prism, four Hamiltonian cycles avoid an edge joining the two hexagons, but only two states are good.
-A good state $s$ forms a pair with exactly one state, obtained by orienting the trees of $Q_s$ towards their roots~\cite[Proposition~2.1]{Constructive}; so $Z(1)=0$ counts the good states with signs, and their number is even~\cite[Theorem~5.2]{Constructive}.
+A good state $s$ forms a pair with exactly one state, obtained by orienting the trees of $Q_s$ towards their roots; so $Z(1)=0$ counts the good states with signs, and their number is even.
 The count cannot be done one $2$-factor at a time: a computer search finds an Eulerian triangulation with $16$ vertices and a $2$-factor $F$ of $H$ with a single cycle, neither of whose two pairs has a good second state.
 
 \emph{Algorithms.}
-The proof above does not construct a good state, and the manuscript~\cite{Constructive} gives two procedures that do.
-The graph $H$ has at most $3^{n/2}$ perfect matchings~\cite[Lemma~6.1]{Constructive}, and a search through them finds the cycle of Theorem~\ref{thm:main} in time $3^{|V(G)|/4}$ up to a polynomial factor~\cite[Theorem~1.1]{Constructive}.
-A walk on pairs that follows the two cancellations ends at a pair with good second state, after at most $2^{O(n\log n)}$ steps~\cite[Theorem~5.3]{Constructive}.
-Neither bound improves on the algorithms known for Hamiltonian cycles in cubic graphs in general; see~\cite{Constructive}.
+The proof above does not construct a good state, but a search through the states finds one.
+Let $K$ be the matrix with rows indexed by $A$ and columns by $X$ whose entry at $(t,x)$ is $1$ if $x$ is a corner of $t$, and $0$ otherwise.
+The states are the nonzero terms of $\det K$, and they all have the same sign: for two states $r$ and $s$, the nontrivial cycles of the permutation $r(t)\mapsto s(t)$ of $X$ are cycles of a graph $N$ as in Lemma~\ref{lem:disk}, so they have odd length.
+As every row of $K$ has at most three ones, Hadamard's inequality bounds the number of states by $3^{n/2}$.
+Choose the corners face by face, and keep a partial choice only if it extends to a state and the sides opposite the corners chosen so far contain no cycle and no path between two roots.
+The parts of a good state are kept, every partial choice that is kept lies in a state, and a state contains $n+1$ of them.
+So if $T$ has a pair, the search finds a good state, and with the reduction of Proposition~\ref{prop:reduction} it finds the cycle of Theorem~\ref{thm:main} in time $3^{|V(G)|/4}$ up to a polynomial factor.
+This does not improve on the bound $O(2^{|V(G)|/3})$ of Eppstein~\cite{Eppstein} for cubic graphs in general.
 It is open whether the cycle can be found in polynomial time, and whether there are always at least $2^m$ good states, where $m$ is the least number of cycles of a $2$-factor of $H$.
 
 \begin{thebibliography}{99}
@@ -630,11 +627,11 @@ D.~W. Barnette, \emph{Conjecture 5}, Recent Progress in Combinatorics (W.~T. Tut
 \bibitem{BGM}
 G.~Brinkmann, J.~Goedgebeur, and B.~D. McKay, \emph{The minimality of the Georges--Kelmans graph}, Math. Comp. \textbf{91} (2022), 1483--1500.
 
-\bibitem{Constructive}
-\emph{A constructive proof of Barnette's conjecture}, anonymous unpublished manuscript, 18 October 2026.
-
 \bibitem{Diestel}
 R.~Diestel, \emph{Graph theory}, 5th ed., Graduate Texts in Mathematics, vol. 173, Springer, Berlin, 2017.
+
+\bibitem{Eppstein}
+D.~Eppstein, \emph{The traveling salesman problem for cubic graphs}, J. Graph Algorithms Appl. \textbf{11} (2007), 61--81.
 
 \bibitem{FederSubi}
 T.~Feder and C.~Subi, \emph{On Barnette's conjecture}, Electronic Colloquium on Computational Complexity, Report TR06-015, 2006.
