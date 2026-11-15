@@ -1,8 +1,8 @@
 # Open problems
 
-Notation and terms are those of [the paper](../paper/barnette.pdf). We write $q(s)$ for the number of cycles of $Q_s$, so that $s$ is good exactly when $q(s)=0$ (Lemma 3.4(1)), and $g$ for the number of good states. Sizes are numbers of vertices of $T$. Names in brackets are files in [instances/](instances/README.md).
+Notation and terms are those of [the paper](../paper/barnette.pdf). We write $q(s)$ for the number of cycles of $Q_s$, so that $s$ is good exactly when $q(s)=0$ (Lemma 5.5(1)), and $g$ for the number of good states. Sizes are numbers of vertices of $T$. Names in brackets are files in [instances/](instances/README.md).
 
-Proposition 4.9 gives a good state whenever a pair exists, without constructing one.
+Proposition 6.9 gives a good state whenever a pair exists, without constructing one.
 
 ## 1. Monotone descent
 

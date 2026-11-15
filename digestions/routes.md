@@ -4,7 +4,7 @@ Notation and terms are those of [the paper](../paper/barnette.pdf), and statemen
 
 ## Map
 
-Read the diagram from the top. An arrow from one box to another means that the first follows once the second is established. The solid route is the proof, and all of it rests on the disk identity at the bottom. Dashed boxes are other ways to a good state: yellow ones are open, the red one fails. Sections 1 to 4 go through the boxes in turn, with a figure for each box that a picture helps.
+Read the diagram from the top. An arrow from one box to another means that the first follows once the second is established. The solid route is the proof, and its signed count rests on the disk identity at the bottom. Dashed boxes are other ways to a good state: yellow ones are open, the red one fails. Sections 1 to 4 go through the boxes in turn, with a figure for each box that a picture helps.
 
 ```mermaid
 flowchart TD
@@ -12,8 +12,8 @@ flowchart TD
     MATCH["A perfect matching M containing e with G − M connected"]
     DUAL["In the dual triangulation T: M* has one side of every face and no cycle"]
     SEP{{"Does T have a separating triangle?"}}
-    CUT["<b>Induction</b><br/>It is a 3-edge cut of G. Solve both sides with a prescribed edge and splice the cycles (Theorem 5.6)"]
-    GOOD["<b>Good state s</b><br/>Q_s and two sides of t0 form a spanning tree of T (Proposition 2.12)"]
+    CUT["<b>Induction</b><br/>It is a 3-edge cut of G. Solve both sides with a prescribed edge and splice the cycles (Proposition 2.7)"]
+    GOOD["<b>Good state s</b><br/>Q_s and two sides of t0 form a spanning tree of T; M* is the set of edges inside its two colour classes (Proposition 3.5)"]
     HOW{{"How does one get a good state?"}}
 
     THM --> MATCH --> DUAL --> SEP
@@ -26,8 +26,8 @@ flowchart TD
     RULE["<b>A rule that picks one state or one 2-factor</b><br/>Lattice extremes, a single 2-factor, matroid intersection. Fails at 8 to 18 vertices"]
 
     COUNT["<b>Signed count</b><br/>over pairs (r, s) of states that differ in every face"]
-    PAIR["<b>A pair exists</b><br/>A 2-factor of H by max-flow, from e(U) − b(U) ≤ 2|U| − 4 (Proposition 5.5)"]
-    CANCEL["<b>Cancellation</b><br/>Reversing a cycle of Q_s changes the sign, so pairs with s not good cancel (Lemma 3.5)"]
+    PAIR["<b>A pair exists</b><br/>A 2-factor of H by max-flow, from e(U) − b(U) ≤ 2|U| − 4 (Proposition 4.6)"]
+    CANCEL["<b>Cancellation</b><br/>Reversing a cycle of Q_s changes the sign, so pairs with s not good cancel (Lemma 5.6)"]
     NONZ{{"Why is the sum not zero?"}}
 
     HOW -. open .-> DESC
@@ -39,18 +39,17 @@ flowchart TD
     COUNT --> NONZ
     COUNT --> CANCEL
 
-    POLY["<b>Polynomial Z(z)</b><br/>A factor 1 − z^a(C) for each cycle C; divide by (1 − z)^m, set z = 1 (Proposition 4.9)"]
+    POLY["<b>Polynomial Z(z)</b><br/>A factor 1 − z^a(C) for each cycle C; divide by (1 − z)^m, set z = 1 (Proposition 6.9)"]
     EXP["<b>Exponential sum</b><br/>Coefficient of x^m (OpenAI), or the weight ω(s)^m and finite differences"]
     INV["<b>Second involution</b><br/>on pairs with m marked crossings; fixed points of one sign (Li)"]
     VAL["<b>The same number</b><br/>± Σ Π a(C) over the 2-factors with the fewest cycles: a nonempty sum of positive integers"]
-    DISK(["<b>Disk identity</b> (Lemma 2.9)<br/>W = B + 1 and h = 2ℓ + 3"])
+    DISK(["<b>Disk identity</b> (Lemma 5.1)<br/>W = B + 1 and h = 2ℓ + 3"])
 
     NONZ --> POLY --> VAL
     NONZ --> EXP --> VAL
     NONZ --> INV --> VAL
     VAL -- "a(C) ≥ 1" --> DISK
     CANCEL -- "odd length" ----> DISK
-    GOOD -- "M* acyclic" --> DISK
 
     classDef open fill:#fff3cd,stroke:#997404,color:#111,stroke-dasharray:6 4
     classDef fails fill:#f8d7da,stroke:#b02a37,color:#111,stroke-dasharray:2 3
@@ -62,41 +61,41 @@ flowchart TD
 
 ## 1. The route of the paper
 
-**From a cycle to a good state.** A Hamiltonian cycle of $G$ is the complement of a perfect matching $M$ with $G-M$ connected, that is, with $M^*$ acyclic in $T$. Orienting the forest $M^*-e_0$ towards the corners of $t_0$ turns it into a state, so one looks for a state from which the matching can be rebuilt: a good state. A good state gives $M$ through the spanning tree $G-S_s^*$ (Lemma 2.11).
-
-<p align="center"><img src="figures/route-construction.svg" alt="From the triangulation to the Hamiltonian cycle, on the octahedron" width="720"></p>
-
-**Figure 1.** The construction for the cube $G$ and the octahedron $T$, with $t_0$ as the outer face (grey ring). (a) $T$ with black faces shaded, the roots (circles), the side $e_0$, and $G$ in grey. (b) A good state $s$, with a wedge at each corner $s(t)$: the sides in $Q_s$ (dashed) and the two sides of $t_0$ other than $e_0$ (bold) form a spanning tree of $T$. (c) The dual spanning tree of $G$; its bold edges join the black faces (filled dots) to their children and form the matching $M$. (d) $M^*$ (bold) and the Hamiltonian cycle $G-M$. (e) A pair $(r,s)$ (open and filled wedges) and the directed cycle formed by the edges $r(t)\to s(t)$. This is Figure 1 of the paper.
-
-**The disk identity.** A cycle of $T$ each of whose edges contains the corner chosen in its black face has $W=B+1$ and $h=2\ell+3$ (Lemma 2.9). Everything below uses it: it shows that $M^*$ is acyclic (Proposition 2.12), that the cycles reversed in the cancellation are odd, and that every cycle in the count has a white face inside.
-
-<p align="center"><img src="figures/route-disk.svg" alt="The disk identity on three cycles" width="720"></p>
-
-**Figure 2.** The disk identity on three cycles of the triangulation of Figure 2 of the paper. Open wedges mark $r(t)$ for the black faces inside the cycle and for the faces $t_f$ with a side on it; the black faces inside are dark, the white faces inside are tinted. (a) The cycle of length $7$ of $D(r,s)$ for the pair of Figure 3(a). Each of the $B=5$ black faces inside has its wedge at one of the $I=3$ vertices inside or at the tail of one of the $\ell=2$ edges whose black face is inside, so $B=I+\ell$. (b) The cycle of length $7$ of $D(r^K,s)$ for the pair of Figure 3(b). (c) The cycle $K$ of $Q_s$. In all three, $W=B+1$ and $h=2\ell+3$.
-
-**Cancellation.** A second state $r$ that differs from $s$ in every face orients $Q_s$ and reduces \"good\" to \"$Q_s$ has no cycle\". Replacing $r$ by $r^K$ for a cycle $K$ of $Q_s$ keeps $s$ and changes the sign (Lemma 3.4), so the pairs with $s$ not good cancel in $Z(z)=\sum\varepsilon(r,s)z^{\omega(s)}$ (Lemma 3.5).
-
-<p align="center"><img src="figures/route-cancel.svg" alt="Reversing a cycle of Q_s" width="720"></p>
-
-**Figure 3.** Cancellation. (a) The pair $(r,s)$ of Figure 2(a) of the paper: open wedges for $r$, filled wedges for $s$, solid arrows for $D(r,s)$, and the directed cycle $K$ of $Q_s$ (dashed), so $s$ is not good. (b) The pair $(r^K,s)$: in the three dark faces, whose sides in $Q_s$ form $K$, the open wedge has moved from $r(t)$ to $u(t)$, and $K$ runs the other way. The second state is the same, three factors of the sign have changed, and $\varepsilon(r,s)=-1$, $\varepsilon(r^K,s)=+1$. The two pairs have different 2-factors: the cycles of $D(r,s)$ enclose $6$ and $1$ white faces, those of $D(r^K,s)$ enclose $3$ and $1$.
-
-**The count.** Grouped by 2-factors of $H$, the same sum is $\sum_F\pm z^{\omega_F}\prod_C(1-z^{a(C)})$ (Lemma 4.7): reversing a cycle $C$ of $D(r,s)$ changes the sign and raises the weight by $a(C)$ (Lemmas 4.2 and 4.6). The sign of the term of $F$ depends only on $n$ and $c(F)$, and so $Z(z)/(1-z)^m$ is not zero at $z=1$ (Proposition 4.9).
-
-<p align="center"><img src="figures/route-count.svg" alt="The eight pairs of the example and their terms of Z(z)" width="720"></p>
-
-**Figure 4.** All eight pairs of the triangulation of Figure 2 of the paper, with the second state $s$ (wedges) and $D(r,s)$ (arrows); each row is one 2-factor of $H$. Below each pair is its term $\varepsilon(r,s)z^{\omega(s)}$ of $z^{-\omega_0}Z(z)$. Along a row the cycles are reversed one at a time, and a white face is tinted once for every counterclockwise cycle around it: the number of tints is the exponent, less $0$ in the first row and $2$ in the second (Lemma 4.6). The rows add up to $(1-z)(1-z^6)$ and $z^2(1-z)(1-z^3)$ (Lemma 4.7). The two framed pairs have the same second state, which is not good ($Q_s$ contains the dashed cycle), and their terms $\mp z^6$ cancel. The other six terms belong to the six good states, and $z^{-\omega_0}Z(z)=1-z+z^2-z^3-z^5+z^7$. Divided by $(1-z)^2$ this takes the value $6\cdot1+3\cdot1=9$ at $z=1$.
-
-**A pair.** A pair is a 2-factor of $H$. It exists when $T$ has no separating triangle, by a flow argument and an edge count (Lemmas 5.1 and 5.3, Proposition 5.5).
-
-<p align="center"><img src="figures/route-pair.svg" alt="The flow network and the edge count" width="720"></p>
-
-**Figure 5.** A pair exists. (a) The network for the triangulation of Figure 2 of the paper: a source, the vertices in $X$, the faces in $A$ (named by their corners), and a sink, with the capacities written below. The bold edges carry the maximum flow, of value $2n=20$; they form a 2-factor of $H$, that of Figure 2(c) of the paper. (b) A set $S\subseteq X$ (ringed). Each face of $A$ with a corner in $S$ carries the number $\min(2,|V(t)\cap S|)$, and the bold edges are those with both ends in $U=V(T)\setminus S$. Here the cut condition holds with equality, $6=2|S|$, which is the same as $e(U)-b(U)=16=2|U|-4$. (c) Two octahedra glued along the triangle $2\,3\,4$, with $S$ the three vertices inside it. The triangle is a face of the bold graph but not of $T$; the count gives $5<6$ and $e(U)-b(U)=9>8$, so there is no pair.
-
-**The induction.** A separating triangle of $T$ is a 3-edge cut of $G$. The two smaller graphs have Hamiltonian cycles by induction, and the prescribed edge makes them use the same two edges of the cut (Theorem 5.6).
+**The induction.** A separating triangle of $T$ is a 3-edge cut of $G$. The two smaller graphs have Hamiltonian cycles by induction, and the prescribed edge makes them use the same two edges of the cut (Proposition 2.7). What remains is the case without separating triangle (Theorem 2.6).
 
 <p align="center"><img src="figures/route-induction.svg" alt="Cutting along a separating triangle and splicing the two cycles" width="720"></p>
 
-**Figure 6.** The induction for the triangulation $T$ of Figure 5(c), cut along the separating triangle $\Delta$ with corners $2,3,4$ (bold). The duals $f_1,f_2,f_3$ of the sides of $\Delta$ form a 3-edge cut of $G$. (a) $T_1$, in which $\Delta$ bounds a new black face, with the new vertex $v_1$ of $G_1$ and a Hamiltonian cycle $C_1$ of $G_1$ that avoids $e_0^*$; it passes through $v_1$ along $f_1$ and $f_2$. (b) $T_2$, the part of $T$ inside $\Delta$, drawn with its new white face outside, and a Hamiltonian cycle $C_2$ of $G_2$ that avoids $f_3$, and hence passes through $v_2$ along $f_1$ and $f_2$. (c) The paths $C_1-v_1$ and $C_2-v_2$ together with $f_1$ and $f_2$ form a Hamiltonian cycle of $G$ that avoids $e_0^*$.
+**Figure 1.** The induction for the triangulation $T$ of Figure 3(c), cut along the separating triangle $\Delta$ with corners $2,3,4$ (bold). The duals $f_1,f_2,f_3$ of the sides of $\Delta$ form a 3-edge cut of $G$. (a) $T_1$, in which $\Delta$ bounds a new black face, with the new vertex $v_1$ of $G_1$ and a Hamiltonian cycle $C_1$ of $G_1$ that avoids $e_0^*$; it passes through $v_1$ along $f_1$ and $f_2$. (b) $T_2$, the part of $T$ inside $\Delta$, drawn with its new white face outside, and a Hamiltonian cycle $C_2$ of $G_2$ that avoids $f_3$, and hence passes through $v_2$ along $f_1$ and $f_2$. (c) The paths $C_1-v_1$ and $C_2-v_2$ together with $f_1$ and $f_2$ form a Hamiltonian cycle of $G$ that avoids $e_0^*$.
+
+**From a cycle to a good state.** A Hamiltonian cycle of $G$ is the complement of a perfect matching $M$ with $G-M$ connected, that is, with $M^*$ acyclic in $T$. Orienting the forest $M^*-e_0$ towards the corners of $t_0$ turns it into a state, so one looks for a state from which the matching can be rebuilt: a good state. A good state gives $M$ through the two colour classes of the spanning tree $S_s$: $M^*$ consists of the edges of $T$ with both ends in one class (Lemma 3.4). It contains no cycle, because a cycle would enclose a vertex of the other class, and following the chosen corners from this vertex leads to a cycle with fewer faces inside (Proposition 3.5).
+
+<p align="center"><img src="figures/route-construction.svg" alt="From the triangulation to the Hamiltonian cycle, on the octahedron" width="720"></p>
+
+**Figure 2.** The construction for the cube $G$ and the octahedron $T$, with $t_0$ as the outer face (grey ring). (a) $T$ with black faces shaded, the roots (circles), the side $e_0$, and $G$ in grey. (b) A good state $s$, with a wedge at each corner $s(t)$: the sides in $Q_s$ (dashed) and the two sides of $t_0$ other than $e_0$ (bold) form a spanning tree of $T$. (c) The two colour classes of this tree (dots and squares). (d) The edges of $T$ with both ends in one class (bold) form two trees, and the Hamiltonian cycle crosses all other edges. (e) A pair $(r,s)$ (open and filled wedges) and the directed cycle formed by the edges $r(t)\to s(t)$. This is Figure 1 of the paper.
+
+**A pair.** A pair is a 2-factor of $H$. It exists when $T$ has no separating triangle, by a flow argument and an edge count (Lemmas 4.2 and 4.4, Proposition 4.6).
+
+<p align="center"><img src="figures/route-pair.svg" alt="The flow network and the edge count" width="720"></p>
+
+**Figure 3.** A pair exists. (a) The network for the triangulation of Figure 2 of the paper: a source, the vertices in $X$, the faces in $A$ (named by their corners), and a sink, with the capacities written below. The bold edges carry the maximum flow, of value $2n=20$; they form a 2-factor of $H$, that of Figure 2(c) of the paper. (b) A set $S\subseteq X$ (ringed). Each face of $A$ with a corner in $S$ carries the number $\min(2,|V(t)\cap S|)$, and the bold edges are those with both ends in $U=V(T)\setminus S$. Here the cut condition holds with equality, $6=2|S|$, which is the same as $e(U)-b(U)=16=2|U|-4$. (c) Two octahedra glued along the triangle $2\,3\,4$, with $S$ the three vertices inside it. The triangle is a face of the bold graph but not of $T$; the count gives $5<6$ and $e(U)-b(U)=9>8$, so there is no pair.
+
+**The disk identity.** A cycle of $T$ each of whose edges contains the corner chosen in its black face has $W=B+1$ and $h=2\ell+3$ (Lemma 5.1). The cancellation and the count use it: it shows that the cycles reversed are odd, and that every cycle in the count has a white face inside.
+
+<p align="center"><img src="figures/route-disk.svg" alt="The disk identity on three cycles" width="720"></p>
+
+**Figure 4.** The disk identity on three cycles of the triangulation of Figure 2 of the paper. Open wedges mark $r(t)$ for the black faces inside the cycle and for the faces $t_f$ with a side on it; the black faces inside are dark, the white faces inside are tinted. (a) The cycle of length $7$ of $D(r,s)$ for the pair of Figure 5(a). Each of the $B=5$ black faces inside has its wedge at one of the $I=3$ vertices inside or at the tail of one of the $\ell=2$ edges whose black face is inside, so $B=I+\ell$. (b) The cycle of length $7$ of $D(r^K,s)$ for the pair of Figure 5(b). (c) The cycle $K$ of $Q_s$. In all three, $W=B+1$ and $h=2\ell+3$.
+
+**Cancellation.** A second state $r$ that differs from $s$ in every face orients $Q_s$ and reduces \"good\" to \"$Q_s$ has no cycle\". Replacing $r$ by $r^K$ for a cycle $K$ of $Q_s$ keeps $s$ and changes the sign (Lemma 5.5), so the pairs with $s$ not good cancel in $Z(z)=\sum\varepsilon(r,s)z^{\omega(s)}$ (Lemma 5.6).
+
+<p align="center"><img src="figures/route-cancel.svg" alt="Reversing a cycle of Q_s" width="720"></p>
+
+**Figure 5.** Cancellation. (a) The pair $(r,s)$ of Figure 2(a) of the paper: open wedges for $r$, filled wedges for $s$, solid arrows for $D(r,s)$, and the directed cycle $K$ of $Q_s$ (dashed), so $s$ is not good. (b) The pair $(r^K,s)$: in the three dark faces, whose sides in $Q_s$ form $K$, the open wedge has moved from $r(t)$ to $u(t)$, and $K$ runs the other way. The second state is the same, three factors of the sign have changed, and $\varepsilon(r,s)=-1$, $\varepsilon(r^K,s)=+1$. The two pairs have different 2-factors: the cycles of $D(r,s)$ enclose $6$ and $1$ white faces, those of $D(r^K,s)$ enclose $3$ and $1$.
+
+**The count.** Grouped by 2-factors of $H$, the same sum is $\sum_F\pm z^{\omega_F}\prod_C(1-z^{a(C)})$ (Lemma 6.7): reversing a cycle $C$ of $D(r,s)$ changes the sign and raises the weight by $a(C)$ (Lemmas 6.2 and 6.6). The sign of the term of $F$ depends only on $n$ and $c(F)$, and so $Z(z)/(1-z)^m$ is not zero at $z=1$ (Proposition 6.9).
+
+<p align="center"><img src="figures/route-count.svg" alt="The eight pairs of the example and their terms of Z(z)" width="720"></p>
+
+**Figure 6.** All eight pairs of the triangulation of Figure 2 of the paper, with the second state $s$ (wedges) and $D(r,s)$ (arrows); each row is one 2-factor of $H$. Below each pair is its term $\varepsilon(r,s)z^{\omega(s)}$ of $z^{-\omega_0}Z(z)$. Along a row the cycles are reversed one at a time, and a white face is tinted once for every counterclockwise cycle around it: the number of tints is the exponent, less $0$ in the first row and $2$ in the second (Lemma 6.6). The rows add up to $(1-z)(1-z^6)$ and $z^2(1-z)(1-z^3)$ (Lemma 6.7). The two framed pairs have the same second state, which is not good ($Q_s$ contains the dashed cycle), and their terms $\mp z^6$ cancel. The other six terms belong to the six good states, and $z^{-\omega_0}Z(z)=1-z+z^2-z^3-z^5+z^7$. Divided by $(1-z)^2$ this takes the value $6\cdot1+3\cdot1=9$ at $z=1$.
 
 ## 2. Presentations of the count
 

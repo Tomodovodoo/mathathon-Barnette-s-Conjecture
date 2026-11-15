@@ -30,7 +30,8 @@
 Barnette's conjecture states that every cubic, bipartite, $3$-connected planar graph has a Hamiltonian cycle.
 It was proved by OpenAI in 2026, in the form that the cycle can be chosen to avoid any prescribed edge.
 We give a short and self-contained account of the proof.
-An induction over $3$-edge cuts reduces the theorem to graphs whose dual triangulation has no separating triangle; for these, a Hamiltonian cycle is obtained from a perfect matching, between the black faces and the vertices of the triangulation away from one black face, that satisfies a tree condition.
+An induction over $3$-edge cuts reduces the theorem to graphs whose dual triangulation has no separating triangle.
+For these, a Hamiltonian cycle is constructed from a perfect matching that satisfies a tree condition, in the bipartite graph that joins the black faces of the triangulation to their corners, one black face and its three corners being left out.
 Two disjoint perfect matchings of this bipartite graph exist by a flow argument, and a signed sum over all such pairs is evaluated in two ways: only the pairs whose second matching satisfies the tree condition contribute to it, and it is a Laurent polynomial that is not zero, because its term of lowest order at $z=1$ is, up to sign, a sum of positive integers.
 \end{abstract}
 
@@ -56,15 +57,19 @@ This paper is a self-contained account of the proof; it uses refinements due to 
 We prove Theorem~\ref{thm:main} in the dual $T$ of $G$.
 Since $G$ is cubic, bipartite and $3$-connected, $T$ is a simple graph and a triangulation of the sphere, and the bipartition of $G$ colours its faces black and white so that the two faces at every edge have different colours (Lemma~\ref{lem:dual}).
 Let $e_0$ be the edge of $T$ dual to $e$, and $t_0$ the black face at $e_0$; we draw $T$ in the plane with $t_0$ as the unbounded face, so that every cycle has an inside.
-A \emph{state} $s$ chooses a corner $s(t)$ in every black face $t\neq t_0$, bijectively onto the vertices off $t_0$.
+A \emph{state} $s$ chooses a corner $s(t)$ off $t_0$ in every black face $t\neq t_0$, so that every vertex off $t_0$ is chosen exactly once.
 A state is \emph{good} if the sides opposite the chosen corners, together with the two sides of $t_0$ other than $e_0$, form a spanning tree of $T$.
-A \emph{pair} $(r,s)$ consists of two states that differ in every face.
+A \emph{pair} $(r,s)$ consists of two states with $r(t)\neq s(t)$ for every such face $t$.
 The theorem is derived from four statements.
 \begin{enumerate}
 \item\label{step:cycle}
 If $T$ has a good state, then $G$ has a Hamiltonian cycle that avoids $e$ (Proposition~\ref{prop:recover}).
-The spanning tree of a good state has a dual spanning tree in $G$, from which a perfect matching $M\ni e$ of $G$ is read off (Figure~\ref{fig:overview}).
-Its complement has all degrees two, and it is connected because the edges of $T$ dual to $M$ contain no cycle.
+The cycle is constructed from the state: colour the vertices of $T$ with two colours so that the ends of every edge of the spanning tree have different colours (Figure~\ref{fig:overview}).
+Each of the two colour classes then induces a tree in $T$, and the Hamiltonian cycle consists of the edges of $G$ dual to the edges of $T$ that join the two classes.
+A class contains no cycle, because a cycle would enclose a vertex of the other class, and following the chosen corners from this vertex leads to a cycle with fewer faces inside.
+\item\label{step:pair}
+If $T$ has no separating triangle, then $T$ has a pair (Proposition~\ref{prop:pair}).
+A pair exists if and only if the bipartite graph that joins the black faces other than $t_0$ to their corners off $t_0$ has a $2$-factor; by the max-flow min-cut theorem this is the case if a condition of Hall type holds, and this condition is a bound on the number of edges of $T$ spanned by a set of vertices (Lemma~\ref{lem:density}).
 \item\label{step:cancel}
 There is a sign $\eps(r,s)=\pm1$ such that, for every function $f$ on the set of states, the terms with $s$ not good cancel in the sum $\sum\eps(r,s)f(s)$ over all pairs (Lemma~\ref{lem:cancel}).
 The first state of a pair directs the sides opposite the corners chosen by the second; a cycle among these sides is then a directed cycle, and reversing it changes $r$ and the sign but not $s$.
@@ -73,12 +78,10 @@ There is an integer weight $\omega(s)$ such that the Laurent polynomial $Z(z)=\s
 The edges from $r(t)$ to $s(t)$ form disjoint directed cycles, and turning one of them, $C$, from clockwise to counterclockwise changes the sign and raises the weight by the number $a(C)$ of white faces inside $C$.
 The $2^c$ pairs with the same $c$ cycles therefore contribute $\pm z^{\omega_0}\prod_C\bigl(1-z^{a(C)}\bigr)$ to $Z$, where $\omega_0$ is the weight when all cycles run clockwise.
 This contribution vanishes to order exactly $c$ at $z=1$, and its sign depends only on $c$; so the term of lowest order of $Z$ at $z=1$ is, up to sign, a sum of positive integers.
-\item\label{step:pair}
-If $T$ has no separating triangle, then $T$ has a pair (Proposition~\ref{prop:pair}).
-A pair exists if and only if the bipartite graph that joins the black faces other than $t_0$ to their corners off $t_0$ has a $2$-factor; by the max-flow min-cut theorem this is the case if a condition of Hall type holds, and this condition is a bound on the number of edges of $T$ spanned by a set of vertices (Lemma~\ref{lem:density}).
 \end{enumerate}
 By (\ref{step:cancel}) and (\ref{step:count}), a triangulation that has a pair has a good state.
-The four statements therefore give
+Statement (\ref{step:cycle}) is a construction, and a pair as in (\ref{step:pair}) is found by computing a maximum flow; the step from a pair to a good state is a proof of existence, which does not exhibit a good state.
+The four statements give
 \begin{equation}\label{eq:chain}
 \text{no separating triangle}
 \ \overset{\text{\ref{prop:pair}}}{\Longrightarrow}\
@@ -93,10 +96,13 @@ A separating triangle of $T$, that is, a triangle with vertices of $T$ on both s
 In this case we use induction on the number of vertices.
 Contracting either side of the cut to a vertex gives two smaller graphs of the same kind.
 One of them contains $e$ and has a Hamiltonian cycle avoiding $e$; this cycle misses one edge of the cut, and the other graph has a Hamiltonian cycle that misses the same edge.
-The two cycles glue to a Hamiltonian cycle of $G$ avoiding $e$ (Theorem~\ref{thm:dual}).
+The two cycles glue to a Hamiltonian cycle of $G$ avoiding $e$ (Proposition~\ref{prop:reduction}).
 
-Statements (\ref{step:cycle}), (\ref{step:cancel}) and (\ref{step:count}) depend on one count, the \emph{disk identity} (Lemma~\ref{lem:disk}): let $C$ be a cycle of $T$ whose edges lie on distinct black faces other than $t_0$; if every edge of $C$ contains the corner that a state chooses in its black face, then $C$ has odd length and exactly one more white face than black faces inside it.
-In (\ref{step:cycle}) it shows that the edges dual to $M$ contain no cycle, in (\ref{step:cancel}) and (\ref{step:count}) it makes the sign change, as the cycles reversed are odd, and in (\ref{step:count}) it makes the numbers $a(C)$ positive.
+The sections follow the logical order of the proof.
+Section~\ref{sec:dual} contains the passage to the dual and the reduction to triangulations without separating triangle, Section~\ref{sec:states} the construction~(\ref{step:cycle}), and Sections~\ref{sec:pairs} to~\ref{sec:count} the existence of a good state, statements~(\ref{step:pair}) to~(\ref{step:count}).
+
+Statements (\ref{step:cancel}) and (\ref{step:count}) depend on one count, the \emph{disk identity} (Lemma~\ref{lem:disk}): let $C$ be a cycle of $T$ whose edges lie on distinct black faces other than $t_0$; if every edge of $C$ contains the corner that a state chooses in its black face, then $C$ has odd length and exactly one more white face than black faces inside it.
+In (\ref{step:cancel}) and (\ref{step:count}) it makes the sign change, as the cycles reversed are odd, and in (\ref{step:count}) it makes the numbers $a(C)$ positive.
 Apart from Euler's formula, the proof uses two standard results: the duality between cycles and bonds of a plane graph~\cite[Proposition~4.6.1]{Diestel}, in (\ref{step:cycle}), and the max-flow min-cut theorem~\cite{FordFulkerson}, in (\ref{step:pair}).
 
 \subsection*{Sources}
@@ -104,30 +110,31 @@ The theorem and its proof are due to OpenAI~\cite{OpenAI}.
 That Hamiltonian cycles of $G$ correspond to partitions of the vertices of $T$ into two induced trees goes back to Stein~\cite[Theorem~2.2]{Stein}; see also~\cite[Lemma~5]{Alt}.
 States are the states of Tutte's theory of trinities~\cite{TutteTrinity,HineKalman}, and grouping pairs of perfect matchings by the cycles they form is familiar from the double-dimer model~\cite{Kenyon}.
 The new ingredients of OpenAI's proof are the disk identity~\cite[Lemma~4.1]{OpenAI}, the cancellation, in which the first state changes and the second is kept, weights that tell the two directions of a cycle apart~\cite[Lemma~5.3]{OpenAI}, and the edge count from which a pair is obtained.
-Statements (\ref{step:cycle}) to (\ref{step:pair}) are, in this order, \cite[Section~6]{OpenAI}, \cite[Lemma~5.2]{OpenAI}, \cite[Proposition~5.1]{OpenAI} and \cite[Proposition~3.1]{OpenAI}.
+Statements (\ref{step:cycle}) to (\ref{step:count}) are, in this order, \cite[Section~6]{OpenAI}, \cite[Proposition~3.1]{OpenAI}, \cite[Lemma~5.2]{OpenAI} and \cite[Proposition~5.1]{OpenAI}.
 For (\ref{step:count}), OpenAI use the complex phase $i^{J}$, where $J=\tfrac13\sum_t\delta_t(r(t),s(t))$ in the notation of Definition~\ref{def:sign}; it equals $i^{-n}\eps(r,s)$, where $n$ is the number of black faces other than $t_0$. They show that the coefficient of $x^m$ in $\sum i^{J}e^{x\omega(s)}$ is not zero, where $m$ is the least number of cycles.
 Their induction is carried out in $T$, for a statement on partitions of the vertices of $T$ into two induced trees~\cite[Theorem~2.2]{OpenAI}.
 
 The anonymous manuscript~\cite{Constructive} replaces the phase by the sign $\eps$ and the exponential sum by an integer polynomial, and determines its term of lowest order at $z=1$. It proves in this way that every class of pairs that is closed under the two reversals of cycles contains pairs with good second state, of both signs in equal numbers~\cite[Theorem~5.2]{Constructive}. Section~\ref{sec:count} uses this argument for the sum over all pairs.
 It also proves that $T$ has a pair if and only if no separating triangle of $T$ has three black faces along its inner side~\cite[Theorem~1.2]{Constructive}, and it makes the proof constructive; see Section~\ref{sec:remarks}.
-Li~\cite{Li} gives a version of the proof in terms of $G$, in which the weighted sum is replaced by a second sign-reversing involution, on pairs with $m$ marked crossings~\cite[Definitions~22 and~23, Appendix~B]{Li}, and the induction is a gluing of Hamiltonian cycles along $3$-edge cuts of $G$~\cite[Theorem~3]{Li}, an argument that goes back to Kelmans (see~\cite[Theorem~8]{Alt}); the proof of Theorem~\ref{thm:dual} follows it.
+Li~\cite{Li} gives a version of the proof in terms of $G$, in which the weighted sum is replaced by a second sign-reversing involution, on pairs with $m$ marked crossings~\cite[Definitions~22 and~23, Appendix~B]{Li}, and the induction is a gluing of Hamiltonian cycles along $3$-edge cuts of $G$~\cite[Theorem~3]{Li}, an argument that goes back to Kelmans (see~\cite[Theorem~8]{Alt}); the proof of Proposition~\ref{prop:reduction} follows it.
 
 The present account keeps these arguments, with the following changes in presentation.
 The weights are defined by counting crossings with fixed arcs from the white faces to $t_0$ (Definition~\ref{def:weight}), a variant of the construction in~\cite[Lemma~5.3]{OpenAI}.
 For these weights, turning a cycle $C$ from clockwise to counterclockwise raises the weight by exactly the number $a(C)$ of white faces inside $C$ (Lemma~\ref{lem:weight}), where~\cite{OpenAI,Constructive} use only that the difference is positive; this gives the product formula of Lemma~\ref{lem:product} its explicit form. Li's marked crossings are crossings with rays from the white faces as well~\cite[Definitions~13 and~18]{Li}.
-The matching $M$ in (\ref{step:cycle}) is read off from the spanning tree of $G$ dual to the tree of the good state (Lemma~\ref{lem:matching}), where~\cite{OpenAI,Constructive} pass through a spanning tree of the graph of faces and vertices; as in~\cite[Lemma~30]{Li}, the two induced trees are not needed.
+The two trees in (\ref{step:cycle}) are obtained as the colour classes of the tree of the good state (Lemma~\ref{lem:matching}), where~\cite{OpenAI,Constructive} pass through a spanning tree of the graph of faces and vertices, and~\cite[Lemma~30]{Li} through a spanning tree on the white faces.
+With the colouring, the proof that the two classes contain no cycle (Proposition~\ref{prop:recover}) does not use the disk identity, which~\cite[Lemma~6.2]{OpenAI} uses a second time.
 The sign is written as a product of local signs~\eqref{eq:sign}, and the cancellation is stated for an arbitrary function $f$, which separates (\ref{step:cancel}) from (\ref{step:count}).
 
 \begin{figure}[t]
 \centering
 \includegraphics{figures/fig-overview.pdf}
-\caption{The construction for the cube $G$ and the octahedron $T$, with $t_0$ as the outer face (grey ring). (a) $T$ with black faces shaded, the roots (circles), the side $e_0$, and $G$ in grey. (b) A good state $s$, with a wedge at each corner $s(t)$: the sides in $Q_s$ (dashed) and the two sides of $t_0$ other than $e_0$ (bold) form a spanning tree of $T$. (c) The dual spanning tree of $G$; its bold edges join the black faces (filled dots) to their children and form the matching $M$ of Lemma~\ref{lem:matching}. (d) $M^*$ (bold) and the Hamiltonian cycle $G-M$. (e) A pair $(r,s)$ (open and filled wedges) and the directed cycle formed by the edges $r(t)\to s(t)$.}
+\caption{The construction for the cube $G$ and the octahedron $T$, with $t_0$ as the outer face (grey ring). (a) $T$ with black faces shaded, the roots (circles), the side $e_0$, and $G$ in grey. (b) A good state $s$, with a wedge at each corner $s(t)$: the sides in $Q_s$ (dashed) and the two sides of $t_0$ other than $e_0$ (bold) form a spanning tree of $T$. (c) The two colour classes of this tree (dots and squares). (d) The edges of $T$ with both ends in one class (bold) form two trees, and the Hamiltonian cycle crosses all other edges. (e) A pair $(r,s)$ (open and filled wedges) and the directed cycle formed by the edges $r(t)\to s(t)$.}
 \label{fig:overview}
 \end{figure}
 
-\section{States}\label{sec:states}
+\section{The dual triangulation}\label{sec:dual}
 
-We define states and prove that a good state yields a Hamiltonian cycle (Proposition~\ref{prop:recover}); this is statement~(\ref{step:cycle}) of the introduction.
+We pass to the dual of $G$ and reduce the theorem to triangulations without separating triangle.
 All graphs are finite and simple.
 
 \begin{definition}\label{def:euler}
@@ -145,12 +152,11 @@ Every edge of $T$ lies on one black and one white face, so $T$ has equally many 
 \end{equation}
 
 \begin{lemma}[Plane duality]\label{lem:duality}
-Let $T$ be an Eulerian triangulation with dual $G$, and let $N\subseteq E(T)$.
-If $N$ contains no cycle, then $G-N^*$ is connected.
-If $N$ is the edge set of a spanning tree of $T$, then $G-N^*$ is a spanning tree of $G$.
+Let $T$ be an Eulerian triangulation with dual $G$, and let $N$ be a set of edges of $T$ that contains no cycle.
+Then $G-N^*$ is connected.
 \end{lemma}
 
-The first assertion holds because the edges of $T$ dual to a minimal nonempty edge cut of $G$ form a cycle~\cite[Proposition~4.6.1]{Diestel}, and the second follows by counting edges with~\eqref{eq:counts}.
+This holds because the edges of $T$ dual to a minimal nonempty edge cut of $G$ form a cycle~\cite[Proposition~4.6.1]{Diestel}.
 
 \begin{lemma}[{\cite[Section~7]{OpenAI}}]\label{lem:dual}
 Every cubic, bipartite, $3$-connected planar graph is the dual of an Eulerian triangulation.
@@ -163,11 +169,54 @@ Its faces correspond to the vertices of $G$, so they are bounded by triangles, a
 Finally $|V(T)|=|E(G)|-|V(G)|+2=\tfrac12|V(G)|+2\ge4$.
 \end{proof}
 
+By Lemma~\ref{lem:dual}, Theorem~\ref{thm:main} follows from the following statement.
+
+\begin{theorem}[{\cite[Corollary~7.1]{OpenAI}}]\label{thm:dual}
+Let $T$ be an Eulerian triangulation with dual $G$, and let $e$ be an edge of $G$.
+Then $G$ has a Hamiltonian cycle that does not contain $e$.
+\end{theorem}
+
+A \emph{separating triangle} of $T$ is a triangle of $T$ that has vertices of $T$ on both of its sides.
+Sections~\ref{sec:states} to~\ref{sec:count} prove the theorem for triangulations without such a triangle, and this case suffices (Proposition~\ref{prop:reduction}).
+
+\begin{theorem}\label{thm:nosep}
+Let $T$ be an Eulerian triangulation without separating triangle, let $G$ be its dual, and let $e$ be an edge of $G$.
+Then $G$ has a Hamiltonian cycle that does not contain $e$.
+\end{theorem}
+
+\begin{proposition}[{\cite[Theorem~3]{Li}}]\label{prop:reduction}
+Theorem~\ref{thm:nosep} implies Theorem~\ref{thm:dual}.
+\end{proposition}
+
+\begin{proof}
+We prove Theorem~\ref{thm:dual} by induction on the number of vertices of $T$.
+If $T$ has no separating triangle, the assertion is Theorem~\ref{thm:nosep}.
+Now let $\Delta$ be a separating triangle of $T$, bounding the closed disks $\Delta_1$ and $\Delta_2$.
+For $i=1,2$ let $T_i$ consist of the vertices and edges of $T$ in $\Delta_i$; its faces are those of $T$ in $\Delta_i$ and one new face.
+An edge of $T$ in the interior of $\Delta_i$ lies on a black and on a white face in $\Delta_i$, and each side of $\Delta$ lies on one face in $\Delta_i$.
+So three times the difference between the numbers of black and of white faces of $T$ in $\Delta_i$ is a sum of three terms $\pm1$, one for each side of $\Delta$.
+As this sum is divisible by three, its terms are equal: the three faces of $T$ in $\Delta_i$ at the sides of $\Delta$ have the same colour, and giving the new face the other colour makes $T_i$ an Eulerian triangulation.
+It has fewer vertices than $T$, since each of the two disks has a vertex of $T$ in its interior.
+
+The dual $G_i$ of $T_i$ is obtained from $G$ by contracting the faces of $T$ outside $\Delta_i$ to one vertex $v_i$, the new face.
+The edges at $v_i$ are the duals $f_1,f_2,f_3$ of the sides of $\Delta$, which lie in both $G_1$ and $G_2$; every other edge of $G$ lies in exactly one of them.
+We may assume that $e$ is an edge of $G_1$.
+By induction, $G_1$ has a Hamiltonian cycle $C_1$ avoiding $e$.
+It contains two of the edges at $v_1$, say $f_1$ and $f_2$, and if $e$ is one of the three then $e=f_3$.
+By induction again, $G_2$ has a Hamiltonian cycle $C_2$ avoiding $f_3$, hence containing $f_1$ and $f_2$.
+The paths $C_1-v_1$ and $C_2-v_2$, together with $f_1$ and $f_2$, form a Hamiltonian cycle of $G$ avoiding $e$.
+\end{proof}
+
+\section{Good states}\label{sec:states}
+
+We define states and show how a good state yields a Hamiltonian cycle (Proposition~\ref{prop:recover}); this is statement~(\ref{step:cycle}) of the introduction.
+
 \begin{setup}\label{setup}
-From here until Theorem~\ref{thm:dual}, $T$ is an Eulerian triangulation with $n+1$ black faces and dual $G$, $t_0$ is a black face of $T$, and $e_0$ is a side of $t_0$.
+From here on, $T$ is an Eulerian triangulation with $n+1$ black faces and dual $G$, $t_0$ is a black face of $T$, and $e_0$ is a side of $t_0$.
 We draw $T$ in the plane with $t_0$ as the unbounded face; so the \emph{inside} of a cycle is its bounded side, and a directed cycle runs clockwise or counterclockwise.
 The three corners of $t_0$ are the \emph{roots}.
 We let $A$ be the set of black faces other than $t_0$, and $X$ the set of vertices other than the roots; thus $|A|=|X|=n$ by~\eqref{eq:counts}.
+That $T$ has no separating triangle is assumed only in Lemma~\ref{lem:density} and Proposition~\ref{prop:pair}.
 \end{setup}
 
 In this setting we look for
@@ -178,7 +227,8 @@ For such an $M$ the graph $G-M$ is a spanning subgraph of $G$ with all degrees t
 
 A matching as in~\eqref{eq:aim} chooses a corner in every face of $A$.
 Indeed, $M^*$ is a forest with $n+1$ edges on $n+3$ vertices, so it has two components.
-The Hamiltonian cycle $G-M$ crosses no edge of $M^*$, and it crosses the two sides of $t_0$ other than $e_0$, which separates the third root from the ends of $e_0$.
+The Hamiltonian cycle $G-M$ crosses exactly the edges of $T$ that are not in $M^*$; so the two components are the subgraphs of $T$ induced by the vertices on either side of the cycle, and the vertices of $T$ are partitioned into two sets that each induce a tree~\cite[Theorem~2.2]{Stein}.
+The cycle crosses the two sides of $t_0$ other than $e_0$, which separates the third root from the ends of $e_0$.
 So deleting $e_0$ leaves three trees, one through each root.
 Orient each tree towards its root.
 Every vertex $x\in X$ then has one outgoing edge, which is the side in $M^*$ of exactly one face $t\in A$, and $s(t)=x$ defines a bijection $s$ from $A$ onto $X$.
@@ -192,38 +242,168 @@ The state $s$ is \emph{good} if $Q_s$ together with the two sides of $t_0$ other
 \end{definition}
 
 So $s(t)$ is to be an end of the side of $t$ in $M^*$, and $Q_s$ consists of the sides that this rules out.
+The Hamiltonian cycle is to cross the edges of $Q_s$ and the two sides of $t_0$ other than $e_0$, so the ends of each of these edges are to lie in different trees.
 An edge lies on only one black face, so $Q_s$ has $n$ edges on $n+3$ vertices, and $s$ is good if and only if $Q_s$ is a forest whose three components each contain one root.
 
-\begin{lemma}\label{lem:outdegree}
-Let $N$ be a spanning subgraph of $T$ whose edges are directed so that every vertex of $X$ has outdegree one and every root has outdegree zero.
-Then every cycle of $N$ is a directed cycle.
-If $N$ contains no cycle, then $N$ is a forest with three components, each containing one root.
+\subsection*{From a good state to a Hamiltonian cycle}
+For a good state $s$, the two sets of vertices are the colour classes of the tree $S_s$, whose edges the Hamiltonian cycle is to cross (Figure~\ref{fig:overview}).
+
+\begin{lemma}\label{lem:matching}
+Let $s$ be a good state.
+Colour the vertices of $T$ with two colours so that the ends of every edge of $S_s$ have different colours, and let $P$ be the set of edges of $T$ whose ends have the same colour.
+Then $P$ contains exactly one side of every face of $T$.
+It contains $e_0$, and for every $t\in A$ the side of $t$ in $P$ has $s(t)$ as an end.
+Thus $P=M^*$ for a perfect matching $M$ of $G$ that contains $e_0^*$.
 \end{lemma}
 
 \begin{proof}
-The edges of $N$ have distinct tails, and these tails are the vertices of $X$.
-So a cycle with $k$ edges has $k$ tails among its $k$ vertices and is directed, and a component of $N$ with $\nu$ vertices, $\rho$ of them roots, has $\nu-\rho$ edges; if it is a tree, then $\rho=1$.
+The two sides of $t_0$ other than $e_0$ are edges of $S_s$; so the ends of $e_0$ have the same colour, and $e_0$ is the only side of $t_0$ in $P$.
+Let $t\in A$.
+The side of $t$ opposite $s(t)$ is an edge of $S_s$, so its ends have different colours, and $s(t)$ has the colour of exactly one of them.
+Hence exactly one side of $t$ is in $P$, and $s(t)$ is one of its ends.
+So $P$ has $n+1$ edges.
+A white face has two corners of the same colour, hence at least one side in $P$; as every edge lies on exactly one white face and there are $n+1$ white faces, each of them has exactly one side in $P$.
 \end{proof}
 
-\subsection*{The disk identity}
-Inside a cycle that runs through chosen corners, a state matches the black faces with vertices, which determines their number, and Euler's formula then determines the number of white faces.
+\begin{proposition}[{\cite[Section~6]{OpenAI}}]\label{prop:recover}
+Let $s$ be a good state, and let $P=M^*$ be as in Lemma~\ref{lem:matching}.
+Then $P$ contains no cycle.
+Hence $G-M$ is a Hamiltonian cycle of $G$ that avoids $e_0^*$, and each of the two colour classes induces a tree in $T$.
+\end{proposition}
+
+\begin{proof}
+For $t\in A$, direct the side of $t$ in $P$ away from $s(t)$.
+As $s$ is a bijection onto $X$, every vertex of $X$ then has an outgoing edge in $P$.
+
+Suppose that $P$ contains a cycle, and choose such a cycle $C$ with as few faces inside as possible.
+Let $y$ be the face inside $C$ at some edge of $C$.
+By Lemma~\ref{lem:matching} this edge is the only side of $y$ in $P$, so the third corner $v$ of $y$ does not have the colour of the vertices of $C$; in particular $v$ lies inside $C$.
+Starting from $v$, follow outgoing edges.
+The vertices reached have the colour of $v$, so they do not lie on $C$; as the edges of $T$ do not cross $C$, they lie inside $C$.
+So they are not roots, each of them has an outgoing edge, and the walk closes a cycle of $P$ all of whose vertices lie inside $C$.
+The faces inside this cycle are inside $C$, and $y$ is not one of them.
+This contradicts the choice of $C$; hence $P$ contains no cycle.
+
+Now $M$ is as in~\eqref{eq:aim}, so $G-M$ is a Hamiltonian cycle that avoids $e_0^*$.
+The forest $P$ has $n+1$ edges on $n+3$ vertices, hence two components.
+No edge of $P$ joins the two colour classes, and neither class is empty; so the classes are the vertex sets of the two components.
+As $P$ contains every edge of $T$ with both ends in one class, each class induces a tree.
+\end{proof}
+
+\section{Pairs of states}\label{sec:pairs}
+
+It remains to find a good state.
+The key to the proof is a second state $r$ that differs from $s$ in every face.
+Such pairs of states exist if $T$ has no separating triangle (Proposition~\ref{prop:pair}), which is statement~(\ref{step:pair}) of the introduction, and Sections~\ref{sec:cancel} and~\ref{sec:count} show that a triangulation with a pair has a good state.
+
+\begin{definition}\label{def:pair}
+A \emph{pair} is an ordered pair $(r,s)$ of states with $r(t)\neq s(t)$ for every $t\in A$; for a pair, $u(t)$ denotes the third corner of $t$.
+A pair directs two sides of every face $t\in A$ away from $r(t)$ (Figure~\ref{fig:example}(a)): the side in $Q_s$, from $r(t)$ to $u(t)$, and the side from $r(t)$ to $s(t)$.
+The edges $r(t)\to s(t)$ form the spanning subgraph $D(r,s)$ of $T$.
+Thus both $Q_s$ and $D(r,s)$ consist of one side of every face $t\in A$, directed away from $r(t)$.
+\end{definition}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics{figures/fig-example.pdf}
+\caption{An Eulerian triangulation with $13$ vertices, roots $0,4,5$ and $n=10$. (a) A pair $(r,s)$ (open and filled wedges). The edges of $D(r,s)$ (solid arrows) form a counterclockwise cycle of length $7$ and a clockwise cycle of length $3$; the dashed arrows are the cycle of $Q_s$ through $1$, $9$ and $8$, so $s$ is not good. (b), (c) The two $2$-factors $F$ of $H$ (bold), see Section~\ref{sec:count}; the one in (b) is that of the pair in (a). The white faces inside the corresponding cycles of $D(r,s)$ are tinted, and the numbers count them; in (b) one cycle lies inside the other.}
+\label{fig:example}
+\end{figure}
+
+A pair exists if a condition of Hall type holds (Lemma~\ref{lem:flow}), and in $T$ this condition is a bound on the number of edges spanned by a set of vertices (Lemma~\ref{lem:density}).
+
+\begin{lemma}[{\cite[(3.1)]{OpenAI}}]\label{lem:flow}
+If
+\begin{equation}\label{eq:hall}
+\sum_{t\in A}\min\bigl(2,|V(t)\cap S|\bigr)\ \ge\ 2|S|\qquad\text{for every } S\subseteq X,
+\end{equation}
+then $T$ has a pair.
+\end{lemma}
+
+\begin{proof}
+A $2$-factor of $H$ splits into two disjoint perfect matchings, since its cycles are even, and so gives a pair.
+Consider the network with an edge of capacity $2$ from a source to every $x\in X$, an edge of capacity $1$ from $x$ to $t$ for every edge $xt$ of $H$, and an edge of capacity $2$ from every $t\in A$ to a sink.
+An integral flow of value $2n$ is a $2$-factor of $H$, and it exists by the max-flow min-cut theorem~\cite{FordFulkerson}: a cut with the set $S\subseteq X$ on the side of the source has capacity at least $2(n-|S|)+\sum_{t\in A}\min(2,|V(t)\cap S|)\ge 2n$.
+\end{proof}
+
+\begin{lemma}[{\cite[(3.2)]{OpenAI}}]\label{lem:density}
+For $U\subseteq V(T)$ let $e(U)$ be the number of edges with both ends in $U$, and $b(U)$ the number of black faces with all corners in $U$.
+If $T$ has no separating triangle and $U$ contains the roots, then
+\begin{equation}\label{eq:density}
+e(U)-b(U)\le 2|U|-4 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\step{Step 1: reduction to components.}
+Let $K$ be a component of the subgraph of $T$ induced by $U$, with $p$ vertices and $q$ edges, and let $b_K$ be the number of black faces of $T$ with all corners in $K$.
+We show that $q-b_K\le 2p$, and that $q-b_K\le 2p-4$ if $K$ contains the roots.
+This suffices, as the roots lie in one component and $b(U)$ is the sum of the numbers $b_K$.
+If $p\le3$, then $q\le\binom p2\le 2p$; and if moreover $K$ contains the roots, then $K$ is the boundary of $t_0$ and $q-b_K\le 3-1$.
+
+\step{Step 2: the triangular faces of $K$.}
+Let $p\ge4$, and regard $K$ as a connected plane graph with $f$ faces.
+A face of $K$ of length three is bounded by a triangle of $T$ and has the other vertices of $K$ on its far side; as this triangle is not separating, the face contains no vertex of $T$, so it is a face of $T$.
+Hence the faces of $K$ of length three are the faces of $T$ with all corners in $K$, say $b_K$ black and $w_K$ white ones.
+
+\step{Step 3: the other faces of $K$.}
+Let $\Psi$ be one of the other faces of $K$, with boundary walk of length $d_\Psi\ge4$, and let $\beta_\Psi$ be the number of black faces of $T$ contained in $\Psi$ minus the number of white ones.
+An edge of $T$ inside $\Psi$ lies on a black and on a white face in $\Psi$, and each of the $d_\Psi$ edges of the boundary walk lies on one face in $\Psi$; so $3\beta_\Psi$ is a sum of $d_\Psi$ terms $\pm1$.
+This forces $\beta_\Psi=0$ if $d_\Psi=4$, $|\beta_\Psi|=1$ if $d_\Psi=5$, and $|\beta_\Psi|\le d_\Psi/3$ in general; in all cases $\beta_\Psi\le d_\Psi-4$.
+
+\step{Step 4: the count.}
+As $T$ has equally many black and white faces, $w_K-b_K=\sum_\Psi\beta_\Psi\le\sum_\Psi(d_\Psi-4)$.
+Counting the edges of $K$ at its faces, we obtain
+\[
+2q=3(b_K+w_K)+\sum_\Psi d_\Psi=4f-(b_K+w_K)+\sum_\Psi(d_\Psi-4)\ \ge\ 4f-2b_K ,
+\]
+and $q-b_K\le 2p-4$ follows from Euler's formula $f=q-p+2$.
+\end{proof}
+
+\begin{proposition}[{\cite[Proposition~3.1]{OpenAI}}]\label{prop:pair}
+If $T$ has no separating triangle, then $T$ has a pair.
+\end{proposition}
+
+\begin{proof}
+We verify~\eqref{eq:hall} for $S\subseteq X$; let $U=V(T)\setminus S$.
+For a black face $t$, the number of sides of $t$ with both ends in $U$, less one if all corners of $t$ are in $U$, equals $2-\min(2,|V(t)\cap S|)$.
+Every edge lies on exactly one black face, and $t_0$ has no corner in $S$; summing over the $n+1$ black faces therefore gives $e(U)-b(U)=2n+2-\sum_{t\in A}\min(2,|V(t)\cap S|)$.
+As $|U|=n+3-|S|$ by~\eqref{eq:counts}, the inequality~\eqref{eq:hall} is~\eqref{eq:density}.
+\end{proof}
+
+\section{The cancellation}\label{sec:cancel}
+
+Whether a state $s$ is good depends on the cycles of the undirected graph $Q_s$.
+In a pair $(r,s)$, the state $r$ directs $Q_s$; its cycles are then directed cycles of odd length, and reversing one of them yields another such $r$.
+For a suitable sign the two cancel, so that the states that are not good disappear from signed sums over pairs (Lemma~\ref{lem:cancel}); this is statement~(\ref{step:cancel}) of the introduction.
+
+The following lemma applies to both $Q_s$ and $D(r,s)$.
+Inside a cycle, $r$ matches the black faces with vertices, which determines their number, and Euler's formula then determines the number of white faces.
 
 \begin{lemma}[Disk identity; {\cite[Lemma~4.1]{OpenAI}}]\label{lem:disk}
-Let $r$ be a state and let $C$ be a cycle of $T$ of length $h$.
-For an edge $f$ of $C$ let $t_f$ be the black face at $f$, and suppose that the faces $t_f$ are distinct, that they belong to $A$, and that $r(t_f)$ is an end of $f$ for every $f$.
-Let $B$ and $W$ be the numbers of black and of white faces inside $C$, and $\ell$ the number of edges $f$ of $C$ with $t_f$ inside $C$.
+Let $r$ be a state, and let $N$ be a spanning subgraph of $T$ that consists of one side of every face $t\in A$, where the side of $t$ has $r(t)$ as an end and is directed away from $r(t)$.
+\begin{enumerate}
+\item Every cycle of $N$ is a directed cycle.
+If $N$ contains no cycle, then $N$ is a forest with three components, each containing one root.
+\item Let $C$ be a cycle of $N$ of length $h$, let $B$ and $W$ be the numbers of black and of white faces inside $C$, and $\ell$ the number of edges of $C$ whose black face is inside $C$.
 Then
 \begin{equation}\label{eq:disk}
 W=B+1\qquad\text{and}\qquad h=2\ell+3 .
 \end{equation}
 In particular $h$ is odd, and there is a white face inside $C$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
+(1) The edges of $N$ have distinct tails, and these tails are the vertices of $X$, as $r$ is a bijection onto $X$.
+So a cycle with $k$ edges has $k$ tails among its $k$ vertices and is directed, and a component of $N$ with $\nu$ vertices, $\rho$ of them roots, has $\nu-\rho$ edges; if it is a tree, then $\rho=1$.
+
+(2) For an edge $f$ of $C$ let $t_f$ be the black face at $f$; thus $f$ is the side of $t_f$ in $N$, and its tail is $r(t_f)$.
 Let $I$ be the number of vertices inside $C$.
 
 \step{Step 1: $B=I+\ell$.}
-The vertices $r(t_f)$ are $h$ distinct vertices of $C$, so every vertex of $C$ is $r(t_f)$ for exactly one edge $f$ of $C$.
+By (1), every vertex of $C$ is $r(t_f)$ for exactly one edge $f$ of $C$.
 As $t_0$ is the unbounded face, the black faces inside $C$ belong to $A$ and the vertices inside $C$ to $X$.
 So $r$ maps the black faces inside $C$ injectively to vertices inside or on $C$.
 The image contains every vertex $x$ inside $C$, as the face $r^{-1}(x)$ at $x$ lies inside $C$, and it contains a vertex $r(t_f)$ of $C$ if and only if $t_f$ is inside $C$.
@@ -237,68 +417,6 @@ Euler's formula $(I+h)-(3B+h-\ell)+(B+W+1)=2$ gives $W-B=1+(B-I-\ell)=1$ by Step
 Counting the same edges at their white faces gives $3W+\ell$.
 Hence $3B+h-\ell=3W+\ell$, that is, $h=2\ell+3(W-B)=2\ell+3$.
 \end{proof}
-
-\subsection*{From a good state to a Hamiltonian cycle}
-We read off a perfect matching from the tree $S_s$ (Lemma~\ref{lem:matching}) and show that it satisfies~\eqref{eq:aim} (Proposition~\ref{prop:recover}).
-
-\begin{lemma}\label{lem:matching}
-Let $s$ be a good state.
-Then $G$ has a perfect matching $M$ that contains $e_0^*$ and such that, for every $t\in A$, the side of $t$ in $M^*$ has $s(t)$ as an end.
-\end{lemma}
-
-\begin{proof}
-By Lemma~\ref{lem:duality}, $Y=G-S_s^*$ is a spanning tree of $G$.
-In $Y$ the vertex $t_0$ has degree one, its edge being $e_0^*$, and every $t\in A$ has degree two, since exactly one side of $t$ lies in $S_s$.
-Root $Y$ at $t_0$.
-Every black face then has exactly one child, every child of a black face is white, and every white face has a parent; so the edges that join the black faces to their children form a perfect matching $M$ of $G$.
-It contains $e_0^*$, and for $t\in A$ the side of $t$ in $M^*$ is not in $Q_s$, so $s(t)$ is one of its ends.
-\end{proof}
-
-\begin{proposition}[{\cite[Section~6]{OpenAI}}]\label{prop:recover}
-If $T$ has a good state, then $G$ has a Hamiltonian cycle that avoids $e_0^*$.
-\end{proposition}
-
-\begin{proof}
-Let $s$ be a good state and $M$ the matching of Lemma~\ref{lem:matching}.
-By~\eqref{eq:aim} we must show that $M^*$ is acyclic.
-The reason is that the disk identity and a count of the faces that $M$ matches across a cycle of $M^*-e_0$ give different values for the surplus of white faces inside the cycle.
-
-Direct the side of each $t\in A$ in $M^*$ away from $s(t)$.
-As $s$ is a bijection onto $X$, this makes the spanning subgraph $N$ of $T$ with edge set $M^*\setminus\{e_0\}$ a directed graph as in Lemma~\ref{lem:outdegree}.
-Suppose that $N$ contains a cycle $C$.
-Its edges are sides of distinct faces $t\in A$, each with $s(t)$ as an end, so Lemma~\ref{lem:disk} applies with $r=s$, and~\eqref{eq:disk} gives $W-B=1$ and $h-2\ell=3$.
-On the other hand, $M$ matches every face inside $C$ with a face across one of its sides.
-The partner lies inside $C$ as well, unless the side is an edge of $C$; and since the edges of $C$ are in $M^*$, each of them matches the face on its inner side with the face on its outer side.
-So $\ell$ black and $h-\ell$ white faces inside $C$ are matched to faces outside, and the remaining faces inside $C$ are matched in pairs of one black and one white face:
-\begin{equation}\label{eq:matched}
-B-\ell=W-(h-\ell),\qquad\text{that is,}\qquad W-B=h-2\ell .
-\end{equation}
-Hence $1=3$, a contradiction.
-So $N$ contains no cycle, and by Lemma~\ref{lem:outdegree} its three components contain one root each.
-As $e_0$ joins two roots, $M^*$ is acyclic.
-\end{proof}
-
-\section{Pairs of states}\label{sec:pairs}
-
-It remains to find a good state.
-Whether a state $s$ is good depends on the cycles of the undirected graph $Q_s$.
-The key to the proof is a second state $r$ that differs from $s$ in every face: it directs $Q_s$ as in Lemma~\ref{lem:outdegree}, and reversing a directed cycle of $Q_s$ yields another such $r$.
-For a suitable sign the two cancel, so that the states that are not good disappear from signed sums over pairs (Lemma~\ref{lem:cancel}); this is statement~(\ref{step:cancel}) of the introduction.
-
-\begin{definition}\label{def:pair}
-A \emph{pair} is an ordered pair $(r,s)$ of states with $r(t)\neq s(t)$ for every $t\in A$; for a pair, $u(t)$ denotes the third corner of $t$.
-A pair directs two sides of every face $t\in A$ away from $r(t)$ (Figure~\ref{fig:example}(a)): the side in $Q_s$, from $r(t)$ to $u(t)$, and the side from $r(t)$ to $s(t)$.
-The edges $r(t)\to s(t)$ form the spanning subgraph $D(r,s)$ of $T$.
-As $r$ is a bijection onto $X$, both $Q_s$ and $D(r,s)$ are directed as in Lemma~\ref{lem:outdegree}.
-\end{definition}
-
-
-\begin{figure}[t]
-\centering
-\includegraphics{figures/fig-example.pdf}
-\caption{An Eulerian triangulation with $13$ vertices, roots $0,4,5$ and $n=10$. (a) A pair $(r,s)$ (open and filled wedges). The edges of $D(r,s)$ (solid arrows) form a counterclockwise cycle of length $7$ and a clockwise cycle of length $3$; the dashed arrows are the cycle of $Q_s$ through $1$, $9$ and $8$, so $s$ is not good. (b), (c) The two $2$-factors $F$ of $H$ (bold), see Section~\ref{sec:count}; the one in (b) is that of the pair in (a). The white faces inside the corresponding cycles of $D(r,s)$ are tinted, and the numbers count them; in (b) one cycle lies inside the other.}
-\label{fig:example}
-\end{figure}
 
 \begin{definition}\label{def:sign}
 For $t\in A$ and distinct corners $v,w$ of $t$, let $\delta_t(v,w)=1$ if $t$ lies to the left of the edge directed from $v$ to $w$, and $\delta_t(v,w)=-1$ otherwise.
@@ -320,11 +438,13 @@ Then $(r^K,s)$ is a pair, $(r^K)^K=r$, and $\eps(r^K,s)=-\eps(r,s)$.
 \end{lemma}
 
 \begin{proof}
-(1) holds by Lemma~\ref{lem:outdegree}.
-(2) By the same lemma, $K$ is a directed cycle, so both $r$ and $u$ map the faces in question bijectively onto the vertices of $K$.
+Lemma~\ref{lem:disk} applies to $N=Q_s$, directed by $r$.
+
+(1) By Lemma~\ref{lem:disk}(1), $Q_s$ contains no cycle if and only if it is a forest whose three components each contain one root, that is, if and only if $s$ is good.
+
+(2) The cycle $K$ is directed, so both $r$ and $u$ map the faces in question bijectively onto the vertices of $K$.
 Hence $r^K$ is a state, and in the pair $(r^K,s)$ the third corner of these faces is $r(t)$.
-Passing from $r$ to $r^K$ changes one factor of~\eqref{eq:sign} for every edge of $K$.
-The number of these edges is odd by Lemma~\ref{lem:disk}, which applies to $K$ because its edges are sides of distinct faces $t\in A$, each with $r(t)$ as an end.
+Passing from $r$ to $r^K$ changes one factor of~\eqref{eq:sign} for every edge of $K$, and the number of these edges is odd by~\eqref{eq:disk}.
 \end{proof}
 
 \begin{lemma}[Cancellation; {\cite[Lemma~5.2]{OpenAI}}]\label{lem:cancel}
@@ -356,7 +476,7 @@ For a cycle $C$ of $T$, we let $a(C)$ be the number of white faces inside $C$.
 Let $(r,s)$ be a pair with $2$-factor $F$, and let $c=c(F)$.
 \begin{enumerate}
 \item $D(r,s)$ consists of the three isolated roots and $c$ disjoint directed cycles whose vertex sets partition $X$.
-Each of them satisfies the hypotheses of Lemma~\ref{lem:disk}; in particular $a(C)\ge1$ for every cycle $C$ of $D(r,s)$.
+Lemma~\ref{lem:disk} applies to them, with $N=D(r,s)$; in particular $a(C)\ge1$ for every cycle $C$ of $D(r,s)$.
 \item Let $C$ be a cycle of $D(r,s)$.
 Exchanging $r(t)$ and $s(t)$ for the faces $t$ with a side on $C$ gives a pair with $2$-factor $F$ in which only $C$ has changed its direction; we say that it is obtained from $(r,s)$ by \emph{reversing} $C$.
 The pairs with $2$-factor $F$ correspond to the $2^{c}$ choices of directions for the cycles of $D(r,s)$; without their directions these cycles depend only on $F$, and $\cC_F$ denotes their set.
@@ -370,7 +490,6 @@ The pairs with $2$-factor $F$ correspond to the $2^{c}$ choices of directions fo
 \begin{proof}
 (1) In $D(r,s)$ every vertex of $X$ has outdegree one and also indegree one, because $s$ is a bijection onto $X$, and the roots are isolated.
 A cycle of $F$ passes alternately through faces $t\in A$ and vertices of $X$, and the corresponding cycle of $D(r,s)$ passes through the same vertices, using the side $r(t)s(t)$ of each of these faces.
-Its edges are sides of distinct faces $t\in A$, each with $r(t)$ as an end.
 
 (2) The pairs with $2$-factor $F$ are the ways of splitting each cycle of $F$ into two perfect matchings, and reversing $C$ exchanges the two matchings of the cycle of $F$ that corresponds to $C$.
 
@@ -469,97 +588,10 @@ By~\eqref{eq:product}, $Z(z)=z^{\omega_0}(1-z)\bigl((1-z^6)+z^2(1-z^3)\bigr)=z^{
 The two terms $\mp z^{\omega_0+6}$, one from each $2$-factor, belong to two pairs with the same second state, which is not good, and the six remaining terms belong to six good states.
 \end{example}
 
-
-\section{Proof of the theorem}\label{sec:proof}
-
-It remains to prove statement~(\ref{step:pair}), the first implication of~\eqref{eq:chain}, and to deal with separating triangles; a \emph{separating triangle} of $T$ is a triangle of $T$ that has vertices of $T$ on both of its sides.
-A pair exists if and only if $H$ has a $2$-factor. This is the case if a condition of Hall type holds (Lemma~\ref{lem:flow}), and in $T$ this condition is a bound on the number of edges spanned by a set of vertices (Lemma~\ref{lem:density}).
-
-\begin{lemma}[{\cite[(3.1)]{OpenAI}}]\label{lem:flow}
-If
-\begin{equation}\label{eq:hall}
-\sum_{t\in A}\min\bigl(2,|V(t)\cap S|\bigr)\ \ge\ 2|S|\qquad\text{for every } S\subseteq X,
-\end{equation}
-then $T$ has a pair.
-\end{lemma}
-
-\begin{proof}
-A $2$-factor of $H$ splits into two disjoint perfect matchings, since its cycles are even, and so gives a pair.
-Consider the network with an edge of capacity $2$ from a source to every $x\in X$, an edge of capacity $1$ from $x$ to $t$ for every edge $xt$ of $H$, and an edge of capacity $2$ from every $t\in A$ to a sink.
-An integral flow of value $2n$ is a $2$-factor of $H$, and it exists by the max-flow min-cut theorem~\cite{FordFulkerson}: a cut with the set $S\subseteq X$ on the side of the source has capacity at least $2(n-|S|)+\sum_{t\in A}\min(2,|V(t)\cap S|)\ge 2n$.
+\begin{proof}[Proof of Theorem~\ref{thm:nosep}]
+Let $e_0$ be the edge of $T$ dual to $e$, and let $t_0$ be the black face at $e_0$.
+As $T$ has no separating triangle, it has a pair by Proposition~\ref{prop:pair}, hence a good state by Proposition~\ref{prop:good}, and $G$ has a Hamiltonian cycle that avoids $e=e_0^*$ by Proposition~\ref{prop:recover}.
 \end{proof}
-
-\begin{lemma}[{\cite[(3.2)]{OpenAI}}]\label{lem:density}
-For $U\subseteq V(T)$ let $e(U)$ be the number of edges with both ends in $U$, and $b(U)$ the number of black faces with all corners in $U$.
-If $T$ has no separating triangle and $U$ contains the roots, then
-\begin{equation}\label{eq:density}
-e(U)-b(U)\le 2|U|-4 .
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-\step{Step 1: reduction to components.}
-Let $K$ be a component of the subgraph of $T$ induced by $U$, with $p$ vertices and $q$ edges, and let $b_K$ be the number of black faces of $T$ with all corners in $K$.
-We show that $q-b_K\le 2p$, and that $q-b_K\le 2p-4$ if $K$ contains the roots.
-This suffices, as the roots lie in one component and $b(U)$ is the sum of the numbers $b_K$.
-If $p\le3$, then $q\le\binom p2\le 2p$; and if moreover $K$ contains the roots, then $K$ is the boundary of $t_0$ and $q-b_K\le 3-1$.
-
-\step{Step 2: the triangular faces of $K$.}
-Let $p\ge4$, and regard $K$ as a connected plane graph with $f$ faces.
-A face of $K$ of length three is bounded by a triangle of $T$ and has the other vertices of $K$ on its far side; as this triangle is not separating, the face contains no vertex of $T$, so it is a face of $T$.
-Hence the faces of $K$ of length three are the faces of $T$ with all corners in $K$, say $b_K$ black and $w_K$ white ones.
-
-\step{Step 3: the other faces of $K$.}
-Let $\Psi$ be one of the other faces of $K$, with boundary walk of length $d_\Psi\ge4$, and let $\beta_\Psi$ be the number of black faces of $T$ contained in $\Psi$ minus the number of white ones.
-An edge of $T$ inside $\Psi$ lies on a black and on a white face in $\Psi$, and each of the $d_\Psi$ edges of the boundary walk lies on one face in $\Psi$; so $3\beta_\Psi$ is a sum of $d_\Psi$ terms $\pm1$.
-This forces $\beta_\Psi=0$ if $d_\Psi=4$, $|\beta_\Psi|=1$ if $d_\Psi=5$, and $|\beta_\Psi|\le d_\Psi/3$ in general; in all cases $\beta_\Psi\le d_\Psi-4$.
-
-\step{Step 4: the count.}
-As $T$ has equally many black and white faces, $w_K-b_K=\sum_\Psi\beta_\Psi\le\sum_\Psi(d_\Psi-4)$.
-Counting the edges of $K$ at its faces, we obtain
-\[
-2q=3(b_K+w_K)+\sum_\Psi d_\Psi=4f-(b_K+w_K)+\sum_\Psi(d_\Psi-4)\ \ge\ 4f-2b_K ,
-\]
-and $q-b_K\le 2p-4$ follows from Euler's formula $f=q-p+2$.
-\end{proof}
-
-\begin{proposition}[{\cite[Proposition~3.1]{OpenAI}}]\label{prop:pair}
-If $T$ has no separating triangle, then $T$ has a pair.
-\end{proposition}
-
-\begin{proof}
-We verify~\eqref{eq:hall} for $S\subseteq X$; let $U=V(T)\setminus S$.
-For a black face $t$, the number of sides of $t$ with both ends in $U$, less one if all corners of $t$ are in $U$, equals $2-\min(2,|V(t)\cap S|)$.
-Every edge lies on exactly one black face, and $t_0$ has no corner in $S$; summing over the $n+1$ black faces therefore gives $e(U)-b(U)=2n+2-\sum_{t\in A}\min(2,|V(t)\cap S|)$.
-As $|U|=n+3-|S|$ by~\eqref{eq:counts}, the inequality~\eqref{eq:hall} is~\eqref{eq:density}.
-\end{proof}
-
-\begin{theorem}[{\cite[Corollary~7.1]{OpenAI}}, {\cite[Theorem~3]{Li}}]\label{thm:dual}
-Let $T$ be an Eulerian triangulation with dual $G$, and let $e$ be an edge of $G$.
-Then $G$ has a Hamiltonian cycle that does not contain $e$.
-\end{theorem}
-
-\begin{proof}
-We use induction on the number of vertices of $T$.
-If $T$ has no separating triangle, let $e_0$ be the edge of $T$ dual to $e$ and $t_0$ the black face at $e_0$.
-Then $T$ has a pair by Proposition~\ref{prop:pair}, hence a good state by Proposition~\ref{prop:good}, and the assertion is Proposition~\ref{prop:recover}.
-
-Now let $\Delta$ be a separating triangle of $T$, bounding the closed disks $\Delta_1$ and $\Delta_2$.
-We cut $T$ along $\Delta$ into two smaller Eulerian triangulations and glue Hamiltonian cycles of their duals.
-For $i=1,2$ let $T_i$ consist of the vertices and edges of $T$ in $\Delta_i$; its faces are those of $T$ in $\Delta_i$ and one new face.
-As in the proof of Lemma~\ref{lem:density}, three times the difference between the numbers of black and of white faces of $T$ in $\Delta_i$ is a sum of three terms $\pm1$, one for each side of $\Delta$.
-So the three faces of $T$ in $\Delta_i$ at the sides of $\Delta$ have the same colour, and giving the new face the other colour makes $T_i$ an Eulerian triangulation smaller than $T$.
-
-The dual $G_i$ of $T_i$ is obtained from $G$ by contracting the faces of $T$ outside $\Delta_i$ to one vertex $v_i$, the new face.
-The edges at $v_i$ are the duals $f_1,f_2,f_3$ of the sides of $\Delta$, which lie in both $G_1$ and $G_2$; every other edge of $G$ lies in exactly one of them.
-We may assume that $e$ is an edge of $G_1$.
-By induction $G_1$ has a Hamiltonian cycle $C_1$ avoiding $e$.
-It contains two of the edges at $v_1$, say $f_1$ and $f_2$, and if $e$ is one of the three then $e=f_3$.
-By induction, $G_2$ has a Hamiltonian cycle $C_2$ avoiding $f_3$, hence containing $f_1$ and $f_2$.
-The paths $C_1-v_1$ and $C_2-v_2$, together with $f_1$ and $f_2$, form a Hamiltonian cycle of $G$ avoiding $e$.
-\end{proof}
-
-Theorem~\ref{thm:main} follows from Lemma~\ref{lem:dual} and Theorem~\ref{thm:dual}.
 
 \section{Remarks}\label{sec:remarks}
 

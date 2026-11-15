@@ -1,10 +1,11 @@
-"""From the graph to the Hamiltonian cycle, following Section 5 of the paper.
+"""From the graph to the Hamiltonian cycle, following Sections 2 and 4 of the
+paper.
 
-A first pair comes from a flow (Proposition 5.5).  From a pair, the exchange
+A first pair comes from a flow (Proposition 4.6).  From a pair, the exchange
 walk reaches a pair whose second state is good, and a search through the
 states finds a good state in any case; both are described in
 proofs/algorithm/algorithm.md.  If there is no pair, T has a separating
-triangle and is cut along it (Theorem 5.6).
+triangle and is cut along it (Proposition 2.7).
 """
 import networkx as nx
 
@@ -21,7 +22,7 @@ def first_pair(T):
     flow of value 2n uses two corners of every face and two faces at every
     vertex; these edges form a 2-factor of H, and alternate edges along each
     of its cycles give the two states.  A pair exists whenever T has no
-    separating triangle (Proposition 5.5).
+    separating triangle (Proposition 4.6).
     """
     net = nx.DiGraph()
     for x in T.X:
@@ -142,7 +143,7 @@ def pieces(T, triangle):
     """Cut T along a separating triangle.
 
     Returns the face dicts of the two triangulations T_1 and T_2 of the
-    proof of Theorem 5.6, the one containing t0 first.  Each consists of the
+    proof of Proposition 2.7, the one containing t0 first.  Each consists of the
     faces of T on one side and a new face bounded by the triangle; both new
     faces are labelled ('cap', triangle).
     """
@@ -168,9 +169,9 @@ def acyclic_selection(T, max_moves=1000):
     and has G - M connected: a set P of edges of T that contains e0 and one
     side of every face, without cycles.
 
-    If T has a pair, P comes from a good state (Proposition 2.12).  Otherwise
+    If T has a pair, P comes from a good state (Proposition 3.5).  Otherwise
     T has a separating triangle, and P is put together as in the proof of
-    Theorem 5.6.  The triangulation T_1 containing t0 has such a set P1
+    Proposition 2.7.  The triangulation T_1 containing t0 has such a set P1
     containing e0; P1 contains one side e' of the triangle; the other
     triangulation T_2, with its new face as t0, has such a set P2 containing
     e'; and P = P1 | P2.

@@ -1,5 +1,5 @@
 """States, good states, and the Hamiltonian cycle of a good state
-(Section 2 of the paper, Proposition 2.12).
+(Section 3 of the paper, Proposition 3.5).
 
 A state s chooses a corner s(t) in X of every black face t in A, using every
 vertex of X once.  It is stored as a dict {t: s(t)}.
@@ -113,45 +113,36 @@ def incidence_matrix(T):
     """The n x n matrix with entry 1 where the face t in A has the corner x in X.
 
     States are the nonzero terms of its determinant; they all have the same
-    sign, by the disk identity (Lemma 2.9), so the number of states is the
+    sign, by the disk identity (Lemma 5.1), so the number of states is the
     absolute value of the determinant.
     """
     return [[int(x in T.faces[t]) for x in T.X] for t in T.A]
 
 
 def selection(T, s):
-    """The edge set M^* of a good state s (Lemma 2.11): one side of
-    every face of T, without cycles.
+    """The edge set P = M^* of a good state s (Lemma 3.4): one side of
+    every face of T, without cycles (Proposition 3.5).
 
-    M^* contains e0 and, in every t in A, a side with end s(t).  The faces of
-    T, joined across the edges that are not in the spanning tree S_s (Q_s and
-    the two sides of t0 other than e0), form the spanning tree Y of G; M is
-    its perfect matching, found by matching a leaf to its neighbour and
-    removing both.
+    Colour the vertices of T with two colours so that the ends of every edge
+    of the spanning tree S_s (Q_s and the two sides of t0 other than e0) have
+    different colours.  P consists of the edges of T whose ends have the same
+    colour; it contains e0 and, in every t in A, a side with end s(t).
     """
     if not is_good(T, s):
         raise ValueError('the state is not good')
-    excluded = set(opposite_sides(T, s)) | {edge(v, w) for v, w in T.sides(T.t0)}
-    excluded.discard(T.e0)
-    across = {t: {} for t in T.faces}            # neighbour in Y_s -> shared side
-    for v, w in T.left:
-        if edge(v, w) not in excluded:
-            across[T.left[v, w]][T.left[w, v]] = edge(v, w)
-    leaves = [t for t in across if len(across[t]) == 1]
-    P = set()
-    while leaves:
-        t = leaves.pop()
-        if len(across[t]) != 1:
-            continue                              # already matched
-        (y, side), = across[t].items()
-        P.add(side)
-        for f in (t, y):
-            for g in list(across[f]):
-                del across[g][f]
-                if len(across[g]) == 1:
-                    leaves.append(g)
-            across[f] = {}
-    return P
+    tree = set(opposite_sides(T, s)) | {edge(v, w) for v, w in T.sides(T.t0)}
+    tree.discard(T.e0)
+    nbrs = {v: [] for v in T.vertices}
+    for v, w in tree:
+        nbrs[v].append(w)
+        nbrs[w].append(v)
+    colour, queue = {T.roots[0]: 0}, [T.roots[0]]
+    for v in queue:
+        for w in nbrs[v]:
+            if w not in colour:
+                colour[w] = 1 - colour[v]
+                queue.append(w)
+    return {(v, w) for v, w in T.edges() if colour[v] == colour[w]}
 
 
 def is_selection(T, P):

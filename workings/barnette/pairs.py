@@ -1,5 +1,5 @@
 """Pairs of states: their cycles, the two reversals, sign and weight
-(Sections 3 and 4 of the paper).
+(Sections 4 to 6 of the paper).
 
 A pair (r, s) consists of two states with r(t) != s(t) for every t in A; s is
 the second state, and u(t) is the third corner of t.  A pair gives
@@ -50,7 +50,7 @@ def D_cycles(T, r, s):
 
 def Q_cycles(T, r, s):
     """The cycles of Q_s, directed by r.  There are none exactly when s is
-    good (Lemma 3.4(1))."""
+    good (Lemma 5.5(1))."""
     return _cycles(T, {r[t]: (T.third(t, r[t], s[t]), t) for t in T.A})
 
 
@@ -80,7 +80,7 @@ def delta(T, v, w):
 def sign(T, r, s):
     """The sign eps(r, s): the product of delta_t(r(t), s(t)) over t in A.
 
-    Both reversals change it (Lemmas 3.4(2) and 4.2(3)).
+    Both reversals change it (Lemmas 5.5(2) and 6.2(3)).
     """
     result = 1
     for t in T.A:
@@ -127,7 +127,7 @@ def weight(T, s):
     """The weight omega(s): the sum of omega(t, s(t)) over t in A.
 
     Reversing a clockwise cycle C of D(r, s) raises the weight of the second
-    state by a(C) >= 1, the number of white faces inside C (Lemma 4.6).
+    state by a(C) >= 1, the number of white faces inside C (Lemma 6.6).
     """
     kappa = corner_weights(T)
     return sum(kappa[t, s[t]] for t in T.A)
@@ -138,9 +138,9 @@ def signed_sum(T, m=None):
     value of (z d/dz)^m Z(z) at z = 1.
 
     By default m is the least number of cycles of a 2-factor of H.  The pairs
-    whose second state is not good cancel (Lemma 3.5), and for this m the sum
+    whose second state is not good cancel (Lemma 5.6), and for this m the sum
     is m! times the value of Z(z)/(z - 1)^m at z = 1, which is not zero
-    (Proposition 4.9).  Returns (sum, m); the sum is 0 if there is no pair.
+    (Proposition 6.9).  Returns (sum, m); the sum is 0 if there is no pair.
     """
     terms = [(sign(T, r, s), weight(T, s), len(D_cycles(T, r, s))) for r, s in pairs(T)]
     if m is None:

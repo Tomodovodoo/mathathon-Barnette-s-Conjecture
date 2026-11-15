@@ -95,23 +95,26 @@ def is_good(m, s):
 
 
 def recover(m, s):
-    """Lemma 2.11 and Proposition 2.12 for a good state: the tree Y, the matching M and the cycle G - M."""
+    """The construction for a good state: the two colour classes of the tree S_s, the edges P of T
+    inside the classes, the matching M with P = M*, and the cycle G - M."""
     good, S = is_good(m, s)
     assert m.is_state(s) and good
-    Y = m.G.copy()
-    Y.remove_edges_from(m.dual[und(*e)] for e in S)
-    assert nx.is_tree(Y)
-    parent = nx.predecessor(Y, m.t0)
-    M = [und(c, p[0]) for c, p in parent.items() if p and p[0] in m.black]
+    colour = nx.bipartite.color(nx.Graph(S))
+    if colour[m.e0[0]]:                          # the class of the ends of e0 is class 0
+        colour = {v: 1 - c for v, c in colour.items()}
+    M = [g for g, (a, b) in m.cross.items() if colour[a] == colour[b]]
     assert nx.is_perfect_matching(m.G, set(M)) and m.dual[m.e0] in M
     Mstar = [m.cross[g] for g in M]
     assert nx.is_forest(nx.Graph(Mstar))
+    for c in (0, 1):                             # each colour class induces a tree
+        tree = nx.Graph([e for e in Mstar if colour[e[0]] == c])
+        assert nx.is_tree(tree) and set(tree) == {v for v in m.V if colour[v] == c}
     for t, x in zip(m.A, s):                     # the side of t in M* has s(t) as an end
         assert sum(x in e and set(e) <= set(m.F[t]) for e in Mstar) == 1
     cycle = [g for g in m.cross if g not in M]
     C = nx.Graph(cycle)
     assert len(C) == len(m.F) and nx.is_connected(C) and all(d == 2 for _, d in C.degree())
-    return dict(S=S, Y=[und(*g) for g in Y.edges()], M=M, Mstar=Mstar, cycle=cycle)
+    return dict(S=S, colour=colour, M=M, Mstar=Mstar, cycle=cycle)
 
 
 def two_factors(m):
@@ -264,6 +267,16 @@ class Panel:
             else:
                 self.add(rf'\fill {pt(self.xy[v])} circle[radius=1.3pt];')
                 self.ob_disc(self.xy[v], 1.3)
+        return self
+
+    def classes(self, colour):
+        """The vertices of T by colour class: dots and squares."""
+        for v in self.m.V:
+            if colour[v]:
+                self.add(rf'\draw[root] {pt(self.xy[v])} +(-1.75pt,-1.75pt) rectangle +(1.75pt,1.75pt);')
+            else:
+                self.add(rf'\fill {pt(self.xy[v])} circle[radius=2pt];')
+            self.ob_disc(self.xy[v], 2.6)
         return self
 
     def state(self, s, style):
@@ -452,8 +465,8 @@ def fig_overview():
     a.label((R + a.collar) * unit_vec([-1, -1]), '$t_0$', 7.5, 7, lo=0.1)
     b = P().base().state(s, 's').lines(m.Q(s), 'Q', 1.1).lines(rec['S'][len(m.A):], 'bold', 1.5).vertices()
     b.label(b.arcmid(*m.e0), '$e_0$', 8, 6.5, lo=0.12, inside=True)
-    c = P().base().graphG(rec['Y'], 'Y', .7).graphG(rec['M'], 'bold', 1.5).dotsG().vertices()
-    d = P().base().lines(rec['Mstar'], 'bold', 1.5).graphG(rec['cycle'], 'ham', 1.2, smooth=True).vertices()
+    c = P().base().lines(m.Q(s), 'Q', 1.1).lines(rec['S'][len(m.A):], 'bold', 1.5).classes(rec['colour'])
+    d = P().base().lines(rec['Mstar'], 'bold', 1.5).graphG(rec['cycle'], 'ham', 1.2, smooth=True).classes(rec['colour'])
     e = P().base().state(r, 'r').state(s, 's').arrows(m.D(r, s)).vertices()
     return row([a, b, c, d, e], '1.9mm')
 

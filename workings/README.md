@@ -8,10 +8,10 @@ conjecture on a given graph: for a cubic, bipartite, 3-connected planar graph
 
 | Module | Section of the paper | Contents |
 |---|---|---|
-| `triangulation.py` | 2. States | the graph `G` or its rotation system, validation, the dual Eulerian triangulation `T` (Lemma 2.4), its face colouring, the face `t0`, the side `e0`, the roots, the sets `A` and `X` |
-| `states.py` | 2. States | states, `Q_s`, good states, the set `M^*` and the Hamiltonian cycle `G - M` of a good state (Lemma 2.11, Proposition 2.12) |
-| `pairs.py` | 3. Pairs of states, 4. The weighted count | pairs, the cycles of `D(r,s)` and of `Q_s` (Lemmas 4.2(1) and 3.4(1)), the two reversals, the sign `eps` (Lemmas 3.4(2) and 4.2(3)), the weight `omega` (Lemma 4.6), the signed sum (Lemma 3.5, Proposition 4.9) |
-| `solve.py` | 5. Proof of the theorem | a pair by a flow (Proposition 5.5), the exchange walk and the search through the states of [the algorithm note](../proofs/algorithm/algorithm.md), cutting along a separating triangle and gluing (Theorem 5.6), `hamiltonian_cycle`, `is_hamiltonian_cycle` |
+| `triangulation.py` | 2. The dual triangulation, 3. Good states | the graph `G` or its rotation system, validation, the dual Eulerian triangulation `T` (Lemma 2.4), its face colouring, the face `t0`, the side `e0`, the roots, the sets `A` and `X` (Setup 3.1) |
+| `states.py` | 3. Good states | states, `Q_s`, good states, the set `M^*` and the Hamiltonian cycle `G - M` of a good state (Lemma 3.4, Proposition 3.5) |
+| `pairs.py` | 4. Pairs of states, 5. The cancellation, 6. The weighted count | pairs, the cycles of `D(r,s)` and of `Q_s` (Lemmas 6.2(1) and 5.5(1)), the two reversals, the sign `eps` (Lemmas 5.5(2) and 6.2(3)), the weight `omega` (Lemma 6.6), the signed sum (Lemma 5.6, Proposition 6.9) |
+| `solve.py` | 2. The dual triangulation, 4. Pairs of states | a pair by a flow (Proposition 4.6), the exchange walk and the search through the states of [the algorithm note](../proofs/algorithm/algorithm.md), cutting along a separating triangle and gluing (Proposition 2.7), `hamiltonian_cycle`, `is_hamiltonian_cycle` |
 | `examples.py` | | cube, prisms, truncated octahedron, a family of tubes, two glued cubes, the example of Figure 2, the example with 8 vertices and the example with 16 vertices of the algorithm note |
 
 A state is a dict `{t: s(t)}` from the black faces in `A` to their chosen
