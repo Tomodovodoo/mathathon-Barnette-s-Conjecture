@@ -23,6 +23,7 @@ Anouk Brose (UC Davis), Tom de Groot (independent), Santiago Morales Duarte (UC 
 \vspace{4pt}
 {\footnotesize
 \url{https://github.com/Tomodovodoo/mathathon-Barnette-s-Conjecture}\par
+Code snapshot: \texttt{c39082963fea936f98b3aeb7f6d1f9258ec82c2e}\par
 15 November 2026}
 \end{center}
 \vspace{-2pt}
@@ -62,7 +63,7 @@ The existence proof groups one weighted sum in two ways. Fixing $s$ cancels term
 When $T$ has a separating triangle, we cut it into smaller pieces, apply induction and glue the cycles. We keep the stronger form that lets us prescribe an edge for a cycle to avoid, so the pieces fit. This distinguishes the constructive reductions from the step that proves existence.
 
 \section{What we tried and learned}
-We tried to replace the signed count with tree and matching theorems. Tutte-state lattices~\cite{HineKalman} suggest choosing extreme states. The theorems of Rado, Nash-Williams and Edmonds suggest choosing or packing trees. A state must choose one corner in each black face other than $t_0$ and use each nonroot vertex once. Our \href{https://github.com/Tomodovodoo/mathathon-Barnette-s-Conjecture/blob/main/proofs/sign-free/sign-free.pdf}{tree-packing formulation} gives spanning trees that meet either condition separately within a fixed $2$-factor of the face--corner incidence graph. A single tree need not meet both.
+We tried to replace the signed count with tree and matching theorems. Tutte-state lattices~\cite{HineKalman} suggest choosing extreme states. The theorems of Rado, Nash-Williams and Edmonds suggest choosing or packing trees. A state must choose one corner in each black face other than $t_0$ and use each nonroot vertex once. Our tree-packing formulation gives spanning trees that meet either condition separately within a fixed $2$-factor of the face--corner incidence graph. A single tree need not meet both.
 
 We used counterexamples to find where the shortcuts fail. An $8$-vertex dual example shows that an acyclic opposite-edge graph can put two roots in one component and none in another. A $16$-vertex example has a $2$-factor whose two orientations both fail the tree condition. Other examples defeat strict descent and unconditional lifting after contraction. These tests left sharper questions about moves that preserve the cycle count and contractions that preserve enough structure. We identified the missing steps, but did not complete a new proof without signs.
 
@@ -76,7 +77,7 @@ We implemented two algorithms based on the proof that return a Hamiltonian cycle
 
 We tested the code against independent implementations and direct checks. We compared Python and C versions, enumerated small cases, and tested constructed families and random graphs. We checked that each returned cycle visits every vertex exactly once and avoids the prescribed edge. We also used counterexamples to show when a proposed shortcut lost a necessary condition.
 
-We measured search cost using the number of retained partial choices divided by $n=|V(G)|/2-1$. On sampled random graphs, the fitted median grew by a factor of $1.056$--$1.064$ per unit increase in $n$ with breadth-first face order and $1.15$--$1.22$ with the stored order. The proven worst-case upper bound is $(\sqrt{3})^n$ times a polynomial factor. These fits describe the sampled medians. See the \href{https://github.com/Tomodovodoo/mathathon-Barnette-s-Conjecture/blob/main/research/experiments/README.md}{experiment notes} for the ranges and cost measure.
+We measured search cost using the number of retained partial choices divided by $n=|V(G)|/2-1$. On sampled random graphs, the fitted median grew by a factor of $1.056$--$1.064$ per unit increase in $n$ with breadth-first face order and $1.15$--$1.22$ with the stored order. The proven worst-case upper bound is $(\sqrt{3})^n$ times a polynomial factor. These fits describe the sampled medians. The supplementary experiment notes give the ranges and cost measure.
 
 We used the supporting exposition to connect the tools, the simplification and the tests. We compared the source arguments, mapped their dependencies, placed definitions beside their first use, and separated construction from existence. We studied the assumptions so that others can generalise the lemmas. The failed tree-packing and contraction routes identify conditions that further work must address. The exposition records this reasoning; the website, walkthrough and code give readers other ways to understand and use it.
 
