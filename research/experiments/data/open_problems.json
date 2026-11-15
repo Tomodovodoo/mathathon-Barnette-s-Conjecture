@@ -1,0 +1,51 @@
+{
+ "exhaustive": {
+  "instances": 33585490,
+  "instances_with_pair": 15763141,
+  "faces": 34000964,
+  "faces_with_pair": 16052609,
+  "graphs_with_states_depending_on_t0": 0,
+  "good_odd": 0,
+  "good_below_2m": 0,
+  "good_below_2_to_m": 0,
+  "equality_g_2m_power": 10681622,
+  "single_two_factor": 10681622,
+  "equality_and_single_two_factor": 10681622,
+  "pair_without_good_state": 0,
+  "good_state_without_pair": 0,
+  "good_above_cycles_avoiding_e": 0,
+  "sizes": [
+   6,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ]
+ },
+ "other": {
+  "instances_with_pairs_enumerated": 10127,
+  "n_max": 79,
+  "good_below_2_to_m": 0,
+  "good_odd": 0,
+  "instances_with_exact_count": 26941,
+  "equality": 4236,
+  "equality_and_single_two_factor": 4236,
+  "single_two_factor": 4236,
+  "pair_without_good_state": 0,
+  "good_state_without_pair": 0,
+  "graphs_with_several_t0": 10021,
+  "largest_spread_of_log10_states_within_a_graph": 4.263256414560601e-14
+ }
+}

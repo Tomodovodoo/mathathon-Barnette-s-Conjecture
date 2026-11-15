@@ -1,6 +1,6 @@
 """Cross-check of fastbarnette.c against workings/barnette.
 
-  python src/crosscheck.py [max_vertices]
+  python src/crosscheck.py [max_vertices] [workers]
 
 Every Eulerian triangulation with at most max_vertices vertices (default 14)
 is taken with every face as t0, together with the examples of the reference
@@ -12,8 +12,13 @@ choices and matching tests it takes, the pairs by number of cycles, the
 existence of a pair, the corner weights, the exchange walk from a common pair
 (moves and final pair), the cut along separating triangles, the three
 Hamiltonian cycles, and the number of Hamiltonian cycles of G avoiding each
-edge (against a direct enumeration).  The result is written to
-data/crosscheck.json.
+edge (against a direct enumeration).  The walk from the stored pairs of the
+ten trap chains is compared with the numbers of moves stated in
+proofs/algorithm/algorithm.md, and the logarithm of the number of states from
+a sparse LU factorisation with the exact determinant.  For every triangulation
+with at most 45 vertices the number of states is compared, for every face t0,
+with the square root of the minor of A + D/2 (README, section on the number
+of states).  The result is written to data/crosscheck.json.
 """
 import json
 import sys
@@ -251,17 +256,115 @@ def instances(max_v):
     return out
 
 
+def trap_chains():
+    """The numbers of moves stated in proofs/algorithm/algorithm.md for the
+    walk from the stored pair of trap-chain-k, and 3 in the mirror image."""
+    stated = [0, 3, 24, 113, 562, 2811, 14060, 70309, 351558, 1757807]
+    found, mirrored = [], []
+    for k in range(1, 11):
+        F, t0, d = graphs.trap_chain(k)
+        r, s = d['pair']
+        found.append(fb.walk(F, t0, r, s)['moves'])
+        mirrored.append(fb.walk(graphs.mirror(F), t0, r, s)['moves'])
+    return stated, found, mirrored
+
+
+def log_determinants():
+    """The logarithm of the number of states from the sparse LU factorisation
+    (measure.log10_states, used when n > 79) against the exact determinant,
+    on triangulations with 20 <= n <= 79 and every fourth face as t0.
+    Returns the number of instances and the largest difference of log10."""
+    import families
+    import measure
+    tris = [graphs.octahedral(k, l) for k, l in ((2, 2), (3, 0), (3, 1), (3, 2), (4, 0))]
+    tris += [graphs.tube(k, m) for k, m in ((2, 9), (3, 5), (4, 4), (5, 3), (8, 2))]
+    tris += [graphs.trap_chain(k)[0] for k in (3, 4, 5, 6)]
+    tris += [families.grow(steps, p, seed) for seed, (steps, p) in
+             enumerate(((30, 0.0), (36, 0.0), (20, 0.3), (24, 0.5), (34, 0.1), (28, 0.2)))]
+    count, worst = 0, 0.0
+    for F in tris:
+        n = len(F) // 2 - 1
+        assert 20 <= n <= 79, n
+        for t0 in range(0, len(F), 4):
+            M = fb.states_det(F, t0)
+            approx = measure.log10_states(F, t0)
+            if M == 0:
+                assert approx == float('-inf')
+                continue
+            count += 1
+            worst = max(worst, abs(approx - np.log10(float(M))))
+    return count, worst
+
+
+def integer_determinant(rows):
+    """Exact determinant of an integer matrix by fraction-free elimination."""
+    A = [list(map(int, r)) for r in rows]
+    n, prev, sign = len(A), 1, 1
+    for k in range(n - 1):
+        if A[k][k] == 0:
+            swap = next((i for i in range(k + 1, n) if A[i][k]), None)
+            if swap is None:
+                return 0
+            A[k], A[swap] = A[swap], A[k]
+            sign = -sign
+        for i in range(k + 1, n):
+            for j in range(k + 1, n):
+                A[i][j] = (A[i][j] * A[k][k] - A[i][k] * A[k][j]) // prev
+        prev = A[k][k]
+    return sign * A[-1][-1]
+
+
+def states_by_the_signless_laplacian(todo):
+    """For every triangulation of the list: the number of states is the same
+    for every face t0, and its square is the determinant of A + D/2 without
+    the rows and columns of two adjacent vertices (A the adjacency matrix of
+    T, D the diagonal matrix of the degrees).  Returns the number of
+    triangulations and the number of faces t0 compared."""
+    seen, graphs_done, faces_done = set(), 0, 0
+    for name, F, _, _ in todo:
+        if name in seen:
+            continue
+        seen.add(name)
+        F = np.asarray(F)
+        V = int(F.max()) + 1
+        if V > 45:
+            continue
+        Q = np.zeros((V, V), dtype=np.int64)
+        for x, y, z in F.tolist():
+            for p, q in ((x, y), (y, z), (z, x)):
+                Q[p, q] = Q[q, p] = 2
+                Q[p, p] += 1
+        keep = [v for v in range(V) if v not in (int(F[0][0]), int(F[0][1]))]
+        det = integer_determinant(Q[np.ix_(keep, keep)].tolist())
+        for t0 in range(len(F)):
+            assert det == 2 ** (V - 2) * fb.states_det(F, t0) ** 2, (name, t0)
+            faces_done += 1
+        graphs_done += 1
+    return graphs_done, faces_done
+
+
 def main():
     max_v = int(sys.argv[1]) if len(sys.argv) > 1 else 14
     todo = instances(max_v)
     start = time.time()
     fails, done = [], Counter()
-    with Pool(20) as pool:
+    stated, found, mirrored = trap_chains()
+    done['trap chains: moves stated in algorithm.md'] = 10
+    if found != stated or mirrored != [3] * 10:
+        fails.append(f'trap chains: {found} and {mirrored} in the mirror image, stated {stated}')
+    count, worst = log_determinants()
+    done['log-determinant by sparse LU against the exact determinant'] = count
+    if worst > 1e-9:
+        fails.append(f'log-determinant: difference {worst}')
+    ngraphs, nfaces = states_by_the_signless_laplacian(todo)
+    done['number of states against the minor of A + D/2, every face as t0'] = nfaces
+    with Pool(int(sys.argv[2]) if len(sys.argv) > 2 else 20) as pool:
         for f, d in pool.imap_unordered(check, todo, chunksize=8):
             fails += f
             done.update(d)
     result = {'max_vertices_exhaustive': max_v, 'instances': len(todo),
               'checks': dict(sorted(done.items())), 'total_checks': sum(done.values()),
+              'largest_difference_of_log10_states': worst,
               'failures': fails, 'seconds': round(time.time() - start, 1)}
     (ROOT / 'data').mkdir(exist_ok=True)
     (ROOT / 'data' / 'crosscheck.json').write_text(json.dumps(result, indent=1) + '\n')

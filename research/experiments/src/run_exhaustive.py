@@ -7,7 +7,8 @@ generates all Eulerian triangulations up to isomorphism, mirror images
 identified, in several parts; each part is measured by one process and stored
 as raw/exh/V<V>_<res>_<mod>.npz.  Parts that are already there are skipped, so
 an interrupted run resumes.  Every face of T is taken as t0, one per orbit of
-the automorphism group.
+the automorphism group.  For V = 23 the search is run in the stored order
+only and the walk in the stored orientation only.
 """
 import subprocess
 import sys
@@ -27,7 +28,8 @@ PARTS = {18: 4, 19: 16, 20: 64, 21: 256, 22: 1024, 23: 4096, 24: 8192}
 
 
 def config(v):
-    return measure.Config(hc_max_faces=44 if v <= 22 else 0)
+    # With 23 vertices only the stored order and the stored orientation are run.
+    return measure.Config(hc_max_faces=44 if v <= 23 else 0, orders=v <= 22, mirror=v <= 22)
 
 
 def part(task):

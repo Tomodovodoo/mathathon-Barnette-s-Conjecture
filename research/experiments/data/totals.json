@@ -1,0 +1,116 @@
+{
+ "exhaustive": {
+  "graphs": 826150,
+  "instances": 33585490,
+  "cycles_verified": 313170864,
+  "cycles_failed": 0,
+  "errors": 0,
+  "dart_orbits": 100697694,
+  "censored": 0
+ },
+ "other": {
+  "graphs": 10072,
+  "instances": 42044,
+  "cycles_verified": 668709,
+  "cycles_failed": 0,
+  "errors": 0,
+  "by_source": {
+   "barycentric": {
+    "graphs": 769,
+    "instances": 4468,
+    "N_min": 24,
+    "N_max": 640
+   },
+   "gc-small": {
+    "graphs": 315,
+    "instances": 1794,
+    "N_min": 36,
+    "N_max": 672
+   },
+   "grow-mixed": {
+    "graphs": 120,
+    "instances": 594,
+    "N_min": 36,
+    "N_max": 2568
+   },
+   "grow-split": {
+    "graphs": 120,
+    "instances": 612,
+    "N_min": 32,
+    "N_max": 2008
+   },
+   "nanotube": {
+    "graphs": 24,
+    "instances": 124,
+    "N_min": 8,
+    "N_max": 962
+   },
+   "octahedral": {
+    "graphs": 90,
+    "instances": 332,
+    "N_min": 8,
+    "N_max": 2048
+   },
+   "omnitruncated": {
+    "graphs": 3,
+    "instances": 3,
+    "N_min": 24,
+    "N_max": 120
+   },
+   "omnitruncated-gc": {
+    "graphs": 21,
+    "instances": 95,
+    "N_min": 72,
+    "N_max": 1920
+   },
+   "prism": {
+    "graphs": 30,
+    "instances": 38,
+    "N_min": 8,
+    "N_max": 4000
+   },
+   "random3": {
+    "graphs": 4196,
+    "instances": 16588,
+    "N_min": 36,
+    "N_max": 2000
+   },
+   "random4": {
+    "graphs": 4196,
+    "instances": 16588,
+    "N_min": 36,
+    "N_max": 2000
+   },
+   "split-bipyramid": {
+    "graphs": 17,
+    "instances": 87,
+    "N_min": 28,
+    "N_max": 1532
+   },
+   "stacked-all": {
+    "graphs": 3,
+    "instances": 12,
+    "N_min": 56,
+    "N_max": 2744
+   },
+   "stacked-chain": {
+    "graphs": 22,
+    "instances": 114,
+    "N_min": 14,
+    "N_max": 1928
+   },
+   "trap-chain": {
+    "graphs": 10,
+    "instances": 10,
+    "N_min": 28,
+    "N_max": 262
+   },
+   "tube": {
+    "graphs": 136,
+    "instances": 585,
+    "N_min": 16,
+    "N_max": 2000
+   }
+  }
+ }
+}

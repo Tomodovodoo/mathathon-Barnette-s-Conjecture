@@ -36,13 +36,15 @@ RAW = ROOT / 'raw' / 'large'
 SIZES = {20: (300, 12), 22: (300, 12), 26: (300, 12), 30: (300, 12), 34: (300, 12), 40: (300, 12),
          46: (300, 12), 52: (300, 12), 60: (300, 12), 70: (200, 10), 82: (200, 10), 102: (200, 10),
          127: (200, 10), 152: (200, 10), 202: (100, 10), 252: (100, 10), 302: (100, 10),
-         402: (50, 10), 502: (50, 10), 752: (24, 8), 1002: (24, 8)}
+         402: (50, 10), 502: (50, 10), 627: (24, 8), 752: (24, 8), 877: (24, 8), 1002: (24, 8)}
 RANDOM_T0 = 4
 
 
 def config(nfaces, source):
+    n = nfaces // 2 - 1
     cfg = measure.Config(
-        good_budget=3 * 10**7, search_budget=5 * 10**6, move_budget=10**7,
+        good_budget=3 * 10**7, search_budget=5 * 10**6,
+        move_budget=10**7 if n < 100 else 10**9 // n,       # a move takes time proportional to n
         large_n=81, good_budget_large=10**6, search_budget_large=2 * 10**6,
         max_instances=RANDOM_T0 if source.startswith('random') else 6,
         uniform=1000, sis_max_n=200)
