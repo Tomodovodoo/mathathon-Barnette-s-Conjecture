@@ -41,7 +41,7 @@ We studied the assumptions so that others could reuse and generalise the lemmas.
 Our main contributions are the interactive website, the shorter cycle construction, and the implementation. The website lets readers explore the cycle on a polytope. The proof walkthrough shows how the construction works. The code turns the proof into a procedure that finds a cycle and lets us test alternative choices. We developed these together during the event. The exposition records the supporting arguments and connections to earlier work. Our exposition has not undergone journal peer review.
 
 \newpage
-\section{The cycle construction: six steps to four}
+\section{What we simplified and clarified}
 We shortened the route from a good state to a Hamiltonian cycle from six steps to four. This count refers to the cycle-recovery construction. The existence argument supplies its starting state, and the reduction along separating triangles handles the remaining cases.
 
 The earlier six-step presentation built a tree of faces before selecting edges. It then used the disk identity to prove that the selection had no cycle, recovered the Hamiltonian cycle, and deduced the two induced trees. We replace the intermediate tree of faces with a colouring and use an innermost-cycle argument to prove acyclicity. This removes both that intermediate construction and the disk identity from recovery. We connect the result to Li's directed-trace argument and Stein's induced-tree characterisation~\cite{Li,Stein}.
@@ -67,7 +67,7 @@ We tried to replace the signed count with tree and matching theorems. Tutte-stat
 We used counterexamples to find where the shortcuts fail. An $8$-vertex dual example shows that an acyclic opposite-edge graph can put two roots in one component and none in another. A $16$-vertex example has a $2$-factor whose two orientations both fail the tree condition. Other examples defeat strict descent and unconditional lifting after contraction. These tests left sharper questions about moves that preserve the cycle count and contractions that preserve enough structure. We identified the missing steps, but did not complete a new proof without signs.
 
 \newpage
-\section{Interactive tools and implementation}
+\section{What we built and tested}
 We built an interactive website to make the cycle a visible object that readers can explore. In \emph{Every Vertex Once}, a runner traces a Hamiltonian cycle on a rotating polytope. This gives a direct view of the original problem. The separate proof walkthrough follows the mathematical construction and the objects it introduces. Together, the two tools connect the cycle we want with the steps that produce it.
 
 We built and revised the visual explanations alongside the mathematics. The cube follows the construction from start to finish. A shared example shows the two cycle systems, while a crossing diagram explains the weight change. The route map distinguishes successful, failed and open approaches. We revised layouts, labels and scales as the explanation changed. Scripts check that the states and cycles in the drawings match the mathematics.
