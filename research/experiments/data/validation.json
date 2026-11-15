@@ -1,0 +1,351 @@
+{
+ "plantri_counts": [
+  {
+   "vertices": 6,
+   "plantri": 1,
+   "distinct_codes": 1,
+   "classes_without_mirror_identification": 1,
+   "without_separating_triangle": 1,
+   "published": [
+    1,
+    1,
+    1
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 7,
+   "plantri": 0,
+   "distinct_codes": 0,
+   "classes_without_mirror_identification": 0,
+   "without_separating_triangle": 0,
+   "published": [
+    0,
+    0,
+    0
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 8,
+   "plantri": 1,
+   "distinct_codes": 1,
+   "classes_without_mirror_identification": 1,
+   "without_separating_triangle": 1,
+   "published": [
+    1,
+    1,
+    1
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 9,
+   "plantri": 1,
+   "distinct_codes": 1,
+   "classes_without_mirror_identification": 1,
+   "without_separating_triangle": 0,
+   "published": [
+    1,
+    1,
+    0
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 10,
+   "plantri": 2,
+   "distinct_codes": 2,
+   "classes_without_mirror_identification": 2,
+   "without_separating_triangle": 2,
+   "published": [
+    2,
+    2,
+    2
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 11,
+   "plantri": 2,
+   "distinct_codes": 2,
+   "classes_without_mirror_identification": 2,
+   "without_separating_triangle": 1,
+   "published": [
+    2,
+    2,
+    1
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 12,
+   "plantri": 8,
+   "distinct_codes": 8,
+   "classes_without_mirror_identification": 9,
+   "without_separating_triangle": 5,
+   "published": [
+    8,
+    9,
+    5
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 13,
+   "plantri": 8,
+   "distinct_codes": 8,
+   "classes_without_mirror_identification": 11,
+   "without_separating_triangle": 3,
+   "published": [
+    8,
+    11,
+    3
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 14,
+   "plantri": 32,
+   "distinct_codes": 32,
+   "classes_without_mirror_identification": 41,
+   "without_separating_triangle": 18,
+   "published": [
+    32,
+    41,
+    18
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 15,
+   "plantri": 57,
+   "distinct_codes": 57,
+   "classes_without_mirror_identification": 89,
+   "without_separating_triangle": 19,
+   "published": [
+    57,
+    89,
+    19
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 16,
+   "plantri": 185,
+   "distinct_codes": 185,
+   "classes_without_mirror_identification": 296,
+   "without_separating_triangle": 79,
+   "published": [
+    185,
+    296,
+    79
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 17,
+   "plantri": 466,
+   "distinct_codes": 466,
+   "classes_without_mirror_identification": 829,
+   "without_separating_triangle": 134,
+   "published": [
+    466,
+    829,
+    134
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 18,
+   "plantri": 1543,
+   "distinct_codes": 1543,
+   "classes_without_mirror_identification": 2772,
+   "without_separating_triangle": 501,
+   "published": [
+    1543,
+    2772,
+    501
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 19,
+   "plantri": 4583,
+   "distinct_codes": 4583,
+   "classes_without_mirror_identification": 8746,
+   "without_separating_triangle": 1147,
+   "published": [
+    4583,
+    8746,
+    1147
+   ],
+   "unknown_group_types": 0
+  },
+  {
+   "vertices": 20,
+   "plantri": 15374,
+   "distinct_codes": 15374,
+   "classes_without_mirror_identification": 29461,
+   "without_separating_triangle": 3976,
+   "published": [
+    15374,
+    29461,
+    3976
+   ],
+   "unknown_group_types": 0
+  }
+ ],
+ "own_generator": [
+  {
+   "vertices": 6,
+   "generated": 1,
+   "published": 1
+  },
+  {
+   "vertices": 7,
+   "generated": 0,
+   "published": 0
+  },
+  {
+   "vertices": 8,
+   "generated": 1,
+   "published": 1
+  },
+  {
+   "vertices": 9,
+   "generated": 1,
+   "published": 1
+  },
+  {
+   "vertices": 10,
+   "generated": 2,
+   "published": 2
+  },
+  {
+   "vertices": 11,
+   "generated": 2,
+   "published": 2
+  },
+  {
+   "vertices": 12,
+   "generated": 8,
+   "published": 8
+  },
+  {
+   "vertices": 13,
+   "generated": 8,
+   "published": 8
+  },
+  {
+   "vertices": 14,
+   "generated": 32,
+   "published": 32
+  },
+  {
+   "vertices": 15,
+   "generated": 57,
+   "published": 57
+  }
+ ],
+ "group_orders_checked_against_networkx": 23,
+ "known_groups": {
+  "octahedron": "Oh",
+  "bipyramid-3": "D6h",
+  "bipyramid-5": "D10h",
+  "truncated octahedron": "Oh",
+  "octahedral(2,1)": "O",
+  "great rhombicuboctahedron": "Oh",
+  "great rhombicosidodecahedron": "Ih",
+  "truncated octahedron as omnitruncated tetrahedron": "Oh"
+ },
+ "markov_chain": [
+  {
+   "kind": 0,
+   "vertices": 12,
+   "classes": 8,
+   "classes_seen": 8,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 5.18,
+   "degrees_of_freedom": 7,
+   "fraction_of_steps_at_target": 0.612
+  },
+  {
+   "kind": 0,
+   "vertices": 13,
+   "classes": 8,
+   "classes_seen": 8,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 8.96,
+   "degrees_of_freedom": 7,
+   "fraction_of_steps_at_target": 0.651
+  },
+  {
+   "kind": 0,
+   "vertices": 14,
+   "classes": 32,
+   "classes_seen": 32,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 38.29,
+   "degrees_of_freedom": 31,
+   "fraction_of_steps_at_target": 0.667
+  },
+  {
+   "kind": 0,
+   "vertices": 15,
+   "classes": 57,
+   "classes_seen": 57,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 61.73,
+   "degrees_of_freedom": 56,
+   "fraction_of_steps_at_target": 0.666
+  },
+  {
+   "kind": 1,
+   "vertices": 12,
+   "classes": 5,
+   "classes_seen": 5,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 3.08,
+   "degrees_of_freedom": 4,
+   "fraction_of_steps_at_target": 0.789
+  },
+  {
+   "kind": 1,
+   "vertices": 14,
+   "classes": 18,
+   "classes_seen": 17,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 2405.32,
+   "degrees_of_freedom": 17,
+   "fraction_of_steps_at_target": 0.835
+  },
+  {
+   "kind": 1,
+   "vertices": 16,
+   "classes": 79,
+   "classes_seen": 77,
+   "samples": 200000,
+   "thin": 200,
+   "chi_square": 3180.89,
+   "degrees_of_freedom": 78,
+   "fraction_of_steps_at_target": 0.864
+  }
+ ],
+ "state_sampling": {
+  "instances": 28,
+  "max_log_states_error": 8.881784197001252e-16,
+  "z_uniform_mean": 0.0735110792545861,
+  "z_uniform_rms": 0.8866398711972276,
+  "z_importance_mean": 0.4808712156312824,
+  "z_importance_rms": 1.0191470350394596,
+  "max_abs_z": 2.448377796050323,
+  "median_ratio_of_standard_errors_uniform_to_importance": 1.1344805441919126
+ }
+}
