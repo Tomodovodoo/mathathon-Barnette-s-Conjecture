@@ -16,9 +16,9 @@
   --face: #cbd5e1;
   --tedge: #7a8898;
   --pair: #1c6fd1;
-  --q: #d2530a;
+  --q: #ff6a00;
   --wtree: #7b4bc4;
-  --clsa: #34d058;
+  --clsa: #34d058; --clsm: #219647;
   --clsb: #0d5c36;
   --hl: rgba(250, 190, 20, 0.38);
   --focus: #1c6fd1;
@@ -30,15 +30,15 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
-    --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff9550; --wtree: #b99aff;
-    --clsa: #7af28a; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+    --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff8a2b; --wtree: #b99aff;
+    --clsa: #7af28a; --clsm: #4dc170; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #11151b; --panel: #19202a; --ink: #e7ecf2; --muted: #9ba8b7; --line: #2d3744;
-  --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff9550; --wtree: #b99aff;
-  --clsa: #7af28a; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
+  --face: #323f50; --tedge: #7d8b9c; --pair: #62adff; --q: #ff8a2b; --wtree: #b99aff;
+  --clsa: #7af28a; --clsm: #4dc170; --clsb: #1f8f55; --hl: rgba(255, 212, 70, 0.24); --focus: #62adff;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -89,7 +89,7 @@ nav.steps button[aria-current="step"] .n { color: var(--bg); opacity: .7; }
 main { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .figcol { position: sticky; top: 12px; display: flex; flex-direction: column; gap: 8px; }
 .figbox { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px; }
-svg#fig { display: block; width: 100%; height: auto; max-height: 82vh; }
+svg.figsvg { display: block; width: 100%; height: auto; max-height: 82vh; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 12.5px; color: var(--muted); padding: 0 4px; min-height: 20px; }
 .legend > span { display: inline-flex; align-items: center; gap: 6px; }
 .legend svg { flex: none; }
@@ -113,6 +113,12 @@ svg#fig { display: block; width: 100%; height: auto; max-height: 82vh; }
 .prose .bgbox { display: none; }
 .prose .bgbox p { padding: 2px 0 10px; }
 .prose .bgbtn { border: 0; background: none; padding: 7px 0; margin: 0; width: 100%; text-align: left; cursor: pointer; font-family: var(--ui); font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.merge .qed { display: inline-block; width: 13px; height: 13px; border: 1.6px solid var(--ink); }
+.prose .tag { font-family: var(--ui); font-size: 11.5px; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; margin-left: 4px; white-space: nowrap; }
+.prose .fact { margin: 10px 0; }
+.prose .fact.go { cursor: pointer; border-radius: 6px; margin-left: -6px; margin-right: -6px; padding: 4px 6px; transition: background .15s; }
+.prose .fact.go:hover, .prose .fact.go:focus-visible { background: color-mix(in srgb, var(--wtree) 10%, transparent); outline: none; }
+.prose .fact.go[data-hov="f1"]:hover, .prose .fact.go[data-hov="f1"]:focus-visible { background: color-mix(in srgb, var(--q) 20%, transparent); }
 .prose .claim { border-left: 3px solid var(--ink); padding: 2px 0 2px 12px; }
 .prose .claim b { font-family: var(--ui); font-size: 13px; letter-spacing: .02em; }
 .prose ul.tight { margin: 4px 0 0; padding-left: 20px; }
@@ -128,7 +134,20 @@ svg#fig { display: block; width: 100%; height: auto; max-height: 82vh; }
 
 .ctl { display: flex; flex-direction: column; gap: 8px; }
 .figbox { position: relative; }
+.figbox .figtog { position: absolute; bottom: 10px; right: 10px; font-family: var(--ui); font-size: 12.5px; line-height: 1; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.figbox .figtog[aria-pressed="true"] { border-color: var(--q); color: var(--q); }
+.figbox .figtog sub { font-size: .75em; }
 .figbox .replay { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 17px; line-height: 1; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.figbox .figslide { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); width: min(62%, 340px); height: 26px; }
+.figbox .figslide .ticks { position: absolute; left: 9px; right: 9px; top: 50%; height: 2px; margin-top: -1px; background: var(--line); display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
+.figbox .figslide .ticks span { width: 8px; height: 8px; margin: 0 -4px; border-radius: 50%; background: var(--panel); border: 1.5px solid var(--tedge); box-sizing: border-box; }
+.figbox .figslide .ticks span.on { background: var(--ink); border-color: var(--ink); }
+.figbox .figslider { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
+.figbox .figslider::-webkit-slider-runnable-track { background: transparent; height: 26px; }
+.figbox .figslider::-moz-range-track { background: transparent; height: 26px; }
+.figbox .figslider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%; background: var(--ink); border: 3px solid var(--panel); box-shadow: 0 0 0 1px var(--ink); }
+.figbox .figslider::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--ink); border: 3px solid var(--panel); box-shadow: 0 0 0 1px var(--ink); }
+.figbox .figslider:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 13px; }
 .figbox .fignav { position: absolute; left: 6px; right: 6px; bottom: 6px; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
 .figbox .fignav > * { pointer-events: auto; }
 .figbox .fnb { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font-size: 13px; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -185,91 +204,140 @@ footer.about p { margin: 0; }
 .refs li.flash { background: var(--hl); }
 
 /* figure */
-#fig .band { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); opacity: .55; }
-#fig .bf { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); }
-#fig .te { stroke: var(--tedge); stroke-width: 1.4; fill: none; stroke-linecap: round; }
-#fig .te.dim { opacity: .35; }
-#fig .te.soft { stroke-width: 1.1; }
-#fig .tv { fill: var(--ink); stroke: var(--panel); stroke-width: 1.5; }
-#fig .tv.soft { fill: var(--tedge); }
-#fig .hlf { fill: var(--hl); }
-#fig .hit { stroke: transparent; stroke-width: 20; fill: none; cursor: pointer; }
-#fig .e0 { stroke: color-mix(in srgb, var(--ink) 60%, var(--tedge)); stroke-width: 4.5; fill: none; stroke-linecap: round; }
-#fig .e0.soft { stroke-width: 5; }
-#fig .e0.wide { stroke-width: 11; }
+.figsvg .band { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); opacity: .55; }
+.figsvg .bf { fill: color-mix(in srgb, var(--ink) 22%, var(--panel)); }
+.figsvg .te { stroke: var(--tedge); stroke-width: 1.4; fill: none; stroke-linecap: round; }
+.figsvg .te.dim { opacity: .35; }
+.figsvg .te.soft { stroke-width: 1.1; }
+.figsvg .tv { fill: var(--ink); stroke: var(--panel); stroke-width: 1.5; }
+.figsvg .tv.soft { fill: var(--tedge); }
+.figsvg .hlf { fill: var(--hl); }
+.figsvg .hit { stroke: transparent; stroke-width: 20; fill: none; cursor: pointer; }
+.figsvg .e0 { stroke: color-mix(in srgb, var(--ink) 60%, var(--tedge)); stroke-width: 4.5; fill: none; stroke-linecap: round; }
+.figsvg .e0.soft { stroke-width: 5; }
+.figsvg .e0.wide { stroke-width: 11; }
 .hint { font-size: 12.5px; color: var(--muted); }
-#fig .lbl { font-family: var(--display); font-style: italic; font-size: 17px; fill: var(--ink); }
-#fig .rootv { transform-box: fill-box; transform-origin: center; }
-#fig.hot-roots .rootv { animation: rootbounce 1.5s ease-in-out infinite alternate; }
+.figsvg .lbl { font-family: var(--display); font-style: italic; font-size: 17px; fill: var(--ink); }
+.figsvg .rootv { transform-box: fill-box; transform-origin: center; }
+.figsvg.hot-roots .rootv { animation: rootbounce 1.5s ease-in-out infinite alternate; }
 @keyframes rootbounce { from { transform: translateY(0) scale(1.15); } to { transform: translateY(-9px) scale(1.45); } }
-@media (prefers-reduced-motion: reduce) { #fig.hot-roots .rootv { animation: none; transform: scale(1.45); } }
-.prose .hov { cursor: default; border-bottom: 2px solid var(--hc, var(--ink)); }
+@media (prefers-reduced-motion: reduce) { .figsvg.hot-roots .rootv { animation: none; transform: scale(1.45); } }
+.prose .hov { cursor: default; border-bottom: 2px dotted var(--hc, var(--ink)); }
 .prose .hov[data-hov="roots"], .prose .hov[data-hov="X"] { --hc: var(--ink); }
 .prose .hov[data-hov="A"] { --hc: color-mix(in srgb, var(--ink) 40%, var(--panel)); }
 .prose .hov[data-hov="state"] { --hc: var(--pair); }
 .prose .hov[data-hov="Qs"] { --hc: var(--q); }
-#fig .xv, #fig .ms, #fig .mr { transform-box: fill-box; transform-origin: center; }
-#fig.hot-X .xv, #fig.hot-X .ms, #fig.hot-X .mr { animation: rootbounce 1.5s ease-in-out infinite alternate; }
-#fig.hot-A .bf { animation: facepulse 1.5s ease-in-out infinite alternate; }
-#fig.hot-state .ms, #fig.hot-state .mr { animation: rootbounce 1.5s ease-in-out infinite alternate; }
-#fig.hot-state .mcs, #fig.hot-state .mcr { animation: facepulse 1.5s ease-in-out infinite alternate; }
-#fig .qhid { display: none; }
-#fig.hot-Qs .qhid { display: inline; }
-#fig.hot-Qs .q.hi { animation: qpulse 1.5s ease-in-out infinite alternate; }
+.figsvg .xv, .figsvg .ms, .figsvg .mr { transform-box: fill-box; transform-origin: center; }
+.figsvg.hot-X .xv, .figsvg.hot-X .ms, .figsvg.hot-X .mr { animation: rootbounce 1.5s ease-in-out infinite alternate; }
+.figsvg.hot-A .bf { animation: facepulse 1.5s ease-in-out infinite alternate; }
+.figsvg.hot-state .ms, .figsvg.hot-state .mr { animation: rootbounce 1.5s ease-in-out infinite alternate; }
+.figsvg.hot-state .mcs, .figsvg.hot-state .mcr { animation: facepulse 1.5s ease-in-out infinite alternate; }
+.figsvg .qhid { display: none; }
+.figsvg.hot-Qs .qhid { display: inline; }
+.figsvg.hot-Qs .q.hi { animation: qpulse 1.5s ease-in-out infinite alternate; }
 @keyframes qpulse { from { opacity: .35; } to { opacity: .95; } }
-@media (prefers-reduced-motion: reduce) { #fig.hot-Qs .q.hi { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .figsvg.hot-Qs .q.hi { animation: none; } }
 @keyframes facepulse { from { fill-opacity: .45; } to { fill-opacity: .95; } }
-@media (prefers-reduced-motion: reduce) { #fig.hot-X .xv, #fig.hot-X .ms, #fig.hot-X .mr, #fig.hot-A .bf { animation: none; } }
-#fig .fadein { animation: figfade 1s ease-out 1.9s both; }
-#fig .fadein.late { animation-delay: 2.8s; }
-#fig .tofaint, #fig.mfainta .ms, #fig.mfainta .mcs { animation: tofaint 1.8s ease-in 1.7s both; }
-#fig .fromfaint, #fig.mgonea .ms, #fig.mgonea .mcs { animation: fromfaint 1.8s ease-in .1s both; }
-#fig.mfaint .ms, #fig.mfaint .mcs { opacity: .2; }
-#fig.mgone .ms, #fig.mgone .mcs { display: none; }
-@keyframes tofaint { from { opacity: 1; } to { opacity: .2; } }
+@media (prefers-reduced-motion: reduce) { .figsvg.hot-X .xv, .figsvg.hot-X .ms, .figsvg.hot-X .mr, .figsvg.hot-A .bf { animation: none; } }
+.figsvg .fadein { animation: figfade 1s ease-out 1.9s both; }
+.figsvg .fadein.late { animation-delay: 2.8s; }
+.figsvg .tofaint, .figsvg.mfainta .ms, .figsvg.mfainta .mcs { animation: tofaint 1.8s ease-in 1.7s both; }
+.figsvg .fromfaint, .figsvg.mgonea .ms, .figsvg.mgonea .mcs { animation: fromfaint 1.8s ease-in .1s both; }
+.figsvg.mfaint .ms, .figsvg.mfaint .mcs { opacity: .45; }
+.figsvg.mgone .ms, .figsvg.mgone .mcs { display: none; }
+.figsvg .f1h { display: none; }
+.figsvg.showF1 .f1h { display: inline; }
+.figsvg.showSp .f1h { display: inline; }
+.figsvg.spin .f1h { animation: figfade .9s ease both; }
+.figsvg.lift:not(.spin) .qgo, .figsvg.lift:not(.spin) .tv, .figsvg.lift:not(.spin) .ms { transform: translate(-5px, -11px); }
+.figsvg.lift:not(.spin) .qgo { filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); }
+.figsvg.lift:not(.spin) .tv, .figsvg.lift:not(.spin) .ms { filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); }
+.figsvg.lift:not(.spin) .band, .figsvg.lift:not(.spin) .bf, .figsvg.lift:not(.spin) .te, .figsvg.lift:not(.spin) .mcs { opacity: .3; }
+.figsvg.lift.spin .qgo { animation: liftq 1.3s ease .9s forwards; }
+.figsvg.lift.spin .tv, .figsvg.lift.spin .ms { animation: liftv 1.3s ease .9s forwards; }
+.figsvg.lift.spin .band, .figsvg.lift.spin .bf, .figsvg.lift.spin .te, .figsvg.lift.spin .mcs { animation: liftbg 1.3s ease .9s forwards; }
+@keyframes liftq { to { transform: translate(-5px, -11px); filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); } }
+@keyframes liftv { to { transform: translate(-5px, -11px); filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); } }
+@keyframes liftbg { to { opacity: .3; } }
+.figsvg.pre1 .tofaint, .figsvg.pre1.mfainta .ms, .figsvg.pre1.mfainta .mcs { animation-delay: .9s; animation-duration: 1.6s; }
+.figsvg.pre1 .fadein.now { animation-delay: .9s; }
+.figsvg.lift.spin.quick .f1h { animation: none; }
+.figsvg.lift.spin.quick .qgo, .figsvg.lift.spin.quick .tv, .figsvg.lift.spin.quick .ms, .figsvg.lift.spin.quick .band, .figsvg.lift.spin.quick .bf, .figsvg.lift.spin.quick .te, .figsvg.lift.spin.quick .mcs { animation-delay: .5s; }
+.figsvg.unl .qgo { animation: unlq .9s ease both; }
+.figsvg.unl .tv, .figsvg.unl .ms { animation: unlv .9s ease both; }
+.figsvg.unl .band, .figsvg.unl .bf, .figsvg.unl .te { animation: unlbg .9s ease both; }
+.figsvg.unl:not(.pre1) .f1h { display: inline; animation: figout .8s ease both; }
+.figsvg.unl.pre1 .qgo { animation: unlq .9s ease both, tofaint 1.6s ease-in .9s both; }
+.figsvg.unl.pre1.mfainta .ms { animation: unlv .9s ease both, tofaint 1.6s ease-in .9s both; }
+@keyframes unlq { from { transform: translate(-5px, -11px); filter: drop-shadow(8px 14px 5px rgba(0, 0, 0, .38)); } }
+@keyframes unlv { from { transform: translate(-5px, -11px); filter: drop-shadow(6px 11px 3px rgba(0, 0, 0, .3)); } }
+@keyframes unlbg { from { opacity: .3; } }
+@keyframes figout { from { opacity: 1; } to { opacity: 0; } }
+.figsvg.f1x0 .f1e0, .figsvg.f1x1 .f1e1, .figsvg.f1x2 .f1e2 { display: none; }
+.figsvg.showF1 .qgo path { animation: treepop .7s ease-in-out 3; }
+@keyframes treepop { 0%, 100% { stroke-width: 6.5px; } 50% { stroke-width: 10.5px; } }
+@media (prefers-reduced-motion: reduce) { .figsvg.showF1 .qgo path { animation: none; } }
+.figsvg.showF1 .qgo { opacity: 1 !important; animation: none !important; }
+.prose p[data-hov="f1"] { cursor: help; border-radius: 6px; margin-left: -6px; margin-right: -6px; padding: 4px 6px; transition: background .15s; }
+.prose p[data-hov="f1"]:hover, .prose p[data-hov="f1"]:focus { background: color-mix(in srgb, var(--q) 12%, transparent); outline: none; }
+.figsvg.msoft .mcs { fill-opacity: .28; }
+.figsvg.msoft0 .ms { opacity: .6; }
+.figsvg.mfainta .ms { --f0: .6; }
+@keyframes tofaint { from { opacity: var(--f0, 1); } to { opacity: .45; } }
 @keyframes fromfaint { from { opacity: .2; } to { opacity: 0; } }
-#fig .fadein.now { animation-delay: .1s; animation-duration: 1.6s; }
+.figsvg .fadein.now { animation-delay: .1s; animation-duration: 1.6s; }
+.figsvg .fadein.quick { animation-delay: 0s; animation-duration: .45s; }
 .stepper { align-items: center; }
 .stepper .phl { font-size: 13.5px; min-width: 15em; text-align: center; }
 @keyframes figfade { from { opacity: 0; } to { opacity: 1; } }
-#fig .lbl.qlab { fill: var(--q); font-size: 23px; }
-#fig .lbl.sm { font-family: var(--mono); font-style: normal; font-size: 12px; }
-#fig .lbl.halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
-#fig .ge { stroke: var(--ink); stroke-width: 2.3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
-#fig .ge.faint { stroke-width: 1.5; opacity: .28; stroke-dasharray: 3 4; }
-#fig .gvb { fill: var(--ink); stroke: var(--panel); stroke-width: 1.2; }
-#fig .gvw { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
-#fig .ring { stroke: var(--ink); stroke-width: 4; fill: none; }
-#fig .ring.thin { stroke-width: 1.5; opacity: .3; stroke-dasharray: 3 4; }
-#fig .ham { stroke: var(--ink); stroke-width: 5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
-#fig .d { stroke: var(--pair); stroke-width: 6.5; opacity: .6; fill: none; stroke-linecap: round; }
-#fig .dh { fill: color-mix(in srgb, var(--pair) 72%, var(--ink)); stroke: var(--panel); stroke-width: 1.2; stroke-linejoin: round; }
-#fig .d.sel { stroke-width: 8.5; }
-#fig .mr { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
-#fig .mcs { fill: var(--pair); fill-opacity: .5; }
-#fig .mcr { fill: var(--q); fill-opacity: .5; }
-#fig .ms { fill: var(--pair); stroke: var(--panel); stroke-width: 1; }
-#fig .ptr { stroke: var(--pair); stroke-width: 2.2; stroke-linecap: round; }
-#fig .q { stroke: var(--q); stroke-width: 7; opacity: .6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-#fig .q.hi { stroke-width: 11; opacity: .6; }
-#fig .qh { fill: color-mix(in srgb, var(--q) 72%, var(--ink)); stroke: var(--panel); stroke-width: 1.2; stroke-linejoin: round; }
-#fig .q.sel { stroke-width: 9.5; }
-#fig .q.gone { stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 3 5; opacity: 1; }
-#fig .qc { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
-#fig .wt { stroke: var(--wtree); stroke-width: 2.6; fill: none; stroke-linejoin: round; stroke-linecap: round; }
-#fig .wth { fill: var(--wtree); }
-#fig .wn { fill: var(--panel); stroke: var(--wtree); stroke-width: 2.2; }
-#fig .wn.root { fill: var(--wtree); }
-#fig .sp { stroke: var(--muted); stroke-width: 1.1; fill: none; }
-#fig .p { stroke: var(--ink); stroke-width: 8; opacity: .6; fill: none; stroke-linecap: round; }
-#fig .ca { stroke: var(--clsa); stroke-width: 8.5; opacity: .6; fill: none; stroke-linecap: round; }
-#fig .cb { stroke: var(--clsb); stroke-width: 8.5; opacity: .6; fill: none; stroke-linecap: round; }
-#fig .va { fill: var(--clsa); stroke: var(--panel); stroke-width: 1.5; }
-#fig .vb { fill: var(--clsb); stroke: var(--panel); stroke-width: 1.5; }
-#fig .vS { fill: none; stroke: var(--q); stroke-width: 3; }
-#fig .sep { stroke: var(--q); stroke-width: 7.5; opacity: .6; fill: none; stroke-linejoin: round; stroke-dasharray: 2 7; stroke-linecap: round; }
-#fig .click { cursor: pointer; }
-#fig .dimmed { opacity: .25; }
+.figsvg .lbl.qlab { fill: var(--q); font-size: 23px; }
+.figsvg .lbl.sm { font-family: var(--mono); font-style: normal; font-size: 12px; }
+.figsvg .lbl.halo { paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+.figsvg .ge { stroke: var(--ink); stroke-width: 2.3; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.figsvg .ge.faint { stroke-width: 1.5; opacity: .28; stroke-dasharray: 3 4; }
+.figsvg .gvb { fill: var(--ink); stroke: var(--panel); stroke-width: 1.2; }
+.figsvg .gvw { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
+.figsvg .ring { stroke: var(--ink); stroke-width: 4; fill: none; }
+.figsvg .ring.thin { stroke-width: 1.5; opacity: .3; stroke-dasharray: 3 4; }
+.figsvg .ham { stroke: var(--ink); stroke-width: 5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.figsvg .d { stroke: var(--pair); stroke-width: 6.5; opacity: .6; fill: none; stroke-linecap: round; }
+.figsvg .dh { fill: color-mix(in srgb, var(--pair) 72%, var(--ink)); stroke: var(--panel); stroke-width: 1.2; stroke-linejoin: round; }
+.figsvg .d.sel { stroke-width: 8.5; }
+.figsvg .mr { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
+.figsvg .mcs { fill: var(--pair); fill-opacity: .5; }
+.figsvg .mcr { fill: var(--q); fill-opacity: .5; }
+.figsvg .ms { fill: var(--pair); stroke: var(--panel); stroke-width: 1; }
+.figsvg .ptr { stroke: var(--pair); stroke-width: 2.2; stroke-linecap: round; }
+.figsvg .q { stroke: var(--q); stroke-width: 7; opacity: .6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.figsvg .q.hi { stroke-width: 6.5; opacity: 1; }
+.figsvg .qh { fill: color-mix(in srgb, var(--q) 72%, var(--ink)); stroke: var(--panel); stroke-width: 1.2; stroke-linejoin: round; }
+.figsvg .q.sel { stroke-width: 9.5; }
+.figsvg .q.gone { stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 3 5; opacity: 1; }
+.figsvg .qc { fill: var(--q); stroke: var(--panel); stroke-width: 1; }
+.figsvg .wt { stroke: var(--wtree); stroke-width: 3.6; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.figsvg .wth { fill: var(--wtree); }
+.figsvg .wn { fill: var(--panel); stroke: var(--wtree); stroke-width: 2.2; }
+.figsvg .wb { fill: var(--wtree); stroke: var(--panel); stroke-width: 1; }
+.figsvg .wn.root { fill: var(--wtree); }
+.figsvg .sp { stroke: var(--muted); stroke-width: 1.1; fill: none; }
+.figsvg .p { stroke: var(--ink); stroke-width: 8; opacity: .6; fill: none; stroke-linecap: round; }
+.figsvg .pstrong .ca, .figsvg .pstrong .cb { opacity: 1; stroke-width: 9.5; }
+.figsvg .pmid .ca, .figsvg .pmid .cb { stroke: var(--clsm); }
+.figsvg .psplit .ca, .figsvg .psplit .cb { animation: frommid 2s ease-in-out .2s both; }
+@keyframes frommid { from { stroke: var(--clsm); } }
+.figsvg .fadein.after { animation-delay: 1.9s; animation-duration: 2s; }
+.figsvg .qfade { animation: qfade 1.8s ease-in-out both; }
+@keyframes qfade { from { opacity: .45; } to { opacity: .25; } }
+.figsvg .wfade { animation: wfade 1.8s ease-in-out both; }
+@keyframes wfade { from { opacity: 1; } to { opacity: .4; } }
+.figsvg .ca { stroke: var(--clsa); stroke-width: 8.5; opacity: .6; fill: none; stroke-linecap: round; }
+.figsvg .cb { stroke: var(--clsb); stroke-width: 8.5; opacity: .6; fill: none; stroke-linecap: round; }
+.figsvg .va { fill: var(--clsa); stroke: var(--panel); stroke-width: 1.5; }
+.figsvg .vb { fill: var(--clsb); stroke: var(--panel); stroke-width: 1.5; }
+.figsvg .vS { fill: none; stroke: var(--q); stroke-width: 3; }
+.figsvg .sep { stroke: var(--q); stroke-width: 7.5; opacity: .6; fill: none; stroke-linejoin: round; stroke-dasharray: 2 7; stroke-linecap: round; }
+.figsvg .click { cursor: pointer; }
+.figsvg .dimmed { opacity: .25; }
 
 @media (max-width: 940px) {
   main { grid-template-columns: minmax(0, 1fr); }
@@ -288,6 +356,12 @@ footer.about p { margin: 0; }
   .seg button, .btn, .chip, nav.steps button { transition: background-color .12s, border-color .12s; }
 }
 
+
+.figbox .figghost { position: absolute; pointer-events: none; opacity: 1; transition: opacity 1s ease .45s; }
+.figbox .figghost.out { opacity: 0; }
+.figsvg.frozen, .figsvg.frozen * { animation: none !important; }
+.figsvg.xin { animation: figfade .5s ease both; }
+@media (prefers-reduced-motion: reduce) { .figbox .figghost { display: none; } .figsvg.xin { animation: none; } }
 </style>
 </head>
 <body>
@@ -301,7 +375,7 @@ footer.about p { margin: 0; }
   <nav class="steps" id="steps" aria-label="Steps of the proof"></nav>
   <main>
     <div class="figcol">
-      <div class="figbox"><svg id="fig" viewBox="0 0 680 680" role="img" aria-label="The dual triangulation T of the chosen graph, with the objects of the current proof step drawn on it"></svg></div>
+      <div class="figbox"><svg id="fig" class="figsvg" viewBox="0 0 680 680" role="img" aria-label="The dual triangulation T of the chosen graph, with the objects of the current proof step drawn on it"></svg></div>
       <div class="figctl" id="figctl"></div>
       <div class="figcap" id="figcap"></div>
       <div class="legend" id="legend"></div>
@@ -1040,7 +1114,7 @@ const EXAMPLES = (() => {
     M.A.forEach((t, i) => {
       const [x, y] = M.faces[t].filter(v => v !== s[i]);
       if (r) { const tail = r[i], head = M.third(t, r[i], s[i]); const sel = o.selTris && o.selTris.has(i); const extra = sel && o.click ? { 'data-act': 'flip', style: 'cursor:pointer' } : {}; arrowEdge(g, tail, head, 'q' + (sel ? ' sel' : ''), 'qh', extra, 0.56, sel ? 14 : 12); if (sel && o.click) mk('path', Object.assign({ d: edgeD(tail, head), class: 'hit' }, extra), g); }
-      else mk('path', { d: edgeD(x, y, 6), class: 'q hi' }, g);
+      else mk('path', { d: edgeD(x, y), class: 'q hi' }, g);
     });
   }
   function drawClasses(g, cls, o = {}) {
@@ -1049,7 +1123,7 @@ const EXAMPLES = (() => {
 
   // ---------- the figure for each step ----------
   function renderFigure() {
-    const svg = document.getElementById('fig'); svg.textContent = ''; svg.classList.remove('mfaint', 'mfainta', 'mgone', 'mgonea');
+    const svg = document.getElementById('fig'); svg.textContent = ''; svg.classList.remove('mfaint', 'mfainta', 'mgone', 'mgonea', 'msoft', 'msoft0', 'pre1', 'showSp', 'spin', 'lift', 'quick', 'unl');
     const g = mk('g', {}, svg); const M = D.M; const p = curPair(); const id = STEPS[S.step].id;
     const noPairs = !D.pairs.length; D.dots = [];
     if (id === 'dual' || id === 'thm') {
@@ -1100,56 +1174,45 @@ const EXAMPLES = (() => {
       drawD(g, p); drawVerts(g);
     } else if (id === 'trees' || id === 'glue') {
       if (id === 'glue' && D.sol.pieces) return renderGlue(g);
-      const res = construction(); const sub = id === 'glue' ? 3 : S.sub7;
+      const res = construction(); const sub = id === 'glue' ? 3 : sub5(); const an5 = sub >= 2 && id !== 'glue' && !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); if (sub >= 2 && id !== 'glue') S.anim7 = false;
       if (!res) { drawBase(g); drawE0(g); drawVerts(g); }
       else if (sub === 0) { drawBase(g); drawE0(g); drawQ(g, p.s, null); drawMarkers(g, p, 's'); drawVerts(g); }
       else if (sub === 1 || sub === 2) {
         drawBase(g, { dim: sub === 1 }); if (sub !== 1) drawE0(g);
         if (sub === 1) {
-          const ph = S.ph5 | 0, an = !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); S.anim7 = false;
-          const fa = st => (an && ph === st ? { class: 'fadein' + (st > 1 ? ' now' : '') } : {}); const anims = [];
-          const go = mk('g', ph === 3 ? (an ? { class: 'tofaint' } : { opacity: 0.2 }) : ph >= 4 ? (an && ph === 4 ? { class: 'fromfaint' } : { style: 'display:none' }) : {}, g);
-          const fig = document.getElementById('fig'); if (ph === 3) fig.classList.add(an ? 'mfainta' : 'mfaint'); else if (ph >= 4) fig.classList.add(an && ph === 4 ? 'mgonea' : 'mgone');
-          if (ph >= 2) {
-            const gr = mk('g', fa(2), go);
-            mk('circle', { cx: CX, cy: CY, r: RG, class: 'q', style: 'stroke-width:3' }, gr);
-            M.roots.forEach(v => { mk('path', { d: `M${pt(D.pos[v])} L${pt(arcPt(D.rootAng[v], RG))}`, class: 'q', style: 'stroke-width:3' }, gr); });
-          }
-          M.A.forEach((t, i) => {
-            const c = centroid(t), r = p.r[i], u = M.third(t, p.r[i], p.s[i]);
-            const bent = `M${pt(D.pos[r])} L${pt(c)} L${pt(D.pos[u])}`, straight = `M${pt(D.pos[r])} L${pt(lerp(D.pos[r], D.pos[u], 0.5))} L${pt(D.pos[u])}`;
-            const el = mk('path', { d: ph >= 1 ? bent : straight, class: 'q', style: 'stroke-width:3' }, go);
-            if (an && ph === 1) {
-              anims.push(mk('animate', { attributeName: 'd', from: straight, to: bent, values: `${straight};${straight};${bent}`, keyTimes: '0;0.2;1', dur: '3s', begin: 'indefinite', fill: 'freeze' }, el));
-              el.setAttribute('d', straight);
-            }
-          });
-          if (ph >= 1) { const gc = mk('g', fa(1), go); M.A.forEach((t) => { const c = centroid(t); mk('circle', { cx: f1(c[0]), cy: f1(c[1]), r: 3.4, class: 'qc' }, gc); }); }
-          anims.forEach(a => { try { a.beginElement(); } catch (e) { a.parentNode.setAttribute('d', a.getAttribute('to')); } });
+          const ph = o5(), an = !w5() && !!S.anim7 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); S.anim7 = false;
+          const go = mk('g', Object.assign({ class: 'qgo' }, ph === 1 ? (an ? { class: 'tofaint' } : { opacity: 0.45 }) : ph >= 2 ? (an && ph === 2 ? { class: 'fromfaint' } : { style: 'display:none' }) : {}), g);
+          go.classList.add('qgo'); { const R3 = M.roots, f1 = mk('g', { class: 'f1h' }, go); [[0, 1], [1, 2], [0, 2]].forEach(([a, b], k) => { mk('path', { d: edgeD(R3[a], R3[b]), class: 'q f1e' + k, style: 'stroke-width:6.5;opacity:1' }, f1); }); }
+          const fig = document.getElementById('fig'); fig.classList.add('msoft'); if (ph === 0) fig.classList.add('msoft0'); if (!/f1x\d/.test(fig.className.baseVal)) fig.classList.add('f1x2'); if (sp5() || (ph === 1 && !w5())) fig.classList.add('showSp'); const tr = S.tr; S.tr = null; if (sp5()) fig.classList.add('lift'); if (sp5() && an) fig.classList.add('spin'); if (sp5() && tr && tr.pv === 2) fig.classList.add('spin', 'quick'); if (tr && tr.pv === 1 && (S.ph5 | 0) !== 1 && Math.abs(tr.nx - 1) === 1 && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) fig.classList.add('unl'); if (an && ph === 1) fig.classList.add('pre1'); if (ph === 1) fig.classList.add(an ? 'mfainta' : 'mfaint'); else if (ph >= 2) fig.classList.add(an && ph === 2 ? 'mgonea' : 'mgone');
+          M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:6.5;opacity:1' }, go); });
           drawMarkers(g, p, 's');
-          S.fade7 = an && ph === 3;
+          S.fade7 = an && ph === 1;
         }
-        const wg = mk('g', sub === 2 ? { opacity: 0.55 } : (sub === 1 && (S.ph5 | 0) < 3 ? { style: 'display:none' } : (sub === 1 && S.fade7 ? { class: 'fadein now' } : {})), g); S.fade7 = false;
+        if (sub === 2) { const qg = mk('g', an5 && or5() ? { class: 'qfade' } : { opacity: 0.25 }, g); M.A.forEach((t, i) => { const [x, y] = M.faces[t].filter(v => v !== p.s[i]); mk('path', { d: edgeD(x, y), class: 'q', style: 'stroke-width:5.5' }, qg); }); }
+        if ((sub === 1 && o5() >= 1) || sub === 2) gFaint(mk('g', S.fade7 ? { class: 'fadein now' } : {}, g));
+        const wg = mk('g', sub === 2 ? (or5() ? {} : an5 ? { class: 'wfade' } : { opacity: 0.4 }) : (sub === 1 && o5() < 1 ? { style: 'display:none' } : (sub === 1 && S.fade7 ? { class: 'fadein now' } : {})), g); S.fade7 = false;
         for (const we of res.wEdges) {
           const t = we.t, i = we.i; const sm = lerp(centroid(t), D.pos[p.s[i]], 0.5);
           const ma = edgePt(...eUV(we.ea), 0.5), mb = edgePt(...eUV(we.eb), 0.5);
-          mk('path', { d: `M${pt(D.fc[we.fa])} L${pt(ma)} L${pt(sm)} L${pt(mb)} L${pt(D.fc[we.fb])}`, class: 'wt' }, wg);
+          mk('path', { d: gEdgeD(we.ea), class: 'wt' }, wg); mk('path', { d: gEdgeD(we.eb), class: 'wt' }, wg);
+          if (sub === 1 && !w5()) mk('circle', { cx: f1(D.fc[t][0]), cy: f1(D.fc[t][1]), r: 4.6, class: 'wb' }, wg);
           if (sub === 2) {
             const childIsA = res.parent.get(we.fa) && res.parent.get(we.fa).i === i; const from = childIsA ? ma : mb, to = D.fc[childIsA ? we.fa : we.fb];
-            arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 7, 'wth');
+            arrowHead(wg, lerp(from, to, 0.55), Math.atan2(to[1] - from[1], to[0] - from[0]) * 180 / Math.PI, 7, 'wth' + (an5 && or5() ? ' fadein now' : ''));
           }
         }
-        M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: f === res.y0 && sub !== 1 ? 6.5 : 4.4, class: 'wn' + (f === res.y0 && sub !== 1 ? ' root' : '') }, wg); });
-        if (sub === 2) { for (const eidx of res.P0) mk('path', { d: edgeD(...eUV(eidx)), class: 'p' }, g); mk('path', { d: edgeD(...e0()), class: 'p' }, g); drawMarkers(g, p, 's'); }
+        M.faces.forEach((F, f) => { if (M.col[f] === 1) mk('circle', { cx: f1(D.fc[f][0]), cy: f1(D.fc[f][1]), r: 6.5, style: 'stroke-width:2.8', class: 'wn' + (f === res.y0 && sub !== 1 ? ' root' : '') }, wg); });
+        if (sub === 2) { if (!or5()) { const pg5 = mk('g', { class: 'pstrong pmid' + (an5 ? ' fadein now' : '') }, g); drawClasses(pg5, res.cls); } drawMarkers(g, p, 's'); document.getElementById('fig').classList.add('mfaint'); }
         const y = D.fc[res.y0]; const dir = [y[0] - CX, y[1] - CY]; const dl = Math.hypot(dir[0], dir[1]) || 1;
         if (sub !== 1) mk('text', { x: f1(y[0] - 21 * dir[1] / dl), y: f1(y[1] + 21 * dir[0] / dl + 6), 'text-anchor': 'middle', class: 'lbl halo' + (sub === 1 && S.fade7late ? ' fadein now' : '') }, g).textContent = 'y₀';
         if (sub === 2) drawE0Label(g);
         drawVerts(g);
-      } else { drawBase(g, { dim: true }); drawE0(g); drawClasses(g, res.cls); drawG(g, { ham: res.ham }); drawVerts(g, { cls: res.cls }); }
+      } else { const st5 = id === 'glue' ? 4 : o5(); drawBase(g, { dim: true }); if (st5 === 3) gFaint(g); drawE0(g); drawClasses(mk('g', { class: 'pstrong' + (an5 && st5 === 3 ? ' psplit' : '') }, g), res.cls); if (st5 >= 4) drawG(mk('g', an5 ? { class: 'fadein now' } : {}, g), { ham: res.ham }); drawVerts(g, { cls: res.cls }); }
     }
     flushDots(g);
     drawHits(g);
   }
+  function gFaint(gg) { D.M.edges.forEach((E, id) => mk('path', { d: gEdgeD(id), class: 'ge faint' }, gg)); mk('circle', { cx: CX, cy: CY, r: RG, class: 'ring thin', style: 'opacity:.5' }, gg); }
   function drawE0Label(g) {
     if (S.hideE0) return;
     const [u, v] = e0(); const a = D.rootAng[u] + 0.5 * angDiff(D.rootAng[u], D.rootAng[v]); const q = arcPt(a + 13, (RT + RG) / 2);
@@ -1188,11 +1251,12 @@ const EXAMPLES = (() => {
     sel: sw('<path d="M3 13 L27 13 L15 3 Z" style="fill:var(--face)"/><path d="M15 3 L9.96 7.2 L20.04 7.2 Z" style="fill:var(--pair);fill-opacity:.5"/><circle cx="15" cy="3" r="3" style="fill:var(--pair)"/>') + 'chosen vertex s(t); the shaded corner shows which black triangle t chooses it',
     r: sw('<path d="M3 13 L27 13 L15 3 Z" style="fill:var(--face)"/><path d="M15 3 L9.96 7.2 L20.04 7.2 Z" style="fill:var(--q);fill-opacity:.5"/><circle cx="15" cy="3" r="3" style="fill:var(--q)"/>') + 'chosen vertex r(t)',
     d: sw('<path d="M2 7 H28" style="stroke:var(--pair);stroke-width:6.5;opacity:.6"/><path d="M20 7 l-7 -5 v10 z" style="fill:var(--pair);opacity:.6"/>') + 'arrow r(t) → s(t)',
-    q: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:7;opacity:.6"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
-    qhi: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.4"/><path d="M4 7 H26" style="stroke:var(--q);stroke-width:11;opacity:.6;stroke-linecap:round"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
+    q: sw('<path d="M2 7 H28" style="stroke:var(--q);stroke-width:6.5"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
+    qhi: sw('<path d="M2 7 H28" style="stroke:var(--tedge);stroke-width:1.4"/><path d="M2 7 H28" style="stroke:var(--q);stroke-width:6.5;stroke-linecap:round"/>') + 'Q<sub>s</sub>: edge opposite s(t)',
     disk: sw('<rect x="3" y="1" width="24" height="12" rx="2" style="fill:var(--hl)"/>') + 'inside the selected cycle',
     wt: sw('<path d="M2 7 H28" style="stroke:var(--wtree);stroke-width:2.6"/><circle cx="15" cy="7" r="4" style="fill:var(--panel);stroke:var(--wtree);stroke-width:2.2"/>') + 'tree on white triangles',
     p: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:8;opacity:.6"/>') + 'selected sides P',
+    pg: sw('<path d="M2 3.5 H28" style="stroke:var(--clsa);stroke-width:6"/><path d="M2 10.5 H28" style="stroke:var(--clsb);stroke-width:6"/>') + 'selected sides P',
     trees: sw('<path d="M2 3.5 H28" style="stroke:var(--clsa);stroke-width:6;opacity:.6"/><path d="M2 10.5 H28" style="stroke:var(--clsb);stroke-width:6;opacity:.6"/>') + 'the two induced trees',
     ham: sw('<path d="M2 7 H28" style="stroke:var(--ink);stroke-width:5"/>') + 'Hamiltonian cycle of G',
     spoke: sw('<path d="M2 7 H28" style="stroke:var(--muted);stroke-width:1.2"/>') + 'spoke, with its weight a(t, v) if nonzero',
@@ -1211,17 +1275,19 @@ const EXAMPLES = (() => {
     else if (id === 'disk') keys = ['r', 'd', 'disk'];
     else if (id === 'flip') keys = ['q', 'r', 's', 'disk'];
     else if (id === 'sum') keys = ['spoke', 'd'];
-    else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 's', 'wt'], ['wt', 'p', 's'], ['trees', 'ham']][S.sub7];
+    else if (id === 'trees') keys = [['q', 's', 'root'], ['q', 's', 'wt'], ['pg', 'q', 'wt', 's'], ['trees', 'ham']][sub5()]; if (id === 'trees' && o5() === 3) keys = ['trees']; if (id === 'trees' && or5()) keys = ['q', 'wt', 's'];
     else if (id === 'glue') keys = D.sol.pieces ? (S.sub8 === 0 ? ['sep', 'inside'] : S.sub8 === 3 ? ['trees', 'ham', 'sep'] : ['trees', 'sep']) : ['trees', 'ham'];
     document.getElementById('figcap').innerHTML = '';
     document.getElementById('legend').style.flexDirection = id === 'dual' ? 'column' : '';
-    document.getElementById('legend').innerHTML = keys.concat(S.hideE0 || id === 'dual' || id === 'thm' || id === 'states' || (id === 'trees' && S.sub7 === 1) ? [] : ['e0']).map(k => { const j = LG[k].indexOf('</svg>') + 6; return `<span>${LG[k].slice(0, j)}<span>${LG[k].slice(j)}</span></span>`; }).join('');
+    document.getElementById('legend').innerHTML = keys.concat(S.hideE0 || id === 'dual' || id === 'thm' || id === 'states' || (id === 'trees' && sub5() === 1) ? [] : ['e0']).map(k => { const j = LG[k].indexOf('</svg>') + 6; return `<span>${LG[k].slice(0, j)}<span>${LG[k].slice(j)}</span></span>`; }).join('');
   }
 
   // ---------- text panels ----------
   const pairChips = () => `<div class="ctl"><div class="lab">All ${plural(D.pairs.length, 'pair')} of this triangulation</div><div class="row">${D.pairs.map((p, i) =>
     `<button class="chip" data-act="pair" data-i="${i}" aria-pressed="${i === S.pair}" title="Pair ${i + 1}: phase ${ph(p.J)}, Q_s ${p.forest ? 'is a forest' : 'has a cycle'}"><span>${i + 1}</span>${['disk', 'flip', 'sum'].includes(STEPS[S.step].id) ? `<span class="ph">${ph(p.J)}</span>` : ''}<span class="mk" aria-label="${p.forest ? 'Q_s is a forest' : 'Q_s has a cycle'}">${p.forest ? '✓' : '✗'}</span></button>`).join('')}</div></div>`;
-  const PH5 = ['Q<sub>s</sub>, a forest with one root per component', 'Bend each edge through its centre', 'Join the roots to the outer ring', 'The tree on the white triangles', 'Keep only the white tree'];
+  const o5 = () => { const q = S.ph5 | 0; return q <= 1 ? 0 : q <= 3 ? 1 : q === 4 ? 2 : q - 3; }; const w5 = () => (S.ph5 | 0) === 3; const sp5 = () => (S.ph5 | 0) === 1; const or5 = () => (S.ph5 | 0) === 4;
+  const sub5 = () => (o5() >= 3 ? 3 : o5() >= 2 ? 2 : 1);
+  const PH5 = ['Q<sub>s</sub>, a forest with one root per component', 'Q<sub>s</sub> with two edges of t₀: a spanning tree of T', 'The purple spanning tree of G', 'The tree on the white triangles', 'The oriented tree', 'The selected sides', 'Two trees', 'The Hamiltonian cycle'];
   const stepper5 = () => { const ph = S.ph5 | 0; return `<div class="row figopt stepper"><button class="btn" data-act="ph5" data-i="${ph - 1}" ${ph === 0 ? 'disabled' : ''} aria-label="Previous stage">\u25c0</button><span class="phl">${ph + 1}/${PH5.length} \u00b7 ${PH5[ph]}</span><button class="btn" data-act="ph5" data-i="${ph + 1}" ${ph === PH5.length - 1 ? 'disabled' : ''} aria-label="Next stage">\u25b6</button></div>`; };
   const stateChips5 = () => {
     const cur = S.st5 >= 0 ? S.st5 : curPair().si;
@@ -1240,6 +1306,7 @@ const EXAMPLES = (() => {
     'planar': 'A graph is planar if it can be drawn in the plane without crossing edges.',
     'Hamiltonian cycle': 'A Hamiltonian cycle is a closed path that visits every vertex of the graph exactly once.',
   };
+  TERMS['a standard result in graph theory'] = 'Let M be a connected plane graph with dual graph M*. A set F of edges of M is a spanning tree of M exactly when the dual edges of the edges not in F form a spanning tree of M*. Here we use M = <i>T</i>, the triangulation itself. (This is the paper’s Lemma 2.1, see also Diestel, <i>Graph Theory</i>, Section 4.6.)';
   TERMS['separating triangle'] = 'A separating triangle of T is a 3-cycle in T with vertices strictly on both sides. Example: the “Two cubes, glued” graph has one, the triangle along which its two octahedra are joined.';
   const term = k => `<span class="term" role="button" tabindex="0" data-act="term" data-k="${k}" aria-expanded="${S.term === k}">${k}${S.term === k ? `<span class="pop" role="note">${TERMS[k]}</span>` : ''}</span>`;
   const e0Row = () => `<div class="ctl"><div class="lab">Prescribed outer edge <span class="keep">e<sub>0</sub></span></div><div class="row" role="group">${E0NAMES().map((n, k) => `<button class="btn" data-act="e0" data-i="${k}" aria-pressed="${k === S.e0k && !S.hideE0}">${n}</button>`).join('')}<span class="hint">click the chosen one again to hide it</span></div></div>`;
@@ -1278,13 +1345,13 @@ const EXAMPLES = (() => {
       const M = D.M, q = D.qinfo[S.st];
       return `<div class="prose">
         <p>Fix a black triangle <i>t</i><sub>0</sub>, drawn as the outer ring. The following holds for any choice of <i>t</i><sub>0</sub>. Its three vertices are the <b class="hov" data-hov="roots">roots</b>. Let <i class="hov" data-hov="A">A</i> be the other black triangles and <i class="hov" data-hov="X">X</i> the non-root vertices of <i>T</i>.</p>
-        <p class="claim"><b>DEFINITION</b> (State). A <strong class="hov" data-hov="state">state</strong> is a bijection <i>r</i> : <i>A</i> → <i>X</i> with <i>r</i>(<i>t</i>) ∈ <i>V</i>(<i>t</i>). It picks one vertex in each triangle of <i>A</i>, using every non-root vertex exactly once.</p>
+        <p class="claim"><b>DEFINITION</b> (State). A <strong class="hov" data-hov="state">state</strong> is a bijection <i>s</i> : <i>A</i> → <i>X</i> with <i>s</i>(<i>t</i>) ∈ <i>V</i>(<i>t</i>). It picks one vertex in each triangle of <i>A</i>, using every non-root vertex exactly once.</p>
         <p class="cite">The notion <i>state</i> comes from Tutte’s theory of trinity ${cref(5)}; see ${cref(6)} for a modern treatment.</p>
-        <p>For a state <i>s</i>, let <i class="hov" data-hov="Qs">Q<sub>s</sub></i> be the set of edges opposite <i>s</i>(<i>t</i>), one in each triangle <i>t</i> of <i>A</i>.</p>
+        <p>For a state <i>s</i>, let <i class="hov" data-hov="Qs">Q<sub>s</sub></i> be the set of edges opposite to <i>s</i>(<i>t</i>), one in each triangle <i>t</i> of <i>A</i>.</p>
         <p class="claim"><b>CLAIM</b> (${cref(1)}, Propositions 3.1 and 5.1, Lemma 6.1). If <i>T</i> has no separating triangle, there is a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest in which every component contains exactly one root.</p>
         <p class="cite">Proved in Step 4; Step 5 uses only this claim.</p>
         </div>
-        <div class="ctl"><div class="row"><button class="btn tog" data-act="toggle" data-k="showQ" aria-pressed="${S.showQ}"><span>Show Q<sub>s</sub></span></button></div><div class="lab">All ${plural(D.states.length, 'state')}</div><div class="row">${D.states.map((s, i) => `<button class="chip" data-act="state" data-i="${i}" aria-pressed="${i === S.st}"><span>${i + 1}</span></button>`).join('')}</div>
+        <div class="ctl"><div class="lab">All ${plural(D.states.length, 'state')}</div><div class="row">${D.states.map((s, i) => `<button class="chip" data-act="state" data-i="${i}" aria-pressed="${i === S.st}"><span>${i + 1}</span></button>`).join('')}</div>
         </div>
         <dl class="read"><dt>|A| = |X|</dt><dd>${M.A.length}</dd><dt>This state</dt><dd>Q<sub>s</sub> ${q.forest ? 'has no cycle' : 'contains a cycle'}; ${q.partners ? plural(q.partners, 'partner') + ' (step 4a)' : 'no partner (step 4a)'}</dd></dl>`;
     },
@@ -1383,22 +1450,26 @@ const EXAMPLES = (() => {
     trees() {
       const p = curPair(); const res = construction();
       const texts = [
-        `<p class="claim"><b>CLAIM</b> (Step 4). If <i>T</i> has no separating triangle, there exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest in which every component contains exactly one root.</p>
-         <p>This claim is all that is used from Step 4, together with the disk identity (Lemma 4.1) in part c.</p>`,
-        `<p>Put a centre in every triangle <i>t</i> of <i>A</i> and bend the edge of <i>Q<sub>s</sub></i> in <i>t</i> inwards, so that it runs through the centre.</p>
-         <p>Then join the three roots to the outer ring. The ring ties the three components of <i>Q<sub>s</sub></i> together, so the orange lines now form a spanning tree.</p>
-         <p>By plane duality (Lemma 2.1), what the orange tree leaves open is a <b>spanning tree on the white triangles</b> (purple): two white triangles are joined through a black triangle <i>t</i>, across its corner at <i>s</i>(<i>t</i>). After this, <i>Q<sub>s</sub></i> is no longer needed.</p>`,
-        `<p>Choose any edge <i>e</i><sub>0</sub> of <i>t</i><sub>0</sub>; the construction works for each of the three choices. Root the white tree at <i>y</i><sub>0</sub>, the white triangle across <i>e</i><sub>0</sub> from <i>t</i><sub>0</sub>. Each edge of the white tree passes through one black triangle <i>t</i>, across its corner at <i>s</i>(<i>t</i>). Give that edge to its end farther from <i>y</i><sub>0</sub>, and <b>select the side of <i>t</i> at <i>s</i>(<i>t</i>) that borders that white triangle</b>. Finally select <i>e</i><sub>0</sub>.</p>
-         <p>Every triangle of either colour now has exactly one selected side. In other words the selection <i>P</i> is a perfect matching of <i>G</i>, and the other edges of <i>G</i> form a 2-factor. It remains to see that the 2-factor is a single cycle.</p>`,
+        `<p class="claim"><b>CLAIM</b> (Step 4). There exists a state <i>s</i> such that <i>Q<sub>s</sub></i> is a forest in which every component contains exactly one root.</p>`,
+        `<p class="fact go" data-hov="f1" data-act="ph5" data-i="1" tabindex="0"><b>Observation 1.</b> <span class="tag">clear</span><br><i>Q<sub>s</sub></i> together with any two edges of <i>t</i><sub>0</sub> is a spanning tree of <i>T</i>. <i>Why:</i> by the claim, <i>Q<sub>s</sub></i> is three trees with one root each, and two edges of <i>t</i><sub>0</sub> join the three roots.</p>
+         <p class="fact go" data-act="ph5" data-i="2" tabindex="0"><b>Fact 2.</b> <span class="tag">standard result</span><br>By ${term('a standard result in graph theory')} (Lemma 2.1), complementing a spanning tree of a plane graph gives a spanning tree of its dual. Here the plane graph is <i>T</i> and its dual is <i>G</i>. Every edge of <i>G</i> crosses exactly one edge of <i>T</i>. So the edges of <i>G</i> that cross the non-orange edges of <i>T</i> form a spanning tree of <i>G</i>, drawn in purple.</p>
+         <p class="fact go" data-act="ph5" data-i="2" tabindex="0"><b>Fact 3.</b> <span class="tag">clear by inspection</span><br>A black triangle <i>t</i> has one orange side and two others, the two sides adjacent to <i>s</i>(<i>t</i>). The purple tree uses every non-orange edge, so it crosses the boundary of <i>t</i> <b>exactly twice</b>: it comes in across one side adjacent to <i>s</i>(<i>t</i>) and goes out across the other. It links <i>t</i> to the two white triangles behind these sides. In particular, <i>t</i> is never a leaf of the purple tree.</p>
+         <p class="fact go" data-act="ph5" data-i="3" tabindex="0"><b>Fact 4.</b> <span class="tag">clear</span><br>Leave out <i>t</i><sub>0</sub> and read each black triangle as part of one edge. This gives a <b>tree on the white triangles</b>, with one edge for each black triangle <i>t</i>, crossing the two sides adjacent to <i>s</i>(<i>t</i>). After this, <i>Q<sub>s</sub></i> is no longer needed.</p>`,
+        `<p class="fact"><b>Orientation.</b> <span class="tag">definition</span><br>We orient the spanning tree of <i>G</i> as follows: choose some edge <i>e</i><sub>0</sub> of the outer triangle (ring) <i>t</i><sub>0</sub>, and orient the edges of the spanning tree away from that edge.</p>
+         <p class="fact"><b>Selection.</b> <span class="tag">definition</span><br>In each black triangle, <b>select the side where the oriented tree leaves</b>. Finally select <i>e</i><sub>0</sub>.</p>
+         <p class="fact"><b>Fact 5.</b> <span class="tag">clear from the rule</span><br>Every triangle of either colour has exactly one selected side. <i>Why:</i> the oriented tree leaves each black triangle once. It enters each white triangle other than <i>y</i><sub>0</sub> exactly once, because the purple graph is a tree. Here <i>y</i><sub>0</sub> is the white triangle at <i>e</i><sub>0</sub>; it shares <i>e</i><sub>0</sub> with <i>t</i><sub>0</sub>.</p>
+         <p class="fact"><b>Consequence.</b> <span class="tag">clear</span><br>The selection <i>P</i> is a perfect matching of <i>G</i>, and the other edges of <i>G</i> form a 2-factor.</p>
+         <p class="fact"><b>Still open.</b> <span class="tag">needs a real proof</span><br>That the 2-factor is a single cycle. This is Lemma 6.2 in the next stage, and it is the only place in Step 5 where a real argument is needed (the disk identity).</p>`,
         `<p class="claim"><b>LEMMA 6.2.</b> The selected edge set <i>P</i> is a forest.</p>
          <p>Set <i>e</i><sub>0</sub> aside and orient every other selected side away from <i>s</i>(<i>t</i>). A cycle would be directed. Counting the one selected side of every triangle inside it gives <i>B</i> − <i>W</i> = 2<i>l</i> − <i>h</i>; counting all sides gives 3(<i>B</i> − <i>W</i>) = 2<i>l</i> − <i>h</i>. So 2<i>l</i> − <i>h</i> = 0, while the disk identity says −3. These sides therefore form three trees with one root each, and <i>e</i><sub>0</sub> joins two of them.</p>
-         <p>By counting the edges and vertices of <i>P</i>, we get <b>two trees</b>: <i>P</i> has one edge in each triangle of <i>A</i> plus <i>e</i><sub>0</sub>, and <i>T</i> has three more vertices than <i>A</i> has triangles, so the forest <i>P</i> has two components. The edges of <i>G</i> crossing the unselected sides form a connected 2-regular graph, a single closed curve through all triangles: <b>the Hamiltonian cycle</b>. An edge of <i>T</i> stays on one side of the curve exactly when it is selected, so each side induces a tree, and <i>e</i><sub>0</sub> lies in one of them.</p>`,
+         <p>By counting the edges and vertices of <i>P</i>, we get <b>two trees</b>: <i>P</i> has one edge in each triangle of <i>A</i> plus <i>e</i><sub>0</sub>, and <i>T</i> has three more vertices than <i>A</i> has triangles, so the forest <i>P</i> has two components. They are the two green trees.</p>`,
+        `<p>The edges of <i>G</i> crossing the unselected sides form a connected 2-regular graph, a single closed curve through all triangles: <b>the Hamiltonian cycle</b>. An edge of <i>T</i> stays on one side of the curve exactly when it is selected, so each side induces a tree, and <i>e</i><sub>0</sub> lies in one of them.</p>`,
       ];
       if (!D.pairs.length) return `<div class="prose">${texts[0]}</div>` + noPairBox();
       const note = S.note ? `<div class="note">${S.note}</div>` : '';
       const read = res ? `<dl class="read"><dt>Pair ${S.pair + 1}</dt><dd>Q<sub>s</sub> forest with ${D.qinfo[p.si].comps.length} components</dd><dt>Selection P</dt><dd>${res.P.length} sides, ${res.comps} components, ${res.acyclic ? 'no cycle' : 'cycle!'}</dd><dt>Result</dt><dd>${res.ok ? 'two induced trees and a Hamiltonian cycle on ' + res.ham.faces.length + ' vertices, avoiding the edge dual to e<sub>0</sub>' : 'construction failed'}</dd></dl>` : '';
-      return `<div class="row" role="group">${['a. White tree', 'b. Select sides', 'c. Two trees'].map((l, j) => `<button class="btn" data-act="sub7" data-i="${j + 1}" aria-pressed="${j + 1 === S.sub7}">${l}</button>`).join('')}</div>` + `<div class="prose">${S.sub7 === 1 ? texts[0] + texts[1] : texts[S.sub7]}</div>` + note +
-        `<div class="do"><b>Try it.</b> Walk through a to d. Then choose another forest pair or another <i>e</i><sub>0</sub> below. The trees and the cycle change. The argument stays the same.</div>` + read + (S.sub7 === 1 ? '' : e0Row()) + stateChips5();
+      return `<div class="prose">${sub5() === 1 ? texts[0] + texts[1] : o5() === 4 ? texts[4] : texts[sub5()]}</div>` + note +
+        `<div class="do"><b>Try it.</b> Step through the stages with the slider under the figure. Then choose another forest pair or another <i>e</i><sub>0</sub> below. The trees and the cycle change. The argument stays the same.</div>` + read + (sub5() === 1 ? '' : e0Row()) + stateChips5();
     },
     glue() {
       const M = D.M;
@@ -1432,8 +1503,9 @@ const EXAMPLES = (() => {
   function moveFigOptions() {
     const fb = document.querySelector('.figbox'); let rb = fb.querySelector('.replay'); const wantRb = STEPS[S.step].id === 'trees' && S.sub7 === 1;
     if (wantRb && !rb) { rb = document.createElement('button'); rb.className = 'replay'; rb.setAttribute('data-act', 'replay7'); rb.setAttribute('title', 'Replay animation'); rb.setAttribute('aria-label', 'Replay animation'); rb.textContent = '↻'; fb.appendChild(rb); } else if (!wantRb && rb) rb.remove();
-    fb.querySelectorAll('.fignav').forEach(e => e.remove());
-    if (wantRb) { const ph = S.ph5 | 0, nv = document.createElement('div'); nv.className = 'fignav'; nv.innerHTML = `<button class="fnb" data-act="ph5" data-i="${ph - 1}" ${ph === 0 ? 'disabled' : ''} aria-label="Previous stage">\u25c0</button><button class="fnb" data-act="ph5" data-i="${ph + 1}" ${ph === PH5.length - 1 ? 'disabled' : ''} aria-label="Next stage">\u25b6</button>`; fb.appendChild(nv); }
+    fb.querySelectorAll('.fignav, .figtog').forEach(e => e.remove());
+    { let sl = fb.querySelector('.figslide'); if (!wantRb) { if (sl) sl.remove(); } else { const n = PH5.length, ph = S.ph5 | 0; if (!sl) { sl = document.createElement('div'); sl.className = 'figslide'; sl.innerHTML = `<div class="ticks">${PH5.map(() => '<span></span>').join('')}</div><input type="range" class="figslider" min="0" max="${n - 1}" step="1" aria-label="Stage of the construction">`; fb.appendChild(sl); } const inp = sl.querySelector('input'); if (+inp.value !== ph) inp.value = ph; inp.setAttribute('aria-valuetext', `Stage ${ph + 1} of ${n}`); sl.querySelectorAll('.ticks span').forEach((t, k) => t.classList.toggle('on', k <= ph)); } }
+    if (STEPS[S.step].id === 'states') { const tb = document.createElement('button'); tb.className = 'figtog'; tb.setAttribute('data-act', 'toggle'); tb.setAttribute('data-k', 'showQ'); tb.setAttribute('aria-pressed', String(!!S.showQ)); tb.innerHTML = (S.showQ ? 'Hide' : 'Show') + ' <i>Q<sub>s</sub></i>'; fb.appendChild(tb); }
     const fc = document.getElementById('figctl'); fc.textContent = '';
     document.getElementById('panel').querySelectorAll('dl.read').forEach(el => el.remove());
     document.getElementById('panel').querySelectorAll('.do').forEach(el => { if (/^\s*Try it/.test(el.textContent)) el.remove(); });
@@ -1453,7 +1525,7 @@ const EXAMPLES = (() => {
         <div class="branch"><span class="bl">Case 1 · no separating triangle</span><div class="brow">${sb(2)}${tech}${sb(7)}</div></div>
         <div class="branch"><span class="bl">Case 2 · separating triangle · induction</span><div class="brow">${sb(8)}<span class="bnote">cuts <i>T</i> into smaller pieces, applies the theorem to each (Case 1 once no separating triangle is left), and glues the results</span></div></div>
       </div>
-      <div class="merge">Theorem 2.2<br>⇒ Barnette</div>`;
+      <div class="merge" title="Theorem 2.2 implies Barnette’s conjecture" aria-label="End of proof: Theorem 2.2 implies Barnette’s conjecture"><span class="qed"></span></div>`;
   }
   function render() { renderChrome(); renderPanel(); moveFigOptions(); renderFigure(); renderLegend(); }
 
@@ -1469,6 +1541,16 @@ const EXAMPLES = (() => {
     if (id !== 'dual') S.peek = false;
     try { history.replaceState(null, '', '#' + id); } catch (e) { /* hash is optional */ }
   }
+  function snapFig() {
+    const svg = document.getElementById('fig'), fb = document.querySelector('.figbox'); if (!svg || !fb) return;
+    fb.querySelectorAll('.figghost').forEach(e => e.remove());
+    S.anim7 = false; renderFigure();
+    const gh = svg.cloneNode(true); gh.removeAttribute('id'); gh.removeAttribute('role'); gh.setAttribute('aria-hidden', 'true'); gh.classList.remove('showF1', 'xin'); gh.classList.add('figghost', 'frozen');
+    const a = svg.getBoundingClientRect(), b = fb.getBoundingClientRect();
+    gh.style.left = (a.left - b.left - fb.clientLeft) + 'px'; gh.style.top = (a.top - b.top - fb.clientTop) + 'px'; gh.style.width = a.width + 'px'; gh.style.height = a.height + 'px';
+    fb.appendChild(gh); svg.classList.remove('xin'); void svg.getBoundingClientRect(); svg.classList.add('xin');
+    requestAnimationFrame(() => { void gh.getBoundingClientRect(); gh.classList.add('out'); setTimeout(() => { gh.remove(); }, 1500); });
+  }
   function act(a, el) {
     const i = +el.getAttribute('data-i'), k = el.getAttribute('data-k');
     if (a === 'ref') { const r = document.getElementById('ref-' + i); if (r) { r.scrollIntoView({ block: 'center' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1600); } return; }
@@ -1483,9 +1565,9 @@ const EXAMPLES = (() => {
     else if (a === 'toggle') S[k] = !S[k];
     else if (a === 'ztab') S.ztab = k;
     else if (a === 'replay7') S.anim7 = true;
-    else if (a === 'ph5') { S.anim7 = i > (S.ph5 | 0); S.ph5 = Math.max(0, Math.min(PH5.length - 1, i)); }
+    else if (a === 'ph5') { const pv = S.ph5 | 0, nx = Math.max(0, Math.min(PH5.length - 1, i)), fact = !!(el.classList && el.classList.contains('fact')); const own = !fact && ((pv === 0 && nx === 1) || (pv === 1 && nx === 2) || (pv === 1 && nx === 0)); if (own) { document.querySelectorAll('.figghost').forEach(e => e.remove()); document.getElementById('fig').classList.remove('xin'); } else snapFig(); S.anim7 = nx > pv && !fact; S.tr = fact ? null : { pv, nx }; S.ph5 = nx; }
     else if (a === 'st5') { const j = D.pairs.findIndex(q => q.si === i && q.forest); S.st5 = i; if (j >= 0) { S.pair = j; S.note = ''; } else S.note = `For state ${i + 1}, Q<sub>s</sub> is not a forest with one root in each component, so there is nothing to build from it. Pick a state marked \u2713.`; }
-    else if (a === 'sub7') { if (i === 1 && S.sub7 !== 1) S.ph5 = 0; S.anim7 = false; S.sub7 = i; }
+    else if (a === 'sub7') { S.anim7 = false; S.sub7 = i; }
     else if (a === 'sub8') S.sub8 = i;
     else if (a === 'flip') {
       const p = curPair(); if (!p) return; const qc = C.qCycles(D.M, p.r, p.s); if (!qc.length) return;
@@ -1510,6 +1592,9 @@ const EXAMPLES = (() => {
     prepare(S.ex); const i = fromHash(); setStep(i >= 0 ? i : 0); render();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  { let f1n = 2; const hv = on => ev => { const el = ev.target.closest && ev.target.closest('[data-hov="f1"]'); if (!el) return; if (!on && ev.relatedTarget && el.contains(ev.relatedTarget)) return; const fg = document.getElementById('fig'); if (on && !fg.classList.contains('showF1')) { fg.classList.remove('f1x0', 'f1x1', 'f1x2'); f1n = (f1n + 1) % 3; fg.classList.add('f1x' + f1n); } fg.classList.toggle('showF1', on); };
+    document.addEventListener('mouseover', hv(true)); document.addEventListener('mouseout', hv(false)); document.addEventListener('focusin', hv(true)); document.addEventListener('focusout', hv(false)); }
+  document.addEventListener('input', ev => { const t = ev.target; if (!t.classList || !t.classList.contains('figslider')) return; const v = +t.value; if (v === (S.ph5 | 0)) return; const el = document.createElement('i'); el.setAttribute('data-i', v); act('ph5', el); });
   window.__app = { S, get D() { return D; }, act: (a, attrs) => { const el = document.createElement('i'); for (const k in attrs) el.setAttribute('data-' + k, attrs[k]); act(a, el); }, setStep: i => { setStep(i); render(); } };
 })();
 
