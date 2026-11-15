@@ -19,7 +19,7 @@
 {\large Mathathon, Combinatorics}\par
 \vspace{5pt}
 Convex Curiosity\par
-Anouk Brose (aebrose), Santiago Morales Duarte, Tomodovodoo\par
+Anouk Brose (UC Davis), Tom de Groot (independent), Santiago Morales Duarte (UC Davis)\par
 \vspace{4pt}
 {\footnotesize
 \url{https://github.com/Tomodovodoo/mathathon-Barnette-s-Conjecture}\par
@@ -30,7 +30,7 @@ Anouk Brose (aebrose), Santiago Morales Duarte, Tomodovodoo\par
 \textbf{Abstract.} We set out to make the proof of Barnette's conjecture digestible through interactive tools, a simpler construction and working code. We built an interactive website and proof walkthrough, shortened the cycle-recovery route from six steps to four, and implemented algorithms that find the cycle. We tested simpler routes and studied which assumptions each step needs. This report describes those contributions, our empirical findings, and how we used AI. The exposition supports the tools and explains their mathematics.
 
 \section{Our goal}
-We wanted to understand why the proof of Barnette's conjecture works. The theorem says that every cubic, bipartite, $3$-connected planar graph has a Hamiltonian cycle. We read OpenAI's proof~\cite{OpenAI}, Li's account~\cite{Li}, and a collaborator's constructive notes~\cite{Constructive}. We also looked at online explanations, including automatically generated digestions.
+We wanted to understand why the proof of Barnette's conjecture works. The theorem says that every cubic, bipartite, $3$-connected planar graph has a Hamiltonian cycle; equivalently, every simple $3$-polytope with even-sided faces has a Hamiltonian graph~\cite{BarnetteConj}. Tait hoped to prove the four-colour theorem through Hamiltonian cycles in simple $3$-polytopes~\cite{Tait}, Tutte found a non-Hamiltonian one~\cite{Tutte}, and Barnette added the bipartite assumption. Goodey proved the case with only quadrilateral and hexagonal faces~\cite{Goodey}, and Gorsky, Steiner and Wiederrecht related the conjecture to a strengthening with Pfaffian graphs~\cite{GSW}. We read OpenAI's proof~\cite{OpenAI}, Li's account~\cite{Li}, and a collaborator's constructive notes~\cite{Constructive}. We also looked at online explanations, including automatically generated digestions.
 
 We found steps that needed a clearer explanation, a more direct route, or a link to a standard graph-theoretic tool. We wanted readers to distinguish the main ideas from the details that support them. We also wanted to make each step's assumptions explicit, especially where an assumption determines which route can work.
 
@@ -38,7 +38,7 @@ Our background in polytopes and polyhedral graphs shaped the project. We wanted 
 
 We studied the assumptions so that others could reuse and generalise the lemmas. A proof may state a lemma under all the assumptions of the main theorem even when the lemma needs fewer. We tried to separate those needs. We also looked for known theorems that could explain a step or replace it with a simpler argument.
 
-Our main contributions are the interactive website, the shorter cycle construction, and the implementation. The website lets readers explore the cycle on a polytope. The proof walkthrough shows how the construction works. The code turns the proof into a procedure that finds a cycle and lets us test alternative choices. We developed these together during the event. The exposition records the supporting arguments and connections to earlier work. Our exposition has not undergone journal peer review.
+Our main contributions are the interactive website, the shorter cycle construction, and the implementation. The website lets readers explore the cycle on a polytope. The proof walkthrough shows how the construction works. The code turns the proof into a procedure that finds a cycle and lets us test alternative choices. Before building them, we checked most of the steps of the preprint against the other sources and our computations. We developed these together during the event. The exposition records the supporting arguments and connections to earlier work. Our exposition has not undergone journal peer review.
 
 \newpage
 \section{What we simplified and clarified}
@@ -93,21 +93,25 @@ We use Claude and GPT models to help understand the proof, explore simpler route
 
 We tried Open Math OS with open models to seek further proof continuations~\cite{MathOS}. Those runs produced incorrect or unsupported claims. We accepted no useful continuation from them.
 
+Several questions remain open for us. Proposition~3.1, Lemma~4.1 and Lemma~6.1 of the preprint~\cite{OpenAI} are stated under more assumptions than their proofs appear to use: the disk identity uses only a state and the triangulated disk, and the root count uses only the outdegrees that the partner supplies. We want to drop the unneeded assumptions and give examples, such as our $8$-vertex example for Lemma~6.1, showing why the remaining ones are needed. Lemma~2.1 can be strengthened to an equivalence: a set of edges is a spanning tree exactly when the duals of the remaining edges form a spanning tree of the dual. We would like to contribute this tree--cotree duality and other reusable statements to mathlib, and to distinguish the standard tools from the new connections. Finally, our search is exponential in the worst case; whether a polynomial-time algorithm can find the cycle remains open.
+
 We set the goals, chose which questions to pursue, made the mathematical and editorial decisions, and developed the interactive walkthrough. We used reviews to restore necessary assumptions, credit earlier arguments, narrow claims and correct walk counts that depend on the drawing. These internal checks do not amount to external peer review.
 
-We credit the theorem and its central counting method to the earlier sources. Our work explains those ideas, shortens specific steps and tests proposed alternatives. The exposition, walkthrough, route map, companion notes and code let readers study the argument in several ways.
+We credit the theorem and its central counting method to the earlier sources. Our work explains those ideas, shortens specific steps and tests proposed alternatives.
 
-We turned our study of the proof into interactive tools, a four-step cycle construction and working algorithms. The website makes the cycle visible, the walkthrough explains the construction, and the code lets us test it. The shorter route and the failed alternatives also clarify what each step needs. Together, these contributions help readers understand the proof and define concrete questions for further work.
-
-\vspace{2pt}
-{\small
-\begin{thebibliography}{9}
+{\footnotesize
+\begin{thebibliography}{99}
 \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
 \bibitem{OpenAI} OpenAI, \emph{Paired states and Hamiltonian cycles in cubic bipartite planar graphs}, preprint, 24 September 2026.
 \bibitem{Li} Z.~Li, \emph{A note on the proof of Barnette's conjecture}, arXiv:2610.30490, 2026.
 \bibitem{Constructive} \emph{A constructive proof of Barnette's conjecture}, collaborator's working notes, 18 October 2026, supplied without an author line as \texttt{papers/barnette\_trees.pdf}.
 \bibitem{Stein} S.~K.~Stein, \emph{B-sets and planar maps}, Pacific J. Math. \textbf{37} (1971), 217--224.
 \bibitem{HineKalman} C.~Hine and T.~K\'alm\'an, \emph{Clock theorems for triangulated surfaces}, arXiv:1808.06091, 2018.
+\bibitem{BarnetteConj} B.~Gr\"unbaum, Unsolved Problem 5 (conjecture of D.~W.~Barnette), in W.~T.~Tutte (ed.), \emph{Recent Progress in Combinatorics}, Academic Press, 1969, p.~343.
+\bibitem{Tait} P.~G.~Tait, \emph{Listing's Topologie}, Philos. Mag. (5) \textbf{17} (1884), 30--46.
+\bibitem{Tutte} W.~T.~Tutte, \emph{On Hamiltonian circuits}, J. London Math. Soc. \textbf{21} (1946), 98--101.
+\bibitem{Goodey} P.~R.~Goodey, \emph{Hamiltonian circuits in polytopes with even sided faces}, Israel J. Math. \textbf{22} (1975), 52--56.
+\bibitem{GSW} M.~Gorsky, R.~Steiner and S.~Wiederrecht, \emph{Matching theory and Barnette's conjecture}, Discrete Math. \textbf{346} (2023), 113249.
 \bibitem{MathOS} Open Math Model, \emph{Open Math OS}, \url{https://www.openmathmodel.org/}, accessed 15 November 2026.
 \end{thebibliography}}
 \end{document}
